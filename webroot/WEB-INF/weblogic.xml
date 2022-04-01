@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<wls:weblogic-web-app
+        xmlns:wls="http://www.bea.com/ns/weblogic/90"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+                http://java.sun.com/xml/ns/j2ee/web-app_2_5.xsd
+                http://www.bea.com/ns/weblogic/90
+                http://www.bea.com/ns/weblogic/920/weblogic-web-app.xsd">
+    <wls:weblogic-version>9.2</wls:weblogic-version>
+    <wls:context-root>/</wls:context-root>
+
+    <wls:session-descriptor>
+        <wls:persistent-store-type>replicated_if_clustered</wls:persistent-store-type>
+    </wls:session-descriptor>
+
+    <wls:jsp-descriptor>
+        <wls:keepgenerated>true</wls:keepgenerated>
+        <wls:page-check-seconds>1</wls:page-check-seconds>
+        <wls:verbose>true</wls:verbose>
+        <wls:working-dir>D:/_DEV_/workspace_kocca/kocca/webroot/WEB-INF/work</wls:working-dir>
+        <wls:print-nulls>false</wls:print-nulls>
+        <wls:debug>true</wls:debug>
+    </wls:jsp-descriptor>
+</wls:weblogic-web-app>

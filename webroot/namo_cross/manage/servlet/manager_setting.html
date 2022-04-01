@@ -1,0 +1,569 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+	<title>Namo CrossEditor : Admin</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+	<script type="text/javascript"> var fz = "jf"; </script>
+	<script type="text/javascript" src="../manage_common.js"></script>
+	<script type="text/javascript" language="javascript" src="../../js/namo_cengine.js"></script>
+	<script type="text/javascript" language="javascript" src="../../js/ext/namo_servletContextPath.js"></script>
+	<script type="text/javascript" language="javascript" src="../manager.js"></script>
+	<link type="text/css" rel="stylesheet" href="../../css/namose_general.css"/>
+	<link type="text/css" rel="stylesheet" href="../css/common.css"/>
+</head>
+
+<body>
+
+<table id="xb" width="100%" height="43" background="../images/table_navi_bg.gif" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+	<td align="center">
+		
+		<table width="800" border="0" cellspacing="0" cellpadding="0">
+		  <tr>
+			<td width="200" align="left"><img src="../images/title_bi_en.gif" border="0" /></td>
+			<td width="450" align="center">
+				<div align="center" style="width:450px;">	
+					<ul class="fw">
+						<li><span><a id="hW" href="javascript:;">&nbsp;</a></span></li>
+						<li class="ha"><span><a id="jf" href="javascript:;">&nbsp;</a></span></li>
+						<li><span><a id="jt" href="javascript:;">&nbsp;</a></span></li>
+					</ul>
+				</div>
+			</td>
+			<td width="150" align="right"><a href="http://www.namo.co.kr" target="_blank"><img src="../images/title_ci.gif" border="0" /></a></td>
+		  </tr>
+		</table>
+	
+	</td>
+  </tr>
+</table>
+
+<table width="100%" height="37" background="../images/table_sub_bg.gif" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+	<td align="center">
+		
+		<table width="800" border="0" cellspacing="0" cellpadding="0">
+		  <tr>
+			<td width="400" align="left" style="padding:0 0 0 10px"><span id="lm"></span> </td>
+			<td width="400" align="right" style="padding:0 10px 0 0"><a id="tA" href="javascript:;" style="font-weight:bold;">&nbsp;</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a id="vL" href="javascript:;" style="font-weight:bold;">&nbsp;</a></td>
+		  </tr>
+		</table>
+	
+	</td>
+  </tr>
+</table><br />
+
+<form method="post" id="kR" name="kR" action="manager_proc.jsp" onsubmit="return ce_u();">
+<div id="vT">
+	<table class="eQ">
+		<tr>
+			<td class="bQ">
+
+				<table id="Info">
+					<tr>
+						<td style="padding:0 0 0 10px;height:30px;text-align:left">
+						<font style="font-size:14pt;color:#3e77c1;font-weight:bold;text-decoration:none;"><span id="nT"></span></font></td>
+						<td id="InfoText"><span id="jq"></span></td>
+					</tr>
+					<tr>
+						<td colspan="2"><img id="hv" src="../images/title_line.jpg" alt="" /></td>
+					</tr>
+				</table>
+
+				<table class="dw">
+					<tr>
+						<td class="vN">				
+							<ul>
+								<li class="gq mf"><input type="button" id="cq" value="" style="width:110px;height:28px;" class="kI bC" /></li>
+								<li class="gq"><input type="button" id="ea" value="" style="width:110px;height:28px;" class="kI bC" /></li>
+							</ul>
+						
+						</td>
+					</tr>
+					<tr>
+						<td class="gz cF"><font style="font-size:9pt;color:#FF9F4B;font-weight:bold;"><span id="rI"></span></font></td>
+					</tr>
+				</table>
+
+			</td>
+		</tr>
+		
+		<tr>
+			<td class="bQ">
+				<div id="sI">
+					<table class="lb">
+						<tr>
+							<td>
+								<table class="ar"><tr><td class="bB" colspan="3"></td></tr>
+								</table>
+							 
+								<table class="ar">
+								
+									<tr>
+										<td class="aA">&nbsp;&nbsp;&nbsp;&nbsp;<b><span id="nr"></span></b></td>
+										<td class="ak"></td>
+										<td class="al">
+											<select name='WebServerOS' id='WebServerOS' class="bG">
+												<option value=''></option>
+												<option value='WINDOW'>WINDOW</option>
+												<option value='LINUX'>LINUX</option>
+												<option value='UNIX'>UNIX</option>
+											</select>
+										</td>
+									</tr>
+									
+									<tr>
+										<td class = "ay" colspan="3"></td>
+									</tr>
+
+									<tr>
+										<td class="aA">&nbsp;&nbsp;&nbsp;&nbsp;<b><span id="nm"></span></b></td>
+										<td class="ak"></td>
+										<td class="al">
+											<select name='WebServerInfo' id='WebServerInfo' class="bG">
+												<option value=''></option>
+												<option value='IIS'>IIS</option>
+												<option value='Apache'>Apache</option>
+												<option value='Tomcat'>Tomcat</option>
+												<option value='Resin'>Resin</option>
+												<option value='Jeus'>Jeus</option>
+												<option value='WebLogic'>WebLogic</option>
+												<option value='WebSphere'>WebSphere</option>
+												<option value='iPlanet'>iPlanet</option>
+											</select>
+										</td>
+									</tr>
+									
+									<tr>
+										<td class = "ay" colspan="3"></td>
+									</tr>
+									
+									<tr>
+										<td class="aA">&nbsp;&nbsp;&nbsp;&nbsp;<b><span id="nn"></span></b></td>
+										<td class="ak"></td>
+										<td class="al">
+											<select name='WebLanguage' id='WebLanguage' class="bG">
+												<option value=''></option>
+												<option value='ASP'>ASP</option>
+												<option value='JSP'>JSP</option>
+												<option value='PHP'>PHP</option>
+												<option value='ASP.NET'>ASP.NET</option>
+												<option value='SERVLET'>SERVLET</option>
+											</select>
+										</td>
+									</tr>
+									
+									<tr>
+										<td class = "ay" colspan="3"></td>
+									</tr>
+									
+									<tr>
+										<td class="aA">&nbsp;&nbsp;&nbsp;&nbsp;<b><span id="lN"></span></b></td>
+										<td class="ak"></td>
+										<td class="al">
+											<table class="ar">
+												<tr>
+													<td >&nbsp;&nbsp;<span id="Ib"></span></td>
+													<td class="ak"></td>
+													<td class="al">
+														<input type="text" id="mL" name="mL" class="fN" value="" />
+														<br />ex) /usr/images
+													</td>
+												</tr>
+												<tr>
+													<td class = "ay" colspan="3"></td>
+												</tr>
+												<tr>
+													<td >&nbsp;&nbsp;<span id="HR"></span></td>
+													<td class="ak"></td>
+													<td class="al">
+														<input type="text" id="gx" name="gx" class="fN" value="" /> 
+														<br />ex) http:// www.mysite.com/image
+													</td>
+												</tr>	
+											</table>
+										</td>
+									</tr>
+									
+									<tr>
+										<td class="ay" colspan="3"></td>
+									</tr>
+
+								<!-- <% if (settingValue.get("UploadFileNameType") != null){ %> -->	
+									
+									<div id="nV">
+									<tr>
+										<td class="aA">&nbsp;&nbsp;&nbsp;&nbsp;<b><span id="nz"></span></b></td>
+										<td class="ak"></td>
+										<td >
+											<table class="ar">
+												<tr>
+													<td class="al"> &nbsp;&nbsp;
+														<input type="radio" name="gb" id="jN" value="real" /><span id="ng"></span>
+														<input type="hidden" id="UploadFileNameType" name="UploadFileNameType" value="" />
+													</td>
+												</tr>
+												<tr>
+													<td class = "ay" colspan="3"></td>
+												</tr>
+												<tr>
+													<td class="al"> &nbsp;&nbsp;
+													<input type="radio" name="gb" id="lA" value="trans" /><span id="nx"></span>
+													</td>
+												</tr>	
+											</table>
+										</td>
+									</tr>
+
+									<tr>
+										<td class = "ay" colspan="3"></td>
+									</tr>
+									</div>
+
+							<!-- <% } %>  -->									
+									
+									<tr>
+										<td class="aA">&nbsp;&nbsp;&nbsp;&nbsp;<b><span id="lQ"></span></b></td>
+										<td class="ak"></td>
+										<td >
+											<table class="ar">
+												<tr>
+													<td >&nbsp;&nbsp;<span id="np"></span></td>
+													<td class="ak"></td>
+													<td class="al"><input type="text" id="Width" name="Width" class="dq" maxlength="10" value="" />
+													px</td>
+												</tr>
+												<tr>
+													<td class = "ay" colspan="3"></td>
+												</tr>
+												<tr>
+													<td >&nbsp;&nbsp;<span id="oi"></span></td>
+													<td class="ak"></td>
+													<td class="al"><input type="text" id="Height" name="Height" class="dq" maxlength="10" value="" /> px
+													</td>
+												</tr>	
+											</table>
+										</td>
+									</tr>
+								</table>
+
+								<table class="ar"><tr><td class="bB" colspan="3"></td></tr>
+								</table>
+											
+							</td>
+						</tr>
+						<tr>
+							<td class="gz cF"><font style="font-size:9pt;color:#FF9F4B;font-weight:bold;"><span id="rc"></span></font></td>
+						</tr>
+
+						<tr>
+							<td>
+						
+								<table class="ar"><tr><td class="bB" colspan="3"></td></tr>
+								</table>
+
+								<table class="ar">
+									<tr>
+										<td class="aA">&nbsp;&nbsp;&nbsp;&nbsp;<b><span id="rv"></span></b></td>
+										<td class="ak"></td>
+										<td class="al">
+											<select name='SetFocus' id='SetFocus' class="bG">
+												<option value='false'>false</option>
+												<option value='true'>true</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td class="ay" colspan="3"></td>
+									</tr>
+									<tr>
+										<td class="aA">&nbsp;&nbsp;&nbsp;&nbsp;<b><span id="rS"></span></b></td>
+										<td class="ak"></td>
+										<td class="al">
+											<select name='LineHeight' id='LineHeight' class="bG">
+												<option value=''></option>
+												<option value='100%'>100%</option>
+												<option value='120%'>120%</option>
+												<option value='140%'>140%</option>
+												<option value='160%'>160%</option>
+												<option value='180%'>180%</option>	
+												<option value='200%'>200%</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td class="ay" colspan="3"></td>
+									</tr>
+									<tr>
+										<td class="aA">&nbsp;&nbsp;&nbsp;&nbsp;<b><span id="rF"></span></b></td>
+										<td class="ak"></td>
+										<td class="al">
+											<select name='UnloadWarning' id='UnloadWarning' class="bG">
+												<option value='false'>false</option>
+												<option value='true'>true</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td class="ay" colspan="3"></td>
+									</tr>
+									<tr>
+										<td class="aA">&nbsp;&nbsp;&nbsp;&nbsp;<b><span id="ru"></span></b></td>
+										<td class="ak"></td>
+										<td class="al">
+											<select name='SetDebug' id='SetDebug' class="bG">
+												<option value='false'>false</option>
+												<option value='true'>true</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td class="ay" colspan="3"></td>
+									</tr>
+									<tr>
+										<td class="aA">&nbsp;&nbsp;&nbsp;&nbsp;<b><span id="re"></span></b></td>
+										<td class="ak"></td>
+										<td class="al">
+											<select name='CharSet' id='CharSet' class="bG">
+												<option value=''></option>
+												<option value='auto'></option>
+												<option value='utf-8'>utf-8</option>
+												<option value='euc-kr'>euc-kr</option>
+												<option value='ks_c_5601-1987'>ks_c_5601-1987</option>
+												<option value='iso-8859-1'>iso-8859-1</option>
+												<option value='iso-8859-2'>iso-8859-2</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td class="ay" colspan="3"></td>
+									</tr>
+									<tr>
+										<td class="aA">&nbsp;&nbsp;&nbsp;&nbsp;<b><span id="oe"></span></b></td>
+										<td class="ak"></td>
+										<td class="al">
+											<input type="text" id="DocBaseURL" name="DocBaseURL" class="fN" value="" /> ex) http://www.mysite.com/doc.html 
+										</td>
+									</tr>
+								</table>
+
+								<table class="ar"><tr><td class="bB" colspan="3"></td></tr>
+								</table>
+						
+							</td>
+						</tr>
+					</table>
+				</div>	
+				
+			</td>
+		</tr>
+		<tr>
+			<td class="bQ">
+				<div id="sg">
+					<table class="lb">
+						<tr>
+							<td>
+								<table class="ar"><tr><td class="bB" colspan="3"></td></tr>
+								</table>
+								 
+								<table class="ar">
+									<tr>
+										<td class="aA">&nbsp;&nbsp;&nbsp;&nbsp;<b><span id="rz"></span></b></td>
+										<td class="ak"></td>
+										<td class="al" id="KE"></td>
+									</tr>
+									<tr>
+										<td class="ay" colspan="3"></td>
+									</tr>
+									<tr>
+										<td class="aA">&nbsp;&nbsp;&nbsp;&nbsp;<b><span id="nF"></span></b></td>
+										<td class="ak"></td>
+										<td class="al">
+											<input type="text" id="Css" name="Css" class="fN" value="" />  ex) http://www.mysite.com/common.css 
+										</td>
+									</tr>
+									<tr>
+										<td class="ay" colspan="3"></td>
+									</tr>
+									<tr>
+										<td class="aA">&nbsp;&nbsp;&nbsp;&nbsp;<b><span id="rD"></span></b>
+											<input type="hidden" id="UserSkinColor" name="UserSkinColor" value="" />
+										</td>
+											
+										<td class="ak"></td>
+										<td >
+											<table class="ar">
+												<tr>
+													<td class="eL">&nbsp;&nbsp;<span id="rx"></span></td>
+													<td class="ak"></td>
+													<td class="al">
+														<input type="text" id="dV" name="dV" class="eB" value="" />  ex) #000000 or black 
+													</td>
+												</tr>
+												<tr>
+													<td class="ay" colspan="3"></td>
+												</tr>
+												<tr>
+													<td class="eL">&nbsp;&nbsp;<span id="rO"></span></td>
+													<td class="ak"></td>
+													<td class="al">
+														<input type="text" id="dX" name="dX" class="eB" value="" />
+													</td>
+												</tr>
+												<tr>
+													<td class="ay" colspan="3"></td>
+												</tr>
+												<tr>
+													<td class="eL">&nbsp;&nbsp;<span id="rK"></span></td>
+													<td class="ak"></td>
+													<td class="al">
+														<input type="text" id="dO" name="dO" class="eB" value="" />
+													</td>
+												</tr>
+												<tr>
+													<td class="ay" colspan="3"></td>
+												</tr>
+												<tr>
+													<td class="eL">&nbsp;&nbsp;<span id="rG"></span></td>
+													<td class="ak"></td>
+													<td class="al">
+														<input type="text" id="dR" name="dR" class="eB" value="" />
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+									
+								<table class="ar"><tr><td class="bB" colspan="3"></td></tr>
+								</table>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="gz cF"><font style="font-size:9pt;color:#FF9F4B;font-weight:bold;"><span id="rH"></span></font></td>
+						</tr>
+						<tr>
+							<td>
+								<table class="ar"><tr><td class="bB" colspan="3"></td></tr>
+								</table>
+									
+								<table class="ar">
+									<tr>
+										<td class="aA">&nbsp;&nbsp;&nbsp;&nbsp;<b><span id="qp"></span></b></td>
+										<td class="ak"></td>
+										<td class="al">
+											<select name='UserToolbar' id='UserToolbar' class="bG">
+												<option value='false'>false</option>
+												<option value='true'>true</option>
+											</select>
+											<input type="hidden" id="CreateToolbar" name="CreateToolbar" value="" />
+											<input type="hidden" id="Tab" name="Tab" value="" />
+										</td>
+									</tr>
+									<tr>
+										<td class="ay" colspan="3"></td>
+									</tr>
+										
+								</table>	
+							</td>		
+						</tr>			
+					</table>
+		
+					<div id = "ar">
+						
+						<table class="dw">	
+							<tr>
+								<td id="jM" class="cF">
+									
+									<table>
+										<tr>
+											<td id="ve">
+												<span id="ra"></span>: <br />
+												<div id="qm" >
+													<span id="mw"></span> <br /> 
+													<span id="nc"></span><br />
+													<span id="nd"></span><br />
+												</div>
+											</td>
+											<td id="sT">
+											<span id="rQ"></span>:<br />
+												<div id="pe" ></div>
+											</td> 
+											<td valign="bottom">
+												<ul style="margin:0 auto;width:300px;">
+													<li class="ck">
+														<input type="button" id="spacebar" value="" class="cb bC" style="width:80px;height:26px;" />
+													</li>
+													<li class="ck"><input type="button" id="space" value="" class="cb bC" style="width:68px;height:26px;"></li>
+													<li class="ck"><input type="button" id="enter" value="" class="cb bC" style="width:66px;height:26px;"></li>
+												</ul>
+											</td>
+										</tr>
+									</table>
+									
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<table class="ar">
+										<tr><td class="bB" colspan="3"></td></tr>
+									</table>
+								</td>
+							</tr>
+						</table>	
+				
+						<table id="zf" class="dw">
+							
+							<tr>
+								<td id="jM" class="cF">
+									<span id="preview"></span>:<br>
+									<div id="rn"></div>
+									<br />
+									<span id="rb"></span>
+								</td>
+							</tr>
+						</table>
+									
+					</div>
+				</div>	
+
+			</td>
+		</tr>
+</table>
+
+<table class="eQ">
+	<tr id="kJ">
+		<td id="kG">
+			<ul style="margin:0 auto;width:170px;">
+				<li class="ck">
+					<input type="submit" id="jv" value="" class="cb bC" style="width:66px;height:26px;" />
+				</li>
+				<li class="ck"><input type="button" id="gI" value="" class="cb bC" style="width:66px;height:26px;"></li>
+			</ul>
+		</td>
+	</tr>
+</table>
+	
+</div>
+</form>
+
+<table class="ar">
+	<tr>
+		<td style="height:20px;">&nbsp;</td>
+	</tr>
+</table>
+
+
+<script language="javascript">
+	var webPageKind = "html";
+	var nG = "";
+	var mQ = contextPath + gG + "?proc=sessionCheck";
+	ce_s(mQ);
+	ce_g();
+	ce_q();
+	</script>
+
+</body> 
+</html>

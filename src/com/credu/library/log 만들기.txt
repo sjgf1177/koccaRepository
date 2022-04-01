@@ -1,0 +1,21 @@
+
+아래와 같은 형식으로 선언하면 되고
+
+    Log.sys.println();   ---->   System 관련 critical error (library class 에서 체크)
+    Log.err.println();   ----->   일반 error (ErrorManager 에서 체크)
+    Log.info.println();  ----->  접속자, 각 로직 로딩시간, sql, key 등(서블릿 각 메소드, 빈즈 메소드)
+    Log.mail.println();  ----->  Mail log
+    
+    각각 log 폴더 밑에 4가지 폴더 존재 --->  하루마다 로그파일 생성
+
+    parameter 는 3가지 방식
+        Log.sys.println(object this, object box, String msg)
+        Log.sys.println(object this, String msg)
+        Log.sys.println(String msg)
+        
+    
+    위와 같이 할건데
+    문제는 
+    1. 어떤 파일에 적용할 것이냐?
+    2. sql 과 key 같은 것을 어떻게 넣는게 좋은가?
+     

@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>Namo CrossEditor : Admin</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+	<script type="text/javascript"> var nJ = "True"; var fz = "hW"; </script>
+	<script type="text/javascript" src="../manage_common.js"></script>
+	<script type="text/javascript" language="javascript" src="../../js/namo_scripteditor.js"></script>
+	<script type="text/javascript" language="javascript" src="../../js/ext/namo_servletContextPath.js"></script>
+	<script type="text/javascript" language="javascript" src="../manager.js"></script>
+	<link href="../css/common.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	
+	<table id="xb" width="100%" height="43" background="../images/table_navi_bg.gif" border="0" cellspacing="0" cellpadding="0">
+	  <tr>
+		<td align="center">
+			
+			<table width="800" border="0" cellspacing="0" cellpadding="0">
+			  <tr>
+				<td width="200" align="left"><img src="../images/title_bi_en.gif" border="0" /></td>
+				<td width="450" align="center">
+					<div align="center" style="width:450px;">	
+						<ul class="fw">
+							<li><span><a id="hW" href="javascript:;">&nbsp;</a></span></li>
+							<li class="ha"><span><a id="jf" href="javascript:;">&nbsp;</a></span></li>
+							<li><span><a id="jt" href="javascript:;">&nbsp;</a></span></li>
+						</ul>
+					</div>
+				</td>
+				<td width="150" align="right"><a href="http://www.namo.co.kr" target="_blank"><img src="../images/title_ci.gif" border="0" /></a></td>
+			  </tr>
+			</table>
+		
+		</td>
+	  </tr>
+	</table>
+
+	<table width="100%" height="37" background="../images/table_sub_bg.gif" border="0" cellspacing="0" cellpadding="0">
+	  <tr>
+		<td align="center">
+			
+			<table width="800" border="0" cellspacing="0" cellpadding="0">
+			  <tr>
+				<td width="400" align="left" style="padding:0 0 0 10px"><span id="lm"></span> </td>
+				<td width="400" align="right" style="padding:0 10px 0 0"><a id="tA" href="javascript:;" style="font-weight:bold;">&nbsp;</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a id="vL" href="javascript:;" style="font-weight:bold;">&nbsp;</a></td>
+			  </tr>
+			</table>
+		
+		</td>
+	  </tr>
+	</table><br />
+
+
+	<div id="preview" class="bQ">
+		<table class="eQ">
+		  <tr>
+			<td class="bQ">
+			
+				<table id="Info">
+				<tr>
+					<td style="padding:0 0 0 10px;height:30px;text-align:left">
+					<font style="font-size:14pt;color:#3e77c1;font-weight:bold;text-decoration:none;"><span id="rw">&nbsp;</span></font></td>
+					<td id="InfoText">&nbsp;</td>
+				</tr>
+				<tr>
+					<td colspan="2"><img id="hv" src="../images/title_line.jpg" alt="" /></td>
+				</tr>
+			</table>
+			
+			</td>
+		  </tr>
+		  <tr>
+			<td class="bQ">
+				
+				<table class="dw">
+				  <tr>
+					<td class="cF">
+						<script>
+							var CrossEditor = new NamoSE('namoeditor1');
+							CrossEditor.params.ManageMode = true;
+							CrossEditor.params.UserLang = "auto";
+							CrossEditor.editorStart();
+						</script>
+					</td>
+				  </tr>
+				  <tr>
+					<td id="tX" style="height:20px"></td>
+				  </tr>
+				</table>
+				
+			</td>
+		  </tr>
+		</table>
+	</div>
+
+	<table class="ar">
+		<tr>
+			<td style="height:20px;">&nbsp;</td>
+		</tr>
+	</table>
+
+	<script language="javascript">
+	var webPageKind = 'html';
+	var mQ = contextPath + gG + "?proc=sessionCheck";
+	ce_s(mQ);
+	ce_g();
+	</script>
+
+</body>
+</html>

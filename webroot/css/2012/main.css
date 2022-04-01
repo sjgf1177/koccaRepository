@@ -1,0 +1,139 @@
+@charset "euc-kr";
+
+div#header { width:100%; height:90px; position:relative; z-index:10; background-color:transparent; background-image:url("/images/2012/common/bg_header.png"); background-repeat:repeat-x; }
+div#header div.topheader { width:980px; margin:0 auto; position:relative; z-index:1; }
+div#header div.topheader div.logo { width:207px; height:174px; position:absolute; left:-75px; top:9px; z-index:2; }
+div#header div.topheader ul.navi { height:17px; position:absolute; right:20px; top:53px; }
+div#header div.topheader ul.navi li { float:left; margin-left:30px; }
+div#header div.topheader dl.subnavi { position:absolute; top:80px; }
+div#header div.topheader dl.subnavi dd { height:22px; float:left; }
+div#header div.topheader dl.subnavi dd.centersub { font-family:"gulim","dotum","arial","sans-serif"; font-size:12px; font-weight:bold; color:#ffffff; letter-spacing:-1px; background-image:url('/images/2012/common/bg_subnavi_center.png'); background-repeat:repeat-x; }
+div#header div.topheader dl.subnavi dd.centersub p { float:left; padding:0px 8px 0px 8px; margin-top:5px; }
+div#header div.topheader dl.subnavi dd.centersub p a { color:#bdd4f1; }
+div#header div.topheader dl.subnavi dd.centersub p a:hover { color:#ffe610; }
+div#header div.topheader dl.smenu1 { left:188px; display:block; }
+div#header div.topheader dl.smenu1 dt img { margin-right:510px; }
+div#header div.topheader dl.smenu2 { left:303px; display:none; }
+div#header div.topheader dl.smenu2 dt img { margin-right:0px; }
+div#header div.topheader dl.smenu3 { left:300px; display:none; }
+div#header div.topheader dl.smenu3 dt img { margin-right:0px; }
+div#header div.topheader dl.smenu4 { left:204px; display:none; }
+div#header div.topheader dl.smenu4 dt img { margin-left:104px; }
+div#header div.topheader dl.smenu5 { left:516px; display:none; }
+div#header div.topheader dl.smenu5 dt img { margin-right:0px; }
+div#header div.topheader dl.smenu6 { left:589px; display:none; }
+div#header div.topheader dl.smenu6 dt img { margin-left:68px; }
+div#header div.topheader dl.smenu7 { left:430px; display:none; }
+div#header div.topheader dl.smenu7 dt img { margin-left:440px; }
+div#header div.topheader div.optionbox { width:322px; height:29px; background-image:url("/images/2012/common/bg_search_bar.png"); background-repeat:no-repeat; position:absolute; right:0px; top:5px; }
+div#header div.topheader div.optionbox img.plus { position:absolute; right:44px; top:5px; }
+div#header div.topheader div.optionbox img.minus { position:absolute; right:28px; top:5px; }
+div#header div.topheader div.optionbox ul.search { height:17px; position:absolute; right:116px; top:3px; }
+div#header div.topheader div.optionbox ul.search li { float:left; height:17px; }
+div#header div.topheader div.optionbox ul.search li.intext { width:156px; text-align:left; background-image:url("/images/2012/common/bg_search_input.png"); background-repeat:no-repeat; }
+div#header div.topheader div.optionbox ul.search li.intext input { height:14px; font-size:12px; color:#ffffff; background-color:#000000; border:0px; padding:2px 0px 0px 0px; margin:0px 0px 0px 8px; background-image:url("/images/2012/common/msg_search.png"); background-repeat:no-repeat; background-position:1px; }
+div#header div.topheader div.optionbox ul.search li.outsearch { width:26px; } 
+
+div#container { width:100%; background-color:#ffffff; }
+div#container div.topcontent { width:980px; margin:0 auto; padding-bottom:30px; }
+div#container div.topcontent ul.contentA { width:980px; height:245px; margin-top:30px; }
+div#container div.topcontent ul.contentA li { float:left; height:245px; }
+div#container div.topcontent ul.contentA li.leftspace { width:391px; text-align:left; background-image:url("/images/2012/main/bg_contentA.png"); background-repeat:no-repeat; background-position:right; position:relative; z-index:0; }
+div#container div.topcontent ul.contentA li.leftspace div.loginput { width:211px; height:23px; background-image:url("/images/2012/main/bg_login_input.png"); background-repeat:no-repeat; position:absolute !important; left:120px !important; top:10px !important; z-index:10 !important; }
+div#container div.topcontent ul.contentA li.leftspace div.loginput input { font-family:"gulim","dotum","arial","sans-serif" !important; font-size:12px; color:#525252; font-weight:bold; }
+div#container div.topcontent ul.contentA li.leftspace div.loginput input.id { width:90px; height:16px; border:0; font-size:12px; position:absolute !important; left:7px !important; top:2px; padding:3px 0px 0px 0px; background-image:url("/images/2012/main/text_id.gif"); background-repeat:no-repeat; background-position:3px 4px; }
+div#container div.topcontent ul.contentA li.leftspace div.loginput input.pass { width:90px; height:16px; border:0; font-size:12px; position:absolute !important; left:114px !important; top:2px; padding:3px 0px 0px 0px; background-image:url("/images/2012/main/text_password.gif"); background-repeat:no-repeat; background-position:3px 4px; }
+div#container div.topcontent ul.contentA li.leftspace div.loginput input.login { position:absolute; right:-52px; top:0px; }
+div#container div.topcontent ul.contentA li.leftspace dl.logafter { margin-top:8px; margin-right:8px; }
+div#container div.topcontent ul.contentA li.leftspace dl.logafter dd { float:right; font-family:"gulim","dotum","arial","sans-serif"; font-size:12px; color:#666666; line-height:26px; }
+div#container div.topcontent ul.contentA li.leftspace dl.logafter dd b { color:#2374e1; }
+div#container div.topcontent ul.contentA li.leftspace img.idpass { position:absolute; right:50px; top:-19px; }
+div#container div.topcontent ul.contentA li.leftspace img.join { position:absolute; right:0px; top:-19px; } 
+div#container div.topcontent ul.contentA li.leftspace dl.titlenewspost { height:17px; margin-top:60px; }
+div#container div.topcontent ul.contentA li.leftspace dl.titlenewspost dt { float:left; }
+div#container div.topcontent ul.contentA li.leftspace dl.titlenewspost dt.more { margin:3px 0px 0px 238px; }
+div#container div.topcontent ul.contentA li.leftspace table.newspost { width:378px; margin:15px 0px 0px 2px; }
+div#container div.topcontent ul.contentA li.leftspace table.newspost td { text-align:left; height:24px; font-family:"gulim","dotum","arial","sans-serif"; font-size:12px; color:#525252; }
+div#container div.topcontent ul.contentA li.leftspace table.newspost td a { color:#525252; text-decoration:none; }
+div#container div.topcontent ul.contentA li.leftspace table.newspost td a:hover { color:#2874ba; text-decoration:underline; }
+div#container div.topcontent ul.contentA li.leftspace table.newspost td a:focus { color:#2874ba; text-decoration:underline; letter-spacing:-1px; }
+div#container div.topcontent ul.contentA li.leftspace table.newspost td.date { text-align:right; }
+div#container div.topcontent ul.contentA li.leftspace table.newspost td img { margin-bottom:4px; }
+div#container div.topcontent ul.contentA li.rightspace { width:589px; }
+div#container div.topcontent ul.contentA li.rightspace div#cyberbanner { width:589px; position:relative; }
+div#container div.topcontent ul.contentA li.rightspace div#cyberbanner div.clsBannerScreen { overflow:hidden; position:relative; height:245px; width:589px; cursor:pointer; clear:both;}
+div#container div.topcontent ul.contentA li.rightspace div#cyberbanner div.clsBannerScreen div.images { position:absolute; display:none; }
+div#container div.topcontent ul.contentA li.rightspace div#cyberbanner ul.clsBannerButton { position:absolute; right:12px; top:13px; z-index:10; cursor:pointer; }
+div#container div.topcontent ul.contentA li.rightspace div#cyberbanner ul.clsBannerButton li { float:left; padding:2px;}
+div#container div.topcontent ul.contentA li.rightspace div#cyberbanner ul.clsBannerButton li.fir { }
+div#container div.topcontent ul.contentB { width:980px; }
+div#container div.topcontent ul.contentB li { float:left; }
+div#container div.topcontent ul.contentB li.online { width:480px; height:227px; }
+div#container div.topcontent ul.contentB li.online dl.titleonline { margin-top:20px; height:17px; }
+div#container div.topcontent ul.contentB li.online dl.titleonline dd { float:left; }
+div#container div.topcontent ul.contentB li.online dl.titleonline dd.more { margin:2px 0px 0px 361px; }
+div#container div.topcontent ul.contentB li.online dl.onlinetab { margin-top:10px; height:26px; }
+div#container div.topcontent ul.contentB li.online dl.onlinetab dd { float:left; }
+div#container div.topcontent ul.contentB li.online dl.onlinetab dd button { font-family:"gulim","dotum","arial","sans-serif"; font-size:12px; color:#525252; padding-top:4px; cursor:pointer; }
+div#container div.topcontent ul.contentB li.online dl.onlinetab dd button.over { background-image:url('/images/2012/main/tabmenu/tabover.gif'); border:1px solid #d3d3d3; border-bottom:0px; width:120px; height:26px; font-weight:bold; letter-spacing:-1px; }
+div#container div.topcontent ul.contentB li.online dl.onlinetab dd button.out { background-color:#ffffff; border:1px solid #e5e5e5; border-bottom:1px solid #d3d3d3; width:120px; height:26px; color:#999999; }
+div#container div.topcontent ul.contentB li.online table.courselist { width:480px; margin-top:10px; }
+div#container div.topcontent ul.contentB li.online table.courselist td { height:24px; font-family:"gulim","dotum","arial","sans-serif"; font-size:12px; color:#525252; text-align:left; }
+div#container div.topcontent ul.contentB li.online table.courselist td a { color:#525252; text-decoration:none; letter-spacing:-1px; }
+div#container div.topcontent ul.contentB li.online table.courselist td a:hover { color:#2874ba; text-decoration:underline; letter-spacing:-1px; }
+div#container div.topcontent ul.contentB li.online table.courselist td a:focus { color:#2874ba; text-decoration:underline; letter-spacing:-2px; }
+div#container div.topcontent ul.contentB li.online table.courselist td.date { color:#828282; text-align:right; }
+div#container div.topcontent ul.contentB li.online table.courselist td img { margin-bottom:2px; }
+div#container div.topcontent ul.contentB li.offline { width:480px; height:227px; margin-left:20px; }
+div#container div.topcontent ul.contentB li.offline dl.titleonline { margin-top:20px; height:17px; }
+div#container div.topcontent ul.contentB li.offline dl.titleonline dd { float:left; }
+div#container div.topcontent ul.contentB li.offline dl.titleonline dd.more { margin:2px 0px 0px 345px; }
+div#container div.topcontent ul.contentB li.offline dl.onlinetab { margin-top:10px; height:26px; }
+div#container div.topcontent ul.contentB li.offline dl.onlinetab dd { float:left; }
+div#container div.topcontent ul.contentB li.offline dl.onlinetab dd button { font-family:"gulim","dotum","arial","sans-serif"; font-size:12px; color:#525252; padding-top:4px; cursor:pointer; }
+div#container div.topcontent ul.contentB li.offline dl.onlinetab dd button.over { background-image:url('/images/2012/main/tabmenu/tabover.gif'); border:1px solid #d3d3d3; border-bottom:0px; width:160px; height:26px; font-weight:bold; letter-spacing:-1px; }
+div#container div.topcontent ul.contentB li.offline dl.onlinetab dd button.out { background-color:#ffffff; border:1px solid #e5e5e5; border-bottom:1px solid #d3d3d3; width:160px; height:26px; color:#999999; }
+div#container div.topcontent ul.contentB li.offline table.courselist { width:100%; margin-top:10px; }
+div#container div.topcontent ul.contentB li.offline table.courselist td { height:24px; font-family:"gulim","dotum","arial","sans-serif"; font-size:12px; color:#525252; text-align:left; }
+div#container div.topcontent ul.contentB li.offline table.courselist td a { color:#525252; text-decoration:none; letter-spacing:-1px; }
+div#container div.topcontent ul.contentB li.offline table.courselist td a:hover { color:#2874ba; text-decoration:underline; letter-spacing:-1px; }
+div#container div.topcontent ul.contentB li.offline table.courselist td a:focus { color:#2874ba; text-decoration:underline; letter-spacing:-2px; }
+div#container div.topcontent ul.contentB li.offline table.courselist td.date { color:#828282; text-align:right; }
+div#container div.topcontent ul.contentB li.offline table.courselist td img { margin-bottom:2px; }
+
+div#container div.bottomcontent { width:100%; text-align:center; background-image:url("/images/2012/main/bg_bottom.gif"); background-repeat:repeat-x; }
+div#container div.bottomcontent div.contentbox { width:980px; margin:0 auto; }
+div#container div.bottomcontent ul.content { padding-top:30px; text-align:left; }
+div#container div.bottomcontent ul.content li { float:left; }
+div#container div.bottomcontent ul.content li.leftspace { width:385px; border-right:1px solid #c2c2c2; }
+div#container div.bottomcontent ul.content li.leftspace div.detail { width:370px; text-align:left; }
+div#container div.bottomcontent ul.content li.leftspace div.detail div.opencastment { margin-top:20px; font-family:"gulim","dotum","arial","sans-serif"; font-size:12px; color:#727272; line-height:16px; }
+div#container div.bottomcontent ul.content li.leftspace div.detail div.banner { margin-top:30px; }
+div#container div.bottomcontent ul.content li.leftspace div.detail div.talent { margin-top:30px; text-align:left; }
+div#container div.bottomcontent ul.content li.leftspace div.detail div#learningroom { margin-top:12px; }
+div#container div.bottomcontent ul.content li.leftspace div.detail div#learningroom div.clsBannerScreen {position:relative; height:76px; width:370px; clear:both; }
+div#container div.bottomcontent ul.content li.leftspace div.detail div#learningroom div.clsBannerScreen div.images { position:absolute; float: left; width:135px;}
+div#container div.bottomcontent ul.content li.leftspace div.detail div#learningroom div.clsBannerScreen div.pr_content {position:relative; line-height:170%; width:220px; float: right; font-size:9pt;}
+
+div#container div.bottomcontent ul.content li.rightspace { width:570px; margin-left:14px; margin-top:-10px; }
+div#container div.bottomcontent ul.content li.rightspace dl.steprable { padding-top:40px;height:86px; }
+div#container div.bottomcontent ul.content li.rightspace dl.steprable dd { float:left; }
+div#container div.bottomcontent ul.content li.rightspace dl.steprable dd.msg { padding-top:10px; }
+div#container div.bottomcontent ul.content li.rightspace dl.steprable dd.step1 { margin-left:17px; }
+div#container div.bottomcontent ul.content li.rightspace dl.steprable dd.step2 { margin-left:5px; }
+div#container div.bottomcontent ul.content li.rightspace dl.steprable dd.step3 { margin-left:10px; }
+div#container div.bottomcontent ul.content li.rightspace dl.steprable dd.step4 { margin-left:10px; }
+div#container div.bottomcontent ul.content li.rightspace dl.support { margin-top:25px; height:79px; }
+div#container div.bottomcontent ul.content li.rightspace dl.support dd { float:left; }
+div#container div.bottomcontent ul.content li.rightspace dl.business { padding-top:10px; height: 86px;}
+div#container div.bottomcontent ul.content li.rightspace dl.business dd { float:left; }
+div#container div.bottomcontent ul.content li.rightspace dl.business dd.learning { width:280px; }
+div#container div.bottomcontent ul.content li.rightspace dl.business dd.learning table.businessfield th { height:30px; text-align:left; vertical-align:top; }
+div#container div.bottomcontent ul.content li.rightspace dl.business dd.learning table.businessfield td { height:22px; padding-right:20px; font-family:"gulim","dotum","arial","sans-serif"; font-size:12px; color:#525252; }
+div#container div.bottomcontent ul.content li.rightspace dl.business dd.learning table.businessfield td a { color:#525252; text-decoration:none; }
+div#container div.bottomcontent ul.content li.rightspace dl.business dd.learning table.businessfield td a:hover { color:#2874ba; text-decoration:underline; }
+div#container div.bottomcontent ul.content li.rightspace dl.business dd.learning table.businessfield td a:focus { color:#2874ba; font-weight:bold; letter-spacing:-1px; text-decoration:underline; }
+div#container div.bottomcontent ul.content li.rightspace dl.business dd.learning table.businessfield td img { margin-bottom:2px; }
+div#container div.bottomcontent ul.content li.rightspace dl.business dd.another { margin: 0px; padding: 0px; }
+div#container div.bottomcontent ul.content li.rightspace dl.business dd.another a img { margin: 0px; padding: 0px; }
+div#container div.bottomcontent div.clearscript { clear:both; padding:15px; margin-bottom:30px; }

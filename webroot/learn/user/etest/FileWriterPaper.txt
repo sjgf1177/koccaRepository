@@ -1,0 +1,229 @@
+
+	/**
+    사용자 해당과정리스트
+    @param box          receive from the form object and session
+    @return ArrayList   해당과정리스트
+    */
+    public void FileWriterPaper(RequestBox box, PrintWriter out) throws Exception 
+        StringBuffer sb = null;
+        ETestPaperBean bean = null;
+        try {
+            bean.getETestPaperQuestion(box);
+            sb = new StringBuffer();
+            sb.append("<html>");
+            sb.append("<head>");
+            sb.append("<title>::: 쌍용자동차 인재개발원 :::</title>");
+            sb.append("<meta http-equiv='Content-Type' content='text/html; charset=euc-kr'>");
+            sb.append("<link rel='stylesheet' href='/css/user_style_study.css' type='text/css'>");
+            sb.append("<script language='JavaScript'>");
+            sb.append("function whenSubmit(){");
+            sb.append("  var i=0;");
+            sb.append("  var b_name='';");
+            sb.append("  var c_name='';");
+            sb.append("  var c_value='';");
+            sb.append("  var b_type='';"); 
+            sb.append("  var result='';");
+            sb.append("  var temp='';"); 
+            sb.append("  var textarr ='';");
+            sb.append("  var answercnt=0;");
+            sb.append("  var replycnt =0;");  
+            sb.append("  for(i=0;i<document.form3.length;i++) {");
+            sb.append("    c_name  = document.form3.elements[i].name;");
+            sb.append("    c_value = document.form3.elements[i].value;");
+            sb.append("    if (i == 0) {");
+            sb.append("      b_name=c_name;");
+            sb.append("    } else {");
+            sb.append("      if (c_name != b_name) {");
+            sb.append("       answercnt++;");
+            sb.append("        if (b_type=='text' || temp !='') {");
+            sb.append("          replycnt++;");
+            sb.append("        }");
+            sb.append("        if (answercnt==1) {");
+            sb.append("          result = temp;");
+            sb.append("        } else {");
+            sb.append("          result = result + ','+ temp;");
+            sb.append("        }");
+            sb.append("       b_name = c_name;");
+            sb.append("       temp = '';");
+            sb.append("      }");
+            sb.append("    }");
+            sb.append("    if (document.form3.elements[i].type=='checkbox') {");
+            sb.append("      b_type='checkbox';");
+            sb.append("      if (document.form3.elements[i].checked==true) {");
+            sb.append("        temp = temp+c_value+':';");
+            sb.append("      }");
+            sb.append("    } else if (document.form3.elements[i].type=='radio') {");
+            sb.append("      b_type='radio';");
+            sb.append("      if (document.form3.elements[i].checked==true) {");
+            sb.append("        temp = c_value;");
+            sb.append("      }");
+            sb.append("    } else if (document.form3.elements[i].type=='text'||document.form3.elements[i].type=='textarea') {");
+            sb.append("      b_type='text';");
+            sb.append("      temp  = '';");
+            sb.append("      textarr = c_value.split(',');");
+            sb.append("      for(var j=0; j<textarr.length; j++) {");
+            sb.append("        temp = temp + textarr[j];");
+            sb.append("      }");
+            sb.append("    }");
+            sb.append("  if (b_type=='text' || temp !='') {");
+            sb.append("  }");
+            sb.append("    replycnt++;");
+            sb.append("  }");
+            sb.append("  answercnt++;");
+            sb.append("  if (answercnt==1) {");
+            sb.append("    result = temp;    ");
+            sb.append("  } else {");
+            sb.append("    result = result + ','+ temp;");
+            sb.append("  }");
+            sb.append("  if (replycnt < answercnt) {");
+            sb.append("    alert('응답하지 않은 설문이 있습니다.모든 설문에 응답해주시길 바랍니다.');");
+            sb.append("    return;");
+            sb.append("  }");
+            sb.append("  document.form2.p_answer.value = result;");
+            sb.append("  document.form2.p_process.value = 'UserResultInsert';");
+            sb.append("  document.form2.submit();");
+            sb.append("}");
+            sb.append("</script>");
+            sb.append("</head>");
+            sb.append("<body>");
+            sb.append("<!----------------- 타이틀 시작 ----------------->");
+            sb.append("<table cellspacing='0' cellpadding='0' class='open_table_out' align='center'>");
+            sb.append("  <tr>                 ");
+            sb.append("		<td background='/images/user/research/b_title_dot.gif'><img src='/images/user/study/exam_title1.gif' width='240' height='37' border='0'></td>");
+            sb.append("  </tr>");
+            sb.append("  <tr><td height='7'></td></tr>");
+            sb.append("</table>");
+            sb.append("<!----------------- 타이틀 끝 ---------------->");
+            sb.append("<br>");
+            sb.append("<table cellspacing='0' cellpadding='0' class='open_board_table_out1' align='center'>");
+            sb.append("	<tr> ");
+            sb.append("		<td width='13'><img src='/images/user/research/icon2.gif' width='13' height='11' border='0'></td>");
+            sb.append("		<td><b>과정명 : <%=v_subjnm%> / 연도 : <%=v_year%> / 차수 : <%=v_subjseq%> </b></td>");
+            sb.append("	</tr>");
+            sb.append("  <tr> ");
+            sb.append("    <td height='5'></td>");
+            sb.append("  </tr>");
+            sb.append("</table>");
+            sb.append("<!----------------- 학습평가 시작 ---------------->");
+            sb.append("<table cellspacing='0' cellpadding='0' class='open_board_table_out1' align='center'>");
+            sb.append("  <tr> ");
+            sb.append("    <td class='board_color_line'></td>");
+            sb.append("  </tr>");
+            sb.append("</table>");
+            sb.append("<table cellspacing='0' cellpadding='0' class='open_board_table_out2' align='center'>");
+            sb.append("  <tr> ");
+            sb.append("    <td> ");
+            sb.append("      <table cellspacing='1' cellpadding='3' class='table2'>");
+            sb.append("<%   
+            sb.append("    ArrayList blist = (ArrayList)request.getAttribute('ETestUserPaperList');
+            sb.append("            
+            sb.append("    for (int i=0; i<blist.size(); i++) {
+            sb.append("        ArrayList list = (ArrayList)blist.get(i);  
+            sb.append("        DataBox dbox = (DataBox)list.get(0);  %>
+            sb.append("        <tr> ");
+            sb.append("          <td class='board_title_bg0'><%='['+(i+1)+'] '+ dbox.getString('d_text')%></td>");
+            sb.append("        </tr>");
+            sb.append("<%   //지문, 지문이미지, 지문음성, 지문동영상 파일  시작");
+            sb.append("        if (dbox.getInt('d_addseq') != 0) {
+            sb.append("            DataBox dbox_text = ETestPaperBean.getQuestionTextData(v_subj, dbox.getInt('d_addseq'));
+            sb.append("%>
+            sb.append("        <tr> ");
+            sb.append("          <td class='board_text4'><%=dbox_text.getString('d_addtext')%></td>");
+            sb.append("        </tr>");
+            sb.append("<%  
+            sb.append("            if (!dbox_text.getString('saveimage').equals('')) {              %> 
+            sb.append("        <tr> ");
+            sb.append("          <td bgcolor='#FFFFFF'> ");
+            sb.append("            <table cellspacing='0' cellpadding='0' class='img_table_out'>");
+            sb.append("              <tr> ");
+            sb.append("                <td> ");
+            sb.append("                  <table cellspacing='2' cellpadding='2'>");
+            sb.append("                    <tr> ");
+            sb.append("                      <td class='img_table' height='26'><img src='<%=v_urldir+dbox_text.getString('saveimage')%>'></td>");
+            sb.append("                    </tr>");
+            sb.append("                  </table>");
+            sb.append("                </td>");
+            sb.append("              </tr>");
+            sb.append("            </table>");
+            sb.append("          </td>");
+            sb.append("        </tr>");
+            sb.append("<%        }  %>  
+            sb.append("<%        if (!dbox_text.getString('saveaudio').equals('')) { %> 
+            sb.append("        <tr> ");
+            sb.append("          <td class='board_text4'> <img src='/images/user/study/voice_icon1.gif' width='20' height='17' border='0'><a href='<%=v_urldir+dbox_text.getString('saveaudio')%>' target='_new'><%=dbox_text.getString('realaudio')%></a></td>");
+            sb.append("        </tr>");
+            sb.append("<%        }  %>  
+            sb.append("<%    }   //    지문, 지문이미지, 지문음성, 지문동영상 파일 끝                                            %>
+            sb.append("
+            sb.append("<%    if (!dbox.getString('saveimage').equals('')) {        //      문제관련 이미지, 음성, 동영상 파일 시작 %> 
+            sb.append("        <tr> ");
+            sb.append("          <td bgcolor='#FFFFFF'> ");
+            sb.append("            <table cellspacing='0' cellpadding='0' class='img_table_out'>");
+            sb.append("              <tr> ");
+            sb.append("                <td> ");
+            sb.append("                  <table cellspacing='2' cellpadding='2'>");
+            sb.append("                    <tr> ");
+            sb.append("                      <td class='img_table' height='26'><img src='<%=v_urldir+dbox.getString('saveimage')%>'></td>");
+            sb.append("                    </tr>");
+            sb.append("                  </table>");
+            sb.append("                </td>");
+            sb.append("              </tr>");
+            sb.append("            </table>");
+            sb.append("          </td>");
+            sb.append("        </tr>");
+            sb.append("<%      }  %>  
+            sb.append("<%      if (!dbox.getString('saveaudio').equals('')) { %> 
+            sb.append("        <tr> ");
+            sb.append("          <td class='board_text4'> <img src='/images/user/study/voice_icon1.gif' width='20' height='17' border='0'><a href='<%=v_urldir+dbox.getString('saveaudio')%>' target='_new'><%=dbox.getString('realaudio')%></a></td>");
+            sb.append("        </tr>");
+            sb.append("<%      }  %>  
+            sb.append("<%      if (!dbox.getString('savemotion').equals('')) { %> 
+            sb.append("        <tr> ");
+            sb.append("          <td class='board_text3'> <img src='/images/user/study/meida_icon1.gif' width='20' height='17' border='0'><a href='<%=v_urldir+dbox.getString('savemotion')%>' target='_new'><%=dbox.getString('realmotion')%></a></td>");
+            sb.append("        </tr>");
+            sb.append("<%      }  %>        
+            sb.append("<%      if (dbox.getString('d_etesttype').equals(ETestBean.OBJECT_QUESTION)) {   // 객관식 
+            sb.append("            for (int j=0; j < list.size(); j++) {
+            sb.append("                dbox  = (DataBox)list.get(j); 
+            sb.append("                if (dbox != null) { %>
+            sb.append("        <tr> ");
+            sb.append("          <td class='board_text4'> ");
+            sb.append("            <input type='radio' name='<%=dbox.getInt('d_etestnum')%>' value='<%=dbox.getInt('d_selnum')%>'><%=dbox.getInt('d_selnum')%>. <%=dbox.getString('d_seltext')%></td>");
+            sb.append("        </tr>");
+            sb.append("<%            }
+            sb.append("            }
+            sb.append("        }else if (dbox.getString('d_etesttype').equals(ETestBean.MULTI_QUESTION)) {  // 다답식
+            sb.append("            for (int j=0; j < list.size(); j++) {//System.out.println(j);
+            sb.append("                dbox  = (DataBox)list.get(j); 
+            sb.append("                if (dbox != null) { %>
+            sb.append("        <tr> ");
+            sb.append("          <td class='board_text4'> ");
+            sb.append("            <input type='checkbox' name='<%=dbox.getInt('d_etestnum')%>' value='<%=dbox.getInt('d_selnum')%>'><%=dbox.getInt('d_selnum')%>. <%=dbox.getString('d_seltext')%></td>");
+            sb.append("        </tr>");
+            sb.append("<%            } 
+            sb.append("            }
+            sb.append("        }else if (dbox.getString('d_etesttype').equals(ETestBean.SUBJECT_QUESTION)) {  // 주관식  %>
+            sb.append("        <tr> ");
+            sb.append("          <td class='board_text3'> ");
+            sb.append("            <textarea name='<%=dbox.getInt('d_etestnum')%>' cols='90' rows='15' class='input'></textarea>");
+            sb.append("          </td>");
+            sb.append("        </tr>");
+            sb.append("<%    }
+            sb.append("    } %>
+            sb.append("      </table>");
+            sb.append("    </td>");
+            sb.append("  </tr>");
+            sb.append("</table>");
+            sb.append("<!----------------- 학습평가 끝 ---------------->");
+            sb.append("<br>");
+            sb.append("<!----------------- 제출 버튼 시작 ---------------->");
+            sb.append("<table cellspacing='0' cellpadding='0' class='open_board_table_out1' align='center'>");
+            sb.append("    <tr>                ");
+            sb.append("        <td align='right'><a href='javascript:whenSubmit()'><img src='/images/user/study/presentation_butt1.gif' width='54' height='20' border='0'></a></td>");
+            sb.append("    </tr>");
+            sb.append("</table>");
+            sb.append("<!----------------- 제출 버튼 끝 ----------------->");
+            sb.append("<br>");
+            sb.append("<%@ include file = '/jsp/library/getJspName.jsp' %>");
+            sb.append("</body>");
+            sb.append("</html>");

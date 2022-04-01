@@ -1,0 +1,30 @@
+<!DOCTYPE html> 
+<html>
+<head> 
+<meta charset="euc-kr">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>한국콘텐츠아카데미</title> 
+<script src="/js/jquery/1.11.1/jquery-1.11.1.min.js"></script>
+<script>
+/**
+ * Android와 iOS 기기에 따라 해당 앱 설치 페이지로 이동
+ */
+$(function() {
+    var uAgent = navigator.userAgent.toLowerCase();  
+    var iOSArr = new Array("iphone", "ipod", "ipad");
+    var appIntroURL = "";
+
+    if ( uAgent.indexOf("iphone") > -1 || uAgent.indexOf("ipod") > -1 || uAgent.indexOf("ipad") > -1 ) {
+        appIntroURL = "https://itunes.apple.com/us/app/kocca/id492151283?l=ko&ls=1&mt=8";
+
+    } else if ( uAgent.indexOf("android") > -1 ) {
+        appIntroURL = "https://play.google.com/store/apps/details?id=com.newin.kocca";
+    }
+
+    document.location.href = appIntroURL;
+});
+</script>
+</head>
+<body>
+</body>
+</html>

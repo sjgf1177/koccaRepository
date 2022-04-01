@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Domain ConfigurationVersion="8.1.3.0" Name="mydomain">
+    <Server EnabledForDomainLog="false" ExpectedToRun="false"
+        JDBCLoggingEnabled="false" JMSThreadPoolSize="50"
+        ListenAddress="" ListenPort="7001" Name="myserver"
+        NativeIOEnabled="true" ReliableDeliveryPolicy="RMDefaultPolicy"
+        ServerVersion="8.1.3.0" StdoutDebugEnabled="true" StdoutSeverityLevel="64">
+        <WebServer LogFileLimitEnabled="true" LogRotationType="date"
+            LoggingEnabled="true" MaxLogFileSizeKBytes="10000" Name="myserver"/>
+        <SSL Enabled="false" HostnameVerificationIgnored="false"
+            IdentityAndTrustLocations="KeyStores" Name="myserver"/>
+        <Log Name="myserver" NumberOfFilesLimited="true" RotationType="byTime"/>
+        <ExecuteQueue Name="weblogic.kernel.Default" ThreadCount="50"/>
+    </Server>
+    <FileRealm Name="wl_default_file_realm"/>
+    <Realm FileRealm="wl_default_file_realm" Name="wl_default_realm"/>
+    <PasswordPolicy Name="wl_default_password_policy"/>
+    <SecurityConfiguration
+        Credential="{3DES}L3p1eMaSUzCKOo/7rhUq4a/zsAseWYoYGMCfqzpDelytfkwVY0X0NN8N988sWT4TjBaoDownJiVgXeyqNAWJ5uKFmbSNifm4"
+        Name="mydomain" RealmBootStrapVersion="1"/>
+    <Security Name="mydomain"
+        PasswordPolicy="wl_default_password_policy"
+        Realm="wl_default_realm" RealmSetup="true"/>
+    <EmbeddedLDAP
+        Credential="{3DES}PyxtxwBZgY8j/LuUQaoo5djR4O/YsB2KshGRphzmAEs=" Name="mydomain"/>
+    <JMSFileStore Directory="rmfilestore" Name="FileStore"/>
+    <JMSServer Name="WSStoreForwardInternalJMSServermyserver"
+        Store="FileStore" Targets="myserver">
+        <JMSQueue CreationTime="1134097161968"
+            JNDIName="jms.internal.queue.WSStoreForwardQueue"
+            JNDINameReplicated="false" Name="WSInternaljms.internal.queue.WSStoreForwardQueuemyserver"/>
+        <JMSQueue CreationTime="1134097164031"
+            JNDIName="jms.internal.queue.WSDupsEliminationHistoryQueue"
+            JNDINameReplicated="false" Name="WSInternaljms.internal.queue.WSDupsEliminationHistoryQueuemyserver"/>
+    </JMSServer>
+    <WSReliableDeliveryPolicy DefaultRetryCount="10"
+        DefaultTimeToLive="60000" Name="RMDefaultPolicy" Store="FileStore"/>
+    <JDBCTxDataSource JNDIName="jdbc/zpack" Name="jdbc/zpack"
+        PoolName="zpack" Targets="myserver"/>
+    <Application Name="contents" Path="D:\eclipse\workspace\KOCCA"
+        StagingMode="nostage" TwoPhase="true">
+        <WebAppComponent Name="WebRoot" Targets="myserver" URI="WebRoot"/>
+    </Application>
+    <JDBCTxDataSource JNDIName="zpack" Name="zpack" PoolName="zpack" Targets="myserver"/>
+    <JDBCConnectionPool ConnLeakProfilingEnabled="true"
+        DriverName="com.microsoft.jdbc.sqlserver.SQLServerDriver"
+        InitialCapacity="20" MaxCapacity="50" Name="Clone of zpack"
+        Password="{3DES}7N46rSiot+HdHCr/mYE9sA=="
+        Properties="user=sa;url=jdbc:microsoft:sqlserver://218.232.93.17:1433;selectMethod=cursor;dataSourceName=SQL2000JDBC;userName=sa;databaseName=CONTENTS;serverName=218.232.93.17"
+        StatementCacheSize="100" Targets=""
+        TestConnectionsOnRelease="true" TestConnectionsOnReserve="true"
+        TestTableName="SQL SELECT COUNT(*) FROM sysobjects" URL="jdbc:microsoft:sqlserver://218.232.93.17:1433"/>
+    <JDBCConnectionPool CapacityIncrement="2"
+        ConnLeakProfilingEnabled="true"
+        DriverName="com.microsoft.jdbc.sqlserver.SQLServerDriver"
+        InitialCapacity="150" MaxCapacity="150" Name="zpack"
+        Password="{3DES}7N46rSiot+HdHCr/mYE9sA=="
+        Properties="user=sa;url=jdbc:microsoft:sqlserver://218.232.93.17:1433;selectMethod=cursor;dataSourceName=SQL2000JDBC;userName=sa;databaseName=CONTENTS;serverName=218.232.93.17"
+        StatementCacheSize="100" Targets="myserver"
+        TestConnectionsOnRelease="true" TestConnectionsOnReserve="true"
+        TestTableName="SQL SELECT COUNT(*) FROM sysobjects" URL="jdbc:microsoft:sqlserver://218.232.93.17:1433"/>
+</Domain>

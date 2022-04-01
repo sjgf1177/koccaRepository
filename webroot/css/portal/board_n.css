@@ -1,0 +1,130 @@
+table.write {clear:both; width:100%; border-top:2px solid #BEBEBE; line-height:18px;}
+table.write th {padding:7px 20px 4px; text-align:left; font-weight:normal; border-right:1px solid #E2E2E2; border-bottom:1px solid #E2E2E2; background:#FBFBFB;}
+table.write td {padding:4px 20px 4px; text-align:left; font-weight:normal; border-right:1px solid #E2E2E2; border-bottom:1px solid #E2E2E2;}
+table.write td.end {border-right:0;}
+table.write th.stit {color:#888;}
+table.write th.end {border-right:0;}
+table.write td.txt {padding:7px 20px 4px;}
+table.write td.intxt input {vertical-align:-2px;}
+table.write td.intxt input.calendar {vertical-align:-5px;}
+:root table.write td.intxt input {vertical-align:middle;}
+table.write td input.calendar {margin:0 5px; vertical-align:middle;}
+table.write td.examine {border:0 none; padding-top:9px; padding-bottom:25px;}
+table.write td.examine_end {border:0 none; padding-top:9px;}
+table.write tr.test th {padding:7px 8px 4px; text-align:center;}
+table.write tr.test td {padding:4px 8px 4px; text-align:center; vertical-align:top; color:#868686}
+table.write tr.test th.ta_l, table.write tr.test td.ta_l {text-align:left;}
+table.write tr.test td.test_list {padding:12px 10px 10px; line-height:20px;}
+table.write tr.test td.test_list em {font-style:normal; font-weight:normal; color:#F56200}
+
+table.board_write {clear:both; width:100%; border-top:3px solid #758BC8; line-height:18px;}
+table.board_write th.th, table.board_write td.td {padding:4px 0 4px 20px; text-align:left; border-bottom:1px solid #D5D3D3; font-weight:normal; background:url(/images/portal/board/board_list_bg.gif) repeat-x left bottom;}
+table.board_write tr.bo th.th, table.board_write tr.bo td.td {border-bottom:1px solid #ABB8DF;}
+table.board_write th.th {padding:7px 0 4px 20px; color:#758AC2;}
+table.board_write td.txt {padding:7px 0 4px 20px;}
+table.board_write td.stxt {padding:6px 0 5px 20px; font-size:11px;}
+table.board_write td.con {padding:14px 20px; background:none;}
+table.board_write td.con div.imgtxt {padding:2px 0 5px;}
+table.board_write td.con textarea {width:96%; height:255px;}
+table.board_write tr.bgn th.th, table.board_write tr.bgn td.td {background:none;}
+table.board_write tr.bon th.th, table.board_write tr.bon td.td {border-bottom:none;}
+table.board_write tr.file_add th.th, table.board_write tr.file_add td.td {border-top:1px dashed #E2E2E2; background:#F8F8F8}
+table.board_write tr.file_add td.td input, table.board_write tr.file_add td.td img {vertical-align:-2px;}
+table.board_write tr.file_add td.td input {margin-right:7px;}
+table.board_write tr.file_add td.td a img {vertical-align:-3px; margin-left:10px;}
+
+table.myclass_write {clear:both; width:100%; border-top:3px solid #88B9AA; line-height:18px;}
+table.myclass_write th.th, table.myclass_write td.td {padding:4px 0 4px 20px; text-align:left; border-bottom:1px solid #D5D3D3; font-weight:normal; background:url(/images/portal/board/board_list_bg.gif) repeat-x left bottom;}
+table.myclass_write tr.bo th.th, table.myclass_write tr.bo td.td {border-bottom:1px solid #B2C8B7;}
+table.myclass_write th.th {padding:7px 0 4px 20px; color:#548A7A;}
+table.myclass_write td.txt {padding:7px 0 4px 20px;}
+table.myclass_write td.stxt {padding:6px 0 5px 20px; font-size:11px;}
+table.myclass_write td.con {padding:14px 20px; background:none;}
+table.myclass_write td.con div.imgtxt {padding:2px 0 5px;}
+table.myclass_write td.con textarea {width:96%; height:255px;}
+table.myclass_write tr.bgn th.th, table.myclass_write tr.bgn td.td {background:none;}
+table.myclass_write tr.bon th.th, table.myclass_write tr.bon td.td {border-bottom:none;}
+table.myclass_write tr.file_add th.th, table.myclass_write tr.file_add td.td {border-top:1px dashed #E2E2E2; background:#F8F8F8}
+table.myclass_write tr.file_add td.td input, table.myclass_write tr.file_add td.td img {vertical-align:-2px;}
+table.myclass_write tr.file_add td.td input {margin-right:7px;}
+table.myclass_write tr.file_add td.td a img {vertical-align:-3px; margin-left:10px;}
+
+table.study_write {clear:both; width:100%; border-top:3px solid #BEBEBE; line-height:18px;}
+table.study_write th.th, table.study_write td.td {padding:4px 0 4px 20px; text-align:left; border-bottom:1px solid #D5D3D3; font-weight:normal; background:url(/images/portal/board/board_list_bg.gif) repeat-x left bottom;}
+table.study_write tr.bo th.th, table.study_write tr.bo td.td {border-bottom:1px solid #D5D3D3;}
+table.study_write th.th {padding:7px 0 4px 20px; color:#5C5C5C;}
+table.study_write td.td input {vertical-align:middle;}
+table.study_write td.td input.calendar {margin:0 5px 0 }
+table.study_write td.txt {padding:7px 0 4px 20px;}
+table.study_write td.stxt {padding:6px 0 5px 20px; font-size:11px;}
+table.study_write td.ff_t {font-family:Tahoma;}
+table.study_write td.con {padding:14px 20px; background:none;}
+table.study_write td.con div.imgtxt {padding:2px 0 5px;}
+table.study_write td.con textarea {width:96%; height:255px;}
+table.study_write tr.bgn th.th, table.study_write tr.bgn td.td {background:none;}
+table.study_write tr.bon th.th, table.study_write tr.bon td.td {border-bottom:none;}
+table.study_write tr.file_add th.th, table.study_write tr.file_add td.td {border-top:1px dashed #E2E2E2; background:#F8F8F8}
+table.study_write tr.file_add td.td input, table.study_write tr.file_add td.td img {vertical-align:-2px;}
+table.study_write tr.file_add td.td input {margin-right:7px;}
+table.study_write tr.file_add td.td a img {vertical-align:-3px; margin-left:10px;}
+
+table.studying_write {clear:both; width:100%; border-top:3px solid #8A9DD2; line-height:18px;}
+table.studying_write th.th, table.studying_write td.td {padding:4px 0 4px 20px; text-align:left; border-bottom:1px solid #D5D3D3; font-weight:normal; background:url(/images/portal/board/board_list_bg.gif) repeat-x left bottom;}
+table.studying_write tr.bo th.th, table.studying_write tr.bo td.td {border-bottom:1px solid #ABB8DF;}
+table.studying_write th.th {padding:7px 0 4px 20px; color:#627ABA;}
+table.studying_write td.txt {padding:7px 0 4px 20px;}
+table.studying_write td.stxt {padding:6px 0 5px 20px; font-size:11px;}
+table.studying_write td.con {padding:14px 20px; background:none;}
+table.studying_write td.con div.imgtxt {padding:2px 0 5px;}
+table.studying_write td.con textarea {width:96%; height:255px;}
+table.studying_write tr.bgn th.th, table.studying_write tr.bgn td.td {background:none;}
+table.studying_write tr.bon th.th, table.studying_write tr.bon td.td {border-bottom:none;}
+table.studying_write tr.file_add th.th, table.studying_write tr.file_add td.td {border-top:1px dashed #E2E2E2; background:#F8F8F8}
+table.studying_write tr.file_add td.td input, table.studying_write tr.file_add td.td img {vertical-align:-2px;}
+table.studying_write tr.file_add td.td input {margin-right:7px;}
+table.studying_write tr.file_add td.td a img {vertical-align:-3px; margin-left:10px;}
+
+table.information_write {clear:both; width:100%; border-top:3px solid #AD92CA; line-height:18px;}
+table.information_write th.th, table.information_write td.td {padding:4px 0 4px 20px; text-align:left; border-bottom:1px solid #D5D3D3; font-weight:normal; background:url(/images/portal/board/board_list_bg.gif) repeat-x left bottom;}
+table.information_write tr.bo th.th, table.information_write tr.bo td.td {border-bottom:1px solid #C0AED4;}
+table.information_write th.th {padding:7px 0 4px 20px; color:#7A599C;}
+table.information_write td.txt {padding:7px 0 4px 20px;}
+table.information_write td.stxt {padding:6px 0 5px 20px; font-size:11px;}
+table.information_write td.con {padding:14px 20px; background:none;}
+table.information_write td.con div.imgtxt {padding:2px 0 5px;}
+table.information_write td.con textarea {width:96%; height:255px;}
+table.information_write tr.bgn th.th, table.information_write tr.bgn td.td {background:none;}
+table.information_write tr.bon th.th, table.information_write tr.bon td.td {border-bottom:none;}
+table.information_write tr.file_add th.th, table.information_write tr.file_add td.td {border-top:1px dashed #E2E2E2; background:#F8F8F8}
+table.information_write tr.file_add td input, table.information_write tr.file_add td.td img {vertical-align:-2px;}
+table.information_write tr.file_add td.td input {margin-right:7px;}
+table.information_write tr.file_add td.td a img {vertical-align:-3px; margin-left:10px;}
+
+table.write_white {clear:both; width:100%; border-top:2px solid #BEBEBE; line-height:18px;}
+table.write_white th {padding:7px 11px 4px; text-align:left; font-weight:normal; border-right:1px solid #E2E2E2; border-bottom:1px solid #E2E2E2; background:#FEFEFE;}
+table.write_white td {padding:4px 15px 4px; text-align:left; font-weight:normal; border-right:1px solid #E2E2E2; border-bottom:1px solid #E2E2E2;}
+table.write_white td input {vertical-align:middle}
+table.write_white td.end {border-right:0;}
+
+table.write_white {clear:both; width:100%; border-top:2px solid #BEBEBE; line-height:18px;}
+table.write_white th {padding:7px 0 4px 20px; text-align:left; font-weight:normal; border-right:1px solid #E2E2E2; border-bottom:1px solid #E2E2E2; background:#FEFEFE; color:#787878; vertical-align:top}
+table.write_white th.star {padding-left:10px;}
+table.write_white th span {font-size:11px}
+table.write_white td {padding:3px 15px 4px; text-align:left; font-weight:normal; border-right:1px solid #E2E2E2; border-bottom:1px solid #E2E2E2; color:#797979;}
+table.write_white td input {vertical-align:middle}
+table.write_white td strong {font-weight:normal; font-size:11px; padding:0 0 0 8px; color:#666;}
+table.write_white td.txt {padding:5px 15px 4px;}
+table.write_white td.txt input {margin-left:-5px}
+table.write_white td p {padding:2px 0 4px;} 
+table.write_white td.list {padding:0; text-align:left; font-weight:normal; border-right:1px solid #E2E2E2; border-bottom:1px solid #E2E2E2;}
+table.write_white td.list dl {clear:both; border-top:1px dashed #E2E2E2; overflow:hidden; height:1%;}
+table.write_white td.list dl.first {border-top:0}
+table.write_white td.list dl dt {float:left; width:109px; padding:9px 0 0 14px;}
+table.write_white td.list dl dd {float:right; width:440px; padding:4px 0 3px 0;}
+table.write_white td.list dl dd input {vertical-align:middle}
+table.write_white td.list dl dd li {float:left; line-height:18px; padding:5px 8px 3px 0; width:135px;}
+table.write_white td.list dl dd li input {float:left; display:inline-block; margin-bottom:5px;}
+* html table.write_white td.list dl dd li input {margin-top:-3px;}/*ie6*/
+*:first-child+html table.write_white td.list dl dd li input {margin-top:-3px;}/* ie7*/
+
+table.write_white td.end {border-right:0;}

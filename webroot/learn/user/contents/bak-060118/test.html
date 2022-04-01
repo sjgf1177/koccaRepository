@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>::: 현대중공업 사이버 러닝 센터 :::</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=ks_c_5601-1987"><LINK 
+href="/css/user_style_study.css" type=text/css rel=stylesheet>
+<SCRIPT language=JavaScript>
+<!--
+    function go(index) {
+         document.form1.p_pageno.value = index;
+         document.form1.action = "/servlet/controller.contents.OpinionServlet";
+         document.form1.p_process.value = "selectList";
+         document.form1.submit();
+    }
+    function goPage(pageNum) {
+         document.form1.p_pageno.value = pageNum;
+         document.form1.action = "/servlet/controller.contents.OpinionServlet";
+         document.form1.p_process.value = "selectList";
+         document.form1.submit();
+    }
+-->
+</SCRIPT>
+
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY>
+<FORM name=form1 action=javascript:return; method=post><INPUT type=hidden 
+name=p_process> <INPUT type=hidden value="<%=v_pageno %>" name=p_pageno> <BR>
+<TABLE class=open_board_table_out1 cellSpacing=0 cellPadding=0 align=center>
+  <TBODY>
+  <TR>
+    <TD width=13><IMG height=11 src="" width=13 border=0></TD>
+    <TD><B>과정명 : [<%=v_subjnm%>] 연도 : [<%=v_year%>] 차수 : [<%=v_subjseq%>] 일차 : 
+      [<%=v_lesson%>] </B></TD></TR>
+  <TR>
+    <TD height=5></TD></TR></TBODY></TABLE><!----------------- 의견리스트 시작 ---------------->
+<TABLE class=open_board_table_out1 cellSpacing=0 cellPadding=0 align=center>
+  <TBODY>
+  <TR>
+    <TD class=board_color_line></TD></TR></TBODY></TABLE>
+<TABLE class=open_board_table_out2 cellSpacing=0 cellPadding=0 align=center>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE class=table2 cellSpacing=1 cellPadding=3>
+        <TBODY>
+        <TR>
+          <TD class=board_title_bg1>작성자</TD>
+          <TD class=board_title_bg1>의견</TD></TR>
+        <TR>
+          <TD class=board_text4></TD>
+          <TD class=board_text4></TD></TR>
+        <TR>
+          <TD class=board_text2 colSpan=2>등록된 내용이 
+  없습니다.</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!----------------- 학습평가 끝 ----------------><BR>
+<TABLE height=26 cellSpacing=0 cellPadding=0 width="97%" border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=absmiddle align=right><%= PageUtil.printPageList(v_totalpage, v_pageno, 10) %></TD></TR></TBODY></TABLE><!----------------- total 끝 -----------------><BR><!----------------- 제출 버튼 시작 ---------------->
+<TABLE class=open_board_table_out1 cellSpacing=0 cellPadding=0 align=center>
+  <TBODY>
+  <TR>
+    <TD align=right><A href="javascript:self.close()"><IMG height=20 src="" 
+      width=54 border=0></A> </TD></TR></TBODY></TABLE><!----------------- 제출 버튼 끝 -----------------><BR></FORM></BODY></HTML>

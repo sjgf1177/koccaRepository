@@ -1,0 +1,355 @@
+<html>
+<head>
+<title>
+9 Classification - 9.1 Purpose - 9.2 TaxonPath - 9.2.1 Source - 9.2.2 Taxon - 9.2.2.1 Id - 9.2.2.2 Entry - 9.3 Description - 9.4 Keywords
+</title>
+<script language="javascript">
+/************************************************************************
+**
+** Filename:  9Classification-main.htm
+**
+** File Description: This page displays the multiplicity elements for
+**              section 9 Classification.
+**
+** Author:  ADLI Project
+**
+** Company Name: Concurrent Technologies Corporation (CTC)
+**
+** Module/Package Name:
+** Module/Package Description:
+**
+** Design Issues:
+**
+** Implementation Issues:
+** Known Problems:
+** Side Effects:
+**
+** References:  SCORM Version 1.1 (Section 2)
+**
+**************************************************************************
+**
+** Advanced Distributed Learning Co-Laboratory (ADL Co-Lab) grants you
+** ("Licensee") a non-exclusive, royalty free, license to use, modify and
+** redistribute this software in source and binary code form, provided
+** that i) this copyright notice and license appear on all copies of the
+** software; and ii) Licensee does not utilize the software in a manner
+** which is disparaging to CTC.
+**
+** This software is provided "AS IS," without a warranty of any kind.  ALL
+** EXPRESS OR IMPLIED CONDITIONS, REPRESENTATIONS AND WARRANTIES,
+** INCLUDING ANY IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A
+** PARTICULAR PURPOSE OR NON- INFRINGEMENT, ARE HEREBY EXCLUDED.  CTC AND
+** ITS LICENSORS SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY LICENSEE
+** AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THE SOFTWARE OR ITS
+** DERIVATIVES.  IN NO EVENT WILL CTC  OR ITS LICENSORS BE LIABLE FOR ANY
+** LOST REVENUE, PROFIT OR DATA, OR FOR DIRECT, INDIRECT, SPECIAL,
+** CONSEQUENTIAL, INCIDENTAL OR PUNITIVE DAMAGES, HOWEVER CAUSED AND
+** REGARDLESS OF THE THEORY OF LIABILITY, ARISING OUT OF THE USE OF OR
+** INABILITY TO USE SOFTWARE, EVEN IF CTC  HAS BEEN ADVISED OF THE
+** POSSIBILITY OF SUCH DAMAGES.
+**
+*************************************************************************
+**
+** Date Changed   Author of Change  Reason for Changes
+** ------------   ----------------  -------------------------------------
+** 3/12/2001      Tom Hopkins       Initial Final Version for MDG v1.1
+**
+** 08/06/2001     Jeff Falls        PT# 1038: Took out some debuging statements.
+**                                  Added the variable (hack) instead of using
+**                                  an alert to fix the length variable problem.
+**
+************************************************************************/
+
+// Global Variables
+var visibleCount = 0;
+var maxElements = 100;
+var offset = 245;
+var purposeList = "";
+var sourceList = "";
+var idList = "";
+var entryList = "";
+var descriptionList = "";
+var keywordsList = "";
+var currentnum = "";
+var id_currentList = "";
+var entry_currentList = "";
+var counter = 0;
+id_mainArray = new Array();
+entry_mainArray = new Array();
+source_mainArray = new Array();
+var info_pass = 1;
+
+
+
+/************************************************************************
+** Function: displayClassification()
+**
+** Variables: none
+**
+** Description:
+**       This function is called when the page loads.  It gathers the
+**    purpose, description, source and keyword lists.  It also gather the
+**    id and entry arrays.  These lists/arrays if not blank are used to 
+**    repopulate the fields.  Otherwise it calls addNewPurpose and 
+**    adds blank fields.
+*************************************************************************/
+function displayClassification()
+{
+   if (parent.parent.main == null)
+   {
+      location.href="errorPage.htm";
+
+   }
+   else
+   {
+     purposeList = parent.parent.main.purposeList;
+     descriptionList = parent.parent.main.descriptionList3;
+     keywordsList = parent.parent.main.keywordsList2;
+
+    if ((purposeList != null) || (purposeList == ""))
+    {
+     var purposeArray = purposeList.split("|");
+     var descriptionArray = descriptionList.split("|");
+     var keywordsArray = keywordsList.split("|");    
+    }
+    else
+    {
+     var purposeArray = 0;
+     var descriptionArray = "";
+     var keywordsArray = "";    
+    }
+     var number = 0;
+     
+     
+     for (var i=0;i<purposeArray.length;i++)
+     {
+       if (i<purposeArray.length-1)
+      {
+       addNewPurpose(purposeArray[i],descriptionArray[i],keywordsArray[i],i+1)	  
+      }
+      else
+      {
+       addNewPurpose(purposeArray[i],descriptionArray[i],keywordsArray[i],-1)
+      }
+     }
+    
+  }
+}
+
+/************************************************************************
+** Function: addNewPurpose(purpose,description,keywords,id,entry,source,number)
+**
+** Variables: purpose - The purpose information
+**         description - The description information
+**         keywords - The keyword information
+**         id - The list of ids
+**         entry - The list of entries
+**         source - The list of sources
+**         number - The number of the populating section
+**
+** Description:
+**       This function is called from displayClassification.  It displays
+**    the appropriate fields and populates the fields with the
+**    information from the variables above, or leaves them blank.
+*************************************************************************/
+function addNewPurpose(purpose,description,keywords,number)
+{
+   if (purpose == null)
+   {
+   purpose = "";
+   description ="";
+   keywords = "";
+   }
+   
+   if (visibleCount == 32)
+   {
+      if (!confirm("WARNING!  Tools are only required to support up to 10 9.Classification sections. \n Click OK to continue adding. \nClick Cancel to stop adding."))
+      {
+         return;
+      }
+   }
+
+   if (visibleCount == maxElements)
+   {
+      alert("Maximum number of elements exceeded.  Can not add any more elements.");
+      return;
+   }
+   visibleCount++;
+
+   //9 Classification
+   document.all.item("label"+visibleCount).style.visibility = "visible";
+   document.all.item("del"+visibleCount).style.visibility = "visible";
+   
+   //9.1 Purpose
+   document.all.item("labelpur"+visibleCount).style.visibility = "visible";
+   document.all.item("inputpur"+visibleCount).style.visibility = "visible";
+   document.all.item("inputpur"+visibleCount).value = purpose;
+   
+   //9.3 Description
+   document.all.item("labeldesc"+visibleCount).style.visibility = "visible";
+   document.all.item("inputdesc"+visibleCount).style.visibility = "visible";
+   document.all.item("inputdesc"+visibleCount).value = description;
+
+   //9.4 Keywords
+   document.all.item("labelkey"+visibleCount).style.visibility = "visible";
+   document.all.item("inputkey"+visibleCount).style.visibility = "visible";
+   document.all.item("inputkey"+visibleCount).value = keywords;
+   document.all.item("comment"+visibleCount).style.visibility = "visible";   
+
+   // Comment Line
+   document.all.item("comment"+visibleCount).style.visibility = "visible";
+   
+   // Line Tag
+   document.all.item("div"+visibleCount).style.visibility = "visible";
+
+}
+
+/************************************************************************
+** Function: deletePurpose()
+**
+** Variables: none
+**
+** Description:
+**       This function is called when the use presses the delete button.
+**    The appropriate fields are hidden and the information in the 
+**    textboxes are erased.
+*************************************************************************/
+function deletePurpose()
+{
+   // get the last character of the id that caused this event to be fired
+   // this is the index of the element we want to delete.
+   var evt = new String(window.event.srcElement.id);
+   var idx = evt.charAt(evt.length-1);
+
+   // push all the other remaining elements down the "stack".
+   for (i=idx;i<visibleCount;i++)
+   {
+      var nextIdx = i;
+      nextIdx++;
+      document.all.item("inputpur"+i).value = document.all.item("inputpur"+nextIdx).value;
+   }
+   
+   //9 Classification
+   document.all.item("label"+visibleCount).style.visibility = "hidden";
+   document.all.item("del"+visibleCount).style.visibility = "hidden";
+   
+   //9.1 Purpose
+   document.all.item("labelpur"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputpur"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputpur"+visibleCount).value = "";
+
+   //9.3 Description
+   document.all.item("labeldesc"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputdesc"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputdesc"+visibleCount).value = "";
+
+   //9.4 Keywords
+   document.all.item("labelkey"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputkey"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputkey"+visibleCount).value = "";
+
+   // Comment Line
+   document.all.item("comment"+visibleCount).style.visibility = "hidden";
+
+   // Line Tag
+   document.all.item("div"+visibleCount).style.visibility = "hidden";
+   
+   visibleCount--;
+   
+}
+
+/************************************************************************
+** Function: length_check()
+**
+** Variables: none
+**
+** Description:
+**       This function is called when the user hits the ok button.  It
+**    checks to make sure all of the centity information does not exceed
+**    1024 characters.
+*************************************************************************/
+function length_check()
+{
+  var key_information = "";
+  for (var i=0;i<visibleCount;i++);
+  {
+   key_information = document.all.item("inputkey" + i).value;
+   var key_errorArray = key_information.split("~");
+   for (var k=0;k<key_errorArray.length;k++)
+   {
+    if (key_errorArray[k].length > 1024)
+    {
+       alert("The following centity information exceeds the maximum # of characters: " + key_errorArray[k]);
+      return -1;
+    }
+   }
+   okHandler();
+  }
+}
+
+/************************************************************************
+** Function: okHandler()
+**
+** Variables: none
+**
+** Description:
+**       This function is called when the user presses the ok button.
+**    It gathers the purpose, description, keyword, source, id and 
+**       entry lists then calls displayClassification in rawmedia.htm.
+*************************************************************************/
+function okHandler()
+{
+  purposeList = "";
+  descriptionList = "";
+  keywordsList = "";
+
+  for (i=0;i<visibleCount;i++)
+  {
+    var j = "";
+   j = i + 1;
+   purposeList = purposeList + document.all.item("inputpur" + j).value + "|";
+   descriptionList = descriptionList + document.all.item("inputdesc" + j).value + "|";
+   keywordsList = keywordsList + document.all.item("inputkey" + j).value + "|";
+  }
+    info_pass = -1;
+   parent.parent.main.displayClassification(purposeList,descriptionList,keywordsList);
+}
+</script>
+
+<link rel="STYLESHEET" type="text/css" href="../../include/style.css">
+</head>
+<body background="/images/metadata/bkg.gif" bgcolor="#ffffff" onload="displayClassification();">
+<div align="center">
+<table width="98%">
+<tr>
+   <td Class="Form">9 Classification - Multiple Elements</td>
+<tr>
+   <td>
+      <form NAME="classificationForm" id="classificationForm">
+      <input TYPE="button" ID="add" NAME="add" VALUE="Add Classification Information" ONCLICK ="addNewPurpose(null,null,null,-1);">
+      &nbsp;&nbsp;&nbsp;
+      <input TYPE="button" id="okButton" NAME="okButton" VALUE="OK" ONCLICK="length_check();">
+      &nbsp;&nbsp;&nbsp;
+      <input type="Reset" value="Clear" name="clearButton" id="clearButton">
+      <script LANGUAGE="JAVASCRIPT">
+      for (i=0;i<100;i++)  // the upper limit needs to correspond to the maxElements variable defined above.
+      {
+         document.writeln("<label id=\"label"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">Classification</label>&nbsp;&nbsp;&nbsp;<input TYPE=\"button\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" ID=\"del" +i+ "\" NAME=\"del" +i+ "\" VALUE=\"Delete\" ONCLICK =\"deletePurpose();\"><BR>");			
+         
+		 
+		 document.writeln("<label id=\"labelpur"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">9.1 Purpose</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" name=\"inputpur\"" + i + "\" id=\"inputpur" + i + "\" ><option value='User_defined'>User_defined</option><option value='See_classification'>See_classification</option><option value='Discipline'>Discipline</option><option value='Idea'>Idea</option><option value='Prerequisite'>Prerequisite</option>    <option value='Educational Objective'>Educational Objective</option><option value='Accessibility Restrictions'>Accessibility Restrictions</option><option value='Educational Level'>Educational Level</option><option value='Skill Level'>Skill Level</option><option value='Security Level'>Security Level</option></select><BR>");		
+		 
+		  document.writeln("<label id=\"labeldesc"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">9.3 Description</label>&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"text\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" res=\"inputdesc\"" + i + "\" id=\"inputdesc" + i + "\" maxlength=1024><br>");
+		 
+         document.writeln("<label id=\"labelkey"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">9.4 Keywords</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"text\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" name=\"inputkey\"" + i + "\" id=\"inputkey" + i + "\"><br>");
+         document.writeln("<label id=\"comment"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" Class=small_comment>Description과 Keyword는 n개 일경우 ',' 로 구분하여 입력할수 있습니다.</label><br>");    
+         document.writeln("<div id=\"div"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\"><hr></div>");
+      }
+      </script>
+      </form>
+   </td>
+</tr>
+</table>
+</div>
+</body>
+</html>

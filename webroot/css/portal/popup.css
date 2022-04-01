@@ -1,0 +1,277 @@
+@charset "EUC-KR";
+
+#popup {
+	
+	background-position: left top;
+	background-repeat: repeat-x;
+}
+	#popup #pop_header {background-image:url(/images/portal/common/pop_bg.gif); position: relative; width: auto; height: 50px;}
+	#popup #pop_header h1 img {margin: 17px 0 0 30px;}
+	
+	#popup #pop_container { width: auto; min-height: 100%; margin: -65px 0 -50px;} 
+	*html #popup #pop_container {height: 100%;}
+	#popup #pop_container #contentwrap {overflow:hidden; padding:75px 30px 80px;}
+	#popup #pop_container #contentwrap h2 {height:28px;}
+		
+		#popup .message_top {padding-top:85px !important;}
+		#popup p.message {padding:17px 17px 14px; border:3px solid #AFB9E0; color:#4A62B8; font-size:14px; font-weight:bold; text-align:center; margin: 0 auto;}
+		#popup p.info {padding:23px 10px 0; line-height:18px;}
+		#popup p.info span {font-size:11px; color:#888}
+			
+		#popup div.top_info {border:3px solid #E5E4E4; padding:12px; margin-bottom:35px}
+		#popup div.top_info dl {
+			background-image:url(/images/portal/ico/ico_apply.gif);
+			background-position: 9px 30%;
+			background-repeat: no-repeat;
+		}
+		#popup div.top_info dt, 
+		#popup div.top_info dd {margin-left:98px; border-left:1px solid #F2F1F1; padding:0 0 0 16px}
+		#popup div.top_info dt {height:26px; padding-top:3px}
+		#popup div.top_info dd {font-size:11px; color:#999; padding:0 0 5px 23px;
+			background-image:url(/images/portal/ico/ico_list_square.gif);
+			background-position: 17px 4px;
+			background-repeat: no-repeat;
+		}
+		
+		#popup dl.guide_list {clear:both; padding:12px 0 12px 126px; border:3px solid #E5E4E4; 
+			background-image:url(/images/portal/popup/popimg_guide.gif);
+			background-position: 21px 12px;
+			background-repeat: no-repeat;
+		}
+		#popup dl.guide_list dt {margin:0 0 13px; font-size:0;}
+		#popup dl.guide_list dd {padding-left:9px; font-size:11px; color:#999; line-height:16px; 
+			background-image:url(/images/portal/ico/ico_list_square.gif);
+			background-position: 2px 6px;
+			background-repeat: no-repeat;
+		}
+	
+		#popup h3.pop_tit {clear:both; width:100%; margin:35px 0 15px; overflow:hidden;}
+		#popup h3.pop_tit span.ra_txt {float:right; color:#888; font-size:11px; font-weight:normal;}
+		#popup h3.pop_tit span.ra_txt input {vertical-align:-1px; margin-right:2px;}
+		:root h3.pop_tit span.ra_txt input {vertical-align:-2px; margin-right:3px;}
+		#popup h3.pop_tit span.ra_txt strong {color:#6175C4;}
+		
+		#popup h3.pop_tit_txt {clear:both; position:relative; width:100%; overflow:hidden; padding:0 0 0 17px; margin:0 0 11px; font-size:12px; color:#666; 
+			background-image:url(/images/portal/ico/ico_h3_bbul.gif);
+			background-position: left top;
+			background-repeat: no-repeat;
+		}
+		#popup h3.pop_tit_txt span.ra_txt {position:absolute; right:0; top:2px; padding-right:15px; font-weight:normal; color:#666;}
+		
+		#popup p.pop_txt_q {margin-bottom:15px; line-height:18px;}
+		#popup p.pop_txt_q span.ac {color:#4A62B8; font-weight:bold;}
+		
+		#popup div.scroll_information_opinion {overflow-y:scroll; overflow-x:hidden; width:577px; height:250px;}
+	
+		#popup #pop_container p.btn {float:right; margin:5px 0 10px;}
+		#popup #pop_container p.btn a {margin-left:5px;}
+
+		#popup p.info_txt {width:529px; padding:12px 0 9px 23px; border-bottom:1px solid #E2E2E2; line-height:18px; color:#888;}
+		#popup div.info_txt {width:529px; padding:12px 0 9px 23px; border-bottom:1px solid #E2E2E2; line-height:18px; color:#888;}
+		#popup p.info_txt1 {margin-top:8px; font-size:11px; color:#888;}
+		#popup p.info_txt1 span {font-size:12px;}
+
+		#popup p.searchbox_com {width:400px; height:37px; padding:10px 0 0 0; 
+			background-image:url(/images/portal/community/community_search.gif);
+			background-position: left top;
+			background-repeat: no-repeat;
+		}
+		#popup p.searchbox_com span.txt {padding:0 25px 0 17px;}
+
+		#popup p.com_txt {width:400px; margin-top:26px; font-weight:bold; text-align:center;}
+
+		#popup p.postcode_search {width:420px; 
+			background-image:url(/images/portal/board/post_searchbox_bg.gif);
+			background-position: left top !important;
+			background-repeat: no-repeat;
+		}
+		#popup p.postcode_search strong {vertical-align:-2px;}
+
+		#popup p.myclass_basket_txt {margin-top:8px; font-size:11px; color:#999; line-height:18px;}
+
+	#popup #pop_footer {height: 37px; padding-top: 13px; background-color: #eee;}
+	#popup #pop_footer .f_btn {float:none !important; text-align:center; margin: 0 auto;}
+
+/* 공지사항 */
+#notice_popup {
+	background-image:url(/images/portal/popup/notice_topbg.gif);
+	background-position: left top;
+	background-repeat: repeat-x;
+}
+	#notice_popup #pop_header {position: relative; width: auto; height:70px; 
+		background-image:url(/images/portal/popup/notice_topimg.gif);
+		background-position: right top;
+		background-repeat: no-repeat;
+	}
+	#notice_popup #pop_header img {margin:16px 0 0 26px;}
+
+	#notice_popup #pop_container { width: auto; min-height: 100%; margin: -70px 0 -35px;} 
+	*html #notice_popup #pop_container {height: 100%;}
+	#notice_popup #pop_container #contentwrap {overflow:hidden; padding:90px 30px 70px;}
+	#notice_popup #pop_container #contentwrap p.txt {line-height:18px; color:#878686; margin-top:18px;}
+
+	#notice_popup #pop_footer {text-align:right; height:35px; background-color:#E1E1E1;}
+	#notice_popup #pop_footer p {margin:6px 20px 0;}
+	#notice_popup #pop_footer p input {vertical-align:-1px;}
+	#notice_popup #pop_footer p span.txt {vertical-align:2px; margin-right:5px;}
+
+/* 나의 강의실_학습창 */
+#pop_study {
+	padding:0; margin:0; 
+	background-image:url(/images/portal/myclass/study/tit_bg.gif);
+	background-position: top;
+	background-repeat: repeat-x;
+}
+	#pop_study #pop_header {width: auto; height: 31px; padding:9px 9px 0 12px}
+	#pop_study #btn_close {position:absolute; top:10px; right:10px;}
+	
+	#pop_study #pop_container {min-width:900px; min-height:100%; margin:-40px 0 -65px;}
+	*html #pop_study #pop_container {height: 100%;}
+	#pop_study #pop_container #contentwrap {padding:40px 0 65px; overflow:hidden;}
+
+	#pop_study div.study_tltle {
+		background-image:url(/images/portal/myclass/study/top_bg.gif);
+		background-position: top;
+		background-repeat: repeat-x;
+	}
+	#pop_study div.study_tltle_left {
+		background-image:url(/images/portal/myclass/study/top_bg_left.gif);
+		background-position: left top;
+		background-repeat: no-repeat;
+	}
+	#pop_study div.study_tltle_right {position: relative; height:151px; padding-top:9px; 
+		background-image:url(/images/portal/myclass/study/top_bg_right.gif);
+		background-position: right top;
+		background-repeat: no-repeat;
+	}
+	#pop_study .study_tltle_sub div.study_tltle_right {height:56px !important;}
+	#pop_study .class_info {clear:both; margin-left:25px; height:22px;}
+	#pop_study .class_info dt {float:left; width:75px; height:20px; 
+		background-image:url(/images/portal/myclass/study/box_classname.gif);
+		background-position: left top;
+		background-repeat: no-repeat;
+	}
+	#pop_study .class_info dt span {display:inline-block; width:57px; padding-top:5px; text-align:center; font-size:11px; color:#B7C8E0;}
+	#pop_study .class_info dd {padding-top:3px; float:left; font-size:14px; color:#FFF; font-weight:bold;}
+	#pop_study .class_info dd.class_day {font-size:11px; color:#455061; font-family:Tahoma; font-weight:bold;}
+	#pop_study .mt2 {margin-top:2px;}
+	
+	#pop_study .study_info {margin:0 0 0 196px; overflow:hidden; padding-top:32px;}
+	#pop_study table.study_info_board {clear:both; text-align:left}
+	#pop_study table.study_info_board th {height:18px; padding-left:8px; color:#E4EFFF;
+		background-image:url(/images/portal/ico/ico_sbul_study.gif);
+		background-position: left 50%;
+		background-repeat: no-repeat;
+	}
+	#pop_study table.study_info_board td {color:#FFF468;}
+	#pop_study table.study_info_board span.rate_me {float:left; font-size:11px; font-family:Tahoma; color:#FFF468; font-weight:bold;}
+	#pop_study table.study_info_board span.rate {float:left; font-size:11px; font-family:Tahoma; color:#F8FBFF; font-weight:bold;}
+	#pop_study table.study_info_board span.bar_yellow {display:inline-block;*display: inline; float:left ;*zoom: 1;  width:263px; height:12px; padding-left:4px; 
+		background-image:url(/images/portal/myclass/study/rate_barleft_yellow.gif);
+		background-position: left top;
+		background-repeat: no-repeat;
+	}
+	#pop_study table.study_info_board span.bar_yellow span{display:inline-block; height:12px; 
+		background-image:url(/images/portal/myclass/study/rate_barright_yellow.gif);
+		background-position: right top;
+		background-repeat: no-repeat;
+	}
+	#pop_study table.study_info_board span.bar_gray {display:inline-block; *display: inline; float:left ;*zoom: 1; width:263px; height:12px; padding-left:4px;
+		background-image:url(/images/portal/myclass/study/rate_barleft_gray.gif);
+		background-position: left top;
+		background-repeat: no-repeat;
+	}
+	#pop_study table.study_info_board span.bar_gray span {display:inline-block; height:12px; 
+		background-image:url(/images/portal/myclass/study/rate_barright_gray.gif);
+		background-position: right top;
+		background-repeat: no-repeat;
+	}
+	
+	#pop_study div.content {padding:30px 25px 0 25px}
+
+	#pop_study div.content h3 {margin:0 0 10px 0;}
+	#pop_study div.content div.h3_wrap {width:100%; margin:0 0 9px 0; height:1%; overflow:hidden;}
+	#pop_study div.content div.h3_wrap h3 {float:left; width:300px;}
+	#pop_study div.content div.h3_wrap p {float:right;}
+	#pop_study div.content div.h3_wrap p img, #pop_study div.content div.h3_wrap p select, #pop_study div.content div.h3_wrap p input.btn {vertical-align:middle;}
+	#pop_study div.content div.h3_wrap p span {display:inline-block; line-height:14px; padding:0 2px 3px 0; vertical-align:bottom}
+	
+	#pop_study div.content div.info_box {width:auto; background-color:#F4F6FE; padding:15px 10px 8px 20px; margin-bottom:30px;overflow:hidden;}
+	#pop_study div.content div.info_box div {float:left; width:620px;}
+	#pop_study div.content div.info_box div dl {height:19px;}
+	#pop_study div.content div.info_box div dt {float:left; width:56px; padding:0 0 0 7px; color:#8794B8; 
+		background-image:url(/images/portal/ico/ico_sbul_study2.gif);
+		background-position: left 4px;
+		background-repeat: no-repeat;
+	}
+	#pop_study div.content div.info_box div dd {float:left; width:550px;} 
+	#pop_study div.content div.info_box p {float:right; padding-top:22px;}
+	#pop_study div.content div.info_box p.poll {float:right; padding-top:0px;}
+	#pop_study div.content div.info_box ul li {padding:0 0 4px 7px; color:#666;
+		background-image:url(/images/portal/ico/ico_sbul_study2.gif);
+		background-position: left 4px;
+		background-repeat: no-repeat;
+	}
+	#pop_study div.content div.info_box ul li strong {font-weight:normal; color:#8794B8;}
+	#pop_study div.content div.info_box dl.note dt {padding:0 0 4px 7px; color:#8794B8; font-weight:bold;
+		background-image:url(/images/portal/ico/ico_sbul_study2.gif);
+		background-position: left 4px;
+		background-repeat: no-repeat;
+	}
+	#pop_study div.content div.info_box dl.note dd {padding:0 0 4px 8px; line-height:16px;}
+	
+	#pop_study div.dic_search_box {width:auto; height:130px; 
+		background-image:url(/images/portal/myclass/study/dictionary_sbox.gif);
+		background-position: top;
+		background-repeat: repeat-x;
+	}
+	#pop_study div.dic_search_box div.left {
+		background-image:url(/images/portal/myclass/study/dictionary_sbox_right.gif);
+		background-position: right top;
+		background-repeat: no-repeat;
+	}
+	#pop_study div.dic_search_box div.right {height:115px; padding:15px 0 0 75px; 
+		background-image:url(/images/portal/myclass/study/dictionary_sbox_left.gif);
+		background-position: left top;
+		background-repeat: no-repeat;
+	}
+	#pop_study div.dic_search_box dl {width:675px; overflow:hidden; padding-bottom:22px;}
+	#pop_study div.dic_search_box dl dt {float:left; width:101px; padding-top:17px;}
+	#pop_study div.dic_search_box dl dt.search {padding-top:4px;}
+	#pop_study div.dic_search_box dl dd {float:left;}
+	#pop_study div.dic_search_box dl dd input, #pop_study div.dic_search_box dl dd img {vertical-align:middle}
+	#pop_study div.dic_search_box dl dd input {margin-right:3px;}
+	#pop_study div.dic_search_box dl dd ul {width:573px; padding-bottom:2px; overflow:hidden;}
+	#pop_study div.dic_search_box dl dd ul li {float:left; padding:0;}
+
+	#pop_study div.search_result {width:auto; padding:12px 0 0 10px;}
+	#pop_study div.search_result .left_word {float:left; width:49%; height:313px; overflow-y:scroll; overflow-x:hidden; border-top:2px solid #bebebe;}
+	#pop_study div.search_result .right_info {float:right; width:49%; height:313px; overflow-y:scroll; overflow-x:hidden; border-top:2px solid #bebebe; border-left:1px solid #e5e5e5; border-bottom:1px solid #e5e5e5; background-color:#FAFAFA;}
+	#pop_study div.search_result .left_word li {padding:6px 0 3px 20px; border-bottom:1px solid #e5e5e5; 
+		background-image:url(/images/portal/ico/ico_list_square.gif);
+		background-position: 10px 50%;
+		background-repeat: no-repeat;
+	}
+	#pop_study div.search_result .left_word li.on {font-weight:bold; 
+		background-image:url(/images/portal/ico/ico_list_square.gif);
+		background-position: 10px 50%;
+		background-repeat: no-repeat;
+		background-color: #F7F7F7;
+	}
+	#pop_study div.search_result .left_word li.on a {color:#4A62B8;}
+	#pop_study div.search_result .right_info dl {padding:0 16px;}
+	#pop_study div.search_result .right_info dt {font-weight:bold; padding:13px 0 10px; border-bottom:1px dashed #d3d3d3;}
+	#pop_study div.search_result .right_info dd { padding:15px 20px 14px 0; line-height:18px;}
+
+	#pop_study ul.study_pop_tab {clear:both; padding:30px 0 10px;}
+	#pop_study ul.study_pop_tab li {float:left; margin-right:2px; font-size:0;}
+
+	#pop_study #pop_footer {position: relative; height:65px; margin:0 15px; 
+		background-image:url(/images/portal/myclass/study/footer_bg.gif);
+		background-position: left bottom;
+		background-repeat: repeat-x;
+	}
+	#pop_study #pop_footer img.bg {float:left; margin-top:18px;}
+	#pop_study #pop_footer ul {float:left; position: absolute; top:30px; left:23px; height:25px;}
+	#pop_study #pop_footer ul li {float:left; margin:0; padding:0 1px; vertical-align:bottom;}
+	#pop_study #pop_footer ul li img { vertical-align:bottom;}

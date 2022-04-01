@@ -1,0 +1,76 @@
+﻿@charset "utf-8";
+
+html { margin:0; padding:0; height:100%; overflow-x:hidden; overflow-y:auto; }
+body { margin:0; padding:0; height:100%; text-align:center; }
+
+h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd { margin:0; padding:0; }
+form { margin:0; padding:0; }
+img { border:0; vertical-align:middle; margin:0; }
+table { margin:0; padding:0; border-collapse:collapse; }
+fieldset,iframe { border:0 none; }
+ul,ol,li { list-style:none; }
+p { margin:0; padding:0; }
+address,em { font-style:normal; }
+
+/* input 기본 */
+input[type='text'] { margin:0; padding:0; }
+input[type='password'] { margin:0; padding:0; }
+input[type='radio'] { margin:0; padding:0; }
+input[type='checkbox'] { margin:0; padding:0; }
+textarea { margin:0; padding:0; line-height:18px; }
+
+/* 기본 하이퍼텍스트 */
+a:link { font-family:"굴림","Gulim","arial"; text-decoration:none; color:#525252; }
+a:visited { font-family::"굴림","Gulim","arial"; text-decoration:none; color:#e45c1a; }
+a:active { font-family::"굴림","Gulim","arial"; text-decoration:none }
+a:hover { font-family::"굴림","Gulim","arial"; text-decoration:none }
+
+/* 정렬 지정 */
+.alignL { text-align:left; }
+.alignC { text-align:center; }
+.alignR { text-align:right; }
+.v-aT { vertical-align:top; }
+.v-aM { vertical-align:middle; }
+.v-aB { vertical-align:bottom; }
+.floatL { float:left; }
+.floatC { float:center; }
+.floatR { float:right; }
+.clearL { clear:left; }
+.clearC { clear:center; }
+.clearR { clear:right; }
+.clearB { clear:both; }
+
+/* 마우스 커서 */
+.mpointer { cursor:pointer; }
+
+/* 좌우 여백 지정 */
+.padding3 { padding-left:3px; padding-right:3px; }
+.padding5 { padding-left:5px; padding-right:5px; }
+.padding10 { padding-left:10px; padding-right:10px; }
+
+/* 공간 띄우기 */
+.indent5 { text-indent:5px; }
+
+/* 디스플레이 */
+.nonescreen { display:none; }
+.onscreen { display:block; }
+
+/* 레이아웃 */
+div#warp { margin:0 auto; width:994px; height:100%; position:relative; }
+div#warp div#header { text-align:center; position:relative; }
+div#warp div#header table.logo { width:100%; }
+div#warp div#header table.logo td img.twitter { margin-bottom:5px; }
+div#warp div#header div.navi { height:41px; }
+div#warp div#header div.memoption { margin:2px 0px 2px 0px; width:100%; height:38px; background-image:url("../images/common/bg_member_option.gif"); }
+div#warp div#header div.memoption table.inoption { width:100%; height:100%; }
+div#warp div#header div.memoption table.inoption td input { width:110px; height:11px; border:none; padding:5px; font-family:"gulim","sans-self"; font-size:12px; color:#525252; }
+div#warp div#header div.memoption table.inoption td input[type='text'].login { background-image:url("../images/common/blur_id.gif"); }
+div#warp div#header div.memoption table.inoption td input[type='password'].pass { background-image:url("../images/common/blur_pass.gif"); }
+div#warp div#header div.memoption table.inoption td input[type='text'].search { background-color:white; }
+div#warp div#header div.memoption table.inoption td select { border:none; height:21px; padding:3px; font-family:"gulim","sans-self"; font-size:12px; color:#525252; }
+
+div#warp div#footer { width:100%; position:relative; }
+div#warp div#footer div.about { height:35px; background-image:url("../images/common/footer_bg.gif"); background-repeat:repeat-x; }
+div#warp div#footer div.about table.inabout { width:100%; }
+div#warp div#footer div.about table.inabout td select { border:1px solid #cccccc; height:21px; padding:2px; font-family:"gulim","sans-self"; font-size:12px; color:#525252; }
+div#warp div#footer table.copyright { width:100%; }

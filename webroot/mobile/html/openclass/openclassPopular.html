@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="euc-kr">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>열린강좌</title>
+<link href="/mobile/assets/css/style.css" rel="stylesheet">
+<script src="/mobile/assets/js/jquery-1.11.1.min.js"></script>
+<script src="/mobile/assets/js/json2.js"></script>
+<script src="/mobile/assets/js/common.js"></script>
+<script src="/mobile/assets/js/openclass.js"></script>
+</head>
+<body>
+
+<!-- tabs -->
+<ul class="tabs tabs-auto-width tabs-fixed-top">
+    <li class="active"><a href="#"><i class="icon icon-cir-ar-right"></i> 인기별</a></li>
+    <li><a href="javascript:fnMoveNavi(2, '/servlet/controller.mobile.openclass.OpenClassThemeServlet');"><i class="icon icon-cir-ar-right"></i> 테마별</a></li>
+    <li><a href="javascript:fnMoveNavi(2, '/servlet/controller.mobile.openclass.OpenClassCategoryServlet');"><i class="icon icon-cir-ar-right"></i> 분류별</a></li>
+</ul>
+<!-- /tabs -->
+
+
+<div class="category-detail-header">
+    <a href="javascript:fnOpenClassViewDetail(2, 33, 'popular');">
+        <img src="/upload/accept/GoldClassAdmin_img_file_201405231613031_lee1.gif" alt="1박2일 연출노트, 예능의 정석?! 이미지" />
+        <span class="caption">
+            <span>
+                나영석 프로듀서 | 1박2일 연출노트, 예능의 정석?!
+            </span>
+        </span>
+    </a>
+</div>
+<ul class="thumb-list">
+
+    <li>
+        <a href="javascript:fnOpenClassViewDetail(2, 41, 'popular');">
+            <span class="thumb"><img src="/upload/accept/GoldClassAdmin_img_file_201405231553141_lee1.gif" alt="다큐프라임에서 지식채널e까지 이미지" /></span>
+            <span class="body">
+                <span class="name">다큐프라임에서 지식채널e까지</span>
+                <span class="text" style="font-weight:bold;color:#808080">김한중 프로듀서</span>
+            </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="javascript:fnOpenClassViewDetail(2, 129, 'popular');">
+            <span class="thumb"><img src="/upload/accept/GoldClassAdmin_img_file/129.jpg" alt="이종범의 디지털로 웹툰 제작하기 1 - 스토리의 기본 개념 이미지" /></span>
+            <span class="body">
+                <span class="name">이종범의 디지털로 웹툰 제작하기 1 - 스토리의 기본 개념</span>
+                <span class="text" style="font-weight:bold;color:#808080">이종범</span>
+            </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="javascript:fnOpenClassViewDetail(2, 62, 'popular');">
+            <span class="thumb"><img src="/upload/accept/GoldClassAdmin_img_file_201405231538561_lee1.gif" alt="현대는 스토리텔링 시대(1) 이미지" /></span>
+            <span class="body">
+                <span class="name">현대는 스토리텔링 시대(1)</span>
+                <span class="text" style="font-weight:bold;color:#808080">장상용 기자</span>
+            </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="javascript:fnOpenClassViewDetail(2, 65, 'popular');">
+            <span class="thumb"><img src="/upload/accept/GoldClassAdmin_img_file_201405231610271_lee1.gif" alt="성공하는 콘텐츠의 비결<br> - ‘뿌리깊은 나무’ 기획에서 제작까지 이미지" /></span>
+            <span class="body">
+                <span class="name">성공하는 콘텐츠의 비결<br> - ‘뿌리깊은 나무’ 기획에서 제작까지</span>
+                <span class="text" style="font-weight:bold;color:#808080">장태유 프로듀서</span>
+            </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="javascript:fnOpenClassViewDetail(2, 55, 'popular');">
+            <span class="thumb"><img src="/upload/accept/GoldClassAdmin_img_file_201405231547401_lee1.gif" alt="영화의 연금술사 이미지" /></span>
+            <span class="body">
+                <span class="name">영화의 연금술사</span>
+                <span class="text" style="font-weight:bold;color:#808080">이미도 번역가</span>
+            </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="javascript:fnOpenClassViewDetail(2, 120, 'popular');">
+            <span class="thumb"><img src="/upload/accept/GoldClassAdmin_img_file/120.jpg" alt="애니메이션 기획제작 워크숍 1 - 애니메이션 기획과 프로듀서 이미지" /></span>
+            <span class="body">
+                <span class="name">애니메이션 기획제작 워크숍 1 - 애니메이션 기획과 프로듀서</span>
+                <span class="text" style="font-weight:bold;color:#808080">신창환</span>
+            </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="javascript:fnOpenClassViewDetail(2, 68, 'popular');">
+            <span class="thumb"><img src="/upload/accept/GoldClassAdmin_img_file_201405231612501_lee1.gif" alt="성공하는 콘텐츠의 비결 - ‘로보카 폴리’ 탄생과 성공의 비결 이미지" /></span>
+            <span class="body">
+                <span class="name">성공하는 콘텐츠의 비결 - ‘로보카 폴리’ 탄생과 성공의 비결</span>
+                <span class="text" style="font-weight:bold;color:#808080">김선구 이사</span>
+            </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="javascript:fnOpenClassViewDetail(2, 87, 'popular');">
+            <span class="thumb"><img src="/upload/accept/GoldClassAdmin_img_file_201405231613191_lee1.jpg" alt="TV포맷 트렌드 1 - 가장 많이 만들어지고 팔리는 포맷 장르 - 데이팅 I 이미지" /></span>
+            <span class="body">
+                <span class="name">TV포맷 트렌드 1 - 가장 많이 만들어지고 팔리는 포맷 장르 - 데이팅 I</span>
+                <span class="text" style="font-weight:bold;color:#808080">김일중</span>
+            </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="javascript:fnOpenClassViewDetail(2, 88, 'popular');">
+            <span class="thumb"><img src="/upload/accept/GoldClassAdmin_img_file/88.jpg" alt="Unity3D 1 - Unity3D의 구조와 활용 이미지" /></span>
+            <span class="body">
+                <span class="name">Unity3D 1 - Unity3D의 구조와 활용</span>
+                <span class="text" style="font-weight:bold;color:#808080">김현우</span>
+            </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="javascript:fnOpenClassViewDetail(2, 159, 'popular');">
+            <span class="thumb"><img src="/upload/accept/GoldClassAdmin_img_file_201406301702561_lee1.jpg" alt="ACES 기술소개 1 - 빛의 영역 RGB 이미지" /></span>
+            <span class="body">
+                <span class="name">ACES 기술소개 1 - 빛의 영역 RGB</span>
+                <span class="text" style="font-weight:bold;color:#808080">케빈 셔(Kevin Shaw)</span>
+            </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="javascript:fnOpenClassViewDetail(2, 177, 'popular');">
+            <span class="thumb"><img src="/upload/accept/GoldClassAdmin_img_file_201406301710131_lee1.jpg" alt="최초이자 최고의 브랜드 필름 성공요인 1부 이미지" /></span>
+            <span class="body">
+                <span class="name">최초이자 최고의 브랜드 필름 성공요인 1부</span>
+                <span class="text" style="font-weight:bold;color:#808080">폴 그린(Paul Green)</span>
+            </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="javascript:fnOpenClassViewDetail(2, 110, 'popular');">
+            <span class="thumb"><img src="/upload/accept/GoldClassAdmin_img_file/110.jpg" alt="드라마 제작을 위한 방송직업탐구 2 - 드라마 제작 1단계 : Pre-Production 이미지" /></span>
+            <span class="body">
+                <span class="name">드라마 제작을 위한 방송직업탐구 2 - 드라마 제작 1단계 : Pre-Production</span>
+                <span class="text" style="font-weight:bold;color:#808080">백홍종</span>
+            </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="javascript:fnOpenClassViewDetail(2, 70, 'popular');">
+            <span class="thumb"><img src="/upload/accept/GoldClassAdmin_img_file_201405231537171_lee1.gif" alt="'페인터의 귀재' 석정현의 그림 이야기 이미지" /></span>
+            <span class="body">
+                <span class="name">'페인터의 귀재' 석정현의 그림 이야기</span>
+                <span class="text" style="font-weight:bold;color:#808080">석정현 만화가</span>
+            </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="javascript:fnOpenClassViewDetail(2, 132, 'popular');">
+            <span class="thumb"><img src="/upload/accept/GoldClassAdmin_img_file/132.jpg" alt="이종범의 디지털로 웹툰 제작하기 4 - 코믹 스튜디오와 포토샵을 활용한 원고 작업 이미지" /></span>
+            <span class="body">
+                <span class="name">이종범의 디지털로 웹툰 제작하기 4 - 코믹 스튜디오와 포토샵을 활용한 원고 작업</span>
+                <span class="text" style="font-weight:bold;color:#808080">이종범</span>
+            </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="javascript:fnOpenClassViewDetail(2, 113, 'popular');">
+            <span class="thumb"><img src="/upload/accept/GoldClassAdmin_img_file/113.jpg" alt="드라마 제작을 위한 방송직업탐구 5 - 드라마 제작 4단계 : Post-Production 이미지" /></span>
+            <span class="body">
+                <span class="name">드라마 제작을 위한 방송직업탐구 5 - 드라마 제작 4단계 : Post-Production</span>
+                <span class="text" style="font-weight:bold;color:#808080">백홍종</span>
+            </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="javascript:fnOpenClassViewDetail(2, 163, 'popular');">
+            <span class="thumb"><img src="/upload/accept/GoldClassAdmin_img_file_201406301706551_lee1.jpg" alt="후디니의 일반적인 이해와 제작사례 1 - particle에 대한 간단한 Work Flow 이미지" /></span>
+            <span class="body">
+                <span class="name">후디니의 일반적인 이해와 제작사례 1 - particle에 대한 간단한 Work Flow</span>
+                <span class="text" style="font-weight:bold;color:#808080">김기현</span>
+            </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="javascript:fnOpenClassViewDetail(2, 93, 'popular');">
+            <span class="thumb"><img src="/upload/accept/GoldClassAdmin_img_file/93.jpg" alt="게임 그래픽 직업의 이해 1 - 게임 그래픽 직업군 이미지" /></span>
+            <span class="body">
+                <span class="name">게임 그래픽 직업의 이해 1 - 게임 그래픽 직업군</span>
+                <span class="text" style="font-weight:bold;color:#808080">김상중</span>
+            </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="javascript:fnOpenClassViewDetail(2, 69, 'popular');">
+            <span class="thumb"><img src="/upload/accept/GoldClassAdmin_img_file_201405231606051_lee1.gif" alt="콘텐츠 전문인력양성 <뮤지컬! 세상속으로> 이미지" /></span>
+            <span class="body">
+                <span class="name">콘텐츠 전문인력양성 <뮤지컬! 세상속으로></span>
+                <span class="text" style="font-weight:bold;color:#808080">윤호진 대표</span>
+            </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="javascript:fnOpenClassViewDetail(2, 171, 'popular');">
+            <span class="thumb"><img src="/upload/accept/GoldClassAdmin_img_file_201406301701551_lee1.jpg" alt="디지털 시대의 방송과 기술 1부 이미지" /></span>
+            <span class="body">
+                <span class="name">디지털 시대의 방송과 기술 1부</span>
+                <span class="text" style="font-weight:bold;color:#808080">데이비드 제이블(David Zabel)</span>
+            </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="javascript:fnOpenClassViewDetail(2, 131, 'popular');">
+            <span class="thumb"><img src="/upload/accept/GoldClassAdmin_img_file/131.jpg" alt="이종범의 디지털로 웹툰 제작하기 3 - 시나리오부터 콘티까지 이미지" /></span>
+            <span class="body">
+                <span class="name">이종범의 디지털로 웹툰 제작하기 3 - 시나리오부터 콘티까지</span>
+                <span class="text" style="font-weight:bold;color:#808080">이종범</span>
+            </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="javascript:fnOpenClassViewDetail(2, 133, 'popular');">
+            <span class="thumb"><img src="/upload/accept/GoldClassAdmin_img_file/133.jpg" alt="이종범의 디지털로 웹툰 제작하기 5 - 3D 스케치업을 활용한 배경작업 이미지" /></span>
+            <span class="body">
+                <span class="name">이종범의 디지털로 웹툰 제작하기 5 - 3D 스케치업을 활용한 배경작업</span>
+                <span class="text" style="font-weight:bold;color:#808080">이종범</span>
+            </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="javascript:fnOpenClassViewDetail(2, 112, 'popular');">
+            <span class="thumb"><img src="/upload/accept/GoldClassAdmin_img_file/112.jpg" alt="드라마 제작을 위한 방송직업탐구 4 - 드라마 제작 3단계 : Production II 이미지" /></span>
+            <span class="body">
+                <span class="name">드라마 제작을 위한 방송직업탐구 4 - 드라마 제작 3단계 : Production II</span>
+                <span class="text" style="font-weight:bold;color:#808080">백홍종</span>
+            </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="javascript:fnOpenClassViewDetail(2, 111, 'popular');">
+            <span class="thumb"><img src="/upload/accept/GoldClassAdmin_img_file/111.jpg" alt="드라마 제작을 위한 방송직업탐구 3 - 드라마 제작 2단계 : Production I 이미지" /></span>
+            <span class="body">
+                <span class="name">드라마 제작을 위한 방송직업탐구 3 - 드라마 제작 2단계 : Production I</span>
+                <span class="text" style="font-weight:bold;color:#808080">백홍종</span>
+            </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="javascript:fnOpenClassViewDetail(2, 134, 'popular');">
+            <span class="thumb"><img src="/upload/accept/GoldClassAdmin_img_file/134.jpg" alt="이종범의 디지털로 웹툰 제작하기 6 - 데뷔 준비에 대하여 이미지" /></span>
+            <span class="body">
+                <span class="name">이종범의 디지털로 웹툰 제작하기 6 - 데뷔 준비에 대하여</span>
+                <span class="text" style="font-weight:bold;color:#808080">이종범</span>
+            </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="javascript:fnOpenClassViewDetail(2, 225, 'popular');">
+            <span class="thumb"><img src="/upload/accept/GoldClassAdmin_img_file_201407011600225.jpg" alt="파워 블로그를 만드는 20가지 방법 이미지" /></span>
+            <span class="body">
+                <span class="name">파워 블로그를 만드는 20가지 방법</span>
+                <span class="text" style="font-weight:bold;color:#808080">김중태</span>
+            </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="javascript:fnOpenClassViewDetail(2, 71, 'popular');">
+            <span class="thumb"><img src="/upload/accept/GoldClassAdmin_img_file_201405231610441_lee1.gif" alt="‘몰래카메라’,‘우결’,‘신입사원’- 예능 성공의 비결 이미지" /></span>
+            <span class="body">
+                <span class="name">‘몰래카메라’,‘우결’,‘신입사원’- 예능 성공의 비결</span>
+                <span class="text" style="font-weight:bold;color:#808080">전성호 MBC 프로듀서</span>
+            </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="javascript:fnOpenClassViewDetail(2, 173, 'popular');">
+            <span class="thumb"><img src="/upload/accept/GoldClassAdmin_img_file_201406301708111_lee1.jpg" alt="새로운 게임 아이디어로 대중을 사로잡는 방법 1부 이미지" /></span>
+            <span class="body">
+                <span class="name">새로운 게임 아이디어로 대중을 사로잡는 방법 1부</span>
+                <span class="text" style="font-weight:bold;color:#808080">세실 킴(Cecil Kim)</span>
+            </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="javascript:fnOpenClassViewDetail(2, 130, 'popular');">
+            <span class="thumb"><img src="/upload/accept/GoldClassAdmin_img_file/130.jpg" alt="이종범의 디지털로 웹툰 제작하기 2 - 취재에 대한 이해 이미지" /></span>
+            <span class="body">
+                <span class="name">이종범의 디지털로 웹툰 제작하기 2 - 취재에 대한 이해</span>
+                <span class="text" style="font-weight:bold;color:#808080">이종범</span>
+            </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="javascript:fnOpenClassViewDetail(2, 97, 'popular');">
+            <span class="thumb"><img src="/upload/accept/GoldClassAdmin_img_file/97.jpg" alt="게임 그래픽 직업의 이해 5 - 게임 이펙터 이미지" /></span>
+            <span class="body">
+                <span class="name">게임 그래픽 직업의 이해 5 - 게임 이펙터</span>
+                <span class="text" style="font-weight:bold;color:#808080">김상중</span>
+            </span>
+        </a>
+    </li>
+
+</ul>
+<div id="oOpenClassPopular"></div>
+</body>
+</html>

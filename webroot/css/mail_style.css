@@ -1,0 +1,36 @@
+A:link     { color: #F34F4B; text-decoration:none; font-family: "", ""; font-size: 9pt;}
+A:visited  { color: #F34F4B; text-decoration: none; font-family: "", ""; font-size: 9pt;}
+A:active   { color: #F34F4B; text-decoration: none; font-family: "", ""; font-size: 9pt;}
+A:hover    { color: #F34F4B; text-decoration:none: "", ""; font-size: 9pt;}
+
+td   {font-family: "", "u", "", "u", "Arial", "Verdana", "Tahoma"; font-size: 9pt; color: #121212}
+
+
+  /* 수동메일 footer*/
+ .bottom {font-size:9pt;  text-decoration:none; color:#000000;  padding-top:25px; padding-left:155px; line-height: 17px;}
+     .bottom a:link      {font-family:"굴림","굴림체"; font-size:9pt;text-decoration:none; color:#000000; padding-top:25px; padding-left:155px; line-height: 17px;}
+     .bottom a:visited {font-family:"굴림","굴림체"; font-size:9pt; text-decoration:none; color:#000000; padding-top:25px; padding-left:155px; line-height: 17px;}
+	 .bottom a:active   {font-family:"굴림","굴림체"; font-size:9pt; text-decoration:none; color:#000000; padding-top:25px; padding-left:155px; line-height: 17px;}
+     .bottom a:hover   {font-family:"굴림","굴림체"; font-size:9pt; text-decoration:none; color:#999999; padding-top:25px; padding-left:155px; line-height: 17px;}
+
+
+    /*mail text*/
+    .mail_text  {font-size:9pt; text-decoration:none; color:#666666;  padding-top:20px; padding-left:75px; padding-right:75 px; padding-bottom:20px; line-height: 20px;}
+
+    .mail_box  {font-size:9pt; text-decoration:none; color:#000000;   padding-left:15px; padding-right:15 px;  line-height: 20px;}
+
+
+
+
+  /*자동메일 footer*/
+ .auto_bottom {font-size:9pt;  text-decoration:none; color:#000000;  padding-top:60px; padding-left:193px; line-height: 17px;}
+     .auto_bottom a:link      {font-family:"굴림","굴림체"; font-size:9pt;text-decoration:none; color:#000000; padding-top:60px; padding-left:193px; line-height: 17px;}
+     .auto_bottom a:visited {font-family:"굴림","굴림체"; font-size:9pt; text-decoration:none; color:#000000; padding-top:60px; padding-left:193px; line-height: 17px;}
+	 .auto_bottom a:active   {font-family:"굴림","굴림체"; font-size:9pt; text-decoration:none; color:#000000; padding-top:60px; padding-left:193px; line-height: 17px;}
+     .auto_bottom a:hover   {font-family:"굴림","굴림체"; font-size:9pt; text-decoration:none; color:#999999; padding-top:60px; padding-left:193px; line-height: 17px;}
+  
+
+   /*mail text*/
+   .automail_text  {font-size:9pt; text-decoration:none; color:#666666;  padding-top:5px; padding-left:5px;  padding-bottom:5px; line-height: 20px;}
+
+   .automail_box  {font-size:9pt; text-decoration:none; color:#000000;   padding-left:15px; padding-right:15 px;  line-height: 20px;}

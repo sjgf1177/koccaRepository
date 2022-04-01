@@ -1,0 +1,397 @@
+<html>
+<head>
+<title>
+9.2 TaxonPath - 9.2.1 Source - 9.2.2 - Taxon
+</title>
+<script language="javascript">
+/************************************************************************
+**
+** Filename:  TaxonPath.htm
+**
+** File Description: This page displays the multiplicity elements for
+**					 section 9.2. TaxonPath.
+**
+** Author:  ADLI Project
+**
+** Company Name: Concurrent Technologies Corporation (CTC)
+**
+** Module/Package Name:
+** Module/Package Description:
+**
+** Design Issues:
+**
+** Implementation Issues:
+** Known Problems:
+** Side Effects:
+**
+** References:  SCORM Version 1.1 (Section 2)
+**
+**************************************************************************
+**
+** Advanced Distributed Learning Co-Laboratory (ADL Co-Lab) grants you
+** ("Licensee") a non-exclusive, royalty free, license to use, modify and
+** redistribute this software in source and binary code form, provided
+** that i) this copyright notice and license appear on all copies of the
+** software; and ii) Licensee does not utilize the software in a manner
+** which is disparaging to CTC.
+**
+** This software is provided "AS IS," without a warranty of any kind.  ALL
+** EXPRESS OR IMPLIED CONDITIONS, REPRESENTATIONS AND WARRANTIES,
+** INCLUDING ANY IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A
+** PARTICULAR PURPOSE OR NON- INFRINGEMENT, ARE HEREBY EXCLUDED.  CTC AND
+** ITS LICENSORS SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY LICENSEE
+** AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THE SOFTWARE OR ITS
+** DERIVATIVES.  IN NO EVENT WILL CTC  OR ITS LICENSORS BE LIABLE FOR ANY
+** LOST REVENUE, PROFIT OR DATA, OR FOR DIRECT, INDIRECT, SPECIAL,
+** CONSEQUENTIAL, INCIDENTAL OR PUNITIVE DAMAGES, HOWEVER CAUSED AND
+** REGARDLESS OF THE THEORY OF LIABILITY, ARISING OUT OF THE USE OF OR
+** INABILITY TO USE SOFTWARE, EVEN IF CTC  HAS BEEN ADVISED OF THE
+** POSSIBILITY OF SUCH DAMAGES.
+**
+*************************************************************************
+**
+** Date Changed   Author of Change  Reason for Changes
+** ------------   ----------------  -------------------------------------
+** 3/12/2001      Tom Hopkins       Initial Final Version for MDG v1.1
+**
+************************************************************************/
+
+// Global variables
+var visibleCount = 0;
+var maxElements = 100;
+var offset = 170;
+var sourceList = "";
+var currentnum = "";
+var taxonList = "";
+var idArray = new Array();
+var entryArray = new Array();
+var id_2Array = new Array();
+var entry_2Array = new Array();
+id_2Array = "";
+entry_2Array = "";
+var number_main = "";
+var info_pass = 1;
+var stored_number = 0;
+
+/************************************************************************
+** Function:  edit(number)
+**
+** Variables: number - Number of the section being edited
+**
+** Description:
+**			This function is called when the user clicks on the edit link.
+**		It saves the number of the number being edited and open Taxon.htm
+**		in its own window.
+*************************************************************************/
+function edit(number)
+{
+  currentnum = number;
+  window.open("Taxon.htm");
+}
+
+/************************************************************************
+** Function:  displayTaxon(id,entry,number)
+**
+** Variables: id - List of ids.
+**			  entry - List of entries
+**			  number - Number of the section that was edited.
+**
+** Description:
+**			This function is called by Taxon.htm.  It displays the Id and
+**	entries in the textarea.
+*************************************************************************/
+function displayTaxon(id,entry,number)
+{
+	info_pass = 0;
+	idArray[number] = id;
+	entryArray[number] = entry;
+	
+	// creation of an array for the combination of Id/Entry
+	var id_storeArray = id.split("|");
+	var entry_storeArray = entry.split("|");
+  	
+	myOptions = new Array();
+	myOptions2 = new Array();	
+
+	for (var i=0;i<id_storeArray.length-1;i++)
+    {
+       myOptions[i] = id_storeArray[i];
+    }
+
+	for (var i=0;i<entry_storeArray.length-1;i++)
+    {
+       myOptions2[i] = entry_storeArray[i];
+    }
+	
+	 // for 9.2.2 Taxon
+	 document.all.item("inputtaxon"+number).value = "";		 
+	 for (i=0;i<myOptions.length;i++)
+	 {
+	    var j = "";
+		j = i + 1;
+		document.all.item("inputtaxon"+number).value = document.all.item("inputtaxon"+number).value + j + ".  Id: " + myOptions[i] + "     -    Entry: " + myOptions2[i] + "\r\n";
+	 }
+}
+
+/************************************************************************
+** Function:  displayTaxonPath()
+**
+** Variables: none
+**
+** Description:
+**			This function is called when the page loads.  It gathers the
+**		id and entry arrays as well as the source list..  These lists/arrays
+**		if not blank are used to repopulate the fields.  Otherwise it calls 
+**		addNewTaxon and adds blank fields.
+*************************************************************************/
+function displayTaxonPath()
+{
+ var empty_check = -1;
+ number_main = parent.main.currentnum;   
+   if (parent.main == null)
+   {
+      location.href="errorPage.htm";
+
+   }
+   else
+   {
+   if (stored_number == number_main)
+   {
+    if (parent.parent.main.info_pass == 0)
+	{
+	  sourceList = parent.main.sourceList[number_main-1];
+	  id_2Array = parent.main.idList[number_main];
+	  entry_2Array = parent.main.entryList[number_main];
+	  empty_check = 2;
+	}
+	else
+	{
+	  if (parent.main.info_pass == 0)
+	  {
+	  	// information has not yet been passed
+		sourceList = parent.main.source_mainArray[number_main];
+		id_2Array = parent.main.id_mainArray[number_main];
+		entry_2Array = parent.main.entry_mainArray[number_main];
+		empty_check = 1;
+	  }
+	  else if (parent.main.info_pass == -1)
+	  {
+	  	// information has been passed
+	  	sourceList = parent.main.sourceList[number_main-1];
+	  	id_2Array = parent.main.idList[number_main];
+	  	entry_2Array = parent.main.entryList[number_main];
+		empty_check = 2;
+	  }
+	}
+   }
+   else
+   {
+   	stored_number = number_main;
+   }
+      if (empty_check == -1)
+	  {
+		addNewSource(null,null,null);
+	  }	
+	  
+	  else if (empty_check == 1)
+	  {
+	  	var sourceArray = sourceList.split("|");
+		for (var i=0;i<sourceArray.length-1;i++)
+		{
+		 addNewSource(sourceArray[i],id_2Array[i+1],entry_2Array[i+1]);
+		}
+	  }
+	  
+	  else
+	  {
+          for (var i=0;i<sourceList.length;i++)
+		  {
+		     addNewSource(sourceList[i],id_2Array[i+1],entry_2Array[i+1])
+		  }
+	  }
+  }
+}
+
+/************************************************************************
+** Function:  addNewSource(source,id,entry)
+**
+** Variables: source - List of sources
+**			  id - Array of lists of ids
+**			  entry - Array of lists of entries
+**
+** Description:
+**			This function is called by displayTaxonPath.  The appropriate
+**		fields are made visible and the textboxes are either populated
+**		with the variable information or left blank.
+*************************************************************************/
+function addNewSource(source,id,entry)
+{
+   if ((source == null) || (source == ""))
+   {
+	source = "";
+	id = "";
+	entry = "";
+   }
+
+   if (visibleCount == 8)
+   {
+      if (!confirm("WARNING!  Tools are only required to support up to 16 9.2 Taxon Path sections. \n Click OK to continue adding. \nClick Cancel to stop adding."))
+      {
+         return;
+      }
+   }
+
+   if (visibleCount == maxElements)
+   {
+      alert("Maximum number of elements exceeded.  Can not add any more elements.");
+      return;
+   }
+
+   visibleCount++;
+
+   // 9.2 TaxonPath
+   document.all.item("label"+visibleCount).style.visibility = "visible";
+   document.all.item("del"+visibleCount).style.visibility = "visible";
+   
+   // 9.2.1 Source
+   document.all.item("labelsour"+visibleCount).style.visibility = "visible";
+   document.all.item("inputsour"+visibleCount).style.visibility = "visible";
+   document.all.item("inputsour"+visibleCount).value = source;
+
+   // 9.2.2 Taxon
+   document.all.item("labeltaxon"+visibleCount).style.visibility = "visible";
+   document.all.item("labeledit"+visibleCount).style.visibility = "visible";   
+   document.all.item("inputtaxon"+visibleCount).style.visibility = "visible";
+   
+   //-- Code to re-display the Id and Entry Information --//
+   if ((id == null) || (id == ""))
+   {
+   	document.all.item("inputtaxon"+visibleCount).value = "";
+   }
+   else
+   {
+   	var id_tempArray = id.split("|");
+	var entry_tempArray = entry.split("|");
+	var length_check = id_tempArray.length;
+	length_check--;
+	for (var i=0;i<length_check;i++)
+	{
+	 document.all.item("inputtaxon"+visibleCount).value = document.all.item("inputtaxon"+visibleCount).value + (i+1) + ". Id: " + id_tempArray[i] + " Entry: " + entry_tempArray[i]+ "\r\n";
+	}
+   }
+   //-- End of Id/Entry re-input						--//
+   
+   // Line Tag
+   document.all.item("div"+visibleCount).style.visibility = "visible";
+
+}
+
+/************************************************************************
+** Function:  deleteSource()
+**
+** Variables: none
+**
+** Description:
+**			This function is called when the user presses the delete button.
+**		The appropriate fields are hidden and the information in the
+**		textboxes is erased.
+*************************************************************************/
+function deleteSource()
+{
+   // get the last character of the id that caused this event to be fired
+   // this is the index of the element we want to delete.
+   
+   var evt = new String(window.event.srcElement.id);
+   var idx = evt.charAt(evt.length-1);
+
+   // push all the other remaining elements down the "stack".
+   for (i=idx;i<visibleCount;i++)
+   {
+      var nextIdx = i;
+      nextIdx++;
+      document.all.item("inputsour"+i).value = document.all.item("inputsour"+nextIdx).value;
+   }
+   
+   // make the last one invisible (this is the element that will now be empty).
+   
+
+   // 9.2 TaxonPath
+   document.all.item("label"+visibleCount).style.visibility = "hidden";
+   document.all.item("del"+visibleCount).style.visibility = "hidden";
+   
+   // 9.2.1 Source
+   document.all.item("labelsour"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputsour"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputsour"+visibleCount).value = "";
+
+   // 9.2.2 Taxon
+   document.all.item("labeltaxon"+visibleCount).style.visibility = "hidden";
+   document.all.item("labeledit"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputtaxon"+visibleCount).style.visibility = "hidden";
+ //  document.all.item("inputtax"+visibleCount).value = "";
+
+   // Line Tag
+   document.all.item("div"+visibleCount).style.visibility = "hidden";
+   
+   visibleCount--;
+   
+}
+
+/************************************************************************
+** Function:  okHandler()
+**
+** Variables: none
+**
+** Description:
+**			This function is called when the user presses the ok button.
+**		The source, id and entry information is gathered and 
+**		displayTaxonPath in 9Classification-main.htm is called.
+*************************************************************************/
+function okHandler()
+{
+  // resets the keywordList so you don't have duplication of previous elements - used if editing elements for a second time //
+  sourceList = "";
+
+  number = parent.main.currentnum;
+  for (i=0;i<visibleCount;i++)
+  {
+    var j = "";
+	j = i + 1;
+	sourceList = sourceList + document.all.item("inputsour" + j).value + "|"
+  }
+    info_pass = -1;
+    parent.main.displayTaxonPath(sourceList,idArray,entryArray,number);
+}
+</script>
+
+<link rel="STYLESHEET" type="text/css" href="../../include/style.css">
+</head>
+<body background="/images/metadata/bkg.gif" bgcolor="#ffffff" onload="displayTaxonPath();">
+<div align="center">
+<table width="98%">
+<tr>
+	<td Class="Form">9.2 TaxonPath - Multiple Elements</td>
+<tr>
+	<td>
+		<form NAME="taxonpathForm" id="taxonpathForm">
+		<input TYPE="button" ID="add" NAME="add" VALUE="Add TaxonPath" ONCLICK ="addNewSource(null,null,null);">
+		&nbsp;&nbsp;
+		<input TYPE="button" id="okButton" NAME="okButton" VALUE="OK" ONCLICK="okHandler();">
+		&nbsp;&nbsp;&nbsp;
+		<input type="Reset" value="Clear" name="clearButton" id="clearButton">
+		<script LANGUAGE="JAVASCRIPT">
+		for (i=0;i<100;i++)  // the upper limit needs to correspond to the maxElements variable defined above.
+		{
+		   document.writeln("<label id=\"label"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">9.2 TaxonPath</label>&nbsp;&nbsp;&nbsp;<input TYPE=\"button\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" ID=\"del" +i+ "\" NAME=\"del" +i+ "\" VALUE=\"Delete\" ONCLICK =\"deleteSource();\"><BR>");			
+		   document.writeln("<label id=\"labelsour"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">9.2.1 Source</label>&nbsp;&nbsp;<INPUT TYPE=\"text\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" name=\"inputsour\"" + i + "\" id=\"inputsour" + i + "\" maxlength=1024><BR>");
+		   document.writeln("<label id=\"labeltaxon"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">9.2.2 Taxon</label>&nbsp;&nbsp;&nbsp;<textarea rows=3 WRAP=OFF cols=34 readonly style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" name=\"inputtaxon\"" + i + "\" id=\"inputtaxon" + i + "\"></textarea>&nbsp;<a href=javascript:edit("+i+") id=\"labeledit"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">edit</a><br>");
+		   document.writeln("<div id=\"div"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\"><hr></div>");		   
+		}
+		</script>
+		</form>
+	</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

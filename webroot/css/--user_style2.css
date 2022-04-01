@@ -1,0 +1,309 @@
+body,td,div,form,center,pre,blockquote {font-family:dotum,verdana; font-size: 9pt; color: #666666;line-height:1.4;}
+select,input,textarea,option {font-family:dotum,verdana; font-size: 9pt; color: #333333}
+input.id	{font-size:9pt}
+input.border {border:solid 1;background-color:eaeaea;border-left-color:b8c1c2;border-right-color:b8c1c2;border-top-color:b8c1c2;border-bottom-color:b8c1c2;height:18px;color:333333}
+img {border:0}
+
+
+a:link 	  {color: 666666; text-decoration: none; font-size:9pt; font-family: dotum,verdana;}
+a:visited {color: 666666; text-decoration: none; font-size:9pt; font-family: dotum,verdana;}
+a:active  {color: 666666; text-decoration: none; font-size:9pt; font-family: dotum,verdana;}
+a:hover   {color: 666666; text-decoration: none; font-size:9pt; font-family: dotum,verdana;}
+
+
+a.menu:link 	  {text-decoration: none; font-size:9pt; font-family: dotum,verdana;}
+a.menu:visited { text-decoration: none; font-size:9pt; font-family: dotum,verdana;}
+a.menu:active  {text-decoration: none; font-size:9pt; font-family: dotum,verdana;}
+a.menu:hover   {text-decoration: none; font-size:9pt; font-family: dotum,verdana;font-weight:bold;}
+
+
+box {width: 100%; height: 250px; overflow: auto; border:0 solid black;
+	   scrollbar-face-color: #E7E7E7; 
+           scrollbar-3dlight-color: #E7E7E7; 
+	   scrollbar-darkshadow-color: #E7E7E7;       
+           scrollbar-track-color: #E7E7E7; 
+           scrollbar-shadow-color: #9E9E9E; 
+           scrollbar-highlight-color: #9E9E9E;
+           scrollbar-arrow-color: #9E9E9E;}
+
+
+ .table2 { /* 테이블 (100%) */
+            width: 100%;
+	    border-style: none;
+         }      
+
+.input {font-family:"굴림","굴림체"; font-size:9pt; border:solid 1;background-color:FFFFFF;border-left-color:D4D0C8;border-right-color:D4D0C8;border-top-color:D4D0C8;border-bottom-color:D4D0C8;height:19px;color:333333}
+.input2 {border:solid 1;background-color:efefef;border-left-color:D4D0C8;border-right-color:D4D0C8;border-top-color:D4D0C8;border-bottom-color:D4D0C8;height:19px;color:6C6C6C;padding-left:7px;padding-top:2px;}
+.input3 {font-family:"굴림","굴림체"; font-size:9pt; border:solid 1;background-color:FFFFFF;border-left-color:D4D0C8;border-right-color:D4D0C8;border-top-color:D4D0C8;border-bottom-color:D4D0C8;color:333333;}
+.input4 {font-family:"굴림","굴림체"; font-size:9pt; border:solid 1;background-color:F9F9F9;border-left-color:BBBABA;border-right-color:BBBABA;border-top-color:BBBABA;border-bottom-color:BBBABA;color:333333;}
+.input5 {font-family:"굴림","굴림체"; font-size:9pt; border:solid 1;background-color:FFFFFF;border-left-color:7F817E;border-right-color:BBBABA;border-top-color:7F817E;border-bottom-color:BBBABA;color:333333;}
+.bold {font-weight:bold}
+
+
+.global {FONT-SIZE: 8pt; COLOR: #666666; FONT-FAMILY: dotum,verdana; TEXT-DECORATION: none}
+.page{color: 6CA3F3; text-decoration: none; font-size:9pt; font-family: dotum,verdana;font-weight:bold}
+.location { font-family:"굴림","굴림체"; font-size:8pt; text-decoration:none; color:#666666; text-align:right; height: 15; padding:0 43 5 0;}  //* 경로 *//
+
+
+
+
+
+
+
+
+
+/* 테이블 text정렬 기본 */
+
+.tbl_bc {color:#000000; text-align:center; padding-top:3;  height:25;}
+	/*테이블 검정글 가운데정렬*/
+.tbl_grc {color:#666666; text-align:center; padding-top:3;  height:25;}
+	/*테이블 회색글 가운데정렬*/
+.tbl_gleft {color:#666666; text-align:left; padding-left:7; padding-top:5; padding-bottom:3; height:25;}
+   /*테이블 회색글 왼쪽정렬*/
+.tbl_contents {color:#666666; text-align:left; padding-left:20; padding-top:20; padding-bottom:20;}
+   /*테이블 게시판내용정렬*/
+.font_ex {  text-align:left; padding-top:3; padding-bottom:2; color:#8592A9;  }
+   /*사이트전체 설명글자css*/
+
+
+
+ /* 공통 테이블 Deep Blue */
+.line_color_com {background-color:#576EC4;}
+.tbl_dbtit1 {color:#556ABD;  padding-top:3; padding-left:15; background-color:#E6EFFC; height:25;}
+.tbl_dbtit2 {color:#556ABD;  padding-top:3; padding-left:15; background-color:#D7E5FB; height:25;}
+
+
+
+/* 수강신청 테이블 GREEN */
+.tbl_g {font-size:9pt; color:#666666; background-color:#ffffff;}
+.tbl_gtable { background-color:#EEF8F8; text-align:center; padding-left:3; padding-top:5;  padding-right:3;  padding-bottom:5; border-color:#FFFFFF;}
+	/*테이블에 주는 클래스*/
+.tbl_gtit {color:#0E8D2B; text-align:center; padding-top:3; background-color:#D3EECD; height:25;}
+.tbl_gtit2 {color:#0E8D2B; text-align:center; padding-top:3; background-color:#E9FAE5; height:25; }
+	/*테이블 타이틀 */
+.lcolor {background-color:#70BC82;}
+    /*테이블 상단라이선색 */
+.tbl_gtabon {  text-align:center; padding-top:5; padding-bottom:2; color:#036E1B;  font-weight:bold; }
+       .tbl_gtabon a:link { font-family:"굴림","굴림체";font-size:9pt;  text-align:center; padding-top:5; padding-bottom:2;  font-weight:bold; text-decoration:none; color:#036E1B;}
+       .tbl_gtabon a:visited { font-family:"굴림","굴림체";font-size:9pt;  text-align:center; padding-top:5; padding-bottom:2;  font-weight:bold; text-decoration:none; color:#036E1B;}
+	   .tbl_gtabon a:active {font-family:"굴림","굴림체"; font-size:9pt;  text-align:center; padding-top:5; padding-bottom:2;  font-weight:bold; text-decoration:none; color:#036E1B;}
+       .tbl_gtabon a:hover {font-family:"굴림","굴림체"; font-size:9pt;  text-align:center; padding-top:5; padding-bottom:2;  font-weight:bold;  text-decoration:none; color:#ffffff;}
+   /*수강신청탭text선택 */
+.tbl_gtaboff {  text-align:center; padding-top:5; padding-bottom:2; color:#666666;  }
+      .tbl_gtaboff a:link      {font-family:"굴림","굴림체"; font-size:9pt;  text-align:center; padding-top:5; padding-bottom:2; text-decoration:none; color:#666666;}
+      .tbl_gtaboff a:visited {font-family:"굴림","굴림체"; font-size:9pt;  text-align:center; padding-top:5; padding-bottom:2; text-decoration:none; color:#666666;}
+	  .tbl_gtaboff a:active   {font-family:"굴림","굴림체"; font-size:9pt;  text-align:center; padding-top:5; padding-bottom:2;  text-decoration:none; color:#666666;}
+      .tbl_gtaboff a:hover   {font-family:"굴림","굴림체"; font-size:9pt;  text-align:center; padding-top:5; padding-bottom:2;  text-decoration:none; color:#036E1B;}
+   /*수강신청탭text*/ 
+
+.lecturetitle {  text-align:left; padding-top:3; padding-bottom:2; color:#666666;  font-weight:bold;  }
+   /*수강신청과정명*/ 
+.lecturelist {  text-align:left; padding-left:5; padding-top:6; padding-bottom:10; color:#666666; line-height: 28px; text-decoration: none;}
+       .lecturelist a:link      {font-family:"굴림","굴림체"; text-align:left; padding-left:5; padding-top:6; padding-bottom:10;  font-size:9pt; text-decoration:none; color:#666666;}
+       .lecturelist a:visited {font-family:"굴림","굴림체"; text-align:left; padding-left:5; padding-top:6; padding-bottom:10; font-size:9pt; text-decoration: none; color:#666666;}
+	   .lecturelist a:active  {font-family:"굴림","굴림체"; text-align:left; padding-left:5; padding-top:6; padding-bottom:10;  font-size:9pt; text-decoration: none; color:#666666;}
+       .lecturelist a:hover  {font-family:"굴림","굴림체"; text-align:left; padding-left:5; padding-top:6; padding-bottom:10;  font-size:9pt; text-decoration: none; color:#036E1B;}
+   /*수강신청과정list*/ 
+  
+ .tblfont_gleft {color:#666666; text-align:left; padding-left:15; padding-top:7; padding-bottom:4; line-height: 17px; text-decoration:none; }
+   /*테이블 회색글 왼쪽정렬*/
+ .tblfont_titleft {color:#036E1B; text-align:left; padding-left:15; padding-top:5; padding-bottom:3; font-weight:bold;  }
+   /*테이블  왼쪽정렬 제목글*/
+ .tblfont_gleft2 {color:#666666; text-align:left; padding-left:5; padding-top:7; padding-bottom:4; line-height: 17px; text-decoration:none; }
+   /*테이블 회색글 왼쪽정렬2*/
+
+ .year_textb {font-family:"굴림","굴림체";color:#0E8D2B; font-size:9pt; height: 25px; background-color:#E9FAE5; text-align:center;letter-spacing: 0px; font-style:normal; font-variant:normal; }
+   /*달력날짜 정렬*/
+ .font04 { font-family:"굴림","굴림체"; font-size:8pt; text-decoration:none; color:#666666; }
+   /*작은 글씨체*/
+
+
+
+
+
+/* 나의 강의실 테이블 PINK */
+.tbl_p {font-size:9pt; color:#666666; background-color:#ffffff;}
+.tbl_ptable { background-color:#FFFAF7; text-align:center; padding-left:3; padding-top:5;  padding-right:3;  padding-bottom:5; border-color:#FFFFFF;}
+	/*테이블에 주는 클래스*/
+.tbl_ptit {color:#C96F4A; text-align:center; padding-top:3; background-color:#FFCCB7; height:25;}
+.tbl_ptit2 {color:#C96F4A; text-align:center; padding-top:3; background-color:#FFE0D2; height:25;}
+   	/*테이블 타이틀 */
+.linecolor_my {background-color:#E47B49;}
+    /*테이블 상단라이선색 */
+.tbl_pc {color:#BC4C24; text-align:center; padding-top:3;  height:25;}
+	/*테이블 pink글 가운데정렬*/
+
+
+
+/* 학습지원센터 테이블 Blue */
+.tbl_br {font-size:9pt; color:#11638E; background-color:#ffffff; text-align:center; padding-top:5;  padding-bottom:3; }
+     /*게시판 가운데정렬 색글자 */
+.tbl_btit {font-family:"굴림","굴림체"; font-size:9pt; letter-spacing:-1; font-weight:bold; text-decoration:none; color:#11638E;background-color:#FFFFFF;  text-align:left; padding-left:7; padding-top:5; padding-bottom:3; }
+    /*테이블 보기 내용제목 */
+.tbl_bdata {font-size:9pt; color:#D55B55; background-color:#ffffff; text-align:left; padding-top:5;  padding-bottom:3; padding-left:7;}
+       .tbl_bdata a:link      {font-family:"굴림","굴림체"; font-size:9pt;  text-decoration:none; color:#D55B55;}
+       .tbl_bdata a:visited {font-family:"굴림","굴림체"; font-size:9pt;  text-decoration:none; color:#D55B55;}
+	   .tbl_bdata a:active  {font-family:"굴림","굴림체"; font-size:9pt;  text-decoration:none; color:#D55B55;}
+       .tbl_bdata a:hover  {font-family:"굴림","굴림체";font-size:9pt; text-decoration:none; color:#11638E;}
+    /*데이타 첨부파일 색글자 */
+.tbl_bfaq {font-size:9pt; color:#666666; text-align:left; padding-top:5;  padding-bottom:3; padding-left:7;}
+       .tbl_bfaq a:link      {font-family:"굴림","굴림체"; font-size:9pt;  text-decoration:none; color:#666666;}
+       .tbl_bfaq a:visited {font-family:"굴림","굴림체"; font-size:9pt;  text-decoration:none; color:#666666;}
+	   .tbl_bfaq a:active  {font-family:"굴림","굴림체"; font-size:9pt;  text-decoration:none; color:#666666;}
+       .tbl_bfaq a:hover  {font-family:"굴림","굴림체";font-size:9pt; text-decoration:none; color:#11638E;}
+   /*faq 내용별링크 */
+
+.tbl_cfaq {font-size:9pt; color:#666666; text-align:left; padding-top:2;  padding-bottom:1; padding-left:3;}
+       .tbl_cfaq a:link      {font-family:"굴림","굴림체"; font-size:9pt;  text-decoration:none; color:#666666;}
+       .tbl_cfaq a:visited {font-family:"굴림","굴림체"; font-size:9pt;  text-decoration:none; color:#666666;}
+	   .tbl_cfaq a:active  {font-family:"굴림","굴림체"; font-size:9pt;  text-decoration:none; color:#666666;}
+       .tbl_cfaq a:hover  {font-family:"굴림","굴림체";font-size:9pt; text-decoration:none; color:#11638E;}
+    /*faq 상단링크 */
+
+.tbl_bfaqt {font-size:9pt; color:#666666; background-color:#EEF7FC; text-align:left; padding-top:15;  padding-bottom:15; padding-left:3;}
+     /*faq 내용위치css */
+
+
+       
+
+/* 교육안내 Yellow */
+.tbl_ytabon {  text-align:center; padding-top:5; padding-bottom:2; color:#715E00;  font-weight:bold; }
+       .tbl_ytabon a:link { font-family:"굴림","굴림체";font-size:9pt;  text-align:center; padding-top:5; padding-bottom:2;  font-weight:bold; text-decoration:none; color:#715E00;}
+       .tbl_ytabon a:visited { font-family:"굴림","굴림체";font-size:9pt;  text-align:center; padding-top:5; padding-bottom:2;  font-weight:bold; text-decoration:none; color:#715E00;}
+	   .tbl_ytabon a:active {font-family:"굴림","굴림체"; font-size:9pt;  text-align:center; padding-top:5; padding-bottom:2;  font-weight:bold; text-decoration:none; color:#715E00;}
+       .tbl_ytabon a:hover {font-family:"굴림","굴림체"; font-size:9pt;  text-align:center; padding-top:5; padding-bottom:2;  font-weight:bold;  text-decoration:none; color:#ffffff;}
+   /*과정체계도 tab부분 글*/
+
+
+
+
+
+/*메인사용*/
+
+   /*DESIGN 타입별 변화부분*/
+     .input_login {font-size:9pt; font-family:dotum,verdana; color:#000000; text-decoration:none; border:1px solid #5A6880; background-color:#E8F0FF;}
+      /*메인 login input창*/
+    .mcolor1 {background-color:#BECCE4;}
+      /*상단로그인있는bar부분*/
+    .mcolor2 {background-color:#E3EBF9; padding:0 0 0 5;}
+	  /*상단bar인풋창있는부분*/
+    .main_center {background-color:#E6F2F8; padding:5 0 0 22; text-align:center;}
+      /*하단컨텐츠 색부분 메인 컨텐츠위치*/
+
+   .notice_day {font-size:8pt; font-family:dotum,verdana; text-decoration:none; color:#006600;}
+   .notice  {font-size:9pt;font-family:dotum,verdana; text-decoration:none; color:#000000; padding-top:2px; padding-bottom:2px;}
+     .notice a:link  {font-size:9pt;font-family:dotum,verdana; text-decoration:none; color:#000000;}
+     .notice a:visited  {font-size:9pt;font-family:dotum,verdana; text-decoration:none; color:#000000;}
+     .notice a:active  {font-size:9pt;font-family:dotum,verdana; text-decoration:none; color:#000000;}
+     .notice a:hover  {font-size:9pt;font-family:dotum,verdana; text-decoration:none; color:#378E0F;}
+      /*메인 공지사항*/
+
+    /*추천강좌*/
+    .letable_out {width: 100%; border-style: none; background-color: #B1D4E4;}
+      /*추천강좌바깥테이블*/
+    .letable_in {width: 100%; border-style: none; background-color: #ffffff;}
+      /*추천강좌안테이블*/
+    .lecolor {background-color:#D8EAF3;}
+     /*추천강좌안컬러*/
+
+    .lec  {font-family:"굴림","굴림체"; font-size: 12px; text-decoration:none; color:#000000; padding-top:4px; padding-bottom:3px;}
+     .lec a:link       {font-family:"굴림","굴림체"; font-size: 12px; text-decoration:none; color:#000000;}
+     .lec a:visited  {font-family:"굴림","굴림체"; font-size: 12px; text-decoration:none; color:#000000;}
+     .lec a:active   {font-family:"굴림","굴림체"; font-size: 12px; text-decoration:none; color:#000000;}
+     .lec a:hover   {font-family:"굴림","굴림체"; font-size: 12px; text-decoration:none; color:#378E0F;}
+     /*추천강좌텍스트링크*/
+   .padd01 {padding:7 7 7 0;}
+     /*추천강좌리스트위치*/
+   
+    /*나의일정*/
+    .mycolor {background-color:#FBFDFF;}
+    .myday  {font-size:9pt; text-decoration:none; color:#666666; padding-top:8px; padding-bottom:3px;}
+        .myday a:link       {font-family:"굴림","굴림체"; font-size:9pt; text-decoration:none; color:#666666;}
+        .myday a:visited  {font-family:"굴림","굴림체"; font-size:9pt; text-decoration:none; color:#666666;}
+        .myday a:active   {font-family:"굴림","굴림체"; font-size:9pt; text-decoration:none; color:#666666;}
+        .myday a:hover   {font-family:"굴림","굴림체"; font-size:9pt; text-decoration:none; color:#378E0F;}
+
+    .mytable_out {width: 97%; border-style: none; background-color: #AAC078;}
+       /*나의일정리스트 바깥테이블*/
+    .myt_tit {font-family:"굴림","굴림체"; height:15; background-color:#E5EAD9; color: #8C939F;text-align:center;font-weight:bold;letter-spacing: 0px; font-style:normal; font-variant:normal; font-size:8pt;}
+    .myt_td{ font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma"; font-size: 8pt; height: 15px; color: #666666; text-align: center; text-decoration: none; background-color: #FEFDF7; }
+    .my_layertext {color:#666666; text-align:left; padding-left:9; padding-top:8; padding-bottom:8;}
+         /*나의일정팝업레이어*/
+ 
+
+
+
+.scolor {font-size:8pt; font-family:"굴림","굴림체";  color: #FFFFFF; text-align:right; background-color: #9AB8EC; text-decoration:none;}
+    .scolor a:link {font-size:8pt;font-family:"굴림","굴림체";  text-decoration:none; color:#FFFFFF;}
+    .scolor a:visited {font-size:8pt;font-family:"굴림","굴림체";  text-decoration:none; color:#FFFFFF;}
+    .scolor a:hover {font-size:8pt;font-family:"굴림","굴림체";  text-decoration:none; color:#FFFFFF;}
+    .scolor a:active {font-size:8pt;font-family:"굴림","굴림체";  text-decoration:none; color:#999999;}
+    /*sidemenu*/ 
+ .padd_endol { padding-top:20px; padding-left:200px; }
+    /*명언테이블위치*/
+.font02 {font-family:"굴림","굴림체"; font-size:8pt; text-decoration:none; color:#003366;  }
+    /*로그아웃시텍스트*/
+
+  /*교육문의*/
+  .font01 {font-size:10px;}
+     .font01 a:link  {font-family:"굴림","굴림체"; font-size:10px; text-decoration:none; color:#000000;}
+     .font01 a:visited  {font-family:"굴림","굴림체"; font-size:10px; text-decoration:none; color:#000000;}
+     .font01 a:active  {font-family:"굴림","굴림체"; font-size:10px; text-decoration:none; color:#000000;}
+     .font01 a:hover  {font-family:"굴림","굴림체"; font-size:10px; text-decoration:none; color:#378E0F;}
+  .padd02 {padding:37 0 0 0;}
+     /*교육안내위치*/
+ .telcolor {background-color:#ffffff;}
+     /*교육문의박스컬러*/
+
+
+ /*과정맛보기*/
+ .font_copre {font-family:"굴림","굴림체"; font-size:8pt; text-decoration:none; color:#666666; font-weight:bold;  padding-bottom:3px; }
+     /*과정맛보기 과정명*/
+ .font_cotext {font-family:"굴림","굴림체"; font-size:8pt; text-decoration:none; color:#666666; height: 14px; letter-spacing: -1px;}
+     /*과정맛보기 내용*/
+ .font_booktext {font-family:"굴림","굴림체"; font-size:8pt; text-decoration:none; color:#666666; height: 14px; letter-spacing: -1px; padding-top:5px; }
+     /*금주의추천도서 내용*/
+
+
+/*사이버폴*/
+ .font_poll{font-family:"굴림","굴림체"; font-size:8pt; text-decoration:none; color:#666666; height: 14px; letter-spacing: -1px; padding-top:5px; padding-left:3px; }
+     /*사이버폴 질문*/
+
+
+
+/*메인 footer*/
+     .bottom_menu {font-size:8pt; font-family:dotum,verdana; text-decoration:none; color:#666666;}
+        .bottom_menu a:link {font-size:8pt;font-family:dotum,verdana; text-decoration:none; color:#666666;}
+        .bottom_menu a:visited {font-size:8pt;font-family:dotum,verdana; text-decoration:none; color:#666666;}
+        .bottom_menu a:hover {font-size:8pt;font-family:dotum,verdana; text-decoration:none; color:#999999;}
+        .bottom_menu a:active {font-size:8pt;font-family:dotum,verdana; text-decoration:none; color:#999999;}
+ 
+
+
+/*서브사용*/
+.left_menu {padding:0 0 0 18;}
+
+.tbl_ble {color:#000000; text-align:left; padding-left:5; padding-top:2; }	
+
+
+
+
+
+
+
+
+/* 사이트맵부분링크 */
+.tbl_siteleft {font-family:"굴림","굴림체"; font-size:9pt;  text-decoration:none; color:#666666;background-color:#FFFFFF;  text-align:left; padding-left:7; padding-top:7; padding-bottom:4; }
+       .tbl_siteleft a:link      {font-family:"굴림","굴림체"; color:#2079C3; font-size:9pt; text-decoration:none; color:#666666;}
+       .tbl_siteleft a:visited {font-family:"굴림","굴림체"; font-size:9pt; text-decoration:none; color:#666666;}
+	   .tbl_siteleft a:active   {font-family:"굴림","굴림체"; font-size:9pt; text-decoration:none; color:#666666;}
+       .tbl_siteleft a:hover   {font-family:"굴림","굴림체"; font-size:9pt; text-decoration:none; color:#11638E;}
+
+
+
+.tbl_bleft {font-family:"굴림","굴림체"; font-size:9pt;  text-decoration:none; color:#666666;background-color:#FFFFFF;  text-align:left; padding-left:7; padding-top:5; padding-bottom:3; }
+       .tbl_bleft a:link      {font-family:"굴림","굴림체"; color:#2079C3; font-size:9pt; text-decoration:none; color:#666666;}
+       .tbl_bleft a:visited {font-family:"굴림","굴림체"; font-size:9pt; text-decoration:none; color:#666666;}
+	   .tbl_bleft a:active   {font-family:"굴림","굴림체"; font-size:9pt; text-decoration:none; color:#666666;}
+       .tbl_bleft a:hover   {font-family:"굴림","굴림체"; font-size:9pt; text-decoration:none; color:#11638E;}
+    /*테이블 링크부분 텍스트좌측정렬*/

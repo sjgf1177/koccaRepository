@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+
+	<filter>
+		<filter-name>ssofilter</filter-name>
+		<filter-class>com.tmax.sso.filter.SSOFilter</filter-class>
+		<init-param>
+			<param-name>com.tmax.sso.filter.conffile.path</param-name>
+			<!-- <param-value>D:/eclipse/workspace/KOCCA/WebRoot/sso/eamconf/ssofilter.conf</param-value> -->
+			<param-value>C:/kocca2021_aa/workspace/kocca/webroot/sso/eamconf/ssofilter.conf</param-value>
+		</init-param>
+	</filter>
+	
+	<filter>
+	    <filter-name>Set Character Encoding</filter-name>
+	    <filter-class>com.credu.common.SetCharacterEncodingFilter</filter-class>
+	    <init-param>
+	      <param-name>encoding</param-name>
+	      <param-value>euc-kr</param-value>
+	    </init-param>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>ssofilter</filter-name>
+		<url-pattern>/sso/*</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+	    <filter-name>Set Character Encoding</filter-name>
+	    <url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+  <servlet>
+    <servlet-name>servlets</servlet-name>
+    <servlet-class>weblogic.servlet.ServletServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>servlets</servlet-name>
+    <url-pattern>/servlet/*</url-pattern>
+  </servlet-mapping>
+
+  <mime-mapping>
+    <extension>html</extension>
+    <mime-type>text/html</mime-type>
+  </mime-mapping>
+  <mime-mapping>
+    <extension>htm</extension>
+    <mime-type>text/html</mime-type>
+  </mime-mapping>
+  <mime-mapping>
+    <extension>gif</extension>
+    <mime-type>image/gif</mime-type>
+  </mime-mapping>
+  <mime-mapping>
+    <extension>jpeg</extension>
+    <mime-type>image/jpeg</mime-type>
+  </mime-mapping>
+  <mime-mapping>
+    <extension>jpg</extension>
+    <mime-type>image/jpeg</mime-type>
+  </mime-mapping>
+  <mime-mapping>
+    <extension>pdf</extension>
+    <mime-type>application/pdf</mime-type>
+  </mime-mapping>
+  <mime-mapping>
+    <extension>zip</extension>
+    <mime-type>application/zip</mime-type>
+  </mime-mapping>
+  <mime-mapping>
+    <extension>xls</extension>
+    <mime-type>application/xls</mime-type>
+  </mime-mapping>
+  <mime-mapping>
+    <extension>hwp</extension>
+    <mime-type>application/hwp</mime-type>
+  </mime-mapping>
+  <mime-mapping>
+    <extension>gul</extension>
+    <mime-type>application/gul</mime-type>
+  </mime-mapping>
+  <mime-mapping>
+    <extension>doc</extension>
+    <mime-type>application/doc</mime-type>
+  </mime-mapping>
+  <mime-mapping>
+    <extension>ppt</extension>
+    <mime-type>application/ppt</mime-type>
+  </mime-mapping>
+  <mime-mapping>
+    <extension>arf</extension>
+    <mime-type>application/octet-stream</mime-type>
+  </mime-mapping>
+
+</web-app>

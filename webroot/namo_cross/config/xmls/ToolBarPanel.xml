@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ToolBar>
+	<Panel>
+		<item name="newdoc" type="image" src="newdoc.gif"></item>
+		<item name="saveas" type="image" src="save.gif"></item>
+		<item name="print" type="image" src="print.gif"></item>
+		<item name="spacebar" type="image" src="spacebar.gif"></item>
+		<item name="undo" type="image" src="undo.gif"></item>
+		<item name="redo" type="image" src="redo.gif"></item>
+		<item name="cut" type="image" src="cut.gif"></item>
+		<item name="copy" type="image" src="copy.gif"></item>
+		<item name="paste" type="image" src="paste.gif"></item>
+		<item name="search" type="image" src="search.gif"></item>
+		<item name="replace" type="image" src="replace.gif"></item>
+		<item name="selectall" type="image" src="selectall.gif"></item>
+		<item name="spacebar" type="image" src="spacebar.gif"></item>
+		<item name="hyperlink" type="image" src="hyperlink.gif"></item>
+		<item name="inserthorizontalrule" type="image" src="hr.gif"></item>
+		<item name="image" type="image" src="image.gif"></item>
+		<!--item name="backgroundimage" type="image" src="backgroundimage.gif"></item-->
+		<item name="specialchars" type="image" src="specialchars.gif"></item>
+		<item name="emoticon" type="image" src="emoticon.gif"></item>
+		<item name="spacebar" type="image" src="spacebar.gif"></item>
+		<item name="tableinsert" type="image" src="table.gif"></item>
+		<item name="spacebar" type="image" src="spacebar.gif"></item>
+		<item name="tablerowinsert" type="image" src="tablerowinsert.gif"></item>
+		<item name="tablerowdelete" type="image" src="tablerowdelete.gif"></item>
+		<item name="spacebar" type="image" src="spacebar.gif"></item>
+		<item name="tablecolumninsert" type="image" src="tablecolumninsert.gif"></item>
+		<item name="tablecolumndelete" type="image" src="tablecolumndelete.gif"></item>
+		<item name="spacebar" type="image" src="spacebar.gif"></item>
+		<item name="tablecellmerge" type="image" src="tablecellmerge.gif"></item>
+		<item name="tablecellsplit" type="image" src="tablecellsplit.gif"></item>
+		<item name="spacebar" type="image" src="spacebar.gif"></item>
+		<item name="tablecellattribute" type="image" src="tablecellattribute.gif"></item>
+	</Panel>
+	<Panel>
+		<item name="fontname" type="select" src=""></item>
+		<item name="fontsize" type="select" src=""></item>
+		<item name="lineheight" type="select" src=""></item>
+		<item name="bold" type="image" src="bold.gif"></item>
+		<item name="italic" type="image" src="italic.gif"></item>
+		<item name="underline" type="image" src="underline.gif"></item>
+		<item name="strikethrough" type="image" src="strikethrough.gif"></item>
+		<item name="space" type="image" src="space.gif"></item>
+		<item name="fontcolor" type="image" src="fontcolor.gif"></item>
+		<item name="fontbackgroundcolor" type="image" src="fontbackgroundcolor.gif"></item>
+		<item name="space" type="image" src="space.gif"></item>
+		<item name="cancelattribute" type="image" src="cancelattribute.gif"></item>
+		<item name="spacebar" type="image" src="spacebar.gif"></item>
+		<item name="justifyleft" type="image" src="justifyleft.gif"></item>
+		<item name="justifycenter" type="image" src="justifycenter.gif"></item>
+		<item name="justifyright" type="image" src="justifyright.gif"></item>
+		<item name="space" type="image" src="space.gif"></item>
+		<item name="outdent" type="image" src="outdent.gif"></item>
+		<item name="indent" type="image" src="indent.gif"></item>
+		<item name="spacebar" type="image" src="spacebar.gif"></item>
+		<item name="numberset" type="image" src="numberset.gif"></item>
+		<item name="markset" type="image" src="markset.gif"></item>
+		<item name="spacebar" type="image" src="spacebar.gif"></item>
+		<!--item name="help" type="image" src="help.gif"></item>
+		<item name="information" type="image" src="information.gif"></item-->
+	</Panel>
+</ToolBar>

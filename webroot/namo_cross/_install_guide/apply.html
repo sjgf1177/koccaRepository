@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+<title>크로스에디터 설치 도움말</title>
+<meta name="generator" content="Namo WebEditor" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="http://www.namo.co.kr/help/ce01/ko/install_guide/common.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body >
+<div id="wrap">
+	<h1 id="logo">CrossEditor</h1>
+	<!--ul id="contents_list">
+		<li><a href="#spec">1. 설치 사양</a></li>
+		<li><a href="#Language_care">2. 언어별 설치 주의 사항</a></li>
+		<li><a href="#preset">3. 크로스에디터 파일 초기 설정</a></li>
+		<li><a href="#install">4. 크로스에디터 설치 방법</a></li>
+		<li><a href="#form_forward">5. 크로스에디터 폼(form) 전송 구현</a></li>
+		<li><a href="#information">6. 참고</a></li>
+	</ul>< contents_list -->
+
+	<h2><a name="form_forward">크로스에디터를 사용하여 폼(form) 전송 구현하기</a></h2>
+	<div class="contents_box">
+		<ul class="contents_Install">
+			<li>크로스에디터는 다양한 서버사이드 언어를 통해 다양하게 접목시킬 수 있습니다. 여기서는 크로스에디터에서 작성한 콘텐츠를 폼(form) 전송하는 방법에 대해 알아보겠습니다.</li>
+			<li>순서<br />
+				<div class="space">1) hidden 객체 생성 하기<br />
+				2) 크로스에디터 콘텐츠 작성 유무 확인 하기<br />
+				3) 크로스 에디터에서 작성한 콘텐츠의 내용 가져오기<br />
+				4) 작성된 내용을 크로스에디터에 삽입하기 </div>
+			</li>
+			<li><h3>1. hidden 객체 생성 하기</h3>
+			<div class="space">크로스에디터에서 콘텐츠를 작성하는 것과는 별도로 폼(from)을 통해 전송할 hidden 객체가 필요합니다. hidden 객체로는 주로 "&lt;input type=”hidden” …..&gt;"과 "&lt;textarea id=""…..&gt;" 를 사용할 수 있는데, 크로스에디터에서는 작성된 콘텐츠의 내용을 소실없이 전송할 수 있는 "textarea"의 사용을 권장합니다. </div>
+			</li>
+			<li>Ex)<br />
+				<div class="space" style="border:1px solid #D9D9D9;">
+					&lt;textarea id=&quot;editorValue&quot; name=&quot;editorValue&quot; style=&quot;display: none&quot;&gt;&lt;/textarea&gt; 
+				</div>
+			</li>
+			<li><h3>2. 크로스에디터 콘텐츠 작성 유무 확인 하기</h3>
+			<div class="space">폼(form)전송을 할 경우 콘텐츠의 내용의 유무에 대한 구분이 필요한 경우가 있습니다.<br /> 
+			이러한 경우 크로스에디터에서 제공하는 "IsDirty" 또는 "GetTextValue" Method를 사용하여 구별을 할 수 있습니다. <br /><br />
+
+			"IsDirty" Method 는 문서 내용이 변경 되었을 경우 "true" 값을, 문서 변경이 없을 경우 "false"의 값을 반환합니다. <br />
+			"GetTextValue" Method 는 문서 안의 text 값을 반환하기 때문에 "IsDirty"와 같은 기능을 할 수 있습니다. <br />
+			크로스에디터로 focou이동은 "SetFocusEditor" Method를 사용하면 됩니다.</div>
+			</li>
+			<li>Ex) 1) IsDirty
+				<div class="space" style="border:1px solid #D9D9D9;">
+					if(!CrossEditor.IsDirty()){ // 크로스에디터 안의 콘텐츠 입력 확인 <br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; alert(&quot; 에디터에 내용을 입력해 주세요 !!&quot;); <br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CrossEditor.SetFocusEditor();// 크로스에디터 Focus 이동 <br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return false; <br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+				</div>
+			</li>
+			<li>
+			<div class="space">2) GetTextValue</div>
+				<div class="space" style="border:1px solid #D9D9D9;">
+					if(CrossEditor.GetTextValue() == &quot;&quot;){ // 크로스에디터 안의 콘텐츠 입력 확인 <br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; alert(&quot; 에디터에 내용을 입력해 주세요 !!&quot;); <br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CrossEditor.SetFocusEditor();// 크로스에디터 Focus 이동 <br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return false; <br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+				</div>
+			</li>
+
+			<li><h3>3. 크로스 에디터에서 작성한 콘텐츠의 내용을 가져오기</h3>
+				<div class="space">크로스에디터에서 작성된 콘텐츠의 내용을 가져오기 위해서는 크로스에디터에서 제공하는 Method 중 “GetValue” 나 “GetBodyValue” 를 사용하면 됩니다. 반환된 내용은 HTML 양식으로 반환합니다. <br />
+				Method에 대한 자세한 내용은 개발자 도움말의 API 안내를 참고하십시오.<br /><br />
+				 
+				GetValue: 크로스에디터에서 작성된 콘텐츠의 내용을 모두 반환합니다.<br />
+				GetBodyValue: 크로스에디터에서 작성된 콘텐츠 내용 중 Body 안의 내용을 반환합니다.
+				</div>
+			</li>
+			<li>Ex) 1) GetValue
+				<div class="space" style="border:1px solid #D9D9D9;">
+					document.getElementById(&quot;editorValue&quot;).value = CrossEditor.GetValue();
+				</div>
+			</li>
+			<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2) GetBodyValue<br />
+				<div class="space" style="border:1px solid #D9D9D9;">					
+					document.getElementById(&quot;editorValue&quot;).value = CrossEditor.GetBodyValue();
+				</div>
+			</li>
+
+			<li><h3>4. 작성된 내용을 크로스에디터에 삽입하기</h3>
+				<div class="space">콘텐츠 내용을 크로스에디터에 삽입할 경우에는 크로스에디터에서 제공하는 Method 중 SetValue나 SetBodyValue를 사용하면 됩니다.<br /> 
+
+				단 크로스에디터에서 내용을 가져오는 Method와 삽입 시 사용하는 Method는 서로 짝을 이루고 있습니다. GetValue로 내용을 가져왔을 경우에는 SetValue를 사용해야 하며 GetBodyValue를 사용하여 가져왔을 경우에는 SetBodyValue를 사용하여야 합니다. <br /> <br /> 
+
+				GetValue -> SetValue<br /> 
+				GetBodyValue -> SetBodyValue<br /> 
+				</div>
+			</li>
+			<li>
+			<div class="space">
+				1) 작성된 콘텐츠의 내용을 JavaScript를 사용하여 에디터에 삽입 시 콘텐츠의 내용 중 줄 구분자나 더블 쿼테이션 (" ") , 싱글 쿼테이션 ('')으로 인해 JavaScript 구문이 오류가 나 정상 작동을 하지 않는 경우가 있습니다. 이러한 경우를 미연에 방지 하기 위해 Hidden 객체를 생성하여 콘텐츠의 내용을 삽입 후 자바스크립트에서 그 값을 참조하면 됩니다.
+			</div>
+			</li>
+			<li>Ex)
+				<div class="space" style="border:1px solid #D9D9D9;">
+					&lt;textarea id=&quot;contents&quot; name=&quot;contents&quot; style=&quot;display: none&quot;&gt; 콘텐츠 내용 &lt;/textarea&gt;
+				</div>
+			</li>
+			<li>
+				<div class="space">
+					2) 생성한 Hidden 객체를 참조하여 크로스에디터에 SetValue 또는 SetBodyValue를 사용하여 콘텐츠를 삽입합니다.<br /> 
+					에디터 초기화 후 바로 Method를 호출 시 환경에 따라 정상적으로 호출이 되지 않는 경우가 있습니다. 이러한 경우를 미연에 방지 하기 위해 크로스에디터에서는 에디터 초기화 후 발생되는  "OnInitComplate" 이벤트를 사용하여 Method를 실행 시키기를 권장 합니다.
+				</div>
+			</li>
+			<li>Ex) (1) SetValue
+				<div class="space" style="border:1px solid #D9D9D9;">					
+				var contentValue = document.getElementById(&quot;contents&quot;).value; // Hidden 값 참조<br />
+				var CrossEditor = new NamoSE('namoeditor1');<br />
+				CrossEditor.editorStart();<br /><br />
+
+				function OnInitComplate(){<br />
+				&nbsp;&nbsp;CrossEditor.SetValue(contentValue); // 콘텐츠 내용 에디터 삽입<br />
+				}
+				</div>
+			</li>
+			<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (2) SetBodyValue
+				<div class="space" style="border:1px solid #D9D9D9;">				
+				var contentValue = document.getElementById(&quot;contents&quot;).value; // Hidden 값 참조<br />
+				var CrossEditor = new NamoSE('namoeditor1');<br />
+				CrossEditor.editorStart();<br /><br />
+
+				function OnInitComplate(){<br />
+				&nbsp;&nbsp;CrossEditor.SetBodyValue(contentValue); // 콘텐츠 내용 에디터 삽입<br />
+				}
+				</div>
+			</li>
+		</ul>
+	</div>
+
+	<h2><a name="display_none">에디터 최초 실행 시 바로 출력하지 않는 경우(display None)</a></h2>
+	<div class="contents_box">
+
+		<ul class="contents_Install">
+			<li>크로스에디터가 최초 실행 시 비즈니스 로직으로 인해 화면에 출력되지 않는 경우(display None)가 있을 것입니다. 이러한 경우 크로스에디터의 높이가 계산되지 않아 크로스에디터를 화면에 출력(display)했을 때 정상적으로 출력이 되지 않습니다.<br />
+			여기에서는 크로스에디터를 최초 실행 시 화면에 출력되지 않는 경우(display None) 적용 방법에 대해 알아 보겠습니다.
+			</li>
+			<li>순서<br />
+				<div class="space">1) 크로스에디터 포커스 설정<br />
+				2) 크로스에디터 displayNone target 설정</div>
+			</li>
+			<li><h3>1. 크로스에디터 포커스 설정</h3>
+			<div class="space">페이지 호출 시 크로스에디터가 화면에 출력되지 않는 경우(display None) 크로스에디터에 focus 설정이 필요 없기 때문에 "SetFocus"을 사용하여 focus 설정을 없애 줍니다.<br />
+			크로스에디터에서 focus 설정은 "params"의 "SetFocus"로 가능 합니다. <br />
+			SetFocus : true -> 크로스에디터 focus 설정<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; false -> 크로스에디터 focus 취소</div>
+			</li>
+			<li>Ex)
+				<div class="space" style="border:1px solid #D9D9D9;">				
+				var CrossEditor = new NamoSE('namoeditor1'); <br />
+				CrossEditor.params.SetFocus = false; // 에디터 포커스 설정 <br />
+				CrossEditor.editorStart();
+				</div>
+			</li>
+			<li><h3>2. 크로스에디터 DisplayNoneTarget 설정</h3>
+			<div class="space">크로스에디터가 최초 실행 시 화면에 출력되지 않는 경우(display None) 에디터의 출력 높이를 계산하기 위해 display None이 적용될 Element(예를들어 크로스에디터를 감싸고 있는 DIV 레이어)를 “params”에서 제공하는 “DisplayNoneTarget”을 사용하여 지정 해주어야 합니다.</div>
+			</li>
+			<li>Ex)
+				<div class="space" style="border:1px solid #D9D9D9;">				
+				&lt;div id=&quot;<font color="red">crossEditor</font>&quot; style=&quot;display: none&quot;&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;script language=&quot;javascript&quot; &gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var CrossEditor = new NamoSE('namoeditor1');<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CrossEditor.params.SetFocus = false; // 에디터 포커스 설정<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CrossEditor.params.DisplayNoneTarget =  document.getElementById(&quot;<font color="red">crossEditor</font>&quot;);<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// 크로스에디터를 감싸고 있는 레이어 설정<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CrossEditor.editorStart();<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/script&gt;<br />
+				&lt;/div&gt;
+				</div>
+			</li>
+		</ul>
+	</div>
+
+	<h2><a name="information">참고</a></h2>
+	<div class="contents_box">
+
+		<ul class="contents_Install">
+			<li>1) 크로스에디터 적용 예는 크로스에디터 배포판의 "index.html" 파일을 참고 하시면 됩니다.<br />
+				<div class="space">
+				크로스에디터 배포판을 서버에 설치 후 해당 도메인을 통해 &quot;index.html&quot;을 접속하시면
+				크로스에디터의 구동 사항을 확인할 수 있습니다.
+				</div>
+			</li>
+		</ul>
+		<a href="http://www.namo.co.kr/help/ce01/ko/index.html" target="_blank"><img src="http://www.namo.co.kr/help/ce01/ko/install_guide/images/bt_01.gif" title="크로스에디터 사용자 도움말" /></a>
+		<a href="http://www.namo.co.kr/help/ce01/ko/dev_index.html" target="_blank"><img src="http://www.namo.co.kr/help/ce01/ko/install_guide/images/bt_02.gif" title="크로스에디터 관리자 도움말" /></a>
+		<a href="http://www.namo.co.kr/help/ce01/ko/dev_index.html" target="_blank"><img src="http://www.namo.co.kr/help/ce01/ko/install_guide/images/bt_03.gif" title="크로스에디터 API 도움말" /></a>
+	</div>
+</div><!-- wrap -->
+
+</body>
+</html>

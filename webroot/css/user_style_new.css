@@ -1,0 +1,61 @@
+
+/* º£ÀÌÁ÷ */
+
+
+p, div, th, td, table, select {
+	font:12px/1.5em µ¸¿ò, Dotum, AppleGothic, 'Lucida Grande', Arial, Verdana, sans-serif;
+	color:#666665;
+}
+
+
+/* Layout div*/
+
+#topmenu {
+	MARGIN: 0px;
+	padding-left: 0px;
+	padding-top: 31px;
+	WIDTH: 1024px;
+	height: 80px;
+	POSITION: absolute;
+	z-index:10;
+}
+
+#movie {
+
+ 	position:absolute;
+
+ 	z-index:1;
+
+ 	left: 775px;
+
+ 	top: 96px;
+
+ 	width: 245;
+ 	z-index:10;
+
+ }
+ 
+table.hit tr td {
+ 	font:11px, µ¸¿ò, Dotum, AppleGothic, 'Lucida Grande', Arial, Verdana, sans-serif;
+	color:#5B4C25;
+}
+
+.hitlink {
+	COLOR: #5B4C25; font-size: 11px; FONT-FAMILY: verdana, µ¸¿ò,Gulim;
+	padding-right: 10px;
+}
+.hitlink A:link {
+	COLOR: #5B4C25; FONT-FAMILY: verdana,µ¸¿ò,Dotum; TEXT-DECORATION: none;
+}
+.hitlink A:hover {
+	COLOR: #5B4C25; FONT-FAMILY: verdana,µ¸¿ò,Dotum; TEXT-DECORATION: none;
+}
+.hitlink A:visited {
+	COLOR: #5B4C25; FONT-FAMILY: verdana,µ¸¿ò,Dotum; TEXT-DECORATION: none;
+}
+
+.lshadow{
+	background: url("/images/user/game/homepage/type1/con_bg.gif") no-repeat 540px 0px;		
+	bgcolor:#FFFFFF;
+	text-align:left;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+<title></title>
+<style>
+@import url("./css/common.css");
+</style>
+
+<script type="text/javascript">
+<!--
+    function loadswf(file, width, height){
+        
+        tagObj  = '<OBJECT ID="Player" CLASSID="CLSID:6BF52A52-394A-11d3-B153-00C04F79FAA6" width="'+width+'" height="'+height+'" id="objContents" align="middle">';
+		tagObj += '	<PARAM name="autoStart" value="true">';
+		tagObj += '	<PARAM name="MENU" value="false">';
+		tagObj += '	<PARAM name="windowlessVideo" value="1">';
+		tagObj += '	<PARAM name="URL" value="'+ file +'">';
+		tagObj += '</OBJECT>';
+
+        document.getElementById("divCon").innerHTML = tagObj;
+    }
+
+    window.onload = function () {
+    	try{
+	    	parent.etop.creduURL();
+    	}catch(Exception){
+    		opener.creduURL();
+    	}
+    }
+
+//-->
+</script>
+
+</head>
+<body bgcolor="#ffffff" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<div id="divCon"></div>
+</body>
+</html>

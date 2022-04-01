@@ -1,0 +1,261 @@
+<%
+/**
+ * file name : za_DamunSubjQuestion_I.jsp
+ * date      : 2003/08/20
+ * programmer:
+ * function  : 다면평가 문항관리 - 디테일페이지
+ */
+%>
+<%@ page contentType = "text/html;charset=MS949" %>
+<%@ page errorPage = "/learn/library/error.jsp" %>
+<%@ page import = "java.util.*" %>
+<%@ page import = "java.text.*" %>
+<%@ page import = "com.credu.system.*" %>
+<%@ page import = "com.credu.library.*" %>
+<%@ page import = "com.credu.multiestimate.*" %>
+<%@ page import = "com.credu.common.*" %>
+<jsp:useBean id = "conf" class = "com.credu.library.ConfigSet"  scope = "page" />
+
+<%
+    RequestBox box = null;
+    box = (RequestBox)request.getAttribute("requestbox");
+
+	String v_end = box.getString("p_end");
+	String v_onload = "";
+	if(v_end.equals("0")) { v_onload = "onload='javascript:onload();'"; }
+%>
+<%
+    String  v_gubun = box.getStringDefault("p_gubun", DamunSubjBean.DEFAULT_SUBJ);
+    String  v_grcode    = box.getString("p_grcode");        //교육주관
+	String v_gubunnm = "";
+	    v_gubunnm = "과정다면평가";
+	
+    String  v_subj = box.getString("s_subjcourse");
+   
+    String v_reloadlist = box.getString("p_reloadlist");
+	
+
+%>
+<html>
+<head>
+<title>다면평가문제관리-등록</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+<link rel="stylesheet" href="/css/admin_style.css" type="text/css">
+<script language = "javascript" src = "/script/cresys_lib.js"></script>
+<script language = "VBScript" src = "/script/cresys_lib.vbs"></script>
+<script language="JavaScript">
+<!--
+function InsertQuestion() {
+  ActionPage('DamunQuestionInsert');
+}
+function ActionPage(p_process) {
+	  if(!chkData()) {
+         return;
+      }
+  document.form2.p_process.value = p_process;
+  document.form2.p_reloadlist.value = 'true';
+  document.form2.submit();
+}
+function chkData() {
+  if (blankCheck(document.form2.p_damuntext.value)) {
+    document.form2.p_damuntext.focus();
+    alert('다면평가문제명을  입력하십시요.');
+    return false;
+  }
+
+  var v_damuntype = document.form2.p_damuntype.options[document.form2.p_damuntype.selectedIndex].value;
+  var v_selcount = 0;
+  var v_seltextcnt = 0;
+
+  if (v_damuntype == "1"){
+    for (k=0; k<document.form2.p_seltext1.length; k++) {
+      if (!blankCheck(document.form2.p_seltext1[k].value)) {
+        v_seltextcnt++;
+      }
+    }
+    if (v_seltextcnt == 0) {
+      alert('다면평가문제 보기를  입력하십시요.');
+      return false;
+     }     
+	v_selcount = v_seltextcnt;
+	document.form2.p_selcount1.value = v_selcount;
+
+  } else if (v_damuntype == "2") {
+    for (k=0; k<document.form2.p_seltext2.length; k++) {
+      if (!blankCheck(document.form2.p_seltext2[k].value)) {
+        v_seltextcnt++;
+      }
+    }
+    if (v_seltextcnt == 0) {
+      alert('다면평가문제 보기를  입력하십시요.');
+      return false;
+     }     
+
+	if (v_seltextcnt < document.form2.p_selmax2.value) {
+      alert('복수 선택수가 보기보다 많습니다.');
+      return false;	 
+	 }    
+	v_selcount = v_seltextcnt;
+	document.form2.p_selcount2.value = v_selcount;
+
+  } else if (v_damuntype == "4") {
+    for (k=0; k<document.form2.p_seltext4.length; k++) {
+      if (!blankCheck(document.form2.p_seltext4[k].value)) {
+        v_seltextcnt++;
+      }
+    }
+    if (v_seltextcnt == 0) {
+      alert('다면평가문제 보기를  입력하십시요.');
+      return false;
+     }     
+	v_selcount = v_seltextcnt;
+	document.form2.p_selcount4.value = v_selcount;
+  }  else if (v_damuntype == "5") {
+	if (1 > document.form2.p_fscalecode5.value || document.form2.p_fscalecode5.value=="") {
+      alert('척도을 선택해 주세요,');
+      return false;	 
+	 }    
+	document.form2.p_selcount5.value = "5";
+  }  else if (v_damuntype == "6") {
+	if (1 > document.form2.p_fscalecode6.value || document.form2.p_fscalecode6.value=="") {
+      alert('척도을 선택해 주세요,');
+      return false;	 
+	 }    
+	document.form2.p_selcount6.value = "7";
+  }   else if (v_damuntype == "7") {
+	if (1 > document.form2.p_fscalecode7.value || document.form2.p_fscalecode7.value=="") {
+      alert('제1척도을 선택해 주세요,');
+      return false;	 
+	 }
+	 if (1 > document.form2.p_sscalecode7.value || document.form2.p_sscalecode7.value=="") {
+      alert('제2척도을 선택해 주세요,');
+      return false;	 
+	 }
+	document.form2.p_selcount7.value = "10";
+  }
+
+  return true;
+}
+
+
+<% if (v_reloadlist.equals("true")) { %>
+opener.ReloadPage('go');
+<% } %>
+function onload() {
+  window.self.close();
+}
+function changeScale(flag) {
+
+  var v_damuntype = document.form2.p_damuntype.options[document.form2.p_damuntype.selectedIndex].value;
+  var v_scalecode = 0;
+  var v_fscalecode = 0;
+  var v_sscalecode = 0;
+  var v_scaleflag = flag;
+  if(v_damuntype == 5){
+   v_scalecode = document.form2.p_fscalecode5.options[document.form2.p_fscalecode5.selectedIndex].value;
+  }else if(v_damuntype==6){
+   v_scalecode = document.form2.p_fscalecode6.options[document.form2.p_fscalecode6.selectedIndex].value;
+  }else if(v_damuntype==7){
+   v_fscalecode = document.form2.p_fscalecode7.options[document.form2.p_fscalecode7.selectedIndex].value;
+   v_sscalecode = document.form2.p_sscalecode7.options[document.form2.p_sscalecode7.selectedIndex].value;
+  }
+
+  if(v_scalecode > 0 || v_fscalecode > 0 || v_sscalecode > 0){
+	    document.form2.target = "openWinQuestion";
+		document.form2.action = "/servlet/controller.multiestimate.DamunSubjQuestionServlet";
+		document.form2.p_process.value = "DamunQuestionInsertS";
+		document.form2.p_scalecode.value = v_scalecode;
+		document.form2.p_fscalecode.value = v_fscalecode;
+		document.form2.p_sscalecode.value = v_sscalecode;
+		document.form2.p_damuntype.value = v_damuntype;
+		document.form2.submit();
+  }
+  }
+
+-->
+</script>
+</head>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" <%=v_onload%>>
+
+<table width="667" border="0" cellspacing="0" cellpadding="0" height="663">
+  <tr>
+    <td align="center" valign="top">
+	 <!----------------- 타이틀시작 ----------------->
+	      <table width="97%" border="0" cellspacing="0" cellpadding="0" class=page_title>
+        <tr> 
+          <td><img src="/images/admin/multiestimate/m_title06.gif" ></td>
+          <td align="right"><img src="/images/admin/common/sub_title_tail.gif" ></td>
+        </tr>
+      </table>
+	  <!----------------- 타이틀 끝 ----------------->
+     <br>
+      <!----------------- 과정명 시작 ----------------->
+      <table cellpadding="0" cellspacing="0" class="table1">
+        <tr>
+		 <td width="1%"><img src="/images/admin/common/icon.gif" ></td>
+          <td valign="bottom" height="20" class=sub_title>
+		  평가지명:다면평가 1기 평가</td>
+        </tr>
+        <tr>
+          <td height="3"></td>
+		  <td height="3"></td>
+        </tr>
+      </table>
+      <table width="97%" border="0" cellspacing="1" cellpadding="0" class=table_out>
+	  <tr>
+          <td colspan="2" class="table_top_line"></td>
+        </tr>
+        <tr>
+          <td width="19%" class="table_title">상사</td>
+          <td width="81%" class="table_02_2">
+              <input type="radio" name="radiobutton" value="radiobutton">
+            지정(1) 
+            <input type="radio" name="radiobutton" value="radiobutton">
+            지정안함</td>
+        </tr>
+        <tr>
+          <td class="table_title">동료</td>
+          <td class="table_02_2"><input type="radio" name="radiobutton" value="radiobutton">
+            전체 
+            &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="radiobutton" value="radiobutton">
+            지정 명 
+            &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="radiobutton" value="radiobutton">
+            지정안함</td>
+        </tr>
+        <tr>
+          <td class="table_title">부하</td>
+          <td class="table_02_2"><input type="radio" name="radiobutton" value="radiobutton">
+            전체 
+            &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="radiobutton" value="radiobutton">
+            지정 명 
+            &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="radiobutton" value="radiobutton">
+            지정안함</td>
+        </tr>
+      </table>
+      <br>
+      <table cellspacing="1" cellpadding="5" class="table_out" ID="damuntype3" STYLE="display:none">
+	    <input type="hidden" name="p_selmax3"  value="">
+	    <input type="hidden" name="p_selcount3"  value="">
+	    <input type="hidden" name="p_seltext3"  value="">	
+	    <input type="hidden" name="p_fscalecode3"  value="">	
+	    <input type="hidden" name="p_sscalecode3"  value="">	
+	  </table>
+
+      <table cellspacing="0" cellpadding="0" >
+        <tr>
+          <td><a href=""><img src="/images/admin/button/btn_jijung.gif" border="0"></a></td>
+		  <td width=8></td>
+		  <td><a href=""><img src="/images/admin/button/btn_close02.gif" border="0"></a></td>
+        </tr>
+      </table>
+      <!----------------- 등록 버튼 끝 ----------------->
+      <br>
+    </td>
+  </tr>
+
+
+  <tr><td><%@ include file = "/learn/library/getJspName.jsp" %></td></tr>     
+
+</table>
+</body>
+</html>

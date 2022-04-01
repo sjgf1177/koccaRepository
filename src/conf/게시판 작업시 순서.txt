@@ -1,0 +1,60 @@
+게시판 작업시 순서(게시판, 질문방, 토론방, 자료방 등)
+
+
+
+
+
+1. # 일반 게시판 및 권한 참조 'Bulletin' 들어간 파일들
+       - 파일첨부 여러개, 게시판별 읽기/쓰기 권한
+       
+    # 기본 로직 참조 'HomePds' 들어간 파일들
+       - 여러종류의 업로드(파일, 동영상 등등)
+       - 동영상과 음성파일 경우  FTP 참조
+
+2. 참조할 파일
+   
+   서블릿 :  \cresys\WEB-INF\source\controller\pds\BulletinServlet.java         
+   
+   빈즈     :  \cresys\WEB-INF\source\com\credu\pds\BulletinBean.java      -->   DB 연동 로직
+                   \cresys\WEB-INF\source\com\credu\pds\HomePdsData.java       -->   Data 빈
+                   
+   JSP      :  \cresys\jsp\pds\bulletin_i.jsp       -->  입력화면
+                   \cresys\jsp\pds\bulletin_r.jsp       -->  상세보기화면
+                   \cresys\jsp\pds\bulletin_s.jsp       -->  조회리스트화면
+                   \cresys\jsp\pds\bulletin_u.jsp       -->  수정화면
+   
+   설정파일  :   \cresys\WEB-INF\classes\conf\cresys.xml       -->  전체시스템 설정파일 (페이지의 row 수 설정 포함)            
+                         \cresys\WEB-INF\classes\conf\bulletin.xml       -->  게시판 권한 설정파일 (읽기, 쓰기, 답변, 자료여부, 답변여부 등)
+                         
+   로그인 순서
+       게시판          :  http://URL/jsp/pds/zu_loginbulletin.jsp   ---->   LoginBulletinServlet.java   --->    LoginTestBean.java    -->    BulletinServlet.java
+       일반sample  :  http://URL/jsp/pds/zu_login.jsp   ---->   LoginTestServlet.java   --->    LoginTestBean.java    -->    HomePdsServlet.java
+      
+
+                         
+3.  작업순서
+     3.1.  bulletin.xml  파일에 새로 만들 게시판 servlet 명, 권한별 코드를 세팅한다
+             예)      <BulletinServlet>
+                            <can.read>ZZ</can.read><!-- 학생 -->
+                            <can.write>A2</can.write><!-- supervisor -->
+                            <can.reply>A2</can.reply><!-- supervisor -->
+                            <is.upload>true</is.upload>
+                            <is.reply>false</is.reply>
+                        </BulletinServlet>         
+                        
+     3.2.  각 jsp 와 servlet 페이지의 url 명을 새로 만들 게시판에 맞게 일괄적으로 수정한다.
+     3.3.  빈즈에서 sql 수정
+     3.4.  빈즈에서 이부분 게시판에 맞게 수정
+             private static final String FILE_TYPE = "p_file";           //      파일업로드되는 tag name
+             private static final int FILE_LIMIT = 5;      //    페이지에 세팅된 파일첨부 갯수        
+         
+             ----->  이부분 수정시에 jsp 의 file tag name 을 동일하게 맞추고, 
+                       예)
+                       <input type = "file" name = "p_file1">
+                       
+                       insert, update 서블릿 호출시 (파일업로드 시)
+                       get 방식으로 넘긴다 (숫자를 뺀 name 태그 명 = 해당 파일종류의 갯수)
+                                
+                       document.form1.action = "/servlet/controller.pds.BulletinServlet?p_file=5";
+                       
+      ------------------  이 부분을 하지않을시 에러 발생,  숫자와 이름을 꼭 맞춘다  --------------------------------------

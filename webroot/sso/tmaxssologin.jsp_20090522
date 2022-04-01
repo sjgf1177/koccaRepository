@@ -1,0 +1,259 @@
+<%@ page contentType = "text/html; charset=euc-kr" %>
+
+<%@ page import="java.io.*" %>
+<%@ page import="java.util.*"%>
+<%@ page import="java.net.*%>
+<%@ page import="javax.servlet.*" %>
+<%@ page import="javax.servlet.http.*" %>
+
+<%@ page import="com.tmax.sso.filter.*" %>
+
+<%@ page import="com.credu.library.*"%>
+<%@ page import="com.credu.homepage.*"%>
+<%@ page import="com.credu.common.*"%>
+<%@ page import="com.credu.system.*"%>
+<jsp:useBean id = "conf" class = "com.credu.library.ConfigSet"  scope = "page" />
+
+<%!
+
+/* 사용자 PW는 체크하지 않음. 아무 값이나 넘어와도 됨.*/
+private String doLogin(RequestBox box, String userid, String userpw, String userip){
+
+
+	//MultipartRequest multi = null;
+	//RequestBox box = RequestManager.getBox(request, response);
+	//RequestBox box = (RequestBox)request.getBox(request, response);
+	String v_process = box.getStringDefault("p_process","login");
+	int fileupstatus = 0;
+
+	String returnMsg = "";
+	int isOk1 = 0;
+
+	try {
+            AlertManager alert = new AlertManager();
+            String v_msg = "";
+            String v_url = "";
+
+            String tem_grcode      = box.getStringDefault("tem_grcode", box.getSession("tem_grcode"));
+            v_url  = "/servlet/controller.homepage.MainServlet";
+            box.put("p_process", "");
+            //v_url  = "/index" + v_grcode + ".jsp";        // 템플릿 적용후 주석 제거
+
+            //String v_userip = request.getRemoteAddr();
+            //box.put("p_userip", v_userip);
+
+            LoginBean bean = new LoginBean();
+
+			isOk1 = bean.loginSSO(box, userid, userpw, userip);
+
+            if(isOk1 == 1) {
+
+                    String v_code   = "00000000000000000005";                  // 로그인 마일리지코드
+                    String s_userid = box.getSession("userid");
+
+					box.setSession("cmu_grtype","KGDI");
+					returnMsg  = "OK";
+
+	        }else{
+	                if (isOk1 == -1) {  //ID 또는 비밀번호 없음
+	                    returnMsg = "\\'" + userid + "\\'는 등록된 아이디가 아닙니다.";
+	                } else if (isOk1 == -2) {
+	                    returnMsg = "\\'" + userid + "\\'사용자는 서비스를 사용할 수 없습니다.";        //죄송합니다
+	                } else if (isOk1 == -3) {
+	                    returnMsg = "비밀번호가 맞지 않습니다";       //비밀번호가 맞지 않습니다
+	                } else {
+	                    returnMsg = "";
+	                }
+
+            }
+
+
+	}catch (Exception ex) {
+            //ErrorManager.getErrorStackTrace(ex, out);
+			ex.printStackTrace();
+			returnMsg = "doLogin() Exception!!";
+    }
+
+	if(isOk1 == 1) return "1#OK";
+	else return "0#" + returnMsg;
+}
+
+
+%>
+
+<%
+RequestBox box = (RequestBox)request.getAttribute("requestbox");
+if (box == null) box = RequestManager.getBox(request);
+
+String serviceName = "S06TK";
+String serviceNum = "S06TK";
+int logLevel = 1;
+
+response.setContentType("text/html;charset=utf-8");
+
+/* STEP1 - SSO 토큰과 nextURL 을 받아 옮. 포탈로그인 URL을 가져 옮. */
+String tokenStr = (String)request.getParameter(Util.tokenKeyName);
+String nextPage = (String)request.getParameter(Util.nextURLKeyName);
+//String loginURL = (String)application.getInitParameter("loginURL");
+String loginURL =  "http://www.wecon.or.kr/sub/mb/MBLogin.srt";
+
+if (logLevel<1) 	System.out.println("[SKSSO-tmaxssologin.jsp]  "  + serviceName+ " : nextPage = '"+ nextPage +"'");
+
+/* NEXT 페이지 처리 */
+if(nextPage != null && nextPage.length() != 0) {
+
+	int i = nextPage.indexOf("nextUrl=");
+
+	if(i!=-1) {
+		nextPage = nextPage.substring(i+8);
+		nextPage = java.net.URLDecoder.decode(nextPage,"utf-8");
+	}
+	else nextPage = "/";
+
+	if (logLevel<2) 	System.out.println("[SKSSO-tmaxssologin.jsp]  "  + serviceName+ " : DestPage = '"+ nextPage +"'");
+
+}
+else{
+	if (logLevel<2) 	System.out.println("[SKSSO-tmaxssologin.jsp]  "  + serviceName+ " : naxtPage is nulll!!");
+	nextPage = "/";
+}
+
+
+/* STEP2 - SSO 토큰이 없을 경우 인증페이지로 보냄. */
+if(tokenStr==null || tokenStr.length()==0){
+	//response.sendRedirect(SSOConf.selfloginurl);
+	response.sendRedirect(loginURL);
+	return;
+}
+
+/* STEP3 - SSO 토큰에서 사용자 정보 획득.*/
+TmaxSSOToken token = new TmaxSSOToken(tokenStr);
+String userid=token.getUserid();
+String passwd=token.getPassword(); // ex) jjaiwook$jjaiwook$jjaiwook$jjaiwook$jjaiwook$1q2w3e4r$1q2w3e4r$1q2w3e4r$##01::jjaiwook//123123&&02::jjaiwook79//abcd
+/************** 테스트 **********************/
+//passwd = "jjaiwook$jjaiwook$jjaiwook$jjaiwook$jjaiwook$1q2w3e4r$1q2w3e4r$1q2w3e4r$##S06TK::jjaiwook//123123&&02::jjaiwook79//abcd&&03::jjaiwook8080//12313123";
+
+if (logLevel<2) 	System.out.println("[SKSSO-tmaxssologin.jsp]  "  + serviceName+ " : userid = '"+ userid +"'");
+if (logLevel<2) 	System.out.println("[SKSSO-tmaxssologin.jsp]  "  + serviceName+ " : passwd = '"+ passwd +"'");
+if (logLevel<1) 	out.println("[SKSSO-tmaxssologin.jsp]  "  + serviceName+ " : userid = '"+ userid +"'<br>");
+if (logLevel<1) 	out.println("[SKSSO-tmaxssologin.jsp]  "  + serviceName+ " : passwd = '"+ passwd +"'<br>");
+
+
+String tokenInfo = "";
+String strUserId = "";
+String strUserPw= "";
+Hashtable ht = new Hashtable();
+
+/* token.getPassword() 에서 2차 때 부분만 잘라 냄.*/
+String parse1[] = passwd.split("##");
+
+if (logLevel<1)   out.println("[SKSSO-tmaxssologin.jsp]  "  + serviceName+ " : Integer.toString(parse1.length)   = "  + Integer.toString(parse1.length) +  "<br>");
+
+if (parse1.length == 2) {
+	tokenInfo = parse1[1].toString().trim();
+
+	StringTokenizer Stoken = new StringTokenizer(tokenInfo,"&&");
+
+	while(Stoken.hasMoreTokens()){
+
+		 String tokenInfo2 =  Stoken.nextToken();
+		 if(tokenInfo2 != null && tokenInfo2.length() != 0){
+			  String parse2[] = tokenInfo2.split("::");
+
+			  if (logLevel<1)   out.println("[SKSSO-tmaxssologin.jsp]  "  + serviceName+ " : Integer.toString(parse2.length)   = "  + Integer.toString(parse2.length) +  "<br>");
+
+			  if (parse2.length == 2) {
+				  	if(parse2[0].toString().equals(serviceNum)){
+				  			String tokenInfo3 = parse2[1].toString().trim();
+				  			String parse3[] = tokenInfo3.split("//");
+
+				  			if (logLevel<1)   out.println("[SKSSO-tmaxssologin.jsp]  "  + serviceName+ " : Integer.toString(parse3.length)   = "  + Integer.toString(parse3.length) +  "<br>");
+
+				  			if (parse3.length == 2) {
+				  				strUserId = parse3[0].toString().trim();
+				  				strUserPw = parse3[1].toString().trim();
+				  				if (logLevel<2) 	System.out.println("[SKSSO-tmaxssologin.jsp]  "  + serviceName+ " : serviceNum / strUserId / strUserPw get Success!!!  "  + serviceNum + " / " + strUserId + " / "  + strUserPw);
+				  				if (logLevel<1)   out.println("[SKSSO-tmaxssologin.jsp]  "  + serviceName+ " : serviceNum / strUserId / strUserPw get Success!!!  "  + serviceNum + " / " + strUserId + " / "  + strUserPw + "<br>");
+				  				break;
+				  			}
+				  			else{
+				  				if (logLevel<2) 	System.out.println("[SKSSO-tmaxssologin.jsp]  "  + serviceName+ " : SSO Token Error3!!! tokenInfo3 = " + tokenInfo3);
+				  			}
+				  	}
+			  }
+			  else{
+			  	if (logLevel<2) 	System.out.println("[SKSSO-tmaxssologin.jsp]  "  + serviceName+ " : SSO Token Error2!!! tokenInfo2 = " + tokenInfo2);
+			  }
+		}
+		else{
+			  if (logLevel<2) 	System.out.println("[SKSSO-tmaxssologin.jsp]  "  + serviceName+ " : tokenInfo2 is null!!!");
+		}
+	}
+}
+else{
+	if (logLevel<2) 	System.out.println("[SKSSO-tmaxssologin.jsp]  "  + serviceName+ " : SSO Token Error!!! passwd = " + passwd);
+}
+
+
+/* STEP4 - 업무단 API 를 사용하여 로그인 처리. */
+boolean loginCheck = false;
+
+
+// = TmaxSSOLogin(strUserId,strUserPw);
+
+String strUserIp = (String)request.getRemoteAddr();
+String loginReturn = "";
+
+if(!strUserId.equals("") && !strUserPw.equals("")){
+
+	/*TEST*/
+	//strUserId = "pcu022";
+	//strUserId = "user123";
+
+	/************************ APP Login  API S ************************/
+	loginReturn = doLogin(box, strUserId, strUserPw, strUserIp);
+	/************************ APP Login  API E ************************/
+
+	if (logLevel<2) 	System.out.println("[SKSSO-tmaxssologin.jsp]  "  + serviceName+ " : loginReturn = " + loginReturn);
+
+	String loginResult[] = loginReturn.split("#");
+
+	String isLoginTrue = loginResult[0].toString();
+	String errMsg = loginResult[1].toString();
+
+	if(isLoginTrue.equals("1")) loginCheck = true;
+
+
+	/* STEP5 - 로그인 정상처리 여부에 따른 처리로직 */
+
+	if(loginCheck) {
+
+		/* 인증쿠키 생성 */
+		Cookie tmaxsso_cookie = new Cookie(Util.authenticatedCookieName, "yes");
+		tmaxsso_cookie.setMaxAge(Integer.parseInt(SSOConf.timeout)*60);
+		tmaxsso_cookie.setPath("/");
+		response.addCookie(tmaxsso_cookie);
+
+		Cookie tmaxssocookie2 = new Cookie(Util.closingCookieName, "yes");
+		tmaxssocookie2.setPath("/");
+		response.addCookie(tmaxssocookie2);
+
+
+		/* 인증세션 생성 */
+		session.setAttribute("userid",strUserId);
+		session.setAttribute("TMAXSSO","SUCCESS");
+
+		// 업무 메인페이지로 보냄.
+		response.sendRedirect(nextPage);
+
+	} else {
+		out.println("<html><script>alert('" + errMsg + "');document.location.href='/';</script></html>");
+	}
+
+}
+else {
+	out.println("<html><script>alert('토큰에 사용자 ID가 존재하지 않습니다.');document.location.href='/';</script></html>");
+}
+
+
+%>

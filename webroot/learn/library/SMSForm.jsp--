@@ -1,0 +1,159 @@
+<%
+//**********************************************************
+//  1. 제      목: SMS 작성
+//  2. 프로그램명 : SMSForm.jsp
+//  3. 개      요: SMS 작성
+//  4. 환      경: JDK 1.4
+//  5. 버      젼: 1.0
+//  6. 작      성: 강성욱 2004. 12. 13
+//  7. 수      정:
+//***********************************************************
+%>
+<%@ page contentType = "text/html;charset=MS949" %>
+<%@ page errorPage = "/learn/library/error.jsp" %>
+<%@ page import = "java.util.*" %>
+<%@ page import = "com.credu.homepage.*" %>
+<%@ page import = "com.credu.library.*" %>
+
+<jsp:useBean id = "conf" class = "com.credu.library.ConfigSet"  scope = "page" />
+<%
+    RequestBox box = (RequestBox)request.getAttribute("requestbox");
+    
+    Vector v_checks  = box.getVector("p_checks");
+    String v_schecks = "";
+    
+    
+    String v_touch = box.getStringDefault("p_touch","00");
+    String v_msubjnm  = box.getString("p_msubjnm");
+    String v_mseqgrnm = box.getString("p_mseqgrnm");
+    String v_msubj    = box.getString("p_msubj");
+    String v_myear    = box.getString("p_myear");
+    String v_msubjseq = box.getString("p_msubjseq");
+    
+    
+    
+
+/*
+                for(int i=0;i<v_checks.size();i++) {
+                    v_schecks = (String)v_checks.elementAt(i);
+                    out.println(v_schecks + "<br>");
+                }
+
+
+       Enumeration em      = v_checks.elements();
+       String v_userid     = "";
+      while(em.hasMoreElements()){
+         v_userid   = (String)em.nextElement();
+         out.println(v_userid + "<br>");
+      }
+*/
+%>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+<link rel="stylesheet" href="/css/admin_style.css" type="text/css">
+<script language = "javascript" src = "/script/cresys_lib.js"></script>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+    function insert() {
+        if (blankCheck(document.form1.p_title.value)) {
+            alert("내용을 입력하세요!");
+            document.form1.p_title.focus();
+            return;
+        }
+        if (realsize(document.form1.p_title.value) > 200) {
+            alert("내용은 한글기준 100자를 초과하지 못합니다.");
+            document.form1.p_title.focus();
+            return;
+        }
+        document.form1.action = "/servlet/controller.library.FreeMailServlet";
+        document.form1.p_isMailing.value = "2";
+        document.form1.p_process.value = "insert";
+        document.form1.submit();
+    }
+
+//-->
+</SCRIPT>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0">
+<form name = "form1" method = "post">
+<input type="hidden" name="p_isMailing" value="">
+<%
+    for(int i=0;i<v_checks.size();i++) {              
+      
+      v_schecks = (String)v_checks.elementAt(i);
+      
+      if(v_schecks.indexOf(',') > 0){
+        v_schecks = StringManager.substring(v_schecks, 0, v_schecks.indexOf(','));
+      }
+%>
+  <input type='hidden' name = 'p_checks' value='<%=v_schecks%>'>
+<% }                                                              %>
+
+  <input type='hidden' name = 'p_process' value=''>
+  
+  <!-- tz_humantouc insert parameter start-->
+  <input type='hidden' name="p_touch" value='<%=v_touch%>'>
+  <input type="hidden" name="p_msubjnm" value='<%=v_msubjnm%>'>
+  <input type="hidden" name="p_mseqgrnm" value='<%=v_mseqgrnm%>'>
+  <input type="hidden" name="p_msubj" value='<%=v_msubj%>'>
+  <input type="hidden" name="p_myear" value='<%=v_myear%>'>
+  <input type="hidden" name="p_msubjseq" value='<%=v_msubjseq%>'>
+  <!-- tz_humantouc insert parameter end -->
+  
+  
+<table width="600" border="0" cellpadding="0" cellspacing="10" bgcolor="#f7f7f7">
+  <tr> 
+    <td> 
+        <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#cccccc">
+          <tr> 
+            <td align="center" bgcolor="#FFFFFF"> 
+
+              <!----------------- title 시작 ----------------->
+      <table width="95%" border="0" cellspacing="0" cellpadding="0" class=page_title>
+        <tr> 
+          <td><img src="/images/admin/library/L_title01.gif" ></td>
+          <td align="right"><img src="/images/admin/common/sub_title_tail.gif" ></td>
+        </tr>
+      </table>
+	           <!----------------- title 끝 ----------------->
+
+              <br>
+
+              <!----------------- 메일작성 시작 ----------------->
+              <table cellspacing="1" cellpadding="5" class="open_table_out">
+                <tr> 
+                  <td colspan="2" class="table_top_line"></td>
+                </tr>
+                <tr> 
+                  <td width="20%" class="table_title">SMS전송내용</td>
+                  <td class="table_02_2"> 
+                    <input type="text" class="input" size="70" name="p_title">
+                  </td>
+                </tr>
+              </table>
+            <!----------------- 메일작성 끝 ----------------->
+            <br>
+
+            <!----------------- 전송, 닫기 버튼 시작 ----------------->
+              <table cellspacing="0" cellpadding="0" >
+                <tr> 
+                  <td><a href="javascript:insert()"><img src="/images/admin/button/btn_smsend.gif" border="0"></a></td>
+				  <td width=8></td>
+                  <td><a href="javascript:self.close()"><img src="/images/admin/button/btn_close02.gif" border="0"></a></td>
+                </tr>
+              </table>
+            <!----------------- 전송, 닫기 버튼 끝 ----------------->
+
+            <br>
+
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</form>
+</body>
+</html>

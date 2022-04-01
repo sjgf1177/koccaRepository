@@ -1,0 +1,41 @@
+<script langauge="javascript">
+function pop(url) {
+	window.open(url,'','width=820,height=500,scrollbars=yes,toolbars=no,menubars=0');
+}
+
+pop('zeduobj_start.html');
+
+function click() {
+	if ((event.button==2) || (event.button==2)) {
+		alert('죄송합니다. 오른쪽 마우스 금지입니다.');
+	}
+}
+document.onmousedown=click;
+
+function processKey() 
+{ 
+        if( (event.ctrlKey == true && (event.keyCode == 78 || event.keyCode == 82)) || 
+        (event.keyCode >= 112 && event.keyCode <= 123) || event.keyCode == 8) 
+            { 
+        event.keyCode = 0; 
+        event.cancelBubble = true; 
+        event.returnValue = false; 
+            } 
+} 
+document.onkeydown = processKey; 
+
+function click() { 
+     if((event.ctrlKey) || (event.shiftKey)) { 
+       alert('키를 사용할 수 없습니다.'); 
+     } 
+} 
+document.onmousedown=click; 
+document.onkeydown=click; 
+</script>
+<br><p><br><P><P><BR><P>
+<center>
+<font size=3 color=red>
+<b>본 화면은 서버에서 학습할때와 같이 보여주기 위한 임시창입니다.</b>
+</font>
+
+

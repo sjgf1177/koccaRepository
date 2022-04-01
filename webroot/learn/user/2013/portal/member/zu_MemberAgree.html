@@ -1,0 +1,898 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0093)http://edu.kocca.or.kr/servlet/controller.homepage.MainMemberJoinServlet?p_process=MemberJoin -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta property="og:title" content="">
+<meta property="og:url" content="">
+<meta property="og:description" content="">
+<meta property="og:image" content="">
+
+
+<meta name="subject" content="한국콘텐츠아카데미"> 
+<meta name="title" content="한국콘텐츠아카데미">
+<meta name="description" content="한국콘텐츠아카데미">
+<meta name="keywords" content="약관동의 - 회원가입 - 이용안내 - 학습지원, kocca, 한국콘텐츠아카데미">
+<meta name="robots" content="index,follow">
+
+<title>약관동의 - 회원가입 - 이용안내 - 학습지원 | 한국콘텐츠아카데미 </title>
+
+<link rel="stylesheet" href="http://edu.kocca.or.kr/css/jqueryui/1.10.0/themes/base/jquery-ui.css" />
+<script src="http://edu.kocca.or.kr/js/jquery/1.8.3/jquery.js"></script>
+<script src="http://edu.kocca.or.kr/js/jqueryui/1.10.0/jquery-ui.js"></script>
+
+<script type="text/javascript" src="http://edu.kocca.or.kr/js/2013/caption.js"></script>
+<script type="text/javascript" src="http://edu.kocca.or.kr/js/2013/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="http://edu.kocca.or.kr/js/2013/jquery.selectbox-0.6.1.js"></script>
+<script type="text/javascript" src="http://edu.kocca.or.kr/js/2013/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="http://edu.kocca.or.kr/js/2013/common.js"></script>
+<!--<script type="text/javascript" src="/js/2013/temp.js"></script>-->
+<script type="text/javascript" src="http://edu.kocca.or.kr/js/2013/lib.js"></script>
+
+<script type="text/javascript" src="http://edu.kocca.or.kr/script/cresys_lib.js"></script>
+<script type="text/javascript" language="JavaScript" src="http://edu.kocca.or.kr/script/mainscript.js"></script>
+<style type="text/css" media="screen">@import "http://edu.kocca.or.kr/css/2013/common.css";</style>
+<style type="text/css" media="screen">@import "http://edu.kocca.or.kr/css/2013/layout.css";</style>
+<style type="text/css" media="screen">@import "http://edu.kocca.or.kr/css/2013/sub.css";</style>
+
+<script type="text/javascript">
+/* 패스워드 엔터키 체크 */
+function password_enter(e) {
+  if (e.keyCode =='13'){  login_main();  }
+}
+</script>
+</head>
+<body style="">
+<form name="topdefaultForm" method="post" action="http://edu.kocca.or.kr/" id="topdefaultForm">
+    <input type="hidden" name="p_process" value="">
+    <input type="hidden" name="gubun" value="0">
+    <input type="hidden" name="menuid" value="">
+    <input type="hidden" name="url" value="">
+    <input type="hidden" name="p_cmuno" value="">
+    <input type="hidden" name="searchClass" value="">
+    <input type="hidden" name="p_auth" value="">
+    <input type="hidden" name="p_topuserid" value="">
+    <input type="hidden" name="p_toppwd" value="">
+    <input type="hidden" name="p_area" value="">
+    <input type="hidden" name="p_lsearchtext" id="oLsearchtext" value="">
+    <input type="hidden" name="p_lecture_cls" value=""> <!-- 열린강좌(콘텐츠온) 분류별 조회가 필요하여 해당 엘리먼트 추가 //-->
+    <input type="hidden" name="pageNo" value=""> <!-- 열린강좌(콘텐츠온) 페이징 기능이 필요하여 해당 엘리먼트 추가 //-->
+    <input type="submit" class="close" title="실행">
+</form>
+
+<div id="wrap">
+    <div id="shortcutmenu">
+        <a href="http://edu.kocca.or.kr/servlet/controller.homepage.MainMemberJoinServlet?p_process=MemberJoin#quickEduMenu">주메뉴로 바로가기</a>
+        <a href="http://edu.kocca.or.kr/servlet/controller.homepage.MainMemberJoinServlet?p_process=MemberJoin#contents">본문으로 바로가기</a>
+    </div>
+    <!-- //#shortcutmenu -->
+
+    <div id="header">
+        <h1><a href="http://edu.kocca.or.kr/servlet/controller.homepage.MainServlet"><img src="./zu_MemberAgree_files/logo.png" alt="kocca 한국콘텐츠아카데미"></a></h1>
+        <ul class="util">
+                 
+            <li class="login">
+            <form method="post" name="login" action="">
+                <input type="hidden" name="p_process" value="">
+                <input type="hidden" name="p_frmURL" value="">
+                <label for="p_userid" style="display:none;">로그인 아이디</label><input type="text" name="p_userid" id="p_userid" class="id">
+                <label for="p_pwd" style="display:none;">로그인 비밀번호</label><input type="password" name="p_pwd" id="p_pwd" class="pw" onkeypress="password_enter(event)">
+                <a href="javascript:void(0);" onclick="return login_main();" title="로그인"><img src="./zu_MemberAgree_files/btn_login.gif" alt="로그인"></a>
+            </form>
+            </li>
+            <li class="signup"><a href="./zu_MemberAgree_files/zu_MemberAgree.html">회원가입</a></li>
+            <li class="idpw"><a href="http://edu.kocca.or.kr/servlet/controller.homepage.MainMemberJoinServlet?p_process=FindIdPwd">ID/PW찾기</a></li>
+            
+            <li class="zoom">
+                크기조절
+                <span>
+                    <a href="javascript:"><img src="./zu_MemberAgree_files/btn_plus.gif" alt="화면 확대"></a>
+                    <a href="javascript:"><img src="./zu_MemberAgree_files/btn_minus.gif" alt="화면 축소"></a>
+                </span>
+            </li>
+        </ul>
+    </div>
+    <!-- //#header -->
+
+    <hr>
+
+    <div id="sideMenu">
+        <div class="search">
+            <fieldset>
+                <legend>빠른 검색</legend>
+                 <label for="topWarp_searchText" style="display:none;">검색어</label><input type="text" name="topWarp_searchText" onkeypress="searchtotal_enter(event);" id="topWarp_searchText" title="검색어" class="keyword">
+                <a href="javascript:totalSubjSearch1();"><img src="./zu_MemberAgree_files/btn_src.gif" alt="검색"></a>
+                <!-- <input type="image" src="/images/2013/btn/btn_src.gif" alt="검색" class="btn" onclick="javascript:totalSubjSearch1();"/> //-->
+            </fieldset>
+        </div>
+        <div class="eduSup">
+            <h2 style="margin-bottom:5px;"><a href="http://edu.kocca.or.kr/servlet/controller.homepage.HomePageAboutUsServlet?p_process=Vision"><img src="./zu_MemberAgree_files/sidemenu_tit2.gif" alt="아카데미 소개"></a></h2>
+            <h2><a href="http://edu.kocca.or.kr/servlet/controller.homepage.HomePageHelpServlet?p_process=HelpHome"><img src="./zu_MemberAgree_files/sidemenu_tit.gif" alt="학습지원"></a></h2>
+            <ul>
+                <li><a href="http://edu.kocca.or.kr/servlet/controller.homepage.HomePageHelpServlet?p_process=RemoteService"><img src="./zu_MemberAgree_files/sidemenu_1.gif" alt="원격지원서비스"></a></li>
+                <li><a href="http://edu.kocca.or.kr/servlet/controller.homepage.HomePageHelpServlet?p_process=selectHelp"><img src="./zu_MemberAgree_files/sidemenu_2.gif" alt="학습환경설정"></a></li>
+                <!-- 2014-06-25 수정. 하단에 관련 사이트 배너를 추가하기 위해 현재 운영중인 메뉴를 제거함 //-->
+                <!-- <li><a href="/servlet/controller.homepage.HomePageHelpServlet?p_process=mobileApp"><img src="/images/2013/common/sidemenu_1-2.gif" alt="모바일앱" /></a></li> //-->
+                <!-- <li><a href="/servlet/controller.homepage.HomePageFAQServlet?p_process=selectList"><img src="/images/2013/common/sidemenu_3.gif" alt="FAQ" /></a></li> //-->
+                <li><a href="http://edu.kocca.or.kr/servlet/controller.homepage.HomePageQNAServlet?p_process=selectList"><img src="./zu_MemberAgree_files/sidemenu_4.gif" alt="교육문의"></a></li>
+                <!-- <li><a href="/servlet/controller.homepage.HomeNoticeServlet?p_process=List"><img src="/images/2013/common/sidemenu_5.gif" alt="공지사항" /></a></li> //-->
+                <!-- <li><a href="/servlet/controller.course.EduScheduleHomePageServlet?p_process=offSchlYearPlanList"><img src="/images/2013/common/sidemenu_6.gif" alt="연간일정" /></a></li> //-->
+                <!-- <li><a href="/servlet/controller.homepage.HomePageHelpServlet?p_process=SupportHome"><img src="/images/2013/common/sidemenu_7.gif" alt="이용안내" /></a></li> //-->
+            </ul>
+        </div>
+        <div class="sns">
+            <ul>
+                <li><a href="https://www.facebook.com/edukocca" target="_blank"><img src="./zu_MemberAgree_files/btn_sns_fb.gif" alt="페이스북"></a></li>
+                <li><a href="https://twitter.com/edukocca" target="_blank"><img src="./zu_MemberAgree_files/btn_sns_tw.gif" alt="트위터"></a></li>
+                <li><a href="http://blog.naver.com/kocca02" target="_blank"><img src="./zu_MemberAgree_files/btn_sns_nv.gif" alt="블로그"></a></li>
+                <li><a href="http://www.youtube.com/KoreanContent" target="_blank"><img src="./zu_MemberAgree_files/btn_sns_yt.gif" alt="유튜브"></a></li>
+            </ul>
+        </div>
+
+         <script type="text/javascript">     
+     function poplar_search(t){      
+         $("#topWarp_searchText").val(t);        
+         totalSubjSearch1();     
+     }       
+         
+ </script>       
+ <div style="margin-bottom: 55px;"></div>        
+ <div style="padding-left: 3px;">        
+ <h2><img src="./zu_MemberAgree_files/msw_title2.gif" alt="인기검색어"></h2>       
+ <ul style="background-image: url(&#39;/images/2013/common/msw_bg.gif&#39;)">        
+     <li style="margin-top: -5px;">&nbsp;</li>       
+  
+     <li style="margin-left: 5px; padding-bottom: 5px;">     
+         <img src="./zu_MemberAgree_files/msw_nb1r.gif" alt="1" style="vertical-align: middle;">        
+         <a href="javascript:poplar_search('스토리텔링');"><strong style="color: e2e2e2">스토리텔링</strong></a> 
+     </li>       
+     <li style="margin-left: 5px; padding-bottom: 5px;">     
+         <img src="./zu_MemberAgree_files/msw_nb2r.gif" alt="2" style="vertical-align: middle;">        
+         <a href="javascript:poplar_search('Adobe');"><strong style="color: e2e2e2">Adobe</strong></a> 
+     </li>       
+     <li style="margin-left: 5px; padding-bottom: 5px;">     
+         <img src="./zu_MemberAgree_files/msw_nb3r.gif" alt="3" style="vertical-align: middle;">        
+         <a href="javascript:poplar_search('CS5');"><strong style="color: e2e2e2">CS5</strong></a> 
+     </li>       
+     <li style="margin-left: 5px; padding-bottom: 5px;">     
+         <img src="./zu_MemberAgree_files/msw_nb4r.gif" alt="4" style="vertical-align: middle;">        
+         <a href="javascript:poplar_search('파이널컷');"><strong style="color: e2e2e2">파이널컷</strong></a> 
+     </li>       
+     <li style="margin-left: 5px; padding-bottom: 5px;">     
+         <img src="./zu_MemberAgree_files/msw_nb5r.gif" alt="5" style="vertical-align: middle;">        
+         <a href="javascript:poplar_search('그래픽');"><strong style="color: e2e2e2">그래픽</strong></a> 
+     </li>       
+     <li style="margin-left: 5px; padding-bottom: 5px;">     
+         <img src="./zu_MemberAgree_files/msw_nb6r.gif" alt="6" style="vertical-align: middle;">        
+         <a href="javascript:poplar_search('프로젝트');"><strong style="color: e2e2e2">프로젝트</strong></a> 
+     </li>       
+     <li style="margin-left: 5px; padding-bottom: 5px;">     
+         <img src="./zu_MemberAgree_files/msw_nb7r.gif" alt="7" style="vertical-align: middle;">        
+         <a href="javascript:poplar_search('vfx');"><strong style="color: e2e2e2">vfx</strong></a> 
+     </li>       
+  
+ </ul>       
+ <h2><img src="./zu_MemberAgree_files/msw_bgdown.gif" alt="" style="margin-top: 0px;"></h2>      
+ </div>        
+
+
+        
+
+        <div style="padding-top:20px; padding-left:3px;">
+            <ul>
+                <li><a href="http://edu.kocca.or.kr/servlet/controller.homepage.HomePageHelpServlet?p_process=mobileApp" target="_self" title="모바일 서비스 안내"><img src="./zu_MemberAgree_files/right_banner_mobile.jpg" alt="모바일 서비스 안내"></a></li>
+            </ul>
+        </div>
+
+        <div style="padding-top:20px; padding-left:3px;">
+            <ul>
+                <li><a href="http://www.ckl.or.kr/" target="_blank" title="CONTENTS KOREA LAB 홈페이지로 이동"><img src="./zu_MemberAgree_files/right_banner_ckl_20140625.jpg" alt="상상력이 창작으로, 창작이 창업으로. 콘텐츠코리아랩"></a></li>
+            </ul>
+        </div>
+
+    </div>
+    <!-- //#sidemenu -->
+
+    <hr>
+
+    <div id="quickEduMenu">
+        <ul class="tab">
+            <li><a href="http://edu.kocca.or.kr/servlet/controller.homepage.MainMemberJoinServlet?p_process=MemberJoin#quickEdu1"><img src="./zu_MemberAgree_files/quick_tab_1.gif" alt="온라인 교육" class=""></a></li>
+            <li><a href="http://edu.kocca.or.kr/servlet/controller.homepage.MainMemberJoinServlet?p_process=MemberJoin#quickEdu2"><img src="./zu_MemberAgree_files/quick_tab_2.gif" alt="현장 교육"></a></li>
+            <li><a href="http://edu.kocca.or.kr/servlet/controller.homepage.MainMemberJoinServlet?p_process=MemberJoin#quickEdu3"><img src="./zu_MemberAgree_files/quick_tab_3.gif" alt="열린 강좌" class=""></a></li>
+        </ul>
+        <p class="viewAll"><a href="http://edu.kocca.or.kr/servlet/controller.homepage.MainMemberJoinServlet?p_process=MemberJoin#totalmenu"><img src="./zu_MemberAgree_files/btn_all.gif" alt="전체보기"></a></p>
+
+        <!-- 온라인교육 -->
+        <div id="quickEdu1" class="cont" style="display: none;">
+            <div class="pointer"></div>
+            <h3>
+<!--                <a href="#">-->
+                    <span class="img"><img src="./zu_MemberAgree_files/quick1_tit.png" alt="온라인 교육"></span>
+                    <span class="txt">게임, 방송, 만화애니메이션<br>캐릭터, 음악공연 등 <strong>콘텐츠분야<br> 무료 온라인 교육</strong>을 제공합니다.</span>
+<!--                </a>-->
+            </h3>
+            <ul>
+                <li>
+                    <a href="http://edu.kocca.or.kr/servlet/controller.study.MyClassServlet?p_process=EducationStudyingSubjectPage">
+                        <span class="img"><img src="./zu_MemberAgree_files/quick1_tit2.png" alt="나의 강의실"></span>
+                        <span class="txt">현재 학습중인 과정, 신청중인<br>과정 확인 및 학습완료 과정의<br> 수료증을 발급 받을 수 있습니다.</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://edu.kocca.or.kr/servlet/controller.propose.ProposeCourseServlet?p_process=SubjectList">
+                        <span class="img"><img src="./zu_MemberAgree_files/quick1_tit3.png" alt="과정안내"></span>
+                        <span class="txt">역량별, 직업별, 분야별, 과정별<br> 원하는 과정을 찾을 수 있으며,<br>과정 정보를 볼 수 있습니다.</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://edu.kocca.or.kr/servlet/controller.homepage.KnowBoardUserServlet?p_process=ListPage">
+                        <span class="img"><img src="./zu_MemberAgree_files/quick1_tit4.png" alt="커뮤니티"></span>
+                        <span class="txt">튜터와 학습자,<br>학습자와 학습자간의 지식을<br> 공유하고 토론하는 공간입니다.</span>
+                    </a>
+                </li>
+            </ul>
+<!--            <p class="link"><span><a href="#">매달 3개의 과정을 수강 할 수 있습니다. 나에게 필요한 <strong>교육과정 알아보기</strong></a></span></p>-->
+            <p class="closeBtn"><a href="http://edu.kocca.or.kr/servlet/controller.homepage.MainMemberJoinServlet?p_process=MemberJoin#"><img src="./zu_MemberAgree_files/quick_close.gif" alt="창닫기"></a></p>
+        </div>
+        <!-- //온라인교육 -->
+
+        <!-- 현장교육 -->
+        <div id="quickEdu2" class="cont" style="display: none;">
+            <div class="pointer"></div>
+            <h3>
+<!--                <a href="#">-->
+                    <span class="img"><img src="./zu_MemberAgree_files/quick2_tit.png" alt="현장 교육"></span>
+                    <span class="txt">콘텐츠분야 <strong>예비인력</strong>과<br> 콘텐츠산업 <strong>현업인</strong>을 위한 <br><strong>전문 현장교육</strong>을 제공합니다.  </span>
+<!--                </a>-->
+            </h3>
+            <ul>
+                <li>
+                    <a href="http://edu.kocca.or.kr/servlet/controller.study.MyClassServlet?p_process=EducationStudyingOffSubjectPage">
+                        <span class="img"><img src="./zu_MemberAgree_files/quick2_tit2.png" alt="나의 강의실"></span>
+                        <span class="txt">현재  신청중인 과정, 교육중인<br>과정 확인 및 교육완료 과정의<br> 수료증을 발급 받을 수 있습니다.</span>
+                    </a>
+                </li>
+                <li>
+                    <!-- 2014-04-23 기존 3D과정이 미래창조부로 이관 완료됨으로 인하여 주석처리
+                    <a href="/servlet/controller.off.ProposeOffServlet?p_process=SubjectList&p_area=004">
+                    //-->
+                    <a href="http://edu.kocca.or.kr/servlet/controller.off.ProposeOffServlet?p_process=SubjectList&p_area=001">
+                        <span class="img"><img src="./zu_MemberAgree_files/quick2_tit3.png" alt="과정신청"></span>
+                        <span class="txt">예비인력교육, 현업인 직무교육 등<br> 모집 중인 과정을 확인하고, 원하는<br>과정을 신청 할 수 있습니다.</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://edu.kocca.or.kr/servlet/controller.course.EduScheduleHomePageServlet?p_process=offSchlYearPlanList">
+                        <span class="img"><img src="./zu_MemberAgree_files/quick2_tit4.png" alt="일정안내"></span>
+                        <span class="txt">연,월 단위로 현장교육 모집일정 <br>안내를 확인 하실 수 있습니다.</span>
+                    </a>
+                </li>
+            </ul>
+<!--            <p class="link"><span><a href="#">9월 현장교육 과정 안내를 확인 할 수 있습니다. 나에게 필요한 <strong>교육과정 알아보기</strong></a></span></p>-->
+            <p class="closeBtn"><a href="http://edu.kocca.or.kr/servlet/controller.homepage.MainMemberJoinServlet?p_process=MemberJoin#"><img src="./zu_MemberAgree_files/quick_close.gif" alt="창닫기"></a></p>
+        </div>
+        <!-- //현장교육 -->
+
+        <!-- 2014-06-12 new 열린강좌(콘텐츠온) start //-->
+		<div id="quickEdu3" class="cont" style="display: none;">
+			<div class="pointer"></div>
+			<div class="bgTopRight"></div>
+			<h3>
+				<span class="img"><img src="./zu_MemberAgree_files/quick3_tit.png" alt="열린 강좌"></span>
+				<span class="txt">방송영상, 문화예술, 게임 등<br> <strong>자유롭게 볼 수 있는 콘텐츠 </strong>를<br> 제공 하고 있습니다.</span>
+			</h3>
+			<div>
+				<span class="img" style="float:left; margin-top:13px;"><img src="./zu_MemberAgree_files/line_v.png" alt=""></span>
+				<div>
+					<h4>
+						<span class="img" style="float:left; padding:30px 10px 10px 20px;"><img src="./zu_MemberAgree_files/list01.png" alt="분류별"></span>
+					</h4>
+					<div style="float:left; margin-top:60px; padding-left:7px;">
+						<a href="javascript:fnOpenClassList('ALL');" style="margin:15px; color:#865d21">전체</a><font style="color:#dadada;">|</font>
+						<a href="javascript:fnOpenClassList('GC01');" style="margin:15px; color:#865d21">방송영상</a><font style="color:#dadada;">|</font>
+						<a href="javascript:fnOpenClassList('GC02');" style="margin:15px; color:#865d21">게임</a><font style="color:#dadada;">|</font>
+						<a href="javascript:fnOpenClassList('GC03');" style="margin:15px; color:#865d21">만화애니캐릭터</a><font style="color:#dadada;">|</font>
+						<a href="javascript:fnOpenClassList('GC04');" style="margin:15px; color:#865d21">음악/공연</a><font style="color:#dadada;">|</font>
+						<a href="javascript:fnOpenClassList('GC05');" style="margin:15px; color:#865d21">기타</a>
+					</div>
+				</div>
+				<span class="img" style="float:left; width:550px; height:10px;"><img src="./zu_MemberAgree_files/line_h.png" alt=""></span>
+				<div>
+					<h4>
+						<span class="img" style="float:left; padding:10px 10px 10px 20px;"><img src="./zu_MemberAgree_files/list02.png" alt="테마별"></span>
+					</h4>
+					<div style="float:left; margin-top:38px; padding-left:7px;">
+						<a href="javascript:fnOpenClassList('GC06');" style="margin:15px; color:#521e87">콘텐츠인사이트</a><font style="color:#dadada;">|</font>
+						<a href="javascript:fnOpenClassList('GC07');" style="margin:15px; color:#521e87">마스터클래스</a><font style="color:#dadada;">|</font>
+						<a href="javascript:fnOpenClassList('GC08');" style="margin:15px; color:#521e87">휴넷열린강좌</a><font style="color:#dadada;">|</font>
+					</div>
+				</div>
+					
+			</div>
+            <!-- <p class="link"><span><a href="#">수강신청 없이 언제든지 학습이 가능한 열린 강좌입니다. <strong>신규 열린강좌 둘러보기</strong></a></span></p> //-->
+			<p class="closeBtn"><a href="http://edu.kocca.or.kr/servlet/controller.homepage.MainMemberJoinServlet?p_process=MemberJoin#"><img src="./zu_MemberAgree_files/quick_close.gif" alt="창닫기"></a></p>
+		</div>
+
+        <!-- 2014-06-12 new 열린강좌(콘텐츠온) end //-->
+
+        <!-- 열린강좌 2014-06-10 열린강좌를 분류별로 조회하는 것으로 변경되어 기존 내용을 주석처리 함 //-->
+        <!--
+        <div id="quickEdu3" class="cont">
+            <div class="pointer"></div>
+            <h3>
+            //-->
+
+                <!-- <a href="/servlet/controller.infomation.GoldClassHomePageServlet?p_process=mainPage">-->
+                <!--
+                <span class="img"><img src="/images/2013/common/quick3_tit.png" alt="열린 강좌" /></span>
+                <span class="txt">방송영상, 문화예술, 게임 등<br /><strong>자유롭게 볼 수 있는 콘텐츠</strong>를<br />제공하고 있습니다.</span>
+                //-->
+                <!-- </a>-->
+
+            <!--
+            </h3>
+            <ul>
+                <li class="top">
+                    <a href="/servlet/controller.infomation.GoldClassHomePageServlet?p_process=mainPage&p_genre=G01">
+                        <span class="img"><img src="/images/2013/common/quick3_tit2.png" alt="방송영상" /></span>
+                        <span class="txt">1박2일, 슈퍼스타,<br />대장금, 허준 등</span>
+                    </a>
+                </li>
+                <li class="top">
+                    <a href="/servlet/controller.infomation.GoldClassHomePageServlet?p_process=mainPage&p_genre=G02">
+                        <span class="img"><img src="/images/2013/common/quick3_tit3.png" alt="영화" /></span>
+                        <span class="txt">윤제균, 이창동감독<br />이미도 번역가 등</span>
+                    </a>
+                </li>
+                <li class="top">
+                    <a href="/servlet/controller.infomation.GoldClassHomePageServlet?p_process=mainPage&p_genre=G03">
+                        <span class="img"><img src="/images/2013/common/quick3_tit4.png" alt="다큐멘터" /></span>
+                        <span class="txt">워낭소리, 아마존의<br />눈물 등</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/servlet/controller.infomation.GoldClassHomePageServlet?p_process=mainPage&p_genre=G04">
+                        <span class="img"><img src="/images/2013/common/quick3_tit5.png" alt="문화예술" /></span>
+                        <span class="txt">윤제균, 이창동감독<br />이미도 번역가 등</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/servlet/controller.infomation.GoldClassHomePageServlet?p_process=mainPage&p_genre=G06">
+                        <span class="img"><img src="/images/2013/common/quick3_tit6.png" alt="게임" /></span>
+                        <span class="txt">등급심의 세미나,<br />해외진출전략 등 </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/servlet/controller.infomation.GoldClassHomePageServlet?p_process=mainPage&p_genre=G05">
+                        <span class="img"><img src="/images/2013/common/quick3_tit7.png" alt="기타" /></span>
+                        <span class="txt">콘텐츠 창업성공기,<br />콘텐츠와 저작권 등</span>
+                    </a>
+                </li>
+            </ul>
+            //-->
+            <!-- <p class="link"><span><a href="#">수강신청 없이 언제든지 학습이 가능한 열린 강좌입니다. <strong>신규 열린강좌 둘러보기</strong></a></span></p> //-->
+            <!--
+            <p class="closeBtn"><a href="#"><img src="/images/2013/btn/quick_close.gif" alt="창닫기" /></a></p>
+        </div>
+        //-->
+
+        <!-- 열린강좌 끝//-->
+
+        <div id="totalmenu" class="totalmenu" style="display: none;">
+            <ul class="group">
+                <li class="d1"><a href="http://edu.kocca.or.kr/servlet/controller.study.MyClassServlet?p_process=EducationStudyingSubjectPage"><strong>내 강의실</strong></a>
+                    <ul>
+                       <li><a href="http://edu.kocca.or.kr/servlet/controller.study.MyClassServlet?p_process=EducationStudyingSubjectPage">- 학습중인 과정</a></li>
+                       <li><a href="http://edu.kocca.or.kr/servlet/controller.study.MyClassServlet?p_process=EducationStudyingSubjectPage">- 다음 과정</a></li>
+                       <li><a href="http://edu.kocca.or.kr/servlet/controller.study.MyClassServlet?p_process=EducationStudyingSubjectPage">- 찜한 과정</a></li>
+                       <li><a href="http://edu.kocca.or.kr/servlet/controller.study.MyClassServlet?p_process=EducationStudyingSubjectPage">- 지난 과정</a></li>
+                    </ul>
+                </li>
+                <li class="d1"><a href="http://edu.kocca.or.kr/servlet/controller.propose.ProposeCourseServlet?p_process=SubjectList"><strong>과정안내</strong></a>
+                    <ul>
+                       <li><a href="http://edu.kocca.or.kr/servlet/controller.propose.ProposeCourseServlet?p_process=SubjectList">- 과정별 소개</a></li>
+                       <li><a href="http://edu.kocca.or.kr/servlet/controller.propose.ProposeCourseServlet?p_process=SubjectListJikup">- 직업별 분류</a></li>
+                       <li><a href="http://edu.kocca.or.kr/servlet/controller.propose.ProposeCourseServlet?p_process=SubjectListJikmu">- 직무별 분류</a></li>
+                       <li><a href="http://edu.kocca.or.kr/servlet/controller.propose.ProposeCourseServlet?p_process=EduSystem">- 교육체계도</a></li>
+                    </ul>
+                </li>
+                <li class="d1"><a href="http://edu.kocca.or.kr/servlet/controller.homepage.KnowBoardUserServlet?p_process=ListPage"><strong>커뮤니티</strong></a></li>
+            </ul>
+            <ul class="group">
+                <li class="d1"><a href="http://edu.kocca.or.kr/servlet/controller.study.MyClassServlet?p_process=EducationStudyingOffSubjectPage"><strong>내 강의실</strong></a>
+                    <ul>
+                       <li><a href="http://edu.kocca.or.kr/servlet/controller.study.MyClassServlet?p_process=EducationStudyingOffSubjectPage">- 신청중인 과정</a></li>
+                       <li><a href="http://edu.kocca.or.kr/servlet/controller.study.MyClassServlet?p_process=EducationStudyingOffSubjectPage">- 종료된 과정</a></li>
+                    </ul>
+                </li>
+                <li class="d1"><a href="http://edu.kocca.or.kr/servlet/controller.off.ProposeOffServlet?p_process=SubjectList&p_area=001"><strong>과정안내</strong></a>
+                    <ul>
+                        <!-- 2014-04-23 기존 3D과정이 미래창조부로 이관 완료됨으로 인하여 주석처리
+                        <li><a href="/servlet/controller.off.ProposeOffServlet?p_process=SubjectList&p_area=004">- 3D 입체콘텐츠</a></li>
+                        //-->
+                        <li><a href="http://edu.kocca.or.kr/servlet/controller.off.ProposeOffServlet?p_process=SubjectList&p_area=001">- 현업인직무재교육</a></li>
+                        <li><a href="http://edu.kocca.or.kr/servlet/controller.off.ProposeOffServlet?p_process=SubjectList&p_area=002">- 차세대 인재양성교육</a></li>
+                    </ul>
+                </li>
+                <li class="d1"><a href="http://edu.kocca.or.kr/servlet/controller.course.EduScheduleHomePageServlet?p_process=offSchlYearPlanList"><strong>일정안내</strong></a></li>
+            </ul>
+            <ul class="group">
+                <li class="d1"><a href="http://edu.kocca.or.kr/servlet/controller.infomation.GoldClassHomePageServlet"><strong>분류별</strong></a>
+                    <ul>
+                       <li><a href="http://edu.kocca.or.kr/servlet/controller.infomation.GoldClassHomePageServlet">- 전체</a></li>
+                       <li><a href="http://edu.kocca.or.kr/servlet/controller.infomation.GoldClassHomePageServlet?p_lecture_cls=GC01">- 방송영상</a></li>
+                       <li><a href="http://edu.kocca.or.kr/servlet/controller.infomation.GoldClassHomePageServlet?p_lecture_cls=GC02">- 게임</a></li>
+                       <li><a href="http://edu.kocca.or.kr/servlet/controller.infomation.GoldClassHomePageServlet?p_lecture_cls=GC03">- 만화애니캐릭터</a></li>
+                       <li><a href="http://edu.kocca.or.kr/servlet/controller.infomation.GoldClassHomePageServlet?p_lecture_cls=GC04">- 음악/공연</a></li>
+                       <li><a href="http://edu.kocca.or.kr/servlet/controller.infomation.GoldClassHomePageServlet?p_lecture_cls=GC05">- 기타</a></li>
+                    </ul>
+                </li>
+
+                <li class="d1"><a href="http://edu.kocca.or.kr/servlet/controller.infomation.GoldClassHomePageServlet"><strong>테마별</strong></a>
+                    <ul>
+                       <li><a href="http://edu.kocca.or.kr/servlet/controller.infomation.GoldClassHomePageServlet?p_lecture_cls=GC06">- 콘텐츠인사이트</a></li>
+                       <li><a href="http://edu.kocca.or.kr/servlet/controller.infomation.GoldClassHomePageServlet?p_lecture_cls=GC07">- 마스터클래스</a></li>
+                       <li><a href="http://edu.kocca.or.kr/servlet/controller.infomation.GoldClassHomePageServlet?p_lecture_cls=GC08">- 휴넷열린강좌</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <p class="closeBtn"><a href="http://edu.kocca.or.kr/servlet/controller.homepage.MainMemberJoinServlet?p_process=MemberJoin#"><img src="./zu_MemberAgree_files/quick_close.gif" alt="창닫기"></a></p>
+        </div>
+    </div>
+    <!-- //#quickEduMenu -->
+
+    <hr>
+    <div id="container">
+
+
+<!-- 스크립트영역 -->
+<script language="JavaScript" type="text/JavaScript">
+// 회원정보입력화면으로
+function memberJoinAgree(){
+    var f = document.form1;
+    var cnt = 0;
+    cnt = $('input[name=p_agree]:checked').length;
+
+    // 약관동의
+    if(cnt != 5){
+        alert('이용약관에 동의해 주세요');
+        return;
+    }else{
+        document.form1.action="/servlet/controller.homepage.MainMemberJoinServlet";
+        document.form1.p_resno.value   = "";
+        document.form1.p_resno1.value   = "";
+        document.form1.p_resno2.value   = "";
+        document.form1.p_username.value   ="";
+        document.form1.p_process.value = "CheckAgree";
+        document.form1.submit();
+    }
+}
+
+function agreeAllChecked(){
+    var f = document.form1;
+    $('input[name=p_agree]').attr('checked',$("#agreeAll").is(":checked"));
+}
+</script>
+
+<!-- form 시작 -->
+<form name="form1" method="post" action="">
+    <input type="hidden" name="p_process" value="">
+    <input type="hidden" name="p_resno" value="">
+    <input type="hidden" name="p_resno1" value="">
+    <input type="hidden" name="p_resno2" value="">
+    <input type="hidden" name="p_username" value="">
+    <input type="hidden" name="p_event" value="">
+
+    <div id="mainMenu" class="fullmenu">
+            <!-- 학습지원 -->
+            <ul class="location">
+                <li>홈</li>
+                <li>학습지원</li>
+                <li>
+                    이용안내 <a href="http://edu.kocca.or.kr/servlet/controller.homepage.MainMemberJoinServlet?p_process=MemberJoin#" class="unfold"><img src="./zu_MemberAgree_files/btn_menuview.gif" alt="메뉴 보기"></a>
+                    <ul style="display: none;">
+                        <!-- 활성화된 메뉴에  class="active" 삽입 -->
+                        <li><a href="http://edu.kocca.or.kr/servlet/controller.homepage.HomePageHelpServlet?p_process=RemoteService">원격지원 서비스</a></li>
+                        <li><a href="http://edu.kocca.or.kr/servlet/controller.homepage.HomePageHelpServlet?p_process=selectHelp">학습환경 설정</a></li>
+                        <li><a href="http://edu.kocca.or.kr/servlet/controller.homepage.HomePageFAQServlet?p_process=selectList">FAQ</a></li>
+                        <li><a href="http://edu.kocca.or.kr/servlet/controller.homepage.HomePageQNAServlet?p_process=selectList">교육문의</a></li>
+                        <li><a href="http://edu.kocca.or.kr/servlet/controller.homepage.HomeNoticeServlet?p_process=List">공지사항</a></li>
+                        <!--<li><a href="#">연간일정</a></li>-->
+                        <li><a href="http://edu.kocca.or.kr/servlet/controller.homepage.HomePageHelpServlet?p_process=SupportHome" class="active">이용안내</a></li>
+                    </ul>
+                </li>
+                <li>
+                    회원가입 <a href="http://edu.kocca.or.kr/servlet/controller.homepage.MainMemberJoinServlet?p_process=MemberJoin#" class="unfold"><img src="./zu_MemberAgree_files/btn_menuview.gif" alt="메뉴 보기"></a>
+                    <ul style="display: none;">
+                        <!-- 활성화된 메뉴에  class="active" 삽입 -->
+                        <li><a href="http://edu.kocca.or.kr/servlet/controller.homepage.HomePageHelpServlet?p_process=SiteMap">사이트맵</a></li>
+                        <li><a href="./zu_MemberAgree_files/zu_MemberAgree.html" class="active">회원가입</a></li>
+                        <li><a href="http://edu.kocca.or.kr/servlet/controller.homepage.MainMemberJoinServlet?p_process=FindIdPwd">아이디/패스워드 찾기</a></li>
+                        <li><a href="http://edu.kocca.or.kr/servlet/controller.homepage.MainMemberJoinServlet?p_process=MemberInfoUpdate">내 정보 관리</a></li>
+                        <li><a href="http://edu.kocca.or.kr/servlet/controller.homepage.MainMemberJoinServlet?p_process=PersonalNew">개인정보처리방침</a></li>
+                        <li><a href="http://edu.kocca.or.kr/servlet/controller.homepage.MainMemberJoinServlet?p_process=UserAgree">이용약관</a></li>
+                        <li><a href="http://edu.kocca.or.kr/servlet/controller.homepage.HomePageHelpServlet?p_process=Footer&p_code=FOOTER_EMAIL">이메일무단수집거부</a></li>
+                        <li><a href="http://edu.kocca.or.kr/servlet/controller.homepage.HomePageContactServlet?p_process=webReport">홈페이지 개선의견</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- 서브메인용 -->
+            <div class="introCategory">
+                <ul>
+                    <li><a href="http://edu.kocca.or.kr/servlet/controller.homepage.HomePageHelpServlet?p_process=SiteMap">사이트맵</a></li>
+                    <li><a href="./zu_MemberAgree_files/zu_MemberAgree.html"><strong><u>회원가입</u></strong></a></li>
+                    <li><a href="http://edu.kocca.or.kr/servlet/controller.homepage.MainMemberJoinServlet?p_process=FindIdPwd">아이디/패스워드 찾기</a></li>
+                    <li><a href="http://edu.kocca.or.kr/servlet/controller.homepage.MainMemberJoinServlet?p_process=MemberInfoUpdate">내 정보 관리</a></li>
+                    <li><a href="http://edu.kocca.or.kr/servlet/controller.homepage.MainMemberJoinServlet?p_process=PersonalNew">개인정보처리방침</a></li>
+                    <li><a href="http://edu.kocca.or.kr/servlet/controller.homepage.MainMemberJoinServlet?p_process=UserAgree">이용약관</a></li>
+                    <li><a href="http://edu.kocca.or.kr/servlet/controller.homepage.HomePageHelpServlet?p_process=Footer&p_code=FOOTER_EMAIL">이메일무단수집거부</a></li>
+                    <li><a href="http://edu.kocca.or.kr/servlet/controller.homepage.HomePageContactServlet?p_process=webReport">홈페이지 개선의견</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- //#mainMenu -->
+
+
+        <!-- 컨텐츠 영역 시작 -->
+        <div id="contents">
+
+            <h2 class="subTit"><img src="./zu_MemberAgree_files/join_title.gif" alt="회원가입"></h2>
+
+            <div id="subCont">
+                <div class="stepimgBox">
+                    <img src="./zu_MemberAgree_files/private_img1.gif" alt="회원가입의 4단계 약관동의, 본인확인, 정보입력, 가입완료 중에서 현재 1단계 약관동의 단계입니다.">
+                </div>
+
+                <div class="agreement">
+                    <strong>회원가입을 위해서 아래 한국콘텐츠진흥원아카데미 이용약관에 대한 안내를 읽고 동의해 주세요.</strong>
+                    <br><br>
+                    <input type="checkbox" name="p_agreeAll" id="agreeAll" class="checbox" onclick="javascript:agreeAllChecked();"><label for="agreeAll"> <strong>한국콘텐츠진흥원아카데미의 약관에 모두 동의합니다.</strong></label>
+                </div>
+
+                <div class="agreement">
+                    <h3 class="agr"><img src="./zu_MemberAgree_files/ag_title1.gif" alt="사이트 이용약관"></h3>
+                    <div class="txtBox" tabindex="0">
+                        <h4>제1장 총칙</h4>
+
+                        <h5>제1조 목적</h5>
+                        <div>1.이 약관은 "한국콘텐츠아카데미 (이하 "콘텐츠아카데미"이라 한다.)에서 운영하는 웹서비스의 이용조건 및 절차에 관한 사항을 명시합니다.<br>
+                        2.회원가입에 대한 내용을 충분히 숙지하신 후 가입하여 주시고, 이 약관은 본 콘텐츠아카데미에서 운영하는 모든 웹서비스를 이용하는 모든 회원에게 적용되며 이를 읽고 이해하는 것은 귀하의 책임입니다.</div>
+
+                        <h5>제2조 약관의 공지 및 효력 </h5>
+                        <div>1.이 약관의 내용은 웹서비스 화면에 게시하거나 기타의 방법으로 회원에게 공지함으로써 효력을 발생합니다.<br>
+                        2.콘텐츠아카데미는 이 약관을 변경할 수 있으며, 변경된 약관은 제1항과 같은 방법으로 공지함으로써 효력을 발생합니다.<br>
+                        3.회원가입이란 콘텐츠아카데미에서 제공하는 웹서비스에 가입하는 것으로 웹서비스의 조건과 규정에 합의함을 의미하며, 콘텐츠아카데미는 웹서비스의 조건과 조항을 항시 통고와 함께 또는 통고 없이 전부 또는 일부를 바꿀 권리를 갖습니다. 이런 변화에 대해 빠른 회신을 못하거나, 고지 받지 못했다는 사유로 이의를 제기할 수 없으므로 추후에 착오 없으시길 당부 드립니다.</div>
+
+                        <h5>제3조 약관 외 준칙</h5>
+                        <div>이 약관에 명시되지 않은 사항은 전기통신기본법, 전기통신사업법, 전자거래 기본법, 전자서명법, 통신판매법 및 기타 관계법령의 규정에 의합니다.</div>
+
+                        <h5>제4조 용어의 정의</h5>
+                        <div>이 약관에서 사용하는 용어의 정의는 다음과 같습니다.<br><br>
+                        1.회원 : 콘텐츠아카데미의 웹서비스 이용에 관한 계약을 체결한 자
+                        2.아이디(ID) : 회원 식별과 회원의 서비스 이용을 위하여 회원이 선정하고 콘텐츠아카데미가 승인하는 문자와 숫자의 조합<br>
+                        3.비밀번호 : 회원이 통신상의 자신의 비밀을 보호하기 위해 선정한 문자와 숫자의 조합<br>
+                        4.탈퇴 : 회원이 서비스 이용 이후 그 이용계약을 종료 시키는 의사표시<br>
+                        5.휴면 계정 : 최근 3년동안 로그인 하지 않은 이용자로 가입한 회원을 정의<br>
+                        휴면계정에 해당하는 회원은 개인정보의 보호 및 관리를 위하여 개인정보 및 학습이력이 삭제될 수 있습니다.(단, 휴면계정 일괄 삭제 후에는 기존에 사용하던 아이디로 콘텐츠아카데미 사이트에 재가입할 수 없으니 이점 유의하시기 바랍니다.)</div>
+
+                        <h4>제2장 서비스 이용계약</h4>
+
+                        <h5>제1조 이용 계약의 성립</h5>
+                        <div>1.서비스 가입 신청 시 본 약관을 읽고 "동의함" 버튼을 누르면 이 약관에 동의하는 것으로 간주됩니다.<br>
+                        2.이용계약은 회원 정보 입력 후 완료를 선택하게 되면 성립합니다.<br>
+                        3.회원에 가입하여 서비스를 이용하고자 하는 희망자는 콘텐츠아카데미에서 요청하는 개인신상정보를 제공해야 합니다.<br>
+                        4.이용계약은 회원 1인당 1개의 ID로 체결하는 것을 원칙으로 합니다.</div>
+
+                        <h5>제2조 이용신청</h5>
+                        <div>이용신청은 온라인상의 가입신청 양식에 준합니다.</div>
+
+                        <h5>제3조 이용신청의 승낙</h5>
+                        <div>회원이 제2장 제2조에서 정한 모든 사항을 정확히 기재하여 이용신청을 하였을 때 승낙합니다.</div>
+
+                        <h5>제4조 이용신청의 불 승낙</h5>
+                        <div>1.웹서비스는 다음에 해당하는 이용신청에 대하여 등록을 거부하거나 등록 후에라도 회원에게 고지하지 않고 회원정보를 수정 또는 삭제할 수 있습니다.
+                        1) 다른 사람의 명의를 사용하여 신청하였을 경우<br>
+                        2) 이용 신청 시 필요내용을 허위로 기재하여 신청하였을 경우<br>
+                        3) 사회의 안녕질서 및 미풍양속을 저해할 목적으로 신청하였을 경우<br>
+                        4) 신용정보의 이용과 보호에 관한 법률에 의거 신용불량자로 등록되어 있는 경우<br> 5) 기타 이용신청자의 귀책사유로 이용승낙이 곤란한 경우<br>
+                        2.콘텐츠아카데미는 다음에 해당하는 이용신청에 대하여 승낙 제한 사유가 해소될 때까지 승낙을 하지 않을 수 있습니다.<br>
+                        1) 콘텐츠아카데미가 설비의 여유가 없는 경우<br>
+                        2) 콘텐츠아카데미의 기술상 지장이 있는 경우<br>
+                        3) 기타 콘텐츠아카데미가 필요하다고 인정되는 경우<br>
+                        3.콘텐츠아카데미는 이용신청이 불,승낙 되거나 승낙을 제한하는 경우에는 이를 이용신청자에게 알려야 합니다.</div>
+
+                        <h5>제5조 계약사항의 변경</h5>
+                        <div>회원은 이용 신청 시 기재한 사항이 변경되었을 경우에는 온라인 수정을 해야 합니다.</div>
+
+                        <h5>제6조 회원정보의 공유</h5>
+                        <div>1.콘텐츠아카데미가 더 좋은 서비스를 위하여 타 기관과 제휴, 인수, 분사, 합병 시 회원의 정보는 공유될 수 있다.<br>
+                        2.각종 경품이 제공되는 이벤트의 경우, 경품 협찬사와의 협의에 의해 당첨자 등록정보를 공유할 수 있습니다.<br>
+                        3.1항, 2항의 사유가 발생할 경우 콘텐츠아카데미는 회원에게 해당 사실을 공지해야 합니다.</div>
+
+                        <h5>제7조 추가적인 회원정보의 사용</h5>
+                        <div>콘텐츠아카데미는 회원이 커뮤니티 서비스 이용 시 제공하는 회원의 추가 정보를 관리용, 통계용의 정보로만 사용합니다.</div>
+
+                        <h5>제8조 정보의 제공 </h5>
+                        <div>콘텐츠아카데미는 회원이 서비스 이용 및 콘텐츠아카데미의 각종 행사 또는 정보서비스에 대해서는 전자우편이나 서신우편 등의 방법으로 회원들에게 제공할 수 있습니다.</div>
+
+                        <h5>제9조 개인정보보호 의무</h5>
+                        <div>1.콘텐츠아카데미는 이용자의 개인정보를 수집할 때 반드시 당해 이용자의 동의를 받습니다.<br>
+                        2.개인정보를 내부 관리용, 통계용 및 제2장 제6조 이외의 용도로 이용하거나 이용자의 동의 없는 제3자에게 제공, 분실, 도난, 유출, 변조시 그에 따른 이용자의 피해에 대한 모든 책임은 콘텐츠아카데미가 집니다.<br>
+                        3.개인정보의 보호 및 사용에 대해서는 관련법 및 "콘텐츠아카데미"의 개인정보처리방침이 적용됩니다. 다만, "콘텐츠아카데미"의 공식 사이트 이외의 링크된 사이트에서는 "콘텐츠아카데미"의 개인정보처리방침이 적용되지 않습니다.</div>
+
+                        <h4>제3장 서비스 이용</h4>
+
+                        <h5>제1조 서비스 이용</h5>
+                        <div>서비스 이용은 콘텐츠아카데미의 업무상 또는 기술상 특별한 지장이 없는 한 연중무휴, 1일 24시간을 원칙으로 합니다. 단, 정기점검 등 서비스 개선을 위하여 콘텐츠아카데미가 필요하다고 인정되는 때에는 미리 공지한 후 서비스가 일시 중지될 수 있습니다.</div>
+
+                        <h5>제2조 서비스 제공의 중지</h5>
+                        <div>콘텐츠아카데미는 다음 항에 해당하는 경우 서비스의 제공을 중지할 수 있습니다.<br>
+                        1.설비의 보수 등을 위하여 부득이한 경우<br>
+                        2.전기통신사업법에 규정된 기간통신사업자가 전기통신서비스를 중지하는 경우<br>
+                        3.기타 서비스를 제공할 수 없는 사유가 발생한 경우 </div>
+
+                        <h5>제3조 파일정보의 소거 및 회원 권한의 삭제</h5>
+                        <div>1.콘텐츠아카데미는 서비스용 설비의 용량에 여유가 없다고 판단되면 필요에 따라 회원의 정보 및 신상정보를 삭제할 수 있습니다.<br>
+                        2.콘텐츠아카데미는 서비스 운영상 또는 보안에 문제가 있다고 판단되는 회원의 정보 및 신상정보를 사전통지 없이 검색할 수 있습니다.<br>
+                        3.제1항의 경우에 콘텐츠아카데미는 해당 사항을 사전에 서비스 또는 전자우편을 통하여 공지합니다.</div>
+
+                        <h4>제4장 서비스 사용 제한 및 계약 해지</h4>
+
+                        <h5>제1조 서비스 사용 제한</h5>
+                        <div>1.회원은 서비스의 사용에 있어서 다음 각 호에 해당되지 않도록 하여야 하며, 이에 해당하는 경우 서비스 사용을 제한할 수 있습니다.<br>
+                        1) 다른 회원의 아이디(ID)를 부정 사용하는 행위<br>
+                        2) 범죄행위를 목적으로 하거나 기타 범죄행위와 관련된 행위<br>
+                        3) 선량한 풍속, 기타 사회질서를 해하는 행위<br>
+                        4) 타인의 명예를 훼손하거나 모욕하는 행위<br>
+                        5) 타인의 지적재산권 등의 권리를 침해하는 행위<br>
+                        6) 해킹행위 또는 컴퓨터바이러스의 유포행위<br>
+                        7) 타인의 의사에 반하여 광고성 정보 등 일정한 내용을 지속적으로 전송하는 행위<br>
+                        8) 서비스의 안전적인 운영에 지장을 주거나 줄 우려가 있는 일체의 행위<br>
+                        9) 기타 관계법령에 위배되는 행위 </div>
+
+                        <h5>제2조 계약 해지</h5>
+                        <div>1.회원이 이용계약을 해지하고자 하는 때에는 본인이 서비스 또는 전자우편을 통하여 해지하고자 하는 날의 1일전까지(단, 해지일이 법정공휴일인 경우 공휴일 개시 2일전까지) 이를 콘텐츠아카데미에 신청하여야 합니다.
+                        2.콘텐츠아카데미는 회원이 제4장 제1조의 내용을 위반하고, 콘텐츠아카데미 소정의 기간 이내에 이를 해소하지 아니하는 경우 서비스 이용계약을 해지할 수 있습니다.
+                        3.콘텐츠아카데미는 제2항에 의해 해지된 회원이 다시 이용신청을 하는 경우 일정기간 그 승낙을 제한할 수 있습니다.</div>
+                        <h4>제5장 책임</h4>
+
+                        <h5>제1조 회원의 의무</h5>
+                        <div>1.회원아이디(ID) 및 비밀번호에 관한 모든 관리의 책임은 회원에게 있습니다.<br>
+                        2.회원아이디(ID) 및 비밀번호는 콘텐츠아카데미의 사전승낙 없이는 다른 사람에게 양도, 임대, 대여할 수 없습니다.<br>
+                        3.자신의 회원아이디(ID)가 부정하게 사용된 경우, 회원은 반드시 콘텐츠아카데미에 그 사실을 통보해야 합니다.<br>
+                        4.회원은 이용신청서의 기재내용 중 변경된 내용이 있는 경우 서비스를 통하여 그 내용을 콘텐츠아카데미에 통지하여야 합니다.<br>
+                        5.회원은 이 약관 및 관계법령에서 규정한 사항을 준수해야 합니다.</div>
+
+                        <h5>제2조 콘텐츠아카데미의 의무</h5>
+                        1.콘텐츠아카데미는 제3장 제1조 및 제2조에서 정한 경우를 제외하고 이 약관에서 정한 바에 따라 회원이 신청한 서비스 제공 개시일에 서비스를 이용할 수 있도록 합니다.<br>
+                        2.콘텐츠아카데미는 이 약관에서 정한 바에 따라 계속적, 안정적으로 서비스를 제공할 의무가 있습니다. 단, 부득이한 경우로 회원 개인정보의 손실이 발생했을 지라도 콘텐츠아카데미는 전혀 책임지지 않습니다.<br>
+                        3.콘텐츠아카데미는 회원의 개인신상정보를 본인의 승낙 없이 타인에게 누설, 배포하지 않습니다.단, 개인정보보호법, 전기통신관련법령 등 관계법령에 의해 국가기관 등의 요구가 있는 경우에는 그러하지 않습니다.<br>
+                        4.콘텐츠아카데미는 회원으로부터 제기되는 의견이나 불만이 정당하다고 인정되는 경우에는 즉시 처리해야 합니다. 다만 즉시 처리가 곤란한 경우에는 회원에게 그 사유와 처리일정을 통보하여야 합니다.
+
+                        <h5>제3조 게시물 또는 내용물의 삭제</h5>
+                        <div>콘텐츠아카데미는 서비스의 게시물 또는 내용물이 제4장 제1조의 규정에 위반되거나 콘텐츠아카데미 소정의 게시기간을 초과하는 경우 사전 통지나 동의 없이 이를 삭제할 수 있습니다.</div>
+
+                        <h4>제6장 손해배상 및 면책조항</h4>
+
+                        <h5>제1조 손해배상</h5>
+                        <div>콘텐츠아카데미는 서비스 이용과 관련하여 회원에게 어떠한 손해가 발생하더라도 동 손해가 콘텐츠아카데미의 중대한 과실에 의한 경우를 제외하고 이에 대하여 책임을 지지 않습니다.</div>
+
+                        <h5>제2조 면책조항</h5>
+                        <div>1.콘텐츠아카데미는 천재지변 또는 이에 준하는 불가항력으로 인하여 서비스를 제공할 수 없는 경우에는 서비스 제공에 관한 책임이 면제됩니다.<br>
+                        2.콘텐츠아카데미는 회원의 귀책사유로 인한 서비스 이용의 장애에 대하여 책임을 지지 않습니다.<br>
+                        3.콘텐츠아카데미는 회원이 서비스를 이용하여 기대하는 손익이나 서비스를 통하여 얻은 자료로 인한 손해에 관하여 책임을 지지 않습니다.<br>
+                        4.콘텐츠아카데미는 회원이 서비스에 게재한 정보, 자료, 사실의 신뢰도, 정확성 등 내용에 관하여는 책임을 지지 않습니다.<br>
+                        5.회원 아이디(ID)와 비밀번호의 관리 및 이용상의 부주의로 인하여 발생되는 손해 또는 제3자에 의한 부정사용 등에 대한 책임은 모두 회원에게 있습니다.<br>
+                        6.회원이 제4장 제1조, 기타 이 약관의 규정을 위반함으로 인하여 콘텐츠아카데미가 회원 또는 제3자에 대하여 책임을 부담하게 되고, 이로써 콘텐츠아카데미에게 손해가 발생하게 되는 경우, 이 약관을 위반한 회원은 콘텐츠아카데미에게 발생하는 모든 손해를 배상하여야 하며, 동 손해로부터 콘텐츠아카데미를 면책시켜야 합니다.</div>
+
+                        <h4>제7장 커뮤니티 이용</h4>
+
+                        <h5>제1조 커뮤니티 이용 제한</h5>
+                        <div>1.콘텐츠아카데미는 이용자들이 자신의 의견을 개진하고, 공동의 관심사를 공유할 수 있도록 커뮤니티 서비스를 운영하고 있습니다.<br>
+                        2.다음 사항은 커뮤니티 이용을 제한할 수 있는 항목들이며, 이들 항목에만 국한되는 것은 아닙니다.<br>
+                        1) 타인의 프라이버시 및 공표 공표권과 같은 법적권리를 훼손, 악용, 도용, 위협하거나 괴롭히거나 또는 달리 위반하는 행위<br>
+                        2) 부적절, 모독적, 명예 훼손적, 침해적, 음란, 상스럽거나 또는 불법적인 제목, 이름, 자료 또는 정보를 출판, 우송, 게시, 배포 또는 유포시키는 행위<br>
+                        3) 지적소유권법에 의하여 보호되는 소프트웨어 또는 기타 자료를 포함하는 파일을 업로드 하는 행위, 다만 이용자가 그에 대한 권리를 소유 또는 관리하는 경우, 또는 필요한 동의를 모두 얻은 경우는 제외합니다.<br>
+                        4) 타인의 컴퓨터를 손상시킬 수 있는 바이러스, 오염된 화일, 또는 기타 유사한 소프트웨어 또는 프로그램을 포함하는 자료를 업로드 하는 행위<br>
+                        5) 상업적인 목적으로 상품 또는 서비스를 광고 또는 판매하는 행위<br>
+                        6) 자료조사, 콘테스트, 피라미드 체계를 행하거나 행운의 편지를 보내는 행위<br>
+                        7) 다른 커뮤니티 이용자가 게재한 것으로 적법하게 배포될 수 없는 것으로 이용자가 알고 있거나 합리적으로 알 것으로 기대되는 파일을 다운로드하는 행위<br>
+                        8) 업로드 된 파일에 포함된 소프트웨어 또는 기타 자료의 저자표시, 법률상 또는 기타 적절한 유의사항, 또는 상표명, 또는 그 출처 내지 근원이 되는 표식을 위조 또는 제거하는 행위<br>
+                        9) 다른 이용자가 커뮤니티를 사용하거나 즐기는 것을 제한하거나 금지시키는 행위<br>
+                        10) 공공질서 및 미풍양속에 반하는 음란한 내용이나, 특정 종교를 선전·선교하거나 비방하는 내용, 기타 지역감정을 유발시키는 등의 비 양식적인 내용을 게재하는 행위 3. 콘텐츠아카데미는 언제든지 어떤 이유로든 아무런 통지 없이 귀하가 커뮤니티의 일부 또는 전부에 접속하는 것을 종료시킬 수 있는 권한을 보유합니다.</div>
+
+                        <h5>제2조 콘텐츠아카데미의 책임</h5>
+                        <div>1.콘텐츠아카데미는 커뮤니티를 검열할 의무를 지지 않습니다. 그러나, 콘텐츠아카데미는 적용되는 법률, 규정, 법적 절차 또는 정부의 요청을 충족하기 위하여 정보를 공개하거나, 또는 콘텐츠아카데미의 전적인 재량으로 정보 내지 자료의 전부 또는 일부를 편집 또는 송부 거절하거나, 또는 이를 제거할 권리를 보유합니다.<br>
+                        2.귀하는 모든 커뮤니티 서비스가 공공적인 통신으로 사적인 통신이 아니며, 그 결과 이용자의 통신이 귀하가 알지 못하게 다른 사람에 의하여 읽힐 수 있음을 인정합니다. 누구에 관한 것인지 식별할 수 있는 이용자 또는 이용자의 자녀들에 관한 정보를 커뮤니티에 보낼 때는 항상 주의를 기울여야 합니다. 콘텐츠아카데미는 커뮤니티에 있는 내용, 메시지 또는 정보를 관리하거나 이를 승인하지 아니합니다.<br>
+                        3.콘텐츠아카데미는 커뮤니티에 관한 책임 및 이용자가 커뮤니티에 참여함으로써 발생하는 어떠한 사건에 대한 책임을 명백히 부인합니다.</div>
+
+                        <h4>제8장 기타</h4>
+
+                        <h5>제1조 약관의 변동</h5>
+                        <div>이용약관 개정 시 최소 7일 이전 고지의 의무가 있고 소비자에게 불리한 경우 30일 이전 고지해야 합니다.</div>
+
+                        <h5>제2조 분쟁의 해결</h5>
+                        <div>1.콘텐츠아카데미와 회원은 서비스와 관련하여 발생한 분쟁을 원만하게 해결하기 위하여 필요한 모든 노력을 하여야 합니다.<br>
+                        2.제1항의 규정에도 불구하고, 동 분쟁으로 인하여 소송이 제기될 경우 민사소송법상의 관할법원을 전속적 관할 법원으로 합니다.</div>
+
+                        <h5>부칙</h5>
+                        <div>개정일 :이 약관은 2009년 6월 19일부터 개정되었습니다.<br>
+                        수정일 :이 약관은 2011년 9월 30일 수정되었습니다.<br>
+                        시행일 :수정사항은 2011년 10월 1일부터 시행합니다.</div>
+                    </div>
+                    <input type="checkbox" name="p_agree" id="ag" class="checbox"> <label for="ag">위 약관에 동의합니다</label>
+                </div>
+                <!--// 1 사이트 이용약관 -->
+
+                <div class="agreement">
+                    <h3 class="agr"><img src="./zu_MemberAgree_files/ag_title2.gif" alt="수집하는 개인정보의 항목"></h3>
+                    <div class="txtBox" tabindex="0">
+                        <h4>수집하는 개인정보의 항목</h4>
+                        <h5>1.“콘텐츠아카데미”는 회원가입, 원활한 고객상담, 각종 서비스의 제공을 위해 최초 회원가입 당시 아래와 같은 개인정보를 수집하고 있습니다.</h5>
+
+                        <div>&lt;일반 회원가입&gt;<br>
+                        -성명, 아이디, 비밀번호, 연락처(전화번호, 휴대폰번호 중 택일), 주소(행정구역), 이메일, 성별, 직업, 종사분야<br><br>
+
+                        &lt;실명확인 회원가입 : 주민번호/아이핀 가입&gt;<br>
+                        -성명, 주민등록번호(아이핀 회원은 생년월일, 성별, 아이핀 번호), 만 14세 미만은 법정대리인 정보, 가입인증정보<br><br>
+
+                        &lt;외국인/재외국인 일반 회원가입&gt;<br>
+                        -국내 외국인 가입자 : 성명, 여권번호 혹은 외국인등록번호, 아이디, 비밀번호, 연락처(전화번호, 휴대폰 번호 중 택일), 메일주소, 여권가입자는 성별, 외국인등록번호 가입자는 국 적, 만 14세 미만은 법정대리인정보. 가입인증정보<br>
+                        -해외 외국인 가입자 : 성명, 아이디, 비밀번호, 연락처(전화번호, 휴대폰번호 중 택일), 메일주소, 국적, 성별, 생년월일, 가입인증정보 </div>
+
+
+                        <h5>2.쿠키(Cookie)에 의한 개인정보수집</h5>
+
+                        <div>콘텐츠아카데미는 본 서비스와 관련하여 귀하의 본 서비스 이용 관련 정보를 수시로 저장하고 찾아내는 쿠키(cookie)를 운영합니다.<br>
+                        쿠키는 콘텐츠아카데미 서비스(http://edu.kocca.or.kr)에 접속 시 자동으로 귀하의 컴퓨터로 전송되는 아주 작은 용량의 텍스트 파일로서 이용자의 컴퓨터 하드디스크에 암호화되어 저장됩니다.<br>
+                        콘텐츠아카데미는 다음과 같은 목적을 위해 쿠키를 사용합니다. 콘텐츠아카데미는 회원과 비회원의 접속 빈도의 차이나 반복 사용 정도 등 이용자의 이용 행동에 관한 정보로 사용합니다.<br>
+                        쿠키는 콘텐츠아카데미 서비스(http://edu.kocca.or.kr)에서 ID인증을 위해서나 ID인증 사용을 돕기 위하여 사용되며, 기타 이벤트나 설문조사에서 귀하의 참여 경력을 확인하기 위해서도 사용됩니다. 이러한 쿠키들을 이용하여 귀하가 방문한 콘텐츠아카데미 서비스(http://edu.kocca.or.kr)의 이용형태를 파악함으로써 더 유용하고 이용하기 편리한 서비스를 만들어 제공할 수 있게 됩니다.<br>
+                        귀하는 쿠키에 대한 선택권을 가지고 있습니다. 귀하의 웹브라우저에서 옵션을 선택함으로써 모든 쿠키를 허용하거나, 쿠키가 저장될 때마다 확인을 거치거나, 모든 쿠키의 저장을 거부할 수 있습니다.<br>
+                        단, 쿠키의 저장을 거부하실 경우 ID인증 로그인이 필요한 콘텐츠아카데미 서비스(http://edu.kocca.or.kr)는 이용에 제한이 될 수 있습니다.</div>
+
+                        <h5>3.유료 서비스 이용 과정에서 아래와 같은 결제 정보들이 수집될 수 있습니다.</h5>
+
+                        <div>-신용카드 결제시 : 카드사명, 카드번호 등<br>
+                        -휴대전화 결제시 : 이동전화번호, 통신사, 결제승인번호 등<br>
+                        -계좌이체시 : 은행명, 계좌번호 등</div>
+
+                    </div>
+                    <input type="checkbox" name="p_agree" id="ag2" class="checbox"> <label for="ag2">위 약관에 동의합니다</label>
+                </div>
+                <!--// 2 수집하는 개인정보의 항목 -->
+
+                <div class="agreement">
+                    <h3 class="agr"><img src="./zu_MemberAgree_files/ag_title3.gif" alt="개인정보의 수집 및 이용 목적"></h3>
+                    <div class="txtBox" tabindex="0">
+                    <h4>개인정보의 수집 및 이용 목적</h4>
+                    <div>1.서비스 제공에 관한 계약 이행 및 서비스 제공에 따른 요금정산 콘텐츠 제공, 물품배송, 본인인증, 구매 및 요금 결제</div>
+
+                    <h4>2.회원관리 </h4>
+                    <div>회원제 서비스 이용 및 제한적 본인 확인제에 따른 본인확인, 개인식별, 부정 이용방지와 비인가 사용방지, 가입의사 확인, 만14세 미만 아동 개인정보 수집 시 법정 대리인 동의여 부 확인, 추후 법정 대리인 본인확인, 분쟁 조정을 위한 기록보존, 불만처리 등 민원처리, 고지사항 전달</div>
+
+                    <h4>3.신규 서비스 개발 및 마케팅·광고에의 활용 </h4>
+                    <div>신규 서비스 개발 및 맞춤 서비스 제공, 통계학적 특성에 따른 서비스 제공 및 광고 게재, 서비스의 유효성 확인, 이벤트 및 광고성 정보 제공 및 참여기회 제공, 접속빈도 파악, 회 원의 서비스 이용에 대한 통계</div>
+
+                    </div>
+                    <input type="checkbox" name="p_agree" id="ag3" class="checbox"> <label for="ag3">위 약관에 동의합니다</label>
+                </div>
+                <!--// 3 개인정보의 수집 및 이용 목적 -->
+
+                <div class="agreement">
+                    <h3 class="agr"><img src="./zu_MemberAgree_files/ag_title4.gif" alt="개인정보의 보유 및 이용기간"></h3>
+                    <div class="txtBox" tabindex="0">
+                        <h4>개인정보의 보유 및 이용기간</h4>
+                        <div>이용자의 개인정보는 원칙적으로 개인정보의 수집 및 이용목적이 달성되면 지체 없이 파기합니다. 단, 다음의 정보에 대해서는 아래의 이유로 명시한 기간 동안 보존합니다.</div>
+
+                        <h5>1. “콘텐츠아카데미” 내부 방침에 의한 정보보유 사유 </h5>
+                        <div>- 부정이용기록<br>
+                        보존 이유 : 부정 이용 방지<br>
+                        보존 기간 : 1년 </div>
+
+                        <h5>2. 관련법령에 의한 정보보유 사유 </h5>
+                        <div>상법, 전자상거래 등에서의 소비자보호에 관한 법률 등 관계법령의 규정에 의하여 보존할 필요가 있는 경우 “콘텐츠아카데미”는 관계법령에서 정한 일정한 기간 동안 회원정보를 보관합니다. 이 경우 “콘텐츠아카데미”는 보관하는 정보를 그 보관의 목적으로만 이용하며 보존기간은 아래와 같습니다.</div>
+                        <div>- 웹사이트 방문기록<br>
+                        보존 이유 : 통신비밀보호법<br>
+                        보존 기간 : 3개월 </div>
+
+                        <div>- 본인확인에 관한 기록<br>
+                        보존 이유 : 정보통신망 이용촉진 및 정보보호 등에 관한 법률<br>
+                        보존 기간 : 6개월</div>
+
+                        <div>- 소비자의 불만 또는 분쟁처리에 관한 기록<br>
+                        보존 이유 : 전자상거래 등에서의 소비자보호에 관한 법률<br>
+                        보존 기간 : 3년 </div>
+
+                        <div>- 계약 철회 등에 관한 기록<br>
+                        보존 이유 : 전자상거래 등에서의 소비자보호에 관한 법률<br>
+                        보존 기간 : 5년 </div>
+
+                        <div>- 대금결제 및 재화 등의 공급에 관한 기록<br>
+                        보존 이유 : 전자상거래 등에서의 소비자보호에 관한 법률<br>
+                        보존 기간 : 5년</div>
+                    </div>
+                    <input type="checkbox" name="p_agree" id="ag4" class="checbox"> <label for="ag4">위 약관에 동의합니다</label>
+                </div>
+                <!--// 4 개인정보의 보유 및 이용기간 -->
+
+                <div class="agreement">
+                    <h3 class="agr"><img src="./zu_MemberAgree_files/ag_title5.gif" alt="개인정보의 제 3자 제공 및 취급위탁"></h3>
+                    <div class="txtBox" tabindex="0">
+                        <h4>“콘텐츠아카데미”는 서비스 향상을 위해서 아래와 같이 개인정보 관리를 위탁하고 있으며, 관계 법령에 따라 위탁계약 시 개인정보가 안전하게 관리될 수 있도록 필요한 사항을 규정하고 있습니다.</h4>
+
+                        <div>[수탁업체] (주)휴넷<br>
+                        [위탁 업무 내용] 서비스 운영 및 고객상담 지원<br>
+                        [개인정보의 보유 및 이용 기간] 회원탈퇴 시 혹은 위탁계약 종료 시 까지 </div>
+
+                        <div>콘텐츠아카데미는 개인정보보호법 제15조제1항, 제17조제1항 및 제3항을 근거로 다음 각호의 개인정보를 목적 외의 용도로 이용하거나 이를 제3자에게 제공할 수 있습니다.</div>
+
+                        <div>1. 통계작성 및 학술연구 등의 목적을 위하여 필요한 경우(단, 공공기관에 한정)<br>
+                        2. 조약, 그 밖의 국제협정의 이행을 위하여 외국정부 또는 국제기구에 제공하기 위하여 필요한 경우<br>
+                        3. 범죄의 수사와 공소의 제기 및 유지를 위하여 필요한 경우<br>
+                        4. 법원의 재판업무 수행을 위하여 필요한 경우</div>
+
+                    </div>
+                    <input type="checkbox" name="p_agree" id="ag5" class="checbox"> <label for="ag5">위 약관에 동의합니다</label>
+                </div>
+                <!--// 5 개인정보의 제 3자 제공 및 취급위탁 -->
+
+                <div class="btnArea wd1">
+                    <button type="button" class="btnText" onclick="javascript:memberJoinAgree();"><span>약관에 동의합니다.</span></button>
+                    <a href="javascript:history.go(-1);" class="btnText2"><span>약관에 동의하지 않습니다.</span></a>
+                </div>
+            </div>
+            <!-- //#subCont -->
+
+
+
+
+
+        </div>
+</form>
+    </div>
+    <hr>
+
+    <div id="footer">
+        <ul class="links">
+            <li><a href="http://edu.kocca.or.kr/servlet/controller.homepage.HomePageAboutUsServlet?p_process=Vision">아카데미소개</a></li>
+            <li><a href="http://edu.kocca.or.kr/servlet/controller.homepage.HomePageHelpServlet?p_process=SiteMap">사이트맵</a></li>
+            <li><a href="http://edu.kocca.or.kr/servlet/controller.homepage.MainMemberJoinServlet?p_process=PersonalNew"><strong>개인정보처리방침</strong></a></li>
+            <li><a href="http://edu.kocca.or.kr/servlet/controller.homepage.MainMemberJoinServlet?p_process=UserAgree">이용약관</a></li>
+            <li><a href="http://edu.kocca.or.kr/servlet/controller.homepage.HomePageHelpServlet?p_process=Footer&p_code=FOOTER_EMAIL">이메일무단수집거부</a></li>
+            <li><a href="http://edu.kocca.or.kr/servlet/controller.homepage.HomePageContactServlet?p_process=webReport">홈페이지 개선의견</a></li>
+        </ul>
+        <div class="info">
+            <p class="logo"><img src="./zu_MemberAgree_files/foot_logo.gif" alt="kocca 한국콘텐츠진흥원"></p>
+            <p class="addr">서울특별시 양천구 목동동로 233 방송회관 8층 | 사업자등록번호:117-82-04412</p>
+            <p class="copyright">COPYRIGHTⓒ 2013 KOCCA ALL RIGHTS RESERVED</p>
+        </div>
+        <ul class="mark">
+            <li><a href="http://validator.w3.org/check?uri=http://edu.kocca.or.kr/servlet/controller.homepage.MainServlet" target="_blank" title="새창열림"><img src="./zu_MemberAgree_files/mark_1.png" alt="교육기부기관 인증"></a></li>
+            <li><a href="javascript:pop_view('http://edu.kocca.or.kr/contents/temp/wa.html',410,570,'no');" title="새창열림"><img src="./zu_MemberAgree_files/mark_2.gif" alt="웹어워드코리아 클린콘텐츠 특별대상"></a></li>
+            <li><a href="javascript:pop_view('http://edu.kocca.or.kr/contents/temp/wau.html',410,570,'no');" title="새창열림"><img src="./zu_MemberAgree_files/mark_3.gif" alt="웹 접근성 우수사이트 인증"></a></li>
+            <li><a href="javascript:pop_view('http://edu.kocca.or.kr/contents/temp/elearning.html',410,570,'no');" title="새창열림"><img src="./zu_MemberAgree_files/mark_4.gif" alt="e러닝전문기관인증"></a></li>
+            <li><a href="javascript:pop_view('http://edu.kocca.or.kr/contents/temp/i_safe.html',410,570,'no');" title="새창열림"><img src="./zu_MemberAgree_files/mark_5.gif" alt="개인정보보호안전 인증"></a></li>
+            <li><a href="javascript:pop_view('http://edu.kocca.or.kr/contents/temp/eprivacy.html',410,570,'no');" title="새창열림"><img src="./zu_MemberAgree_files/mark_6.gif" alt="개인정보보호우수사이트 인증"></a></li>
+            <li><a href="javascript:pop_view('http://edu.kocca.or.kr/contents/temp/gcs.html',410,570,'no');" title="새창열림"><img src="./zu_MemberAgree_files/mark_7.gif" alt="콘텐츠제공서비스 품질인증"></a></li>
+            <li><a href="javascript:pop_view('https://mark.inicis.com/mark/popup_v1.php?no=19844&st=1322725008',520,625,'no')" title="새창열림"><img src="./zu_MemberAgree_files/mark_8.gif" alt="이니시스 결제 시스템"></a></li>
+            <li><img src="./zu_MemberAgree_files/mark_9.gif" alt="W3C HTML 4.01 인증"></li>
+        </ul>
+
+        <dl class="familysite">
+            <dt onclick="showsite();"><a href="javascript:" onfocus="showsite();">관련사이트</a></dt>
+            <dd id="url1" style="top:-20px;"><a href="http://www.mcst.go.kr/main.jsp" target="_blank">문화체육관광부</a></dd>
+            <dd id="url2" style="top:-40px;"><a href="http://www.kocca.kr/main2.html" target="_blank">한국콘텐츠진흥원</a></dd>
+            <dd id="url3" style="top:-60px;"><a href="http://library.kocca.or.kr/index.jsp" target="_blank">콘텐츠도서관</a></dd>
+            <dd id="url4" style="top:-80px;"><a href="http://www.gamehub.or.kr/main/main.jsp" target="_blank">글로벌게임허브센터</a></dd>
+            <dd id="url5" style="top:-100px;"><a href="http://www.culturecontent.com/main.do" target="_blank">문화콘텐츠닷컴</a></dd>
+            <dd id="url6" style="top:-120px;"><a href="http://www.dccenter.kr/main_ft.jsp?syscd=FT" target="_blank">콘텐츠이용보호센터</a></dd>
+            <dd id="url7" style="top:-140px;"><a href="http://www.contentright.or.kr/index.jsp" target="_blank">저작권위탁관리시스템</a></dd>
+            <dd id="url8" style="top:-160px;"><a href="http://www.uci.or.kr/kor/file/main/main.jsp" target="_blank">콘텐츠식별체계(UCI)</a></dd>
+            <dd id="url9" style="top:-180px;"><a href="http://www.kgq.or.kr/service/pub/IntroServlet" target="_blank">게임국가자격기술검정</a></dd>
+            <dd id="url10" style="top:-200px;"><a href="http://www.culturist.or.kr/" target="_blank" onblur="showsite();">종합인력정보시스템</a></dd>
+        </dl>
+    </div>
+</div>
+<!-- //#wrap -->
+
+
+<div id="window-resizer-tooltip" style="display: block;"><a href="http://edu.kocca.or.kr/servlet/controller.homepage.MainMemberJoinServlet?p_process=MemberJoin#" title="Edit settings"></a><span class="tooltipTitle">Window size: </span><span class="tooltipWidth" id="winWidth">1280</span> x <span class="tooltipHeight" id="winHeight">1080</span><br><span class="tooltipTitle">Viewport size: </span><span class="tooltipWidth" id="vpWidth">1264</span> x <span class="tooltipHeight" id="vpHeight">924</span></div></body></html>

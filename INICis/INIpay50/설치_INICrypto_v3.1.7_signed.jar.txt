@@ -1,0 +1,14 @@
+#INIpay50 결제모듈 패키지의 INICrypto_v3.1.7_signed.jar 라이브러리 설치안내
+
+0. INICrypto_v3.1.7_signed.jar 라이브러리는 암호화 관련 라이브러리로 반드시 안내되는 위치에 옮기셔야합니다.
+1. 웹서버 또는 WAS가 기동될 때 참조하는 루트 라이브러리 위치나 JDK 확장 라이브러리 디렉토리로 옮깁니다.
+   예를 들면 $jdk_home/jre/lib/ext/ 디렉토리로 옮깁니다. 또는,
+   tomcat의 경우는 $TOMCAT_HOME/shared/lib 디렉토리로 옮기고,
+   weblogic의 경우 $WEBLOGIC_JDK_HOME/jre/lib/ext 디렉토리에 옮깁니다.
+   또한 resin의 경우라면 $RESIN_HOME/lib/ 디렉토리에 옮겨야 되겠습니다.
+   
+위 설치 정보를 간과하여 안내되는 위치에 설치하지 않을 경우, 
+결제가 진행되지 않는 상황이 발생될 수 있습니다. 
+또한 그로 인한 손/피해는 이니시스에 있지 않습니다.
+
+

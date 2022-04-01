@@ -1,0 +1,86 @@
+<html>
+
+<head>
+<title>액티브스퀘어 5 예제 문서</title>
+<meta name="generator" content="Namo WebEditor v5.0">
+<style>
+<!--
+p { line-height:150%; }
+-->
+</style>
+</head>
+
+<body text="white" link="blue" vlink="purple" alink="red" bgcolor="#81B1D5" leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" background="images\bg.gif">
+
+
+
+<p align="center"><img src="images\sample_title.gif" width="1024" height="72" border="0"></p>
+<table align="center" cellpadding="0" cellspacing="0" width="70%">
+    <tr>
+        <td width="100%"><p align="center"><span style="font-size:10pt;"><b><font color="black">이 
+            문서는 설치 프로그램에서 설정한 내용을 바탕으로 작성된 예제 문서입니다. </font></b></span></p>
+        </td>
+    </tr>
+</table>
+<form name="testForm">
+<p align="center">
+<OBJECT WIDTH=0 HEIGHT=0 CLASSID="clsid:5220cb21-c88d-11cf-b347-00aa00a28331">
+   <PARAM NAME="LPKPath" VALUE="../NamoWec5_Bobs_Consulting.lpk">
+</OBJECT>
+<OBJECT ID="Wec" WIDTH="70%" HEIGHT="60%"
+CLASSID="CLSID:DB1A8D98-97E8-4a42-9624-0E4BCD77F109" CODEBASE="../NamoWec.cab#version=5,0,0,69">
+<param name="InitFileURL" value="../namowec.env">
+<param name="InitFileVer" value="1.0">
+</OBJECT>
+</p>
+<p align="center"><input type=button name=Test1 size=35 value="URL 열기"> <input type=button name=Test2 size=35 value="선택한 문자열"> <input type=button name=Test3 size=35 value="테스트용"></p>
+</form>
+
+<table align="center" cellpadding="0" cellspacing="0" width="70%">
+    <tr>
+        <td width="100%">
+            <p align="left"><span style="font-size:10pt;"><font color="black">현재 액티브스퀘어 
+            편집기의 크기나 메뉴 구성, 편집기 화면에 표시되는 도구 막대, 서식 
+            막대, 상황선이나 탭 구성, 프로그램 내부 대화 상자의 초기값 등은 
+            초기화 파일을 통해 새로 지정할 수 있게 구성되어 있습니다. 
+            그러므로 필요에 따른 적절한 초기화 작업이 가능합니다. 초기화 작업에 
+            대한 자세한 내용은 개발자 안내서를 참고하시기 바랍니다. </font></span></p>
+            <p align="center"><SPAN style="FONT-SIZE: 8pt"><FONT color=#5c5c5c face=Verdana><STRONG>Namo 
+Interactive Inc.</STRONG> &nbsp;ⓒ 1997-2002 All rights reserved.</FONT></SPAN>        </td>
+    </tr>
+</table>
+</body>
+
+<SCRIPT LANGUAGE="VBScript"><!--
+Function Window_Onbeforeunload
+	Dim fRef
+	Set fRef = Document.testForm
+	fRef.Wec.SaveState "Wec"
+End Function
+
+Function Wec_OnInitCompleted
+	Dim fRef
+	Set fRef = Document.testForm
+	fRef.Wec.RestoreState "Wec"
+End Function
+ 
+Function Test1_OnClick
+ 	Dim fRef
+	Set fRef = Document.testForm
+	fRef.Wec.OpenFile "http://www.namo.co.kr/products/enterprise/activesquare/"
+End Function
+
+Function Test2_OnClick
+ 	Dim fRef
+	Set fRef = Document.testForm
+        MsgBox fRef.Wec.SelectedTextValue
+End Function
+
+Function Test3_OnClick
+ 	Dim fRef
+	Set fRef = Document.testForm
+End Function
+--></SCRIPT>
+
+
+</html>

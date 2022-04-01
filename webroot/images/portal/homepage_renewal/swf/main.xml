@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<images>
+  <thumb displayNum="6" separation="5"><!-- 10월 열린특강 -->
+      <image>/images/portal/homepage_renewal/swf/bannerimage/opencast10.png</image>
+      <linkpage>/servlet/controller.off.ProposeOffServlet?p_process=SubjectPreviewPage&gubun=2&menuid=03&p_subj=SK12017&p_year=2012&p_subjseq=0001&p_seq=1</linkpage>
+      <target>_self</target>
+  </thumb>
+  <thumb><!-- k-pop 중화권 진출을 위한 해외 비즈니스 연수 -->
+      <image>/images/portal/homepage_renewal/swf/bannerimage/kpop.png</image>
+      <linkpage>/servlet/controller.homepage.HomeNoticeServlet?p_process=selectView&menuid=07&gubun=4&p_seq=1570&tem_grcode=N000001</linkpage>
+      <target>_self</target>
+  </thumb>
+  <thumb><!-- 3D입체영상 정 미 보그트 -->
+      <image>/images/portal/homepage_renewal/swf/bannerimage/jung.png</image>
+      <linkpage>/servlet/controller.off.ProposeOffServlet?p_process=SubjectPreviewPage&gubun=2&menuid=03&p_subj=SK12018&p_year=2012&p_subjseq=0001&p_seq=1</linkpage>
+      <target>_self</target>
+  </thumb>
+  <thumb><!-- 뉴질랜드 VFX -->
+      <image>/images/portal/homepage_renewal/swf/bannerimage/vfx.png</image>
+      <linkpage>/servlet/controller.off.ProposeOffServlet?p_process=SubjectPreviewPage&gubun=2&menuid=03&p_subj=SB12035&p_year=2012&p_subjseq=0002&p_seq=1</linkpage>
+      <target>_self</target>
+  </thumb>
+  <thumb><!-- 지식팩토리 -->
+      <image>/images/portal/homepage_renewal/swf/bannerimage/factory.png</image>
+      <linkpage>/servlet/controller.homepage.KnowBoardUserServlet?p_process=ListPage</linkpage>
+      <target>_self</target>
+  </thumb>
+	<thumb><!-- 2012년 10월 온라인 과정안내 -->
+      <image>/images/portal/homepage_renewal/swf/bannerimage/image02.png</image>
+      <linkpage>javascript:viewNotice('1549');</linkpage>
+      <target>_self</target>
+  </thumb>
+  <thumb><!-- 2012년 온라인 신규과정 오픈 -->
+      <image>/images/portal/homepage_renewal/swf/bannerimage/image03.jpg</image>
+      <linkpage>/servlet/controller.homepage.HomeNoticeServlet?p_process=selectView&menuid=07&gubun=4&p_seq=1452&tem_grcode=N000001</linkpage>
+      <target>_self</target>
+  </thumb>
+  <thumb><!-- 품질인증획득 -->
+      <image>/images/portal/homepage_renewal/swf/bannerimage/image04.jpg</image>
+      <linkpage>/servlet/controller.homepage.HomeNoticeServlet?p_process=selectView&menuid=07&gubun=4&p_seq=1421&aaaaaaaaaaaaaaaaaa=N000001</linkpage>
+      <target>_self</target>
+  </thumb>
+  <thumb><!-- 개인정보보호 바로알기 캠페인  -->
+      <image>/images/portal/homepage_renewal/swf/bannerimage/image06.jpg</image>
+      <linkpage>/servlet/controller.homepage.HomeNoticeServlet?p_process=selectView&menuid=07&gubun=4&p_seq=1404&tem_grcode=N000001</linkpage>
+      <target>_self</target>
+  </thumb>
+  <thumb><!-- 골드클래스 -->
+      <image>/images/portal/homepage_renewal/swf/bannerimage/image08.png</image>
+      <linkpage>javascript:menuMainForward('5','/servlet/controller.infomation.GoldClassHomePageServlet?p_process=mainPage');</linkpage>
+      <target>_self</target>
+  </thumb>
+</images>

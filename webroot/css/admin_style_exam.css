@@ -1,0 +1,310 @@
+        A:link     { color: #000000; text-decoration: none; font-family: 굴림; font-size: 9pt;}
+        A:visited  { color: #000000; text-decoration: none; font-family: 굴림; font-size: 9pt;}
+        A:active   { color: #000000; text-decoration: none; font-family: 굴림; font-size: 9pt;}
+        A:hover    { color: #F99500; text-decoration: none; font-family: 굴림; font-size: 9pt;}
+     
+        A.a:link     { color: #00008B; text-decoration: none; font-family: 굴림; font-size: 9pt; font-weight:bold;}
+        A.a:visited  { color: #00008B; text-decoration: none; font-family: 굴림; font-size: 9pt; font-weight:bold;}
+        A.a:active   { color: #00008B; text-decoration: none; font-family: "굴림"; font-size: 9pt; font-weight:bold;}
+        A.a:hover    { color: #005CF7; text-decoration: none; font-family: 굴림; font-size: 9pt; font-weight:bold;}
+
+        A.b:link     { color: #006400; text-decoration: none; font-family: 굴림; font-size: 9pt; font-weight:bold;} 
+        A.b:visited  { color: #006400; text-decoration: none; font-family: 굴림; font-size: 9pt; font-weight:bold;} 
+        A.b:active   { color: #006400; text-decoration: none; font-family: 굴림; font-size: 9pt; font-weight:bold;} 
+        A.b:hover    { color: #00AE00; text-decoration: none; font-family: 굴림; font-size: 9pt; font-weight:bold;} 
+      
+        A.c:link     { color: #FFFFFF; text-decoration: none; font-family: 굴림; font-size: 9pt;}
+        A.c:visited  { color: #FFFFFF; text-decoration: none; font-family: 굴림; font-size: 9pt;}
+        A.c:active   { color: #FFFFFF; text-decoration: none; font-family: 굴림; font-size: 9pt;}
+        A.c:hover    { color: #3EFFB1; text-decoration: none; font-family: 굴림; font-size: 9pt;}
+
+        A.d:link     { color: #525252; text-decoration: none; font-family: 굴림; font-size: 9pt;}
+        A.d:visited  { color: #525252; text-decoration: none; font-family: 굴림; font-size: 9pt;}
+        A.d:active   { color: #000000; text-decoration: none; font-family: 굴림; font-size: 9pt;}
+        A.d:hover    { color: #F99500; text-decoration: none; font-family: 굴림; font-size: 9pt;}    
+
+        A.e:link     { color: #000044; text-decoration: none; font-family: 굴림; font-size: 9pt; font-weight:bold;}
+        A.e:visited  { color: #000044; text-decoration: none; font-family: 굴림; font-size: 9pt; font-weight:bold;}
+        A.e:active   { color: #000044; text-decoration: none; font-family: 굴림; font-size: 9pt; font-weight:bold;}
+        A.e:hover    { color: #0000E1; text-decoration: none; font-family: 굴림; font-size: 9pt; font-weight:bold;}
+     
+        td   {font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma"; font-size: 9pt; color: #121212}
+
+        .table1 { /* 기본 테이블 */
+            width: 97%;
+	    border-style: none;
+         }
+        
+        .table2 { /* 테이블 (45%) */
+            width: 45%;
+	    border-style: none;
+            background-color: #A8A8A8;
+         }
+
+        .form_table_out { /* form 맨밑에 들어가는 테이블 */
+            width: 97%;
+	    border-style: none;
+            background-color: #C6C6C6;
+         }
+        
+        .form_table_bg { /* 검색 테이블의 배경이 되는 테이블 */
+            width: 100%;
+	    border-style: none;
+            background-color: #E9E9E9;
+         }
+        
+        .form_table { /* 검색 select box가 들어있는 테이블 */
+	    border-style: none;
+         }
+
+        .box_form_table_out { /* box안에 들어 있는 form 맨밑에 들어가는 테이블 */
+            width: 99%;
+	    border-style: none;
+            background-color: #C6C6C6;
+         }
+        
+        .box_form_table_bg { /* box안에 들어 있는 form 검색 테이블의 배경이 되는 테이블 */
+            width: 100%;
+	    border-style: none;
+            background-color: #E9E9E9;
+         }
+        
+        .box_form_table { /* box안에 들어 있는 검색 form select box가 들어있는 테이블 */
+	    border-style: none;
+         }
+
+
+        .box_table_out { /* box안에 들어 있는 검색된 결과가 나오는 테이블 */
+            width: 99%;
+	    border-style: none;
+            background-color: #A8A8A8;
+         }
+
+
+        .box_table1 { /* box안에 들어 있는 기본 테이블 */
+            width: 99%;
+	    border-style: none;
+         }
+
+
+        .open_form_table_out { /* open창 form 맨밑에 들어가는 테이블 */
+            width: 95%;
+	    border-style: none;
+            background-color: #C6C6C6;
+         }
+
+        .open_form_table_bg { /* open창 form 검색 테이블의 배경이 되는 테이블 */
+            width: 100%;
+	    border-style: none;
+            background-color: #E9E9E9;
+         }
+
+        .open_form_table { /* open창 form 검색 select box가 들어있는 테이블 */
+	    border-style: none;
+         }
+
+        .open_table_out { /* open창 검색된 결과가 나오는 테이블 */
+            width: 95%;
+	    border-style: none;
+            background-color: #A8A8A8;
+         }
+
+        .open_table1 { /* open창 기본 테이블 */
+            width: 95%;
+	    border-style: none;
+         }
+
+        .table_out { /* 검색된 결과가 나오는 테이블 */
+            width: 97%;
+	    border-style: none;
+            background-color: #A8A8A8;
+         }
+
+        .table_top_line { /* 검색된 결과 테이블의 top부분에 들어가는 파란색 라인 */
+            height: 3px;
+	    background-color: #008ACC;
+         }
+
+        .table_title_01 { /* 검색된 결과 타이틀 (가운데정렬) */
+	    font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    font-weight: bold;
+            height: 25px;
+	    color: #121212;
+	    text-align: center;
+	    text-decoration: none;
+	    background-color: #C6EDF9;
+         }
+
+        .table_title_02 { /* 검색된 결과 타이틀 (왼쪽정렬) */
+	    font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    font-weight: bold;
+            height: 25px;
+	    color: #121212;
+	    text-align: left;
+	    text-decoration: none;
+	    background-color: #C6EDF9;
+         }
+
+        .table_01 { /* 번호가 들어가는 부분 */
+	    font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+            height: 25px;
+	    color: #121212;
+	    text-align: center;
+	    text-decoration: none;
+	    background-color: #EDEDED;
+         }
+
+        .table_02_1 { /* 내용이 들어가는 부분 (글자 가운데정렬) */
+	    font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+            height: 25px;
+	    color: #121212;
+	    text-align: center;
+	    text-decoration: none;
+	    background-color: #F7F7F7;
+         }
+
+        .table_02_2 { /* 내용이 들어가는 부분 (글자 왼쪽정렬) */
+	    font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+            height: 25px;
+	    color: #121212;
+	    text-align: left;
+	    text-decoration: none;
+	    background-color: #F7F7F7;
+         }
+
+        .table_02_3 { /* 내용이 들어가는 부분 (글자 가운데정렬, 진하게) */
+	    font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    font-weight: bold;
+            height: 25px;
+	    color: #121212;
+	    text-align: center;
+	    text-decoration: none;
+	    background-color: #F7F7F7;
+         }
+
+        .table_02_4 { /* 내용이 들어가는 부분 (글자 오른쪽정렬) */
+	    font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+            height: 25px;
+	    color: #121212;
+	    text-align: right;
+	    text-decoration: none;
+	    background-color: #F7F7F7;
+         }
+
+        .table_02_5 { /* 내용이 들어가는 부분 진한 배경 (글자 가운데정렬) */
+	    font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+            height: 25px;
+	    color: #121212;
+	    text-align: center;
+	    text-decoration: none;
+	    background-color: #E7E7E7;
+         }
+
+        .table_02_6 { /* 내용이 들어가는 부분 진한 배경 (글자 왼쪽정렬) */
+	    font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+            height: 25px;
+	    color: #121212;
+	    text-align: left;
+	    text-decoration: none;
+	    background-color: #E7E7E7;
+         }
+
+        .heed_table { /* 주의사항 테이블 */
+            width: 97%;
+            height: 20px;
+	    border-style: none;
+         }
+
+        .s_table { /* 테이블 안에 들어가는 테이블들 */
+            width: 100%;
+	    border-style: none;
+         }
+
+        .graph { /* 그래프 이미지 */
+            height: 14px;
+	    border-style: none;
+	    background-image: url('../images/admin/exam/statistics_line.gif');
+	    background-repeat: repeat-x;
+         }         
+
+        .text_01 { /* ex) 과정명 : 6시그마  파란색계열의 글자부분 */
+	    font-family: "굴림";
+            font-size: 10pt;
+	    font-weight: bold;
+	    color: #107AAD;
+	    text-decoration: none;
+         }
+
+        .text_02 { /* 주의사항 타이틀 */
+	    font-family: "굴림";
+            font-size: 11pt;
+	    font-weight: bold;
+	    color: #121212;
+	    text-align: center;
+	    text-decoration: none;
+         }
+
+        .text_color01 { /* 텍스트 color 진하게 (자주색계열) */
+	    font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    font-weight: bold;
+	    color: #00008B;
+	    text-align: center;
+	    text-decoration: none;
+         }
+
+        .text_color02 { /* 텍스트 color 진하게 (파란색계열) */
+	    font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    font-weight: bold;
+	    color: #006400;
+	    text-align: center;
+	    text-decoration: none;
+         }
+
+        .text_color03 { /* 텍스트 color 링크 안걸렸을때 (자주색계열) */
+	    font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    color: #00008B;
+	    text-align: center;
+	    text-decoration: none;
+         }
+
+        .text_color04 { /* 텍스트 color 링크 안걸렸을때 (파란색계열) */
+	    font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    color: #006400;
+	    text-align: center;
+	    text-decoration: none;
+         }
+
+        .ms {
+	    font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    color: #3E3E3E;
+	    line-height: 15pt;
+         }
+
+        .ms {
+	    font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 8pt;
+	    color: #FFFFFF;
+         }
+
+        .input {
+	    font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    color: #121212;
+            text-decoration: none;
+            border-width:1; 
+	    border-color:#777777;
+         }

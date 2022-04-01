@@ -1,0 +1,17 @@
+﻿/* CSS Document */
+
+body {
+	margin:0px;
+	background-color:#000;
+}
+#divCon {
+	background-color:#000;
+	left:50%;
+	width:960px;
+	top:50%; 
+	height:540px; 
+	margin-top:50px;
+	margin-left:20px;
+	z-index: -10000
+}
+

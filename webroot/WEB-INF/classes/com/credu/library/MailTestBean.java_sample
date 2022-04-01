@@ -1,0 +1,201 @@
+ //**********************************************************
+//  1. 제      목: Sample 자료실
+//  2. 프로그램명: FormMailTestBean.java
+//  3. 개      요: Sample 자료실
+//  4. 환      경: JDK 1.3
+//  5. 버      젼: 1.0
+//  6. 작      성: 이정한 2003. 4. 26
+//  7. 수      정: 이정한 2003. 4. 26
+//**********************************************************
+
+package com.credu.sample;
+
+import javax.servlet.http.*;
+import java.io.*;
+import java.util.*;
+import java.sql.*;
+import com.credu.library.*;
+
+/**
+ * 자료실(HomePage) 관련 Sample Class
+ *
+ * @date   : 2003. 5
+ * @author : j.h. lee
+ */
+public class MailTestBean {
+	
+    public MailTestBean() {
+    }
+  
+   /**
+   * 자료실 list화면 select
+   */
+    public int sendFormMail(RequestBox box) throws Exception {
+        DBConnectionManager connMgr = null;
+        ListSet ls = null;
+        String sql = "";
+        int success_cnt = 0;    //  메일발송이 성공한 사람수
+        int fail_cnt = 0;
+        Vector vmail = null;
+        String isOk = "";
+        ArrayList list = null;
+        DataBox dbox = null;
+        int insertOk = 0;
+        
+        try {
+            connMgr = new DBConnectionManager();
+            
+            sql = "select a.subjnm, a.edudays, b.edustart, b.eduend, b.gradstep, b.gradscore, b.wftest, b.wreport,";
+            sql += " c.userid, c.name, c.comptel, c.email, c.cono, c.ismailing";
+            sql += " from tz_subj a, tz_subjseq b, tz_member c";
+            sql += " where a.subj = 'S10015' and b.subjseq = '0001' and b.year = '2004' and a.subj = b.subj";
+            sql += " and userid = 'lee1'";        //  test
+            
+            ls = connMgr.executeQuery(sql); 
+
+////////////////////  폼메일 발송 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////            
+            String v_sendhtml = "test.html";
+            
+            FormMail fmail = new FormMail(v_sendhtml);     //      폼메일발송인 경우
+            
+            MailSet mset = new MailSet(box);        //      메일 세팅 및 발송
+                        
+            String v_mailTitle = "안녕하십니까";
+            
+            vmail = new Vector();
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            list = new ArrayList();
+            
+            while(ls.next()) {
+                String v_toUserid =  ls.getString("userid");
+                String v_toCono =  ls.getString("cono");
+          //      String v_toEmail =  ls.getString("email");
+                String v_toEmail =  "leejisu@credu.com";        //  test
+                 
+                mset.setSender(fmail);     //  메일보내는 사람 세팅
+               
+                fmail.setVariable("subjnm", ls.getString("subjnm"));           
+                fmail.setVariable("edudays", ls.getString("edudays"));           
+                fmail.setVariable("edustart", ls.getString("edustart"));           
+                fmail.setVariable("eduend", ls.getString("eduend"));           
+                fmail.setVariable("gradstep", ls.getString("gradstep"));           
+                fmail.setVariable("gradscore", ls.getString("gradscore"));           
+                fmail.setVariable("wftest", ls.getString("wftest"));           
+                fmail.setVariable("wreport", ls.getString("wreport"));           
+                fmail.setVariable("toname", ls.getString("name"));           
+                               
+                String v_mailContent = fmail.getNewMailContent();     
+                
+                String v_ismailing = ls.getString("ismailing");         //      1:메일 2:SMS  3:쪽지
+                
+                boolean isMailed = mset.sendMail(ls.getString("cono"), v_toEmail, v_mailTitle, v_mailContent, ls.getString("ismailing"), v_sendhtml); 
+                System.out.println(isMailed);
+                if(isMailed) {
+                    success_cnt++;     //      메일발송에 성공하면  
+                    isOk = "Y";
+                }else {
+                    fail_cnt++;
+                    isOk = "N";
+                }                             
+            //    vmail.addElement("MailSend " + isOk + " : " + v_toUserid + " (" + v_toEmail + ")");       //      메일 받는 학습자의 발송성공여부를 vector 에 저장
+            //--------------------   메일 발송후 메일정보 저장  -------------------------------------------------------------------------------------------
+                if(v_ismailing.equals("1")) {
+                    String v_subj = "S00001";
+                    String v_year = "2004";
+                    String v_subjseq = "0001";
+                    String v_userid = "lee1";
+                    String v_touch = "01";          //          입과환영 및 학습안내
+                    String v_ismail = "1";          //      1 : 메일, 2 : 전화 독려
+                    
+                    dbox = ls.getDataBox();
+                    dbox.put("d_subj", v_subj);
+                    dbox.put("d_year", v_year);
+                    dbox.put("d_subjseq", v_subjseq);
+                    dbox.put("d_userid", v_userid);
+                    dbox.put("d_touch", v_touch);
+                    dbox.put("d_ismail", v_ismail);
+                    dbox.put("d_title", v_mailTitle);
+                    dbox.put("d_isok", isOk);
+                    
+                    list.add(dbox);                
+                }            
+                insertOk = mset.insertMailData(list);
+                //if(insertOk < 1)       Log.mail.println(this, box, vmail, "FormMailSend Success : " + success_cnt + ",  Fail : " + fail_cnt + " (persons)");   메일정보insert 에 실패할 경우 로그로 기록한다.
+           //------------------------   메일 발송후 메일정보 저장  --------------------------------------------------------------------------------------------
+            }
+        }
+        catch (Exception ex) {
+            ErrorManager.getErrorStackTrace(ex, box, sql);
+            throw new Exception("sql = " + sql + "\r\n" + ex.getMessage());
+        }
+        finally {
+            if(ls != null) { try { ls.close(); }catch (Exception e) {} }
+            if(connMgr != null) { try { connMgr.freeConnection(); }catch (Exception e10) {} }
+        }
+        return success_cnt;
+    }  
+    
+       /**
+   * 자료실 list화면 select
+   */
+    public boolean sendFreeMail(RequestBox box) throws Exception {
+        DBConnectionManager connMgr = null;
+        Connection conn = null;
+        ListSet ls = null;
+        String sql = "";
+        boolean isMailed = false;
+        int success_cnt = 0;    //  메일발송이 성공한 사람수
+        int fail_cnt = 0;
+        Vector vmail = null;
+        String isOk = "";
+
+        try {
+            connMgr = new DBConnectionManager();
+            
+            sql = "select a.subjnm, a.edudays, b.edustart, b.eduend, b.gradstep, b.gradscore, b.wftest, b.wreport,";
+            sql += " c.name, c.comptel, c.email, c.cono, c.ismailing";
+            sql += " from tz_subj a, tz_subjseq b, tz_member c";
+            sql += " where a.subj = 'S00005' and b.subjseq = '0004' and b.year = '2003' and a.subj = b.subj";
+            
+            ls = connMgr.executeQuery(sql); 
+            
+////////////////////  프리메일 발송 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            String v_mailTitle = box.getString("p_mailTitle");
+            String v_mailContent = box.getString("p_mailContent");
+            
+            String v_sendhtml = "cyberedu.html";
+            
+            MailSet mset = new MailSet(box);        //      메일 세팅 및 발송
+            
+            vmail = new Vector();
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                
+            while (ls.next()) {                    
+                String v_toCono =  ls.getString("cono");
+                String v_toEmail =  ls.getString("email");
+                
+                isMailed = mset.sendMail(v_toCono, v_toEmail, v_mailTitle, v_mailContent, ls.getString("ismailing"), v_sendhtml);        
+                
+                if(isMailed) {
+                    success_cnt++;     //      메일발송에 성공하면  
+                    isOk = "success";
+                }else {
+                    fail_cnt++;
+                    isOk = "fail";
+                }                             
+                vmail.addElement("MailSend " + isOk + " : " + v_toCono + " (" + v_toEmail + ")");       //      메일 받는 학습자의 발송성공여부를 vector 에 저장
+            }            
+            Log.mail.println(this, box, vmail, "FreeMailSend Success : " + success_cnt + ",  Fail : " + fail_cnt + " (persons)");
+        }
+        catch (Exception ex) {
+            ErrorManager.getErrorStackTrace(ex, box, sql);
+            throw new Exception("sql = " + sql + "\r\n" + ex.getMessage());
+        }
+        finally {
+            if(ls != null) { try { ls.close(); }catch (Exception e) {} }
+            if(connMgr != null) { try { connMgr.freeConnection(); }catch (Exception e10) {} }
+        }
+        return isMailed;
+    }  
+}

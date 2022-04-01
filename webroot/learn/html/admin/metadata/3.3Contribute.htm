@@ -1,0 +1,490 @@
+<html>
+<head>
+<title>
+3.3 Contribute - 3.3.1 Role - 3.3.2 Centity - 3.3.3 Date
+</title>
+<script language="javascript" src="/script/scorm_lib.js"></script>
+<script language="javascript">
+/************************************************************************
+**
+** Filename:  3.3Contribute.htm
+**
+** File Description: This page displays the multiplicity elements for
+**					 section 3.3 Contribute.
+**
+** Author:  ADLI Project
+**
+** Company Name: Concurrent Technologies Corporation (CTC)
+**
+** Module/Package Name:
+** Module/Package Description:
+**
+** Design Issues:
+**
+** Implementation Issues:
+** Known Problems:
+** Side Effects:
+**
+** References:  SCORM Version 1.1 (Section 2)
+**
+**************************************************************************
+**
+** Advanced Distributed Learning Co-Laboratory (ADL Co-Lab) grants you
+** ("Licensee") a non-exclusive, royalty free, license to use, modify and
+** redistribute this software in source and binary code form, provided
+** that i) this copyright notice and license appear on all copies of the
+** software; and ii) Licensee does not utilize the software in a manner
+** which is disparaging to CTC.
+**
+** This software is provided "AS IS," without a warranty of any kind.  ALL
+** EXPRESS OR IMPLIED CONDITIONS, REPRESENTATIONS AND WARRANTIES,
+** INCLUDING ANY IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A
+** PARTICULAR PURPOSE OR NON- INFRINGEMENT, ARE HEREBY EXCLUDED.  CTC AND
+** ITS LICENSORS SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY LICENSEE
+** AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THE SOFTWARE OR ITS
+** DERIVATIVES.  IN NO EVENT WILL CTC  OR ITS LICENSORS BE LIABLE FOR ANY
+** LOST REVENUE, PROFIT OR DATA, OR FOR DIRECT, INDIRECT, SPECIAL,
+** CONSEQUENTIAL, INCIDENTAL OR PUNITIVE DAMAGES, HOWEVER CAUSED AND
+** REGARDLESS OF THE THEORY OF LIABILITY, ARISING OUT OF THE USE OF OR
+** INABILITY TO USE SOFTWARE, EVEN IF CTC  HAS BEEN ADVISED OF THE
+** POSSIBILITY OF SUCH DAMAGES.
+**
+*************************************************************************
+**
+** Date Changed   Author of Change  Reason for Changes
+** ------------   ----------------  -------------------------------------
+** 3/12/2001      Tom Hopkins       Initial Final Version for MDG v1.1
+**
+************************************************************************/
+
+// Global Variables
+var visibleCount = 0;
+var maxElements = 100;
+var offset = 160;
+var roleList = "";
+var dateList = "";
+var currentnum = "";
+var centityList = "";
+var descriptionList = "";
+
+/************************************************************************
+** Function: displayContribute()
+**
+** Variables: none
+**
+** Description:
+**			This function is called when the page loads.  It gathers the
+**		role, centity and date lists.  These lists if not blank are used 
+**		to repopulate the fields.  Otherwise it calls addNewRole and creates
+**		blank fields.
+*************************************************************************/
+function displayContribute()
+{
+   if (parent.main == null)
+   {
+      location.href="errorPage.htm";
+
+   }
+   else
+   {
+      roleList = parent.main.roleList2;
+	  centityList = parent.main.centityList2;
+	  dateList = parent.main.dateList2;
+//	  descriptionList = parent.main.datedescriptionList2;
+
+	  var roleArray = roleList.split("|");
+  	  var centityArray = centityList.split("|");
+	  var dateArray = dateList.split("|");
+//	  var descriptionArray = descriptionList.split("|");
+	  
+	  for (var i=0;i<roleArray.length;i++)
+	  {
+	     addNewRole(roleArray[i],centityArray[i],dateArray[i]);
+	  }
+  }
+}
+
+/************************************************************************
+** Function: addNewRole(role,cent,date,des)
+**
+** Variables: role - The role for the textbox.
+**			  cent - The centity for the textbox.
+**			  date - The date for the textbox.
+**			  des  - The description for the textbox.
+**
+** Description:
+**    		This function is called displayContribute.  It either makes
+**		visible a new blank section, or it makes visible and fills in a 
+**		section with the appropriate role, centity and date.
+*************************************************************************/
+function addNewRole(role,cent,date)
+{
+   if(date == null)
+   {
+	  date = "";
+   }
+	
+   if (role == null)
+   {
+      role = "";
+	  cent = "";
+	  date = "";
+   }
+
+   var centArray;
+   var cent_name="";
+   var cent_org="";
+   var cent_address="";
+   var cent_email="";
+
+   if(cent==""){
+   }else{
+		centArray=cent.split(",");
+		cent_name=centArray[0];
+		cent_org=centArray[1];
+		cent_address=centArray[2];
+		cent_email=centArray[3];
+   }
+   
+   if (visibleCount == 32)
+   {
+      if (!confirm("WARNING!  Tools are only required to support up to 32 3.3 Contribute sections. \n Click OK to continue adding. \nClick Cancel to stop adding."))
+      {
+         return;
+      }
+   }
+
+   if (visibleCount == maxElements)
+   {
+      alert("Maximum number of elements exceeded.  Can not add any more elements.");
+      return;
+   }
+
+   visibleCount++;
+
+   // 3.3 Contribute
+   document.all.item("label"+visibleCount).style.visibility = "visible";
+   document.all.item("del"+visibleCount).style.visibility = "visible";
+   
+   //3.3.1 Role
+   document.all.item("labelrole"+visibleCount).style.visibility = "visible";
+   document.all.item("inputrole"+visibleCount).style.visibility = "visible";
+   document.all.item("inputrole"+visibleCount).value = role;
+
+   //3.3.2 Centity
+   document.all.item("labelcent"+visibleCount).style.visibility = "visible";
+
+   //3.3.2 Centity_name
+   document.all.item("labelcent_name"+visibleCount).style.visibility = "visible";
+   document.all.item("inputcent_name"+visibleCount).style.visibility = "visible";
+   document.all.item("inputcent_name"+visibleCount).value =cent_name;
+
+
+   //3.3.2 Centity_org
+   document.all.item("labelcent_org"+visibleCount).style.visibility = "visible";
+   document.all.item("inputcent_org"+visibleCount).style.visibility = "visible";
+   document.all.item("inputcent_org"+visibleCount).value = cent_org;
+
+   //3.3.2 Centity_address
+   document.all.item("labelcent_address"+visibleCount).style.visibility = "visible";
+   document.all.item("inputcent_address"+visibleCount).style.visibility = "visible";
+   document.all.item("inputcent_address"+visibleCount).value = cent_address;
+   
+   //3.3.2 Centity_email
+   document.all.item("labelcent_email"+visibleCount).style.visibility = "visible";
+   document.all.item("inputcent_email"+visibleCount).style.visibility = "visible";
+   document.all.item("labelcom"+visibleCount).style.visibility = "visible";
+   document.all.item("inputcent_email"+visibleCount).value = cent_email;
+   
+
+
+   //3.3.3 Date
+   document.all.item("labeldate"+visibleCount).style.visibility = "visible";
+   document.all.item("inputdate"+visibleCount).style.visibility = "visible";
+   document.all.item("labeldatecom"+visibleCount).style.visibility = "visible";
+   document.all.item("inputdate"+visibleCount).value = date;
+   
+   //3.3.3 Date Description
+   //document.all.item("labeldes"+visibleCount).style.visibility = "visible";
+   //document.all.item("inputdes"+visibleCount).style.visibility = "visible";
+   //document.all.item("inputdes"+visibleCount).value = des;
+   
+   // Line Tag
+   document.all.item("div"+visibleCount).style.visibility = "visible";
+   
+}
+
+/************************************************************************
+** Function: deleteContribute()
+**
+** Variables: none
+**
+** Description:
+**			This function is called when the user hits the delete button.
+**		It hides the designated section and erases the information in
+**		those textboxes.
+*************************************************************************/
+function deleteContribute()
+{
+   // get the last character of the id that caused this event to be fired
+   // this is the index of the element we want to delete.
+   
+   var evt = new String(window.event.srcElement.id);
+   var idx = evt.charAt(evt.length-1);
+
+   // push all the other remaining elements down the "stack".
+   for (i=idx;i<visibleCount;i++)
+   {
+      var nextIdx = i;
+      nextIdx++;
+      document.all.item("inputrole"+i).value = document.all.item("inputrole"+nextIdx).value;
+      document.all.item("inputcent_name"+i).value = document.all.item("inputcent_name"+nextIdx).value;
+      document.all.item("inputcent_org"+i).value = document.all.item("inputcent_org"+nextIdx).value;
+      document.all.item("inputcent_address"+i).value = document.all.item("inputcent_address"+nextIdx).value;
+      document.all.item("inputcent_email"+i).value = document.all.item("inputcent_email"+nextIdx).value;
+      document.all.item("inputdate"+i).value = document.all.item("inputdate"+nextIdx).value;
+      //document.all.item("inputdes"+i).value = document.all.item("inputdes"+nextIdx).value;
+   }
+   
+   // make the last one invisible (this is the element that will now be empty).
+   
+
+   // 3.3 Contribute
+   document.all.item("label"+visibleCount).style.visibility = "hidden";
+   document.all.item("del"+visibleCount).style.visibility = "hidden";
+   
+   //3.3.1 Role
+   document.all.item("labelrole"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputrole"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputrole"+visibleCount).value = "";
+
+   //3.3.2 Centity
+   document.all.item("labelcent"+visibleCount).style.visibility = "hidden";
+   
+   //3.3.2 Centity_name
+   document.all.item("labelcent_name"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputcent_name"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputcent_name"+visibleCount).value = "";
+
+   //3.3.2 Centity_org
+   document.all.item("labelcent_org"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputcent_org"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputcent_org"+visibleCount).value = "";
+
+   //3.3.2 Centity_address
+   document.all.item("labelcent_address"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputcent_address"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputcent_address"+visibleCount).value = "";
+
+   //3.3.2 Centity_email
+   document.all.item("labelcent_email"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputcent_email"+visibleCount).style.visibility = "hidden";
+   document.all.item("labelcom"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputcent_email"+visibleCount).value = "";
+
+
+   //3.3.3 Date
+   document.all.item("labeldate"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputdate"+visibleCount).style.visibility = "hidden";
+   document.all.item("labeldatecom"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputdate"+visibleCount).value = "";
+
+   //3.3.3 Date Description
+   //document.all.item("labeldes"+visibleCount).style.visibility = "hidden";
+   //document.all.item("inputdes"+visibleCount).style.visibility = "hidden";
+   //document.all.item("inputdes"+visibleCount).value = "";
+   
+   // Line Tag
+   document.all.item("div"+visibleCount).style.visibility = "hidden";
+   
+   visibleCount--;
+   
+}
+
+/************************************************************************
+** Function: length_check()
+**
+** Variables: none
+**
+** Description:
+**			This function is called when the user hits the ok button.  It
+**		checks to make sure all of the centity information does not exceed
+**		1024 characters.
+*************************************************************************/
+//function length_check()
+//{
+//  var cent_information = "";
+//  var cent_name_information = "";
+//  var cent_org_information = "";
+//  var cent_address_information = "";
+//  var cent_email_information = "";
+
+  //for (var i=0;i<visibleCount;i++);
+//  {
+	//cent_information = document.all.item("inputcent" + i).value;
+//	cent_name_information = document.all.item("inputcent" + i).value;
+//	cent_org_information = document.all.item("inputcent" + i).value;/
+//	cent_address_information = document.all.item("inputcent" + i).value;
+//	cent_email_information = document.all.item("inputcent" + i).value;
+
+	//var cent_errorArray = cent_name_information.split("~");
+	//var cent_name_errorArray = cent_name_information.split("~");
+	//var cent_org_errorArray = cent_name_information.split("~");
+	//var cent_address_errorArray = cent_name_information.split("~");
+	//var cent_email_errorArray = cent_name_information.split("~");
+
+	//for (var k=0;k<cent_errorArray.length;k++)
+	//{
+	 //if (cent_errorArray[k].length > 1024)
+	 //{
+      // alert("The following centity information exceeds the maximum # of characters: " + cent_errorArray[k]);
+	   //return -1;
+	 //}
+	//}
+//	okHandler();
+  //}
+//}
+
+/************************************************************************
+** Function: okHandler()
+**
+** Variables: none
+**
+** Description:
+**			This function is called when the user hits the ok button.
+**		This functions gathers all the roles, centities and dates. Creates
+**		lists out of them, then calls displayContribute in rawmedia.htm.
+*************************************************************************/
+function okHandler()
+{
+  // resets the keywordList so you don't have duplication of previous elements - used if editing elements for a second time //
+  roleList = "";
+  centityList = "";
+  dateList = "";
+  //descriptionList = "";
+
+  for (var i=0;i<visibleCount;i++)
+  {
+    var j = "";
+	j = i + 1;
+	if ( document.all.item("inputrole" + j).value == "" ) 			{ alert('3.3.1 Role('+j+') is empty.'); return false; }
+	if ( document.all.item("inputcent_name" + j).value == "" ) 		{ alert('3.3.2 Name ('+j+') is empty.'); document.all.item("inputcent_name" + j).focus(); return false; }
+	if ( document.all.item("inputcent_org" + j).value == "" ) 		{ alert('3.3.2 Org('+j+') is empty.'); document.all.item("inputcent_org" + j).focus(); return false; }
+	if ( document.all.item("inputcent_address" + j).value == "" ) 	{ alert('3.3.2 Address('+j+') is empty.'); document.all.item("inputcent_address" + j).focus(); return false; }
+	if ( document.all.item("inputcent_email" + j).value == "" ) 	{ alert('3.3.2 Email('+j+') is empty.'); document.all.item("inputcent_email" + j).focus(); return false; }
+	if ( document.all.item("inputdate" + j).value == "" ) 			{ alert('3.3.3 Date('+j+') is empty.'); document.all.item("inputdate" + j).focus(); return false; }
+	if (getByteLength(document.all.item("inputcent_name" + j)) > 100 ) {
+		alert("3.3.2 Name("+j+") is "+getByteLength(document.all.item("inputcent_name" + j))+" bytes.(max:100 bytes)");
+		document.all.item("inputcent_name" + j).focus(); return false;
+	}
+	if (getByteLength(document.all.item("inputcent_org" + j)) > 1000 ) {
+		alert("3.3.2 Org("+j+") is "+getByteLength(document.all.item("inputcent_org" + j))+" bytes.(max:1000 bytes)");
+		document.all.item("inputcent_org" + j).focus(); return false;
+	}
+	if (getByteLength(document.all.item("inputcent_address" + j)) > 1000 ) {
+		alert("3.3.2 Address("+j+") is "+getByteLength(document.all.item("inputcent_address" + j))+" bytes.(max:1000 bytes)");
+		document.all.item("inputcent_address" + j).focus(); return false;
+	}
+	if (getByteLength(document.all.item("inputcent_email" + j)) > 100 ) {
+		alert("3.3.2 Email("+j+") is "+getByteLength(document.all.item("inputcent_email" + j))+" bytes.(max:100 bytes)");
+		document.all.item("inputcent_email" + j).focus(); return false;
+	}
+	if (getByteLength(document.all.item("inputdate" + j)) > 30 ) {
+		alert("3.3.3 Date("+j+") is "+getByteLength(document.all.item("inputdate" + j))+" bytes.(max:30 bytes)");
+		document.all.item("inputdate" + j).focus(); return false;
+	}
+	roleList = roleList + document.all.item("inputrole" + j).value + "|"
+	centityList = centityList + document.all.item("inputcent_name" + j).value +","+document.all.item("inputcent_org" + j).value+","+document.all.item("inputcent_address" + j).value+","+document.all.item("inputcent_email" + j).value + "|"
+	dateList = dateList + document.all.item("inputdate" + j).value + "|"
+	//descriptionList = descriptionList + document.all.item("inputdes" + j).value + "|"
+  }
+    parent.main.displayContribute2(roleList,centityList,dateList);
+}
+</script>
+
+<style type="text/css">
+table { font-family: "Vernada","±¼¸²Ã¼", "±¼¸²", "µ¸¿òÃ¼"; font-size: 9pt ; line-height:12pt;color:#343434 ;>r-spacing:0px;border-padding:0px} 
+td { font-family: "Vernada","±¼¸²Ã¼", "±¼¸²", "µ¸¿òÃ¼"; font-size: 9pt ; line-height:12pt;color:#343434 ;>r-spacing:0px;border-padding:0px} 
+
+a:active, a:link, a:visited {  color: #1A9EBF; text-decoration: none}
+a:hover {  color: #DD8E24; text-decoration: none}
+
+body{	background-image:url("hrdi_img/right_bg.gif");
+	background-repeat:repeat-y;
+
+
+
+                scrollbar-face-color: ffffff; 
+                scrollbar-shadow-color: #cccccc; 
+                scrollbar-highlight-color: #cccccc; 
+                scrollbar-3dlight-color: #efefef; 
+                scrollbar-darkshadow-color: #efefef; 
+                scrollbar-track-color : #efefef; 
+                scrollbar-arrow-color: #B9B9B9; 
+}
+input{	
+		background-color:#ffffff; border:1 solid #838383;  font-family:gulim; font-size:9pt;color:#545454;
+}
+textarea{	
+		background-color:#ffffff; border:1 solid #838383;  font-family:gulim; font-size:9pt;color:#545454;
+}
+.btn	{background-color:#E6EDF9; BORDER-TOP-WIDTH: 1px solid #CADEFF; BORDER-RIGHT: 1px solid #2845A6; BORDER-LEFT-WIDTH: 1px solid #CADEFF; BORDER-BOTTOM:1px solid #0C1E72; font-family:gulim; font-size:9pt;color:#0C1E72; cursor:hand}
+</style>
+</head>
+<body background="/images/metadata/bkg.gif" bgcolor="#f0f0f0" onload="displayContribute();">
+<div align="center"> 
+  <table width="98%">
+<tr>
+	<td Class="Form"><br><strong><font color="#24309B">3.3 Contribute - Multiple Elements</font></strong></td>
+<tr>
+	<td>
+		<form NAME="contributeForm" id="contributeForm">
+		<input TYPE="button" ID="add" NAME="add" VALUE="Add Contribute Information" ONCLICK ="addNewRole(null,null,null,null);" class="btn">
+<br>
+		<input TYPE="button" id="okButton" NAME="okButton" VALUE="OK" ONCLICK="okHandler();" class="btn">
+
+		<input type="Reset" value="Clear" name="clearButton" id="clearButton" class="btn">
+
+		<script LANGUAGE="JAVASCRIPT">
+		for (i=0;i<100;i++)  // the upper limit needs to correspond to the maxElements variable defined above.
+		{
+		   document.writeln("<label id=\"label"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">Contribute</label>&nbsp;&nbsp;&nbsp;&nbsp;<input TYPE=\"button\"  class=\"btn\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" ID=\"del" +i+ "\" NAME=\"del" +i+ "\" VALUE=\"Delete\" ONCLICK =\"deleteContribute();\"><BR>");			
+		   document.writeln("<label id=\"labelrole"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">3.3.1 Role</label>&nbsp;&nbsp;&nbsp;&nbsp;<select name=\"select\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" name=\"inputrole\"" + i + "\" id=\"inputrole" + i + "\"><option value=\"Creator\">Creator</option><option value=\"Validator\">Validator</option></select><BR>");
+		   document.writeln("<label id=\"labelcent"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">3.3.2 Centity</label>&nbsp;<br>");
+		   document.writeln("<label id=\"labelcent_name"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">3.3.2 Name</label>&nbsp;&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"text\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" name=\"inputcent_name\"" + i + "\" id=\"inputcent_name" + i + "\" size=22 maxlength=100><br>");
+		   document.writeln("<label id=\"labelcent_org"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">3.3.2 Org</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"text\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" name=\"inputcent_org\"" + i + "\" id=\"inputcent_org" + i + "\" size=22 maxlength=1000><br>");
+		   document.writeln("<label id=\"labelcent_address"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">3.3.2 Address</label>&nbsp;<INPUT TYPE=\"text\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" name=\"inputcent_address\"" + i + "\" id=\"inputcent_address" + i + "\" size=22 maxlength=1000><br>");
+		   document.writeln("<label id=\"labelcent_email"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">3.3.2 Email</label>&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"text\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" name=\"inputcent_email\"" + i + "\" id=\"inputcent_email" + i + "\" size=22 maxlength=100><br>");
+		   document.writeln("<label id=\"labelcom"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\"></label>");
+		   document.writeln("<label id=\"labeldate"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">3.3.3 Date</label>&nbsp;&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"text\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" name=\"inputdate\"" + i + "\" id=\"inputdate" + i + "\" maxlength=30 size=22><br>");
+		   document.writeln("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label id=\"labeldatecom"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">Example : 2002-12-12</label><br>");
+		   //document.writeln("<label id=\"labeldes"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">Date <br>Description</label>&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"text\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" name=\"inputdes\"" + i + "\" id=\"inputdes" + i + "\" maxlength=20 size=22><br>");		   
+		   document.writeln("<div id=\"div"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\"><hr></div>");		   		   
+		}
+		</script>
+		</form>
+	</td>
+</tr>
+</table>
+  <p>Restricted Vocabulary:<br>
+    User_defined<br>
+    See_classification<br>
+    Author<br>
+    Publisher<br>
+    Unknown<br>
+    Initiator<br>
+    Terminator<br>
+    Validator<br>
+    Editor<br>
+    Graphical Designer<br>
+    Technical Implementer<br>
+    Content Provider<br>
+    Technical Validator<br>
+    Educational Validator<br>
+    Script Writer<br>
+    Instructional Designer</p>
+  <p><br>
+  </p>
+</div>
+</body>
+</html>

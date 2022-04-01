@@ -1,0 +1,34 @@
+<%
+/**
+ * file name : za_MasterFormSubjObject_Fset.jsp
+ * date      : 2003/10/22
+ * programmer: LeeSuMin
+ * function  : Lesson에 Object연결 Frame Set.
+ */
+%>
+<%@ page contentType = "text/html;charset=MS949" %>
+<%@ page errorPage = "/learn/library/error.jsp" %>
+<%@ page import = "java.util.*" %>
+<%@ page import = "java.text.*" %>
+<%@ page import = "com.credu.system.*" %>
+<%@ page import = "com.credu.library.*" %>
+<%@ page import = "com.credu.beta.*" %>
+<%
+    RequestBox box = null;
+    box = (RequestBox)request.getAttribute("requestbox");
+    if (box == null) {
+    	box = RequestManager.getBox(request);
+    }
+	
+%>
+<html>
+<head>
+<title>Select Object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+</head>
+
+<frameset rows="50%,50%" cols=*" framespacing="2" frameborder="YES" border="0">
+  <frame src="/servlet/controller.beta.BetaMasterFormServlet?p_process=MasterSCOPage&p_subj=<%=box.getString("p_subj")%>" name="fup" scrolling="auto">
+  <frame src="/servlet/controller.beta.BetaMasterFormServlet?p_process=subjSCOObjectPage&p_subj=<%=box.getString("p_subj")%>" name="fdown">
+</frameset>
+</html>

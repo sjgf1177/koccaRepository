@@ -1,0 +1,148 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset="euc-kr">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>그룹회원 로그인 | 한국콘텐츠아카데미</title> 
+<link href="/mobile/assets/css/style.css" rel="stylesheet">
+<script src="/mobile/assets/js/jquery-1.11.1.min.js"></script>
+<script src="/mobile/assets/js/common.js"></script>
+<script>
+/**
+ * 분류별 그룹코드 목록 조회
+ */
+function fnSelectEduGrp( groupType ) {
+    $("#oGrcode").empty();
+    $("#oGrcode").append("<option value=''>선택</option>");
+
+    if ( groupType != "") {
+        $.ajax({
+                type : "get"
+            ,   url : "/servlet/controller.mobile.common.CodeServlet"
+            ,   dataType : "json"
+            ,   data : "process=groupCodeList&groupType=" + groupType
+            ,   success : function (data) {
+
+                    $.each( data, function(){
+                        $("#oGrcode").append("<option value='" + this.grcode + "'>" + this.grcodenm + "</option>");
+                    });
+
+                }
+            ,   complete : function(arg1, arg2) {
+                }
+            ,   error :  function(arg1, arg2) {
+                }
+
+        });
+    }
+}
+
+/**
+ * 사용자 로그인 체크
+ */
+function fnLogin() {
+    var groupType = $("#oGroupType").val();
+    var grcode = $("#oGrcode").val();
+    var userId = $("#oUserid").val();
+    var pwd = $("#oPwd").val();
+
+    var param = "process=loginProc&grcode=" + grcode + "&userid=" + userId + "&pwd=" + pwd
+
+    if ( groupType == "" ) {
+        alert("분류를 선택하세요.");
+        $("#oGroupType").focus();
+        return false;
+
+    } else  if ( grcode == "" ) {
+        alert("교육그룹을 선택하세요.");
+        $("#oGrcode").focus();
+        return false;
+
+    } else if ( userId == "" ) {
+        alert("사용자 아이디를 입력하세요.");
+        $("#oUserid").focus();
+        return false;
+
+    } else if ( pwd == "" ) {
+        alert("사용자 비밀번호를 입력하세요.");
+        $("#oPwd").focus();
+        return false;
+    } else {
+        $.ajax({
+            type : "get"
+        ,   url : "/servlet/controller.mobile.user.LoginServlet"
+        ,   dataType : "json"
+        ,   data : param
+        ,   success : function (data) {
+                if ( data.loginResult || data.loginResult == "true" ) { // 로그인 성공
+
+                    // 나의 강의실로 이동해야 하나 현재 미구현중이라서 열린강좌 인기별 목록으로이동
+                    location.href = "/mobile/jsp/user/loginOk.jsp?retUrl=" + encodeURIComponent("");
+
+                } else { // 로그인 실패시
+                    alert("아이디 또는 비밀번호가 잘못되었습니다.");
+                    return false;
+                }
+            }
+        ,   complete : function(arg1, arg2) {
+                // alert("complete : " + arg1);
+            }
+        ,   error :  function(arg1, arg2) {
+                // alert("error : " + arg1);
+            }
+
+        });
+
+    }
+}
+
+</script>
+</head>
+<body>
+<form id="oLoginForm" name="loginForm" method="post" action="/servlet/controller.mobile.user.LoginServlet" onsubmit="return false;">
+    <input type="hidden" id="oProcess" name="process" value="loginProc" />
+    <input type="hidden" id="oRetUrl" name="retUrl" value="" />
+
+<div class="login-form">
+	<div class="body2">
+		<ul class="category-field">
+			<li>
+				<label>분류</label>
+				<select id="oGroupType" name="groupType" onchange="fnSelectEduGrp(this.value);">
+					<option value=""> 선택 </option>
+
+					<option value="02">공공</option>
+
+					<option value="03">기업</option>
+
+					<option value="04">대학</option>
+
+					<option value="05">특화고</option>
+
+					<option value="06">자유학기제</option>
+
+				</select>
+			</li>
+			<li>
+				<label>그룹</label>
+				<select id="oGrcode" name="grcode">
+					<option value="">선택</option>
+				</select>
+			</li>
+		</ul>
+		<div class="login-field">
+			<ul>
+				<li><input type="text" id="oUserid" name="userid" placeholder="아이디"></li>
+				<li><input type="password" id="oPwd" name="pwd" placeholder="비밀번호"></li>
+			</ul>
+			<button type="submit" class="btn btn-primary" onclick="javascript:fnLogin();">로그인</button>
+		</div>
+	</div>
+	<div class="footer">
+		<p><i class="icon icon-cir-check"></i> 사이버 연수원 사이트와 동일한 아이디와 비밀번호로 로그인 하실 수 있습니다.</p>
+		<p><i class="icon icon-cir-check"></i> 회원가입 및 아이디/비밀번호 찾기는 PC버전에서 이용하실 수 있습니다</p>
+	</div>
+
+</div>
+</body>
+</html>

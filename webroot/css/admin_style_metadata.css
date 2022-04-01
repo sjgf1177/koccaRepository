@@ -1,0 +1,67 @@
+td.Intro{
+	color : Black;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 12;
+}
+
+a.Main{
+	color : Maroon;
+	font-size : 12;
+	font-family : Arial, Helvetica, sans-serif;
+}
+
+td.Form{
+	color : Black;
+	font-size : 14;
+	font-family : Arial, Helvetica, sans-serif;
+	font-weight : bold;
+}
+
+td.Required{
+	color : Blue;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 12;
+	font-weight : bold;
+}
+
+td.Unrequired{
+	color : Black;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 12;
+}
+
+td.Restricted{
+	color : C0C0C0;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 12;
+}
+
+.Scorm
+{
+   font-size: 18;
+   font-family:  Arial, Helvetica, sans-serif;
+   text-align: center;
+   color : 800080;
+}
+
+select.Unrequired
+{
+	color : Black;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 12;
+	width: 18.3pc;
+}
+td.comment{
+	color : Black;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 10;
+}
+
+.small_comment{
+	font-size : 11;
+}
+
+.Restricted{
+	color : C0C0C0;
+	font-size : 12;
+}

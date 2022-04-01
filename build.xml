@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+<project basedir="." default="build" name="KOCCA_DEV">
+    <property environment="env" />
+    <property name="debuglevel" value="source,lines,vars" />
+    <property name="target" value="1.5" />
+    <property name="source" value="1.5" />
+
+    <path id="J2EE 1.5 Libraries.libraryclasspath">
+        <pathelement location="/weblogic/bea/wlserver_10.0/server/lib/api.jar" />
+        <pathelement location="D:\eclipse\workspace\KOCCA_DEV\webroot/WEB-INF/lib/activation.jar" />
+        <pathelement location="D:\eclipse\workspace\KOCCA_DEV\webroot/WEB-INF/lib/ftp.jar" />
+        <pathelement location="D:\eclipse\workspace\KOCCA_DEV\webroot/WEB-INF/lib/INIpay50.jar" />
+        <pathelement location="D:\eclipse\workspace\KOCCA_DEV\webroot/WEB-INF/lib/commons-codec-1.3.jar" />
+        <pathelement location="D:\eclipse\workspace\KOCCA_DEV\webroot/WEB-INF/lib/commons-httpclient-3.0.jar" />
+        <pathelement location="D:\eclipse\workspace\KOCCA_DEV\webroot/WEB-INF/lib/jsr173_1.0_api.jar" />
+        <pathelement location="D:\eclipse\workspace\KOCCA_DEV\webroot/WEB-INF/lib/log4j-1.2.14.jar" />
+        <pathelement location="D:\eclipse\workspace\KOCCA_DEV\webroot/WEB-INF/lib/xalan.jar" />
+        <pathelement location="D:\eclipse\workspace\KOCCA_DEV\webroot/WEB-INF/lib/xbean.jar" />
+        <pathelement location="D:\eclipse\workspace\KOCCA_DEV\webroot/WEB-INF/lib/jdom.jar" />
+        <pathelement location="D:\eclipse\workspace\KOCCA_DEV\webroot/WEB-INF/lib/jxl.jar" />
+        <pathelement location="D:\eclipse\workspace\KOCCA_DEV\webroot/WEB-INF/lib/libdes.jar" />
+        <pathelement location="D:\eclipse\workspace\KOCCA_DEV\webroot/WEB-INF/lib/mail.jar" />
+        <pathelement location="D:\eclipse\workspace\KOCCA_DEV\webroot/WEB-INF/lib/msbase.jar" />
+        <pathelement location="D:\eclipse\workspace\KOCCA_DEV\webroot/WEB-INF/lib/mssqlserver.jar" />
+        <pathelement location="D:\eclipse\workspace\KOCCA_DEV\webroot/WEB-INF/lib/msutil.jar" />
+        <pathelement location="D:\eclipse\workspace\KOCCA_DEV\webroot/WEB-INF/lib/netscape.jar" />
+        <pathelement location="D:\eclipse\workspace\KOCCA_DEV\webroot/WEB-INF/lib/SSOLogin.jar" />
+        <pathelement location="D:\eclipse\workspace\KOCCA_DEV\webroot/WEB-INF/lib/taglib.jar" />
+        <pathelement location="D:\eclipse\workspace\KOCCA_DEV\webroot/WEB-INF/lib/tmax_jwaes.jar" />
+        <pathelement location="D:\eclipse\workspace\KOCCA_DEV\webroot/WEB-INF/lib/tmaxssofilter2.2.jar" />
+        <pathelement location="D:\eclipse\workspace\KOCCA_DEV\webroot/WEB-INF/lib/weblogic.jar" />
+        <pathelement location="D:\eclipse\workspace\KOCCA_DEV\webroot/WEB-INF/lib/xerceslmpl.jar" />
+        <pathelement location="D:\eclipse\workspace\KOCCA_DEV\webroot/WEB-INF/lib/LTS.jar" />
+        <pathelement location="D:\eclipse\workspace\KOCCA_DEV\webroot/WEB-INF/lib/CPClient.jar" />
+        <pathelement location="D:\eclipse\workspace\KOCCA_DEV\webroot/WEB-INF/lib/VNOInterop.jar" />
+        <pathelement location="D:\eclipse\workspace\KOCCA_DEV\webroot/WEB-INF/lib/json_simple-1.1.jar" />
+    </path>
+    <path id="KOCCA.classpath">
+        <pathelement location="WebRoot/WEB-INF/lib" />
+        <pathelement location="WebRoot/WEB-INF/classes" />
+        <path refid="J2EE 1.5 Libraries.libraryclasspath" />
+    </path>
+    <target name="init" depends="rep">
+        <mkdir dir="WebRoot/WEB-INF/classes" />
+        <copy includeemptydirs="false" todir="WebRoot/WEB-INF/classes">
+            <fileset dir="src" excludes="**/*.launch, **/*.java" />
+        </copy>
+    </target>
+    <target name="rep">
+        <echo message="replace!!!" />
+        <replace dir="src" value="D:\eclipse\workspace\KOCCA_DEV\webroot/" encoding="EUC-KR">
+            <include name="**/*.java" />
+            <replacetoken>D:/java/eclipse/inchlms/LOTI/WebRoot/</replacetoken>
+        </replace>
+    </target>
+    <target name="clean">
+        <delete dir="WebRoot/WEB-INF/classes" />
+    </target>
+    <target depends="clean" name="cleanall" />
+    <target depends="build-subprojects,build-project" name="build" />
+    <target name="build-subprojects" />
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}" />
+        <javac debug="true" fork="true" memoryinitialsize="256m" memorymaximumsize="256m" debuglevel="${debuglevel}" encoding="EUC-KR" destdir="WebRoot/WEB-INF/classes" source="${source}" target="${target}">
+            <src path="src" />
+            <classpath refid="KOCCA.classpath" />
+        </javac>
+    </target>
+    <target name="reload-webapp" description="Reload webapp" depends="init">
+        <echo message="tomcat reload" />
+        <reload url="http://cmlms.dunet.co.kr:8080/manager" username="admin" password="admin" path="/" />
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects" />
+</project>

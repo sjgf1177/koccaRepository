@@ -1,0 +1,45 @@
+#root-menu-div ul {padding:4px 5px 5px 4px; border:3px solid #869CE7; background:#fff;}
+#root-menu-div li {
+	white-space:nowrap;
+	font-family: ±¼¸²;
+	font-size: 9pt;
+	CURSOR:hand;
+}
+* html #root-menu-div li{
+	height: 1.5em; /* fixing ie6 problem */
+}
+ul.menu,
+#root-menu-div ul {width:100%; font-weight:normal;}
+li.menu-separator.active{
+	background-color: transparent;
+}
+li.active {font-weight:BOLD;}
+.activetarget{
+	background-color: #a0a0a0;
+}
+
+* html div.menu-item {
+	display: inline; /* fixes problem in ie6 */
+}
+
+li.menumain {width:100%; font-weight:normal;}
+
+div.menu-item {height:22px; padding-left:12px; line-height:22px; border-bottom:1px dashed #E4E4E4; background:url(/images/portal/ico/ico_list_sarrow.gif) no-repeat 5px 8px;}
+img.menu-item-arrow{
+	position: absolute;
+	right: 4px;
+	top: 8px;
+}
+li.menu-separator{
+	border-bottom: 1px solid #000;
+	font-size: 0; /* for ie */
+	height: 0;
+	line-height: 0; /* for ie */
+	margin: 2px 0;
+}
+li.red {
+	color: red;
+}
+li.blue {
+	color: blue;
+}

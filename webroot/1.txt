@@ -1,0 +1,17 @@
+.
+PATH=C:\bea\WEBLOG~1\server\bin;C:\bea\JROCKI~1\jre\bin;C:\bea\JROCKI~1\bin;C:\
+INNT\system32;C:\WINNT;C:\WINNT\System32\Wbem;C:\Program Files\Hewlett-Packard\
+anmgr\commandview\client\sbin;C:\Program Files\Hewlett-Packard\sanmgr\cssi\Lice
+sing\sbin;C:\Program Files\ESTsoft\ALZip\;C:\Program Files\ESTsoft\ALZip\;C:\be
+\WEBLOG~1\server\bin\oci920_8
+
+sql = select C.grseq,C.course,C.cyear,C.courseseq,C.coursenm,C.subj,C.year,C.s
+jnm,C.subjseq,c.subjseqgr,A.serno,      C.isonoff, B.resno, B.membergubun,
+B.userid, B.name, C.edustart, C.eduend, A.tstep, A.avtstep,     A.score,A.isgr
+uated,B.email,B.ismailing,C.place, B.MemberGubun  from TZ_STOLD A,TZ_MEMBER B,
+_SCSUBJSEQ C  where c.isclosed='Y' /*and a.isgoyong = 'Y'*/ and a.userid = b.u
+rid and A.subj=C.subj   and A.year=C.year and A.subjseq=C.subjseq and A.isgrad
+ted='Y'  and C.grcode = 'N000002' and C.scyear = '2006' order by b.ldate desc
+
+
+sql = 		

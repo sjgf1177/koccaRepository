@@ -1,0 +1,2813 @@
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+
+  <filter>
+    <filter-name>MultipartFilter</filter-name>
+    <filter-class>com.credu.scorm.multi.MultipartFilter</filter-class>
+  </filter>
+
+  <filter>
+    <filter-name>SetCharacterEncodingFilter</filter-name>
+    <filter-class>com.credu.common.SetCharacterEncodingFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>SetCharacterEncodingFilter</filter-name>
+    <url-pattern>/SetCharacterEncodingFilter/*</url-pattern>
+  </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>MultipartFilter</filter-name>
+    <url-pattern>/MultipartFilter/*</url-pattern>
+  </filter-mapping>
+
+  <servlet>
+    <servlet-name>getTableValue</servlet-name>
+    <servlet-class>com.credu.scorm.getTableValue</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>MultipartRequest</servlet-name>
+    <servlet-class>com.credu.scorm.MultipartRequest</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>xmlFileUpload</servlet-name>
+    <servlet-class>com.credu.scorm.xmlFileUpload</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>BetaAdminServlet</servlet-name>
+    <servlet-class>controller.beta.BetaAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>BetaContactServlet</servlet-name>
+    <servlet-class>controller.beta.BetaContactServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>BetaEduStart</servlet-name>
+    <servlet-class>controller.beta.BetaEduStart</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>BetaFaqServlet</servlet-name>
+    <servlet-class>controller.beta.BetaFaqServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>BetaFormServlet</servlet-name>
+    <servlet-class>controller.beta.BetaFormServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>BetaFreeServlet</servlet-name>
+    <servlet-class>controller.beta.BetaFreeServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>BetaHomeServlet</servlet-name>
+    <servlet-class>controller.beta.BetaHomeServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>BetaLoginServlet</servlet-name>
+    <servlet-class>controller.beta.BetaLoginServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>BetaMasterFormServlet</servlet-name>
+    <servlet-class>controller.beta.BetaMasterFormServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>BetaMateriaServlet</servlet-name>
+    <servlet-class>controller.beta.BetaMateriaServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>BetaMolabServlet</servlet-name>
+    <servlet-class>controller.beta.BetaMolabServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>BetaNoticeServlet</servlet-name>
+    <servlet-class>controller.beta.BetaNoticeServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>BetaPassServlet</servlet-name>
+    <servlet-class>controller.beta.BetaPassServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>BetaQnaServlet</servlet-name>
+    <servlet-class>controller.beta.BetaQnaServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>BetaSCObjectServlet</servlet-name>
+    <servlet-class>controller.beta.BetaSCObjectServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>BetaSCOServlet</servlet-name>
+    <servlet-class>controller.beta.BetaSCOServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>BetaSubjectServlet</servlet-name>
+    <servlet-class>controller.beta.BetaSubjectServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>BetaSwServlet</servlet-name>
+    <servlet-class>controller.beta.BetaSwServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>BPCourseServlet</servlet-name>
+    <servlet-class>controller.beta.BPCourseServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>BPExamQuestionServlet</servlet-name>
+    <servlet-class>controller.beta.BPExamQuestionServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>BPProjectAdminServlet</servlet-name>
+    <servlet-class>controller.beta.BPProjectAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ContentCPServlet</servlet-name>
+    <servlet-class>controller.beta.ContentCPServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>EduSimulationServlet</servlet-name>
+    <servlet-class>controller.beta.EduSimulationServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SubjectSimulationServlet</servlet-name>
+    <servlet-class>controller.beta.SubjectSimulationServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>BudgetAdminServlet</servlet-name>
+    <servlet-class>controller.budget.BudgetAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CommunityAdminFaqServlet</servlet-name>
+    <servlet-class>controller.community.CommunityAdminFaqServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CommunityAdminNoticeServlet</servlet-name>
+    <servlet-class>controller.community.CommunityAdminNoticeServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CommunityAdminPoliceServlet</servlet-name>
+    <servlet-class>controller.community.CommunityAdminPoliceServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CommunityAdminRoomServlet</servlet-name>
+    <servlet-class>controller.community.CommunityAdminRoomServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CommunityAdminServlet</servlet-name>
+    <servlet-class>controller.community.CommunityAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CommunityCategoryResultServlet</servlet-name>
+    <servlet-class>controller.community.CommunityCategoryResultServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CommunityCreateServlet</servlet-name>
+    <servlet-class>controller.community.CommunityCreateServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CommunityDirectServlet</servlet-name>
+    <servlet-class>controller.community.CommunityDirectServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CommunityFrBoardServlet</servlet-name>
+    <servlet-class>controller.community.CommunityFrBoardServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CommunityFrCalendarServlet</servlet-name>
+    <servlet-class>controller.community.CommunityFrCalendarServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CommunityFrInvitationServlet</servlet-name>
+    <servlet-class>controller.community.CommunityFrInvitationServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CommunityFrJoinServlet</servlet-name>
+    <servlet-class>controller.community.CommunityFrJoinServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CommunityFrMemberServlet</servlet-name>
+    <servlet-class>controller.community.CommunityFrMemberServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CommunityFrPoliceServlet</servlet-name>
+    <servlet-class>controller.community.CommunityFrPoliceServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CommunityFrPollServlet</servlet-name>
+    <servlet-class>controller.community.CommunityFrPollServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CommunityHelpServlet</servlet-name>
+    <servlet-class>controller.community.CommunityHelpServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CommunityIndexServlet</servlet-name>
+    <servlet-class>controller.community.CommunityIndexServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CommunityMasterServlet</servlet-name>
+    <servlet-class>controller.community.CommunityMasterServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CommunityMyCmuServlet</servlet-name>
+    <servlet-class>controller.community.CommunityMyCmuServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CommunityPopUpServlet</servlet-name>
+    <servlet-class>controller.community.CommunityPopUpServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CommunityPrServlet</servlet-name>
+    <servlet-class>controller.community.CommunityPrServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CommunityQnAServlet</servlet-name>
+    <servlet-class>controller.community.CommunityQnAServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CompleteStatusAdminServlet</servlet-name>
+    <servlet-class>controller.complete.CompleteStatusAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>DbMgrServlet</servlet-name>
+    <servlet-class>controller.complete.DbMgrServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>FinishInputServlet</servlet-name>
+    <servlet-class>controller.complete.FinishInputServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>FinishServlet</servlet-name>
+    <servlet-class>controller.complete.FinishServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>EduStart</servlet-name>
+    <servlet-class>controller.contents.EduStart</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>GetApiServlet</servlet-name>
+    <servlet-class>controller.contents.GetApiServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>MasterFormServlet</servlet-name>
+    <servlet-class>controller.contents.MasterFormServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>MetaDataServlet</servlet-name>
+    <servlet-class>controller.contents.MetaDataServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>OpinionServlet</servlet-name>
+    <servlet-class>controller.contents.OpinionServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SCObjectServlet</servlet-name>
+    <servlet-class>controller.contents.SCObjectServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SCOServlet</servlet-name>
+    <servlet-class>controller.contents.SCOServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SetApiServlet</servlet-name>
+    <servlet-class>controller.contents.SetApiServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ClassifySubjectServlet</servlet-name>
+    <servlet-class>controller.course.ClassifySubjectServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CourseProgressAdminServlet</servlet-name>
+    <servlet-class>controller.course.CourseProgressAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CourseStateAdminServlet</servlet-name>
+    <servlet-class>controller.course.CourseStateAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>DicSubjAdminServlet</servlet-name>
+    <servlet-class>controller.course.DicSubjAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>DicSubjServlet</servlet-name>
+    <servlet-class>controller.course.DicSubjServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>EduGroupServlet</servlet-name>
+    <servlet-class>controller.course.EduGroupServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>GrseqServlet</servlet-name>
+    <servlet-class>controller.course.GrseqServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ReportingServlet</servlet-name>
+    <servlet-class>controller.course.ReportingServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SubjectServlet</servlet-name>
+    <servlet-class>controller.course.SubjectServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SubjGongAdminServlet</servlet-name>
+    <servlet-class>controller.course.SubjGongAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SubjShamAdminServlet</servlet-name>
+    <servlet-class>controller.course.SubjShamAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CpAdminServlet</servlet-name>
+    <servlet-class>controller.cp.CpAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CpBoardServlet</servlet-name>
+    <servlet-class>controller.cp.CpBoardServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CpCompanyServlet</servlet-name>
+    <servlet-class>controller.cp.CpCompanyServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CPCompServlet</servlet-name>
+    <servlet-class>controller.cp.CPCompServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CpContactServlet</servlet-name>
+    <servlet-class>controller.cp.CpContactServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CPCourseSeqServlet</servlet-name>
+    <servlet-class>controller.cp.CPCourseSeqServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CPCourseServlet</servlet-name>
+    <servlet-class>controller.cp.CPCourseServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CPEduStatusServlet</servlet-name>
+    <servlet-class>controller.cp.CPEduStatusServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CPEduStudentServlet</servlet-name>
+    <servlet-class>controller.cp.CPEduStudentServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CpFaqServlet</servlet-name>
+    <servlet-class>controller.cp.CpFaqServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CpFormServlet</servlet-name>
+    <servlet-class>controller.cp.CpFormServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CpFreeServlet</servlet-name>
+    <servlet-class>controller.cp.CpFreeServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CPHomeServlet</servlet-name>
+    <servlet-class>controller.cp.CPHomeServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CpLoginServlet</servlet-name>
+    <servlet-class>controller.cp.CpLoginServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CpLoginServlet1</servlet-name>
+    <servlet-class>controller.cp.CpLoginServlet1</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CpMainServlet</servlet-name>
+    <servlet-class>controller.cp.CpMainServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CpManagerServlet</servlet-name>
+    <servlet-class>controller.cp.CpManagerServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CpMateriaServlet</servlet-name>
+    <servlet-class>controller.cp.CpMateriaServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CpNoticeAdminServlet</servlet-name>
+    <servlet-class>controller.cp.CpNoticeAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CpNoticeServlet</servlet-name>
+    <servlet-class>controller.cp.CpNoticeServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CpPassServlet</servlet-name>
+    <servlet-class>controller.cp.CpPassServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CpPdsServlet</servlet-name>
+    <servlet-class>controller.cp.CpPdsServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CpQnaServlet</servlet-name>
+    <servlet-class>controller.cp.CpQnaServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CPResultServlet</servlet-name>
+    <servlet-class>controller.cp.CPResultServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CPSulReportServlet</servlet-name>
+    <servlet-class>controller.cp.CPSulReportServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CPSulServlet</servlet-name>
+    <servlet-class>controller.cp.CPSulServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CpSwServlet</servlet-name>
+    <servlet-class>controller.cp.CpSwServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CpSwServlet1</servlet-name>
+    <servlet-class>controller.cp.CpSwServlet1</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CpWorkServlet</servlet-name>
+    <servlet-class>controller.cp.CpWorkServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>GatePageNoticeServlet</servlet-name>
+    <servlet-class>controller.cp.GatePageNoticeServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>UserRegServlet</servlet-name>
+    <servlet-class>controller.cp.UserRegServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ETestGroupServlet</servlet-name>
+    <servlet-class>controller.etest.ETestGroupServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ETestMailServlet</servlet-name>
+    <servlet-class>controller.etest.ETestMailServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ETestMasterServlet</servlet-name>
+    <servlet-class>controller.etest.ETestMasterServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ETestMemberServlet</servlet-name>
+    <servlet-class>controller.etest.ETestMemberServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ETestPaperServlet</servlet-name>
+    <servlet-class>controller.etest.ETestPaperServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ETestQuestionServlet</servlet-name>
+    <servlet-class>controller.etest.ETestQuestionServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ETestResultServlet</servlet-name>
+    <servlet-class>controller.etest.ETestResultServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ETestUserServlet</servlet-name>
+    <servlet-class>controller.etest.ETestUserServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ExamMasterServlet</servlet-name>
+    <servlet-class>controller.exam.ExamMasterServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ExamPaperServlet</servlet-name>
+    <servlet-class>controller.exam.ExamPaperServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ExamQuestionServlet</servlet-name>
+    <servlet-class>controller.exam.ExamQuestionServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ExamResultServlet</servlet-name>
+    <servlet-class>controller.exam.ExamResultServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ExamUserServlet</servlet-name>
+    <servlet-class>controller.exam.ExamUserServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>GatePageContactAdminServlet</servlet-name>
+    <servlet-class>controller.gatepage.GatePageContactAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>GatePageFaqCategoryAdminServlet</servlet-name>
+    <servlet-class>controller.gatepage.GatePageFaqCategoryAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>GatePageNoticeServlet</servlet-name>
+    <servlet-class>controller.gatepage.GatePageNoticeServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>GoYongManageServlet</servlet-name>
+    <servlet-class>controller.goyong.GoYongManageServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>EndorphinServlet</servlet-name>
+    <servlet-class>controller.homepage.EndorphinServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>HomePageAdminServlet</servlet-name>
+    <servlet-class>controller.homepage.HomePageAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>HomePageBoardServlet</servlet-name>
+    <servlet-class>controller.homepage.HomePageBoardServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>HomePageClientServlet</servlet-name>
+    <servlet-class>controller.homepage.HomePageClientServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>HomePageContactAdminServlet</servlet-name>
+    <servlet-class>controller.homepage.HomePageContactAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>HomePageContactServlet</servlet-name>
+    <servlet-class>controller.homepage.HomePageContactServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>HomePageCourseMapAdminServlet</servlet-name>
+    <servlet-class>controller.homepage.HomePageCourseMapAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>HomePageCourseServlet</servlet-name>
+    <servlet-class>controller.homepage.HomePageCourseServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>HomePageFaqCategoryAdminServlet</servlet-name>
+    <servlet-class>controller.homepage.HomePageFaqCategoryAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>HomePageFAQServlet</servlet-name>
+    <servlet-class>controller.homepage.HomePageFAQServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>HomePageHelpServlet</servlet-name>
+    <servlet-class>controller.homepage.HomePageHelpServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>HomePageMileageServlet</servlet-name>
+    <servlet-class>controller.homepage.HomePageMileageServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>HomePageOnlineServlet</servlet-name>
+    <servlet-class>controller.homepage.HomePageOnlineServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>HomePageProcessServlet</servlet-name>
+    <servlet-class>controller.homepage.HomePageProcessServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>HomePageQNAServlet</servlet-name>
+    <servlet-class>controller.homepage.HomePageQNAServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>HomePageSiteMapServlet</servlet-name>
+    <servlet-class>controller.homepage.HomePageSiteMapServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>HomePageSoftWareServlet</servlet-name>
+    <servlet-class>controller.homepage.HomePageSoftWareServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>HomePageWayServlet</servlet-name>
+    <servlet-class>controller.homepage.HomePageWayServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>HomePageWorkServlet</servlet-name>
+    <servlet-class>controller.homepage.HomePageWorkServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>InstitutionAdminServlet</servlet-name>
+    <servlet-class>controller.homepage.InstitutionAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>KnowBoardServlet</servlet-name>
+    <servlet-class>controller.homepage.KnowBoardServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>KnowBoardUserServlet</servlet-name>
+    <servlet-class>controller.homepage.KnowBoardUserServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>LinkSiteServlet</servlet-name>
+    <servlet-class>controller.homepage.LinkSiteServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>controller.homepage.LoginServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>MainServlet</servlet-name>
+    <servlet-class>controller.homepage.MainServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>MemberInfoServlet</servlet-name>
+    <servlet-class>controller.homepage.MemberInfoServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>NewsAdminServlet</servlet-name>
+    <servlet-class>controller.homepage.NewsAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>NoticeAdminServlet</servlet-name>
+    <servlet-class>controller.homepage.NoticeAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>NoticeTempletServlet</servlet-name>
+    <servlet-class>controller.homepage.NoticeTempletServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>PdsAdminServlet</servlet-name>
+    <servlet-class>controller.homepage.PdsAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>PollAdminServlet</servlet-name>
+    <servlet-class>controller.homepage.PollAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>PollServlet</servlet-name>
+    <servlet-class>controller.homepage.PollServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>QnaAdminServlet</servlet-name>
+    <servlet-class>controller.homepage.QnaAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SoftwareBoardServlet</servlet-name>
+    <servlet-class>controller.homepage.SoftwareBoardServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>DownloadServlet</servlet-name>
+    <servlet-class>controller.library.DownloadServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>FreeMailServlet</servlet-name>
+    <servlet-class>controller.library.FreeMailServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>PostSearchServlet</servlet-name>
+    <servlet-class>controller.library.PostSearchServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SearchServlet</servlet-name>
+    <servlet-class>controller.library.SearchServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SMSServlet</servlet-name>
+    <servlet-class>controller.library.SMSServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>DamunCommonMailResultServlet</servlet-name>
+    <servlet-class>controller.multiestimate.DamunCommonMailResultServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>DamunCommonMailServlet</servlet-name>
+    <servlet-class>controller.multiestimate.DamunCommonMailServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>DamunCommonMemberServlet</servlet-name>
+    <servlet-class>controller.multiestimate.DamunCommonMemberServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>DamunCommonPaperServlet</servlet-name>
+    <servlet-class>controller.multiestimate.DamunCommonPaperServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>DamunCommonQuestionServlet</servlet-name>
+    <servlet-class>controller.multiestimate.DamunCommonQuestionServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>DamunCommonResultServlet</servlet-name>
+    <servlet-class>controller.multiestimate.DamunCommonResultServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>DamunSubjMailResultServlet</servlet-name>
+    <servlet-class>controller.multiestimate.DamunSubjMailResultServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>DamunSubjMailServlet</servlet-name>
+    <servlet-class>controller.multiestimate.DamunSubjMailServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>DamunSubjMemberServlet</servlet-name>
+    <servlet-class>controller.multiestimate.DamunSubjMemberServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>DamunSubjPaperServlet</servlet-name>
+    <servlet-class>controller.multiestimate.DamunSubjPaperServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>DamunSubjQuestionServlet</servlet-name>
+    <servlet-class>controller.multiestimate.DamunSubjQuestionServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>DamunSubjResultServlet</servlet-name>
+    <servlet-class>controller.multiestimate.DamunSubjResultServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ScaleServlet</servlet-name>
+    <servlet-class>controller.multiestimate.ScaleServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>OutClassServlet</servlet-name>
+    <servlet-class>controller.outclass.OutClassServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>AcceptFileToDBServlet</servlet-name>
+    <servlet-class>controller.propose.AcceptFileToDBServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>AcceptServlet</servlet-name>
+    <servlet-class>controller.propose.AcceptServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ApprovalServlet</servlet-name>
+    <servlet-class>controller.propose.ApprovalServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ChangeSeqApprovalServlet</servlet-name>
+    <servlet-class>controller.propose.ChangeSeqApprovalServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>MainSubjSearchServlet</servlet-name>
+    <servlet-class>controller.propose.MainSubjSearchServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>MasterSubjServlet</servlet-name>
+    <servlet-class>controller.propose.MasterSubjServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ProposeCourseServlet</servlet-name>
+    <servlet-class>controller.propose.ProposeCourseServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ProposeStatusAdminServlet</servlet-name>
+    <servlet-class>controller.propose.ProposeStatusAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ProposeWizardServlet</servlet-name>
+    <servlet-class>controller.propose.ProposeWizardServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>StudentManagerServlet</servlet-name>
+    <servlet-class>controller.propose.StudentManagerServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ScaleServlet</servlet-name>
+    <servlet-class>controller.research.ScaleServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SulmunAllPaperServlet</servlet-name>
+    <servlet-class>controller.research.SulmunAllPaperServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SulmunAllQuestionServlet</servlet-name>
+    <servlet-class>controller.research.SulmunAllQuestionServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SulmunAllResultServlet</servlet-name>
+    <servlet-class>controller.research.SulmunAllResultServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SulmunCommonPaperServlet</servlet-name>
+    <servlet-class>controller.research.SulmunCommonPaperServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SulmunCommonQuestionServlet</servlet-name>
+    <servlet-class>controller.research.SulmunCommonQuestionServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SulmunCommonResultServlet</servlet-name>
+    <servlet-class>controller.research.SulmunCommonResultServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SulmunCommonUserServlet</servlet-name>
+    <servlet-class>controller.research.SulmunCommonUserServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SulmunContentsPaperServlet</servlet-name>
+    <servlet-class>controller.research.SulmunContentsPaperServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SulmunContentsQuestionServlet</servlet-name>
+    <servlet-class>controller.research.SulmunContentsQuestionServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SulmunContentsResultServlet</servlet-name>
+    <servlet-class>controller.research.SulmunContentsResultServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SulmunContentsUserServlet</servlet-name>
+    <servlet-class>controller.research.SulmunContentsUserServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SulmunCpPaperServlet</servlet-name>
+    <servlet-class>controller.research.SulmunCpPaperServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SulmunCPQuestionServlet</servlet-name>
+    <servlet-class>controller.research.SulmunCPQuestionServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SulmunSubjPaperServlet</servlet-name>
+    <servlet-class>controller.research.SulmunSubjPaperServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SulmunSubjQuestionServlet</servlet-name>
+    <servlet-class>controller.research.SulmunSubjQuestionServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SulmunSubjResultServlet</servlet-name>
+    <servlet-class>controller.research.SulmunSubjResultServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SulmunSubjUserServlet</servlet-name>
+    <servlet-class>controller.research.SulmunSubjUserServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SulmunTargetMailingServlet</servlet-name>
+    <servlet-class>controller.research.SulmunTargetMailingServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SulmunTargetMailResultServlet</servlet-name>
+    <servlet-class>controller.research.SulmunTargetMailResultServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SulmunTargetMailServlet</servlet-name>
+    <servlet-class>controller.research.SulmunTargetMailServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SulmunTargetMemberServlet</servlet-name>
+    <servlet-class>controller.research.SulmunTargetMemberServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SulmunTargetPaperServlet</servlet-name>
+    <servlet-class>controller.research.SulmunTargetPaperServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SulmunTargetQuestionServlet</servlet-name>
+    <servlet-class>controller.research.SulmunTargetQuestionServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SulmunTargetResultServlet</servlet-name>
+    <servlet-class>controller.research.SulmunTargetResultServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SulmunTargetUserServlet</servlet-name>
+    <servlet-class>controller.research.SulmunTargetUserServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SalesCodeServlet</servlet-name>
+    <servlet-class>controller.sales.SalesCodeServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SalesCodeStepServlet</servlet-name>
+    <servlet-class>controller.sales.SalesCodeStepServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SalesCounselServlet</servlet-name>
+    <servlet-class>controller.sales.SalesCounselServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SalesProjectServlet</servlet-name>
+    <servlet-class>controller.sales.SalesProjectServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SalesScheduleServlet</servlet-name>
+    <servlet-class>controller.sales.SalesScheduleServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SalesSubjServlet</servlet-name>
+    <servlet-class>controller.sales.SalesSubjServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SoCodeServlet</servlet-name>
+    <servlet-class>controller.so.SoCodeServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SoDiagnosPaperServlet</servlet-name>
+    <servlet-class>controller.so.SoDiagnosPaperServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SoEventServlet</servlet-name>
+    <servlet-class>controller.so.SoEventServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SoExamDiagnosServlet</servlet-name>
+    <servlet-class>controller.so.SoExamDiagnosServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SoExamPaperServlet</servlet-name>
+    <servlet-class>controller.so.SoExamPaperServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SoExamQuestionServlet</servlet-name>
+    <servlet-class>controller.so.SoExamQuestionServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SoSulmunPaperServlet</servlet-name>
+    <servlet-class>controller.so.SoSulmunPaperServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SoSulmunQuestionServlet</servlet-name>
+    <servlet-class>controller.so.SoSulmunQuestionServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ClassServlet</servlet-name>
+    <servlet-class>controller.study.ClassServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CounselAdminServlet</servlet-name>
+    <servlet-class>controller.study.CounselAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>DicSubjStudyServlet</servlet-name>
+    <servlet-class>controller.study.DicSubjStudyServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>MyClassServlet</servlet-name>
+    <servlet-class>controller.study.MyClassServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>MyQnaServlet</servlet-name>
+    <servlet-class>controller.study.MyQnaServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ProjectAdminServlet</servlet-name>
+    <servlet-class>controller.study.ProjectAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ProjectServlet</servlet-name>
+    <servlet-class>controller.study.ProjectServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>QnaAdminServlet</servlet-name>
+    <servlet-class>controller.study.QnaAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SearchSubjNameServlet</servlet-name>
+    <servlet-class>controller.study.SearchSubjNameServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>StudentListServlet</servlet-name>
+    <servlet-class>controller.study.StudentListServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>StudentStatusAdminServlet</servlet-name>
+    <servlet-class>controller.study.StudentStatusAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>StudyAdminDataServlet</servlet-name>
+    <servlet-class>controller.study.StudyAdminDataServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>StudyBoardServlet</servlet-name>
+    <servlet-class>controller.study.StudyBoardServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>StudyDataServlet</servlet-name>
+    <servlet-class>controller.study.StudyDataServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>StudyExamServlet</servlet-name>
+    <servlet-class>controller.study.StudyExamServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>StudyStatusAdminServlet</servlet-name>
+    <servlet-class>controller.study.StudyStatusAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>StudySulmunServlet</servlet-name>
+    <servlet-class>controller.study.StudySulmunServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>StudyTotalStatusServlet</servlet-name>
+    <servlet-class>controller.study.StudyTotalStatusServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SubjGongStudyServlet</servlet-name>
+    <servlet-class>controller.study.SubjGongStudyServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SubjQnaStudyServlet</servlet-name>
+    <servlet-class>controller.study.SubjQnaStudyServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ToronAdminServlet</servlet-name>
+    <servlet-class>controller.study.ToronAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ToronServlet</servlet-name>
+    <servlet-class>controller.study.ToronServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>TutorInfoServlet</servlet-name>
+    <servlet-class>controller.study.TutorInfoServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ClassifyBudgetServlet</servlet-name>
+    <servlet-class>controller.system.ClassifyBudgetServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CodeAdminServlet</servlet-name>
+    <servlet-class>controller.system.CodeAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CountServlet</servlet-name>
+    <servlet-class>controller.system.CountServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>EdutimeControlServlet</servlet-name>
+    <servlet-class>controller.system.EdutimeControlServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ManagerAdminServlet</servlet-name>
+    <servlet-class>controller.system.ManagerAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>MemberAdminServlet</servlet-name>
+    <servlet-class>controller.system.MemberAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>MemberSearchServlet</servlet-name>
+    <servlet-class>controller.system.MemberSearchServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>MenuAdminServlet</servlet-name>
+    <servlet-class>controller.system.MenuAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>MenuAuthAdminEachServlet</servlet-name>
+    <servlet-class>controller.system.MenuAuthAdminEachServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>MenuAuthAdminServlet</servlet-name>
+    <servlet-class>controller.system.MenuAuthAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>MenuCountServlet</servlet-name>
+    <servlet-class>controller.system.MenuCountServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>MenuDataServlet</servlet-name>
+    <servlet-class>controller.system.MenuDataServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>MenuSubAdminServlet</servlet-name>
+    <servlet-class>controller.system.MenuSubAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>MenuSubProcessAdminServlet</servlet-name>
+    <servlet-class>controller.system.MenuSubProcessAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>OutUserAdminServlet</servlet-name>
+    <servlet-class>controller.system.OutUserAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>PermissionServlet</servlet-name>
+    <servlet-class>controller.system.PermissionServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SitemapAdminServlet</servlet-name>
+    <servlet-class>controller.system.SitemapAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>StudyControlServlet</servlet-name>
+    <servlet-class>controller.system.StudyControlServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>StudyCountServlet</servlet-name>
+    <servlet-class>controller.system.StudyCountServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>SubjCountServlet</servlet-name>
+    <servlet-class>controller.system.SubjCountServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>TempletServlet</servlet-name>
+    <servlet-class>controller.templet.TempletServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>AdminQnaServlet</servlet-name>
+    <servlet-class>controller.tutor.AdminQnaServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>NoticeAdminServlet</servlet-name>
+    <servlet-class>controller.tutor.NoticeAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>TutorActionAdminServlet</servlet-name>
+    <servlet-class>controller.tutor.TutorActionAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>TutorAdminMainServlet</servlet-name>
+    <servlet-class>controller.tutor.TutorAdminMainServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>TutorAdminServlet</servlet-name>
+    <servlet-class>controller.tutor.TutorAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>TutorDistributionAdminServlet</servlet-name>
+    <servlet-class>controller.tutor.TutorDistributionAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>TutorPayAdminServlet</servlet-name>
+    <servlet-class>controller.tutor.TutorPayAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>TutorValuationAdminServlet</servlet-name>
+    <servlet-class>controller.tutor.TutorValuationAdminServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>getTableValue</servlet-name>
+    <url-pattern>/getTableValue/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>MultipartRequest</servlet-name>
+    <url-pattern>/MultipartRequest/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>xmlFileUpload</servlet-name>
+    <url-pattern>/xmlFileUpload/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>BetaAdminServlet</servlet-name>
+    <url-pattern>/BetaAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>BetaContactServlet</servlet-name>
+    <url-pattern>/BetaContactServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>BetaEduStart</servlet-name>
+    <url-pattern>/BetaEduStart/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>BetaFaqServlet</servlet-name>
+    <url-pattern>/BetaFaqServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>BetaFormServlet</servlet-name>
+    <url-pattern>/BetaFormServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>BetaFreeServlet</servlet-name>
+    <url-pattern>/BetaFreeServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>BetaHomeServlet</servlet-name>
+    <url-pattern>/BetaHomeServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>BetaLoginServlet</servlet-name>
+    <url-pattern>/BetaLoginServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>BetaMasterFormServlet</servlet-name>
+    <url-pattern>/BetaMasterFormServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>BetaMateriaServlet</servlet-name>
+    <url-pattern>/BetaMateriaServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>BetaMolabServlet</servlet-name>
+    <url-pattern>/BetaMolabServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>BetaNoticeServlet</servlet-name>
+    <url-pattern>/BetaNoticeServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>BetaPassServlet</servlet-name>
+    <url-pattern>/BetaPassServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>BetaQnaServlet</servlet-name>
+    <url-pattern>/BetaQnaServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>BetaSCObjectServlet</servlet-name>
+    <url-pattern>/BetaSCObjectServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>BetaSCOServlet</servlet-name>
+    <url-pattern>/BetaSCOServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>BetaSubjectServlet</servlet-name>
+    <url-pattern>/BetaSubjectServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>BetaSwServlet</servlet-name>
+    <url-pattern>/BetaSwServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>BPCourseServlet</servlet-name>
+    <url-pattern>/BPCourseServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>BPExamQuestionServlet</servlet-name>
+    <url-pattern>/BPExamQuestionServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>BPProjectAdminServlet</servlet-name>
+    <url-pattern>/BPProjectAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ContentCPServlet</servlet-name>
+    <url-pattern>/ContentCPServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>EduSimulationServlet</servlet-name>
+    <url-pattern>/EduSimulationServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SubjectSimulationServlet</servlet-name>
+    <url-pattern>/SubjectSimulationServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>BudgetAdminServlet</servlet-name>
+    <url-pattern>/BudgetAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CommunityAdminFaqServlet</servlet-name>
+    <url-pattern>/CommunityAdminFaqServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CommunityAdminNoticeServlet</servlet-name>
+    <url-pattern>/CommunityAdminNoticeServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CommunityAdminPoliceServlet</servlet-name>
+    <url-pattern>/CommunityAdminPoliceServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CommunityAdminRoomServlet</servlet-name>
+    <url-pattern>/CommunityAdminRoomServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CommunityAdminServlet</servlet-name>
+    <url-pattern>/CommunityAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CommunityCategoryResultServlet</servlet-name>
+    <url-pattern>/CommunityCategoryResultServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CommunityCreateServlet</servlet-name>
+    <url-pattern>/CommunityCreateServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CommunityDirectServlet</servlet-name>
+    <url-pattern>/CommunityDirectServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CommunityFrBoardServlet</servlet-name>
+    <url-pattern>/CommunityFrBoardServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CommunityFrCalendarServlet</servlet-name>
+    <url-pattern>/CommunityFrCalendarServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CommunityFrInvitationServlet</servlet-name>
+    <url-pattern>/CommunityFrInvitationServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CommunityFrJoinServlet</servlet-name>
+    <url-pattern>/CommunityFrJoinServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CommunityFrMemberServlet</servlet-name>
+    <url-pattern>/CommunityFrMemberServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CommunityFrPoliceServlet</servlet-name>
+    <url-pattern>/CommunityFrPoliceServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CommunityFrPollServlet</servlet-name>
+    <url-pattern>/CommunityFrPollServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CommunityHelpServlet</servlet-name>
+    <url-pattern>/CommunityHelpServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CommunityIndexServlet</servlet-name>
+    <url-pattern>/CommunityIndexServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CommunityMasterServlet</servlet-name>
+    <url-pattern>/CommunityMasterServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CommunityMyCmuServlet</servlet-name>
+    <url-pattern>/CommunityMyCmuServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CommunityPopUpServlet</servlet-name>
+    <url-pattern>/CommunityPopUpServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CommunityPrServlet</servlet-name>
+    <url-pattern>/CommunityPrServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CommunityQnAServlet</servlet-name>
+    <url-pattern>/CommunityQnAServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CompleteStatusAdminServlet</servlet-name>
+    <url-pattern>/CompleteStatusAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DbMgrServlet</servlet-name>
+    <url-pattern>/DbMgrServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>FinishInputServlet</servlet-name>
+    <url-pattern>/FinishInputServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>FinishServlet</servlet-name>
+    <url-pattern>/FinishServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>EduStart</servlet-name>
+    <url-pattern>/EduStart/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>GetApiServlet</servlet-name>
+    <url-pattern>/GetApiServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>MasterFormServlet</servlet-name>
+    <url-pattern>/MasterFormServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>MetaDataServlet</servlet-name>
+    <url-pattern>/MetaDataServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>OpinionServlet</servlet-name>
+    <url-pattern>/OpinionServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SCObjectServlet</servlet-name>
+    <url-pattern>/SCObjectServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SCOServlet</servlet-name>
+    <url-pattern>/SCOServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SetApiServlet</servlet-name>
+    <url-pattern>/SetApiServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ClassifySubjectServlet</servlet-name>
+    <url-pattern>/ClassifySubjectServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CourseProgressAdminServlet</servlet-name>
+    <url-pattern>/CourseProgressAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CourseStateAdminServlet</servlet-name>
+    <url-pattern>/CourseStateAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DicSubjAdminServlet</servlet-name>
+    <url-pattern>/DicSubjAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DicSubjServlet</servlet-name>
+    <url-pattern>/DicSubjServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>EduGroupServlet</servlet-name>
+    <url-pattern>/EduGroupServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>GrseqServlet</servlet-name>
+    <url-pattern>/GrseqServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ReportingServlet</servlet-name>
+    <url-pattern>/ReportingServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SubjectServlet</servlet-name>
+    <url-pattern>/SubjectServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SubjGongAdminServlet</servlet-name>
+    <url-pattern>/SubjGongAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SubjShamAdminServlet</servlet-name>
+    <url-pattern>/SubjShamAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CpAdminServlet</servlet-name>
+    <url-pattern>/CpAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CpBoardServlet</servlet-name>
+    <url-pattern>/CpBoardServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CpCompanyServlet</servlet-name>
+    <url-pattern>/CpCompanyServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CPCompServlet</servlet-name>
+    <url-pattern>/CPCompServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CpContactServlet</servlet-name>
+    <url-pattern>/CpContactServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CPCourseSeqServlet</servlet-name>
+    <url-pattern>/CPCourseSeqServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CPCourseServlet</servlet-name>
+    <url-pattern>/CPCourseServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CPEduStatusServlet</servlet-name>
+    <url-pattern>/CPEduStatusServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CPEduStudentServlet</servlet-name>
+    <url-pattern>/CPEduStudentServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CpFaqServlet</servlet-name>
+    <url-pattern>/CpFaqServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CpFormServlet</servlet-name>
+    <url-pattern>/CpFormServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CpFreeServlet</servlet-name>
+    <url-pattern>/CpFreeServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CPHomeServlet</servlet-name>
+    <url-pattern>/CPHomeServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CpLoginServlet</servlet-name>
+    <url-pattern>/CpLoginServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CpLoginServlet1</servlet-name>
+    <url-pattern>/CpLoginServlet1/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CpMainServlet</servlet-name>
+    <url-pattern>/CpMainServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CpManagerServlet</servlet-name>
+    <url-pattern>/CpManagerServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CpMateriaServlet</servlet-name>
+    <url-pattern>/CpMateriaServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CpNoticeAdminServlet</servlet-name>
+    <url-pattern>/CpNoticeAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CpNoticeServlet</servlet-name>
+    <url-pattern>/CpNoticeServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CpPassServlet</servlet-name>
+    <url-pattern>/CpPassServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CpPdsServlet</servlet-name>
+    <url-pattern>/CpPdsServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CpQnaServlet</servlet-name>
+    <url-pattern>/CpQnaServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CPResultServlet</servlet-name>
+    <url-pattern>/CPResultServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CPSulReportServlet</servlet-name>
+    <url-pattern>/CPSulReportServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CPSulServlet</servlet-name>
+    <url-pattern>/CPSulServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CpSwServlet</servlet-name>
+    <url-pattern>/CpSwServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CpSwServlet1</servlet-name>
+    <url-pattern>/CpSwServlet1/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CpWorkServlet</servlet-name>
+    <url-pattern>/CpWorkServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>GatePageNoticeServlet</servlet-name>
+    <url-pattern>/GatePageNoticeServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>UserRegServlet</servlet-name>
+    <url-pattern>/UserRegServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ETestGroupServlet</servlet-name>
+    <url-pattern>/ETestGroupServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ETestMailServlet</servlet-name>
+    <url-pattern>/ETestMailServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ETestMasterServlet</servlet-name>
+    <url-pattern>/ETestMasterServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ETestMemberServlet</servlet-name>
+    <url-pattern>/ETestMemberServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ETestPaperServlet</servlet-name>
+    <url-pattern>/ETestPaperServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ETestQuestionServlet</servlet-name>
+    <url-pattern>/ETestQuestionServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ETestResultServlet</servlet-name>
+    <url-pattern>/ETestResultServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ETestUserServlet</servlet-name>
+    <url-pattern>/ETestUserServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ExamMasterServlet</servlet-name>
+    <url-pattern>/ExamMasterServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ExamPaperServlet</servlet-name>
+    <url-pattern>/ExamPaperServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ExamQuestionServlet</servlet-name>
+    <url-pattern>/ExamQuestionServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ExamResultServlet</servlet-name>
+    <url-pattern>/ExamResultServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ExamUserServlet</servlet-name>
+    <url-pattern>/ExamUserServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>GatePageContactAdminServlet</servlet-name>
+    <url-pattern>/GatePageContactAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>GatePageFaqCategoryAdminServlet</servlet-name>
+    <url-pattern>/GatePageFaqCategoryAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>GatePageNoticeServlet</servlet-name>
+    <url-pattern>/GatePageNoticeServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>GoYongManageServlet</servlet-name>
+    <url-pattern>/GoYongManageServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>EndorphinServlet</servlet-name>
+    <url-pattern>/EndorphinServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>HomePageAdminServlet</servlet-name>
+    <url-pattern>/HomePageAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>HomePageBoardServlet</servlet-name>
+    <url-pattern>/HomePageBoardServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>HomePageClientServlet</servlet-name>
+    <url-pattern>/HomePageClientServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>HomePageContactAdminServlet</servlet-name>
+    <url-pattern>/HomePageContactAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>HomePageContactServlet</servlet-name>
+    <url-pattern>/HomePageContactServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>HomePageCourseMapAdminServlet</servlet-name>
+    <url-pattern>/HomePageCourseMapAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>HomePageCourseServlet</servlet-name>
+    <url-pattern>/HomePageCourseServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>HomePageFaqCategoryAdminServlet</servlet-name>
+    <url-pattern>/HomePageFaqCategoryAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>HomePageFAQServlet</servlet-name>
+    <url-pattern>/HomePageFAQServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>HomePageHelpServlet</servlet-name>
+    <url-pattern>/HomePageHelpServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>HomePageMileageServlet</servlet-name>
+    <url-pattern>/HomePageMileageServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>HomePageOnlineServlet</servlet-name>
+    <url-pattern>/HomePageOnlineServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>HomePageProcessServlet</servlet-name>
+    <url-pattern>/HomePageProcessServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>HomePageQNAServlet</servlet-name>
+    <url-pattern>/HomePageQNAServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>HomePageSiteMapServlet</servlet-name>
+    <url-pattern>/HomePageSiteMapServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>HomePageSoftWareServlet</servlet-name>
+    <url-pattern>/HomePageSoftWareServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>HomePageWayServlet</servlet-name>
+    <url-pattern>/HomePageWayServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>HomePageWorkServlet</servlet-name>
+    <url-pattern>/HomePageWorkServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>InstitutionAdminServlet</servlet-name>
+    <url-pattern>/InstitutionAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>KnowBoardServlet</servlet-name>
+    <url-pattern>/KnowBoardServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>KnowBoardUserServlet</servlet-name>
+    <url-pattern>/KnowBoardUserServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>LinkSiteServlet</servlet-name>
+    <url-pattern>/LinkSiteServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/LoginServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>MainServlet</servlet-name>
+    <url-pattern>/MainServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>MemberInfoServlet</servlet-name>
+    <url-pattern>/MemberInfoServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>NewsAdminServlet</servlet-name>
+    <url-pattern>/NewsAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>NoticeAdminServlet</servlet-name>
+    <url-pattern>/NoticeAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>NoticeTempletServlet</servlet-name>
+    <url-pattern>/NoticeTempletServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>PdsAdminServlet</servlet-name>
+    <url-pattern>/PdsAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>PollAdminServlet</servlet-name>
+    <url-pattern>/PollAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>PollServlet</servlet-name>
+    <url-pattern>/PollServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>QnaAdminServlet</servlet-name>
+    <url-pattern>/QnaAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SoftwareBoardServlet</servlet-name>
+    <url-pattern>/SoftwareBoardServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DownloadServlet</servlet-name>
+    <url-pattern>/DownloadServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>FreeMailServlet</servlet-name>
+    <url-pattern>/FreeMailServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>PostSearchServlet</servlet-name>
+    <url-pattern>/PostSearchServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SearchServlet</servlet-name>
+    <url-pattern>/SearchServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SMSServlet</servlet-name>
+    <url-pattern>/SMSServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DamunCommonMailResultServlet</servlet-name>
+    <url-pattern>/DamunCommonMailResultServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DamunCommonMailServlet</servlet-name>
+    <url-pattern>/DamunCommonMailServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DamunCommonMemberServlet</servlet-name>
+    <url-pattern>/DamunCommonMemberServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DamunCommonPaperServlet</servlet-name>
+    <url-pattern>/DamunCommonPaperServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DamunCommonQuestionServlet</servlet-name>
+    <url-pattern>/DamunCommonQuestionServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DamunCommonResultServlet</servlet-name>
+    <url-pattern>/DamunCommonResultServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DamunSubjMailResultServlet</servlet-name>
+    <url-pattern>/DamunSubjMailResultServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DamunSubjMailServlet</servlet-name>
+    <url-pattern>/DamunSubjMailServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DamunSubjMemberServlet</servlet-name>
+    <url-pattern>/DamunSubjMemberServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DamunSubjPaperServlet</servlet-name>
+    <url-pattern>/DamunSubjPaperServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DamunSubjQuestionServlet</servlet-name>
+    <url-pattern>/DamunSubjQuestionServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DamunSubjResultServlet</servlet-name>
+    <url-pattern>/DamunSubjResultServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ScaleServlet</servlet-name>
+    <url-pattern>/ScaleServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>OutClassServlet</servlet-name>
+    <url-pattern>/OutClassServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>AcceptFileToDBServlet</servlet-name>
+    <url-pattern>/AcceptFileToDBServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>AcceptServlet</servlet-name>
+    <url-pattern>/AcceptServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ApprovalServlet</servlet-name>
+    <url-pattern>/ApprovalServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ChangeSeqApprovalServlet</servlet-name>
+    <url-pattern>/ChangeSeqApprovalServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>MainSubjSearchServlet</servlet-name>
+    <url-pattern>/MainSubjSearchServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>MasterSubjServlet</servlet-name>
+    <url-pattern>/MasterSubjServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ProposeCourseServlet</servlet-name>
+    <url-pattern>/ProposeCourseServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ProposeStatusAdminServlet</servlet-name>
+    <url-pattern>/ProposeStatusAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ProposeWizardServlet</servlet-name>
+    <url-pattern>/ProposeWizardServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>StudentManagerServlet</servlet-name>
+    <url-pattern>/StudentManagerServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ScaleServlet</servlet-name>
+    <url-pattern>/ScaleServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SulmunAllPaperServlet</servlet-name>
+    <url-pattern>/SulmunAllPaperServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SulmunAllQuestionServlet</servlet-name>
+    <url-pattern>/SulmunAllQuestionServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SulmunAllResultServlet</servlet-name>
+    <url-pattern>/SulmunAllResultServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SulmunCommonPaperServlet</servlet-name>
+    <url-pattern>/SulmunCommonPaperServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SulmunCommonQuestionServlet</servlet-name>
+    <url-pattern>/SulmunCommonQuestionServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SulmunCommonResultServlet</servlet-name>
+    <url-pattern>/SulmunCommonResultServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SulmunCommonUserServlet</servlet-name>
+    <url-pattern>/SulmunCommonUserServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SulmunContentsPaperServlet</servlet-name>
+    <url-pattern>/SulmunContentsPaperServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SulmunContentsQuestionServlet</servlet-name>
+    <url-pattern>/SulmunContentsQuestionServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SulmunContentsResultServlet</servlet-name>
+    <url-pattern>/SulmunContentsResultServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SulmunContentsUserServlet</servlet-name>
+    <url-pattern>/SulmunContentsUserServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SulmunCpPaperServlet</servlet-name>
+    <url-pattern>/SulmunCpPaperServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SulmunCPQuestionServlet</servlet-name>
+    <url-pattern>/SulmunCPQuestionServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SulmunSubjPaperServlet</servlet-name>
+    <url-pattern>/SulmunSubjPaperServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SulmunSubjQuestionServlet</servlet-name>
+    <url-pattern>/SulmunSubjQuestionServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SulmunSubjResultServlet</servlet-name>
+    <url-pattern>/SulmunSubjResultServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SulmunSubjUserServlet</servlet-name>
+    <url-pattern>/SulmunSubjUserServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SulmunTargetMailingServlet</servlet-name>
+    <url-pattern>/SulmunTargetMailingServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SulmunTargetMailResultServlet</servlet-name>
+    <url-pattern>/SulmunTargetMailResultServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SulmunTargetMailServlet</servlet-name>
+    <url-pattern>/SulmunTargetMailServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SulmunTargetMemberServlet</servlet-name>
+    <url-pattern>/SulmunTargetMemberServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SulmunTargetPaperServlet</servlet-name>
+    <url-pattern>/SulmunTargetPaperServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SulmunTargetQuestionServlet</servlet-name>
+    <url-pattern>/SulmunTargetQuestionServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SulmunTargetResultServlet</servlet-name>
+    <url-pattern>/SulmunTargetResultServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SulmunTargetUserServlet</servlet-name>
+    <url-pattern>/SulmunTargetUserServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SalesCodeServlet</servlet-name>
+    <url-pattern>/SalesCodeServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SalesCodeStepServlet</servlet-name>
+    <url-pattern>/SalesCodeStepServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SalesCounselServlet</servlet-name>
+    <url-pattern>/SalesCounselServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SalesProjectServlet</servlet-name>
+    <url-pattern>/SalesProjectServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SalesScheduleServlet</servlet-name>
+    <url-pattern>/SalesScheduleServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SalesSubjServlet</servlet-name>
+    <url-pattern>/SalesSubjServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SoCodeServlet</servlet-name>
+    <url-pattern>/SoCodeServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SoDiagnosPaperServlet</servlet-name>
+    <url-pattern>/SoDiagnosPaperServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SoEventServlet</servlet-name>
+    <url-pattern>/SoEventServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SoExamDiagnosServlet</servlet-name>
+    <url-pattern>/SoExamDiagnosServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SoExamPaperServlet</servlet-name>
+    <url-pattern>/SoExamPaperServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SoExamQuestionServlet</servlet-name>
+    <url-pattern>/SoExamQuestionServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SoSulmunPaperServlet</servlet-name>
+    <url-pattern>/SoSulmunPaperServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SoSulmunQuestionServlet</servlet-name>
+    <url-pattern>/SoSulmunQuestionServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ClassServlet</servlet-name>
+    <url-pattern>/ClassServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CounselAdminServlet</servlet-name>
+    <url-pattern>/CounselAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DicSubjStudyServlet</servlet-name>
+    <url-pattern>/DicSubjStudyServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>MyClassServlet</servlet-name>
+    <url-pattern>/MyClassServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>MyQnaServlet</servlet-name>
+    <url-pattern>/MyQnaServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ProjectAdminServlet</servlet-name>
+    <url-pattern>/ProjectAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ProjectServlet</servlet-name>
+    <url-pattern>/ProjectServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>QnaAdminServlet</servlet-name>
+    <url-pattern>/QnaAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SearchSubjNameServlet</servlet-name>
+    <url-pattern>/SearchSubjNameServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>StudentListServlet</servlet-name>
+    <url-pattern>/StudentListServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>StudentStatusAdminServlet</servlet-name>
+    <url-pattern>/StudentStatusAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>StudyAdminDataServlet</servlet-name>
+    <url-pattern>/StudyAdminDataServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>StudyBoardServlet</servlet-name>
+    <url-pattern>/StudyBoardServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>StudyDataServlet</servlet-name>
+    <url-pattern>/StudyDataServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>StudyExamServlet</servlet-name>
+    <url-pattern>/StudyExamServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>StudyStatusAdminServlet</servlet-name>
+    <url-pattern>/StudyStatusAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>StudySulmunServlet</servlet-name>
+    <url-pattern>/StudySulmunServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>StudyTotalStatusServlet</servlet-name>
+    <url-pattern>/StudyTotalStatusServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SubjGongStudyServlet</servlet-name>
+    <url-pattern>/SubjGongStudyServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SubjQnaStudyServlet</servlet-name>
+    <url-pattern>/SubjQnaStudyServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ToronAdminServlet</servlet-name>
+    <url-pattern>/ToronAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ToronServlet</servlet-name>
+    <url-pattern>/ToronServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>TutorInfoServlet</servlet-name>
+    <url-pattern>/TutorInfoServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ClassifyBudgetServlet</servlet-name>
+    <url-pattern>/ClassifyBudgetServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CodeAdminServlet</servlet-name>
+    <url-pattern>/CodeAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CountServlet</servlet-name>
+    <url-pattern>/CountServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>EdutimeControlServlet</servlet-name>
+    <url-pattern>/EdutimeControlServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ManagerAdminServlet</servlet-name>
+    <url-pattern>/ManagerAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>MemberAdminServlet</servlet-name>
+    <url-pattern>/MemberAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>MemberSearchServlet</servlet-name>
+    <url-pattern>/MemberSearchServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>MenuAdminServlet</servlet-name>
+    <url-pattern>/MenuAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>MenuAuthAdminEachServlet</servlet-name>
+    <url-pattern>/MenuAuthAdminEachServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>MenuAuthAdminServlet</servlet-name>
+    <url-pattern>/MenuAuthAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>MenuCountServlet</servlet-name>
+    <url-pattern>/MenuCountServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>MenuDataServlet</servlet-name>
+    <url-pattern>/MenuDataServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>MenuSubAdminServlet</servlet-name>
+    <url-pattern>/MenuSubAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>MenuSubProcessAdminServlet</servlet-name>
+    <url-pattern>/MenuSubProcessAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>OutUserAdminServlet</servlet-name>
+    <url-pattern>/OutUserAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>PermissionServlet</servlet-name>
+    <url-pattern>/PermissionServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SitemapAdminServlet</servlet-name>
+    <url-pattern>/SitemapAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>StudyControlServlet</servlet-name>
+    <url-pattern>/StudyControlServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>StudyCountServlet</servlet-name>
+    <url-pattern>/StudyCountServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SubjCountServlet</servlet-name>
+    <url-pattern>/SubjCountServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>TempletServlet</servlet-name>
+    <url-pattern>/TempletServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>AdminQnaServlet</servlet-name>
+    <url-pattern>/AdminQnaServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>NoticeAdminServlet</servlet-name>
+    <url-pattern>/NoticeAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>TutorActionAdminServlet</servlet-name>
+    <url-pattern>/TutorActionAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>TutorAdminMainServlet</servlet-name>
+    <url-pattern>/TutorAdminMainServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>TutorAdminServlet</servlet-name>
+    <url-pattern>/TutorAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>TutorDistributionAdminServlet</servlet-name>
+    <url-pattern>/TutorDistributionAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>TutorPayAdminServlet</servlet-name>
+    <url-pattern>/TutorPayAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>TutorValuationAdminServlet</servlet-name>
+    <url-pattern>/TutorValuationAdminServlet/*</url-pattern>
+  </servlet-mapping>
+
+
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+  </welcome-file-list>
+
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>My secure resources</web-resource-name>
+      <description>Resources to be placed under security control.</description>
+      <url-pattern>/private/*</url-pattern>
+      <url-pattern>/registered/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>guest</role-name>
+    </auth-constraint>
+  </security-constraint>
+
+  <login-config>
+    <auth-method>BASIC</auth-method>
+    <realm-name>WebApp</realm-name>
+  </login-config>
+
+  <security-role>
+    <description>The role allowed to access our content</description>
+    <role-name>guest</role-name>
+  </security-role>
+
+</web-app>

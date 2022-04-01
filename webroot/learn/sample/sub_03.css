@@ -1,0 +1,94 @@
+td        {font-size:9pt; font-family:±¼¸²,µ¸¿ò,Seoul,arial,helvetica; text-decoration: none; color: #1F1F1F;}
+A:link    {font-size:9pt; font-family:±¼¸²,µ¸¿ò,Seoul,arial,helvetica; text-decoration: none; color: #1F1F1F;}
+A:visited {font-size:9pt; font-family:±¼¸²,µ¸¿ò,Seoul,arial,helvetica; text-decoration: none; color: #007B71;}
+A:hover   {font-size:9pt; text-decoration: none; color:#ff7d00; }
+
+select          { font : 9pt "±¼¸²"; color:black; height:200pt;}
+
+input {
+	font-family: "µ¸¿ò", "µ¸¿òÃ¼";
+	font-size: 9pt;
+	color: #333333;
+	text-decoration: none;
+	border-width:1; 
+	border-color:#666666;
+}
+
+textarea {
+	font-family: "µ¸¿ò", "µ¸¿òÃ¼";
+	font-size: 9pt;
+	color: #333333;
+	text-decoration: none;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #999999;
+	border-bottom-color: #999999;
+	border-left-color: #999999;
+}
+
+.test20 {font:normal 9pt "±¼¸²";color:#333333;border: none;}
+.table_out {background-color:#84AC89;}
+.table_contents {
+	font: 9pt "µ¸¿ò";
+	height: 24px;
+	border: none;
+	color: #333333;
+	text-decoration: none;
+	background-color: #F7F7F7;
+	text-align: center;
+}
+.table_top_01 {
+	height: 26px;
+	background-image:  url('../images/css_image/0c_table_top.gif');
+	background-repeat: repeatx;
+	border: medium none;
+	color: #132414;
+	text-decoration: none;
+	text-align: center;
+	letter-spacing: 2px; font-style:normal; font-variant:normal; font-weight:bold; font-size:9pt; font-family:µ¸¿ò
+}
+.table-top_02 {
+	height: 44px;
+	background-image: url('../images/css_image/0c_table_top_2.gif');
+	background-repeat: repeat;
+	border: medium none;
+	color: #333333;
+	text-decoration: none;
+	text-align: center;
+	letter-spacing: 2px; font-style:normal; font-variant:normal; font-weight:bold; line-height:17px; font-size:9pt; font-family:µ¸¿ò
+}
+.table-content  {
+	font:normal 9pt "±¼¸²";
+	color:#333333;
+	background-color:#F7F7F7;
+	height: 22px;
+	border: none #FFFFFF;
+}
+.table-title    {
+	font:normal 9pt "±¼¸²";
+	background-color:B2D3B6;
+	color:#333333;
+	font-weight:bold;
+	height: 22px;
+	border: none;
+}
+
+.title_text {
+	font-family: "µ¸¿ò", "µ¸¿òÃ¼";
+	font-size: 9pt;
+	line-height: 17px;
+	color: #666666;
+}
+.title {
+	font-family: "¹ÙÅÁ", "¹ÙÅÁÃ¼";
+	font-size: 13pt;
+	font-weight: bold;
+	color: #226329;
+	text-decoration: none;
+}

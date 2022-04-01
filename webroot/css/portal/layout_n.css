@@ -1,0 +1,11 @@
+	#gnb_sub {position:absolute; left:0; top:113px;}
+	#gnb_sub ul li {margin:0 15px 0 0; height:15px;}
+	#gnb_sub ul li img {vertical-align:middle;}
+	#gnb_sub ul.sub1 {margin-left:168px;}
+	#gnb_sub ul.sub2 {margin-left:280px;}
+	#gnb_sub ul.sub3 {margin-left:90px;}
+	#gnb_sub ul.sub3 li {margin:0 5px 0 0; height:15px;}
+	#gnb_sub ul.sub4 {margin-left:350px;}
+	#gnb_sub ul.sub5 {margin-left:310px;}
+	#gnb_sub ul.sub6 {margin-left:600px;}
+	#gnb_sub ul.sub7 {margin-left:630px;}

@@ -1,0 +1,97 @@
+/*! normalize.css v3.0.0 | MIT License | git.io/normalize */
+html {font-family:sans-serif; -ms-text-size-adjust:100%; -webkit-text-size-adjust:100%;}
+body {margin:0;}
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary {display:block;}
+audio,canvas,progress,video {display:inline-block; vertical-align:baseline;}
+audio:not([controls]) {display:none; height:0;}
+[hidden],template {display:none;}
+a {background:transparent; text-decoration:none;}
+a:active,a:hover {outline:0;}
+abbr[title] {border-bottom:1px dotted;}
+b,strong {font-weight:bold;}
+dfn {font-style:italic;}
+h1 {font-size:2em; margin:0.67em 0;}
+mark {background:#ff0; color:#000;}
+small {font-size:80%;}
+sub,sup {font-size:75%; line-height:0; position:relative; vertical-align:baseline;}
+sup {top:-0.5em;}
+sub {bottom:-0.25em;}
+img {border:0;}
+svg:not(:root) {overflow:hidden;}
+figure {margin:1em 40px;}
+hr {-moz-box-sizing:content-box; box-sizing:content-box; height:0;}
+pre {overflow:auto;}
+code,kbd,pre,samp {font-family:monospace, monospace;font-size:1em;}
+button,input,optgroup,select,textarea {color:inherit; font:inherit; margin:0;}
+button {overflow:visible;}
+button,select {text-transform:none;}
+button,html input[type="button"],input[type="reset"],input[type="submit"] {-webkit-appearance:button; cursor:pointer;}
+button[disabled],html input[disabled] {cursor:default;}
+button::-moz-focus-inner,input::-moz-focus-inner {border:0; padding:0;}
+input {line-height:normal;}
+input[type="checkbox"],input[type="radio"] {box-sizing:border-box; padding:0;}
+input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button {height:auto;}
+input[type="search"] {-webkit-appearance:textfield; -moz-box-sizing:content-box; -webkit-box-sizing:content-box; box-sizing:content-box;}
+input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration {-webkit-appearance:none;}
+fieldset {border:1px solid #c0c0c0; margin:0 2px; padding:0.35em 0.625em 0.75em;}
+legend {border:0; padding:0;}
+textarea {overflow:auto;}
+optgroup {font-weight:bold;}
+table {border-collapse:collapse; border-spacing:0;}
+td,th {padding:0;}
+ul,ol {list-style:none; margin:0; padding:0;}
+i {font-style:normal;}
+
+html,body {min-height:100%;}
+
+.mt10 {margin-top:10px !important;}
+.mb10 {margin-bottom:10px !important;}
+.mb20 {margin-bottom:20px !important;}
+
+.row {position:relative; z-index:1; zoom:1;}
+.row:after {content:""; display:block; clear:both;}
+.pull-left {float:left;}
+.pull-right {float:right;}
+.offset-left {position:absolute; top:0; left:0;}
+.offset-right {position:absolute; top:0; right:0;}
+.text-left {text-align:left;}
+.text-right {text-align:right !important;}
+.text-center {text-align:center;}
+
+
+
+
+
+.app-guide {min-height:100%; background:#e7e7e7;}
+.app-guide .body {}
+.app-guide .body .guide-download {padding:50px 20px; border-bottom:5px solid #ae2727;}
+.app-guide .body .guide-download .app-icon {position:absolute; z-index:10;}
+.app-guide .body .guide-download .app-icon .icon-wrap {width:100px;}
+.app-guide .body .guide-download .app-icon .icon-wrap img {max-width:100%; height:auto;}
+.app-guide .body .guide-download .app-info {position:relative; min-height:130px; padding-left:110px; min-width:230px; }
+.app-guide .body .guide-download .app-info .app-info-top {padding-bottom:10px;}
+.app-guide .body .guide-download .app-info .app-info-top span {display:block;}
+.app-guide .body .guide-download .app-info .app-info-top span.app-name {font-size:20px;}
+.app-guide .body .guide-download .app-info .app-info-top span.author {color:gray;}
+.app-guide .body .guide-download .app-info .app-info-bottom {position:absolute; padding-left:60px; }
+
+.app-guide button.app-link {display:block; background:#d1d1d1; border:transparent; border-bottom:2px solid #9b9b9b; text-align:center; font-size:14px; padding:10px 0; width:100px;}
+
+
+.app-guide .body .guide-notice {padding:10px 20px; border-bottom:2px solid #d1d1d1; }
+.app-guide .body .guide-notice h1 {font-size:20px; letter-spacing:-0.25px;}
+.app-guide .body .guide-notice h1 span {color:red;}
+
+.app-guide .body .guide-img {padding:10px 20px; background:white; border-bottom:2px solid #d1d1d1;}
+.app-guide .body .guide-img img {width:85px; border:solid 1px #e7e7e7; }
+
+.app-guide .body .guide-info {padding:10px 20px; font-size:14px; background:white;}
+.app-guide .body .guide-info h2 {color:gray;}
+.app-guide .body .guide-info ul li {}
+.app-guide .body .guide-info p {color:gray;}
+
+
+
+
+.app-guide .btn-xl {position:relative; font-size:16px;}
+.app-guide .btn-xl .icon {position:absolute; top:50%; left:10px; margin-top:-6px;}

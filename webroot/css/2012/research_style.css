@@ -1,0 +1,37 @@
+*{margin: 0px;padding:0px;font-family:Dotum,Gulim,Helvetica,AppleGothic,Sans-serif;}
+body{margin:0px;padding:0px; text-align:center;line-height: 18px; font-family: Dotum; font-size: 12px;}
+table{text-align:center;line-height: 18px; font-family: Dotum; font-size: 12px;width: 642px;margin-left:20px;margin-top:5px;}
+img {border: 0px;}
+input {padding: 0px; font-size: 11px;}
+input[type=radio] {border: 0px; vertical-align: middle;}
+input[type=checkbox] {border: 0px; vertical-align: middle;}
+input[type=text] {border: 1px solid #D1D1D1; text-align:top; vertical-align: middle;}
+ul {list-style: none; margin: 0px; padding: 0px;}
+li {list-style: none; margin: 0px; padding: 0px;}
+
+#wrap {margin: 0px auto; width: 773px; height: auto !important; text-align: left;}
+#header {background: url("/images/2012/main/research/headbackimage.gif") no-repeat; width:773px; height: 69px;}
+#header h1 {padding: 5px 0px 0px 30px; float: left;}
+#header span {padding: 13px 25px; float: right;}
+
+#con {background: url("/images/2012/main/research/backimagemiddle.gif") repeat-y; margin: 0px 0px; width: 773px; text-align: center; position: relative;}
+
+.box {padding: 50px 50px 0px; border: 0px solid; width: 673px; text-align: left;}
+.box_header {background: url("/images/2012/main/research/backimageup.gif") no-repeat;}
+.box_header .header_tit {margin-top:30px;margin-bottom: -50px;}
+.box .question {background: url("/images/2012/common/icon_check.gif") no-repeat ;width: 643px;}
+.box .question p{width: 673px; font-weight:bold;}
+.box .question p span{width: 655px; font-weight:bold;float: right;}
+
+.box ul {width: 642px;padding-bottom:30px;margin-left:20px;margin-top:5px;}
+.box ul li.wf {width: 642px;}
+.box ul li.wh {width: 214px;float: left;}
+.b {font-weight: bold;}
+
+.view_box {background: url("/images/2012/main/research/exboxupmiddle.gif") repeat-y; padding:10px;}
+.view_box p {padding:5px;}
+.view_box .tit_center {text-align:center; font-weight: bold;}
+
+.smallbox {background: url("/images/2012/main/research/smallbox.gif") no-repeat;height: 139px; width:670px;padding-top: 10px;text-align: center;}
+
+#footer {background: url("/images/2012/main/research/backimagedown.gif") no-repeat; height: 91px;text-align:center;}

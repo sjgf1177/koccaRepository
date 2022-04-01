@@ -1,0 +1,996 @@
+        A:link     { color: #3A3A3A; text-decoration: none; font-family: 굴림; font-size: 9pt;}
+        A:visited  { color: #3A3A3A; text-decoration: none; font-family: 굴림; font-size: 9pt;}
+        A:active   { color: #3A3A3A5; text-decoration: none; font-family: 굴림; font-size: 9pt;}
+        A:hover    { color: #F99500; text-decoration: none; font-family: 굴림; font-size: 9pt;}
+     
+        A.a:link     { color: #0D3CC8; text-decoration: none; font-family: 굴림; font-size: 9pt;}
+        A.a:visited  { color: #0D3CC8; text-decoration: none; font-family: 굴림; font-size: 9pt;}
+        A.a:active   { color: #0D3CC8; text-decoration: none; font-family: "굴림"; font-size: 9pt;}
+        A.a:hover    { color: #109CC5; text-decoration: none; font-family: 굴림; font-size: 9pt;}
+
+        A.b:link     { color: #0036D9; text-decoration: none; font-family: 굴림; font-size: 9pt;}
+        A.b:visited  { color: #0036D9; text-decoration: none; font-family: 굴림; font-size: 9pt;}
+        A.b:active   { color: #0036D9; text-decoration: none; font-family: 굴림; font-size: 9pt;}
+        A.b:hover    { color: #666666; text-decoration: none; font-family: 굴림; font-size: 9pt;}
+      
+        A.c:link     { color: #FFFFFF; text-decoration: none; font-family: 굴림; font-size: 9pt;}
+        A.c:visited  { color: #FFFFFF; text-decoration: none; font-family: 굴림; font-size: 9pt;}
+        A.c:active   { color: #FFFFFF; text-decoration: none; font-family: 굴림; font-size: 9pt;}
+        A.c:hover    { color: #3EFFB1; text-decoration: none; font-family: 굴림; font-size: 9pt;}
+
+        A.d:link     { color: #525252; text-decoration: none; font-family: 굴림; font-size: 9pt;}
+        A.d:visited  { color: #525252; text-decoration: none; font-family: 굴림; font-size: 9pt;}
+        A.d:active   { color: #000000; text-decoration: none; font-family: 굴림; font-size: 9pt;}
+        A.d:hover    { color: #F99500; text-decoration: none; font-family: 굴림; font-size: 9pt;}
+     
+        
+         #box {
+           width: 100%; height: 260px; overflow: auto; border:0 solid black;
+	   scrollbar-face-color: #DFDFDF; 
+           scrollbar-3dlight-color: #DFDFDF7; 
+	   scrollbar-darkshadow-color: #E7E7E7;       
+           scrollbar-track-color: #DFDFDF; 
+           scrollbar-shadow-color: #959595; 
+           scrollbar-highlight-color: #959595;
+           scrollbar-arrow-color: #959595;
+         }
+
+        body { /* body 부분 */
+            background-color: #FFFFFF;
+         }            
+        
+        .sub_body_bg { /* 서브 페이지 배경 (내용들어가는 부분) */
+	    background-image: url('../images/user/homepage/sub_body_bg1.gif');
+         }          
+
+        .main_body_bg { /* 내용들어가는 부분 배경색 */
+	    background-image: url('../images/user/homepage/main_body_bg1.gif');
+         }  
+
+        .table1 { /* 테이블 (982px) */
+            width: 982px;
+            height: 100%;
+	    border-style: none;
+         }      
+
+        .table2 { /* 테이블 (100%) */
+            width: 100%;
+	    border-style: none;
+         }      
+
+        .table3 { /* 테이블 (94%) */
+            width: 94%;
+	    border-style: none;
+         }     
+
+        .table4 { /* 온라인메뉴얼 설명과 이미지가 들어가는 테이블 (96%) */
+            width: 96%;
+	    border-style: none;
+         }     
+
+        .main_table { /* 메인 내용전체가 들어가는 테이블 */
+            width: 99%;
+	    border-style: none;
+         }    
+
+        .main_notice_box { /* 메인 공지사항, BEST 과정... 내용이 들어가는 테이블 */
+            width: 98%;
+	    border-style: none;
+         }
+
+        .main_left_table { /* 메인 왼쪽에 큰 테이블 (로그인, 과정검색, 설문조사가 들어가는 곳) */
+            width: 239px;
+	    border-style: none;
+         }
+
+        .login_table1 { /* 로그인 테이블 (과정검색, 설문조사) */
+            width: 97%;
+	    border-style: none;
+         }  
+
+        .login_table2 { /* 로그인 테이블 (과정검색, 설문조사) */
+            width: 91%;
+	    border-style: none;
+         }
+
+        .login_text { /* 로그인 박스안에 텍스트 */
+            font-family: "굴림", "굴림체";
+            font-size: 8pt;
+	    color: #3A3A3A;
+            line-height: 13pt;
+         }       
+
+        .login_box { /* 회원 로그인 박스 */
+            width: 423px;
+	    border-style: none;
+         }  
+
+        .open_table_out { /* 학습페이지 open창 테이블 */
+            width: 97%;
+            height: 37px;
+	    border-style: none;
+         }     
+
+        .open_board_table_out1 { /* open창 게시판 테이블 (95%) */
+            width: 95%;
+	    border-style: none;
+         }        
+
+        .open_board_table_out2 { /* open창 게시판 테이블 (95%) */
+            width: 95%;
+	    border-style: none;
+            background-color: #AAAAAA;
+         }
+
+        .open_board_vertical_table_out { /* open창 게시판 세로 테이블 */
+            width: 95%;
+	    border-style: none;
+            background-color: #C3C3C2;
+         }      
+ 
+        .information_board_table_out1 { /* 교육지원(이용안내) 게시판 테이블 (95%) */
+            width: 95%;
+	    border-style: none;
+            background-color: #B6B6B6;
+         }      
+ 
+        .information_board_table_out2 { /* 교육지원(이용안내) 게시판 테이블 (95%) */
+            width: 95%;
+	    border-style: none;
+         } 
+
+        .information_vertical_table_out { /* 교육지원 게시판 세로 테이블 */
+            width: 95%;
+	    border-style: none;
+            background-color: #B6B6B6;
+         }    
+
+        .information_board_color_line_out1 { /* 교육지원 게시판 color라인 테이블 (95%) */
+            width: 95%;
+	    border-style: none;
+         }   
+
+        .information_board_color_line { /* 교육지원 게시판 테이블 상단에 선 */
+            height: 4px;
+            background-color: #1E8E63;
+         }
+
+        .information_board_title_bg1 { /* 교육지원 게시판 타이틀 (글자 가운데 정렬) */
+            height: 27px;
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    font-weight: bold;
+	    color: #3A3A3A;
+            text-align: center;
+            background-color: #DAFFF0;
+         } 
+
+        .information_board_title_bg2 { /* 교육지원 게시판 세로 테이블 타이틀 (글자 가운데 정렬, 글자 진하게) */
+            height: 27px;
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    font-weight: bold;
+	    color: #3A3A3A;
+            text-align: center;
+            background-color: #DAFFF0;
+            padding-left: 7px;
+         }
+
+        .helpdesk_vertical_table_out { /* 이용안내 게시판 세로 테이블 */
+            width: 94%;
+	    border-style: none;
+            background-color: #A2A2A2;
+         }  
+
+        .helpdesk_board_title_bg1 { /* 이용안내 게시판 타이틀 (글자 가운데 정렬) */
+            height: 27px;
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    font-weight: bold;
+	    color: #3A3A3A;
+            text-align: center;
+            background-color: #D9FDFE;
+         } 
+
+        .helpdesk_board_title_bg2 { /* 이용안내 게시판 세로 테이블 타이틀 (글자 가운데 정렬, 글자 진하게) */
+            height: 27px;
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    font-weight: bold;
+	    color: #3A3A3A;
+            text-align: center;
+            background-color: #D9FDFE;
+            padding-left: 7px;
+         }
+
+        .helpdesk_board_color_line { /* 이용안내 게시판 테이블 상단에 선 */
+            height: 4px;
+            background-color: #018A90;
+         }
+
+        .helpdesk_faq1 { /* FAQ 타이틀 (번호) */
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt; 
+	    font-weight: bold;
+	    color: #4C4C4C;
+            text-align: center;
+            background-color: #FFFFFF; 
+         }   
+
+        .helpdesk_faq2 { /* FAQ 타이틀 (질문) */
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt; 
+	    color: #3A3A3A;
+            text-align: left;
+            background-color: #FFFFFF; 
+            line-height: 18px; 
+            padding-left: 10px; 
+            padding-top: 6px; 
+            padding-bottom: 6px; 
+            padding-right: 19px;
+         }  
+
+        .helpdesk_faq3 { /* FAQ 타이틀 (답변1) */
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt; 
+	    color: #3A3A3A;
+            text-align: center;
+            background-color: #F6F6F6; 
+         }
+
+        .helpdesk_faq4 { /* FAQ 타이틀 (답변2) */
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt; 
+	    color: #3A3A3A;
+            text-align: left;
+            background-color: #F6F6F6; 
+            line-height: 18px; 
+            padding-left: 13px; 
+            padding-top: 10px; 
+            padding-bottom: 10px; 
+            padding-right: 19px;
+         }   
+
+        .helpdesk_faq_line { /* FAQ 라인 */
+            height: 1px;
+            background-color: #B6B6B6; 
+         }
+
+        .notice_dot { /* 공지사항..에 들어가는 도트 */
+            height: 3px;
+	    background-image: url('../images/user/homepage/main_dot1.gif');
+         } 
+
+        .login_sub_menu_bg { /* 로그인 서브메뉴 배경 */
+            width: 178px;
+            text-align: center;
+	    background-image: url('../images/user/homepage/login_sub_menu_bg1.gif');
+         }  
+
+        .information_sub_menu_bg { /* 교육지원 서브메뉴 배경 */
+            width: 178px;
+            text-align: center;
+	    background-image: url('../images/user/homepage/information_sub_menu_bg1.gif');
+         }
+
+        .hd_sub_menu_bg { /* 이용안내 서브메뉴 배경 */
+            width: 178px;
+            text-align: center;
+	    background-image: url('../images/user/homepage/hd_sub_menu_bg1.gif');
+         }    
+
+        .hrd_sub_menu_bg { /* 인재개발원 서브메뉴 배경 */
+            width: 178px;
+            text-align: center;
+	    background-image: url('../images/user/homepage/hrd_sub_menu_bg1.gif');
+         } 
+
+        .route_table { /* 페이지 경로 */
+            width: 100%;
+            height: 24px;
+	    border-style: none;
+            padding-right: 15px;
+         }   
+
+        .route_line { /* 페이지 경로 회색선 */
+            height: 1px;
+            background-color: #CFCFCF;
+         }
+
+        .route_text { /* 페이지 경로 글자 */
+            font-family: "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 8pt;
+	    color: #5A5A5A;
+         }        
+
+        .b_title_table { /* 큰 타이틀 테이블 */
+            width: 96%;
+            height: 37px;
+	    border-style: none;
+	    background-image: url('../images/user/homepage/b_title_dot.gif');
+         }         
+
+        .s_title_table { /* 작은 타이틀 테이블 */
+            width: 95%;
+            height: 15px;
+	    border-style: none;
+         }           
+
+        .todayword_table_out { /* 오늘의 한마디 들어가는 테이블 */
+            width: 98%;
+	    border-style: none;
+            background-color: #AEAEAE;
+         }      
+
+        .todayword_table1 { /* 오늘의 한마디 들어가는 테이블 (흰색배경) */
+            width: 100%;
+	    border-style: none;
+            background-color: #FFFFFF;
+         }           
+
+        .todayword_text1 { /* 오늘의 한마디 */
+            height: 20px;
+	    font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    color: #121212;
+            text-align: center;
+            text-decoration: none;
+         }  
+
+        .table_out { /* 표 */
+            width: 94%;
+	    border-style: none;
+            background-color: #FFFFFF;
+         }
+
+        .vertical_table_out { /* 세로 테이블 */
+            width: 94%;
+	    border-style: none;
+            background-color: #C7C7C7;
+         }
+
+        .information_table_title_bg1 { /* 교육지원 표 배경, 글자 (가로 테이블 글자 가운데 정렬) */
+            height: 30px;
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    font-weight: bold;
+	    color: #2F2F2F;
+            text-align: center;
+            line-height: 13pt;
+            background-color: #CBCBFE;
+         }
+
+        .information_title_bg2 { /* 교육지원 표 배경, 글자 세로 테이블 글자 왼쪽 정렬) */
+            height: 27px;
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    font-weight: bold;
+	    color: #2F2F2F;
+            text-align: left;
+            line-height: 13pt;
+            background-color: #CBCBFE;
+            padding-left: 7px;
+         }
+ 
+        .table_top_line { /* 표 맨위에 회색선 */
+            height: 1px;
+            background-color: #888888;
+         } 
+ 
+        .information_table_title_line { /* 타이틀 사이 칸막이선 배경 */
+            width: 1px;
+            background-color: #CBCBFE;
+         }      
+
+        .information_table_color_line { /* 표 타이틀 밑에 선 */
+            height: 3px;
+            background-color: #585BC7;
+         }
+
+        .table_line1 { /* 표 사이 칸막이선 배경 (옆) */
+            width: 1px;
+            background-color: #A2A2A2;
+         }    
+
+        .table_line2 { /* 표 사이 칸막이선 배경 (아래) */
+            height: 1px;
+            background-color: #A2A2A2;
+         }
+
+        .table_line_bottom1 { /* 표 맨밑에 선 */
+            height: 1px;
+            background-color: #888888;
+         } 
+
+        .table_text1 { /* 표 안에 내용 (가운데 정렬) */
+            height: 26px;
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    color: #3A3A3A;
+            text-align: center;
+            line-height: 13pt;
+	    background-color: #F7F7F7;
+         }
+
+        .table_text2 { /* 표 안에 내용 (왼쪽 정렬) */
+            height: 26px;
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    color: #3A3A3A;
+            text-align: left;
+            line-height: 13pt;
+            padding-left: 8px;
+	    background-color: #F7F7F7;
+         } 
+
+        .table_text3 { /* 표 안에 내용 (세로 테이블의 글자 왼쪽 정렬) */
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    color: #3A3A3A;
+            text-align: left;
+            line-height: 13pt;
+            padding-left: 5px;
+	    background-color: #F7F7F7;
+         }      
+
+        .open_table1 { /* open창 테이블 (97%) */
+            width: 97%;
+	    border-style: none;
+         }       
+
+        .open_table2 { /* open창 테이블 (100%) */
+            width: 100%;
+	    border-style: none;
+            background-color: #808080;
+         }        
+
+        .open_table3 { /* open창 테이블 (95%) */
+            width: 95%;
+	    border-style: none;
+         }
+
+        .open_title1 { /* open 타이틀 (오렌지색 배경) */
+            width: 22%;
+	    font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    font-weight: bold;
+            height: 18px;
+	    color: #3E3E3E;
+	    text-align: center;
+	    text-decoration: none;
+	    background-color: #F7E7BD;
+         }
+
+        .open_title2 { /* open 타이틀 (연두색 배경) */
+            width: 22%;
+	    font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    font-weight: bold;
+            height: 18px;
+	    color: #3E3E3E;
+	    text-align: center;
+	    text-decoration: none;
+	    background-color: #EFFBBD;
+         }  
+
+        .open_title3 { /* open 타이틀 (하늘색 배경) */
+            width: 22%;
+	    font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    font-weight: bold;
+            height: 18px;
+	    color: #3E3E3E;
+	    text-align: center;
+	    text-decoration: none;
+	    background-color: #DEF3FA;
+         }  
+
+        .open_title4 { /* open 타이틀 (진한 하늘색 배경) */
+            width: 22%;
+	    font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    font-weight: bold;
+            height: 18px;
+	    color: #3E3E3E;
+	    text-align: center;
+	    text-decoration: none;
+	    background-color: #BDE9F7;
+         }  
+
+        .open_title5 { /* open 타이틀 (초록색 배경) */
+            width: 22%;
+	    font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    font-weight: bold;
+            height: 18px;
+	    color: #3E3E3E;
+	    text-align: center;
+	    text-decoration: none;
+	    background-color: #D6EFEF;
+         }  
+
+        .open_title6 { /* open 타이틀 (분홍색 배경) */
+            width: 22%;
+	    font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    font-weight: bold;
+            height: 18px;
+	    color: #3E3E3E;
+	    text-align: center;
+	    text-decoration: none;
+	    background-color: #F7EBEF;
+         }
+
+        .open_text1 { /* open 타이틀 (글자 왼쪽 정렬) */
+	    font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+            height: 25px;
+	    color: #121212;
+	    text-align: left;
+	    text-decoration: none;
+	    background-color: #FFFFFF;
+         }
+
+        .open_text2 { /* open 타이틀 (글자 가운데 정렬) */
+	    font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+            height: 25px;
+	    color: #121212;
+	    text-align: center;
+	    text-decoration: none;
+	    background-color: #FFFFFF;
+         }      
+
+        .form_table_out { /* form 바깥쪽 테이블 */
+            width: 94%;
+	    border-style: none;
+            background-color: #AEAEAE;
+         }   
+
+        .form_table1 { /* form 테이블 (과정분류명..) */
+            width: 95%;
+            height: 35px;
+	    border-style: none;
+	    background-image: url('../images/user/homepage/form_bg.gif');
+         } 
+
+        .form_text1 { /* form 타이틀 텍스트 */
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    font-weight: bold;
+	    color: #3A3A3A;
+            text-align: left;
+            line-height: 13pt;
+         }           
+
+        .tab_table { /* 탭메뉴 (전체, 사이버교육, 집합교육, 코스) */
+            width: 95%;
+	    border-style: none;
+         }     
+
+        .graph_table { /* 그래프 테이블 */
+            width: 100%;
+            height: 14px;
+	    border-style: none;
+         }
+
+        .poll_graph_table { /* 테이블 안에 들어가는 테이블들 */
+            width: 100%;
+	    border-style: none;
+         }
+
+        .poll_graph1 { /* 사이버폴 그래프 */
+            height: 9px;
+	    border-style: none;
+	    background-image: url('../images/user/homepage/poll_graph_bg1.gif');
+	    background-repeat: repeat-x;
+         }      
+
+        .poll_result_table_out1 { /* 사이버폴 결과 테이블 */
+            width: 92%;
+	    border-style: none;
+            background-color: #BDBDBD;
+         }
+
+        .poll_result_text1 { /* 사이버폴 결과 내용 (흰색배경, 가운데 정렬) */
+            height: 25px;
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    color: #3A3A3A;
+            text-align: center;
+            background-color: #FFFFFF;
+         }  
+
+        .poll_result_text2 { /* 사이버폴 결과 내용 (회색배경, 가운데 정렬) */
+            height: 25px;
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    color: #3A3A3A;
+            text-align: center;
+            background-color: #F6F6F6;
+         } 
+
+        .poll_result_text3 { /* 사이버폴 결과 내용 (흰색배경, 왼쪽 정렬) */
+            height: 25px;
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    color: #3A3A3A;
+            text-align: left;
+            padding-left: 6px;
+            background-color: #FFFFFF;
+         } 
+
+        .poll_result_text4 { /* 사이버폴 결과 내용 (회색배경, 왼쪽 정렬) */
+            height: 25px;
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    color: #3A3A3A;
+            text-align: left;
+            padding-left: 6px;
+            background-color: #F6F6F6;
+         }
+
+        .photo_table_out { /* 사진 바깥쪽 테이블 */
+	    text-align: center;
+	    border-style: none;
+            background-color: #C6C6C6;
+         } 
+
+        .board_vertical_table_out { /* 게시판 세로 테이블 */
+            width: 98%;
+	    border-style: none;
+            background-color: #C3C3C2;
+         }
+       
+        .board_table1 { /* 게시판 테이블 (100%) */
+            width: 100%;
+	    border-style: none;
+            background-color: #C3C3C2;
+         }
+
+        .board_title_bg1 { /* 게시판 타이틀 (글자 가운데 정렬) */
+            height: 27px;
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    font-weight: bold;
+	    color: #3A3A3A;
+            text-align: center;
+            background-color: #DFF4FF;
+         } 
+
+        .board_title_bg2 { /* 게시판 세로 테이블 타이틀 (글자 가운데 정렬, 글자 진하게) */
+            height: 27px;
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    font-weight: bold;
+	    color: #3A3A3A;
+            text-align: center;
+            background-color: #DFF4FF;
+            padding-left: 7px;
+         }
+
+        .board_title_bg3 { /* 게시판 타이틀 (글자 왼쪽 정렬) */
+            height: 27px;
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    color: #3A3A3A;
+            text-align: left;
+            padding-left: 7px;
+            background-color: #FFFFFF;
+         }
+
+        .board_color_line { /* 게시판 테이블 상단에 선 */
+            height: 4px;
+            background-color: #289AD0;
+         } 
+
+        .board_gray_line1 { /* 게시판 사이 회색선 (가로) */
+            width: 1px;
+            background-color: #C3C3C2;
+         } 
+
+        .board_gray_line2 { /* 게시판 사이 회색선 (세로) */
+            height: 1px;
+            background-color: #C3C3C2;
+         }
+
+        .board_text1 { /* 게시판 안에 내용 (흰색배경, 가운데 정렬) */
+            height: 26px;
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    color: #3A3A3A;
+            text-align: center;
+            background-color: #FFFFFF;
+         }  
+
+        .board_text2 { /* 게시판 안에 내용 (회색배경, 가운데 정렬) */
+            height: 26px;
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    color: #3A3A3A;
+            text-align: center;
+            background-color: #F6F6F6;
+         } 
+
+        .board_text3 { /* 게시판 안에 내용 (흰색배경, 왼쪽 정렬) */
+            height: 26px;
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    color: #3A3A3A;
+            text-align: left;
+            padding-left: 7px;
+            background-color: #FFFFFF;
+         } 
+
+        .board_text4 { /* 게시판 안에 내용 (회색배경, 왼쪽 정렬) */
+            height: 26px;
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    color: #3A3A3A;
+            text-align: left;
+            padding-left: 7px;
+            background-color: #F6F6F6;
+         }
+
+        .board_text5 { /* 게시판 안에 내용 (흰색배경, 왼쪽 정렬) */
+            height: 26px;
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    font-weight: bold;
+	    color: #3A3A3A;
+            text-align: center;
+            padding-left: 7px;
+	    background-color: #EDEDED;
+         } 
+
+        .board_text9 { /* 메모 글자 (노란색배경.., 가운데 정렬) */
+            height: 26px;
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    color: #3A3A3A;
+            text-align: center;
+            background-color: #F8FFEC;
+         } 
+
+        .board_text10 { /* 메모 글자 (노란색배경.., 왼쪽 정렬) */
+            height: 26px;
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    color: #3A3A3A;
+            text-align: left;
+            background-color: #F8FFEC;
+            padding-left: 7px;
+         }
+
+        .ability_text1 { /* 개인역량 테이블 안에 글 (흰색배경, 가운데 정렬) */
+            height: 26px;
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    color: #121212;
+            text-align: center;
+            background-color: #FFFFFF;
+         }
+
+        .ability_text2 { /* 개인역량 테이블 안에 글 (흰색배경, 왼쪽 정렬) */
+            height: 26px;
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    color: #121212;
+            text-align: left;
+            padding-left: 4px;
+            background-color: #FFFFFF;
+         } 
+
+        .ability_text3 { /* 개인역량 테이블 안에 글 (하늘색배경, 가운데 정렬) */
+            height: 26px;
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    color: #121212;
+            text-align: center;
+            background-color: #EFFCFC;
+         }
+
+        .ability_text4 { /* 개인역량 테이블 안에 글 (하늘색배경, 왼쪽 정렬) */
+            height: 26px;
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    color: #121212;
+            text-align: left;
+            padding-left: 4px;
+            background-color: #EFFCFC;
+         }
+
+        .notice_text1 { /* 공지사항 글자 (전체.., 가운데 정렬) */
+            height: 26px;
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    font-weight: bold;
+	    color: #414141;
+            text-align: center;
+            background-color: #F8FFEC;
+         } 
+
+        .notice_text2 { /* 공지사항 글자 (전체.., 왼쪽 정렬) */
+            height: 26px;
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    font-weight: bold;
+	    color: #414141;
+            text-align: left;
+            background-color: #F8FFEC;
+            padding-left: 7px;
+         }          
+
+        .s_title_text { /* 작은 타이틀 글자 */
+	    font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 10pt;
+	    font-weight: bold;
+	    color: #3F3F3F;  
+         } 
+
+        .slippaper_table_out { /* 쪽지 테이블 */
+            width: 700px;
+	    border-style: none;
+	    background-image: url('../images/user/homepage/slip_paper_bg.gif');
+         }  
+
+        .slippaper_list_table { /* 쪽지 테이블 */
+            width: 624px;
+	    border-style: none;
+         }
+
+        .login_title_table { /* 로그인페이지 타이틀 들어가는 테이블 */
+            width: 346px;
+	    border-style: none;
+	    background-image: url('../images/user/homepage/login_top_bar3.gif');
+         }
+
+        .login_dot { /* 로그인페이지 로그인 박스에 들어가는 도트 */
+            height: 1px;
+	    border-style: none;
+	    background-image: url('../images/user/homepage/login_dot1.gif');
+         }
+
+        .sitemap_box1 { /* 사이트맵 테이블 */
+            width: 760px;
+	    border-style: none;
+         }
+
+        .sitemap_box2 { /* 사이트맵 메뉴 들어가는 테이블 */
+            width: 100%;
+	    border-style: none;
+            padding-left: 7px;
+         }
+
+        .hrd_table_title_bg1 { /* 인재개발원 표 배경, 글자 (가로 테이블 글자 가운데 정렬) */
+            height: 30px;
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    font-weight: bold;
+	    color: #272727;
+            text-align: center;
+            line-height: 13pt;
+            background-color: #BFEDFB;
+         }
+     
+ 
+        .hrd_board_table_out1 { /* 인재개발원 표 */
+            width: 94%;
+	    border-style: none;
+            background-color: #B6B6B6;
+         }      
+ 
+        .hrd_board_table_out2 { /* 인재개발원 표 */
+            width: 94%;
+	    border-style: none;
+         } 
+
+        .hrd_vertical_table_out { /* 인재개발원 표 세로 */
+            width: 95%;
+	    border-style: none;
+            background-color: #B6B6B6;
+         }    
+
+        .hrd_board_color_line_out1 { /* 인재개발원 표 color라인 테이블 */
+            width: 94%;
+	    border-style: none;
+         }   
+
+        .hrd_board_color_line { /* 인재개발원 표 상단에 선 */
+            height: 4px;
+            background-color: #0981D0;
+         }
+
+        .hrd_board_title_bg1 { /* 인재개발원 타이틀 (글자 가운데 정렬) */
+            height: 27px;
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    font-weight: bold;
+	    color: #3A3A3A;
+            text-align: center;
+            background-color: #E4F1FA;
+         } 
+
+        .hrd_board_title_bg2 { /* 인재개발원 표 세로 테이블 타이틀 (글자 가운데 정렬, 글자 진하게) */
+            height: 27px;
+            font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    font-weight: bold;
+	    color: #3A3A3A;
+            text-align: center;
+            background-color: #E4F1FA;
+            padding-left: 7px;
+         }
+
+        .manual_table_out { /* 온라인메뉴얼 테이블 (92%) */
+            width: 92%;
+	    border-style: none;
+         }
+
+        .input {
+	    font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    color: #3A3A3A;
+            text-decoration: none;
+            background-color : CDCDCD; 
+            COLOR:#404040;
+            border:1px solid #7C7C7C;
+         }
+
+        .input_course_search {
+	    font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    color: #3A3A3A;
+            text-decoration: none;
+            background-color : #F7F7F7; 
+            COLOR:#404040;
+            border:1px solid #7C7C7C; 
+         }  
+
+        .inputsub {
+	    font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    color: #3A3A3A;
+            text-decoration: none;
+            background-color : #FFFFFFF; 
+            COLOR:#404040;
+            border:1px solid #7C7C7C; 
+         }
+
+        .inputopen {
+	    font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    color: #3A3A3A;
+            text-decoration: none;
+            background-color : #C7C7C7; 
+            COLOR:#404040;
+            border:1px solid #7C7C7C; 
+         } 
+
+        .inputdate {
+	    font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    color: #3A3A3A;
+            text-decoration: none;
+            background-color : #C7C7C7; 
+         }  
+
+        .inputpsearch {
+	    font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    color: #3A3A3A;
+            text-decoration: none;
+            background-color : #FFFFFF; 
+         }
+  
+        .inputradio {
+            border:0px; 
+         } 
+
+        td {
+	    font-family: "굴림", "굴림체", "돋움", "돋움체", "Arial", "Verdana", "Tahoma";
+            font-size: 9pt;
+	    color: #3A3A3A;
+            line-height: 11pt;
+            text-decoration: none;
+         }

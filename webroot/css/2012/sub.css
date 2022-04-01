@@ -1,0 +1,669 @@
+@charset "euc-kr";
+
+div#header { width:100%; height:90px; position:relative; z-index:10; background-image:url("/images/2012/common/bg_header.png"); background-repeat:repeat-x; }
+div#header div.topheader { width:980px; margin:0 auto; position:relative; z-index:1; }
+div#header div.topheader div.logo { width:207px; height:174px; position:absolute; left:-40px; top:9px; z-index:2; }
+div#header div.topheader ul.navi { height:17px; position:absolute; right:20px; top:53px; }
+div#header div.topheader ul.navi li { float:left; margin-left:30px; }
+div#header div.topheader dl.subnavi { position:absolute; top:80px; }
+div#header div.topheader dl.subnavi dd { height:22px; float:left; }
+div#header div.topheader dl.subnavi dd.centersub { font-family:"gulim","dotum","sans-serif"; font-size:12px; font-weight:bold; color:#ffffff; letter-spacing:-1px; background-image:url('/images/2012/common/bg_subnavi_center.png'); background-repeat:repeat-x; }
+div#header div.topheader dl.subnavi dd.centersub p { float:left; padding:0px 8px 0px 8px; margin-top:5px; }
+div#header div.topheader dl.subnavi dd.centersub p a { color:#bdd4f1; }
+div#header div.topheader dl.subnavi dd.centersub p a:hover { color:#ffe610; }
+div#header div.topheader ul.tabnavi { width:980px; height:160px; }
+div#header div.topheader ul.tabnavi li { float:left; }
+div#header div.topheader ul.tabnavi li button { position:absolute; bottom:0px; width:120px; height:34px; font-family:"malgun gothic","dotum","sans-serif"; background-color:transparent; cursor:pointer; }
+div#header div.topheader ul.tabnavi li button.on { font-size:14px; color:#6c55bf; line-height:16px; font-weight:bold; background-image:url('/images/2012/sub/bg_tabnavi_on.png'); background-repeat:no-repeat; }
+div#header div.topheader ul.tabnavi li button.off { font-size:12px; color:#ffffff; line-height:14px; background-image:url('/images/2012/sub/bg_tabnavi.png'); background-repeat:no-repeat; }
+
+div#container div.totalsearch { width:980px; min-height:550px; margin:0 auto; padding:50px 0px 80px 0px; text-align:left; }
+div#container div.submenutool { width:980px; margin:0 auto; }
+div#container div.submenutool ul.ratemenutool { position:relative; }
+div#container div.submenutool ul.ratemenutool li { float:right; margin-left:10px; }
+div#container div.totalsearch div.searchform { text-align:center; margin-bottom:30px; border:1px solid #dddddd; padding:15px; }
+div#container div.totalsearch div.searchform ul.searchbox { height:29px; margin-left:230px; }
+div#container div.totalsearch div.searchform ul.searchbox li { float:left; }
+div#container div.totalsearch div.searchform ul.searchbox li.msg { margin-right:15px; margin-top:6px; }
+div#container div.totalsearch div.searchform ul.searchbox li.intext { text-align:left; width:380px; height:29px; background-image:url("/images/2012/common/search_in_text.gif"); background-repeat:no-repeat; }
+div#container div.totalsearch div.searchform ul.searchbox li.intext input.textinsert { margin:3px 0px 0px 6px; width:370px; border:0px; font-family:"malgun gothic","dotum","sans-serif"; font-size:14px; height:20px; }
+div#container div.totalsearch div.totalpost { margin-bottom:30px; }
+div#container div.totalsearch dl.searchresult { margin-bottom:20px; }
+div#container div.totalsearch dl.searchresult dt { border-bottom:2px solid #3192dd; padding:0px 0px 6px 0px; }
+div#container div.totalsearch dl.searchresult dd.resultlist { margin-top:20px; }
+div#container div.totalsearch dl.searchresult dd.resultlist p { white-space:nowrap; margin-top:10px; font-family:"gulim","dotum","sans-serif"; font-size:12px; color:#525252; line-height:20px; }
+div#container div.totalsearch dl.searchresult dd.resultlist p a { color:#1386df; text-decoration:underline; }
+div#container div.totalsearch dl.searchresult dd.plusabout { margin-top:30px; text-align:right; font-family:"gulim","dotum","sans-serif"; font-size:12px;  }
+div#container div.totalsearch dl.searchresult dd.plusabout a { color:#1386df; text-decoration:underline; }
+div#container div.totalsearch dl.searchresult dd.plusabout b { color:#ee5917; }
+
+div#container { width:100%; background-color:#ffffff; }
+div#container div.content { width:980px; min-height:550px; margin:0 auto; padding:30px 0px 80px 0px; text-align:left; }
+div#container div.content ul.category { margin-top:30px; height:50px; padding-left:140px; background-image:url("/images/2012/common/category_bar.gif"); background-repeat:no-repeat; }
+div#container div.content ul.category li { float:left; }
+div#container div.content dl.faqrable { width:980px; margin-top:20px; }
+div#container div.content dl.faqrable dt { padding:3px 0px 3px 0px; text-align:left; }
+div#container div.content dl.faqrable dt img { margin-right:5px; }
+div#container div.content dl.faqrable dt a { font-family:"gulim","dotum","sans-self"; font-size:12px; color:#6b8b1f; font-weight:400; text-decoration:none; }
+div#container div.content dl.faqrable dt a:hover { text-decoration:underline; }
+div#container div.content dl.faqrable dd { width:910px; font-family:"gulim","dotum","sans-self"; font-size:12px; margin-left:38px; margin-bottom:30px; border:1px solid #dddddd; padding:10px; color:#525252; line-height:18px; font-weight:400; }
+div#container div.content div.faqconfig { text-align:right; margin-top:20px; }
+div#container div.content table.rootinfo { width:100%; margin-bottom:10px; }
+div#container div.content table.rootinfo td.pagetitle { text-align:left; padding-top:20px; }
+div#container div.content table.rootinfo td.pagenavi { font-family:"gulim","dotum","sans-self"; font-size:12px; color:#888888; text-align:right; }
+div#container div.content table.rootinfo td.pagenavi u { font-weight:bold; }
+div#container div.content table.pageinfo { width:100%; margin-bottom:10px; }
+div#container div.content table.pageinfo td.pagetitle { text-align:left; }
+div#container div.content table.pageinfo td.pagenavi { font-family:"gulim","dotum","sans-self"; font-size:12px; color:#888888; text-align:left; }
+div#container div.content table.pageinfo td.pagenavi u { font-weight:bold; }
+div#container div.content table.pageinfo td.pagenaviR { padding-top:20px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#888888; text-align:right; }
+div#container div.content table.pageinfo td.pagenaviR u { font-weight:bold; }
+div#container div.content table.detail { width:100%; margin-top:60px;  margin-bottom:30px;}
+div#container div.content table.detail td { vertical-align:top; font-family:"gulim","sans-serif"; font-size:12px; color:#525252; line-height:20px; }
+div#container div.content table.detail td.photo { padding-right:40px; }
+div#container div.content table.detail td.text1 { border-top:1px solid #dddddd; padding-top:20px; padding-right:20px; }
+div#container div.content table.detail td.text1 span { color:#2581e0; }
+div#container div.content table.detail td.text1 b { color:#f06e17; }
+div#container div.content table.detail td.text2 { border-top:1px solid #dddddd; padding-top:20px; padding-left:20px; }
+div#container div.content table.detail td.text2 p { text-align:right; margin-top:60px; }
+div#container div.content div.loginboxline { border:1px solid #cebcd5; margin-top:30px; }
+div#container div.content div.loginbox { border:5px solid #f0e6f5; padding:50px; background-image:url("/images/2012/sub/page0/login_image.png"); background-repeat:no-repeat; background-position:400px 40px; }
+div#container div.content div.loginbox table.loginrable { margin-top:30px; }
+div#container div.content div.loginbox table.loginrable td input.idput { width:247px; height:19px; margin-bottom:5px; padding:8px; font-family:"dotum","gulim","sans-serif"; font-size:16px; color:#6c55bf; font-weight:bold; border:1px solid #cccccc; }
+div#container div.content div.loginbox table.loginrable td input.passput { width:247px; height:19px; margin-top:5px; padding:8px; font-family:"dotum","gulim","sans-serif"; font-size:16px; color:#6c55bf; font-weight:bold; border:1px solid #cccccc; }
+div#container div.content div.loginbox table.loginrable td img.output { margin-left:10px; }
+div#container div.content table.notlogin { width:100%; border-bottom:1px dotted #dddddd; }
+div#container div.content table.notlogin td { padding:15px 0px 15px 0px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#888888; }
+div#container div.content table.notlogin td img.join { margin-top:-10px; }
+div#container div.content table.notlogin td button { font-family:"gulim","dotum","sans-self"; font-size:12px; color:#888888; cursor:pointer; }
+div#container div.content table.notlogin td button.idpasssearch { width:91px; height:22px; background-color:transparent; background-image:url("/images/2012/sub/page0/bg_btn.png"); background-repeat:no-repeat; }
+div#container div.content table.joinform { width:100%; margin-top:30px; margin-bottom:40px; }
+div#container div.content table.joinform td { vertical-align:top; }
+div#container div.content table.joinform td div.lawsmsg { margin-top:30px; }
+div#container div.content table.joinform td ul.realtab { margin-left:50px; height:25px; }
+div#container div.content table.joinform td ul.realtab li { float:left; margin-right:2px; }
+div#container div.content table.joinform td ul.realtab li button { width:102px; height:25px; font-family:"malgun gothic","dotum","sans-self";  background-color:transparent; background-repeat:no-repeat; cursor:pointer; }
+div#container div.content table.joinform td ul.realtab li button.realon { font-size:14px; color:#323232; font-weight:600; background-image:url("/images/2012/sub/page0/tabon.gif"); }
+div#container div.content table.joinform td ul.realtab li button.realoff { font-size:13px; color:#888888; background-image:url("/images/2012/sub/page0/taboff.gif"); }
+div#container div.content table.joinform td div.realnamebox { width:435px; margin-left:50px; border:1px solid #cebcd5; }
+div#container div.content table.joinform td div.realnamebox div.realnamecheck { padding:10px; border:3px solid #f0e6f5; }
+div#container div.content table.joinform td div.realnamebox div.realnamecheck table.ageselect { width:410px; margin-top:20px; }
+div#container div.content table.joinform td div.realnamebox div.realnamecheck table.ageselect td { border-top:1px dotted #dddddd; text-align:center; background-color:#fbfbfb; padding:20px 30px 20px 30px; vertical-align:top; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; }
+div#container div.content table.joinform td div.realnamebox div.realnamecheck div.realfooter { text-align:center; padding-top:20px; margin-bottom:10px; border-top:1px dotted #dddddd; }
+div#container div.content table.joinform td div.realnamebox div.realnamecheck div.ipinconnect { text-align:center; padding-top:20px; padding-bottom:20px; margin:10px 0px 10px 0px; border-top:1px dotted #dddddd; border-bottom:1px dotted #dddddd; }
+div#container div.content table.joinform td div.realnamebox div.year14min { display:none; padding-top:10px; padding-bottom:10px; }
+div#container div.content table.joinform td div.realnamebox div.year14min table.familyfield { width:410px; margin-top:20px; }
+div#container div.content table.joinform td div.realnamebox div.year14min table.familyfield th { font-weight:400; text-align:left; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; border-top:1px solid #dddddd; }
+div#container div.content table.joinform td div.realnamebox div.year14min table.familyfield th.agreen { text-align:left; padding:10px 0px 10px 0px; }
+div#container div.content table.joinform td div.realnamebox div.year14min table.familyfield td { padding:6px 0px 6px 0px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; border-top:1px solid #dddddd; }
+div#container div.content table.joinform td div.realnamebox div.year14min table.familyfield td input { padding:2px; border:1px solid #bbbbbb; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; }
+div#container div.content table.joinform td div.realchecktip { margin-top:30px; }
+div#container div.content table.joinform td div.realchecktip img { margin-right:5px; }
+div#container div.content table.joinform td div.terms { padding:20px; background:#f2f2f2; margin-top:30px; text-align:left; }
+div#container div.content table.joinform td div.terms img { margin-bottom:10px; }
+div#container div.content table.joinform td div.terms textarea.termstxt { width:428px; height:200px; padding:10px; border:1px solid #cccccc; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#626262; }
+div#container div.content table.joinform td div.terms2 { margin-left:30px; margin-bottom:30px; padding:20px; background:#f2f2f2; text-align:left; }
+div#container div.content table.joinform td div.terms2 img { margin-bottom:10px; }
+div#container div.content table.joinform td div.terms2 textarea.termstxt { width:398px; height:143px; padding:10px; border:1px solid #cccccc; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#626262; letter-spacing:-0.5px; }
+div#container div.content table.joinform td table.consent { width:398px; margin-top:10px; }
+div#container div.content table.joinform td table.consent td { height:24px; vertical-align:middle; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#888888; }
+div#container div.content table.joinform td div.persnaltip { margin-top:20px; margin-bottom:20px; }
+div#container div.content table.joinform td table.required { width:100%; color:#326ed4; }
+div#container div.content table.joinform td table.required td { font-size:12px; color:#326ed4; }
+div#container div.content table.joinform td div.logininfobox { margin-top:5px; border-top:3px solid #6092e8; }
+div#container div.content table.joinform td div.logininfobox table.logininfo { width:100%; }
+div#container div.content table.joinform td div.logininfobox table.logininfo th { padding-top:6px; padding-bottom:6px; border-right:1px solid #dddddd; border-bottom:1px solid #dddddd; text-align:left; padding-left:10px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; background-color:#fbfbfb; }
+div#container div.content table.joinform td div.logininfobox table.logininfo th img { margin-right:3px; }
+div#container div.content table.joinform td div.logininfobox table.logininfo td { padding:10px 0px 10px 10px; border-bottom:1px solid #dddddd; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; }
+div#container div.content table.joinform td div.logininfobox table.logininfo td input.txt { width:180px; height:18px; border:1px solid #bbbbbb; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; }
+div#container div.content table.joinform td div.logininfobox table.logininfo td div.pointmsg { margin-top:5px; }
+div#container div.content table.joinform td div.logininfobox table.logininfo td table.idsearch { width:100%; }
+div#container div.content table.joinform td div.logininfobox table.logininfo td table.idsearch td { text-align:left; border:0px; padding:0px; margin:0px; vertical-align:middle; }
+div#container div.content table.joinform td div.logininfobox table.logininfo td table.idsearch td button { margin-left:5px; }
+div#container div.content table.joinform td div.logininfobox table.logininfo td table.idsearch td.idmsg { padding-top:5px; }
+div#container div.content table.joinform td div.userdetailbox { margin-top:5px; border-top:3px solid #6092e8; }
+div#container div.content table.joinform td div.userdetailbox table.userdetail { width:100%; }
+div#container div.content table.joinform td div.userdetailbox table.userdetail th { padding-top:6px; padding-bottom:6px; border-right:1px solid #dddddd; border-bottom:1px solid #dddddd; text-align:left; padding-left:10px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; background-color:#fbfbfb; }
+div#container div.content table.joinform td div.userdetailbox table.userdetail th img { margin-right:3px; }
+div#container div.content table.joinform td div.userdetailbox table.userdetail td { padding:10px 0px 10px 10px; border-bottom:1px solid #dddddd; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; }
+div#container div.content table.joinform td div.userdetailbox table.userdetail td input.txt { width:180px; height:18px; border:1px solid #bbbbbb; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; }
+div#container div.content table.joinform td div.userdetailbox table.userdetail td table.layoutdefault td { text-align:left; border:0px; padding:0px; margin:0px; vertical-align:middle; }
+div#container div.content table.joinform td table.joinfooter { width:100%; margin-top:30px; }
+div#container div.content table.joinform td table.joinfooter td { padding:5px; }
+div#container div.content table.allconsent { width:100%; }
+div#container div.content table.allconsent td { padding:0px 10px 0px 10px; }
+div#container div.content div.joinfinish { height:450px; text-align:center; }
+div#container div.content div.joinfinish img { margin-top:100px; }
+div#container div.content div.termsbox { margin-top:30px; padding:20px; border:1px solid #cccccc; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#828282; line-height:18px; }
+div#container div.content div.termsbox b { font-family:"malgun gothic","dotum","sans-self"; font-size:16px; color:#4776c2; line-height:40px; }
+div#container div.content div.termsbox span { font-family:"malgun gothic","dotum","sans-self"; font-size:15px; color:#525252; line-height:30px; }
+div#container div.content div.termsbox p { margin-left:14px; }
+div#container div.content div.termsbox h2 { position:relative; margin-top:20px; font-weight:bold; }
+div#container div.content div.termsbox h2 p { position:absolute; right:0px; top:0px; font-family:"gulim","dotum","arial","sans-self"; font-size:12px; color:#525252; font-weight:400; text-decoration:underline; }
+div#container div.content div.termsbox div.information { font-family:"malgun gothic","dotum","sans-self"; font-size:14px; border:1px solid #bbbbbb; padding:10px; background-color:#f9f9f9; }
+div#container div.content div.termsbox table.memberuse { margin:10px 0px 10px 14px; }
+div#container div.content div.termsbox table.memberuse caption { text-align:left; font-weight:bold; }
+div#container div.content div.termsbox table.memberuse th { background:#f9f9f9; padding:5px 20px 5px 20px; border:1px solid #dddddd; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#888888; }
+div#container div.content div.termsbox table.memberuse td { padding:8px 20px 8px 20px; border:1px solid #dddddd; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#888888; }
+div#container div.content div.termsbox div.inbox { border:1px solid #dddddd; background:#f9f9f9; padding:10px; margin:0px 0px 10px 14px; }
+div#container div.content div.emailbox { margin-top:30px; height:487px; background:url("/images/2012/sub/page0/bg_email.gif"); background-repeat:no-repeat; }
+div#container div.content div.emailbox ul.emailmsg { margin-left:370px; margin-right:20px; padding-top:50px; letter-spacing:-1px; }
+div#container div.content div.emailbox ul.emailmsg li.danger { font-family:"malgun gothic","dotum","sans-self"; font-size:16px; color:#e34c24; line-height:24px; }
+div#container div.content div.emailbox ul.emailmsg li.speaking { margin-top:30px; font-family:"malgun gothic","dotum","sans-self"; font-size:18px; color:#525252; }
+div#container div.content div.emailbox ul.emailmsg li.laws { margin-top:30px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#777777; line-height:20px; }
+div#container div.content div.emailbox ul.emailmsg li.laws b { font-family:"gulim","dotum","sans-self"; font-size:12px; color:#1d79e1; }
+div#container div.content div.emailbox ul.emailmsg li.laws p { margin-top:14px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#777777; }
+div#container div.content div.emailbox ul.emailmsg li.laws span { font-family:"malgun gothic","dotum","sans-self"; font-size:14px; color:#666666; text-decoration:underline; }
+div#container div.content div.sitemap { margin-top:30px; }
+div#container div.content div.sitemap ul.mapbox { float:left; width:200px; height:350px; padding-bottom:14px; border:3px solid #e9e9e9; }
+div#container div.content div.sitemap ul.mapbox li.topmenu { padding-top:7px; padding-bottom:10px; font-family:"malgun gothic","dotum","sans-self"; font-size:16px; color:#2953a2; text-align:center; font-weight:bold; background-image:url("/images/2012/sub/page0/sitemap_bar.gif"); background-repeat:repeat-x; border-bottom:1px solid #e9e9e9; }
+div#container div.content div.sitemap ul.mapbox li.middlemenu { padding:14px 0px 0px 0px; text-indent:10px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#777777; }
+div#container div.content div.sitemap ul.mapbox li.middlemenu a { color:#777777; text-decoration:none; }
+div#container div.content div.sitemap ul.mapbox li.middlemenu a:hover { color:#1b70e4; text-decoration:underline; }
+div#container div.content div.sitemap ul.mapbox li.middlemenu img { margin-bottom:2px; margin-right:5px; }
+div#container div.content div.sitemap div.clears { float:left; margin:0px; padding:0px; }
+div#container div.content div.sitemap dl.topgrid { width:980px; height:30px; }
+div#container div.content div.sitemap dl.topgrid dd { float:left; height:30px; border-right:1px solid #dddddd; border-bottom:1px solid #dddddd; }
+div#container div.content div.sitemap dl.topgrid dd.twoend { width:260px; }
+div#container div.content div.sitemap dl.topgrid dd.frist { border-bottom:0px; margin-left:98px; }
+div#container div.content div.sitemap dl.bottomgrid { height:30px; }
+div#container div.content div.sitemap dl.bottomgrid dd { float:left; height:30px; border-right:1px solid #dddddd; border-top:1px solid #dddddd; }
+div#container div.content div.sitemap dl.bottomgrid dd.twoend { width:260px; }
+div#container div.content div.sitemap dl.bottomgrid dd.frist { border-top:0px; margin-left:98px; }
+div#container div.content div.sitemap div.centerlogo { text-align:center; margin:0px; padding:1px; }
+div#container div.content div.memberout { margin-top:30px; }
+div#container div.content div.booktable { margin-top:-50px; height:330px; background-image:url("/images/2012/sub/page4/bg_booktable.png"); background-repeat:no-repeat; background-position:0px 165px; }
+div#container div.content div.booktable dl.book { float:left; width:236px; }
+div#container div.content div.booktable dl.book dt { margin-left:20px; height:36px; text-align:center; font-family:"malgun gothic","dotum","sans-self"; font-size:12px; color:#666666; }
+div#container div.content div.booktable dl.book dd { margin-left:80px; width:133px; height:200px; background-image:url("/images/2012/sub/page4/book_shadow.png"); background-repeat:no-repeat; background-position:0px 97px; }
+div#container div.content div.booktable dl.book dd img { width:98px; height:141px; border:0px; }
+div#container div.content div.booktable dl.book dd img:hover { border:1px solid #369ae7; }
+div#container div.content div.memberout ul.memberoutlayout {  }
+div#container div.content div.memberout ul.memberoutlayout li { float:left; width:50%; }
+div#container div.content div.memberout ul.memberoutlayout li.leftspace { font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; line-height:18px; }
+div#container div.content div.memberout ul.memberoutlayout li.leftspace p { padding-bottom:10px; }
+div#container div.content div.memberout ul.memberoutlayout li.leftspace p u { color:#2772c5; }
+div#container div.content div.memberout ul.memberoutlayout li.leftspace p img.dot { margin-bottom:2px; margin-right:2px; }
+div#container div.content div.memberout ul.memberoutlayout li.rightspace {  }
+div#container div.content div.memberout ul.memberoutlayout li.rightspace div.becouse { margin:5px 0px 0px 20px; padding:20px; border:1px solid #dddddd; background-color:#fbfbfb; }
+div#container div.content div.memberout ul.memberoutlayout li.rightspace div.becouse table.insert { width:428px; }
+div#container div.content div.memberout ul.memberoutlayout li.rightspace div.becouse table.insert th { padding:10px 0px 10px 0px; border:1px solid #bbbbbb; background-color:#eeeeee; text-align:center; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; }
+div#container div.content div.memberout ul.memberoutlayout li.rightspace div.becouse table.insert td { padding:10px 0px 10px 10px; border:1px solid #bbbbbb; background-color:#ffffff; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; }
+div#container div.content div.memberout ul.memberoutlayout li.rightspace div.becouse table.insert td input.password { width:150px; padding:1px; border:1px solid #dddddd; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; }
+div#container div.content div.memberout ul.memberoutlayout li.rightspace div.becouse table.insert td textarea.reason { width:324px; height:200px; border:1px solid #dddddd; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; }
+div#container div.content div.memberout ul.memberoutlayout li.rightspace div.becouse div.insertfooter { text-align:center; margin-top:20px; }
+div#container div.content div.membermodify { margin-top:30px; }
+div#container div.content div.membermodify table.persnaltip { width:100%; margin-bottom:10px; }
+div#container div.content div.membermodify table.persnaltip td { font-family:"gulim","dotum","sans-self"; font-size:12px; color:#727272; }
+div#container div.content div.membermodify table.persnaltip td a { color:#ff510d; text-decoration:underline; }
+div#container div.content div.membermodify table.persnaltip td.checks { text-align:right; color:#3495ef; }
+div#container div.content div.membermodify ul.layout {  }
+div#container div.content div.membermodify ul.layout li { float:left; }
+div#container div.content div.membermodify ul.layout li.leftspace { width:465px; border-top:3px solid #6092e8; }
+div#container div.content div.membermodify ul.layout li.leftspace table.password { width:100%; }
+div#container div.content div.membermodify ul.layout li.leftspace table.password th { text-align:left; text-indent:10px; padding:10px 0px 10px 0px; border-bottom:1px solid #dddddd; border-right:1px solid #dddddd; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#727272; background-color:#fbfbfb; }
+div#container div.content div.membermodify ul.layout li.leftspace table.password td { padding:10px 0px 10px 10px; border-bottom:1px solid #dddddd; }
+div#container div.content div.membermodify ul.layout li.leftspace table.password th img { margin-right:3px; }
+div#container div.content div.membermodify ul.layout li.leftspace table.password td input.password { width:200px; height:16px; padding:1px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#727272; border:1px solid #bbbbbb; }
+div#container div.content div.membermodify ul.layout li.leftspace p.passwordtip { margin-top:20px; text-align:left; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#727272; line-height:18px;  }
+div#container div.content div.membermodify ul.layout li.leftspace div.footer { margin-top:20px; text-align:center; }
+div#container div.content div.membermodify ul.layout li.rightspace { margin-left:50px; width:465px;  border-top:3px solid #6092e8; }
+div#container div.content div.membermodify ul.layout li.rightspace table.about { width:100%; }
+div#container div.content div.membermodify ul.layout li.rightspace table.about th { text-align:left; text-indent:10px; padding:10px 0px 10px 0px; border-bottom:1px solid #dddddd; border-right:1px solid #dddddd; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#727272; background-color:#fbfbfb; }
+div#container div.content div.membermodify ul.layout li.rightspace table.about th img { margin-right:3px; }
+div#container div.content div.membermodify ul.layout li.rightspace table.about td { padding:10px 0px 10px 10px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#727272; border-bottom:1px solid #dddddd; }
+div#container div.content div.membermodify ul.layout li.rightspace table.about td input.txt { height:16px; padding:1px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#727272; border:1px solid #bbbbbb; }
+div#container div.content div.membermodify ul.layout li.rightspace table.about td select.txt { padding:1px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#727272; border:1px solid #bbbbbb; }
+div#container div.content div.membermodify ul.layout li.rightspace table.about td table.layoutdefault td { vertical-align:top; margin:0px; padding:0px; border:0px; }
+div#container div.content div.membermodify ul.layout li.rightspace table.footer { margin-top:20px; width:100%; }
+div#container div.content div.membermodify ul.layout li.rightspace table.footer td img { margin:5px; }
+div#container div.content div.idpass { margin-top:30px; }
+div#container div.content div.idpass div.idfinish { border:2px solid #dddddd; padding:30px; text-align:center; }
+div#container div.content div.idpass ul.searchbox {  }
+div#container div.content div.idpass ul.searchbox li { float:left; }
+div#container div.content div.idpass ul.searchbox li.idspace { width:465px; }
+div#container div.content div.idpass ul.searchbox li.idspace div.idbox { border:3px solid #eeeeee; padding:20px; }
+div#container div.content div.idpass ul.searchbox li.idspace div.idbox b { font-family:"malgun gothic","dotum","sans-self"; font-size:16px; color:#2772c5; }
+div#container div.content div.idpass ul.searchbox li.idspace div.idbox p { margin-top:10px; line-height:18px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#727272; }
+div#container div.content div.idpass ul.searchbox li.idspace div.idbox u { color:#326ed4; }
+div#container div.content div.idpass ul.searchbox li.idspace div.idbox table.membercheck { width:419px; margin-top:20px; margin-bottom:20px; border-top:1px dotted #dddddd; border-bottom:1px dotted #dddddd; }
+div#container div.content div.idpass ul.searchbox li.idspace div.idbox table.membercheck th { text-align:left; text-indent:10px; font-family:"malgun gothic","dotum","sans-self"; font-size:13px; color:#727272;}
+div#container div.content div.idpass ul.searchbox li.idspace div.idbox table.membercheck td { padding:8px 0px 8px 10px; text-align:left;  }
+div#container div.content div.idpass ul.searchbox li.idspace div.idbox table.membercheck td input.txt { text-align:center; height:18px; border:2px solid #dddddd; padding:2px; }
+div#container div.content div.idpass ul.searchbox li.idspace div.idbox table.membercheck td dl.aligns { height:28px; }
+div#container div.content div.idpass ul.searchbox li.idspace div.idbox table.membercheck td dl.aligns dd { float:left; }
+div#container div.content div.idpass ul.searchbox li.idspace div.idbox table.membercheck td dl.aligns dd.hyphen { margin:6px 5px 0px 5px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#727272;}
+div#container div.content div.idpass ul.searchbox li.idspace div.idbox table.usecheck { width:419px; margin-top:20px; }
+div#container div.content div.idpass ul.searchbox li.idspace div.idbox table.usecheck td { height:30px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#ef7634; }
+div#container div.content div.idpass ul.searchbox li.idspace div.idbox div.idfooter { margin-top:10px; padding-top:20px; text-align:center; border-top:1px dotted #dddddd; }
+div#container div.content div.idpass ul.searchbox li.passwordspace { margin-left:50px; width:465px; }
+div#container div.content div.idpass ul.searchbox li.passwordspace div.passwordbox { border:3px solid #eeeeee; padding:20px; }
+div#container div.content div.idpass ul.searchbox li.passwordspace div.passwordbox b { font-family:"malgun gothic","dotum","sans-self"; font-size:16px; color:#2772c5; }
+div#container div.content div.idpass ul.searchbox li.passwordspace div.passwordbox p { margin-top:10px; line-height:18px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#727272; }
+div#container div.content div.idpass ul.searchbox li.passwordspace div.passwordbox u { color:#326ed4; }
+div#container div.content div.idpass ul.searchbox li.passwordspace div.passwordbox table.membercheck { width:419px; }
+div#container div.content div.idpass ul.searchbox li.passwordspace div.passwordbox table.underline { border-bottom:1px dotted #dddddd; }
+div#container div.content div.idpass ul.searchbox li.passwordspace div.passwordbox table.topline { border-top:1px dotted #dddddd; margin-top:20px; }
+div#container div.content div.idpass ul.searchbox li.passwordspace div.passwordbox table.membercheck th { text-align:left; padding:8px 0px 8px 0px; text-indent:10px; font-family:"malgun gothic","dotum","sans-self"; font-size:13px; color:#727272;}
+div#container div.content div.idpass ul.searchbox li.passwordspace div.passwordbox table.membercheck th.typeselect { border-bottom:1px dotted #dddddd; background-color:#fbfbfb; }
+div#container div.content div.idpass ul.searchbox li.passwordspace div.passwordbox table.membercheck td { padding:11px 0px 11px 10px; text-align:left;  }
+div#container div.content div.idpass ul.searchbox li.passwordspace div.passwordbox table.membercheck td input.txt { text-align:left; height:18px; border:2px solid #dddddd; padding:2px; }
+div#container div.content div.idpass ul.searchbox li.passwordspace div.passwordbox table.membercheck td dl.aligns { height:28px; }
+div#container div.content div.idpass ul.searchbox li.passwordspace div.passwordbox table.membercheck td dl.aligns dd { float:left; }
+div#container div.content div.idpass ul.searchbox li.passwordspace div.passwordbox table.membercheck td dl.aligns dd.hyphen { margin:6px 5px 0px 5px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#727272;}
+div#container div.content div.idpass ul.searchbox li.passwordspace div.passwordbox table.usecheck { width:419px; margin-top:20px; }
+div#container div.content div.idpass ul.searchbox li.passwordspace div.passwordbox table.usecheck td { height:30px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#ef7634; }
+div#container div.content div.idpass ul.searchbox li.passwordspace div.passwordbox div.passwordfooter { margin-top:10px; padding-top:20px; text-align:center; border-top:1px dotted #dddddd; }
+
+div#container div.content div.concept { position:relative; }
+div#container div.content div.inspace { margin-bottom:140px; }
+div#container div.content div.a01 { height:196px; background-image:url("/images/2012/sub/page1/bg_top_concept01.gif"); background-repeat:no-repeat; }
+div#container div.content div.a02 { height:196px; background-image:url("/images/2012/sub/page1/bg_top_concept02.gif"); background-repeat:no-repeat; }
+div#container div.content div.a03 { height:196px; background-image:url("/images/2012/sub/page1/bg_top_concept03.gif"); background-repeat:no-repeat; }
+div#container div.content div.a04 { height:196px; background-image:url("/images/2012/sub/page1/bg_top_concept04.gif"); background-repeat:no-repeat; }
+div#container div.content div.a05 { height:196px; background-image:url("/images/2012/sub/page1/bg_top_concept05.gif"); background-repeat:no-repeat; }
+div#container div.content div.a06 { height:196px; background-image:url("/images/2012/sub/page1/bg_top_concept06.gif"); background-repeat:no-repeat; }
+div#container div.content div.a08 { height:196px; background-image:url("/images/2012/sub/page1/bg_top_concept08.gif"); background-repeat:no-repeat; }
+div#container div.content div.b01 { height:217px; background-image:url("/images/2012/sub/page2/bg_top_concept.gif"); background-repeat:no-repeat; }
+div#container div.content div.c01 { height:205px; background-image:url("/images/2012/sub/page3/bg_top_concept01.gif"); background-repeat:no-repeat; }
+div#container div.content div.c02 { margin-top:20px; height:229px; background-image:url("/images/2012/sub/page3/bg_top_concept02.gif"); background-repeat:no-repeat; }
+div#container div.content div.c03 { height:233px; background-image:url("/images/2012/sub/page3/bg_top_concept03.gif"); background-repeat:no-repeat; }
+div#container div.content div.c03 div.pagetitle { padding-top:40px; }
+div#container div.content div.d04 { height:224px; background-image:url("/images/2012/sub/page4/bg_top_concept04.gif"); background-repeat:no-repeat; }
+div#container div.content div.e01 { margin-top:40px; height:248px; background-image:url("/images/2012/sub/page6/bg_top_concept01.gif"); background-repeat:no-repeat; }
+div#container div.content div.g07 { margin-top:0px; height:171px; background-image:url("/images/2012/sub/page7/bg_contactus.gif"); background-repeat:no-repeat; }
+div#container div.content ul.monthchoice { margin-left:2px; height:10px; margin-top:20px; }
+div#container div.content ul.monthchoice li { float:left; margin-right:1px; }
+div#container div.content div.concept div.titlemsg { padding-top:30px; }
+div#container div.content div.concept ul.pagetab { position:absolute; bottom:0px; left:150px; height:50px; }
+div#container div.content div.concept ul.pagetab li { float:left; }
+div#container div.content div.concept ul.pagetabB { position:absolute; bottom:0px; left:150px; height:50px; }
+div#container div.content div.concept ul.pagetabB li { float:left; }
+div#container div.content div.concept ul.pagetabC { position:absolute; bottom:0px; left:150px; height:50px; }
+div#container div.content div.concept ul.pagetabC li { float:left; }
+div#container div.content div.concept ul.pagetabD { position:absolute; bottom:0px; left:150px; height:50px; }
+div#container div.content div.concept ul.pagetabD li { float:left; }
+div#container div.content div.concept ul.coursesearch { width:314px; height:30px; position:absolute; left:300px; top:104px; }
+div#container div.content div.concept ul.coursesearch li { float:left; }
+div#container div.content div.concept ul.coursesearch li.insert { width:280px; height:30px; background-image:url("/images/2012/sub/page2/bg_course_search.gif"); background-repeat:no-repeat; }
+div#container div.content div.concept ul.coursesearch li.insert input.insearch { margin-top:3px; margin-left:3px; width:270px; padding:3px; font-family:"dotum","sans-self"; font-size:14px; color:#4898ea; font-weight:bold; border:0px; background-image:url("/images/2012/sub/page2/search_first_msg.gif"); background-repeat:no-repeat; background-position:7px 6px; }
+div#container div.content div.concept ul.coursesearch li.output { width:34px; height:30px; }
+div#container div.content div.concept ul.factorysearch { width:384px; height:30px; position:absolute; left:0px; top:130px; }
+div#container div.content div.concept ul.factorysearch li { float:left; height:30px; }
+div#container div.content div.concept ul.factorysearch li.typechoice { width:70px; background-color:#4898ea; cursor:pointer; position:relative; }
+div#container div.content div.concept ul.factorysearch li.typechoice p { margin-top:8px; margin-left:10px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#ffffff; }
+div#container div.content div.concept ul.factorysearch li.typechoice p img { margin-left:7px; margin-bottom:2px; }
+div#container div.content div.concept ul.factorysearch li.typechoice p input { width:35px; background:#4898ea; border:0px; }
+div#container div.content div.concept ul.factorysearch li.typechoice dl.typelist { width:72px; position:absolute; background-color:#4898ea; top:30px; left:0px; }
+div#container div.content div.concept ul.factorysearch li.typechoice dl.typelist dd { text-align:center; padding:5px 0px 5px 0px; border-top:1px solid #b1d4f7; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#ffffff; }
+div#container div.content div.concept ul.factorysearch li.insert { width:280px; background-image:url("/images/2012/sub/page2/bg_course_search.gif"); background-repeat:no-repeat; }
+div#container div.content div.concept ul.factorysearch li.insert input.insearch { margin-top:3px; margin-left:3px; width:270px; padding:3px; font-family:"dotum","sans-self"; font-size:14px; color:#4898ea; font-weight:bold; border:0px; background-image:url("/images/2012/sub/page6/search_first_msg.gif"); background-repeat:no-repeat; background-position:7px 6px; }
+div#container div.content div.concept ul.factorysearch li.output { width:34px; height:30px; }
+div#container div.content div.concept ul.boardsearch { width:384px; height:30px; position:absolute; right:0px; top:74px; }
+div#container div.content div.concept ul.boardsearch li { float:left; height:30px; }
+div#container div.content div.concept ul.boardsearch li.typechoice { width:70px; background-color:#4898ea; cursor:pointer; position:relative; }
+div#container div.content div.concept ul.boardsearch li.typechoice p { margin-top:8px; margin-left:10px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#ffffff; }
+div#container div.content div.concept ul.boardsearch li.typechoice p img { margin-left:7px; margin-bottom:2px; }
+div#container div.content div.concept ul.boardsearch li.typechoice p input { width:35px; background:#4898ea; border:0px; }
+div#container div.content div.concept ul.boardsearch li.typechoice dl.typelist { width:72px; position:absolute; background-color:#4898ea; top:30px; left:0px; }
+div#container div.content div.concept ul.boardsearch li.typechoice dl.typelist dd { text-align:center; padding:5px 0px 5px 0px; border-top:1px solid #b1d4f7; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#ffffff; }
+div#container div.content div.concept ul.boardsearch li.insert { width:280px; background-image:url("/images/2012/sub/page2/bg_course_search.gif"); background-repeat:no-repeat; }
+div#container div.content div.concept ul.boardsearch li.insert input.insearch { margin-top:3px; margin-left:3px; width:270px; padding:3px; font-family:"dotum","sans-self"; font-size:14px; color:#4898ea; font-weight:bold; border:0px; background-image:url("/images/2012/sub/page6/search_first_msg.gif"); background-repeat:no-repeat; background-position:7px 6px; }
+div#container div.content div.concept ul.boardsearch li.output { width:34px; height:30px; }
+div#container div.content div.concept ul.booksearch { width:980px; height:30px; position:absolute; left:0px; top:120px; }
+div#container div.content div.concept ul.booksearch li { float:left; height:30px; }
+div#container div.content div.concept ul.booksearch li.typechoice { width:70px; background-color:#4898ea; cursor:pointer; position:relative; }
+div#container div.content div.concept ul.booksearch li.typechoice p { margin-top:8px; margin-left:10px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#ffffff; }
+div#container div.content div.concept ul.booksearch li.typechoice p img { margin-left:7px; margin-bottom:2px; }
+div#container div.content div.concept ul.booksearch li.typechoice p input { width:35px; background:#4898ea; border:0px; }
+div#container div.content div.concept ul.booksearch li.typechoice dl.typelist { width:72px; position:absolute; background-color:#4898ea; top:30px; left:0px; }
+div#container div.content div.concept ul.booksearch li.typechoice dl.typelist dd { text-align:center; padding:5px 0px 5px 0px; border-top:1px solid #b1d4f7; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#ffffff; }
+div#container div.content div.concept ul.booksearch li.insert { width:870px; background-image:url("/images/2012/common/bg_search.gif"); background-repeat:repeat-x; }
+div#container div.content div.concept ul.booksearch li.insert input.insearch { margin-top:3px; margin-left:3px; width:870px; padding:3px; font-family:"dotum","sans-self"; font-size:14px; color:#4898ea; font-weight:bold; border:0px; background-image:url("/images/2012/sub/page6/search_first_msg.gif"); background-repeat:no-repeat; background-position:7px 6px; }
+div#container div.content div.concept ul.booksearch li.output { width:34px; height:30px; }
+div#container div.content div.listbar { margin-top:10px; padding-bottom:2px; border-bottom:1px solid #cccccc; background-image:url("/images/2012/sub/page1/board_bar.gif"); background-repeat:no-repeat; }
+div#container div.content div.listbar table.listrable { width:100%; }
+div#container div.content div.listbar table.listrable th { height:30px; text-align:center; }
+div#container div.content div.listbar table.listrable th select.classification { height:18px; border:1px solid #bbbbbb; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; }
+div#container div.content div.listbar table.listrable th select.classification optgroup { background-color:#dddddd; }
+div#container div.content div.listbar table.listrable td { padding-top:7px; padding-bottom:7px; text-align:center; border-bottom:1px dotted #cccccc; border-left:1px dotted #cccccc; }
+div#container div.content div.listbar table.listrable td.linefirst { border-left:0px; }
+div#container div.content div.listbar table.listrable td.title { padding-left:7px; text-align:left; font-weight:bold; letter-spacing:-1px; }
+div#container div.content div.listbar table.listrable td.title img { }
+div#container div.content div.listbar table.listrable td.courselist { border-left:0px; }
+div#container div.content div.listbar table.listrable td.courseimg { text-align:center; }
+div#container div.content div.listbar table.listrable td.courseimg img { width:110px; height:70px; }
+div#container div.content div.listbar table.listrable td.coursename { text-align:left; text-indent:10px; }
+div#container div.content div.listbar table.listrable td.learnactive button { margin:1px 0px 1px 0px; } 
+div#container div.content div.listbar table.listrable td.nodata { text-align:center; padding:20px 0px 20px 0px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; border-left:0px; }
+div#container div.content div.listbar table.listrable td.icontype { text-align:; }
+div#container div.content div.boardoption { margin-top:10px; text-align:right; }
+div#container div.content div.viewbar { height:21px; margin-top:30px; padding:8px 0px 4px 10px; background-image:url("/images/2012/sub/page1/board_bar.gif"); background-repeat:no-repeat; }
+div#container div.content div.viewcontent { background-color:#fbfbfb; padding:15px; border-bottom:1px solid #cccccc; }
+div#container div.content div.viewcontent ul.fileload { height:30px; text-align:right; margin-top:10px; }
+div#container div.content div.viewcontent ul.fileload li { float:right; background-color:#eeeeee; border:1px solid #cccccc; padding:7px; }
+div#container div.content div.viewcontent table.about { width:950px; margin-top:30px; border-top:1px dotted #cccccc; }
+div#container div.content div.viewcontent table.about th { text-align:left; padding-top:15px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#666666; }
+div#container div.content div.viewcontent table.about td { height:30px; padding-top:15px; text-align:left; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#888888; }
+div#container div.content div.viewanswer { margin-top:30px; padding:15px; border:1px solid #2a8bee; }
+div#container div.content div.viewanswer table.answer {  }
+div#container div.content div.viewanswer table.answer th { padding-right:20px; border-right:3px solid #dddddd; vertical-align:top; }
+div#container div.content div.viewanswer table.answer td { padding-left:20px; padding-top:0px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; line-height:18px; }
+div#container div.content div.viewfooter { margin-top:30px; text-align:right; }
+div#container div.content div.writepost { border-top:2px solid #529be6; margin-top:30px; }
+div#container div.content div.writepost table.writeform { width:100%; }
+div#container div.content div.writepost table.writeform th { border-bottom:1px solid #dddddd; border-right:1px solid #dddddd; text-align:center; }
+div#container div.content div.writepost table.writeform td { padding:10px 0px 10px 0px; border-bottom:1px solid #dddddd; padding-left:10px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; }
+div#container div.content div.writepost table.writeform td select { border:1px solid #cccccc; padding:1px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; }
+div#container div.content div.writepost table.writeform td select optgroup { background-color:#dddddd; }
+div#container div.content div.writepost table.writeform td input.checkbox { width:13px; height:14px; }
+div#container div.content div.writepost table.writeform td input.txt { width:706px; border:1px solid #cccccc; padding:2px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; }
+div#container div.content div.writepost table.writeform td input.file { width:713px; border:1px solid #cccccc; padding:2px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; background-color:#ffffff; }
+div#container div.content div.writepost table.writeform td textarea { width:706px; height:250px; border:1px solid #cccccc; padding:2px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; line-height:18px; }
+div#container div.content div.writefooter { margin-top:30px; text-align:center; }
+div#container div.content div.deletepost { padding:50px; border:1px solid #dddddd; margin-top:20px; text-align:center; }
+div#container div.content div.deletepost h6 { margin-top:20px; margin-bottom:20px; }
+div#container div.content div.deletepost img { margin-top:5px; }
+div#container div.content div.comment { margin-top:80px; }
+div#container div.content div.comment table.commentlist { width:100%; border-top:1px solid #dddddd; border-bottom:1px solid #dddddd; }
+div#container div.content div.comment table.commentlist th { border-bottom:1px dotted #dddddd; text-align:left; font-family:"gulim","dotum","sans-self"; font-size:12px; }
+div#container div.content div.comment table.commentlist th img { margin-right:5px; }
+div#container div.content div.comment table.commentlist th span.man { color:#1e7dde; }
+div#container div.content div.comment table.commentlist th span.woman { color:#e54486; }
+div#container div.content div.comment table.commentlist td { border-bottom:1px dotted #dddddd; padding-top:7px; padding-bottom:7px; text-align:left; line-height:18px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; }
+div#container div.content div.comment table.commentlist td span { font-size:11px; color:#888888; margin-left:10px; }
+div#container div.content div.comment div.commentwritebox { margin-top:50px; padding:10px; border:1px solid #dddddd; background-color:#fbfbfb; }
+div#container div.content div.comment div.commentwritebox table.commentwrite { width:958px; }
+div#container div.content div.comment div.commentwritebox table.commentwrite td textarea.write { width:750px; height:36px; border:1px solid #dddddd; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; padding:2px; line-height:18px; background-image:url("/images/2012/sub/page6/comment_msg.gif"); background-repeat:no-repeat; background-position:3px 3px; }
+div#container div.content div.comment div.commentwritebox table.commentwrite td textarea.modify { width:750px; height:36px; border:1px solid #dddddd; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; padding:2px; line-height:18px; }
+div#container div.content div.comment div.commentwritebox table.commentwrite td { font-family:"gulim","dotum","sans-self"; font-size:12px; }
+div#container div.content div.comment div.commentwritebox table.commentwrite td span.man { color:#1e7dde; margin-left:5px; }
+div#container div.content div.comment div.commentwritebox table.commentwrite td span.woman { color:#e54486; margin-left:5px; }
+div#container div.content table.testguide { padding-top:30px; width:100%; }
+div#container div.content table.testguide th { vertical-align:top; padding-right:20px; font-weight:400; text-align:left; line-height:18px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#666666; }
+div#container div.content table.testguide th span { color:#ff4e00; }
+div#container div.content table.testguide th div { padding:5px; background-color:#405d82; font-family:"arial","gulim","sans-self"; font-size:14px; color:#ffffff; }
+div#container div.content table.testguide th p { margin-top:10px; }
+div#container div.content table.testguide td { text-align:right; }
+div#container div.content table.testguide td img { border:1px solid #bbbbbb; }
+div#container div.content table.swdownload { margin-top:30px; border-top:1px solid #377cef; }
+div#container div.content table.swdownload th { width:109px; height:180px; border-bottom:1px dotted #dddddd; text-align:left; }
+div#container div.content table.swdownload th div { padding:5px; border:1px solid #dddddd; }
+div#container div.content table.swdownload td { width:381px; text-align:left; padding-left:10px; padding-right:40px; border-bottom:1px dotted #dddddd; }
+div#container div.content table.swdownload td h4 { font-weight:bold; margin-bottom:10px; }
+div#container div.content table.swdownload td img { margin-top:10px; }
+div#container div.content div.pageset { margin-top:20px; text-align:center; }
+div#container div.content div.pageset table.numberset { margin:0 auto; }
+div#container div.content div.pageset table.numberset td { height:30px; padding:0px 6px 0px 6px; }
+div#container div.content div.pageset table.numberset td img { margin-bottom:3px; }
+div#container div.content div.inpageset { margin-top:-40px; }
+div#container div.content div.classtip { margin-top:20px; text-align:left; }
+div#container div.content div.classtip img { margin-bottom:2px; }
+div#container div.content div.myclassheader { margin-top:10px; height:189px; position:relative; background-image:url("/images/2012/sub/page1/bg_mypage_top.gif"); background-repeat:no-repeat; }
+div#container div.content div.myclassheader table.userinfo { width:655px; position:absolute; right:0px; bottom:0px; }
+div#container div.content div.myclassheader table.userinfo th { font-family:"gulim","dotum","sans-self"; font-size:12px; color:#ffffff; text-align:center; }
+div#container div.content div.myclassheader table.userinfo td { height:39px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; text-indent:10px; }
+div#container div.content div.myclassheader table.userinfo td b { color:#ef611b; }
+div#container div.content div.myclassheader table.userinfo td.username { height:40px; vertical-align:top; text-indent:0px;  }
+div#container div.content div.myclassmiddle { border:1px solid #e4e4e4; margin-top:35px; padding:20px; position:relative; }
+div#container div.content div.myclassmiddle div.playing { position:absolute; top:-14px; left:20px; }
+div#container div.content div.myclassmiddle div.listbar { width:940px; margin-top:10px; padding-bottom:2px; border-bottom:1px solid #cccccc; background-image:url("/images/2012/sub/page1/in_board_bar.gif"); background-repeat:no-repeat; }
+div#container div.content div.myclassmiddle div.listbar table.listrable { width:940px; }
+div#container div.content div.myclassmiddle div.listbar table.listrable th { height:30px; text-align:center; }
+div#container div.content div.myclassmiddle div.listbar table.listrable th select.classification { width:76px; height:18px; border:1px solid #bbbbbb; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252;  }
+div#container div.content div.myclassmiddle div.listbar table.listrable td { padding-top:7px; padding-bottom:7px; text-align:center; border-bottom:1px dotted #cccccc; border-left:1px dotted #cccccc; }
+div#container div.content div.myclassmiddle div.listbar table.listrable td.linefirst { border-left:0px; }
+div#container div.content div.myclassmiddle div.listbar table.listrable td.title { padding-left:7px; text-align:left; font-weight:bold; letter-spacing:-1px; }
+div#container div.content div.myclassmiddle div.listbar table.listrable td.title img { margin-top:10px; }
+div#container div.content div.myclassmiddle div.listbar table.listrable td.courselist { border-left:0px; }
+div#container div.content div.myclassmiddle div.listbar table.listrable td.courseimg { text-align:center; }
+div#container div.content div.myclassmiddle div.listbar table.listrable td.courseimg img { width:110px; height:70px; }
+div#container div.content div.myclassmiddle div.listbar table.listrable td.learnactive button { margin:1px 0px 1px 0px; } 
+div#container div.content div.myclassmiddle div.pageset { margin-top:20px; text-align:center; }
+div#container div.content div.myclassmiddle div.pageset table.numberset { margin:0 auto; }
+div#container div.content div.myclassmiddle div.pageset table.numberset td { height:30px; padding:0px 6px 0px 6px; }
+div#container div.content div.myclassmiddle div.pageset table.numberset td img { margin-bottom:3px; }
+div#container div.content ul.myclassbottom { height:145px; margin-top:35px; }
+div#container div.content ul.myclassbottom li { float:left; }
+div#container div.content ul.myclassbottom li.btmcenter { margin-left:25px; }
+div#container div.content ul.myclassbottom li.btmright { margin-left:25px; margin-top:26px; }
+div#container div.content ul.myclassbottom li table.postcounsel { margin-top:10px; }
+div#container div.content ul.myclassbottom li table.postcounsel th { width:140px; height:29px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; font-weight:400; text-align:left; text-indent:10px; background-color:#bbbbbb; border-right:1px solid #ffffff; border-bottom:1px solid #ffffff; }
+div#container div.content ul.myclassbottom li table.postcounsel td { width:139px; height:29px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; text-align:center; background-color:#dddddd; border-bottom:1px solid #ffffff; }
+div#container div.content ul.myclassbottom li table.postcounsel th a { font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; }
+div#container div.content ul.myclassbottom li table.postcounsel th a:hover { text-decoration:underline; }
+div#container div.content ul.myclassbottom li table.postrequest { margin-top:10px; }
+div#container div.content ul.myclassbottom li table.postrequest th { width:113px; height:29px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; font-weight:400; text-align:center; background-color:#bbbbbb; border-right:1px solid #ffffff; border-bottom:1px solid #ffffff; }
+div#container div.content ul.myclassbottom li table.postrequest th a { font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; }
+div#container div.content ul.myclassbottom li table.postrequest th a:hover { text-decoration:underline; }
+div#container div.content ul.myclassbottom li table.postrequest td { width:140px; height:29px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; text-align:center; background-color:#dddddd; border-bottom:1px solid #ffffff; }
+div#container div.content ul.myclassbottom li table.postrequest td.requestconfirm { height:29px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; text-align:center; background-color:#cccccc; border-right:1px solid #ffffff; border-bottom:1px solid #ffffff; }
+
+div#container div.content ul.offlineschedule { margin-top:30px; }
+div#container div.content ul.offlineschedule li { float:left; width:470px; }
+div#container div.content ul.offlineschedule li.leftschedule { }
+div#container div.content ul.offlineschedule li.rightschedule { margin-left:40px; }
+div#container div.content table.rablepix { width:100%; margin-bottom:5px; }
+div#container div.content table.rablepix th { text-align:center; height:30px; background-image:url("/images/2012/sub/page3/table_bar.gif"); background-repeat:repeat-x; font-family:"malgun gothic","dotum","sans-self"; font-size:12px; color:#1f846d; }
+div#container div.content table.rablepix td { line-height:18px; text-align:center; padding:7px 0px 7px 0px; border-bottom:1px solid #dddddd; border-left:1px solid #dddddd; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; }
+div#container div.content table.rablepix .noborder { border-left:0px; }
+div#container div.content table.rablepix .subject { text-align:left; padding-left:7px; }
+div#container div.content div.subjectbox { margin-bottom:10px; }
+
+div#container div.content div.onlinecourse {  }
+div#container div.content div.onlinecourse div.listback { text-align:left; margin-top:30px; margin-bottom:10px; }
+div#container div.content table.linecolor { width:100%; }
+div#container div.content table.linecolor td { padding:5px 0px 5px 0px; text-align:right; }
+div#container div.content table.linecolor td.color1 { border-bottom:1px solid #4898ea; }
+div#container div.content table.linecolor td.color2 { border-bottom:1px solid #ea4867; }
+div#container div.content table.linecolor td.color3 { border-bottom:1px solid #ea7d1b; }
+div#container div.content table.linecolor td.color4 { border-bottom:1px solid #ec3025; }
+div#container div.content div.bookdetail table.bookabout { width:100%; margin-top:20px; margin-bottom:40px; }
+div#container div.content div.bookdetail table.bookabout th { text-align:left; vertical-align:top; }
+div#container div.content div.bookdetail table.bookabout th h3 { margin:10px 0px 40px 3px; }
+div#container div.content div.bookdetail table.bookabout th h4 { margin:5px 0px 0px 3px; }
+div#container div.content div.bookdetail table.bookabout td { text-align:left; vertical-align:top; }
+div#container div.content div.bookdetail table.bookabout td div.courseoption { text-align:right; }
+div#container div.content div.bookdetail table.bookabout td div.courseoption img { margin:10px 0px 0px 1px; }
+div#container div.content div.bookdetail table.bookabout td div.offlinecourseoption { text-align:right; padding:10px 30px 0px 0px; }
+div#container div.content div.bookdetail table.bookabout td div.offlinecourseoption button { margin:10px 0px 0px 2px; }
+div#container div.content div.bookdetail table.bookabout td img.book { width:117px; height:168px; border:1px solid #dddddd; }
+div#container div.content div.bookdetail table.aboutrable { width:100%; border:1px solid #dddddd; margin-bottom:20px; }
+div#container div.content div.bookdetail table.aboutrable th { vertical-align:top; padding:10px; }
+div#container div.content div.bookdetail table.aboutrable td { font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; padding:10px; line-height:18px; }
+div#container div.content div.bookdetail table.aboutrable td p { font-family:"malgun gothic","dotum","sans-self"; font-weight:bold; font-size:14px; color:#525252; margin-bottom:20px; }
+div#container div.content div.bookshowback { margin-top:-70px; padding:0px 0px 10px 0px; }
+div#container div.content div.onlinecourse table.coursedetailheader { width:100%; margin-top:20px; margin-bottom:50px; }
+div#container div.content div.onlinecourse table.coursedetailheader th { text-align:left; vertical-align:top; }
+div#container div.content div.onlinecourse table.coursedetailheader th h4 { margin-bottom:40px; }
+div#container div.content div.onlinecourse table.coursedetailheader th img { margin-bottom:15px; }
+div#container div.content div.onlinecourse table.coursedetailheader td { text-align:right; vertical-align:top; }
+div#container div.content div.onlinecourse table.coursedetailheader td div.courseoption { text-align:right; }
+div#container div.content div.onlinecourse table.coursedetailheader td div.courseoption img { margin:10px 0px 0px 1px; }
+div#container div.content div.onlinecourse table.coursedetailheader td div.offlinecourseoption { text-align:right; padding:10px 30px 0px 0px; }
+div#container div.content div.onlinecourse table.coursedetailheader td div.offlinecourseoption button { margin:10px 0px 0px 2px; }
+div#container div.content div.onlinecourse table.coursedetailheader td img.courseimage { width:315px; height:180px; }
+div#container div.content div.onlinecourse table.learningcontent { margin-top:20px; width:100%; border:1px solid #dddddd; }
+div#container div.content div.onlinecourse table.learningcontent th { vertical-align:top; padding:15px; }
+div#container div.content div.onlinecourse table.learningcontent td { padding:15px; vertical-align:top; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; line-height:18px; }
+div#container div.content div.onlinecourse img.subject { margin-top:40px; }
+div#container div.content div.onlinecourse div.coursestepbox { border:1px solid #dddddd; margin-top:10px; padding:20px; }
+div#container div.content div.onlinecourse div.coursestepbox table.coursestep { width:940px; }
+div#container div.content div.onlinecourse div.coursestepbox table.coursestep th { text-align:center; height:30px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#ffffff; border:1px solid #ffffff; background-color:#235ea1; }
+div#container div.content div.onlinecourse div.coursestepbox table.coursestep td { height:30px; cursor:help; vertical-align:bottom; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#666666; }
+div#container div.content div.onlinecourse div.coursestepbox table.coursestep td.step { text-align:center; color:#3680d3; }
+div#container div.content div.onlinecourse div.coursestepbox table.coursestep td.stepname { padding-left:10px; text-align:left; }
+div#container div.content div.onlinecourse div.courseguidebox { border:1px solid #dddddd; margin-top:10px; padding:20px; }
+div#container div.content div.onlinecourse div.courseguidebox img { margin-bottom:10px; }
+div#container div.content div.onlinecourse div.rable1 { float:left; width:500px; }
+div#container div.content div.onlinecourse div.rable2 { margin-left:20px; float:left; width:418px; }
+div#container div.content div.onlinecourse div.rable3 { margin-top:20px; width:938px; }
+div#container div.content div.onlinecourse div.rable4 { width:938px; }
+div#container div.content div.onlinecourse div.courseguidebox table.courseguide { width:100%; }
+div#container div.content div.onlinecourse div.courseguidebox table.courseguide th { text-align:center; height:30px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; border:1px solid #dddddd; background-color:#fbfbfb; }
+div#container div.content div.onlinecourse div.courseguidebox table.courseguide td { text-indent:10px; height:30px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#666666; border:1px solid #dddddd; }
+div#container div.content div.onlinecourse div.courseguidebox table.courseguide td.evaluation { text-align:center; text-indent:0px; }
+div#container div.content div.onlinecourse ul.curriculumlayout li table.curriculum { width:470px; margin-top:30px; }
+div#container div.content div.onlinecourse ul.curriculumlayout li table.curriculum caption { height:30px; line-height:28px; text-align:left; padding:0px 0px 0px 10px; font-family:"malgun gothic","dotum","sans-self"; font-size:15px; color:#ffffff; font-weight:bold; }
+div#container div.content div.onlinecourse ul.curriculumlayout li table.curriculum caption.bgA { background-image:url("/images/2012/sub/page2/curriculum_barA.gif"); background-repeat:no-repeat; }
+div#container div.content div.onlinecourse ul.curriculumlayout li table.curriculum caption.bgB { background-image:url("/images/2012/sub/page2/curriculum_barB.gif"); background-repeat:no-repeat; }
+div#container div.content div.onlinecourse ul.curriculumlayout li table.curriculum caption.bgC { background-image:url("/images/2012/sub/page2/curriculum_barC.gif"); background-repeat:no-repeat; }
+div#container div.content div.onlinecourse ul.curriculumlayout li table.curriculum caption.bgD { background-image:url("/images/2012/sub/page2/curriculum_barD.gif"); background-repeat:no-repeat; }
+div#container div.content div.onlinecourse ul.curriculumlayout li table.curriculum tr.division { background-color:#f9f9f9; }
+div#container div.content div.onlinecourse ul.curriculumlayout li table.curriculum th { text-align:center; height:30px; border-left:1px solid #dddddd; border-right:1px solid #dddddd;  font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; background-image:url("/images/2012/common/table_bar.gif"); background-repeat:repeat-x; }
+div#container div.content div.onlinecourse ul.curriculumlayout li table.curriculum td { padding:6px 0px 6px 0px; border:1px solid #dddddd; text-align:center; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; }
+div#container div.content div.onlinecourse ul.curriculumlayout li table.curriculum td.coursename { text-align:left; padding-left:5px; }
+div#container div.content div.onlinecourse ul.curriculumlayout li.marginspace { margin-left:40px; }
+div#container div.content div.onlinecourse ul.curriculumlayout li { float:left; }
+
+div#container div.content div.offlinecourse ul.curriculumlayout li.marginspace { margin-left:40px; }
+div#container div.content div.offlinecourse ul.curriculumlayout li table.curriculum { width:470px; margin-top:30px; }
+div#container div.content div.offlinecourse ul.curriculumlayout li table.curriculum caption { height:30px; line-height:28px; text-align:left; padding:0px 0px 0px 10px; font-family:"malgun gothic","dotum","sans-self"; font-size:15px; color:#ffffff; font-weight:bold; }
+div#container div.content div.offlinecourse ul.curriculumlayout li table.curriculum caption span { font-size:12px; letter-spacing:-1px; font-weight:400; }
+div#container div.content div.offlinecourse ul.curriculumlayout li table.curriculum caption.bgA { background-image:url("/images/2012/sub/page2/curriculum_barA.gif"); background-repeat:no-repeat; }
+div#container div.content div.offlinecourse ul.curriculumlayout li table.curriculum caption.bgB { background-image:url("/images/2012/sub/page2/curriculum_barB.gif"); background-repeat:no-repeat; }
+div#container div.content div.offlinecourse ul.curriculumlayout li table.curriculum caption.bgC { background-image:url("/images/2012/sub/page2/curriculum_barC.gif"); background-repeat:no-repeat; }
+div#container div.content div.offlinecourse ul.curriculumlayout li table.curriculum caption.bgD { background-image:url("/images/2012/sub/page2/curriculum_barD.gif"); background-repeat:no-repeat; }
+div#container div.content div.offlinecourse ul.curriculumlayout li table.curriculum tr.division { background-color:#f9f9f9; }
+div#container div.content div.offlinecourse ul.curriculumlayout li table.curriculum th { text-align:center; height:30px; border-left:1px solid #dddddd; border-right:1px solid #dddddd;  font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; background-image:url("/images/2012/common/table_bar.gif"); background-repeat:repeat-x; }
+div#container div.content div.offlinecourse ul.curriculumlayout li table.curriculum td { padding:6px 0px 6px 0px; border:1px solid #dddddd; text-align:center; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; }
+div#container div.content div.offlinecourse ul.curriculumlayout li table.curriculum td.coursename { text-align:left; padding-left:5px; }
+div#container div.content div.offlinecourse ul.curriculumlayout li { float:left; }
+div#container div.content div.offlinecourse ul.curriculumlayout li.marginspace { margin-left:40px; }
+div#container div.content div.offlinecourse ul.curriculumlayout li h6 { margin-top:10px; }
+
+div#container div.content div.event img.category { margin-top:50px; }
+div#container div.content div.event table.eventlist { width:980px; margin-top:10px; border-top:1px solid #ed782a; }
+div#container div.content div.event table.eventlist th { text-align:left; border-bottom:1px solid #eeeeee; }
+div#container div.content div.event table.eventlist th img { width:210px; }
+div#container div.content div.event table.eventlist th div { padding:5px; border:1px solid #cccccc; }
+div#container div.content div.event table.eventlist td { padding:25px 20px 25px 10px; border-bottom:1px solid #eeeeee; }
+div#container div.content div.event table.eventlist td h5 { margin-top:10px; }
+div#container div.content div.event table.eventlist td p { margin-top:25px; }
+div#container div.content div.event table.eventlist td.noevent { font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; }
+div#container div.content div.eventimage { text-align:center; border:1px solid #dddddd; margin-top:5px; padding:10px; }
+div#container div.content div.opencast { padding-top:30px; }
+div#container div.content div.opencast dl.castlist { height:223px; background-image:url("/images/2012/sub/page5/pctable.png"); background-repeat:no-repeat; background-position:0px 120px; }
+div#container div.content div.opencast dl.castlist dd { margin:0px 18px 0px 18px; float:left; width:207px; height:137px; background-image:url("/images/2012/sub/page5/pctool.png"); background-repeat:no-repeat; }
+div#container div.content div.opencast dl.castlist dd img { width:162px; height:100px; margin:11px 0px 0px 15px; }
+div#container div.content div.opencast dl.castlist dd p { cursor:pointer; margin:32px 12px 0px 0px; text-align:center; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; }
+div#container div.content div.opencast dl.castlist dd p a { font-weight:400; letter-spacing:0px; color:#525252; }
+div#container div.content div.opencast dl.castlist dd p a:hover { font-weight:900; letter-spacing:-1px; color:#1e83e1; }
+div#container div.content div.opencast dl.infobox { margin:-30px 0px 50px 20px; }
+div#container div.content div.opencast dl.infobox dd { width:915px; }
+div#container div.content div.opencast dl.infobox dd.boxtop { height:17px; background-image:url("/images/2012/sub/page5/bg_infobox_01.png"); background-repeat:no-repeat; }
+div#container div.content div.opencast dl.infobox dd.boxmid { position:relative; background-image:url("/images/2012/sub/page5/bg_infobox_02.png"); background-repeat:repeat-y; }
+div#container div.content div.opencast dl.infobox dd.boxmid img.infoclose { position:absolute; right:15px; top:0px; }
+div#container div.content div.opencast dl.infobox dd.boxmid h3 { margin-left:20px; color:#000000; font-weight:bold; }
+div#container div.content div.opencast dl.infobox dd.boxmid table.infoform { margin:10px 0px 0px 20px; }
+div#container div.content div.opencast dl.infobox dd.boxmid table.infoform th { vertical-align:top; letter-spacing:-1px; }
+div#container div.content div.opencast dl.infobox dd.boxmid table.infoform th img.photo { width:80px; height:100px; }
+div#container div.content div.opencast dl.infobox dd.boxmid table.infoform td { text-align:left; padding-left:20px ;padding-right:20px; vertical-align:top; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; line-height:18px; }
+div#container div.content div.opencast dl.infobox dd.boxmid table.infoform td img { margin-bottom:10px; }
+div#container div.content div.opencast dl.infobox dd.boxbtm { height:18px; background-image:url("/images/2012/sub/page5/bg_infobox_03.png"); background-repeat:no-repeat; }
+div#container div.content div.opencast dl.castall {  }
+div#container div.content div.opencast dl.castall dt { padding-bottom:5px; border-bottom:1px solid #dddddd; font-family:"malgun gothic","dotum","sans-self"; font-size:14px; color:#dc1f1f; }
+div#container div.content div.opencast dl.castall dd {  }
+div#container div.content div.opencast dl.castall dd table.totallist { margin-top:20px; width:100%; }
+div#container div.content div.opencast dl.castall dd table.totallist td { text-align:left; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; }
+div#container div.content div.opencast dl.castall dd table.totallist td a { color:#525252; text-decoration:none; }
+div#container div.content div.opencast dl.castall dd table.totallist td a:hover { color:#1b70e4; text-decoration:underline; }
+div#container div.content div.opencast dl.castall dd table.totallist td p { margin-top:3px; margin-bottom:20px; }
+
+div#container div.content div.allimagepage { margin-top:50px; margin-bottom:50px; text-align:left; }
+div#container div.content div.txtpage { margin-top:30px; }
+div#container div.content div.txtpage h1 { margin-bottom:5px; color:#577dc0; }
+div#container div.content div.txtpage h2 { margin-bottom:20px; }
+div#container div.content div.txtpage h3 { position:relative; margin-top:30px; margin-bottom:10px; padding-left:26px; line-height:28px; color:#ffffff; font-weight:700; height:32px; background-image:url("/images/2012/sub/page7/bg_subject.gif"); background-repeat:no-repeat; }
+div#container div.content div.txtpage h3 p { position:absolute; right:0px; top:0px; font-family:"gulim","dotum","arial","sans-self"; font-size:12px; color:#525252; font-weight:400; text-decoration:underline; }
+div#container div.content div.txtpage h3 p a { font-weight:400; }
+div#container div.content div.txtpage h3 p a:hover { font-weight:900; letter-spacing:-1px; }
+div#container div.content div.txtpage h3 p a:focus { font-weight:900; letter-spacing:-1px; }
+div#container div.content div.txtpage h6 p { background-image:url("/images/2012/common/icon_dot.png"); background-repeat:no-repeat; background-position:0px 6px; padding-left:6px; }
+div#container div.content div.txtpage h6 p.bolder { font-weight:bold; }
+div#container div.content div.txtpage h6 span { color:#525252; }
+div#container div.content div.txtpage table.intable { width:973px; margin-left:7px; border-top:2px solid #dddddd; border-bottom:1px solid #dddddd; }
+div#container div.content div.txtpage table.intable caption { text-align:right; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#e9871d; }
+div#container div.content div.txtpage table.intable th { background-color:#fbfbfb; border-right:1px solid #dddddd; border-top:1px solid #dddddd; padding:6px 0px 6px 0px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; line-height:18px; text-align:center; }
+div#container div.content div.txtpage table.intable th.noborder { border-right:0px; }
+div#container div.content div.txtpage table.intable th.notweight { font-weight:400; }
+div#container div.content div.txtpage table.intable td { text-align:center; border-left:1px solid #dddddd; border-top:1px solid #dddddd; padding:6px 0px 6px 0px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; line-height:18px; }
+div#container div.content div.txtpage table.intable td.noborder { border-left:0px; }
+div#container div.content div.txtpage table.intable td.leftpadding { text-align:left; padding-left:10px; }
+div#container div.content div.txtpage div.outline { border:1px solid #dddddd; margin-bottom:10px; text-align:left; padding:30px 0px 0px 30px; }
+div#container div.content div.txtpage div.outline p { margin-top:10px; margin-bottom:8px; color:#f04d15; }
+div#container div.content div.txtpage div.outline table.stepbox { width:920px; }
+div#container div.content div.txtpage div.outline table.stepbox td { height:50px; text-align:center; font-family:"malgun gothic","dotum","sans-self"; font-size:14px; letter-spacing:-1px; line-height:16px; font-weight:700; color:#ffffff; }
+div#container div.content div.txtpage div.outline table.stepbox td.inbox { background-image:url("/images/2012/sub/page7/bg_stepbox.gif"); background-repeat:no-repeat; }
+div#container div.content div.corpbox { margin-top:30px; }
+div#container div.content div.corpbox h4 { position:relative; margin-top:20px; margin-bottom:7px; }
+div#container div.content div.corpbox h4 p { position:absolute; right:0px; top:0px; font-family:"gulim","dotum","arial","sans-self"; font-size:12px; color:#525252; font-weight:400; text-decoration:underline; }
+div#container div.content div.corpbox div.partnershipbox { padding:20px; border:1px solid #eeeeee; }
+div#container div.content div.corpbox div.partnershipbox img { border:1px solid #cccccc; margin:19px; }
+div#container div.content div.locationbox { border:5px solid #eeeeee; margin-top:30px; padding:20px; }
+div#container div.content div.locationtxt { margin-top:10px; }
+div#container div.content div.locationtxt h5 { text-align:right; }
+div#container div.content div.locationtip { margin-top:30px; }
+div#container div.content div.locationtip img { margin-bottom:10px; }
+
+div#container div.content div.internetguide { margin-top:30px; padding:20px; border:3px solid #dddddd; line-height:20px; font-family:"malgun gothic","dotum","sans-self"; font-size:14px; color:#525252; }
+div#container div.content div.guidestep p { margin-bottom:5px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#525252; line-height:18px; letter-spacing:-1px; }
+div#container div.content div.guidestep p span { font-family:"malgun gothic","dotum","sans-self"; font-size:14px; color:#1a81eb; font-weight:bold; }
+div#container div.content div.guidestep p b { color:#eb721a; }
+div#container div.content div.guidestep table.stepimage { width:980px; margin-bottom:5px; margin-top:30px; }
+div#container div.content div.guidestep table.stepimage tr.division { text-align:center; height:30px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#e02b73; }
+div#container div.content div.guidestep table.stepimage td img.stepst { border:1px solid #dddddd; }
+
+div#container div.content div.grouptip { border:1px solid #cccccc; padding:20px; margin-top:20px; }
+div#container div.content div.grouptip h5 { line-height:20px; }
+div#container div.content div.grouptip h5 span { color:#e66b20; }
+div#container div.content div.grouptip h5 b { color:#ed341c; }
+div#container div.content div.grouptip img { margin-top:6px; margin-bottom:10px; }
+div#container div.content div.namefont { position:relative; }
+div#container div.content div.namefont h3 { margin-top:20px; font-weight:bold; }
+div#container div.content div.namefont p { position:absolute; top:9px; right:0px; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#317ade; }
+div#container div.content div.contactform { margin-top:5px; }
+div#container div.content div.contactformtopcolor1 { border-top:2px solid #319cde; }
+div#container div.content div.contactformtopcolor2 { border-top:2px solid #999999; }
+div#container div.content div.contactform table.insertform { width:100%; }
+div#container div.content div.contactform table.insertform th { text-align:center; border-right:1px solid #dddddd; border-bottom:1px solid #dddddd; font-family:"malgun gothic","dotum","sans-self"; font-size:14px; color:#323232; background-color:#fbfbfb; }
+div#container div.content div.contactform table.insertform td { padding:12px 0px 12px 10px; border-bottom:1px solid #dddddd; font-family:"gulim","sans-serif"; color:#888888; font-size:12px; }
+div#container div.content div.contactform table.insertform td.addtitle { padding-left:0px; text-align:center; border-right:1px solid #dddddd; border-left:1px solid #dddddd; font-family:"malgun gothic","dotum","sans-self"; font-size:12px; color:#323232; background-color:#fdfdfd; }
+div#container div.content div.contactform table.insertform td.addtitle2 {font-weight:bold; text-align:center; border-left:1px solid #dddddd;border-right:1px solid #dddddd; border-bottom:1px solid #dddddd; font-family:"malgun gothic","dotum","sans-self"; font-size:14px; color:#323232; background-color:#fbfbfb;  }
+div#container div.content div.contactform table.insertform td.contents {text-align:center; border-bottom:1px solid #dddddd; font-family:"malgun gothic","dotum","sans-self"; font-size:12px; color:#323232; background-color:#fbfbfb;  }
+div#container div.content div.contactform table.insertform td.contents_l {text-align:center; border-left:1px solid #dddddd;border-bottom:1px solid #dddddd; font-family:"malgun gothic","dotum","sans-self"; font-size:12px; color:#323232;}
+div#container div.content div.contactform table.insertform td input[type='text'] { height:16px; padding:1px; border:1px solid #bbbbbb; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#323232; }
+div#container div.content div.contactform table.insertform td input[type='file'] { height:20px; padding:1px; border:1px solid #bbbbbb; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#323232; }
+div#container div.content div.contactform table.insertform td select { height:20px; padding:1px; border:1px solid #bbbbbb; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#323232; }
+div#container div.content div.contactform table.insertform td dl.colbath {  }
+div#container div.content div.contactform table.insertform td dl.colbath dd { float:left; }
+div#container div.content div.contactform table.insertform td dl.colbath dd.hyphen { margin:4px 2px 0px 2px; text-align:center; }
+div#container div.content div.contactform table.insertform td label { margin-right:20px; }
+div#container div.content div.contactform table.insertform td textarea { padding:1px; height:100px; margin-top:12px; margin-bottom:12px; border:1px solid #bbbbbb; font-family:"gulim","dotum","sans-self"; font-size:12px; color:#323232; }
+div#container div.content div.contactform table.insertform td p { margin-top:5px; }
+div#container div.content div.contactform table.insertform td#requestbox { padding-top:12px; }
+div#container div.content div.contactbtm { text-align:center; margin-top:30px; }
+
+div#container div.content div.prcenter table.prcenterlist { width:100%; margin-top:30px; border-top:1px solid #dddddd; }
+div#container div.content div.prcenter table.prcenterlist td { text-align:left; border-bottom:1px solid #dddddd; padding:15px 0px 15px 0px; }
+div#container div.content div.prcenter table.prcenterlist td h3 { margin-bottom:10px; }
+div#container div.content div.prcenter table.prcenterlist td h3 a { color:#323232; font-weight:bold; }
+div#container div.content div.prcenter table.prcenterlist td h3 a:hover { color:#1884e8; text-decoration:underline; }
+div#container div.content div.prcenter table.prcenterlist td h3 a:focus { color:#1884e8; text-decoration:underline; }
+div#container div.content div.prcenter table.prcenterlist td p { margin-top:10px; font-family:"gulim","dotum","arial","sans-serif"; font-size:12px; }
+div#container div.content div.prcenter table.prcenterlist td p img { margin-bottom:2px; margin-right:3px; }
+div#container div.content div.prcenter table.prcenterlist td p a { color:#626262; }
+div#container div.content div.prcenter table.prcenterlist td p a:hover { color:#e63320; text-decoration:underline; }
+div#container div.content div.prcenter table.prcenterlist td p a:focus { color:#e63320; text-decoration:underline; }
+div#container div.content div.prcenter h1 { margin-top:10px; font-weight:bold; }
+div#container div.content div.prcenter h3 span { font-size:14px; color:#888888; }
+div#container div.content div.prcenter div.detail { margin-top:40px; }
+div#container div.content div.prcenter div.detail p { font-family:"malgun gothic","dotum","arial","sans-serif"; }
+div#container div.content div.prcenter div.prfooter { margin-top:30px; padding-top:20px; text-align:right; border-top:1px solid #dddddd; }
+
+div#container div.content div.fixing { height:450px; background-image:url('/images/2012/sub/page1/bg_partline.gif'); background-repeat:no-repeat; background-position:center bottom; }
+div#container div.content div.checkpoint {  height:340px; text-align:left; background-image:url('/images/2012/sub/page1/bg_graph.gif'); background-repeat:no-repeat; background-position:right center; padding-top:30px; }
+div#container div.content div.checkpoint dl.celpdetail { width:520px; padding-top:40px; }
+div#container div.content div.checkpoint dl.celpdetail dt { text-align:left; margin-bottom:10px; }
+div#container div.content div.checkpoint dl.celpdetail dd { font-family:"gulim","dotum","sans-serif"; font-size:12px; color:#333333; text-align:left; line-height:18px; }
+div#container div.content div.opencelp { margin-top:-30px; text-align:center; }

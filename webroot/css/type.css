@@ -1,0 +1,33 @@
+/* 수료증 번호 */
+.certi_no           {font-family: "돋움"; font-size: 9pt; 	color: #000000;	text-decoration: none; line-height:18px ;}
+
+
+/* 수료증 타이틀 */
+.certi_title           {font-family: "돋움"; font-size: 33pt; 	color: #000000;	font-weight:bold; text-decoration: none; line-height:50px ;}
+
+/* 수료증 분류 */
+.certi_sbj           {font-family: "돋움"; font-size: 20pt; 	color: #000000;	font-weight:bold; text-decoration: none; line-height:30px ;}
+
+/* 수료증 분류2 */
+.certi_sbj2           {font-family: "돋움"; font-size: 14pt; 	color: #000000;	font-weight:bold; text-decoration: none; line-height:30px ;}
+
+/* 이수기간 */
+.certi_day           {font-family: "바탕"; font-size: 11pt; 	color: #000000;	text-decoration: none; line-height:20px ;}
+
+/* 수료자名 */
+.certi_name           {font-family: "돋움"; font-size: 25pt; 	color: #000000;	font-weight:bold; text-decoration: none; line-height:40px ;}
+
+/* 수료자 주민번호 */
+.certi_JUno           {font-family: "돋움"; font-size: 12pt; 	color: #000000;	 text-decoration: none; font-weight:bold;line-height:20px ;}
+
+/* 수료내용 */
+.certi_con           {font-family: "바탕"; font-size: 12pt; 	color: #000000;	 font-weight:bold; text-decoration: none; line-height:40px ;}
+
+/* 수료증 발행일 */
+.certi_day2           {font-family: "바탕"; font-size: 12pt; 	color: #000000;	text-decoration: none; line-height:20px ;}
+
+/* 한국방송영상산업진흥원 원장 직인란 */
+.certi           {font-family: "바탕"; font-size: 16pt; 	color: #000000;	font-weight:bold; text-decoration: none; line-height:30px ;}
+
+
+

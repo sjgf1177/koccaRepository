@@ -1,0 +1,1 @@
+        <a href = "javascript:whenSelection('go')"><img src = "/images/admin/button/b_go.gif" border = "0" align="absmiddle"></a>

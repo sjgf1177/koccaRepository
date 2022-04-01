@@ -1,0 +1,168 @@
+<html>
+<head>
+<style type="text/css">
+<!--
+	td
+	{
+		font:9pt 굴림;
+		line-height: 160%;
+	}
+	th
+	{
+		font:9pt 굴림;
+		line-height: 160%;
+	}
+	A:link     {font: bold 9pt "굴림 new"; color:#5A8AAD; text-decoration:none}
+	A:active   {font: bold 9pt "굴림 new"; color:#36618A; text-decoration:none}
+	A:visited  {font: bold 9pt "굴림 new"; color:#36618A; text-decoration:none}
+	A:hover    {font: bold 9pt "굴림 new"; color:#36618A; text-decoration:none}
+	.input
+	{
+		BACKGROUND-COLOR: #ffffff;
+		BORDER-BOTTOM: #999999 1px solid;
+		BORDER-LEFT: #999999 1px solid;
+		BORDER-RIGHT: #999999 1px solid;
+		BORDER-TOP: #999999 1px solid;
+		COLOR: #999999;
+		FONT-SIZE: 9pt
+	}
+//-->
+</style>
+<script language=javascript>
+function popup(z)
+{
+	urls= z+".html";
+	window.open(urls, "popup", "width=800,heigh t=690,resizable=yes,scrollbars=yes,toolbars=yes,menubars=0");
+}
+
+
+function click() {
+	if ((event.button==2) || (event.button==2)) {
+		alert('죄송합니다. 오른쪽 마우스 금지입니다.');
+	}
+}
+document.onmousedown=click;
+
+function processKey() 
+{ 
+        if( (event.ctrlKey == true && (event.keyCode == 78 || event.keyCode == 82)) || 
+        (event.keyCode >= 112 && event.keyCode <= 123) || event.keyCode == 8) 
+            { 
+        event.keyCode = 0; 
+        event.cancelBubble = true; 
+        event.returnValue = false; 
+            } 
+} 
+document.onkeydown = processKey; 
+
+function click() { 
+     if((event.ctrlKey) || (event.shiftKey)) { 
+       alert('키를 사용할 수 없습니다.'); 
+     } 
+} 
+document.onmousedown=click; 
+document.onkeydown=click; 
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr"></head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" oncontextmenu='return false' ondragstart='return false' onselectstart='return false'>
+<br>
+  
+<table width="620"  border="0" align="center" cellpadding="3" cellspacing="5">
+  
+  <tr> 
+    <td colSpan="2" height="30" align="center"><FONT SIZE="2" COLOR="#0099cc">&nbsp; 
+      </font></td>
+  </tr>
+  <tr> 
+    <td colSpan="2" height="30" align="center" bgcolor="#F7FAFD"><FONT SIZE="2" COLOR="#0099cc"> 
+      <b><font color="#333333"> 프로그래밍2 </font></b></FONT></td>
+  </tr>
+  <tr> 
+    <td bgColor="#69AFDA" colSpan="2" height="2"></td>
+  </tr>
+  <tr align="center" valign="middle"> 
+    <td height="10"></td>
+    <td></td>
+  </tr>
+  <tr>
+  <td height="30" bgcolor="#F7FAFD" align="center" colSpan="2" >
+		<table cellpadding="4" cellspacing="1" border="0"  bgcolor="#D8D8D8" width="100%">
+			<tr  align="center" class="css3">
+				<Td  height=25 colspan=3 bgcolor="#E8F3FF"   class="table"><b>Topic</b></td>
+			</TR>
+			<tr align="center" class="css3">	
+				<TD width=10% height=23 align=center bgcolor="#F2F2F2">1</TD>
+				<TD align="left" bgcolor="white"><b><A href="javascript:popup('http://cyber.gameacademy.or.kr/contents/002/000004/01/index');">&#160;윈도우 프로그램 개요 </a></b></TD>
+			</TR>
+			<tr align="center" bgcolor="#F2F2F2" class="css3">
+						<TD width=10% height=23 align=center bgcolor="#F2F2F2">2</TD>
+						<TD align="left" bgcolor="white"><b><A href="javascript:popup('http://cyber.gameacademy.or.kr/contents/002/000004/02/index');">&#160;Windows 메시지 </a></b></TD>	
+			</TR>
+			<tr align="center" bgcolor="#F2F2F2" class="css3">
+						<TD width=10% height=23 align=center bgcolor="#F2F2F2">3</TD>
+						<TD align="left" bgcolor="white"><b><A href="javascript:popup('http://cyber.gameacademy.or.kr/contents/002/000004/03/index');">&#160;문자 출력 </a></b></TD>	
+			</TR>
+			<tr align="center" bgcolor="#F2F2F2" class="css3">
+						<TD width=10% height=23 align=center bgcolor="#F2F2F2">4</TD>
+						<TD align="left" bgcolor="white"><b><A href="javascript:popup('http://cyber.gameacademy.or.kr/contents/002/000004/04/index');">&#160;GDI를 활용한 그림 그리기 </a></b></TD>	
+			</TR>
+			<tr align="center" bgcolor="#F2F2F2" class="css3">
+						<TD width=10% height=23 align=center bgcolor="#F2F2F2">5</TD>
+						<TD align="left" bgcolor="white"><b><A href="javascript:popup('http://cyber.gameacademy.or.kr/contents/002/000004/05/index');">&#160;Keyboard 제어 </a></b></TD>	
+			</TR>
+			<tr align="center" bgcolor="#F2F2F2" class="css3">
+						<TD width=10% height=23 align=center bgcolor="#F2F2F2">6</TD>
+						<TD align="left" bgcolor="white"><b><A href="javascript:popup('http://cyber.gameacademy.or.kr/contents/002/000004/06/index');">&#160;Mouse 제어 </a></b></TD>	
+			</TR>
+			<tr align="center" bgcolor="#F2F2F2" class="css3">
+						<TD width=10% height=23 align=center bgcolor="#F2F2F2">7</TD>
+						<TD align="left" bgcolor="white"><b><A href="javascript:popup('http://cyber.gameacademy.or.kr/contents/002/000004/07/index');">&#160;Timer </a></b></TD>	
+			</TR>
+			<tr align="center" bgcolor="#F2F2F2" class="css3">
+						<TD width=10% height=23 align=center bgcolor="#F2F2F2">8</TD>
+						<TD align="left" bgcolor="white"><b><A href="javascript:popup('http://cyber.gameacademy.or.kr/contents/002/000004/08/index');">&#160;Child Windows  </a></b></TD>	
+			</TR>
+			<tr align="center" bgcolor="#F2F2F2" class="css3">
+						<TD width=10% height=23 align=center bgcolor="#F2F2F2">9</TD>
+						<TD align="left" bgcolor="white"><b><A href="javascript:popup('http://cyber.gameacademy.or.kr/contents/002/000004/09/index');">&#160;Menu & Resource 활용 </a></b></TD>	
+			</TR>
+			<tr align="center" bgcolor="#F2F2F2" class="css3">
+						<TD width=10% height=23 align=center bgcolor="#F2F2F2">10</TD>
+						<TD align="left" bgcolor="white"><b><A href="javascript:popup('http://cyber.gameacademy.or.kr/contents/002/000004/10/index);">&#160;대화 상자 </a></b></TD>	
+			</TR>
+			<tr align="center" bgcolor="#F2F2F2" class="css3">
+						<TD width=10% height=23 align=center bgcolor="#F2F2F2">11</TD>
+						<TD align="left" bgcolor="white"><b><A href="javascript:popup('http://cyber.gameacademy.or.kr/contents/002/000004/11/index');">&#160;비트맵과 bitbl </a></b></TD>	
+			</TR>
+			<tr align="center" bgcolor="#F2F2F2" class="css3">
+						<TD width=10% height=23 align=center bgcolor="#F2F2F2">12</TD>
+						<TD align="left" bgcolor="white"><b><A href="javascript:popup('http://cyber.gameacademy.or.kr/contents/002/000004/12/index');">&#160;텍스트와 글꼴 </a></b></TD>	
+			</TR>
+			<tr align="center" bgcolor="#F2F2F2" class="css3">
+						<TD width=10% height=23 align=center bgcolor="#F2F2F2">13</TD>
+						<TD align="left" bgcolor="white"><b><A href="javascript:popup('http://cyber.gameacademy.or.kr/contents/002/000004/13/index');">&#160;멀티 태스킹과 멀티 스레딩 </a></b></TD>	
+			</TR>
+			<tr align="center" bgcolor="#F2F2F2" class="css3">
+						<TD width=10% height=23 align=center bgcolor="#F2F2F2">14</TD>
+						<TD align="left" bgcolor="white"><b><A href="javascript:popup('http://cyber.gameacademy.or.kr/contents/002/000004/14/index');">&#160;동적 연결 라이브러리 </a></b></TD>	
+			</TR>
+
+		</TABLE>
+	</td>
+  </tr>
+  <tr align="center" valign="middle"> 
+    <td height="15"></td>
+    <td></td>
+  </tr>
+  <tr align="center" valign="middle">
+  <td height="55" valign="top" colSpan="2" >  각 차시명을 클릭하시면 해당 차시의 과정이 실행됩니다.</td>
+
+  </tr>
+  <tr align="center" valign="middle">
+    <td height="51"></td>
+    <td></td>
+  </tr>
+</table>
+</body>
+</html>
+

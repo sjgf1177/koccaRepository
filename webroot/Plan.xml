@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<deployment-plan xmlns="http://www.bea.com/ns/weblogic/deployment-plan" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.bea.com/ns/weblogic/deployment-plan http://www.bea.com/ns/weblogic/deployment-plan/1.0/deployment-plan.xsd" global-variables="false">
+  <application-name>KOCCA_DEV</application-name>
+  <variable-definition>
+    <variable>
+      <name>WeblogicWebApp_ContextRoots_12469587503780</name>
+      <value>"/"</value>
+    </variable>
+    <variable>
+      <name>SessionDescriptor_invalidationIntervalSecs_12469591857680</name>
+      <value>6000</value>
+    </variable>
+  </variable-definition>
+  <module-override>
+    <module-name>webroot</module-name>
+    <module-type>war</module-type>
+    <module-descriptor external="false">
+      <root-element>weblogic-web-app</root-element>
+      <uri>WEB-INF/weblogic.xml</uri>
+      <variable-assignment>
+        <name>WeblogicWebApp_ContextRoots_12469587503780</name>
+        <xpath>/weblogic-web-app/context-root</xpath>
+        <operation>replace</operation>
+      </variable-assignment>
+      <variable-assignment>
+        <name>SessionDescriptor_invalidationIntervalSecs_12469591857680</name>
+        <xpath>/weblogic-web-app/session-descriptor/invalidation-interval-secs</xpath>
+      </variable-assignment>
+    </module-descriptor>
+    <module-descriptor external="false">
+      <root-element>web-app</root-element>
+      <uri>WEB-INF/web.xml</uri>
+    </module-descriptor>
+    <module-descriptor external="true">
+      <root-element>wldf-resource</root-element>
+      <uri>META-INF/weblogic-diagnostics.xml</uri>
+    </module-descriptor>
+  </module-override>
+  <config-root>D:\work\academy\KOCCA_DEV\plan</config-root>
+</deployment-plan>

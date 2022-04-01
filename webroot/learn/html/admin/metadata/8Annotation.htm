@@ -1,0 +1,412 @@
+<html>
+<head>
+<title>
+8 Annotation - 8.1 Centity - 8.2 Date - 8.3 Description
+</title>
+<script language="javascript" src="/script/scorm_lib.js"></script>
+<script language="javascript">
+/************************************************************************
+**
+** Filename:  8Annotation.htm
+**
+** File Description: This page displays the multiplicity elements for
+**					 section 8 Annotation.
+**
+** Author:  ADLI Project
+**
+** Company Name: Concurrent Technologies Corporation (CTC)
+**
+** Module/Package Name:
+** Module/Package Description:
+**
+** Design Issues:
+**
+** Implementation Issues:
+** Known Problems:
+** Side Effects:
+**
+** References:  SCORM Version 1.1 (Section 2)
+**
+**************************************************************************
+**
+** Advanced Distributed Learning Co-Laboratory (ADL Co-Lab) grants you
+** ("Licensee") a non-exclusive, royalty free, license to use, modify and
+** redistribute this software in source and binary code form, provided
+** that i) this copyright notice and license appear on all copies of the
+** software; and ii) Licensee does not utilize the software in a manner
+** which is disparaging to CTC.
+**
+** This software is provided "AS IS," without a warranty of any kind.  ALL
+** EXPRESS OR IMPLIED CONDITIONS, REPRESENTATIONS AND WARRANTIES,
+** INCLUDING ANY IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A
+** PARTICULAR PURPOSE OR NON- INFRINGEMENT, ARE HEREBY EXCLUDED.  CTC AND
+** ITS LICENSORS SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY LICENSEE
+** AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THE SOFTWARE OR ITS
+** DERIVATIVES.  IN NO EVENT WILL CTC  OR ITS LICENSORS BE LIABLE FOR ANY
+** LOST REVENUE, PROFIT OR DATA, OR FOR DIRECT, INDIRECT, SPECIAL,
+** CONSEQUENTIAL, INCIDENTAL OR PUNITIVE DAMAGES, HOWEVER CAUSED AND
+** REGARDLESS OF THE THEORY OF LIABILITY, ARISING OUT OF THE USE OF OR
+** INABILITY TO USE SOFTWARE, EVEN IF CTC  HAS BEEN ADVISED OF THE
+** POSSIBILITY OF SUCH DAMAGES.
+**
+*************************************************************************
+**
+** Date Changed   Author of Change  Reason for Changes
+** ------------   ----------------  -------------------------------------
+** 3/12/2001      Tom Hopkins       Initial Final Version for MDG v1.1
+**
+************************************************************************/
+
+// Global Variables
+var visibleCount = 0;
+var maxElements = 100;
+var offset = 150;
+var centityList = "";
+var dateList = "";
+var descriptionList = "";
+var datedescriptionList = "";
+
+/************************************************************************
+** Function: displayAnnotation()
+**
+** Variables: none
+**
+** Description:
+**			This function is called when the page loads.  It gathers the
+**		centity, date and description lists.  These lists if not blank 
+**		are used to repopulate the fields.  Otherwise it calls addNewCentity
+**		and adds blank fields.
+*************************************************************************/
+function displayAnnotation()
+{
+   if (parent.main == null)
+   {
+      location.href="errorPage.htm";
+   }
+   else
+   {
+	  centityList = parent.main.centityList3;
+	  dateList = parent.main.dateList3;
+	  descriptionList = parent.main.descriptionList3;
+//	  datedescriptionList = parent.main.datedescriptionList3;
+
+	  var centityArray = centityList.split("|");	  
+	  var dateArray = dateList.split("|");
+	  var descriptionArray = descriptionList.split("|");
+//	  var datedescriptionArray = datedescriptionList.split("|");
+	  
+	  for (var i=0;i<centityArray.length;i++)
+	  {
+	     addNewCentity(centityArray[i],dateArray[i],descriptionArray[i])
+	  }
+  }
+}
+
+/************************************************************************
+** Function: addNewCentity(centity,date,description,datedes)
+**
+** Variables: centity - New Centity Information
+**			  date - New Date Information
+**			  datedes - New Date Description Information
+**			  description - New Description Information
+**
+** Description:
+**			This function is called by displayAnnotation.  It makes the
+**		appropriate fields visible and either leaves the textboxes blank
+**		or populates them with the centity, date and description information.
+*************************************************************************/
+function addNewCentity(centity,date,description)
+{
+   if (centity == null)
+   {
+	centity= "";
+	date = "";
+	description ="";
+   }
+   
+   var centArray;
+   var cent_name="";
+   var cent_org="";
+   var cent_address="";
+   var cent_email="";
+
+   if(centity==""){
+   }else{
+   		centArray=centity.split(",");
+		cent_name=centArray[0];
+		cent_org=centArray[1];
+		cent_address=centArray[2];
+		cent_email=centArray[3];
+   }
+   
+   if (visibleCount == 32)
+   {
+      if (!confirm("WARNING!  Tools are only required to support up to 32 8 Annotation sections. \n Click OK to continue adding. \nClick Cancel to stop adding."))
+      {
+         return;
+      }
+   }
+
+   if (visibleCount == maxElements)
+   {
+      alert("Maximum number of elements exceeded.  Can not add any more elements.");
+      return;
+   }
+
+   visibleCount++;
+
+   //8 Annotation
+   document.all.item("label"+visibleCount).style.visibility = "visible";
+   document.all.item("del"+visibleCount).style.visibility = "visible";
+   
+   //8.1 Centity
+   document.all.item("labelcent"+visibleCount).style.visibility = "visible";
+//   document.all.item("inputcent"+visibleCount).style.visibility = "visible";
+//   document.all.item("inputcent"+visibleCount).value = centity;
+
+   //8.1 Centity_name
+   document.all.item("labelcent_name"+visibleCount).style.visibility = "visible";
+   document.all.item("inputcent_name"+visibleCount).style.visibility = "visible";
+   document.all.item("inputcent_name"+visibleCount).value = cent_name;
+   //8.1 Centity_org
+   document.all.item("labelcent_org"+visibleCount).style.visibility = "visible";
+   document.all.item("inputcent_org"+visibleCount).style.visibility = "visible";
+   document.all.item("inputcent_org"+visibleCount).value = cent_org;
+   //8.1 Centity_address
+   document.all.item("labelcent_address"+visibleCount).style.visibility = "visible";
+   document.all.item("inputcent_address"+visibleCount).style.visibility = "visible";
+   document.all.item("inputcent_address"+visibleCount).value = cent_address;
+   //8.1 Centity_email
+   document.all.item("labelcent_email"+visibleCount).style.visibility = "visible";
+   document.all.item("inputcent_email"+visibleCount).style.visibility = "visible";
+   document.all.item("inputcent_email"+visibleCount).value = cent_email;
+
+   //8.2 Date
+   document.all.item("labeldate"+visibleCount).style.visibility = "visible";
+   document.all.item("inputdate"+visibleCount).style.visibility = "visible";
+   document.all.item("labeldatecom"+visibleCount).style.visibility = "visible";   
+   document.all.item("inputdate"+visibleCount).value = date;
+
+   //8.2 Date Description
+   //document.all.item("labeldes"+visibleCount).style.visibility = "visible";
+   //document.all.item("inputdes"+visibleCount).style.visibility = "visible";
+   //document.all.item("inputdes"+visibleCount).value = datedes;
+   
+   //8.3 Description
+   document.all.item("labeldesc"+visibleCount).style.visibility = "visible";
+   document.all.item("inputdesc"+visibleCount).style.visibility = "visible";
+   document.all.item("inputdesc"+visibleCount).value = description;
+
+   // Line Tag
+   document.all.item("div"+visibleCount).style.visibility = "visible";
+   
+}
+
+/************************************************************************
+** Function: deleteCentity()
+**
+** Variables: none
+**
+** Description:
+**			This function is called when the user presses the delete button.
+**		The appropriate fields are hidden and the information in the
+**		textboxes are erased.
+*************************************************************************/
+function deleteCentity()
+{
+   // get the last character of the id that caused this event to be fired
+   // this is the index of the element we want to delete.
+   
+   var evt = new String(window.event.srcElement.id);
+   var idx = evt.charAt(evt.length-1);
+
+   // push all the other remaining elements down the "stack".
+   for (i=idx;i<visibleCount;i++)
+   {
+      var nextIdx = i;
+      nextIdx++;
+      document.all.item("inputcent_name"+i).value = document.all.item("inputcent_name"+nextIdx).value;
+      document.all.item("inputcent_org"+i).value = document.all.item("inputcent_org"+nextIdx).value;
+      document.all.item("inputcent_address"+i).value = document.all.item("inputcent_address"+nextIdx).value;
+      document.all.item("inputcent_email"+i).value = document.all.item("inputcent_email"+nextIdx).value;
+      document.all.item("inputdate"+i).value = document.all.item("inputdate"+nextIdx).value;
+      //document.all.item("inputdes"+i).value = document.all.item("inputdes"+nextIdx).value;
+      document.all.item("inputdesc"+i).value = document.all.item("inputdesc"+nextIdx).value;
+   }
+   
+   // make the last one invisible (this is the element that will now be empty).
+   //8 Annotation
+   document.all.item("label"+visibleCount).style.visibility = "hidden";
+   document.all.item("del"+visibleCount).style.visibility = "hidden";
+   
+   //8.1 Centity
+   document.all.item("labelcent"+visibleCount).style.visibility = "hidden";
+//   document.all.item("inputcent"+visibleCount).style.visibility = "hidden";
+//   document.all.item("inputcent"+visibleCount).value = "";
+
+   //8.1 Centity_name
+   document.all.item("labelcent_name"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputcent_name"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputcent_name"+visibleCount).value = "";
+   //8.1 Centity_org
+   document.all.item("labelcent_org"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputcent_org"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputcent_org"+visibleCount).value = "";
+   //8.1 Centity_address
+   document.all.item("labelcent_address"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputcent_address"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputcent_address"+visibleCount).value = "";
+   //8.1 Centity_email
+   document.all.item("labelcent_email"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputcent_email"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputcent_email"+visibleCount).value = "";
+
+   
+   //8.2 Date
+   document.all.item("labeldate"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputdate"+visibleCount).style.visibility = "hidden";
+   document.all.item("labeldatecom"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputdate"+visibleCount).value = "";
+
+   //8.2 Date Description
+   //document.all.item("labeldes"+visibleCount).style.visibility = "hidden";
+   //document.all.item("inputdes"+visibleCount).style.visibility = "hidden";
+   //document.all.item("inputdes"+visibleCount).value = "";
+
+   //8.3 Description
+   document.all.item("labeldesc"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputdesc"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputdesc"+visibleCount).value = "";
+   
+   // Line Tag
+   document.all.item("div"+visibleCount).style.visibility = "hidden";
+   
+   visibleCount--;
+   
+}
+
+/************************************************************************
+** Function: okHandler()
+**
+** Variables: none
+**
+** Description:
+**			This function is called when the user presses the ok button.
+**		It gathers the centity, date and description information and
+**		calls displayAnnotation in rawmedia.htm
+*************************************************************************/
+function okHandler()
+{
+  centityList = "";
+  dateList = "";
+  descriptionList = "";
+  //datedescriptionList = "";
+  for (i=0;i<visibleCount;i++)
+  {
+  var j = "";
+	j = i + 1;
+	if ( document.all.item("inputcent_name" + j).value == "" ) 		{ alert('8.1 Name ('+j+') is empty.'); document.all.item("inputcent_name" + j).focus(); return false; }
+	if ( document.all.item("inputcent_org" + j).value == "" ) 		{ alert('8.1 Org('+j+') is empty.'); document.all.item("inputcent_org" + j).focus(); return false; }
+	if ( document.all.item("inputcent_address" + j).value == "" ) 	{ alert('8.1 Address('+j+') is empty.'); document.all.item("inputcent_address" + j).focus(); return false; }
+	if ( document.all.item("inputcent_email" + j).value == "" ) 	{ alert('8.1 Email('+j+') is empty.'); document.all.item("inputcent_email" + j).focus(); return false; }
+	if ( document.all.item("inputdate" + j).value == "" ) 			{ alert('8.2 Date('+j+') is empty.'); document.all.item("inputdate" + j).focus(); return false; }
+	if ( document.all.item("inputdesc" + j).value == "" ) 			{ alert('8.3 Description('+j+') is empty.'); document.all.item("inputdesc" + j).focus(); return false; }
+	if (getByteLength(document.all.item("inputcent_name" + j)) > 50 ) {
+		alert("8.1 Name("+j+") is "+getByteLength(document.all.item("inputcent_name" + j))+" bytes.(max:50 bytes)");
+		document.all.item("inputcent_name" + j).focus(); return false;
+	}
+	if (getByteLength(document.all.item("inputcent_org" + j)) > 100 ) {
+		alert("8.1 Org("+j+") is "+getByteLength(document.all.item("inputcent_org" + j))+" bytes.(max:100 bytes)");
+		document.all.item("inputcent_org" + j).focus(); return false;
+	}
+	if (getByteLength(document.all.item("inputcent_address" + j)) > 200 ) {
+		alert("8.1 Address("+j+") is "+getByteLength(document.all.item("inputcent_address" + j))+" bytes.(max:200 bytes)");
+		document.all.item("inputcent_address" + j).focus(); return false;
+	}
+	if (getByteLength(document.all.item("inputcent_email" + j)) > 50 ) {
+		alert("8.1 Email("+j+") is "+getByteLength(document.all.item("inputcent_email" + j))+" bytes.(max:50 bytes)");
+		document.all.item("inputcent_email" + j).focus(); return false;
+	}
+	if (getByteLength(document.all.item("inputdate" + j)) > 30 ) {
+		alert("8.2 Date("+j+") is "+getByteLength(document.all.item("inputdate" + j))+" bytes.(max:30 bytes)");
+		document.all.item("inputdate" + j).focus(); return false;
+	}
+	if (getByteLength(document.all.item("inputdesc" + j)) > 3000 ) {
+		alert("8.3 Description("+j+") is "+getByteLength(document.all.item("inputdesc" + j))+" bytes.(max:3000 bytes)");
+		document.all.item("inputdesc" + j).focus(); return false;
+	}
+	centityList = centityList + document.all.item("inputcent_name" + j).value + ","+ document.all.item("inputcent_org" + j).value +","+ document.all.item("inputcent_address" + j).value +","+ document.all.item("inputcent_email" + j).value +  "|"
+	dateList = dateList + document.all.item("inputdate" + j).value + "|"
+	descriptionList = descriptionList + document.all.item("inputdesc" + j).value + "|"	
+	//datedescriptionList = datedescriptionList + document.all.item("inputdes" + j).value + "|"
+   }
+    parent.main.displayAnnotation(centityList,dateList,descriptionList);
+}
+</script>
+
+<style type="text/css">
+table { font-family: "Vernada","±¼¸²Ã¼", "±¼¸²", "µ¸¿òÃ¼"; font-size: 9pt ; line-height:12pt;color:#343434 ;>r-spacing:0px;border-padding:0px} 
+td { font-family: "Vernada","±¼¸²Ã¼", "±¼¸²", "µ¸¿òÃ¼"; font-size: 9pt ; line-height:12pt;color:#343434 ;>r-spacing:0px;border-padding:0px} 
+
+a:active, a:link, a:visited {  color: #1A9EBF; text-decoration: none}
+a:hover {  color: #DD8E24; text-decoration: none}
+
+body{	background-image:url("hrdi_img/right_bg.gif");
+	background-repeat:repeat-y;
+
+
+
+                scrollbar-face-color: ffffff; 
+                scrollbar-shadow-color: #cccccc; 
+                scrollbar-highlight-color: #cccccc; 
+                scrollbar-3dlight-color: #efefef; 
+                scrollbar-darkshadow-color: #efefef; 
+                scrollbar-track-color : #efefef; 
+                scrollbar-arrow-color: #B9B9B9; 
+}
+input{	
+		background-color:#ffffff; border:1 solid #838383;  font-family:gulim; font-size:9pt;color:#545454;
+}
+textarea{	
+		background-color:#ffffff; border:1 solid #838383;  font-family:gulim; font-size:9pt;color:#545454;
+}
+.btn	{background-color:#E6EDF9; BORDER-TOP-WIDTH: 1px solid #CADEFF; BORDER-RIGHT: 1px solid #2845A6; BORDER-LEFT-WIDTH: 1px solid #CADEFF; BORDER-BOTTOM:1px solid #0C1E72; font-family:gulim; font-size:9pt;color:#0C1E72; cursor:hand}
+</style>
+</head>
+<body background="/images/metadata/bkg.gif" bgcolor="#f0f0f0" onload="displayAnnotation();">
+<div align="center">
+<table width="98%">
+<tr>
+	<td Class="Form"><br><strong><font color="#24309B">8 Annotation - Multiple Elements</font></strong></td>
+<tr>
+	<td>
+		<form NAME="annotationForm" id="annotationForm">
+		<input TYPE="button" ID="add" NAME="add" VALUE="Add Annotation Information" ONCLICK ="addNewCentity(null,null,null);" class="btn">
+
+		<input TYPE="button" id="okButton" NAME="okButton" VALUE="OK" ONCLICK="okHandler();" class="btn">
+
+		<input type="Reset" value="Clear" name="clearButton" id="clearButton" class="btn">
+		<script LANGUAGE="JAVASCRIPT">
+		for (i=0;i<100;i++)  // the upper limit needs to correspond to the maxElements variable defined above.
+		{
+		   document.writeln("<label id=\"label"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">Annotation</label>&nbsp;&nbsp;&nbsp;<input TYPE=\"button\"  class=\"btn\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" ID=\"del" +i+ "\" NAME=\"del" +i+ "\" VALUE=\"Delete\" ONCLICK =\"deleteCentity();\"><BR>");			
+//		   document.writeln("<label id=\"labelcent"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">8.1 Centity</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<INPUT kind=\"text\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" name=\"inputcent\"" + i + "\" id=\"inputcent" + i + "\" maxlength=1024><BR>");
+			document.writeln("<label id=\"labelcent"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">8.1 Person</label><BR>");
+			document.writeln("<label id=\"labelcent_name"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">8.1 Name</label>&nbsp;&nbsp;&nbsp;&nbsp;<INPUT kind=\"text\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" name=\"inputcent_name\"" + i + "\" id=\"inputcent_name" + i + "\" maxlength=50><BR>");
+			document.writeln("<label id=\"labelcent_org"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">8.1 Org</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<INPUT kind=\"text\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" name=\"inputcent_org\"" + i + "\" id=\"inputcent_org" + i + "\" maxlength=100><BR>");
+			document.writeln("<label id=\"labelcent_address"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">8.1 Address</label>&nbsp;<INPUT kind=\"text\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" name=\"inputcent_address\"" + i + "\" id=\"inputcent_address" + i + "\" maxlength=200><BR>");
+			document.writeln("<label id=\"labelcent_email"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">8.1 Email</label>&nbsp;&nbsp;&nbsp;<INPUT kind=\"text\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" name=\"inputcent_email\"" + i + "\" id=\"inputcent_email" + i + "\" maxlength=50><BR>");
+		   document.writeln("<label id=\"labeldate"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">8.2 Date</label>&nbsp;&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"text\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" res=\"inputdate\"" + i + "\" id=\"inputdate" + i + "\" maxlength=30><br>");
+		   document.writeln("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label id=\"labeldatecom"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">[For Date] - ISO 8601 format.</label><br>");
+		   //document.writeln("<label id=\"labeldes"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">Date Description</label>&nbsp;<INPUT TYPE=\"text\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" res=\"inputdes\"" + i + "\" id=\"inputdes" + i + "\" maxlength=3000><br><br>");		   
+		   document.writeln("<label id=\"labeldesc"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">8.3 Description</label><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"text\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" name=\"inputdesc\"" + i + "\" id=\"inputdesc" + i + "\" maxlength=1024><br>");
+		   document.writeln("<div id=\"div"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\"><hr></div>");		   		   
+		}
+		</script>
+		</form>
+	</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

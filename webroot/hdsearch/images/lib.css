@@ -1,0 +1,48 @@
+BODY {
+	FONT-SIZE: 9pt; COLOR: black; LINE-HEIGHT: 135%; FONT-FAMILY: Tahoma, ±¼¸², Seoul, Gulim
+}
+TD {
+	FONT-SIZE: 9pt; COLOR: black; LINE-HEIGHT: 135%; FONT-FAMILY: Tahoma, ±¼¸², Seoul, Gulim
+}
+SELECT {
+	FONT-SIZE: 9pt; COLOR: black; LINE-HEIGHT: 135%; FONT-FAMILY: Tahoma, ±¼¸², Seoul, Gulim
+}
+INPUT {
+	BORDER-RIGHT: #a0b0c4 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #a0b0c4 1px solid; PADDING-LEFT: 2px; PADDING-BOTTOM: 0px; BORDER-LEFT: #a0b0c4 1px solid; PADDING-TOP: 0px; BORDER-BOTTOM: #a0b0c4 1px solid; BACKGROUND-COLOR: #eaeef4
+}
+DIV {
+	FONT-SIZE: 9pt; COLOR: black; LINE-HEIGHT: 135%; FONT-FAMILY: Tahoma, ±¼¸², Seoul, Gulim
+}
+FORM {
+	FONT-SIZE: 9pt; COLOR: black; LINE-HEIGHT: 135%; FONT-FAMILY: Tahoma, ±¼¸², Seoul, Gulim
+}
+TEXTAREA {
+	FONT-SIZE: 9pt; COLOR: black; LINE-HEIGHT: 135%; FONT-FAMILY: Tahoma, ±¼¸², Seoul, Gulim
+}
+CENTER {
+	FONT-SIZE: 9pt; COLOR: black; LINE-HEIGHT: 135%; FONT-FAMILY: Tahoma, ±¼¸², Seoul, Gulim
+}
+OPTION {
+	FONT-SIZE: 9pt; COLOR: black; LINE-HEIGHT: 135%; FONT-FAMILY: Tahoma, ±¼¸², Seoul, Gulim
+}
+PRE {
+	FONT-SIZE: 9pt; COLOR: black; LINE-HEIGHT: 135%; FONT-FAMILY: Tahoma, ±¼¸², Seoul, Gulim
+}
+BR {
+	FONT-SIZE: 9pt; COLOR: black; LINE-HEIGHT: 135%; FONT-FAMILY: Tahoma, ±¼¸², Seoul, Gulim
+}
+A:link {
+	COLOR: #126695; FONT-FAMILY: Tahoma, ±¼¸², Seoul, Gulim; text-decoration: underline;
+}
+A:visited {
+	COLOR: #126695; FONT-FAMILY: Tahoma, ±¼¸², Seoul, Gulim; text-decoration: underline;
+}
+A:active {
+	COLOR: #000000; FONT-FAMILY: Tahoma, ±¼¸², Seoul, Gulim; text-decoration: underline;
+}
+A:hover {
+	COLOR: #ff9900; FONT-FAMILY: Tahoma, ±¼¸², Seoul, Gulim; text-decoration: underline;
+}
+BODY {
+	scrollbar-face-color: #FFFFFF; scrollbar-shadow-color: #808F09; scrollbar-highlight-color: #ffffff; scrollbar-3dlight-color: #808F09; scrollbar-darkshadow-color: #ffffff; scrollbar-track-color: #AFCE2D; scrollbar-arrow-color: #808F09;
+}

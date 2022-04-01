@@ -1,0 +1,267 @@
+<html>
+<head>
+	<title>
+		1.5 Description
+	</title>
+<script language="javascript" src="/script/scorm_lib.js"></script>
+<script>
+/************************************************************************
+**
+** Filename:  1.5Description.htm
+**
+** File Description: This page displays the multiplicity elements for
+**					 section 1.5 Description.
+**
+** Author:  ADLI Project
+**
+** Company Name: Concurrent Technologies Corporation (CTC)
+**
+** Module/Package Name:
+** Module/Package Description:
+**
+** Design Issues:
+**
+** Implementation Issues:
+** Known Problems:
+** Side Effects:
+**
+** References:  SCORM Version 1.1 (Section 2)
+**
+**************************************************************************
+**
+** Advanced Distributed Learning Co-Laboratory (ADL Co-Lab) grants you
+** ("Licensee") a non-exclusive, royalty free, license to use, modify and
+** redistribute this software in source and binary code form, provided
+** that i) this copyright notice and license appear on all copies of the
+** software; and ii) Licensee does not utilize the software in a manner
+** which is disparaging to CTC.
+**
+** This software is provided "AS IS," without a warranty of any kind.  ALL
+** EXPRESS OR IMPLIED CONDITIONS, REPRESENTATIONS AND WARRANTIES,
+** INCLUDING ANY IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A
+** PARTICULAR PURPOSE OR NON- INFRINGEMENT, ARE HEREBY EXCLUDED.  CTC AND
+** ITS LICENSORS SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY LICENSEE
+** AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THE SOFTWARE OR ITS
+** DERIVATIVES.  IN NO EVENT WILL CTC  OR ITS LICENSORS BE LIABLE FOR ANY
+** LOST REVENUE, PROFIT OR DATA, OR FOR DIRECT, INDIRECT, SPECIAL,
+** CONSEQUENTIAL, INCIDENTAL OR PUNITIVE DAMAGES, HOWEVER CAUSED AND
+** REGARDLESS OF THE THEORY OF LIABILITY, ARISING OUT OF THE USE OF OR
+** INABILITY TO USE SOFTWARE, EVEN IF CTC  HAS BEEN ADVISED OF THE
+** POSSIBILITY OF SUCH DAMAGES.
+**
+*************************************************************************
+**
+** Date Changed   Author of Change  Reason for Changes
+** ------------   ----------------  -------------------------------------
+** 3/12/2001      Tom Hopkins       Initial Final Version for MDG v1.1
+**
+************************************************************************/
+
+// Global bariable list.
+var visibleCount = 0;
+var maxElements = 100;
+var offset = 60;
+var catalogueList = "";
+var entryList = "";
+
+/************************************************************************
+** Function: displayDescriptions()
+**
+** Variables: none
+**
+** Description:
+**    	This function is called every time someone clicks on one of the
+**		languages in the 1.4 Language selectbox.  It stores the list of
+**		languages in a list and delimits them with a |.
+*************************************************************************/
+function displayDescriptions()
+{
+   if (parent.main == null)
+   {
+      location.href="errorPage.htm";
+
+   }
+   else
+   {
+      descriptionList = parent.main.descriptionList4;
+
+	  var descriptionArray = descriptionList.split("|");
+	  for (var i=0;i<descriptionArray.length;i++)
+	  {
+	     addNewDescription(descriptionArray[i])
+	  }
+  }
+}
+
+/************************************************************************
+** Function: addNewDescription(des)
+**
+** Variables: des - descriptionArray holding a list of Descriptions.
+**
+** Description:
+**			   This function is called by displayDescriptions().  It makes
+**		visible the appropriate number of Description sections and
+**		populates either with their information or leaves them blank.
+*************************************************************************/
+function addNewDescription(des)
+{
+   if (des == null)
+   {
+      des = "";
+   }
+   
+   if (visibleCount == 8)
+   {
+      if (!confirm("WARNING!  Tools are only required to support up to 8 1.5 Description sections. \n Click OK to continue adding. \nClick Cancel to stop adding."))
+      {
+         return;
+      }
+   }
+
+   if (visibleCount == maxElements)
+   {
+      alert("Maximum number of elements exceeded.  Can not add any more elements.");
+      return;
+   }
+
+   visibleCount++;
+   
+   // Delete Button & Header
+   document.all.item("label"+visibleCount).style.visibility = "visible";
+   document.all.item("del"+visibleCount).style.visibility = "visible";   
+   
+   // 1.5 Description
+   document.all.item("labeldes"+visibleCount).style.visibility = "visible";
+   document.all.item("inputdes"+visibleCount).style.visibility = "visible";
+   document.all.item("inputdes"+visibleCount).value = des;
+   
+   // Line Tag
+   document.all.item("div"+visibleCount).style.visibility = "visible";
+   
+}
+
+/************************************************************************
+** Function: deleteDescription()
+**
+** Variables: none
+**
+** Description:
+**    		This function is called when the Delete button is pressed.  It
+**		turns the appropriate fields invisible, and sets the textboxes
+**		blank.
+*************************************************************************/
+function deleteDescription()
+{
+   // get the last character of the id that caused this event to be fired
+   // this is the index of the element we want to delete.
+   
+   var evt = new String(window.event.srcElement.id);
+   var idx = evt.charAt(evt.length-1);
+
+   // push all the other remaining elements down the "stack".
+   for (i=idx;i<visibleCount;i++)
+   {
+      var nextIdx = i;
+      nextIdx++;
+      document.all.item("inputdes"+i).value = document.all.item("inputdes"+nextIdx).value;
+   }
+   
+   // make the last one invisible (this is the element that will now be empty).
+   // Delete Button & Header
+   document.all.item("label"+visibleCount).style.visibility = "hidden";
+   document.all.item("del"+visibleCount).style.visibility = "hidden";
+   
+   // 1.5 Description
+   document.all.item("labeldes"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputdes"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputdes"+visibleCount).value = "";
+   
+   // Line Tag
+   document.all.item("div"+visibleCount).style.visibility = "hidden";
+   
+   visibleCount--;
+   
+}
+
+/************************************************************************
+** Function: okHandler()
+**
+** Variables: none
+**
+** Description:
+**    		This function is called when the user hits the Ok button.  It 
+**		gathers all the appropriate information and calls displayDescription
+**		in rawmedia.htm sending it the descriptionList.
+*************************************************************************/
+function okHandler()
+{
+  // resets the keywordList so you don't have duplication of previous elements - used if editing elements for a second time //
+  descriptionList = "";
+
+  for (i=0;i<visibleCount;i++)
+  {
+    var j = "";
+	j = i + 1;
+	descriptionList = descriptionList + document.all.item("inputdes" + j).value + "|"
+  }
+    parent.main.displayDescription(descriptionList);
+}
+</script>
+
+<style type="text/css">
+table { font-family: "Vernada","±¼¸²Ã¼", "±¼¸²", "µ¸¿òÃ¼"; font-size: 9pt ; line-height:12pt;color:#343434 ;>r-spacing:0px;border-padding:0px} 
+td { font-family: "Vernada","±¼¸²Ã¼", "±¼¸²", "µ¸¿òÃ¼"; font-size: 9pt ; line-height:12pt;color:#343434 ;>r-spacing:0px;border-padding:0px} 
+
+a:active, a:link, a:visited {  color: #1A9EBF; text-decoration: none}
+a:hover {  color: #DD8E24; text-decoration: none}
+
+body{	background-image:url("hrdi_img/right_bg.gif");
+	background-repeat:repeat-y;
+
+
+
+                scrollbar-face-color: ffffff; 
+                scrollbar-shadow-color: #cccccc; 
+                scrollbar-highlight-color: #cccccc; 
+                scrollbar-3dlight-color: #efefef; 
+                scrollbar-darkshadow-color: #efefef; 
+                scrollbar-track-color : #efefef; 
+                scrollbar-arrow-color: #B9B9B9; 
+}
+input{	
+		background-color:#ffffff; border:1 solid #838383;  font-family:gulim; font-size:9pt;color:#545454;
+}
+textarea{	
+		background-color:#ffffff; border:1 solid #838383;  font-family:gulim; font-size:9pt;color:#545454;
+}
+.btn	{background-color:#E6EDF9; BORDER-TOP-WIDTH: 1px solid #CADEFF; BORDER-RIGHT: 1px solid #2845A6; BORDER-LEFT-WIDTH: 1px solid #CADEFF; BORDER-BOTTOM:1px solid #0C1E72; font-family:gulim; font-size:9pt;color:#0C1E72; cursor:hand}
+</style>
+</head>
+<body background="/images/metadata/bkg.gif" bgcolor="#F0F0F0" onload="displayDescriptions();">
+<div align="center">
+<table width="98%">
+<tr>
+	<td Class="Form"><br><strong><font color="#24309B">1.5 Description - Multiple Elements</font></strong></td>
+<tr>
+	<td>
+		<form NAME="descriptionForm" id="descriptionForm">
+		<input TYPE="button" ID="add" NAME="add" VALUE="Add Description" ONCLICK ="addNewDescription(null);" class="btn">
+
+		<input TYPE="button" id="okButton" NAME="okButton" VALUE="OK" ONCLICK="okHandler();" class="btn">
+
+		<input type="Reset" value="Clear" name="clearButton" id="clearButton" class="btn">
+		<script LANGUAGE="JAVASCRIPT">
+		for (i=0;i<100;i++)  // the upper limit needs to correspond to the maxElements variable defined above.
+		{
+		   document.writeln("<label id=\"label"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">Description</label>&nbsp;&nbsp;&nbsp;<input TYPE=\"button\"  class=\"btn\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" ID=\"del" +i+ "\" NAME=\"del" +i+ "\" VALUE=\"Delete\" ONCLICK =\"deleteDescription();\"><BR>");			
+		   document.writeln("<label id=\"labeldes"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">1.5 Description</label>&nbsp;<br>&nbsp;<INPUT TYPE=\"text\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" name=\"inputdes\"" + i + "\" id=\"inputdes" + i + "\" size=30 maxlength=1024><BR>");
+		   document.writeln("<div id=\"div"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\"><hr></div>");
+		}
+		</script>
+		</form>
+	</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

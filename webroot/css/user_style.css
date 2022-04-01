@@ -1,0 +1,10 @@
+A:link     { color: #666666; text-decoration:none; font-family: "±¼¸²", "µ¸¿ò"; font-size: 9pt; font-weight:bold;}
+A:visited  { color: #666666; text-decoration: none; font-family: "±¼¸²", "µ¸¿ò"; font-size: 9pt; font-weight:bold;}
+A:active   { color: #666666; text-decoration: none; font-family: "±¼¸²", "µ¸¿ò"; font-size: 9pt; font-weight:bold;}
+A:hover    { color: #666666; text-decoration:underline; font-family: "±¼¸²", "µ¸¿ò"; font-size: 9pt; font-weight:bold;}
+
+td   {font-family: "±¼¸²", "±¼¸²Ã¼", "µ¸¿ò", "µ¸¿òÃ¼", "Arial", "Verdana", "Tahoma"; font-size: 9pt; color: #121212}
+
+.hhi   {font-family: "±¼¸²", "±¼¸²Ã¼", "µ¸¿ò", "µ¸¿òÃ¼", "Arial", "Verdana", "Tahoma"; font-size: 9pt; color: #3E3E3E; line-height: 15pt;}
+.hhi1  {font-family: "±¼¸²", "±¼¸²Ã¼", "µ¸¿ò", "µ¸¿òÃ¼", "Arial", "Verdana", "Tahoma"; font-size: 9pt; color: #121212}
+.hhi2  {font-family: "µ¸¿ò", "µ¸¿òÃ¼", "Arial", "Verdana", "Tahoma"; font-size: 8pt; color: #121212;}

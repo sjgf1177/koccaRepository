@@ -1,0 +1,72 @@
+﻿@charset "utf-8";
+
+div#warp div#container div.contentL { float:left; margin:20px 0px 30px 0px; width:721px; }
+div#warp div#container div.contentL ul.tabmenu { height:42px; margin-top:10px; }
+div#warp div#container div.contentL ul.tabmenu li { float:left; }
+div#warp div#container div.contentL ul.tabmenu li img { cursor:pointer; }
+div#warp div#container div.contentL table.insearch { width:100%; margin:15px 0px 15px 0px; }
+div#warp div#container div.contentL table.insearch td { font-family:"gulim","sans-self"; font-size:12px; color:#525252; }
+div#warp div#container div.contentL table.insearch td input[type='text'] { width:110px; height:12px; background-color:#f7f7f7; border:1px solid #c5c5c5; padding:5px; font-family:"gulim","sans-self"; font-size:12px; color:#525252; }
+div#warp div#container div.contentL table.insearch td select { border:c5c5c5; height:24px; padding:4px; font-family:"gulim","sans-self"; font-size:12px; color:#525252; }
+div#warp div#container div.contentL div.listform { background-image:url("../images/factory/list_bar.gif"); background-repeat:no-repeat; }
+div#warp div#container div.contentL div.listform table.inlist { width:100%; border-bottom:1px solid #bbbbbb; }
+div#warp div#container div.contentL div.listform table.inlist th { height:37px; font-family:"gulim","sans-self"; font-size:12px; color:#525252; }
+div#warp div#container div.contentL div.listform table.inlist td { font-family:"gulim","sans-self"; font-size:12px; color:#525252; padding:7px 0px 7px 0px; border-bottom:1px dotted #dddddd; }
+div#warp div#container div.contentL div.listform table.inlist td a:hover { color:#476ede; text-decoration:underline; }
+div#warp div#container div.contentL table.listfooter { width:100%; margin-top:15px; }
+div#warp div#container div.contentL table.listfooter td table.pageset { width:100%; }
+div#warp div#container div.contentL table.listfooter td table.pageset td { font-family:"dotum","sans-self"; font-size:11px; color:#525252; }
+div#warp div#container div.contentL table.listfooter td table.pageset td b { text-decoration:underline; color:#395abc; }
+
+div#warp div#container div.contentL table.writeform { width:100%; margin-top:15px; }
+div#warp div#container div.contentL table.writeform th { font-family:"gulim","sans-self"; font-size:12px; color:#525252; }
+div#warp div#container div.contentL table.writeform td { text-align:left; padding:10px; }
+div#warp div#container div.contentL table.writeform td input[type='text'] { font-family:"gulim","sans-self"; font-size:12px; color:#525252; padding:2px; border:1px solid #cccccc; width:500px; }
+div#warp div#container div.contentL table.writeform td select { font-family:"gulim","sans-self"; font-size:12px; color:#525252; padding:2px; width:506px; }
+div#warp div#container div.contentL table.writeform td textarea { width:100%; min-height:300px; }
+div#warp div#container div.contentL .colorA { background-color:#f0f0f0; border-bottom:1px solid #c2c2c2; border-right:1px solid #c2c2c2; border-top:1px solid #c2c2c2; }
+div#warp div#container div.contentL .colorB { background-color:#f8f8f8; border-bottom:1px solid #c2c2c2; border-right:1px solid #c2c2c2; border-top:1px solid #c2c2c2; }
+div#warp div#container div.contentL .colorC { background-color:#ffffff; border-bottom:1px solid #c2c2c2; border-right:1px solid #c2c2c2; border-top:1px solid #c2c2c2; }
+div#warp div#container div.contentL .noline { border-right:none; }
+div#warp div#container div.contentL div.writefooter { text-align:center;margin-top:20px; }
+div#warp div#container div.contentL table.replylist { width:100%; margin-top:20px; }
+div#warp div#container div.contentL table.replylist td.meminfo { height:30px; background-color:#fcfcfc; font-family:"gulim","sans-self"; font-size:12px; color:#525252; border-top:1px solid #dedede; border-bottom:1px dotted #dedede; }
+div#warp div#container div.contentL table.replylist td.meminfo img { margin-bottom:2px; }
+div#warp div#container div.contentL table.replylist td.meminfo b { color:#7381a6; }
+div#warp div#container div.contentL table.replylist td.meminfo span { font-family:"dotum","sans-self"; font-size:11px; color:#aeaeae; }
+div#warp div#container div.contentL table.replylist td.replytext { padding:16px 16px 30px 16px; font-family:"gulim","sans-self"; font-size:12px; color:#525252; text-align:left; }
+div#warp div#container div.contentL div.replywrite { background-color:#f0f0f0; border:1px solid #bfbfbf; padding:10px; }
+div#warp div#container div.contentL div.replywrite table.inwrite { width:696px; }
+div#warp div#container div.contentL div.replywrite table.inwrite td { font-family:"gulim","sans-self"; font-size:12px; color:#525252; text-align:right; vertical-align:top; }
+div#warp div#container div.contentL div.replywrite table.inwrite td p { margin-top:12px; }
+div#warp div#container div.contentL div.replywrite table.inwrite td p b { color:#e37000; }
+div#warp div#container div.contentL div.replywrite table.inwrite td textarea { width:99%; height:40px; background-image:url("../images/factory/bg_replytext.gif"); border:1px solid #bfbfbf; font-family:"gulim","sans-self"; font-size:12px; color:#525252; line-height:18px; padding:4px; }
+
+div#warp div#container div.contentL table.viewform { width:100%; margin-top:15px; }
+div#warp div#container div.contentL table.viewform th { font-family:"gulim","sans-self"; font-size:12px; color:#525252; }
+div#warp div#container div.contentL table.viewform td { text-align:left; padding:10px; font-family:"gulim","sans-self"; font-size:12px; color:#525252; }
+div#warp div#container div.contentL table.viewform td div.question { text-align:left; padding:20px; font-family:"gulim","sans-self"; font-size:12px; color:#525252; line-height:18px; }
+div#warp div#container div.contentL table.viewform td div.answer { text-align:left; padding:10px; font-family:"gulim","sans-self"; font-size:12px; color:#525252; line-height:18px; }
+div#warp div#container div.contentL table.viewform td span { color:#bbbbbb; }
+div#warp div#container div.contentL table.viewform td p { font-family:"dotum","sans-self"; font-size:14px; letter-spacing:-1px; }
+div#warp div#container div.contentL table.viewform td strong { font-family:"dotum","sans-self"; font-size:14px; letter-spacing:-1px; }
+div#warp div#container div.contentL table.viewform td table.recom { width:100%; }
+div#warp div#container div.contentL table.viewform td table.recom td { margin:0px; padding:0px; text-align:right; }
+div#warp div#container div.contentL table.viewform td table.recom td div.recomtotal { width:81px; height:57px; background-image:url('../images/factory/bg_recom.gif'); background-repeat:no-repeat; }
+div#warp div#container div.contentL table.viewform td table.recom td div.recomtotal p { font-family:"dotum","sans-self"; font-size:24px; color:#e35000; font-weight:bold; text-align:center; padding:30px 0px 0px 10px; }
+div#warp div#container div.contentL div.viewfooter { text-align:right;margin-top:20px; }
+
+div#warp div#container div.contentR { float:left; margin:20px 0px 30px 15px; width:258px; }
+div#warp div#container div.contentR div.quickicon { padding:10px 7px 10px 7px; background-color:#f2f2f2; border:1px solid #d7d7d7; }
+div#warp div#container div.contentR div.quickicon div.groupname { text-align:left; margin:0px 0px 10px 0px; }
+div#warp div#container div.contentR div.inpost { margin:15px 0px 0px 0px; padding:10px 7px 10px 7px; background-color:#fafafa; border:1px solid #d7d7d7; }
+div#warp div#container div.contentR div.inpost div.groupname { text-align:left; }
+div#warp div#container div.contentR div.inpost table.recompost { width:242px; margin:10px 0px 0px 0px; }
+div#warp div#container div.contentR div.inpost table.recompost td { text-align:left; padding:3px 0px 3px 0px; font-family:"gulim","sans-self"; font-size:12px; color:#525252; }
+div#warp div#container div.contentR div.inpost table.recompost td a:hover { color:#525252; font-weight:bold; letter-spacing:-1px; }
+div#warp div#container div.contentR div.inpost table.recompost td img { margin:0px 0px 2px 0px; }
+div#warp div#container div.contentR div.inpost div.centerline { border-top:1px solid #d7d7d7; margin:10px 0px 10px 0px; }
+div#warp div#container div.contentR div.inpost table.latestpost { width:242px; margin:10px 0px 0px 0px; }
+div#warp div#container div.contentR div.inpost table.latestpost td { padding:3px 0px 3px 0px; font-family:"gulim","sans-self"; font-size:12px; color:#525252; }
+div#warp div#container div.contentR div.inpost table.latestpost td a:hover { color:#525252; font-weight:bold; letter-spacing:-1px; }
+div#warp div#container div.contentR div.inpost table.latestpost td img { margin:0px 0px 4px 0px; }

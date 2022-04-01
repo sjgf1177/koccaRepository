@@ -1,0 +1,411 @@
+<html>
+<head>
+<title>Namo ActiveSquare 7 Example</title>
+<meta http-equiv="content-type" content="text/html; charset=euc-kr">
+<meta name="author" content="Namo Interactive Inc.">
+<meta name="author" content="Namo ActiveSquare 7">
+<meta name="keywords" content="header">
+<link href='images/style.css' rel='stylesheet' type='text/css'>
+</head>
+							
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#2B74B2" style="background:url(images/background.jpg) repeat-x top left">
+<Form name="As7Form">
+<table border="0" cellspacing="0" cellpadding="0" style="table-layout:fixed; width:1080;" align="center">
+	<tr>
+		<td>
+			
+			<!-- header area --------------------------------------------->
+			<table border="0" cellspacing="0" cellpadding="0" style="table-layout:fixed;width:100%;height:64">
+				<tr>
+					<td style="width:20"><img src="images/frame_head_left.jpg"></td>
+					<td align="center" rowspan="2"><img src="images/AS7_head_ko.jpg" border="0" usemap="#Map"></td>
+					<td style="width:20" align="right"><img src="images/frame_head_right.jpg"></td>
+				</tr>
+				<tr>
+					<td style="width:20"><img src="images/frame_top_left.jpg"></td>
+					<td style="width:20"><img src="images/frame_top_right.jpg"></td>
+				</tr>
+			</table>
+			<map name="Map">
+			<area shape="rect" coords="10,32,34,52" href="http://www.namo.co.kr" target="self">
+			<area shape="rect" coords="54,31,128,53" href="http://www.namo.co.kr/activesquare" target="self">
+			<area shape="rect" coords="153,33,209,52" href="http://www.namo.co.kr/support/techlist/dev_bbs_list.php?group_code=EP&prod_code=AS" target="self">
+			<area shape="rect" coords="802,33,847,51" href="http://www.namo.co.kr/activesquare/techlist/help/AS7_demo/index.html" target="self">
+			<area shape="rect" coords="873,32,936,51" href="http://www.namo.co.kr/activesquare/techlist/help/AS7_user/index.html" target="self">
+			<area shape="rect" coords="963,32,1029,51" href="http://www.namo.co.kr/activesquare/techlist/help/AS7_devel/index.html"target="self">
+			</map>
+			<!-- header area --------------------------------------------->
+			
+		</td>
+	</tr>
+	<tr>
+		<td>
+		
+			<!-- content area --------------------------------------------->
+			<table border="0" cellspacing="0" cellpadding="0" style="table-layout:fixed;width:100%;height:100%;">
+				<tr height="1100">
+					<td style="background:url(images/frame_middle_left.jpg) top left;width:20;"></td>
+					<td bgcolor="#FFFFFF" width="10"></td>
+					<td bgcolor="#FFFFFF"  valign="top">
+						
+		
+						<table border="0" cellspacing="0" cellpadding="0" style="table-layout:fixed;width:740;">
+							<tr>
+								<td style='padding:0 0 0 5'><img src='images/example_title.jpg'></td>
+							</tr>
+							<tr height="110">
+								<td>
+								
+									<!-- 베너 영역 ------------------------------------------------>
+									<iframe name="banner" src="pages/banner.htm" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
+									<!-- 베너 영역 ------------------------------------------------>
+									
+								</td>
+							</tr>
+							<tr>
+								<td>
+								
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr height="1"><td bgcolor="#D0D0D0" colspan="4"></td></tr>
+										<tr height="32">
+											<td width="70" align="center" bgcolor="#F1F8FF"><b>설&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;정</b></td>
+											<td width="1" bgcolor="#D0D0D0"></td>
+											<td width="15" align="center"></td>
+											<td width="" style="padding-top:5; padding-bottom:5">
+											<select name="menutype" style=';font-size:12px;color:#303030;font-family:돋움;'>
+											<option value="0" selected>툴바 모두 보이기</option>
+											<option value="1">툴바 일부 보이기</option>
+											<option value="2">툴바 모두 감추기</option>
+											<option value="3">툴바 사용자 정의</option>
+											</select> 
+											<select name="tabtype" style=';font-size:12px;color:#303030;font-family:돋움;'>
+											<option selected value="0">탭 보이기</option>
+											<option value="1">탭 감추기</option>
+											</select> 
+											<select name="rulertype" style=';font-size:12px;color:#303030;font-family:돋움;'>
+											<option selected value="0">눈금자 모두 감추기</option>
+											<option value="1">눈금자 가로 보이기</option>
+											<option value="2">눈금자 세로 보이기</option>
+											<option value="3">눈금자 모두 보이기</option>
+											</select> 
+											<select name="scrolltype" style=';font-size:12px;color:#303030;font-family:돋움;'>    
+											<option selected value="0">스크롤바 모두 보이기</option>
+											<option value="1">스크롤바 가로 보이기</option>
+											<option value="2">스크롤바 세로 보이기</option>
+											<option value="3">스크롤바 모두 감추기</option>
+											</select>
+											<select name="doctype" style=';font-size:12px;color:#303030;font-family:돋움;'>
+											<option selected value="0">☞ 빈문서</option>
+											<option value="1">☞ 표준검사신청서</option>
+											<option value="2">☞ 입사지원서</option>
+											<option value="3">☞ 업무일지</option>
+											<option value="4">☞ 세금계산서</option>
+											</select>
+<input type=button name="InsertImoticon" size=35 style="font-size:9pt; background-color:transparent; background-image:url('images/emoticon.gif'); background-repeat:no-repeat; padding-top:3; padding-bottom:0; border-width:0; border-style:none; width:23; height:23; cursor:hand;" onfocus="this.blur();">
+											</td>
+										</tr>
+										<tr height="1"><td bgcolor="#D0D0D0" colspan="4"></td></tr>
+										<tr height="32">
+											<td width="70" align="center" bgcolor="#F1F8FF"><b>설&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;명</b></td>
+											<td width="1" bgcolor="#D0D0D0"></td>
+											<td width="15" align="center"></td>
+											<td width="" style="padding-top:5; padding-bottom:5">
+											▶ API 및 초기화파일에 대한 자세한 내용은 [개발자 가이드]를 참고해 주세요.
+											</td>
+										</tr>
+										<tr height="1"><td bgcolor="#D0D0D0" colspan="4"></td></tr>
+										<tr height="5"><td colspan="4"></td></tr>
+									</table>
+						
+								</td>
+							</tr>
+							<tr>
+								<td>
+
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr height="450">
+											<td>
+
+<DIV id="divShowInstall" style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; Z-INDEX: 0; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px; POSITION: absolute"><EMBED src="images/NamoBanner.swf" width=741 height=525 type=application/x-shockwave-flash></EMBED></Div>							<script language="javascript" src="NamoWec7.js"></script>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<br>
+												<table cellpadding="0" cellspacing="0" border="0" width="740">
+												<tr height="35">
+												<td align="center"><input type="button" name="GetValue" value="HTML값 보기↓" style='font-size:12px;color:#303030;font-family:돋움;width:170;height:22'></td>
+												<td align="center"><input type="button" name="GetMimeValue" value="MIME값 보기↓" style='font-size:12px;color:#303030;font-family:돋움;width:170;height:22'></td>
+												</tr>
+												<tr>
+												<td align="center"><font style='color:#303030;font-size:12px;font-family:돋움;'>작성된 내용에 대한 값을 보여줍니다.</font></td>
+												<td align="center"><font style='color:#303030;font-size:12px;font-family:돋움;'>작성된 내용을 MIME으로 인코딩하여 보여줍니다.</font></td>
+												</tr>
+												<tr>
+												<td align="left"><textarea name="ValueContent" rows="15" cols="48"></textarea></td>
+												<td align="right"><textarea name="MimeValueContent" rows="15" cols="48"></textarea></td>
+												</tr>
+												<tr height="35">
+												<td align="center"><input type="button" value="액티브스퀘어로 전달하기↑" name="PutValue" style='font-size:12px;color:#303030;font-family:돋움;width:170;height:22'></td>
+												<td align="center"><input type="button" value="액티브스퀘어로 전달하기↑" name="PutMimeValue" style='font-size:12px;color:#303030;font-family:돋움;width:170;height:22'></td>
+												</tr>
+												</table>
+											
+											</td>
+										</tr>
+									</table>
+				
+								</td>
+							</tr>
+						</table>
+
+					</td>
+					</td><td bgcolor="#D3D3D3" width="1"></td><td bgcolor="#FFFFFF" width="13"></td>
+					<td bgcolor="#FFFFFF" width="250" valign="top"><iframe name="ad" src="pages/promotion.htm" width="100%" height="100%" frameborder="0" scrolling="no"></iframe></td>
+					<td bgcolor="#FFFFFF" width="10"></td>
+					<td style='background:url(images/frame_middle_right.jpg) top left;width:20;'></td>
+				</tr>
+			</table>
+			<!-- content area --------------------------------------------->
+			
+		</td>
+	</tr>	
+	<tr>
+		<td>
+			
+			<!-- Footer area --------------------------------------------->
+			<table border="0" cellspacing="0" cellpadding="0" style="table-layout:fixed; width:100%;height:42" background="images/frame_bottom_bg.jpg">
+				<tr>
+					<td style="width:20"><img src="images/frame_bottom_left.jpg"></td>
+					<td align="right"><img src="images/frame_bottom_info.jpg"></td>
+					<td style="width:20"><img src="images/frame_bottom_right.jpg"></td>
+				</tr>			
+			</table><br>
+			<!-- Footer area --------------------------------------------->
+			
+		</td>
+	</tr>		
+</table>
+</Form>
+</body>
+<script language="VBScript">
+<!--
+
+Function Window_Onbeforeunload
+	Dim fRef
+	Set fRef = Document.As7Form
+	fRef.Wec.SaveState "Wec"
+End Function
+
+Function Wec_OnInitCompleted
+	Dim fRef
+	Set fRef = Document.As7Form
+'	fRef.Wec.DoCommand "marktable"
+'	fRef.Wec.DoCommand "marktag"
+'	fRef.Wec.OpenFile "pages/defdoc.htm"
+'	fRef.Wec.SetBasicCSSFile "pages/format.css"
+	fRef.Wec.RestoreState "Wec"
+End Function
+
+Function Wec_OnTabChanged(tagid)
+' 초기화파일에서 마우스 이벤트를 활성화 시켜줘야 합니다.
+	Dim fRef
+	Dim fSel
+	Set fRef = Document.As7Form
+
+	if tagid = 0 then
+		fRef.rulertype.disabled=false
+		fRef.scrolltype.disabled=false
+		fRef.InsertImoticon.disabled=false
+	else
+		fRef.rulertype.disabled=true
+		fRef.scrolltype.disabled=true
+		fRef.InsertImoticon.disabled=true
+	end if
+End Function 
+
+Function StartPRN
+	Dim fRef
+	Set fRef = document.As7Form
+	fRef.Wec.SetPaperSize 1    ' 용지를 A4 용지로 하고 현재 편집중인 문서 인쇄
+	fRef.Wec.PrintFile ""      ' 편집창의 내용만 프린트 시작
+End Function
+
+Function doctype_OnChange
+
+	Dim fRef
+	Dim fSel
+	Set fRef = Document.As7Form
+	fSel = fRef.doctype.value
+	
+	if fSel = 0 then
+		fRef.Wec.OpenFile "pages/defdoc.htm"
+	elseif fSel = 1 then
+		fRef.Wec.OpenFile "pages/sam1.htm"
+	elseif fSel = 2 then
+		fRef.Wec.OpenFile "pages/sam2.htm"
+	elseif fSel = 3 then
+		fRef.Wec.OpenFile "pages/sam3.htm"
+	elseif fSel = 4 then
+		fRef.Wec.OpenFile "pages/sam4.htm"
+	end if
+	
+	
+End Function	
+
+Function menutype_OnChange
+
+	'--- 형식: ShowToolbar 막대종류(0,1,2), 보이기여부(0,1)
+
+	Dim fRef
+	Dim fSel
+	Set fRef = Document.As7Form
+	fSel = fRef.menutype.value
+	
+	if fSel = 0 then
+		fRef.Wec.CreateToolbar "CreateToolbar = filenew fileopen filesave | print printpreview | undo redo | find | hr hyperlink bookmark image layer | tableribbon  tableerase | marktable cellbgcolor cellsplit cellmarge | rowbelowinsert rowdelete | columnrightinsert columndelete | markpara marktag ; paralist fontlist fontsizelist lineheight | charbold charitalic charunderline charcolor charbgcolor charclear | listnumber listbullet | indentdecrease indentincrease | alignleft aligncenter alignright"
+		fRef.Wec.ShowToolbar 0,1
+		fRef.Wec.ShowToolbar 1,1
+		fRef.Wec.ShowToolbar 2,1
+	elseif fSel = 1 then
+		fRef.Wec.ShowToolbar 0,0
+		fRef.Wec.ShowToolbar 1,1
+		fRef.Wec.ShowToolbar 2,0
+	elseif fSel = 2 then
+		fRef.Wec.ShowToolbar 0,0
+		fRef.Wec.ShowToolbar 1,0
+		fRef.Wec.ShowToolbar 2,0
+	elseif fSel = 3 then
+		fRef.Wec.ShowToolbar 0,0
+		fRef.Wec.CreateToolbar "Menu | fontlist fontsizelist ; charbold charitalic charunderline charcolor charbgcolor | alignleft aligncenter alignright"	
+	end if	
+
+	fRef.Wec.Focus
+End Function
+
+Function rulertype_OnChange
+
+	'--- 형식: ShowRuler 가로 눈금자 보이기여부(0,1), 세로 눈금자 보이기여부(0,1)
+
+	Dim fRef
+	Dim fSel
+	Set fRef = Document.As7Form
+	
+	fSel = fRef.rulertype.value
+	
+	if fSel = 0 then
+		fRef.Wec.ShowRuler 0,0
+	elseif fSel = 1 then
+		fRef.Wec.ShowRuler 1,0
+	elseif fSel = 2 then
+		fRef.Wec.ShowRuler 0,1
+	elseif fSel = 3 then
+		fRef.Wec.ShowRuler 1,1
+	end if
+	fRef.Wec.Focus
+End Function
+
+Function tabtype_OnChange
+
+	'--- 형식: ShowTab 보이기(TRUE) or 감추기(FALSE)
+
+	Dim fRef
+	Dim fSel
+	Set fRef = Document.As7Form
+	
+	fSel = fRef.tabtype.value
+
+	if fSel = 0 then
+		fRef.Wec.ShowTab TRUE
+	elseif fSel = 1 then
+		fRef.Wec.ShowTab FALSE
+	end if
+
+	fRef.Wec.Focus
+End Function
+
+Function scrolltype_OnChange
+
+	'--- 형식: EnableHorzScrollbar 보이기(1) or 감추기(0)
+	'          EnableVerrtScrollbar 보이기(1) or 감추기(0)
+
+	Dim fRef
+	Dim fSel
+	Set fRef = Document.As7Form
+	
+	fSel = fRef.scrolltype.value
+
+	if  fSel = 0 then
+		fRef.Wec.EnableHorzScrollbar 1
+	    fRef.Wec.EnableVertScrollbar 1
+	elseif fSel = 1 then
+		fRef.Wec.EnableHorzScrollbar 1
+	    fRef.Wec.EnableVertScrollbar 0
+	elseif fSel = 2 then
+		fRef.Wec.EnableHorzScrollbar 0
+	    fRef.Wec.EnableVertScrollbar 1
+	elseif fSel = 3 then
+		fRef.Wec.EnableHorzScrollbar 0
+	    fRef.Wec.EnableVertScrollbar 0
+	end if
+
+	fRef.Wec.Focus
+	
+End Function
+
+Function PutValue_OnClick
+ 	Dim fRef
+	Set fRef = Document.As7Form
+	fRef.Wec.Value = fRef.ValueContent.value
+End Function
+
+Function PutMimeValue_OnClick
+ 	Dim fRef
+	Set fRef = Document.As7Form
+    fRef.Wec.MimeValue = fRef.MimeValueContent.value
+End Function
+
+Function GetValue_OnClick
+ 	Dim fRef
+	Set fRef = Document.As7Form
+    fRef.ValueContent.value = fRef.Wec.Value
+End Function
+
+Function GetMimeValue_OnClick
+ 	Dim fRef
+	Set fRef = Document.As7Form
+    fRef.MimeValueContent.value = fRef.Wec.MimeValue
+End Function
+
+
+Function InsertImoticon_OnClick
+'	Ahnshy Append Opner Patch :: 20080123
+'	call Imoticon
+	InsertImoticon_Internal(Document.As7Form.Wec)
+End Function
+
+Function Imoticon
+ 	Dim fRef
+	Dim x
+	Set fRef = Document.As7Form
+	Set x = Window.Open("pages/imoticon.htm","","left=300,top=250,Width=195,Height=115,status=no")
+	x.focus
+End Function
+
+Function Wec_OnCustomMenu(menuid)
+	if menuid = 1 then call StartPRN '--- 인쇄호출
+End Function
+
+Function Wec_OnCommand(cmdstr, finished)	
+End Function
+
+--></script>
+<script language="javascript">
+function InsertImoticon_Internal(Wec)
+{
+	var strRetVal;
+	strRetVal = window.showModalDialog("pages/imoticon.htm", self, "dialogWidth:200px; dialogHeight:159px; status=no");
+	Wec.InsertImage(strRetVal, "");
+}
+</script>
+</html>

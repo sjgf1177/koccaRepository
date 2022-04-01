@@ -1,0 +1,324 @@
+<html>
+<head>
+<title>
+9.2.2 Taxon - 9.2.2.1 Id - 9.2.2.2 Entry
+</title>
+<script language="javascript">
+/************************************************************************
+**
+** Filename:  Taxon.htm
+**
+** File Description: This page displays the multiplicity elements for
+**					 section 9.2.2. Taxon.
+**
+** Author:  ADLI Project
+**
+** Company Name: Concurrent Technologies Corporation (CTC)
+**
+** Module/Package Name:
+** Module/Package Description:
+**
+** Design Issues:
+**
+** Implementation Issues:
+** Known Problems:
+** Side Effects:
+**
+** References:  SCORM Version 1.1 (Section 2)
+**
+**************************************************************************
+**
+** Advanced Distributed Learning Co-Laboratory (ADL Co-Lab) grants you
+** ("Licensee") a non-exclusive, royalty free, license to use, modify and
+** redistribute this software in source and binary code form, provided
+** that i) this copyright notice and license appear on all copies of the
+** software; and ii) Licensee does not utilize the software in a manner
+** which is disparaging to CTC.
+**
+** This software is provided "AS IS," without a warranty of any kind.  ALL
+** EXPRESS OR IMPLIED CONDITIONS, REPRESENTATIONS AND WARRANTIES,
+** INCLUDING ANY IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A
+** PARTICULAR PURPOSE OR NON- INFRINGEMENT, ARE HEREBY EXCLUDED.  CTC AND
+** ITS LICENSORS SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY LICENSEE
+** AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THE SOFTWARE OR ITS
+** DERIVATIVES.  IN NO EVENT WILL CTC  OR ITS LICENSORS BE LIABLE FOR ANY
+** LOST REVENUE, PROFIT OR DATA, OR FOR DIRECT, INDIRECT, SPECIAL,
+** CONSEQUENTIAL, INCIDENTAL OR PUNITIVE DAMAGES, HOWEVER CAUSED AND
+** REGARDLESS OF THE THEORY OF LIABILITY, ARISING OUT OF THE USE OF OR
+** INABILITY TO USE SOFTWARE, EVEN IF CTC  HAS BEEN ADVISED OF THE
+** POSSIBILITY OF SUCH DAMAGES.
+**
+*************************************************************************
+**
+** Date Changed   Author of Change  Reason for Changes
+** ------------   ----------------  -------------------------------------
+** 3/12/2001      Tom Hopkins       Initial Final Version for MDG v1.1
+**
+************************************************************************/
+
+// Global variables
+var visibleCount = 0;
+var maxElements = 100;
+var offset = 125;
+var idList = "";
+var entryList = "";
+var number = "";
+var stored_number = 0;
+
+/************************************************************************
+** Function:  displayTaxon()
+**
+** Variables: none
+**
+** Description:
+**			This function is called when the page loads.  It gathers the
+**		id and entry lists.  These lists if not blank are used to 
+**		repopulate the fields.  Otherwise it calls addNewTaxon and 
+**		adds blank fields.
+*************************************************************************/
+// window.opener = TaxonPath.htm
+// window.opener.parent = 9Classification
+// window.opener.parent.parent = rawmedia-set
+// window.opener.parent.parent.main = rawmedia.
+// entry_ClassArray = Main array entry previously edited
+function displayTaxon()
+{
+   if (window.opener == null)
+   {
+      location.href="errorPage.htm";
+
+   }
+   else
+   {
+ 	  number = window.opener.currentnum;
+      number_1 = window.opener.number_main;
+	  var empty_check = -1;
+	  
+   if (stored_number == number)
+   {
+	if (window.opener.parent.parent.main.info_pass == 0)
+	{
+      	var idArray = window.opener.parent.parent.main.id_ClassArray[number_1];
+	    var entryArray = window.opener.parent.parent.main.entry_ClassArray[number_1];
+		empty_check = 3;	
+	}
+	
+	else
+	{
+	  if (window.opener.info_pass == 0)
+	  {
+	  	// the information has not been passed yet.
+		var idArray = window.opener.idArray[number];
+		var entryArray = window.opener.entryArray[number];
+		empty_check = 1;
+	  }
+	  else
+	  {
+	  	// the information has been passed.  check 9Class-main
+		if (window.opener.parent.main.info_pass == 0)
+		{
+			// the information has not been passed out of 9Class-main yet
+			var idArray = window.opener.parent.main.id_mainArray[number];
+			var entryArray = window.opener.parent.main.entry_mainArray[number];
+			empty_check = 2;			
+		}
+		else if (window.opener.parent.main.info_pass == -1)
+		{
+			// the information has been passed to rawmedia.htm
+	      	var idArray = window.opener.parent.parent.main.id_ClassArray[number_1];
+		    var entryArray = window.opener.parent.parent.main.entry_ClassArray[number_1];
+			empty_check = 3;	
+		}
+	  }
+	 }
+	}
+	  if (empty_check == -1)
+	  {
+		addNewTaxon(null,null);
+	  }	
+
+	  else if (empty_check == 1)
+	  {
+	  	idList = idArray.split("|");
+		entryList = entryArray.split("|");
+		  for (var i=0;i<idList.length;i++)
+		  {
+		     addNewTaxon(idList[i],entryList[i])
+		  }
+	  }
+
+	  else 
+	  {
+		  idList = idArray[number].split("|");
+	  	  entryList = entryArray[number].split("|");
+		  for (var i=0;i<idList.length;i++)
+		  {
+		     addNewTaxon(idList[i],entryList[i])
+		  }
+	  }
+   }
+}
+
+/************************************************************************
+** Function:  addNewTaxon(id,entry)
+**
+** Variables: id - Id information
+**			  entry - Entry information
+**
+** Description:
+**			This function is called by displayTaxon.  It makes the 
+**		appropriate fields visible and either populates the textboxes
+**		with the id and entry information or it leaves them blank.
+*************************************************************************/
+function addNewTaxon(id,entry)
+{
+   if (id == null)
+   {
+	id = "";
+	entry = "";
+   }
+   
+   if (visibleCount == 8)
+   {
+      if (!confirm("WARNING!  Tools are only required to support up to 16 9.2.2 Taxon sections. \n Click OK to continue adding. \nClick Cancel to stop adding."))
+      {
+         return;
+      }
+   }
+
+   if (visibleCount == maxElements)
+   {
+      alert("Maximum number of elements exceeded.  Can not add any more elements.");
+      return;
+   }
+
+   visibleCount++;
+
+   // 9.2.2 Taxon
+   document.all.item("label"+visibleCount).style.visibility = "visible";
+   document.all.item("del"+visibleCount).style.visibility = "visible";
+   
+   // 9.2.2.1 Id
+   document.all.item("labelid"+visibleCount).style.visibility = "visible";
+   document.all.item("inputid"+visibleCount).style.visibility = "visible";
+   document.all.item("inputid"+visibleCount).value = id;
+
+   // 9.2.2.2 Entry
+   document.all.item("labelent"+visibleCount).style.visibility = "visible";
+   document.all.item("inputent"+visibleCount).style.visibility = "visible";
+   document.all.item("inputent"+visibleCount).value = entry;
+   
+   // Line Tag
+   document.all.item("div"+visibleCount).style.visibility = "visible";
+   
+}
+
+/************************************************************************
+** Function:  deleteTaxon()
+**
+** Variables: none
+**
+** Description:
+**			This function is called when the user presses the delete button.
+**		It hides the appropriate fields and erases the information in
+**		the textboxes.
+*************************************************************************/
+function deleteTaxon()
+{
+   // get the last character of the id that caused this event to be fired
+   // this is the index of the element we want to delete.
+   var evt = new String(window.event.srcElement.id);
+   var idx = evt.charAt(evt.length-1);
+
+   // push all the other remaining elements down the "stack".
+   for (i=idx;i<visibleCount;i++)
+   {
+      var nextIdx = i;
+      nextIdx++;
+      document.all.item("inputid"+i).value = document.all.item("inputid"+nextIdx).value;
+   }
+   
+   // make the last one invisible (this is the element that will now be empty).
+   
+
+   // 9.2.2 Taxon
+   document.all.item("label"+visibleCount).style.visibility = "hidden";
+   document.all.item("del"+visibleCount).style.visibility = "hidden";
+   
+   // 9.2.2.1 Id
+   document.all.item("labelid"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputid"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputid"+visibleCount).value = "";
+
+   // 9.2.2.2 Entry
+   document.all.item("labelent"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputent"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputent"+visibleCount).value = "";
+
+   // Line Tag
+   document.all.item("div"+visibleCount).style.visibility = "hidden";
+      
+   visibleCount--;
+   
+}
+
+/************************************************************************
+** Function:  okHandler()
+**
+** Variables: none
+**
+** Description:
+**			This function is called when the user presses the ok button.
+**		The id and entry information is gathered and displayTaxon in 
+**		TaxonPath.htm is called.
+*************************************************************************/
+function okHandler()
+{
+  // resets the keywordList so you don't have duplication of previous elements - used if editing elements for a second time //
+  idList = "";
+  entryList = "";
+  
+  number = window.opener.currentnum;
+  for (i=0;i<visibleCount;i++)
+  {
+    var j = "";
+	j = i + 1;
+	idList = idList + document.all.item("inputid" + j).value + "|"
+	entryList = entryList + document.all.item("inputent" + j).value + "|"
+  }
+    window.opener.displayTaxon(idList,entryList,number);
+	self.close();
+}
+</script>
+
+<link rel="STYLESHEET" type="text/css" href="../../include/style.css">
+</head>
+<body bgcolor="#ffffff" onload="displayTaxon();">
+<div align="center">
+<table width="98%">
+<tr>
+	<td Class="Form">9.2.2 Taxon - Multiple Elements</td>
+<tr>
+	<td>
+		<form NAME="taxonForm" id="taxonForm">
+		<input TYPE="button" ID="add" NAME="add" VALUE="Add Taxon" ONCLICK ="addNewTaxon(null,null);">
+		&nbsp;&nbsp;
+		<input TYPE="button" id="okButton" NAME="okButton" VALUE="OK" ONCLICK="okHandler();">
+		&nbsp;&nbsp;&nbsp;
+		<input type="Reset" value="Clear" name="clearButton" id="clearButton">
+		<script LANGUAGE="JAVASCRIPT">
+		for (i=0;i<100;i++)  // the upper limit needs to correspond to the maxElements variable defined above.
+		{
+		   document.writeln("<label id=\"label"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">9.2.2 Taxon</label>&nbsp;&nbsp;&nbsp;<input TYPE=\"button\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" ID=\"del" +i+ "\" NAME=\"del" +i+ "\" VALUE=\"Delete\" ONCLICK =\"deleteTaxon();\"><BR>");			
+		   document.writeln("<label id=\"labelid"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">9.2.2.1 Id</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"text\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" name=\"inputid\"" + i + "\" id=\"inputid" + i + "\" maxlength=1024><BR>");
+		   document.writeln("<label id=\"labelent"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">9.2.2.2 Entry</label>&nbsp;&nbsp;<INPUT TYPE=\"text\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" name=\"inputent\"" + i + "\" id=\"inputent" + i + "\" maxlength=1024><BR>");		   
+		   document.writeln("<div id=\"div"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\"><hr></div>");		   		   
+		}
+		</script>
+		</form>
+	</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

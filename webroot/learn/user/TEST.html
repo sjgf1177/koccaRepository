@@ -1,0 +1,41 @@
+<HTML>
+<HEAD>
+<TITLE>Forcs ActiveX Viewer Install ver 31.2005.0713.100</TITLE>
+</HEAD>
+
+<!--  뷰어를 다운로드 받는 부분 -->
+
+<BODY>
+<!-- 공통파일 시작-->
+<OBJECT width = "0" height = "0"
+ID="ZTransferX" CLASSID="CLSID:C7C7225A-9476-47AC-B0B0-FF3B79D55E67" 
+codebase="http://10.40.37.65:9999/OZViewer/ZTransferX.cab#version=1,0,3,2">
+<PARAM NAME="download.Server" VALUE="http://10.40.37.65/OZViewer/">
+<PARAM NAME="download.Port" VALUE="9999">
+<PARAM NAME="download.Instruction" VALUE="ozrviewer.idf">
+<PARAM NAME="install.Base" VALUE="<PROGRAMS>/Forcs">
+<PARAM NAME="install.Namespace" VALUE="AutoEver_Test">
+</OBJECT>
+
+
+
+<OBJECT id = "ozviewer"
+   CLASSID="CLSID:64DA633F-E73B-4344-83BF-48483346CD53" width="800" height="600">
+   <param name="connection.server" value="10.40.37.65">
+   <param name="connection.port" value="8003">
+
+<!-- 공통파일 끝-->
+
+   <param name="connection.reportname" value="qna/test1.ozr">
+   <param name="viewer.configmode" value="html">
+   <param name="viewer.isframe" value="false">
+   <param name="odi.odinames" value="test1">
+   <param name="odi.test1.pcount" value="1">
+   <param name="odi.test1.args1" value="aa=3">
+   
+</OBJECT>
+
+
+</body>
+</HTML>
+

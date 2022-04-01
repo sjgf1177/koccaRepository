@@ -1,0 +1,344 @@
+<html>
+<head>
+<title>
+4.4 Requirements - 4.4.1 Type - 4.4.2 Name - 4.4.3 Minimum Version - 4.4.4 Maximum Version
+</title>
+<script language="javascript" src="/script/scorm_lib.js"></script>
+<script language="javascript">
+/************************************************************************
+**
+** Filename:  4.4Requirements.htm
+**
+** File Description: This page displays the multiplicity elements for
+**					 section 4.4 Requirements.
+**
+** Author:  ADLI Project
+**
+** Company Name: Concurrent Technologies Corporation (CTC)
+**
+** Module/Package Name:
+** Module/Package Description:
+**
+** Design Issues:
+**
+** Implementation Issues:
+** Known Problems:
+** Side Effects:
+**
+** References:  SCORM Version 1.1 (Section 2)
+**
+**************************************************************************
+**
+** Advanced Distributed Learning Co-Laboratory (ADL Co-Lab) grants you
+** ("Licensee") a non-exclusive, royalty free, license to use, modify and
+** redistribute this software in source and binary code form, provided
+** that i) this copyright notice and license appear on all copies of the
+** software; and ii) Licensee does not utilize the software in a manner
+** which is disparaging to CTC.
+**
+** This software is provided "AS IS," without a warranty of any kind.  ALL
+** EXPRESS OR IMPLIED CONDITIONS, REPRESENTATIONS AND WARRANTIES,
+** INCLUDING ANY IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A
+** PARTICULAR PURPOSE OR NON- INFRINGEMENT, ARE HEREBY EXCLUDED.  CTC AND
+** ITS LICENSORS SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY LICENSEE
+** AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THE SOFTWARE OR ITS
+** DERIVATIVES.  IN NO EVENT WILL CTC  OR ITS LICENSORS BE LIABLE FOR ANY
+** LOST REVENUE, PROFIT OR DATA, OR FOR DIRECT, INDIRECT, SPECIAL,
+** CONSEQUENTIAL, INCIDENTAL OR PUNITIVE DAMAGES, HOWEVER CAUSED AND
+** REGARDLESS OF THE THEORY OF LIABILITY, ARISING OUT OF THE USE OF OR
+** INABILITY TO USE SOFTWARE, EVEN IF CTC  HAS BEEN ADVISED OF THE
+** POSSIBILITY OF SUCH DAMAGES.
+**
+*************************************************************************
+**
+** Date Changed   Author of Change  Reason for Changes
+** ------------   ----------------  -------------------------------------
+** 3/12/2001      Tom Hopkins       Initial Final Version for MDG v1.1
+**
+************************************************************************/
+
+// Global Variables
+var visibleCount = 0;
+var maxElements = 100;
+var offset = 165;
+var typeList = "";
+var nameList = "";
+var minverList = "";
+var maxverList = "";
+
+/************************************************************************
+** Function: displayRequirements()
+**
+** Variables: none
+**
+** Description:
+**			This function is called when the page loads.  It gathers the
+**		type, name, minver and maxver lists.  These lists if not blank 
+**		are used to repopulate the fields.  Otherwise it calls addNewType
+**		and adds blank fields.
+*************************************************************************/
+function displayRequirements()
+{
+   if (parent.main == null)
+   {
+      location.href="errorPage.htm";
+
+   }
+   else
+   {
+      typeList = parent.main.typeList;
+	  nameList = parent.main.nameList;
+	  minverList = parent.main.minverList;
+	  maxverList = parent.main.maxverList;
+	  
+	  var typeArray = typeList.split("|");
+  	  var nameArray = nameList.split("|");
+	  var minverArray = minverList.split("|");
+	  var maxverArray = maxverList.split("|");
+	  
+	  for (var i=0;i<typeArray.length;i++)
+	  {
+	     addNewType(typeArray[i],nameArray[i],minverArray[i],maxverArray[i])
+	  }
+  }
+}
+
+/************************************************************************
+** Function: addNewType(type,name,minver,maxver)
+**
+** Variables: type - The type information
+**			  name - The name information
+**			  minver - The minimum version information
+**			  maxver - The maximum version information
+**
+** Description:
+**			This page is called by displayRequirements.  The appropriate
+**		fields are made visible and the textboxes are left blank or filled
+**		with the variable information.
+*************************************************************************/
+function addNewType(type,name,minver,maxver)
+{
+   if (type == null)
+   {
+	type = "";
+	name = "";
+	minver = "";
+	maxver = "";
+   }
+   
+   if (visibleCount == 8)
+   {
+      if (!confirm("WARNING!  Tools are only required to support up to 32 4.4 Requirements sections. \n Click OK to continue adding. \nClick Cancel to stop adding."))
+      {
+         return;
+      }
+   }
+
+   if (visibleCount == maxElements)
+   {
+      alert("Maximum number of elements exceeded.  Can not add any more elements.");
+      return;
+   }
+
+   visibleCount++;
+
+   // 4.4 Requirements
+   document.all.item("label"+visibleCount).style.visibility = "visible";
+   document.all.item("del"+visibleCount).style.visibility = "visible";
+   
+   //4.4.1 Type
+   document.all.item("labeltype"+visibleCount).style.visibility = "visible";
+   document.all.item("inputtype"+visibleCount).style.visibility = "visible";
+   document.all.item("inputtype"+visibleCount).value = type;
+
+   //4.4.2 Name
+   document.all.item("labelname"+visibleCount).style.visibility = "visible";
+   document.all.item("inputname"+visibleCount).style.visibility = "visible";
+   document.all.item("inputname"+visibleCount).value = name;
+
+   //4.3.3 Minimum Version
+   document.all.item("labelminver"+visibleCount).style.visibility = "visible";
+   document.all.item("inputminver"+visibleCount).style.visibility = "visible";
+   document.all.item("inputminver"+visibleCount).value = minver;
+
+   //4.3.3 Maximum Version
+   document.all.item("labelmaxver"+visibleCount).style.visibility = "visible";
+   document.all.item("inputmaxver"+visibleCount).style.visibility = "visible";
+   document.all.item("inputmaxver"+visibleCount).value = maxver;
+   
+   // Line Tag
+   document.all.item("div"+visibleCount).style.visibility = "visible";
+
+}
+
+/************************************************************************
+** Function: deleteType()
+**
+** Variables: none
+**
+** Description:
+**			This function is called when the user presses the delete
+**		button.  The appropriate fields are hidden and the textboxes
+**		are erased.
+*************************************************************************/
+function deleteType()
+{
+   // get the last character of the id that caused this event to be fired
+   // this is the index of the element we want to delete.
+   
+   var evt = new String(window.event.srcElement.id);
+   var idx = evt.charAt(evt.length-1);
+
+   // push all the other remaining elements down the "stack".
+   for (i=idx;i<visibleCount;i++)
+   {
+      var nextIdx = i;
+      nextIdx++;
+      document.all.item("inputtype"+i).value = document.all.item("inputtype"+nextIdx).value;
+      document.all.item("inputname"+i).value = document.all.item("inputname"+nextIdx).value;
+      document.all.item("inputminver"+i).value = document.all.item("inputminver"+nextIdx).value;
+      document.all.item("inputmaxver"+i).value = document.all.item("inputmaxver"+nextIdx).value;
+   }
+   
+   // make the last one invisible (this is the element that will now be empty).
+   
+
+   // 4.4 Requirements
+   document.all.item("label"+visibleCount).style.visibility = "hidden";
+   document.all.item("del"+visibleCount).style.visibility = "hidden";
+   
+   //4.4.1 Type
+   document.all.item("labeltype"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputtype"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputtype"+visibleCount).value = "";
+
+   //4.4.2 Name
+   document.all.item("labelname"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputname"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputname"+visibleCount).value = "";
+
+   //4.3.3 Minimum Version
+   document.all.item("labelminver"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputminver"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputminver"+visibleCount).value = "";
+
+   //4.3.4 Maximum Version
+   document.all.item("labelmaxver"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputmaxver"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputmaxver"+visibleCount).value = "";
+   
+   // Line Tag
+   document.all.item("div"+visibleCount).style.visibility = "hidden";
+   
+   visibleCount--;
+   
+}
+
+/************************************************************************
+** Function: okHandler()
+**
+** Variables: none
+**
+** Description:
+**			This function is called when the user presses the ok button.
+**		The type, name, minimum version and maximum version information
+**		is gathered and displayRequirements from rawmedia.htm is called.
+*************************************************************************/
+function okHandler()
+{
+  // resets the keywordList so you don't have duplication of previous elements - used if editing elements for a second time //
+  typeList = "";
+  nameList = "";
+  minverList = "";
+  maxverList = "";
+
+  for (i=0;i<visibleCount;i++)
+  {
+    var j = "";
+	j = i + 1;
+	if ( document.all.item("inputtype" + j).value == "" ) 			{ alert('4.4.1 Type('+j+') is empty.'); document.all.item("inputtype" + j).focus(); return false; }
+	if ( document.all.item("inputname" + j).value == "" ) 			{ alert('4.4.2 Name('+j+') is empty.'); document.all.item("inputname" + j).focus(); return false; }
+	if ( document.all.item("inputminver" + j).value == "" ) 		{ alert('4.4.3 Minimum Version('+j+') is empty.'); document.all.item("inputminver" + j).focus(); return false; }
+	if ( document.all.item("inputmaxver" + j).value == "" ) 		{ alert('4.4.4 Maximum Version('+j+') is empty.'); document.all.item("inputmaxver" + j).focus(); return false; }
+	if (getByteLength(document.all.item("inputname" + j)) > 255 ) {
+		alert("4.4.2 Name("+j+") is "+getByteLength(document.all.item("inputname" + j))+" bytes.(max:255 bytes)");
+		document.all.item("inputname" + j).focus(); return false;
+	}
+	if (getByteLength(document.all.item("inputminver" + j)) > 30 ) {
+		alert("4.4.3 Minimum Version("+j+") is "+getByteLength(document.all.item("inputminver" + j))+" bytes.(max:30 bytes)");
+		document.all.item("inputminver" + j).focus(); return false;
+	}
+	if (getByteLength(document.all.item("inputmaxver" + j)) > 30 ) {
+		alert("4.4.4 Maximum Version("+j+") is "+getByteLength(document.all.item("inputmaxver" + j))+" bytes.(max:30 bytes)");
+		document.all.item("inputmaxver" + j).focus(); return false;
+	}
+	typeList = typeList + document.all.item("inputtype" + j).value + "|"
+	nameList = nameList + document.all.item("inputname" + j).value + "|"
+	minverList = minverList + document.all.item("inputminver" + j).value + "|"
+	maxverList = maxverList + document.all.item("inputmaxver" + j).value + "|"	
+  }
+    parent.main.displayRequirements(typeList,nameList,minverList,maxverList);
+}
+</script>
+
+<style type="text/css">
+table { font-family: "Vernada","±¼¸²Ã¼", "±¼¸²", "µ¸¿òÃ¼"; font-size: 9pt ; line-height:12pt;color:#343434 ;>r-spacing:0px;border-padding:0px} 
+td { font-family: "Vernada","±¼¸²Ã¼", "±¼¸²", "µ¸¿òÃ¼"; font-size: 9pt ; line-height:12pt;color:#343434 ;>r-spacing:0px;border-padding:0px} 
+
+a:active, a:link, a:visited {  color: #1A9EBF; text-decoration: none}
+a:hover {  color: #DD8E24; text-decoration: none}
+
+body{	background-image:url("hrdi_img/right_bg.gif");
+	background-repeat:repeat-y;
+
+
+
+                scrollbar-face-color: ffffff; 
+                scrollbar-shadow-color: #cccccc; 
+                scrollbar-highlight-color: #cccccc; 
+                scrollbar-3dlight-color: #efefef; 
+                scrollbar-darkshadow-color: #efefef; 
+                scrollbar-track-color : #efefef; 
+                scrollbar-arrow-color: #B9B9B9; 
+}
+input{	
+		background-color:#ffffff; border:1 solid #838383;  font-family:gulim; font-size:9pt;color:#545454;
+}
+textarea{	
+		background-color:#ffffff; border:1 solid #838383;  font-family:gulim; font-size:9pt;color:#545454;
+}
+.btn	{background-color:#E6EDF9; BORDER-TOP-WIDTH: 1px solid #CADEFF; BORDER-RIGHT: 1px solid #2845A6; BORDER-LEFT-WIDTH: 1px solid #CADEFF; BORDER-BOTTOM:1px solid #0C1E72; font-family:gulim; font-size:9pt;color:#0C1E72; cursor:hand}
+</style>
+
+</head>
+<body background="/images/metadata/bkg.gif" bgcolor="#f0f0f0" onload="displayRequirements();">
+<div align="center">
+<table width="98%">
+<tr>
+	<td Class="Form"><br><strong><font color="#24309B">4.4 Requirements - Multiple Elements</font></strong></td>
+<tr>
+	<td>
+		<form NAME="requirementsForm" id="requirementsForm">
+		<input TYPE="button" ID="add" NAME="add" VALUE="Add Requirements" ONCLICK ="addNewType(null,null,null,null);" class="btn">
+
+		<input TYPE="button" id="okButton" NAME="okButton" VALUE="OK" ONCLICK="okHandler();" class="btn">
+
+		<input type="Reset" value="Clear" name="clearButton" id="clearButton" class="btn">
+		<script LANGUAGE="JAVASCRIPT">
+		for (i=0;i<100;i++)  // the upper limit needs to correspond to the maxElements variable defined above.
+		{
+		   document.writeln("<label id=\"label"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">Requirements</label>&nbsp;&nbsp;&nbsp;<input TYPE=\"button\" class=\"btn\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" ID=\"del" +i+ "\" NAME=\"del" +i+ "\" VALUE=\"Delete\" ONCLICK =\"deleteType();\"><BR>");
+		   document.writeln("<label id=\"labeltype"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">4.4.1 Type</label>&nbsp;&nbsp;&nbsp;<select style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" name=\"inputtype\"" + i + "\" id=\"inputtype" + i + "\"><option value='Operating System'>Operating System</option><option value='Browser'>Browser</option></select><br>");
+		   document.writeln("<label id=\"labelname"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">4.4.2 Name</label>&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"text\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" name=\"inputname\"" + i + "\" id=\"inputname" + i + "\" maxlength=255><br>");
+		   document.writeln("<label id=\"labelminver"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">4.4.3 Minimum Version</label><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"text\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" name=\"inputminver\"" + i + "\" id=\"inputminver" + i + "\" maxlength=30><br>");
+		   document.writeln("<label id=\"labelmaxver"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">4.4.4 Maximum Version</label><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"text\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" name=\"inputmaxver\"" + i + "\" id=\"inputmaxver" + i + "\" maxlength=30><br>");
+		   document.writeln("<div id=\"div"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\"><hr></div>");		   
+		}
+		</script>
+		</form>
+	</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

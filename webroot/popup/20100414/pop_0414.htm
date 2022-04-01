@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+ <HEAD>
+  <TITLE>사이버콘텐츠아카데미 공지</TITLE>
+  <style type="text/css">
+  body, table, tr, td, select,input,div,form,textarea {font-family:verdana; font-size:9pt;  line-height:180%}
+  </style>
+   <script language="javascript">
+function notice_setCookie( name, value, expiredays )
+    {
+        var todayDate = new Date();
+        todayDate.setDate( todayDate.getDate() + expiredays );
+        document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+     }
+
+
+function notice_closeWin() 
+{ 
+        notice_setCookie( "popUppop_0414", "done" , 1); // 1=하룻동안 공지창 열지 않음
+        self.close(); 
+}
+  </script>
+ </HEAD>
+<!--팝업사이즈:400_440-->
+ <BODY topmargin="0" leftmargin="0">
+ <table width="360" border="0" cellpadding="0" cellspacing="0">
+ <tr>
+	<td><img src="http://cyber.gameacademy.or.kr/event/20100414/pop_0331.gif" width="360" height="424" border="0" usemap="#popMap"></td>
+ </tr>
+ </table>
+ <table width="360" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+	  <td width="120" height="10" align="right" bgcolor="#000000"><div align="right"><input type="checkbox" name="biz_popup" onfocus='blur()' OnClick="notice_closeWin()"></div></td>
+	  <td width="160" height="20" align="right" bgcolor="#000000"><font color="white">오늘 이 창을 다시 열지 않음</font></td>
+      <td width="40" height="20" align="right" bgcolor="#000000"><p><input type="image" src="http://academy.kbi.re.kr/popup/images/close1.gif" name="close" OnClick="self.close()"  align="left" width="40" height="20" border="0" vspace="0" hspace="0" onfocus='blur()'></p></td>
+  </tr> 
+ </BODY>
+</HTML>

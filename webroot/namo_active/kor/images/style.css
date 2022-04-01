@@ -1,0 +1,21 @@
+body { font-family:µ¸À½,Arial;font-size:9pt;color:#6A6A6A;}
+td { font-family:µ¸À½,Arial;font-size:9pt;color:#6A6A6A;}
+
+
+A:link { color:#959595;text-decoration:none;}
+a:visited { color:#959595;text-decoration:none;}
+A:active { color:#959595;text-decoration:none;}
+a:hover { color:#959595;text-decoration:underline;}
+
+.ctbic { font-family:µ¸À½,Arial;font-size:9pt;margin-top:10pt;margin-bottom:0pt;font-weight:bold;}
+.ctmid { font-family:µ¸À½,Arial;font-size:9pt;margin-top:10pt;margin-bottom:0pt;font-weight:bold;}
+.ctsmall { font-family:µ¸À½,Arial;font-size:9pt;margin-top:0pt;margin-bottom:0pt; margin-left:10pt;}
+
+body{ 
+ 		scrollbar-3dlight-color:9B9B9B;
+		scrollbar-arrow-color:ffffff;
+		scrollbar-base-color:E2E2E2;
+		scrollbar-darkshadow-color:FFFFFF;
+		scrollbar-face-color:E2E2E2;
+		scrollbar-highlight-color:FFFFF;
+		scrollbar-shadow-color:9B9B9B}

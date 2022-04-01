@@ -1,0 +1,40 @@
+package com.credu.homepage;
+
+import javax.servlet.http.*;
+import java.text.DecimalFormat;
+import java.io.*;
+import java.util.*;
+import java.sql.*;
+import com.credu.library.*;
+import com.credu.common.*;
+import com.credu.system.*;
+import com.credu.complete.*;
+import com.credu.course.*;
+import com.credu.propose.ProposeBean;
+
+/**
+ * @author Administrator
+ *
+ * To change the template for this generated type comment go to
+ * Window>Preferences>Java>Code Generation>Code and Comments
+ */
+public class PoolTestBean {
+    
+    public String pooltest() throws Exception {
+        DBConnectionManagerTest connMgr = null;
+        String successString = "fail";
+
+        try {
+        	connMgr = new DBConnectionManagerTest();
+        	System.out.println("PoolTestBeanPoolTestBeanPoolTestBeanPoolTestBean");
+        }
+        catch (Exception ex) {
+            //ErrorManager.getErrorStackTrace(ex, box, "");
+        }
+        finally {
+            
+        }
+        return successString;
+    }
+
+}

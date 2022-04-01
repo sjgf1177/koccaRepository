@@ -1,0 +1,101 @@
+<html>
+<%@ page contentType = "text/html;charset=euc-kr" %>
+<title>KOCCA 사이버아카데미</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" >
+<meta http-equiv="Pragma" content="no-cache" >
+<link href="/css/user_style_k1.css" rel="stylesheet" type="text/css">
+<SCRIPT language="JavaScript"> 
+<!-- 
+// 체크후 닫기버튼을 눌렀을때 쿠키를 만들고 창을 닫습니다
+
+function eg_popup()
+{
+	var todayDate = new Date();
+	todayDate.setDate( todayDate.getDate() + 1 );
+	document.cookie = "MainPopup=done; path=/; expires=" + todayDate.toGMTString() + ";" 
+	self.close();
+}
+
+function setCookie( name, value, expiredays ) 
+{ 
+var todayDate = new Date(); 
+todayDate.setDate( todayDate.getDate() + expiredays ); 
+document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";" 
+} 
+ 
+function closeWin() 
+{ 
+	if(document.frm.checkvalue.checked)
+	{
+		setCookie( "kocca_open", "done" , 1); // 쿠키값 체크
+		self.close();
+	}
+}
+</SCRIPT>
+</head>
+
+
+
+<body topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0">
+<form name="frm" method="post">
+
+<table width="320" border="0" cellspacing="0" cellpadding="0">
+
+
+
+<tr>	
+
+  <tr>
+
+    <td>
+
+	
+
+   <img src="img/img_09_0320.jpg" width="320" height="380" border="0" usemap="#Map" galleryimg="no"></a></td>
+
+  </tr>
+
+<tr>	
+
+    <td align=right bgcolor="#e0e0e0">
+
+      
+
+               
+
+   
+
+   
+
+ <div align="center" class="style1">
+<input type="checkbox" name="checkvalue" value="Y" onClick="closeWin();">
+<span class="style3"><a href  ="javascript:closeWin();">오늘 하루 이 창을 열지 않음</a></span> </div></td>
+</tr>
+</table>
+
+</form>
+
+
+
+
+
+      
+
+
+
+
+
+    </td>	
+
+</tr>
+</table>
+<map name="Map">
+  <area shape="rect" coords="8,126,308,240" href="http://www.wecon.kr/sub/nn/NNNotice.srt?method=view&rnum=1049&nm_seq=10522&pageNo=1&KEY_OPTION=&SEARCH_KEY=&SEARCH_CC_CD=&SHOW_AREA=&SEARCH_DT_FR=&SEARCH_DT_TO=" target="_blank">
+  
+  <area shape="rect" coords="10,8,308,123" href="http://www.kocca.kr/sub/nn/NNNotice.srt?method=view&rnum=663&nm_seq=11140&pageNo=1&KEY_OPTION=&SEARCH_KEY=&SEARCH_CC_CD=&SHOW_AREA=&SEARCH_DT_FR=&SEARCH_DT_TO=" target="_blank">
+ 
+  <area shape="rect" coords="9,247,309,361" href="http://contents.connect.or.kr/servlet/controller.homepage.KHomeNoticeServlet?p_process=selectView&p_seq=485" target="_blank">
+</map>
+</body>
+</html>
+

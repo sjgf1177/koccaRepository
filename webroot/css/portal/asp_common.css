@@ -1,0 +1,20 @@
+@charset "EUC-KR";
+
+#asp {background:url(../images/asp/gnb_main_bg.gif) repeat-x left top;}
+
+#asp ul.gnb {clear:both; width:829px; height:28px; overflow:hidden; padding:7px 77px 0 94px; background: url(../images/asp/gnb_bg.gif) no-repeat center top !important;}
+#asp ul.gnb li {float:left; font-size:0; margin:4px 35px 0 0;}
+#asp ul.gnb li.allmenu {float:right; margin:0;}
+
+#asp #gnb_sub {position:absolute; width:920px; left:40px; top:105px; padding:9px 0 6px; background:#fff; border:0 !important; z-index:1;}
+#asp #gnb_sub ul {overflow:hidden;}
+#asp #gnb_sub ul li {margin:0 15px 0 0; height:15px;}
+#asp #gnb_sub ul li img {vertical-align:middle;}
+#asp #gnb_sub ul.sub1 {margin-left:88px;}
+#asp #gnb_sub ul.sub2 {margin-left:200px;}
+#asp #gnb_sub ul.sub3 {margin-left:5px;}
+#asp #gnb_sub ul.sub3 li {margin:0 5px 0 0; height:15px;}
+#asp #gnb_sub ul.sub4 {margin-left:250px;}
+#asp #gnb_sub ul.sub5 {margin-left:180px;}
+#asp #gnb_sub ul.sub6 {margin-left:520px;}
+#asp #gnb_sub ul.sub7 {margin-left:550px;}

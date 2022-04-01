@@ -1,0 +1,308 @@
+<html>
+<head>
+<title>
+7 Relation - 7.1 Kind - 7.2 Resource - 7.2.1 Identifier(Restricted) - 7.2.2 Description
+</title>
+<script language="javascript" src="/script/scorm_lib.js"></script>
+<script language="javascript">
+/************************************************************************
+**
+** Filename:  7Relation.htm
+**
+** File Description: This page displays the multiplicity elements for
+**					 section 7 Relation.
+**
+** Author:  ADLI Project
+**
+** Company Name: Concurrent Technologies Corporation (CTC)
+**
+** Module/Package Name:
+** Module/Package Description:
+**
+** Design Issues:
+**
+** Implementation Issues:
+** Known Problems:
+** Side Effects:
+**
+** References:  SCORM Version 1.1 (Section 2)
+**
+**************************************************************************
+**
+** Advanced Distributed Learning Co-Laboratory (ADL Co-Lab) grants you
+** ("Licensee") a non-exclusive, royalty free, license to use, modify and
+** redistribute this software in source and binary code form, provided
+** that i) this copyright notice and license appear on all copies of the
+** software; and ii) Licensee does not utilize the software in a manner
+** which is disparaging to CTC.
+**
+** This software is provided "AS IS," without a warranty of any kind.  ALL
+** EXPRESS OR IMPLIED CONDITIONS, REPRESENTATIONS AND WARRANTIES,
+** INCLUDING ANY IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A
+** PARTICULAR PURPOSE OR NON- INFRINGEMENT, ARE HEREBY EXCLUDED.  CTC AND
+** ITS LICENSORS SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY LICENSEE
+** AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THE SOFTWARE OR ITS
+** DERIVATIVES.  IN NO EVENT WILL CTC  OR ITS LICENSORS BE LIABLE FOR ANY
+** LOST REVENUE, PROFIT OR DATA, OR FOR DIRECT, INDIRECT, SPECIAL,
+** CONSEQUENTIAL, INCIDENTAL OR PUNITIVE DAMAGES, HOWEVER CAUSED AND
+** REGARDLESS OF THE THEORY OF LIABILITY, ARISING OUT OF THE USE OF OR
+** INABILITY TO USE SOFTWARE, EVEN IF CTC  HAS BEEN ADVISED OF THE
+** POSSIBILITY OF SUCH DAMAGES.
+**
+*************************************************************************
+**
+** Date Changed   Author of Change  Reason for Changes
+** ------------   ----------------  -------------------------------------
+** 3/12/2001      Tom Hopkins       Initial Final Version for MDG v1.1
+**
+************************************************************************/
+
+// Global variables
+var visibleCount = 0;
+var maxElements = 100;
+var offset = 125;
+var kindList = "";
+var resourceList = "";
+var idList = "";
+var descriptionList = "";
+
+/************************************************************************
+** Function: displayRelation()
+**
+** Variables: none
+**
+** Description:
+**			This function is called when the page loads.  It gathers the
+**		kind, resource, id and description lists.  These lists if not blank 
+**		are used to repopulate the fields.  Otherwise it calls addNewKind
+**		and adds blank fields.
+*************************************************************************/
+function displayRelation()
+{
+   if (parent.main == null)
+   {
+      location.href="errorPage.htm";
+
+   }
+   else
+   {
+      kindList = parent.main.kindList;
+	  resourceList = parent.main.resourceList;
+	  idList = parent.main.idList;
+	  descriptionList = parent.main.descriptionList;
+	  
+	  var kindArray = kindList.split("|");
+  	  var resourceArray = resourceList.split("|");
+	  var idArray = idList.split("|");
+	  var descriptionArray = descriptionList.split("|");
+	  
+	  for (var i=0;i<kindArray.length;i++)
+	  {
+	     addNewKind(kindArray[i],resourceArray[i],idArray[i],descriptionArray[i])
+	  }
+  }
+}
+
+/************************************************************************
+** Function: addNewKind(kind,resource,id,description)
+**
+** Variables: none
+**
+** Description:
+**			This function is called from displayRelation.  It turns the 
+**	appropriate fields visible and either leaves the textboxes blank or
+**	populates them with the kind, resource, id and description inforamtion.
+*************************************************************************/
+function addNewKind(kind,resource,id,description)
+{
+   if (kind == null)
+   {
+	kind = "";
+	resource = "";
+	id = "";
+	description = "";
+   }
+   
+   if (visibleCount == 8)
+   {
+      if (!confirm("WARNING!  Tools are only required to support up to 32 7 Relation sections. \n Click OK to continue adding. \nClick Cancel to stop adding."))
+      {
+         return;
+      }
+   }
+
+   if (visibleCount == maxElements)
+   {
+      alert("Maximum number of elements exceeded.  Can not add any more elements.");
+      return;
+   }
+
+   visibleCount++;
+
+   //7 Relation
+   document.all.item("label"+visibleCount).style.visibility = "visible";
+   document.all.item("del"+visibleCount).style.visibility = "visible";
+   
+   //7.1 Kind
+   document.all.item("labelkind"+visibleCount).style.visibility = "visible";
+   document.all.item("inputkind"+visibleCount).style.visibility = "visible";
+   document.all.item("inputkind"+visibleCount).value = kind;
+   
+   //7.2.1 Identifer
+   document.all.item("labelid"+visibleCount).style.visibility = "visible";
+   
+   //7.2.2 Description
+   document.all.item("labeldesc"+visibleCount).style.visibility = "visible";
+   document.all.item("inputdesc"+visibleCount).style.visibility = "visible";
+   document.all.item("inputdesc"+visibleCount).value = description;
+   
+   // Line Tag
+   document.all.item("div"+visibleCount).style.visibility = "visible";
+   
+}
+
+/************************************************************************
+** Function: deleteKind()
+**
+** Variables: none
+**
+** Description:
+**			This function is called when the user presses the delete button.
+**		The appropriate fields are hidden and the information in the
+**		textboxes are erased.
+*************************************************************************/
+function deleteKind()
+{
+   // get the last character of the id that caused this event to be fired
+   // this is the index of the element we want to delete.
+   var evt = new String(window.event.srcElement.id);
+   var idx = evt.charAt(evt.length-1);
+
+   // push all the other remaining elements down the "stack".
+   for (i=idx;i<visibleCount;i++)
+   {
+      var nextIdx = i;
+      nextIdx++;
+      document.all.item("inputkind"+i).value = document.all.item("inputkind"+nextIdx).value;
+      document.all.item("inputdesc"+i).value = document.all.item("inputdesc"+nextIdx).value;
+   }
+   
+   // make the last one invisible (this is the element that will now be empty).
+   //7 Relation
+   document.all.item("label"+visibleCount).style.visibility = "hidden";
+   document.all.item("del"+visibleCount).style.visibility = "hidden";
+   
+   //7.1 Kind
+   document.all.item("labelkind"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputkind"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputkind"+visibleCount).value = "";
+   
+   //7.2.1 Identifer
+   document.all.item("labelid"+visibleCount).style.visibility = "hidden";
+
+   //7.2.2 Description
+   document.all.item("labeldesc"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputdesc"+visibleCount).style.visibility = "hidden";
+   document.all.item("inputdesc"+visibleCount).value = "";
+
+   // Line Tag
+   document.all.item("div"+visibleCount).style.visibility = "hidden";
+   
+   visibleCount--;
+   
+}
+
+/************************************************************************
+** Function: okHandler()
+**
+** Variables: none
+**
+** Description:
+**			This function is called when the user presses the ok button.
+**		The kind, resource, id and description information is gathered
+**		and displayRelation in rawmedia.htm is called.
+*************************************************************************/
+function okHandler()
+{
+  // resets the keywordList so you don't have duplication of previous elements - used if editing elements for a second time //
+  kindList = "";
+  resourceList = "";
+  idList = "";
+  descriptionList = "";
+
+  for (i=0;i<visibleCount;i++)
+  {
+    var j = "";
+	j = i + 1;
+	if ( document.all.item("inputkind" + j).value == "" ) 		{ alert('7.1 Kind('+j+') is empty.'); return false; }
+	if ( document.all.item("inputdesc" + j).value == "" ) 		{ alert('7.2.2 Resource('+j+') is empty.'); document.all.item("inputdesc" + j).focus(); return false; }
+	if (getByteLength(document.all.item("inputdesc" + j)) > 3000 ) {
+		alert("7.2.2 Resource("+j+") is "+getByteLength(document.all.item("inputdesc" + j))+" bytes.(max:3000 bytes)");
+		document.all.item("inputdesc" + j).focus(); return false;
+	}
+	kindList = kindList + document.all.item("inputkind" + j).value + "|"
+	descriptionList = descriptionList + document.all.item("inputdesc" + j).value + "|"	
+  }
+    parent.main.displayRelation(kindList,descriptionList);	
+}
+</script>
+
+<style type="text/css">
+table { font-family: "Vernada","±¼¸²Ã¼", "±¼¸²", "µ¸¿òÃ¼"; font-size: 9pt ; line-height:12pt;color:#343434 ;>r-spacing:0px;border-padding:0px} 
+td { font-family: "Vernada","±¼¸²Ã¼", "±¼¸²", "µ¸¿òÃ¼"; font-size: 9pt ; line-height:12pt;color:#343434 ;>r-spacing:0px;border-padding:0px} 
+
+a:active, a:link, a:visited {  color: #1A9EBF; text-decoration: none}
+a:hover {  color: #DD8E24; text-decoration: none}
+
+body{	background-image:url("hrdi_img/right_bg.gif");
+	background-repeat:repeat-y;
+
+
+
+                scrollbar-face-color: ffffff; 
+                scrollbar-shadow-color: #cccccc; 
+                scrollbar-highlight-color: #cccccc; 
+                scrollbar-3dlight-color: #efefef; 
+                scrollbar-darkshadow-color: #efefef; 
+                scrollbar-track-color : #efefef; 
+                scrollbar-arrow-color: #B9B9B9; 
+}
+input{	
+		background-color:#ffffff; border:1 solid #838383;  font-family:gulim; font-size:9pt;color:#545454;
+}
+textarea{	
+		background-color:#ffffff; border:1 solid #838383;  font-family:gulim; font-size:9pt;color:#545454;
+}
+.btn	{background-color:#E6EDF9; BORDER-TOP-WIDTH: 1px solid #CADEFF; BORDER-RIGHT: 1px solid #2845A6; BORDER-LEFT-WIDTH: 1px solid #CADEFF; BORDER-BOTTOM:1px solid #0C1E72; font-family:gulim; font-size:9pt;color:#0C1E72; cursor:hand}
+</style>
+</head>
+<body background="/images/metadata/bkg.gif" bgcolor="#f0f0f0" onload="displayRelation();">
+<div align="center">
+<table width="98%">
+<tr>
+	<td Class="Form"><br><strong><font color="#24309B">7 Relation - Multiple Elements</font></strong></td>
+<tr>
+	<td>
+		<form NAME="relationForm" id="relationForm">
+		<input TYPE="button" ID="add" NAME="add" VALUE="Add Relation Information" ONCLICK ="addNewKind(null,null,null,null);" class="btn">
+<br>
+		<input TYPE="button" id="okButton" NAME="okButton" VALUE="OK" ONCLICK="okHandler();" class="btn">
+
+		<input type="Reset" value="Clear" name="clearButton" id="clearButton" class="btn">
+		<script LANGUAGE="JAVASCRIPT">
+		for (i=0;i<100;i++)  // the upper limit needs to correspond to the maxElements variable defined above.
+		{
+		   document.writeln("<label id=\"label"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">Relation</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input TYPE=\"button\" class=\"btn\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" ID=\"del" +i+ "\" NAME=\"del" +i+ "\" VALUE=\"Delete\" ONCLICK =\"deleteKind();\"><BR>");			
+		   document.writeln("<label id=\"labelkind"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">7.1 Kind</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select name=\"inputkind\"" + i + "\" id=\"inputkind" + i + "\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" ><option value='User_defined' selected>User_defined</option><option value='See_classification'>See_classification</option><option value='IsPartOf'>IsPartOf</option><option value='HasPart'>HasPart</option><option value='IsVersionOf'>IsVersionOf</option><option value='HasVersion'>HasVersion</option><option value='IsFormatOf'>IsFormatOf</option><option value='HasFormat'>HasFormat</option><option value='References'>References</option><option value='IsReferencedBy'>IsReferencedBy</option><option value='IsBasedOn'>IsBasedOn</option><option value='IsBasisFor'>IsBasisFor</option><option value='Requires'>Requires</option><option value='IsRequiredBy'>IsRequiredBy</option></select><BR>");
+		   document.writeln("<label id=\"labelid"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" Class=Restricted>7.2.1 Identifier</label><br>");
+		   document.writeln("<label id=\"labeldesc"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\">7.2.2 Resource</label>&nbsp;<INPUT TYPE=\"text\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\" name=\"inputdesc\"" + i + "\" id=\"inputdesc" + i + "\" maxlength=3000><br>");
+		   document.writeln("<div id=\"div"+i+"\" style=\"position:relative;top=" + i*10 + "px;visibility:hidden\"><hr></div>");		   
+		}
+		</script>
+		</form>
+	</td>
+</tr>
+</table>
+</div>
+</body>
+</html>
