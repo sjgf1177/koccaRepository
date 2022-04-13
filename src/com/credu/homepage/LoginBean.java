@@ -575,7 +575,7 @@ public class LoginBean {
         PreparedStatement pstmt = null;
         int idx = 0;
         try {
-            System.out.println("hostip : " + box.getString("hostip"));
+            //System.out.println("hostip : " + box.getString("hostip"));
             sb.append("INSERT INTO TZ_LOG_MEMBER_LOGIN  \n");
             sb.append("     (   \n");
             sb.append("         USERID          \n");
@@ -2595,6 +2595,7 @@ public class LoginBean {
             sql.append("    ,   MEMBERDAY       \n");
             sql.append("    ,   SEX             \n");
             sql.append("    ,   MOBILE_USERID   \n");
+            sql.append("    ,   PASSCHANGEDT    \n");
             sql.append(" ) VALUES ( \n");
             sql.append("        ?                                       /* RESNO        */  \n");
             sql.append("    ,   ?                                       /* USERID       */  \n");
@@ -2635,6 +2636,7 @@ public class LoginBean {
             sql.append("    ,   ?                                       /* MEMBERDAY    */  \n");
             sql.append("    ,   ?                                       /* SEX          */  \n");
             sql.append("    ,   ?                                       /* MOBILE_USERID*/  \n");
+            sql.append("    ,   TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')    /* PASSCHANGEDT */  \n");
             sql.append(")   \n");
 
             pstmt = connMgr.prepareStatement(sql.toString());
@@ -3919,7 +3921,7 @@ public class LoginBean {
         int isOk = 0;
 
         String v_userid = box.getSession("userid");
-        System.out.println(v_userid);
+        //System.out.println(v_userid);
         try {
             connMgr = new DBConnectionManager();
             connMgr.setAutoCommit(false);
