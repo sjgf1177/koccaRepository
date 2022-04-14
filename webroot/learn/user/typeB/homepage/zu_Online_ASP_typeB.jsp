@@ -51,31 +51,33 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                        <div class="box_ct">
-                            <span class="ct_title">정규과정</span>
-                            <span class="btn_more"><a href="javascript:menuForward('9','02')">더보기</a></span>
+					<c:if test="${sessionScope.tem_grcode ne 'N000179'}">
+						<div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+							<div class="box_ct">
+								<span class="ct_title">정규과정</span>
+								<span class="btn_more"><a href="javascript:menuForward('9','02')">더보기</a></span>
 
-                            <div class="vertical_slide scroll-none">
-                                <ul>
-                                	<c:forEach items="${subjectList }" var="list" varStatus="status">
-                                		<li>
-	                                        <a href="javascript:viewSubject('<c:out value="${list.d_subj }" />','<c:out value="${list.d_subjnm }" />','<c:out value="${list.d_isonoff }" />','<c:out value="${list.d_scupperclass }" />','<c:out value="${list.d_classname }" />','<c:out value="${list.d_scyear }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${list.d_wj_classkey }" />');">
-	                                            <div class="img_box">
-	                                                <img src="<c:out value="${list.d_introducefilenamenew }" />" alt="<c:out value="${list.d_scsubjnm }" />">
-	                                            </div>
-	                                            <div class="edu_info">
-	                                                <span class="point_blue edu_title abbreviation"><c:out value="${list.d_scsubjnm }" /></span>
-	                                                <p class="edu_content abbreviation2"><c:out value="${list.d_intro }" /></p>
-	                                            </div>
-	                                        </a>
-	                                    </li>
-                                	</c:forEach>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+								<div class="vertical_slide scroll-none">
+									<ul>
+										<c:forEach items="${subjectList }" var="list" varStatus="status">
+											<li>
+												<a href="javascript:viewSubject('<c:out value="${list.d_subj }" />','<c:out value="${list.d_subjnm }" />','<c:out value="${list.d_isonoff }" />','<c:out value="${list.d_scupperclass }" />','<c:out value="${list.d_classname }" />','<c:out value="${list.d_scyear }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${list.d_wj_classkey }" />');">
+													<div class="img_box">
+														<img src="<c:out value="${list.d_introducefilenamenew }" />" alt="<c:out value="${list.d_scsubjnm }" />">
+													</div>
+													<div class="edu_info">
+														<span class="point_blue edu_title abbreviation"><c:out value="${list.d_scsubjnm }" /></span>
+														<p class="edu_content abbreviation2"><c:out value="${list.d_intro }" /></p>
+													</div>
+												</a>
+											</li>
+										</c:forEach>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</c:if>
+                    <div class="col-xl-3 <c:if test='${sessionScope.tem_grcode ne "N000179"}'>col-lg-4</c:if> col-md-6 col-sm-12">
                         <div class="box_ct">
                             <span class="ct_title">열린과정</span>
                             <span class="btn_more float-right"><a href="javascript:menuForward('5','01');">더보기</a></span>
@@ -99,7 +101,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                    <div class="col-xl-3 <c:if test='${sessionScope.tem_grcode ne "N000179"}'>col-lg-4</c:if> col-md-6 col-sm-12">
                         <div class="box_ct">
                             <span class="ct_title">학습지원센터</span>
                             <div class="div4_box">
@@ -140,7 +142,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                    <div class="col-xl-3 <c:if test='${sessionScope.tem_grcode ne "N000179"}'>col-lg-4</c:if> col-md-6 col-sm-12">
                     	<a href="javascript:menuForward('3','11');">
 	                        <div class="image_banner_con">
 	                            <div class="box_ct">    
@@ -164,29 +166,31 @@
                         </div>
                          -->
                     </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                        <div class="box_ct">
-                            <span class="ct_title">공지사항</span>
-                            <span class="btn_more float-right"><a href="javascript:menuForward('4','07');">더보기</a></span>
+					<c:if test="${sessionScope.tem_grcode ne 'N000179'}">
+						<div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+							<div class="box_ct">
+								<span class="ct_title">공지사항</span>
+								<span class="btn_more float-right"><a href="javascript:menuForward('4','07');">더보기</a></span>
 
-                            <div class="list_box">
-                                <ul>
-                                	<c:forEach items="${noticeList }" var="list" varStatus="sataus">
-                                		<li>
-                                			<a href="javascript:viewNotice('<c:out value="${list.d_seq }" />');">
-                                				<span class="abbreviation"><c:out value="${list.d_adtitle }" /></span>
-                                           		<span>
-                                           			<fmt:parseDate value="${list.d_addate }" var="noticeDate" pattern="yyyyMMddHHmmss" />
-                                           			<fmt:formatDate value="${noticeDate }" pattern="yyyy-MM-dd" />
-                                           		</span>
-                                			</a>
-                                		</li>
-                                	</c:forEach>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+								<div class="list_box">
+									<ul>
+										<c:forEach items="${noticeList }" var="list" varStatus="sataus">
+											<li>
+												<a href="javascript:viewNotice('<c:out value="${list.d_seq }" />');">
+													<span class="abbreviation"><c:out value="${list.d_adtitle }" /></span>
+													<span>
+														<fmt:parseDate value="${list.d_addate }" var="noticeDate" pattern="yyyyMMddHHmmss" parseLocale="euc-kr"/>
+														<fmt:formatDate value="${noticeDate }" pattern="yyyy-MM-dd" />
+													</span>
+												</a>
+											</li>
+										</c:forEach>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</c:if>
+                    <div class="col-xl-3 <c:if test='${sessionScope.tem_grcode ne "N000179"}'>col-lg-4</c:if> col-md-6 col-sm-12">
                         <div class="box_ct swiper-container" style="padding:0" id="main_banner_slide">
                             <div class="swiper-wrapper">
                             	<c:choose>
@@ -202,7 +206,7 @@
 	                            	 	<div class="swiper-slide">
 		                                    <a href="#">
 		                                        <span style="display: none;">융합형 인재양성의 허브 한국콘텐츠아카데미에서는 여려분의 다양한 꿈과 희망을 응원합니다.</span>
-		                                        <img src="/common/image/banner1.jpg" title="융합형 인재양성의 허브 한국콘텐츠아카데미에서는 여려분의 다양한 꿈과 희망을 응원합니다." alt="융합형 인재양성의 허브 한국콘텐츠아카데미에서는 여려분의 다양한 꿈과 희망을 응원합니다.">
+		                                        <img src="/common/image/banner1.png" title="융합형 인재양성의 허브 한국콘텐츠아카데미에서는 여려분의 다양한 꿈과 희망을 응원합니다." alt="융합형 인재양성의 허브 한국콘텐츠아카데미에서는 여려분의 다양한 꿈과 희망을 응원합니다.">
 		                                    </a>
 		                                </div>
 		                                <div class="swiper-slide">

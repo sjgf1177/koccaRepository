@@ -127,20 +127,22 @@
 	                        </span>                        
 	                        <span class="gnb_con">
 	                            <ul class="col-center">
-	                                <li>
-	                                    <a href="javascript:menuForward('8', '01');">정규과정안내</a>
-	                                    <ul>
-	                                        <li><a href="javascript:menuForward('8', '01');">교육과정안내</a></li>
-	                                    </ul>
-	                                </li>
-	                                <li>
-	                                    <a href="javascript:menuForward('9', '01');">정규과정신청</a>
-	                                    <ul>
-	                                        <li><a href="javascript:menuForward('9', '01');">수강신청안내</a></li>
-	                                        <li><a href="javascript:menuForward('9', '02');">수강신청</a></li>
-	                                        <li><a href="javascript:menuForward('9', '03');">수강신청 확인/취소</a></li>
-	                                    </ul>
-	                                </li>
+									<c:if test="${sessionScope.tem_grcode ne 'N000179'}">
+										<li>
+											<a href="javascript:menuForward('8', '01');">정규과정안내</a>
+											<ul>
+												<li><a href="javascript:menuForward('8', '01');">교육과정안내</a></li>
+											</ul>
+										</li>
+										<li>
+											<a href="javascript:menuForward('9', '01');">정규과정신청</a>
+											<ul>
+												<li><a href="javascript:menuForward('9', '01');">수강신청안내</a></li>
+												<li><a href="javascript:menuForward('9', '02');">수강신청</a></li>
+												<li><a href="javascript:menuForward('9', '03');">수강신청 확인/취소</a></li>
+											</ul>
+										</li>
+									</c:if>
 	                                <li>
 	                                    <a href="javascript:menuForward('5', '01');">열린강좌</a>
 	                                </li>
