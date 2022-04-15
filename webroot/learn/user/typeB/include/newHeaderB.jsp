@@ -146,14 +146,16 @@
 	                                <li>
 	                                    <a href="javascript:menuForward('5', '01');">열린강좌</a>
 	                                </li>
-	                                <li>
-	                                    <a href="javascript:menuForward('3', '11');">나의강의실</a>
-	                                    <ul>
-	                                        <li><a href="javascript:menuForward('3', '11');">수강중인과정</a></li>
-					                        <li><a href="javascript:menuForward('3', '02');">나의교육이력</a></li>
-					                        <li><a href="javascript:menuForward('3', '12');">나의상담내역</a></li>
-	                                    </ul>
-	                                </li>
+									<c:if test="${sessionScope.tem_grcode ne 'N000179'}">
+										<li>
+											<a href="javascript:menuForward('3', '11');">나의강의실</a>
+											<ul>
+												<li><a href="javascript:menuForward('3', '11');">수강중인과정</a></li>
+												<li><a href="javascript:menuForward('3', '02');">나의교육이력</a></li>
+												<li><a href="javascript:menuForward('3', '12');">나의상담내역</a></li>
+											</ul>
+										</li>
+									</c:if>
 	                                <li>
 	                                    <a href="javascript:menuForward('4', '07');">학습지원센터</a>
 	                                    <ul>

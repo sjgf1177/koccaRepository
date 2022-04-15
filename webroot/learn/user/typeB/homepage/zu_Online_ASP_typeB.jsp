@@ -41,7 +41,9 @@
                         		<input type="hidden" name="p_lecture_cls" value="<c:out value="${param.p_lecture_cls eq '' || param.p_lecture_cls eq null? 'ALL' : param.p_lecture_cls}" />" />
 	                            <select class="relation_site" name="relation_site" id="relation_site" >
 	                                <option value="">과정구분</option>
-	                                <option value="SUBJ">정규과정</option>
+									<c:if test='${sessionScope.tem_grcode ne "N000179"}'>
+	                                	<option value="SUBJ">정규과정</option>
+									</c:if>
 	                                <option value="OPEN">열린강좌</option>
 	                            </select>
 	                            <input type="text" name="p_searchtext" id="p_searchtext" onkeypress="if(event.keyCode==13) {main_search(); return false;}" placeholder="검색어 입력">
@@ -143,18 +145,29 @@
                         </div>
                     </div>
                     <div class="col-xl-3 <c:if test='${sessionScope.tem_grcode ne "N000179"}'>col-lg-4</c:if> col-md-6 col-sm-12">
-                    	<a href="javascript:menuForward('3','11');">
-	                        <div class="image_banner_con">
-	                            <div class="box_ct">
-	                               	<img src="${sessionScope.tem_grcode ne "N000179"? "/common/image/banner_main_mypage2.jpg" : "/common/image/banner_main_mypage179.png"}" alt="나의강의실 바로가기"/>
-	                               	<!--
-	                                <span class="banner_title">나의강의실</span>
-	                                <a href="javascript:menuForward('3','11');">바로가기</a>
-	                                <p class="banner_con">온라인과정은 방송영상, 게임개발, 문화콘텐츠 관련 콘텐츠를 웹기반 교육시스템을 통해 시간과 공간의 제약없이 누구나 교육을 받을 수 있는 '열린'공간입니다.</p>
-	                                -->
-	                            </div>
-	                        </div>
-                    	</a>
+						<c:if test='${sessionScope.tem_grcode ne "N000179"}'>
+							<a href="javascript:menuForward('3','11');">
+								<div class="image_banner_con">
+									<div class="box_ct">
+										<img src="/common/image/banner_main_mypage2.jpg" alt="나의강의실 바로가기"/>
+										<!--
+										<span class="banner_title">나의강의실</span>
+										<a href="javascript:menuForward('3','11');">바로가기</a>
+										<p class="banner_con">온라인과정은 방송영상, 게임개발, 문화콘텐츠 관련 콘텐츠를 웹기반 교육시스템을 통해 시간과 공간의 제약없이 누구나 교육을 받을 수 있는 '열린'공간입니다.</p>
+										-->
+									</div>
+								</div>
+							</a>
+						</c:if>
+						<c:if test='${sessionScope.tem_grcode eq "N000179"}'>
+							<a href="javascript:menuForward('4','07');">
+								<div class="image_banner_con">
+									<div class="box_ct">
+										<img src="/common/image/banner_main_mypage1792.png" alt="공지사항 바로가기"/>
+									</div>
+								</div>
+							</a>
+						</c:if>
                         <!-- 
                         <div class="image_banner_con">
                             <div class="box_ct">    
