@@ -145,9 +145,9 @@
                     <div class="col-xl-3 <c:if test='${sessionScope.tem_grcode ne "N000179"}'>col-lg-4</c:if> col-md-6 col-sm-12">
                     	<a href="javascript:menuForward('3','11');">
 	                        <div class="image_banner_con">
-	                            <div class="box_ct">    
-	                               	<img src="/common/image/banner_main_mypage2.jpg" alt="나의강의실 바로가기"/>
-	                               	<!-- 
+	                            <div class="box_ct">
+	                               	<img src="${sessionScope.tem_grcode ne "N000179"? "/common/image/banner_main_mypage2.jpg" : "/common/image/banner_main_mypage179.png"}" alt="나의강의실 바로가기"/>
+	                               	<!--
 	                                <span class="banner_title">나의강의실</span>
 	                                <a href="javascript:menuForward('3','11');">바로가기</a>
 	                                <p class="banner_con">온라인과정은 방송영상, 게임개발, 문화콘텐츠 관련 콘텐츠를 웹기반 교육시스템을 통해 시간과 공간의 제약없이 누구나 교육을 받을 수 있는 '열린'공간입니다.</p>
@@ -203,16 +203,17 @@
 		                                </div>
                             		</c:when>
 	                                <c:otherwise>
+										${sessionScope.tem_grcode ne "N000179"? "1" : "0"}
 	                            	 	<div class="swiper-slide">
 		                                    <a href="#">
 		                                        <span style="display: none;">융합형 인재양성의 허브 한국콘텐츠아카데미에서는 여려분의 다양한 꿈과 희망을 응원합니다.</span>
-		                                        <img src="/common/image/banner1.png" title="융합형 인재양성의 허브 한국콘텐츠아카데미에서는 여려분의 다양한 꿈과 희망을 응원합니다." alt="융합형 인재양성의 허브 한국콘텐츠아카데미에서는 여려분의 다양한 꿈과 희망을 응원합니다.">
+		                                        <img src="${sessionScope.tem_grcode ne "N000179"? "/common/image/banner1.png" : "/common/image/banner1791.png"}" title="융합형 인재양성의 허브 한국콘텐츠아카데미에서는 여려분의 다양한 꿈과 희망을 응원합니다." alt="융합형 인재양성의 허브 한국콘텐츠아카데미에서는 여려분의 다양한 꿈과 희망을 응원합니다.">
 		                                    </a>
 		                                </div>
 		                                <div class="swiper-slide">
 		                                    <a href="#">
 		                                        <span style="display: none;">언제 어디서나 누구나 방송영상, 게임, 문화 콘텐츠 분야의 꿈을 펼칠실 분들을 위한 맞춤 온라인 강의</span>
-		                                        <img src="/common/image/banner2.jpg" title="언제 어디서나 누구나 방송영상, 게임, 문화 콘텐츠 분야의 꿈을 펼칠실 분들을 위한 맞춤 온라인 강의" alt="언제 어디서나 누구나 방송영상, 게임, 문화 콘텐츠 분야의 꿈을 펼칠실 분들을 위한 맞춤 온라인 강의">
+		                                        <img src="${sessionScope.tem_grcode ne "N000179"? "/common/image/banner2.jpg" : "/common/image/banner1792.png"}" title="언제 어디서나 누구나 방송영상, 게임, 문화 콘텐츠 분야의 꿈을 펼칠실 분들을 위한 맞춤 온라인 강의" alt="언제 어디서나 누구나 방송영상, 게임, 문화 콘텐츠 분야의 꿈을 펼칠실 분들을 위한 맞춤 온라인 강의">
 		                                    </a>
 		                                </div>
                             	 	</c:otherwise>
