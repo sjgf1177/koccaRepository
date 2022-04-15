@@ -203,7 +203,6 @@
 		                                </div>
                             		</c:when>
 	                                <c:otherwise>
-										${sessionScope.tem_grcode ne "N000179"? "1" : "0"}
 	                            	 	<div class="swiper-slide">
 		                                    <a href="#">
 		                                        <span style="display: none;">융합형 인재양성의 허브 한국콘텐츠아카데미에서는 여려분의 다양한 꿈과 희망을 응원합니다.</span>
