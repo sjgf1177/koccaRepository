@@ -275,11 +275,17 @@ function suRoyJeung(subj, year, subjseq, userid, kind, subjgrcode){
 	                                                		</c:when>	      
                                                		        <c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && sessionScope.tem_grcode eq 'N000240'}">
 	                                                			<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_introView">¿Œº‚</a>
-	                                                		</c:when>		   
+	                                                		</c:when>
+															<c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && sessionScope.tem_grcode eq 'N000241'}">
+																<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_introView">¿Œº‚</a>
+															</c:when>
 															<c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && sessionScope.tem_grcode eq 'N000242'}">
 	                                                			<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_introView">¿Œº‚</a>
-	                                                		</c:when>	
-	                                                		<c:otherwise>
+	                                                		</c:when>
+															<c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && sessionScope.tem_grcode eq 'N000243'}">
+																<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_introView">¿Œº‚</a>
+															</c:when>
+															<c:otherwise>
 	                                                			- 
 	                                                		</c:otherwise>
 	                                                	</c:choose>
