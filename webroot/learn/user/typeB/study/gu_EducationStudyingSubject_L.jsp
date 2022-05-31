@@ -141,7 +141,6 @@
 									<div class="list_title">
 										<span><span>·</span>현재 수강중인 과정 목록입니다.</span>
 										<span><span>·</span>수강중의 과정이 있을 경우 학습창으로 이동하실 수 있습니다.</span>
-										<span class="point_orange"><span>·</span>과정 학습 시에는 인터넷 익스플로러 사용을 권장합니다.</span>
 									</div>
 								</div>
 								<div class="sub_boarder_body">
