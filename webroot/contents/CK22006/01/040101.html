@@ -1,0 +1,245 @@
+<!-- Quiz Page (주관식퀴즈적용 및 4지선다 개선 버전 (20220325)-->
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=yes,initial-scale=1.0,maximum-scale=1.0" />
+<title></title>
+<link href="../common/css/main.css" rel="stylesheet" type="text/css" media="screen">
+<link href="../common/css/quiz.css" rel="stylesheet" type="text/css" media="screen">
+
+<script type="text/javascript" src="../common/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="../common/jquery-ui-1.9.2.custom.min.js"></script>
+<script type="text/javascript" src="../common/pageInfo.js"></script>
+<script type="text/javascript" src="../common/pageText.js"></script>
+ 
+<script type="text/javascript" src="../common/script.js"></script>
+<script language="JavaScript" src="../common/JSTweener.js"></script>
+<script language="JavaScript" src="../common/menu.js"></script>
+
+<script language="JavaScript" src="../common/caption.js"></script>
+
+<script type="text/javascript" src="../common/quizText.js"></script>
+<script type="text/javascript" src="../common/quiz.js"></script>
+
+<script language="JavaScript" src="../common/porting.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	var quizManager = new ReviewQuizManager();
+	quizManager.start(quiz);
+
+
+	$("input").keypress(function(e) { 
+    if (e.keyCode == 13){
+        quizManager.checkAnswer();
+
+    }    
+	});
+
+	
+	$("#checkAnswer").click(function(){
+		quizManager.checkAnswer(); 
+	});
+	
+	$("#endQuestion").click(function() {
+	/*	$("#page2").hide(); */
+		$("#page3").show();
+		quizManager.result();
+	});
+	
+	$("#pageStartBtn").click(function(){
+		$("#page1").hide();
+		$("#page2").show();
+		audioEnd();
+	});
+	
+	$("#showPopup").click(function() {
+		quizManager.showPopup();
+	});
+	
+	$("#resultCloseButton").click(function() {
+		$("#page2").show();
+		$("#page3").hide();
+	});
+
+	$("#nextQuestion").click(function() {
+		quizManager.next();
+	});
+
+	$("#prevQuestion").click(function() {
+		quizManager.prev();
+	});
+	
+	$("#reQuestion").click(function() {
+		quizManager.restart();
+	});
+	
+	$("#commentary").click(function() {
+		quizManager.runWatchMode();
+	});
+	
+	
+	$("#restart").click(function() {
+		location.reload();
+	//	$("#page3").hide();
+	});
+});
+</script>
+</head>
+
+
+<body>
+
+<div id="fullSizeWrapper">
+<div id="contentsArea">
+
+<div id="content">
+  <div id="header">
+    <div id="course"></div>
+    <div id="chap"></div>
+  </div>
+
+  <section id="page1" class="quiz_bg">
+    <div class="quiz_main">
+      <ul style="margin-left:-20px;">
+        <!--<li>지금까지 학습한 내용을 퀴즈를<br> 통해 확인해보겠습니다.</li>-->
+		<li class="startText"></li>
+		<!-- <li><span>총 3문제</span>이며, <span>기회는 2번 </span>주어집니다.</li>
+        <li class="start_text">START를 클릭해 주세요.</li>-->
+        <li><a href="#"><img src="../common/img/quiz/btnStart.png" id="pageStartBtn" style="border: none;" ></a></li>
+      </ul>
+    </div>
+  </section>
+  
+
+  <section id="page2" class="quiz_bg1" style="display: none; " >
+    <audio autoplay id="myAudio" > </audio>
+	 <audio id="myBgm" autoplay></audio>
+    <audio id="pageAudio" class="pageAudio" ></audio>
+    <audio id="correctAudio" src="../common/audio/Quiz_correct.mp3" type="audio/mp3" ></audio>
+    <audio id="incorrectAudio" src="../common/audio/Quiz_incorrect.mp3" type="audio/mp3" ></audio>
+
+        
+    <section id="conQuiz2_0" class="quizDiv2">
+	  <div id="quiz_sequence_area"></div>
+	   <div id="quiztfIcon"></div>
+      <div id="quizIconDiv" class="question_number">Q1</div>
+      <div id="quizTitleWrapper" ><div id="quizTitle" ></div></div>
+
+			<div id="quizNavDiv">
+		<!-- <div id="prevQuestion"><a href="#"><img src="../common/img/quiz/btnPrev.png" style="border: none;"></a></div> -->
+        <div id="nextQuestion"><a href="#"><img src="../common/img/quiz/btnNext.png" style="border: none;"></a></div>
+		</div>
+	
+
+	  <div id="oxQuestionBox"><div id="oxQuestionTitle"></div></div>
+	  
+      <div id="qsel" >
+        <div class="select questUL">
+          <ul></ul>
+        </div>
+      </div>
+		
+       	<div id="shortAnswerDiv">
+		<form onsubmit="return false">
+		<input type="text" id="saInput" maxlength="20" autocomplete="off"></textarea>
+		</form>
+		</div>     
+		
+      <div id="questConfimDiv"><input type="image" src="../common/img/quiz/btnConfirm.png" id="checkAnswer"></div>
+	
+
+      <div id="questDapDiv" style="display: none; " >
+		<div id="dapNumber"><img src="" style="border: none;"></div>
+       <div id="dapWrapper" > <div id="dapStr"></div></div>
+        <!--<div id="showPopup"><a href="#"><img src="../common/img/quiz/Learning.png" style="border: none;"></a></div>-->
+		<!--
+		<div id="prevQuestion"><a href="#"><img src="../common/img/quiz/btnPrev.png" style="border: none;"></a></div>
+        <div id="nextQuestion"><a href="#"><img src="../common/img/quiz/btnNext.png" style="border: none;"></a></div> -->
+        <div id="endQuestion"><a href="#"><img src="../common/img/quiz/btnResult.png" style="border: none;"></a></div>
+      
+
+		<!--
+        <div id="popupStudy">
+        	<div class="popupContent"></div>
+        	<div><a href="#"><span id="popupCloseButton"></span></a></div>
+        </div>
+		-->
+      </div>
+                
+      <div id="quizAlert"></div>
+    </section>
+    
+  </section>
+  
+  <section id="page3" class="quiz_bg2" style="display: none; " >
+    <div id="course"></div>
+    <div id="chap"></div>
+        
+    <div class="result_title">
+		<div><a href="#"><span id="resultCloseButton"></span></a></div>
+      <ul style="margin-left:-40px;">
+        <li style="margin:0 auto;"><span id="total_quest_no">3</span>문제 중 <span id="correct_quest_no">2</span>문제를 맞히셨습니다.</li>
+
+        <li id="resultTable">
+		 <!--<li style="float:left; margin:25px 0px 10px 270px;"><input type="image" src="../common/img/quiz/again.png" id="reQuestion"></li> -->
+        <!--<li style="float:left; margin-top:25px;  margin-left:25px"><input type="image" src="../common/img/quiz/btnReview.png" id="commentary"></li>-->
+		 <!--<li style="float:right; margin-top:25px; margin-right:25px"><input type="image" src="../common/img/quiz/btnRestart.png" id="restart"></li>-->
+      </ul>
+	  <div style="float:center; margin-top:0px;"><input type="image" src="../common/img/quiz/btnReview.png" id="commentary"></div>
+    </div>
+  </section>
+
+  <section id="narration" name="narration">
+    <div id="nar_txt"></div>
+    <div id="nar_close">
+      <input type='image' src='../common/img/btnNarClose.png'>
+    </div>
+  </section>
+</div>
+
+<div id="container" class="container">
+  <div id="menu" style=""></div>
+  <div id="menu_open">
+    <input type="image" src="../common/img/menu/indexOpen.png" id="menu_open_btn">
+  </div>
+</div>
+
+<div id="control">
+  <script type="text/javascript" src="../common/controlBar.js"> </script>
+</div>
+
+<div id="memoForm">
+      <div class="memoContent"></div>
+	  <div><a href="#"><span id="popupCloseButtonMemo"></span></a></div>
+</div>
+
+
+<div id="popupWrapper">
+	<div id="popupReference">
+      <div class="popupContent"></div>
+   	  <div><a href="#"><span id="popupCloseButton"></span></a></div>
+    </div>
+</div>
+
+
+<div id="lecturerWrapper">
+	<div id="lecturerReference">
+      <div class="lecturerContent"></div>
+   	  <div><a href="#"><span id="lecturerCloseButton"></span></a></div>
+    </div>
+</div>
+
+<div id="bookmarkForm">
+      <div class="bookmarkContent"></div>
+	  <div><a href="#"><span id="popupCloseButtonBmk"></span></a></div>
+</div>
+
+</div>
+</div>
+
+</body>
+
+</html>

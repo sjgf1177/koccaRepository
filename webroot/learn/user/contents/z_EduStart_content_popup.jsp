@@ -11,11 +11,14 @@
     }
 
     String	p_url	= box.getString("p_url");
+
 %>
 <html>
 <head>
 <title></title>
-<script language="javascript">
+    <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="/js/playPageChk.js"></script>
+    <script language="javascript">
 <!--
     var timerID = null;
     var istimer = false;
@@ -40,8 +43,10 @@
 			//setTimeout("opener.parent.etop.goNext()",1000);
 		}
     }
+
 //-->
 </script>
+
 </head>
 
 <frameset rows="0,*" border="0" onLoad="startclock();" onUnLoad="setEduChk();">

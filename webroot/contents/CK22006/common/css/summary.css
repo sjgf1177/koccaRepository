@@ -1,0 +1,353 @@
+
+/* 정리하기 */
+
+.summaryBg {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		background-image: url(../img/summary/summaryBg.png);
+		background-repeat: no-repeat;
+		width:1000px;
+		height:596px;
+		overflow:hidden;
+
+
+}
+
+
+#sumSet{		
+		position: absolute;
+		top:30px;
+		left: 60px;
+		width: 970px;
+		height: 500px;
+
+}
+
+
+#sumtitle{
+		font-family:"Nanum Gothic";
+		position: relative;
+		top: 0px;
+		left: 0px;
+		height:100px;
+		display:block;
+}
+
+/*
+#snum{
+		position: relative;
+		font-size:27px;
+		top: 0px;
+		left: 0px;
+		width:50px;
+		height: 50px;
+		float:left;
+		margin-top:15px;
+		margin-left:5px;
+}
+*/
+
+#stitle{
+		position: relative;
+		top: 0px;
+		left: 0px;
+		width:308px;
+		height: 70px;
+		/*background-color:green;*/
+		float:left;
+		background-image: url(../img/summary/summaryTopTitle.png);
+}
+
+
+#printBtn {
+	background-image: url(../img/summary/printBtn.png);
+	background-repeat: no-repeat;	
+	background-position: 103px 0%;
+	width: 193px;
+	height: 78px;
+	position: relative;
+	top: 25px;
+	left: -30px;
+	cursor: pointer;
+	float:right;
+}
+
+
+
+#printBtn:hover {
+	background-image: url(../img/summary/printBtnOver.png);
+	background-repeat: no-repeat;
+	background-position: 0% 0%;
+	width: 193px;
+	height: 78px;
+	position: relative;
+	top: 25px;
+	left: -30px;
+}
+
+
+
+
+#sumContents{
+		position: relative;
+		top: 0px;
+		left: 0px;
+		width: 880px;
+		height: 380px;
+		/*border:1px solid;*/
+		font-size:19px;
+		color:#FFFFFF;
+		line-height:150%;
+		margin-left:30px;
+		letter-spacing:-1px;
+		/*background-color:#333333;*/
+	}
+
+#sec{
+	margin-top:10px;
+	margin-bottom:20px;
+}
+
+
+
+
+/* 인쇄 */
+#printArea{
+	font-family:"Nanum Gothic Bold";
+	position: relative;
+	width: 1000px;
+}
+
+
+/* 정리하기 타이틀에서 왼쪽 넘버 */
+#secTitlenum{
+	font-family:"Nanum Gothic";
+	 position:relative;
+	top:0px;
+	left:0px;
+	width:48px;
+	height:36px;
+	 float:left;
+	 display:inline-block;
+	background-image: url(../img/summary/sumBltTitle.png);
+	background-repeat: no-repeat;
+	 font-size:30px;
+	padding:5px 5px 0px 13px;
+	color:#2e3a90;
+
+}
+
+
+
+/* 정리하기에서 섹션 타이틀 */
+ #secTitle {
+	position:relative;
+		font-family:"Nanum Gothic Bold";
+		margin:5px 0px 10px -15px;
+		font-size:25px;
+		color:#FFFFFFF;
+		 float:left;
+		 width:730px;		
+	}
+
+
+
+/* 정리하기에서 세부내용 */
+ #secDesc{
+		position:relative;
+		font-family:"Nanum Gothic";
+		font-size:20px;
+		color:#FFFFFF;
+		margin-left:30px;
+		display:inline-block;
+}
+
+/* 정리하기 세부강조 */
+#secDesc > span {
+		color:#4F81BD;
+}
+
+
+#mbimg{
+	background-image: url(../img/summary/sumBltDescti.png);
+	background-repeat: no-repeat;
+	float:left;
+	width:22px;
+	height:25px;
+	color:#282838;
+	text-align:center;
+	line-height:110%;
+	margin-top:3px;
+	margin-right:10px;
+}
+
+#sbimg{
+	background-image: url(../img/summary/sumBltDesc.png);
+	background-repeat: no-repeat;
+	float:left;
+	width:6px;
+	height:6px;
+	margin-top:10px;
+	margin-left:30px;
+	margin-right:10px;
+}
+
+.tab { white-space: pre; }
+
+#summaryNavSec {
+	position: relative;
+	width: 500px;
+	top: -20px;
+	left: 400px;
+	margin-left:0px;
+	font-size:30px;
+}
+
+#txtCurPage{
+	color: #FFFFFF;
+	font-family: "Nanum Gothic ExtraBold";
+	margin:3px 5px 3px 5px;
+}
+
+#txtTotalPage{
+	color: #FFFFFF;
+	font-family: "Nanum Gothic ExtraBold";
+	margin:3px 5px 3px 5px;
+
+}
+
+#btnPrevsummary  {
+	background-image: url(../img/summary/btnPrev.png);
+	background-repeat: no-repeat;
+	position: relative;
+	width: 41px;
+	height: 11px;
+	top: 20px;
+	left: 0px;
+	float:left;
+	cursor:pointer;
+}
+
+#btnPrevsummary:hover  {
+	background-image: url(../img/summary/btnPrevOver.png);
+	background-repeat: no-repeat;
+	position: relative;
+	width: 41px;
+	height: 11px;
+	top: 20px;
+	left: 0px;
+	float:left;
+	cursor:pointer;
+}
+
+#btnCenter  {
+	background-image: url(../img/summary/btnCenter.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	width: 60px;
+	height: 40px;
+	top: 0px;
+	left: 0px;
+	float:left;
+	text-align:center;
+
+}
+
+
+#btnNextsummary {
+	background-image: url(../img/summary/btnNext.png);
+	background-repeat: no-repeat;
+	position: relative;
+	width: 41px;
+	height: 11px;
+	top: 20px;
+	left: 0px;
+	float:left;
+	cursor:pointer;
+}
+
+#btnNextsummary:hover {
+	background-image: url(../img/summary/btnNextOver.png);
+	background-repeat: no-repeat;
+	position: relative;
+	width: 41px;
+	height: 11px;
+	top: 20px;
+	left: 0px;
+	float:left;
+	cursor:pointer;
+}
+
+/* 하단 */
+
+/*
+#summaryNavSec {
+	position: relative;
+	width: 500px;
+	top: -85px;
+	left: 50%;
+	margin-left: -80px;
+}
+
+#summaryNavSec li {
+	font-weight: bold;
+	margin: 0px 5px;
+	float: left;
+	list-style: none;
+	font-family: "Nanum Gothic";
+	font-size: 16px;
+}
+#csummaryNavSec li #txtCurPage {
+	color: #2ba5ff;
+	font-family: "Nanum Gothic ExtraBold";
+}
+
+#btnPrevsummary  {
+	position: relative;
+	width: 101px;
+	height: 25px;
+	top: 0px;
+	left: 0px;
+	border:1px solid;
+}
+
+#btnCenter  {
+	background-image: url(../img/summary/btnCenter.png);
+	background-repeat: no-repeat;
+	width: 101px;
+	height: 25px;
+	top: 0px;
+	left: 0px;
+}
+
+
+#btnNextsummary {
+	position: relative;
+	width: 101px;
+	height: 25px;
+	top: 0px;
+	left: 0px;
+	border:1px solid;
+}
+*/
+
+#downBtn {
+	background-image: url(../img/summary/down.png);
+	background-repeat: no-repeat;
+	width: 157px;
+	height: 60px;
+	position: absolute;
+	top: 100px;
+	right: 10px;
+	cursor: pointer;
+}
+#downBtn:hover {
+	background-image: url(../img/summary/down_over.png);
+	background-repeat: no-repeat;
+	width: 157px;
+	height: 60px;
+	position: absolute;
+	top: 100px;
+	right: 10px;
+}

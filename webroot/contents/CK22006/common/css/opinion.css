@@ -1,0 +1,134 @@
+/* 의견입력 */
+
+.inputBg {
+	/*background-image:url(../img/page3_bg.png);
+	overflow:hidden;
+	background-repeat:no-repeat;
+	background-color:#EAEAEA;*/
+	width:1000px;
+	height:660px;
+}
+
+	#bg1 {
+		/*display: none;*/
+		position: absolute;
+		top: 80px;
+		left: 50px;
+
+/*
+		animation-duration:1s;
+        animation-name:slideIn;
+		animation-fill-mode:both;
+        -webkit-animation-duration:1s;
+        -webkit-animation-name:slideIn;
+		-webkit-animation-fill-mode:both;
+        -moz-animation-duration:1s;
+        -moz-animation-name:slideIn;
+		-moz-animation-fill-mode:both;
+
+		transition-property:opacity;
+		 -webkit-transition-property:opacity;
+		 -moz-transtion-property:opacity;
+		 */
+	}
+
+
+	  @keyframes slideIn {
+        0%{
+            top: 100px;
+			opacity:0;
+        }
+        100% {
+            top: 71px;
+			opacity:1;
+        }
+    }
+
+    @-webkit-keyframes slideIn {
+        0% {
+            top: 100px;
+			opacity:0;
+        }
+        100% {
+             top: 71px;
+			opacity:1;
+        }
+    }
+    @-moz-keyframes slideIn {
+        0% {
+             top: 100px;
+			opacity:0;
+        }
+        100% {
+             top: 71px;
+			opacity:1;
+        }
+    }
+
+	#opinionSubject {
+		/*font-family: "NanumGothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		display: none;
+		font-size: 0.95em;
+		*/
+		font-family:"Nanum Gothic ExtraBold";
+		font-size:20px;
+		position: absolute;
+		text-align: left;
+		vertical-align:middle;
+		font-weight: 700;
+		top: 120px;
+		left: 140px;	
+		width: 700px;
+		height:200px;
+		color:#FFFFFF;
+		line-height:150%;
+		letter-spacing:-1px;
+	}
+
+	#opinionSubject ul li{
+		list-style-image:url("../common/img/0102_bl2.png");
+	}
+
+	#opinionInput {
+		font-family: "NanumGothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		/*display: none;*/
+
+		margin:0 0 0 0;
+		font-size: 14px;
+		position: absolute;
+		text-align: left;
+		vertical-align: top;
+		top: 250px;
+		left: 100px;	
+		width: 800px;
+		height:260px;
+		color:#000000;
+		
+		line-height:215%;
+
+		background-color:transparent;
+		outline:none;
+		border:0 solid black;	
+		overflow-x:hidden;overflow-y:auto;
+	}
+
+
+	#subject_goal2 ul li{
+		list-style-image:url("../common/img/0102_bl2.png");
+	}
+
+	#subject_ex{
+		font-size: 1.2em;
+		font-style:italic;
+		color:#B54B17;
+	}
+	
+
+	#btn {
+		/*display: none;*/
+		position: absolute;
+		text-align: left;
+		vertical-align:top;
+		top: 520px;
+		left: 550px;	
+	}

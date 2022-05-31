@@ -17,6 +17,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -25,8 +27,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.credu.library.*;
+import com.credu.mobile.myclass.MyClassBean;
 import org.dom4j.*;
 import org.dom4j.io.SAXReader;
+import org.json.simple.JSONObject;
 
 import com.credu.beta.BetaEduStartBean;
 import com.credu.beta.BetaMasterFormBean;
@@ -38,11 +43,6 @@ import com.credu.contents.MasterFormBean;
 import com.credu.contents.MasterFormData;
 import com.credu.course.SubjGongAdminBean;
 import com.credu.exam.ExamUserBean;
-import com.credu.library.AlertManager;
-import com.credu.library.ErrorManager;
-import com.credu.library.KISA_SEED_CBC;
-import com.credu.library.RequestBox;
-import com.credu.library.RequestManager;
 import com.credu.research.SulmunRegistUserBean;
 import com.credu.research.SulmunSubjUserBean;
 import com.credu.study.ProjectAdminBean;
@@ -51,13 +51,14 @@ import com.credu.study.ToronBean;
 import com.credu.system.StudyCountBean;
 import com.credu.system.SubjCountBean;
 
+
 @SuppressWarnings( { "unchecked", "serial" })
 @WebServlet("/servlet/controller.contents.EduStart")
 public class EduStart extends HttpServlet {
 
     /**
      * Pass get requests through to PerformTask
-     * 
+     *
      * @param request encapsulates the request to the servlet
      * @param response encapsulates the response from the servlet
      */
@@ -68,7 +69,7 @@ public class EduStart extends HttpServlet {
 
     /**
      * doPost
-     * 
+     *
      * @param request encapsulates the request to the servlet
      * @param response encapsulates the response from the servlet
      */
@@ -80,7 +81,7 @@ public class EduStart extends HttpServlet {
         String v_subj = "";
         String v_year = "";
         String v_subjseq = "";
-        
+
         //2015.11.13 TOBE 사이트 개편 추가 작업: 학습창을 불러오기 위한 파라미터 추가 및 암호화 작업
         String v_lesson = "";
         String v_tobeyn = "";
@@ -97,19 +98,19 @@ public class EduStart extends HttpServlet {
             v_subj = box.getString("p_subj");
             v_year = box.getString("p_year");
             v_subjseq = box.getString("p_subjseq");
-            
+
             //2015.11.13 TOBE 사이트 개편 추가 작업: 학습창을 불러오기 위한 파라미터 추가 및 암호화 작업
             v_lesson = box.getString("p_lesson");	//레슨 정보
             v_contenttype = box.getString("contenttype");	//컨텐츠 유형
             v_tobeyn = box.getString("p_tobeyn");	//tobe사이트 여부
-            
+
             //복호화
             v_tobeyn = KISA_SEED_CBC.CKLTREE_SEED_CBC_Decrypt(v_tobeyn);
-            
+
             //TOBE 사이트에서 접속할 경우
         	if("Y".equals(v_tobeyn) || "Y".equals(box.getSession("tobeyn"))){
             	System.out.println("TOBE 사이트에서 접속할 경우 s");
-            	
+
             	//복호화
             	v_subj = KISA_SEED_CBC.CKLTREE_SEED_CBC_Decrypt(v_subj);
             	v_year = KISA_SEED_CBC.CKLTREE_SEED_CBC_Decrypt(v_year);
@@ -117,7 +118,7 @@ public class EduStart extends HttpServlet {
             	v_lesson = KISA_SEED_CBC.CKLTREE_SEED_CBC_Decrypt(v_lesson);
             	v_contenttype = KISA_SEED_CBC.CKLTREE_SEED_CBC_Decrypt(v_contenttype);
             	v_userid = KISA_SEED_CBC.CKLTREE_SEED_CBC_Decrypt(box.getString("p_userid"));
-            	
+
             	if (!v_subj.equals("")){
             		box.setSession("subj", v_subj);
             		box.put("p_subj", v_subj);
@@ -149,10 +150,10 @@ public class EduStart extends HttpServlet {
             	if (box.getSession("gadmin").equals("")){
             		box.setSession("gadmin", "ZZ");
             	}
-            	
+
             }else{
-            	System.out.println("ASIS 사이트에서 접속할 경우 s123");
-            	
+            	System.out.println("ASIS 사이트에서 접속할 경우 s");
+
             	if (!v_subj.equals("")){
             		box.setSession("subj", v_subj);
             	}
@@ -163,7 +164,7 @@ public class EduStart extends HttpServlet {
             		box.setSession("subjseq", v_subjseq);
             	}
             }
-            
+
             // 맛보기 시 세션이 없을 경우
             if ((box.getString("p_year").equals("2000") || box.getString("p_year").equals("PREV")) && box.getSession("userid").equals("")) {
                 box.setSession("userid", "guest1");
@@ -212,6 +213,16 @@ public class EduStart extends HttpServlet {
                 this.performFirstSubj(request, response, box, out);
             } else if (v_process.equals("creduSubj")) {
             	this.performCreduSubj(request, response, box, out);
+            } else if (v_process.equals("subjseqPageClassInfo")) {
+                this.performSubjseqPageClassInfo(request, response, box, out);
+            } else if (v_process.equals("subjPageInfo")) {
+                this.performSubjPageInfo(request, response, box, out);
+            } else if (v_process.equals("pageControlChk")) {
+                this.performPageControlChk(request, response, box, out);
+            } else if (v_process.equals("subjSeqPageChk")) {
+                this.performSubjSeqPageChk(request, response, box, out);
+            } else if (v_process.equals("lessonCompleteChk")) {
+                this.performLessonCompleteChk(request, response, box, out);
             }
 
         } catch (Exception ex) {
@@ -221,7 +232,7 @@ public class EduStart extends HttpServlet {
 
     /**
      * 학습창
-     * 
+     *
      * @param request encapsulates the request to the servlet
      * @param response encapsulates the response from the servlet
      * @param box receive from the form object
@@ -247,7 +258,7 @@ public class EduStart extends HttpServlet {
             MasterFormBean bean = new MasterFormBean();
             MasterFormData data = bean.SelectMasterFormData(box); //마스터폼 정보
 
-            request.setAttribute("MasterFormData", data);           
+            request.setAttribute("MasterFormData", data);
 
             // 방송통신심의위원회인 경우만 아이디 체크를 해준다..
             // 아이디 체크 시작
@@ -326,13 +337,13 @@ public class EduStart extends HttpServlet {
                     box.put("p_year", box.getString("p_year"));
                     box.put("p_subjseq", box.getString("p_subjseq"));
                     box.put("p_ispreview", box.getString("p_ispreview"));
-                    
+
                     //tobe로 인해 추가
                     if(!"".equals(box.getString("p_tobeyn")) && "Y".equals(box.getString("p_tobeyn"))){
 	                    box.put("p_lesson", box.getString("p_lesson"));
 	                    box.put("p_tobeyn", box.getString("p_tobeyn"));
                     }
-                    
+
                 }
             }
 
@@ -356,7 +367,7 @@ public class EduStart extends HttpServlet {
 
     /**
      * fsetSub
-     * 
+     *
      * @param request encapsulates the request to the servlet
      * @param response encapsulates the response from the servlet
      * @param box receive from the form object
@@ -390,7 +401,7 @@ public class EduStart extends HttpServlet {
 
     /**
      * fup
-     * 
+     *
      * @param request encapsulates the request to the servlet
      * @param response encapsulates the response from the servlet
      * @param box receive from the form object
@@ -411,7 +422,7 @@ public class EduStart extends HttpServlet {
             request.setAttribute("MfLessonList", data1);
 
             String contenttype = box.getSession("s_contenttype");
-            
+
             if (contenttype.equals("N")) { //Normal MasterForm (NEW)
                 v_url = "/learn/user/contents/z_EduStart_fup.jsp";
             } else if (contenttype.equals("M")) { //Normal MasterForm (OLD)
@@ -433,7 +444,7 @@ public class EduStart extends HttpServlet {
 
     /**
      * fmenu
-     * 
+     *
      * @param request encapsulates the request to the servlet
      * @param response encapsulates the response from the servlet
      * @param box receive from the form object
@@ -476,7 +487,7 @@ public class EduStart extends HttpServlet {
 
     /**
      * ftree
-     * 
+     *
      * @param request encapsulates the request to the servlet
      * @param response encapsulates the response from the servlet
      * @param box receive from the form object
@@ -564,7 +575,7 @@ public class EduStart extends HttpServlet {
 
     /**
      * fbott
-     * 
+     *
      * @param request encapsulates the request to the servlet
      * @param response encapsulates the response from the servlet
      * @param box receive from the form object
@@ -597,7 +608,7 @@ public class EduStart extends HttpServlet {
 
     /**
      * 진도체크
-     * 
+     *
      * @param request encapsulates the request to the servlet
      * @param response encapsulates the response from the servlet
      * @param box receive from the form object
@@ -615,9 +626,9 @@ public class EduStart extends HttpServlet {
 
             EduStartBean bean = new EduStartBean();
             String results = bean.EduCheck(box);
-            
-            
-            
+
+
+
             /**상시과정일경우 진도율 70%도달시 자동수료처리 로직추가*/
             /**START*/
             //파라미터 준비
@@ -630,11 +641,11 @@ public class EduStart extends HttpServlet {
             box.put("p_year", s_year);
             box.put("p_subjseq", s_subjseq);
             box.put("p_userid", s_userid);
-            
+
 			SubjGongAdminBean sbean = new SubjGongAdminBean();
 			String isalways  = sbean.getIsalways(box);
 			float progress = Float.parseFloat(sbean.getProgress(box));
-			  
+
 			if(isalways.equals("Y")){
 				//수료여부확인
 				String isgrad  = sbean.getIsgrad(box);
@@ -654,12 +665,12 @@ public class EduStart extends HttpServlet {
 					}
 				//}
 			}
-			
+
 			/**END*/
 			/**상시과정일경우 진도율 70%도달시 자동수료처리 로직추가*/
-            
-            
-            
+
+
+
 
             //			String v_msg = "";
 
@@ -679,7 +690,7 @@ public class EduStart extends HttpServlet {
 
     /**
      * 진도보기
-     * 
+     *
      * @param request encapsulates the request to the servlet
      * @param response encapsulates the response from the servlet
      * @param box receive from the form object
@@ -872,7 +883,7 @@ public class EduStart extends HttpServlet {
                      * request.setAttribute("EduList", data1); EduScoreData
                      * data2= bean.SelectEduScore(box);
                      * request.setAttribute("EduScore", data2);
-                     * 
+                     *
                      * if (data.getContenttype().equals("N")){ //Normal
                      * MasterForm v_url =
                      * "/learn/user/contents/z_EduChk_List.jsp"; }
@@ -920,7 +931,7 @@ public class EduStart extends HttpServlet {
 
     /**
      * eduBranch
-     * 
+     *
      * @param request encapsulates the request to the servlet
      * @param response encapsulates the response from the servlet
      * @param box receive from the form object
@@ -950,7 +961,7 @@ public class EduStart extends HttpServlet {
 
     /**
      * 학습자 유의사항 동의처리
-     * 
+     *
      * @param request encapsulates the request to the servlet
      * @param response encapsulates the response from the servlet
      * @param box receive from the form object
@@ -982,7 +993,7 @@ public class EduStart extends HttpServlet {
 
     /**
      * 방송통신심의위원회 회원이 맞는지 userid를 체크해준다.
-     * 
+     *
      * @param request encapsulates the request to the servlet
      * @param response encapsulates the response from the servlet
      * @param box receive from the form object
@@ -1015,33 +1026,33 @@ public class EduStart extends HttpServlet {
             throw new Exception("performKocsc_Userid_Check()\r\n" + ex.getMessage());
         }
     }
-    
+
     public void performCreduSubj(HttpServletRequest request, HttpServletResponse response, RequestBox box, PrintWriter out)
     		throws Exception {
     	try {
     		String dispatcherURL = "/learn/user/contents/z_Credu_url.jsp";
     		String videoURL = "";
-    		
+
     		String creduURL = box.getString("url");
-    		
+
     		Document document = parse(creduURL);
     		if(document != null){
     			XPath xpathSelector = DocumentHelper.createXPath("/ITEM/MP4NM");
-    			
+
     	        List results = xpathSelector.selectNodes(document);
     	        for(Iterator iter = results.iterator(); iter.hasNext();){
     	        	Element element = (Element)iter.next();
     	        	videoURL = element.getText();
     	        }
     		}
-    		
-    		
+
+
     		request.setAttribute("videoURL", videoURL);
-    		
+
     		ServletContext sc = getServletContext();
             RequestDispatcher rd = sc.getRequestDispatcher(dispatcherURL);
             rd.forward(request, response);
-    		
+
     		//Log.info.println(this, box, v_msg + " on LoginServlet");
     	} catch (Exception ex) {
     		ex.printStackTrace();
@@ -1050,7 +1061,7 @@ public class EduStart extends HttpServlet {
     	}
     }
 
-    
+
     public Document parse(String url) throws DocumentException {
     	SAXReader reader = new SAXReader();
     	try
@@ -1063,4 +1074,217 @@ public class EduStart extends HttpServlet {
     	}
     	return null;
     }
+
+    /**
+     * 수강 페이지 이력 저장
+     *
+     * @param request encapsulates the request to the servlet
+     * @param response encapsulates the response from the servlet
+     * @param box receive from the form object
+     * @param out printwriter object
+     * @return void
+     */
+    public void performSubjseqPageClassInfo(HttpServletRequest request, HttpServletResponse response, RequestBox box, PrintWriter out) throws Exception {
+        try {
+            EduStartBean bean = new EduStartBean();
+
+            int isOk = bean.saveSubjseqPageClassInfo(box);
+            String v_msg = "";
+            AlertManager alert = new AlertManager();
+
+            if (isOk > 0) {
+                v_msg = "";
+                alert.selfClose(out, v_msg);
+            } else {
+                v_msg = "실패했습니다.";
+                alert.selfClose(out, v_msg);
+            }
+
+        } catch (Exception ex) {
+            ErrorManager.getErrorStackTrace(ex, out);
+            throw new Exception("performSubjseqPageClassInfo()\r\n" + ex.getMessage());
+        }
+    }
+
+    /**
+     * 수강 페이지 정보 조회
+     *
+     * @param request encapsulates the request to the servlet
+     * @param response encapsulates the response from the servlet
+     * @param box receive from the form object
+     * @param out printwriter object
+     * @return void
+     */
+    public void performSubjPageInfo(HttpServletRequest request, HttpServletResponse response, RequestBox box, PrintWriter out) throws Exception {
+        JSONObject jsonObj = new JSONObject();
+        ArrayList resultList = new ArrayList();
+        ArrayList jsonList = new ArrayList();
+        DataBox dbox = null;
+        Map map = null;
+
+        try {
+            request.setAttribute("requestbox", box);
+
+            EduStartBean bean = new EduStartBean();
+
+            resultList = bean.selectSubjPageInfo(box);
+
+            jsonObj.put("resList", "");
+
+            if ( resultList.size() > 0 ) {
+                for( int i = 0; i < resultList.size() ; i++ ) {
+                    dbox = (DataBox)resultList.get(i);
+
+                    map = new HashMap();
+                    map.put("cp", dbox.getString("d_c_page"));
+                    map.put("tp", dbox.getString("d_t_page"));
+                    map.put("np", dbox.getString("d_n_page"));
+                    map.put("ct", dbox.getString("d_c_time"));
+                    map.put("tt", dbox.getString("d_t_time"));
+                    map.put("pageChkYn", dbox.getString("d_pageChkYn"));
+                    map.put("finalPageChkYn", dbox.getString("d_finalPageChkYn"));
+                    map.put("nextPageChkYn", dbox.getString("d_nextPageChkYn"));
+
+                    jsonList.add(map);
+                }
+
+                jsonObj.put("resList", jsonList);
+            }
+
+        } catch (Exception ex) {
+            ErrorManager.getErrorStackTrace(ex, out);
+            throw new Exception("performSubjPageInfo()\r\n" + ex.getMessage());
+        }
+
+        out.print(jsonObj.toJSONString().replace("\\", ""));
+        out.flush();
+    }
+
+    /**
+     * 수강 페이지 콘트롤 제어 여부 조회
+     *
+     * @param request encapsulates the request to the servlet
+     * @param response encapsulates the response from the servlet
+     * @param box receive from the form object
+     * @param out printwriter object
+     * @return void
+     */
+    public void performPageControlChk(HttpServletRequest request, HttpServletResponse response, RequestBox box, PrintWriter out) throws Exception {
+        JSONObject jsonObj = new JSONObject();
+        ArrayList resultList = new ArrayList();
+        ArrayList jsonList = new ArrayList();
+        DataBox dbox = null;
+        Map map = null;
+
+        try {
+            request.setAttribute("requestbox", box);
+
+            EduStartBean bean = new EduStartBean();
+
+            resultList = bean.selectPageControlChk(box);
+
+            jsonObj.put("resList", "");
+
+            if ( resultList.size() > 0 ) {
+                for( int i = 0; i < resultList.size() ; i++ ) {
+                    dbox = (DataBox)resultList.get(i);
+
+                    map = new HashMap();
+                    map.put("cp", dbox.getString("d_c_page"));
+                    map.put("tp", dbox.getString("d_t_page"));
+                    map.put("np", dbox.getString("d_n_page"));
+                    map.put("ct", dbox.getString("d_c_time"));
+                    map.put("tt", dbox.getString("d_t_time"));
+                    map.put("pageChkYn", dbox.getString("d_page_chk_yn"));
+                    map.put("finishPageYn", dbox.getString("d_finishPageYn"));
+                    map.put("nextPageChkYn", dbox.getString("d_nextPageChkYn"));
+
+                    jsonList.add(map);
+                }
+
+                jsonObj.put("resList", jsonList);
+            }
+
+        } catch (Exception ex) {
+            ErrorManager.getErrorStackTrace(ex, out);
+            throw new Exception("performPageControlChk()\r\n" + ex.getMessage());
+        }
+
+        out.print(jsonObj.toJSONString().replace("\\", ""));
+        out.flush();
+    }
+
+    /**
+     * 수강 페이지 제어 여부
+     *
+     * @param box receive from the form object and session
+     * @return String pageChkYn
+     */
+    public void performSubjSeqPageChk(HttpServletRequest req, HttpServletResponse res, RequestBox box, PrintWriter out) throws Exception {
+        try {
+            req.setAttribute("requestbox", box);
+
+            EduStartBean bean = new EduStartBean();
+
+            String pageChkYn = bean.subjSeqPageChk(box);
+
+            out.println("{\"pageChkYn\" : \"" + pageChkYn + "\"}");
+            out.flush();
+
+        } catch (Exception ex) {
+            ErrorManager.getErrorStackTrace(ex, out);
+            throw new Exception("performSubjSeqPageChk()\r\n" + ex.getMessage());
+        }
+    }
+
+    /**
+     * 수강 차시 완료 여부
+     *
+     * @param request encapsulates the request to the servlet
+     * @param response encapsulates the response from the servlet
+     * @param box receive from the form object
+     * @param out printwriter object
+     * @return void
+     */
+    public void performLessonCompleteChk(HttpServletRequest request, HttpServletResponse response, RequestBox box, PrintWriter out) throws Exception {
+        JSONObject jsonObj = new JSONObject();
+        ArrayList resultList = new ArrayList();
+        ArrayList jsonList = new ArrayList();
+        DataBox dbox = null;
+        Map map = null;
+
+        try {
+            request.setAttribute("requestbox", box);
+
+            EduStartBean bean = new EduStartBean();
+
+            resultList = bean.selectLessonCompleteChk(box);
+
+            jsonObj.put("resList", "");
+
+            if ( resultList.size() > 0 ) {
+                for( int i = 0; i < resultList.size() ; i++ ) {
+                    dbox = (DataBox)resultList.get(i);
+
+                    map = new HashMap();
+                    map.put("subj", dbox.getString("d_subj"));
+                    map.put("lesson", dbox.getString("d_lesson"));
+                    map.put("finalYn", dbox.getString("d_finalYn"));
+                    map.put("sdesc", dbox.getString("d_sdesc"));
+
+                    jsonList.add(map);
+                }
+
+                jsonObj.put("resList", jsonList);
+            }
+
+        } catch (Exception ex) {
+            ErrorManager.getErrorStackTrace(ex, out);
+            throw new Exception("performLessonCompleteChk()\r\n" + ex.getMessage());
+        }
+
+        out.print(jsonObj.toJSONString().replace("\\", ""));
+        out.flush();
+    }
+    
 }

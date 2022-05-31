@@ -1,0 +1,92 @@
+<!-- Lecture(Video) Page -->
+
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=yes,initial-scale=1.0,maximum-scale=1.0" />
+<title></title>
+<link href="../common/css/main.css" rel="stylesheet" type="text/css" media="screen">
+<script type="text/javascript" src="../common/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="../common/jquery-ui-1.9.2.custom.min.js"></script>
+<script type="text/javascript" src="../common/pageInfo.js"></script>
+<script type="text/javascript" src="../common/pageText.js"></script>
+ 
+<script type="text/javascript" src="../common/script.js"></script>
+
+<script language="JavaScript" src="../common/JSTweener.js"></script>
+<script language="JavaScript" src="../common/menu.js"></script>
+
+<script language="JavaScript" src="../common/caption.js"></script>
+ <script language="JavaScript" src="../common/porting.js"></script>
+</head>
+
+
+<body>
+
+<div id="fullSizeWrapper">
+<div id="contentsArea">
+
+<div id="content">
+  <div id="header">
+    <div id="course"></div>
+    <div id="chap"></div>
+  </div>
+
+  <section id="videoContainer">
+    <video  id="myVideo" autoplay class="lecmv">
+        </video>
+		<div id="control">
+		 <script type="text/javascript" src="../common/controlBar.js"> </script>
+		</div>
+  </section>
+
+  <section id="narration" name="narration">
+    <div id="nar_txt"></div>
+    <div id="nar_close">
+      <input type='image' src='../common/img/btnNarClose.png'>
+    </div>
+  </section>
+</div>
+
+<div id="container" class="container">
+  <div id="menu" style=""></div>
+  <div id="menu_open">
+    <input type="image" src="../common/img/menu/indexOpen.png" id="menu_open_btn">
+  </div>
+</div>
+
+
+
+<div id="popupWrapper">
+	<div id="popupReference">
+      <div class="popupContent"></div>
+   	  <div><a href="#"><span id="popupCloseButton"></span></a></div>
+    </div>
+</div>
+
+<div id="memoForm">
+      <div class="memoContent"></div>
+	  <div><a href="#"><span id="popupCloseButtonMemo"></span></a></div>
+</div>
+
+<div id="lecturerWrapper">
+	<div id="lecturerReference">
+      <div class="lecturerContent"></div>
+   	  <div><a href="#"><span id="lecturerCloseButton"></span></a></div>
+    </div>
+</div>
+
+<div id="bookmarkForm">
+      <div class="bookmarkContent"></div>
+	  <div><a href="#"><span id="popupCloseButtonBmk"></span></a></div>
+</div>
+
+
+</div>
+</div>
+
+</body>
+
+</html>
