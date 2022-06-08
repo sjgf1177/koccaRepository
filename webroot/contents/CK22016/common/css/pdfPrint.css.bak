@@ -1,0 +1,245 @@
+
+/* 정리하기 인쇄*/
+
+
+#contentBg {
+	background-color: #FFFFFF;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	display: block;
+	clear: both;
+	width: 800px;
+	height:auto;
+}
+
+
+#pdfprtWrapper{
+		background-color: #FFFFFF;
+		position: absolute;
+		top: 20px;
+		left: 10px;
+		width: 800px;
+}
+
+/* add */
+
+#printTitleSet{
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width:800px;
+		height:48px;
+		margin-bottom:10px;
+
+}
+
+
+#courseName{
+		position: relative;
+		width:800px;
+		left:0px;
+		margin-top:0px;
+
+		font-family:"Nanum Gothic Bold";
+		letter-spacing:-1;
+		font-size:20px;
+		text-align:right;
+		color:#333333;
+
+}
+
+#courseName > span {
+			margin-right:10px;
+}
+
+
+#chapterTitleBox{
+		position: relative;
+		left:0px;
+		top:2px;
+		background-color:#666666;
+		height:40px;
+		width: 800px;
+
+}
+
+#chapterTitle{
+		position: relative;
+		top:0px;
+		font-size:18px;
+		font-family:"Nanum Gothic Bold";
+		letter-spacing:-1;
+		line-height:200%;
+		color:#FFFFFF;
+		margin-left:20px;
+}
+
+#printTitle{
+		width:200px;
+		margin-left:20px;
+		margin-top:5px;
+		float:left;
+
+}
+
+#sumSet{		
+		position: relative;
+		top: 80px;
+		left: 0px;
+		width: 800px;
+		/*border:1px solid red;*/
+		height:auto;
+}
+
+
+#sumtitle{
+		font-family:"Nanum Gothic Bold";
+		position: relative;
+		top: 0px;
+		left: 0px;
+		width: 800px;
+		height: 63px;
+		background-image: url(../img/summary/summaryTitlePrn.png);
+		line-height:150%;
+		color:white;
+	
+	}
+
+
+#snum{
+		position: absolute;
+		font-size:27px;
+		top: 0px;
+		left: 0px;
+		width:50px;
+		height: 50px;
+		float:left;
+		display: inline-block;
+		margin-top:15px;
+		margin-left:5px;
+}
+
+#stitle{
+		position: absolute;
+		font-size:26px;
+		top: 0px;
+		left: 80px;
+		width:750px;
+		height: 50px;
+		float:left;
+		display: inline-block;
+		margin-top:15px;
+}
+
+
+
+#sumContents{
+		font-family:"Nanum Gothic Bold";
+		position: relative;
+		top: 0px;
+		left: 0px;
+		width: 880px;
+		/*border:1px solid green;*/
+		font-size:19px;
+		color:#4F5458;
+		line-height:150%;
+		margin-left:30px;
+		letter-spacing:-1px;
+		overflow:hidden; /*pdf버전에서는 삭제*/
+		height:auto;
+	}
+
+#sec{
+	margin-top:10px;
+	margin-bottom:20px;
+}
+
+
+
+/* 정리하기 타이틀에서 왼쪽 넘버 */
+#secTitlenum{
+	font-family:"Nanum Gothic";
+	 position:relative;
+	top:0px;
+	left:0px;
+	width:48px;
+	height:36px;
+	 float:left;
+	 display:inline-block;
+	background-image: url(../img/summary/sumBltTitle.png);
+	background-repeat: no-repeat;
+	 font-size:30px;
+	padding:2px 5px 0px 13px;
+	color:#2e3a90;
+
+}
+
+
+
+/* 정리하기에서 섹션 타이틀 */
+ #secTitle {
+	position:relative;
+		font-family:"Nanum Gothic";
+		margin:5px 0px 10px 0px;
+		font-size:20px;
+		color:#333333;
+		 float:left;
+		 width:670px;
+		/* border:1px solid red;*/
+	}
+
+
+
+
+/* 정리하기에서 세부내용 */
+ #secDesc{
+		position:relative;
+		font-family:"Nanum Gothic";
+		font-size:20px;
+		color:#333333;
+		margin-left:30px;
+		margin-top:10px;
+		display:inline-block;
+}
+
+
+/* 정리하기 세부강조 */
+#secDesc > span {
+		color:#4F81BD;
+}
+
+
+#mbimg{
+	background-image: url(../img/summary/sumBltDescti_prt.png);
+	background-repeat: no-repeat;
+	float:left;
+	width:22px;
+	height:25px;
+	color:#282838;
+	text-align:center;
+	line-height:110%;
+	margin-top:0px;
+	margin-right:10px;
+}
+
+#sbimg{
+	background-image: url(../img/summary/sumBltDesc.png);
+	background-repeat: no-repeat;
+	float:left;
+	width:6px;
+	height:6px;
+	margin-top:10px;
+	margin-left:0px;
+	margin-right:10px;
+}
+
+
+
+/* 정리하기 세부강조 */
+
+#secDesc > span {
+		color:#4F81BD;
+}
+
+.tab { white-space: pre; }

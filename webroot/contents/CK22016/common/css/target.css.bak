@@ -1,0 +1,113 @@
+/* 학습목표, 학습내용 */
+
+
+
+
+
+.targetBg {
+	background:url(../img/target/targetBg.png);
+	
+	overflow:hidden;
+	background-repeat:no-repeat;
+	width:1280px;
+	height:720px;
+}
+
+
+#conSet{		
+		position: absolute;
+		top: 205px;
+		left: 200px;
+		width: 850px;
+		height: 350px;
+		/*background-color: #33FF00;*/
+	}
+
+
+	#conSubject{
+		font-family:"Nanum Gothic";
+		font-size:20px;
+		position: relative;
+		top: 0px;
+		left: 0px;
+		width: 850px;
+		height: 170px;
+		/*background-color:blue;*/
+		line-height:100%;
+
+	}
+
+
+	#conTarget{
+		font-family:"Nanum Gothic";
+		font-size:20px;
+		position: relative;
+		top: 20px;
+		left: 0px;
+		width: 850px;
+		height: 170px;
+		/*background-color:yellow;*/
+		line-height:100%;
+		
+	}
+
+
+	#subtitle1{
+		background: url("../img/target/titleBar1.png") no-repeat;
+		position: relative;
+		top: 0px;
+		left: 0px;
+		width: 294px;
+		height: 98px;
+		float:left;
+
+	}
+	
+	#subtitle2{
+		background: url("../img/target/titleBar2.png") no-repeat;
+		position: relative;
+		top: 0px;
+		left: 0px;
+		width: 294px;
+		height: 98px;
+		float:left;
+	}
+	
+
+	#subIn, #tarIn{
+		position: relative;
+		top: 0px;
+		left: 10px;
+		width: 530px;
+		height: 180px;	
+		font-size:20px;
+		color:#FFFFFF;
+		line-height:150%;
+		margin-left:10px;
+		letter-spacing:-1px;
+		 float:left;
+	}
+
+
+/* ie9 margin-top 값 0으로*/
+  #dot {
+	 position:relative;
+	 top:5px;
+	 width:28px;
+	 margin-top:0px;
+	 float:left;
+	 display:inline-block;
+  }
+
+
+  #cont{
+	position:relative;
+	width:480px;
+	left:5px;
+	margin-bottom:0px;
+	text-align:left;
+	float:left;
+	display:inline-block;
+  }
+
+	
