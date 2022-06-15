@@ -116,9 +116,6 @@ function fnSelect(){
                             </div>
                             <div class="sub_contents_body">
                                 <div class="sub_board_header">
-                                    <div class="list_title">
-                                        <span class="point_orange"><span>·</span>과정 학습 시에는 인터넷 익스플로러 사용을 권장합니다.</span>
-                                    </div>
                                     <div class="board_search_box">
                                     	<form name="form1" action="/servlet/controller.homepage.AspMenuMainServlet" method="post">
 											<input type="hidden" name="p_process"	value="<c:out value="${param.p_process }" />"/>

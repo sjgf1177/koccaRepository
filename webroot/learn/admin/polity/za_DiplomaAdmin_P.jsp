@@ -240,12 +240,16 @@
           <DIV STYLE='position:absolute; top:318px; left:62px; width:514px; height:25px; z-index:301;'>
           <%=v_edustart%>&nbsp;~&nbsp;
             <%=v_eduend%>
-            &nbsp; 
-            
+            &nbsp;
+              <% if(v_grcode.equals("N000241")){%>
+              <p><img src="/images/admin/polity/KAWF_logo2.jpg" border=0 width=231 height=35></p>
+              <% } %>
             <% if(v_grcode.equals("N000210")){%>
             	(1시간)
             <% }else if(!v_grcode.equals("N000113") ){ %>
+              <% if(!v_grcode.equals("N000241")){%>
             	<%= "".equals(v_grseq) ? "" : "(" + v_grseq + "시간)" %>
+              <% } %>
             <% }else{ %>
 	            <%= "".equals(v_grseq) ? "" : "(" + v_grseq + "차시)" %>
             <% }%>
