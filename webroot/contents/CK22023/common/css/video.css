@@ -1,0 +1,78 @@
+@import url(./font.css);
+html{
+  /* max-width: 1012px; */
+  display: block;
+  margin: 0 auto;
+}
+body{
+  position: absolute;
+  transform-origin: 0 0;
+  background: #000;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  /* max-width: 1000px; */
+  overflow: hidden;
+}
+
+.contents{
+  position: absolute;
+  transform-origin: 0 0;
+  background: #000;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  /* max-width: 1000px; */
+  overflow: hidden;
+}
+
+
+
+.video1 {
+  position: absolute;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+  /*display: none;*/
+}
+
+
+.chapterMenuImg{
+  transform-origin: right top;
+  position: absolute;
+  width: 270px;
+  height: 39px;
+  top: 0px;
+  right: 0px;
+  z-index: 51;
+  transition-duration: 0.5s;
+  background: url(../img/title/MENU.png) no-repeat;
+}
+
+.mainMenuImg{
+  transform-origin: 0 0;
+  position: absolute;
+  width: 650px;
+  height: 46px;
+  top: 0px;
+  left: 0px;
+  z-index: 51;
+  transition-duration: 0.5s;
+  background-repeat: no-repeat;
+}
+
+.subMenuImg{
+  transform-origin: 0 0;
+  position: absolute;
+  width: 650px;
+  height: 80px;
+  top: 0px;
+  left: 0px;
+  z-index: 52;
+  transition-duration: 0.5s;
+  background-repeat: no-repeat;
+}

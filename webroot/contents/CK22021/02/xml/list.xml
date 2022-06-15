@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<list>
+  <index>
+    <main page="1" title="들어가기">
+      <sub page="1">· 인트로</sub>
+      <sub page="2">· 오늘의 학습</sub>
+    </main>
+    <main page="3" title="학습하기">
+      <sub page="3">· 개체 선택</sub>
+      <sub page="4">· 캔버스 네비게이션, 줌인/줌아웃</sub>
+      <sub page="5">· 단축키 옵션</sub>
+    </main>
+    <main page="6" title="아웃트로">
+    </main>
+  </index>
+</list>

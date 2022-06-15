@@ -1,0 +1,16 @@
+.print_btn{
+    position: absolute;
+    background: url(../img/print_btn.png);
+    width: 56px;
+    height: 85px;
+    border: 0px;
+    right: 45px;
+    top: 60px;
+    z-index: 52;
+    cursor: pointer;
+    display: none;
+}
+
+.print_btn:hover{
+    background: url(../img/print_btn_over.png);
+}

@@ -1,0 +1,692 @@
+.contents > .quiz {
+  transform-origin: 0 0;
+  position: relative;
+  color: #000;
+  background: url(../img/quiz/background.png) no-repeat;
+  font-family: kopub_dotum_bold;
+  background-size: 100% 100%;
+  width: 1000px;
+  height: 618px;
+  z-index: 99;
+  display: none;
+}
+
+.contents > .quiz > .leftTitle {
+  background: url(../../title/leftTitle.png) no-repeat;
+  width: 1000px;
+  height: 39px;
+  position: absolute;
+  top: 0px;
+}
+
+
+.contents > .quiz > .leftSymbol {
+  background: url(../img/quiz/leftSymbol.png) no-repeat;
+  background-size: 100% 100%;
+  width: 206px;
+  height: 33px;
+  position: absolute;
+  left : 1%;
+  top : 2%;
+}
+
+.contents > .quiz > .wrong_answer {
+  background: url(../img/quiz/wrong_answer.png) no-repeat;
+  background-size: 100% 100%;
+  width: 100%;
+  height: 100%;
+  z-index: 300;
+  display: none;
+  position: absolute;
+}
+
+.contents > .quiz > .none_check {
+  background: url(../img/quiz/none_check.png) no-repeat;
+  background-size: 100% 100%;
+  width: 100%;
+  height: 100%;
+  z-index: 300;
+  display: none;
+  position: absolute;
+}
+
+.contents > .quiz > .relativeWrap {
+  background: hsla(0, 0%, 10%, 0.7);
+  width: 100%;
+  height: 100%;
+  z-index: 300;
+  position: absolute;
+  display: none;
+}
+
+.contents > .quiz > .relativeWrap > .pop_close {
+  background: url(../img/quiz/pop_close.png) no-repeat;
+  background-size: 100% 100%;
+  width: 50px;
+  height: 50px;
+  z-index: 300;
+  right: 81px;
+  top: 35px;
+  cursor: pointer;
+  position: absolute;
+  border: solid #11768f
+}
+
+.contents > .quiz > .relativeWrap > .relative_pop {
+  position: relative;
+  margin: 0 auto;
+  width: 877px;
+  height: 530px;
+  overflow: hidden;
+  left: 50px;
+  top: 21px;
+  border: 0px;
+}
+
+.contents > .quiz > .rightHelper {
+  z-index: 200;
+  right: 63px;
+  top: 20px;
+  position: absolute;
+}
+.contents > .quiz > .rightHelper > .right_q {
+  width: 41px;
+  height: 36px;
+  position: relative;
+  float: left;
+}
+.contents > .quiz > .rightHelper > .right_q1 {
+  background: url(../img/quiz/right_q1.png) no-repeat;
+  background-size: 100% 100%;
+}
+.contents > .quiz > .rightHelper > .right_q2 {
+  background: url(../img/quiz/right_q2.png) no-repeat;
+  background-size: 100% 100%;
+}
+.contents > .quiz > .rightHelper > .right_q3 {
+  background: url(../img/quiz/right_q3.png) no-repeat;
+  background-size: 100% 100%;
+}
+.contents > .quiz > .rightHelper > .right_q1.toggle {
+  background: url(../img/quiz/right_q1_over.png) no-repeat;
+  background-size: 100% 100%;
+}
+.contents > .quiz > .rightHelper > .right_q2.toggle {
+  background: url(../img/quiz/right_q2_over.png) no-repeat;
+  background-size: 100% 100%;
+}
+.contents > .quiz > .rightHelper > .right_q3.toggle {
+  background: url(../img/quiz/right_q3_over.png) no-repeat;
+  background-size: 100% 100%;
+}
+
+.contents > .quiz > .rightHelper > .right_q > .right_symbol {
+left: 1px;
+width: 36px;
+height: 36px;
+position: absolute;
+}
+.contents > .quiz > .rightHelper > .right_q > .o_mark {
+  background: url(../img/quiz/o_mark.png) no-repeat;
+  background-size: 100% 100%;
+}
+.contents > .quiz > .rightHelper > .right_q > .x_mark {
+  background: url(../img/quiz/x_mark.png) no-repeat;
+  background-size: 100% 100%;
+}
+
+
+
+
+.contents > .quiz > .page {
+  width: 100%;
+}
+
+.contents > .quiz > .page > .question {
+  top: 65px;
+  left: 69px;
+  position: absolute;
+  width: 77%;
+  color: #000;
+}
+
+.contents > .quiz > .page > .question > .text {
+  line-height: 120%;
+  position: relative;
+  bottom: -50px;
+  left: 105px;
+  font-size: 28px;
+  letter-spacing: -1px;
+}
+.contents > .quiz > .page > .direction{
+  background: url(../img/quiz/direction.png) no-repeat;
+  top: 116px;
+  left: 121px;
+  position: absolute;
+  width: 711px;
+  height: 97px;
+  color: #444;
+  display: none;
+}
+.contents > .quiz > .page > .direction > .text {
+  line-height: 120%;
+  position: relative;
+  left: 27px;
+  width: 668px;
+  height: 99px;
+  font-size: 27px;
+  letter-spacing: -1px;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.contents > .quiz > .page > .question > .symbol {
+  font-family: sans-serif;
+  position: relative;
+  bottom: -20px;
+  font-size: 40px;
+}
+
+.contents > .quiz > .page > .question > .symbol > .symbol_1 {
+  background: url(../img/quiz/q1.png) no-repeat;
+  width: 94px;
+  height: 66px;
+  position: absolute;
+}
+
+.contents > .quiz > .page > .question > .symbol > .symbol_2 {
+  background: url(../img/quiz/q2.png) no-repeat;
+  width: 94px;
+  height: 66px;
+  position: absolute;
+}
+
+.contents > .quiz > .page > .question > .symbol > .symbol_3 {
+  background: url(../img/quiz/q3.png) no-repeat;
+  width: 94px;
+  height: 66px;
+  position: absolute;
+}
+
+
+.contents > .quiz > .page > .question > .symbol > .o_symbol {
+  position: absolute;
+  background: url(../img/quiz/o_mark.png) no-repeat;
+  background-size: 100% 100%;
+  width: 90px;
+  height: 89px;
+  left: 2px;
+  top: -14px;
+  display: none;
+}
+.contents > .quiz > .page > .question > .symbol > .x_symbol {
+  position: absolute;
+  background: url(../img/quiz/x_mark.png) no-repeat;
+  background-size: 100% 100%;
+  width: 90px;
+  height: 89px;
+  left: 2px;
+  top: -11px;
+  display: none;
+}
+
+
+.contents > .quiz > .page > .example {
+  top: 167px;
+  left: 161px;
+  position: absolute;
+  width: 89%;
+  cursor: Pointer;
+}
+.contents > .quiz > .page > .example.half {
+  top: 221px;
+}
+
+.contents > .quiz > .page > .example > .bg {
+  /*position: absolute;
+  width: 90%;
+  height: 120%;
+  left :-10px;
+  top: -9%;
+  cursor: Pointer;
+  background: hsla(0, 10%, 100%, 0.6);
+  border: #ffffff 1px solid;*/
+}
+
+
+.contents > .quiz > .page > .example > .multiple {
+  list-style-type: none;
+  left: 5px;
+  font-size: 21px;
+  width: 90%;
+  font-weight: 300;
+  margin-bottom: 9px;
+}
+.contents > .quiz > .page > .example > .multiple:hover {
+  color:#e39f4f;
+}
+
+.contents > .quiz > .page > .example > .multiple > div {
+  position: absolute;
+  border: 0px;
+  width: 33px;
+  height: 39px;
+  margin-bottom: 100px;
+}
+.contents > .quiz > .page > .example > .multiple > .text {
+  font-family: kopub_dotum_medium;
+  left: 38px;
+  top: 9px;
+  height: 35px;
+  position: relative;
+  line-height: 125%;
+  font-size: 24px;
+  letter-spacing: -1px;
+}
+
+.contents > .quiz > .page > .example > .multiple > .btn1{
+  background: url(../img/quiz/btn1.png) no-repeat;
+  background-size: 100% 100%;
+}
+.contents > .quiz > .page > .example > .multiple > .btn2{
+  background: url(../img/quiz/btn2.png) no-repeat;
+  background-size: 100% 100%;
+}
+.contents > .quiz > .page > .example > .multiple > .btn3{
+  background: url(../img/quiz/btn3.png) no-repeat;
+  background-size: 100% 100%;
+}
+.contents > .quiz > .page > .example > .multiple > .btn4{
+  background: url(../img/quiz/btn4.png) no-repeat;
+  background-size: 100% 100%;
+}
+
+.contents > .quiz > .page > .example > .multiple > .btn1.toggle{
+  background: url(../img/quiz/check_btn1.png) no-repeat;
+  background-size: 100% 100%;
+}
+.contents > .quiz > .page > .example > .multiple > .btn2.toggle{
+  background: url(../img/quiz/check_btn2.png) no-repeat;
+  background-size: 100% 100%;
+}
+.contents > .quiz > .page > .example > .multiple > .btn3.toggle{
+  background: url(../img/quiz/check_btn3.png) no-repeat;
+  background-size: 100% 100%;
+}
+.contents > .quiz > .page > .example > .multiple > .btn4.toggle{
+  background: url(../img/quiz/check_btn4.png) no-repeat;
+  background-size: 100% 100%;
+}
+.contents > .quiz > .page > .example > .multiple > .btn1.correct{
+  background: url(../img/quiz/correct_btn1.png) no-repeat;
+  background-size: 100% 100%;
+}
+.contents > .quiz > .page > .example > .multiple > .btn2.correct{
+  background: url(../img/quiz/correct_btn2.png) no-repeat;
+  background-size: 100% 100%;
+}
+.contents > .quiz > .page > .example > .multiple > .btn3.correct{
+  background: url(../img/quiz/correct_btn3.png) no-repeat;
+  background-size: 100% 100%;
+}
+.contents > .quiz > .page > .example > .multiple > .btn4.correct{
+  background: url(../img/quiz/correct_btn4.png) no-repeat;
+  background-size: 100% 100%;
+}
+
+.contents > .quiz > .page > .example > .multiple > .btn1.success{
+  background: url(../img/quiz/success_btn1.png) no-repeat;
+  background-size: 100% 100%;
+}
+.contents > .quiz > .page > .example > .multiple > .btn2.success{
+  background: url(../img/quiz/success_btn2.png) no-repeat;
+  background-size: 100% 100%;
+}
+.contents > .quiz > .page > .example > .multiple > .btn3.success{
+  background: url(../img/quiz/success_btn3.png) no-repeat;
+  background-size: 100% 100%;
+}
+.contents > .quiz > .page > .example > .multiple > .btn4.success{
+  background: url(../img/quiz/success_btn4.png) no-repeat;
+  background-size: 100% 100%;
+}
+
+
+
+.contents > .quiz > .page > .example > .half {
+  list-style-type: none;
+  left: 5px;
+  font-size: 21px;
+  width: 90%;
+  font-weight: 300;
+  margin-bottom: 9px;
+}
+.contents > .quiz > .page > .example > .half:hover {
+  color:#e39f4f;
+}
+
+.contents > .quiz > .page > .example > .half > div {
+  position: absolute;
+  border: 0px;
+  width: 39px;
+  height: 37px;
+  margin-bottom: 100px;
+}
+.contents > .quiz > .page > .example > .half > .text {
+  font-family: kopub_dotum_medium;
+  left: 36px;
+  top: 9px;
+  height: 35px;
+  position: relative;
+  line-height: 115%;
+  font-size: 26px;
+}
+
+.contents > .quiz > .page > .example > .half > .btn1{
+  background: url(../img/quiz/btn1.png) no-repeat;
+  background-size: 100% 100%;
+}
+.contents > .quiz > .page > .example > .half > .btn2{
+  background: url(../img/quiz/btn2.png) no-repeat;
+  background-size: 100% 100%;
+}
+
+.contents > .quiz > .page > .example > .half > .btn1.toggle{
+  background: url(../img/quiz/check_btn1.png) no-repeat;
+  background-size: 100% 100%;
+}
+.contents > .quiz > .page > .example > .half > .btn2.toggle{
+  background: url(../img/quiz/check_btn2.png) no-repeat;
+  background-size: 100% 100%;
+}
+.contents > .quiz > .page > .example > .half > .btn1.correct{
+  background: url(../img/quiz/correct_btn1.png) no-repeat;
+  background-size: 100% 100%;
+}
+.contents > .quiz > .page > .example > .half > .btn2.correct{
+  background: url(../img/quiz/correct_btn2.png) no-repeat;
+  background-size: 100% 100%;
+}
+
+
+.contents > .quiz > .page > .confirm {
+  top: 370px;
+  left: 872px;
+  position: absolute;
+  width: 140px;
+  height: 45px;
+  border: 0px;
+  background: url(../img/quiz/confirm.png) no-repeat;
+  background-size: 100% 100%;
+  cursor: pointer;
+}
+.contents > .quiz > .page >.confirm:hover {
+  background: url(../img/quiz/confirm_over.png) no-repeat;
+  background-size: 100% 100%;
+}
+
+.contents > .quiz > .page >.feedback {
+  background: url(../img/quiz/feedback.png) no-repeat;
+  background-size: 100% 100%;
+  width: 1012px;
+  height: 215px;
+  bottom: 0px;
+  position: absolute;
+}
+
+.contents > .quiz > .page > .feedback > .answer > .symbol {
+  font-size: 40px;
+  left: 0px;
+  top: -39%;
+  position: absolute;
+}
+.contents > .quiz > .page > .feedback > .answer > .text {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: 117px;
+  top: 24px;
+}
+
+.contents > .quiz > .page > .feedback > .answer > .text_1 {
+  background: url(../img/quiz/dab1.png) no-repeat;
+}
+.contents > .quiz > .page > .feedback > .answer > .text_2 {
+  background: url(../img/quiz/dab2.png) no-repeat;
+}
+.contents > .quiz > .page > .feedback > .answer > .text_3 {
+  background: url(../img/quiz/dab3.png) no-repeat;
+}
+.contents > .quiz > .page > .feedback > .answer > .text_4 {
+  background: url(../img/quiz/dab4.png) no-repeat;
+}
+
+
+.contents > .quiz > .page > .feedback > .explain {
+  font-family: kopub_dotum_bold;
+  font-size: 24px;
+  line-height: 130%;
+  color: #000;
+  left: 15%;
+  top: 45px;
+  width: 810px;
+  height: 112px;
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  letter-spacing: -1px;
+}
+.contents > .quiz > .page > .feedback > .next_btn {
+  background: url(../img/quiz/next_btn.png) no-repeat;
+  background-size: 100% 100%;
+  width: 140px;
+  height: 45px;
+  top: -45px;
+  left: 872px;
+  position: absolute;
+  border: 0px;
+  cursor: pointer;
+}
+.contents > .quiz > .page > .feedback > .next_btn:hover {
+  background: url(../img/quiz/next_btn_over.png) no-repeat;
+  background-size: 100% 100%;
+}
+.contents > .quiz > .page > .feedback > .result_btn {
+  background: url(../img/quiz/result_btn.png) no-repeat;
+  background-size: 100% 100%;
+  width: 140px;
+  height: 45px;
+  top: -45px;
+  left: 872px;
+  position: absolute;
+  border: 0px;
+  cursor: pointer;
+}
+.contents > .quiz > .page > .feedback > .result_btn:hover {
+  background: url(../img/quiz/result_btn_over.png) no-repeat;
+  background-size: 100% 100%;
+}
+.contents > .quiz > .page > .feedback > .relative_btn {
+  background: url(../img/quiz/relative_btn.png) no-repeat;
+  background-size: 100% 100%;
+  width: 155px;
+  height: 40px;
+  top: -39px;
+  right: 262px;
+  position: absolute;
+  border: 0px;
+  cursor: pointer;
+}
+.contents > .quiz > .page > .feedback > .relative_btn:hover {
+  background: url(../img/quiz/relative_btn_over.png) no-repeat;
+  background-size: 100% 100%;
+}
+.contents > .quiz > .board {
+  width: 100%;
+}
+.contents > .quiz > .board > .top {
+  color: #000;
+}
+.contents > .quiz > .board > .top > .symbol{
+  position: absolute;
+  left: 10%;
+  top: 15%;
+  font-size: 40px;
+
+}
+.contents > .quiz > .board > .top > .totPage{
+  position: absolute;
+  left: 276px;
+  top: 132px;
+  font-size: 45px;
+  color: #000;
+  width: 21px;
+  height: 33px;
+  display: none;
+}
+.contents > .quiz > .board > .top > .explain{
+  position: absolute;
+  left: 460px;
+  top : 192px;
+  font-size: 33px;
+  color: #fff;
+  width: 21px;
+  height: 33px;
+  font-family : kopub_dotum_medium;
+}
+.contents > .quiz > .board > .top > .explain_0{
+  background: url(../img/quiz/0.png) no-repeat;
+}
+
+.contents > .quiz > .board > .top > .explain_1{
+  background: url(../img/quiz/1.png) no-repeat;
+}
+
+.contents > .quiz > .board > .top > .explain_2{
+  background: url(../img/quiz/2.png) no-repeat;
+}
+
+.contents > .quiz > .board > .top > .explain_3{
+  background: url(../img/quiz/3.png) no-repeat;
+}
+
+.contents > .quiz > .board > .middle{
+  position: absolute;
+  top: 289px;
+  left: 266px;
+  width: 119%;
+  height: 50%;
+}
+.contents > .quiz > .board > .middle > .line{
+  border: dashed;
+  border-color: #aaaaaa;
+  border-width: 1px 3px 3px 1px;
+  height: 50%;
+  float: left;
+  top: 10%;
+  position: relative;
+}
+
+.contents > .quiz > .board > .middle > .result{
+  position: relative;
+  top : 47px;
+  float: left;
+  width: 19%;
+  height: 30%;
+  margin-right: -33px;
+}
+.contents > .quiz > .board > .middle > .result > .symbol {
+  font-size: 50px;
+  text-align: center;
+  font-family: sans-serif;
+  color: #000;
+  bottom: 15%;
+  position: relative;
+}
+.contents > .quiz > .board > .middle > .result > .checkSymbol {
+  width : 90px;
+  height: 89px;
+}
+.contents > .quiz > .board > .middle > .result > .o_symbol {
+  background: url(../img/quiz/o_symbol.png);
+  background-size: 100% 100%;
+}
+.contents > .quiz > .board > .middle > .result > .x_symbol {
+  background: url(../img/quiz/x_symbol.png);
+  background-size: 100% 100%;
+
+}
+
+.contents > .quiz > .board > .explanation_btn  {
+  background: url(../img/quiz/explanation_btn.png) no-repeat;
+  background-size: 100% 100%;
+  width: 249px;
+  height: 47px;
+  border: 0px;
+  top: 78%;
+  left: 53%;
+  position: absolute;
+  cursor: pointer;
+}
+
+.contents > .quiz > .board > .explanation_btn:hover  {
+  background: url(../img/quiz/explanation_btn_over.png) no-repeat;
+  background-size: 100% 100%;
+}
+
+.contents > .quiz > .board > .wrong_retry  {
+  background: url(../img/quiz/wrong_retry.png) no-repeat;
+  background-size: 100% 100%;
+  width: 249px;
+  height: 47px;
+  border: 0px;
+  top: 78%;
+  left: 26%;
+  position: absolute;
+  cursor: pointer;
+}
+
+.contents > .quiz > .board > .wrong_retry:hover  {
+  background: url(../img/quiz/wrong_retry_over.png) no-repeat;
+  background-size: 100% 100%;
+}
+
+.contents > .quiz > .board > .retry  {
+  background: url(../img/quiz/retry.png) no-repeat;
+  background-size: 100% 100%;
+  width: 186px;
+  height: 38px;
+  border: 0px;
+  top: 76%;
+  left: 41%;
+  position: absolute;
+  cursor: pointer;
+}
+
+.contents > .quiz > .board > .retry:hover  {
+  background: url(../img/quiz/retry_over.png) no-repeat;
+  background-size: 100% 100%;
+}
+
+.videoJump{
+  background: url(../img/quiz/videoJump.png) no-repeat;
+  background-size: 100% 100%;
+  width: 129px;
+  height: 38px;
+  position: absolute;
+  z-index: 51;
+  bottom: 83px;
+  left: 421px;
+  cursor: pointer;
+  display: none;
+  border: 0px;
+}
+
+.contents > .quiz > .quizTitle {
+  background: url(../../title/quizTitle.png) no-repeat;
+  width: 1012px;
+  height: 98px;
+  position: absolute;
+  top: 73%;
+  left: 0px;
+}

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<event>
+
+  <!-- 강조빨간색칠하기-->
+  <!-- &lt;span style="color:#b85316"&gt;않은&lt;&#47;span&gt;&lt;&#47;u&gt; -->
+  <!-- 내려쓰기 -->
+  <!-- &lt;br&gt; -->
+  <quiz flag="17" >
+          <page num="1" answer="1" type="multiple">
+          <question>
+            <alternate>문제 일번 </alternate>
+            <symbol>Q1</symbol>
+            <text>문제일번</text>
+          </question>
+
+          <feedback>
+            <alternate>정답은 N번입니다. 해설대체텍스트</alternate>
+            <answer>
+                <symbol></symbol>
+                <text>1</text>
+            </answer>
+            <explain>
+                <symbol></symbol>
+                <text>해설</text>
+            </explain>
+          </feedback>
+
+          <example num="1">
+                <alternate>보기 일번. 보기일번대체텍스트</alternate>
+                <symbol>1</symbol>
+                <text>보기일번</text>
+            </example>
+            <example num="2">
+                <alternate>보기 이번. 보기이번대체텍스트</alternate>
+                <symbol>2</symbol>
+                <text>보기이번</text>
+            </example>
+            <example num="3">
+                <alternate>보기 삼번. 보기삼번대체텍스트</alternate>
+                <symbol>3</symbol>
+                <text>보기삼번</text>
+            </example>
+            <example num="4">
+                <alternate>보기 사번. 보기사번대체텍스트</alternate>
+                <symbol>4</symbol>
+                <text>보기사번</text>
+            </example>
+      </page>
+      <page num="2" answer="1" type="multiple">
+          <question>
+            <alternate>문제 이번 </alternate>
+            <symbol>Q2</symbol>
+            <text>문제이번</text>
+          </question>
+
+          <feedback>
+            <alternate>정답은 N번입니다. 해설대체텍스트</alternate>
+            <answer>
+                <symbol></symbol>
+                <text>1</text>
+            </answer>
+            <explain>
+                <symbol></symbol>
+                <text>해설</text>
+            </explain>
+          </feedback>
+
+          <example num="1">
+                <alternate>보기 일번. 보기일번대체텍스트</alternate>
+                <symbol>1</symbol>
+                <text>보기일번</text>
+            </example>
+            <example num="2">
+                <alternate>보기 이번. 보기이번대체텍스트</alternate>
+                <symbol>2</symbol>
+                <text>보기이번</text>
+            </example>
+            <example num="3">
+                <alternate>보기 삼번. 보기삼번대체텍스트</alternate>
+                <symbol>3</symbol>
+                <text>보기삼번</text>
+            </example>
+            <example num="4">
+                <alternate>보기 사번. 보기사번대체텍스트</alternate>
+                <symbol>4</symbol>
+                <text>보기사번</text>
+            </example>
+      </page>
+      <page num="3" answer="1" type="multiple">
+          <question>
+            <alternate>문제 삼번 </alternate>
+            <symbol>Q3</symbol>
+            <text>문제삼번</text>
+          </question>
+
+          <feedback>
+            <alternate>정답은 N번입니다. 해설대체텍스트</alternate>
+            <answer>
+                <symbol></symbol>
+                <text>1</text>
+            </answer>
+            <explain>
+                <symbol></symbol>
+                <text>해설</text>
+            </explain>
+          </feedback>
+
+          <example num="1">
+                <alternate>보기 일번. 보기일번대체텍스트</alternate>
+                <symbol>1</symbol>
+                <text>보기일번</text>
+            </example>
+            <example num="2">
+                <alternate>보기 이번. 보기이번대체텍스트</alternate>
+                <symbol>2</symbol>
+                <text>보기이번</text>
+            </example>
+            <example num="3">
+                <alternate>보기 삼번. 보기삼번대체텍스트</alternate>
+                <symbol>3</symbol>
+                <text>보기삼번</text>
+            </example>
+            <example num="4">
+                <alternate>보기 사번. 보기사번대체텍스트</alternate>
+                <symbol>4</symbol>
+                <text>보기사번</text>
+            </example>
+      </page>
+  </quiz>
+
+  <!-- <quiz flag="6" >
+      <page num="1" answer="1" type="half">
+          <question>
+              <alternate>여기서 잠깐! 돌발퀴즈! 오존층의 형성으로 지구에서 육상식물이 출현할 수 있게 되었다.이것은 맞는 문장일까요? 틀린 문장일까요? 맞으면 오, 틀리면 엑스를 선택해 주세요</alternate>
+              <symbol>&lt;div&gt;&lt;strong&gt;돌&lt;/strong&gt;발&lt;/div&gt;&lt;div&gt;퀴즈&lt;/div&gt;</symbol>
+              <text>오존층의 형성으로 지구에서 육상식물이 출현할 수 있게 되었다</text>
+          </question>
+
+          <feedback>
+              <alternate>정답은 O입니다. 상층 대기에 오존층이 존재하지 않으면 자외선은 지표까지 도달하게 되는데, 이는 생명체 생존에 매우 치명적일 수 있습니다. 즉, 오존층은 해양 바깥에서 생명이 존재하기 이전에 발생했음을 알 수 있습니다</alternate>
+              <answer>
+                  <symbol>정답</symbol>
+                  <text>O</text>
+              </answer>
+              <explain>
+                  <symbol>해설</symbol>
+                  <text>상층 대기에 오존층이 존재하지 않으면 자외선은 지표까지 도달하게 되는데, 이는 생명체 생존에 매우 치명적일 수 있습니다. 즉, 오존층은 해양 바깥에서 생명이 존재하기 이전에 발생했음을 알 수 있습니다</text>
+              </explain>
+          </feedback>
+
+          <example num="1">
+              <alternate>보기 일번 오</alternate>
+              <symbol></symbol>
+              <text>O</text>
+          </example>
+          <example num="2">
+              <alternate>보기 이번 엑스</alternate>
+              <symbol></symbol>
+              <text>X</text>
+          </example>
+      </page>
+  </quiz> -->
+</event>

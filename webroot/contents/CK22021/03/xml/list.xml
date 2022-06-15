@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<list>
+  <index>
+    <main page="1" title="들어가기">
+      <sub page="1">· 인트로</sub>
+      <sub page="2">· 오늘의 학습</sub>
+    </main>
+    <main page="3" title="학습하기">
+      <sub page="3">· 버킷 툴로 기본 채색하기</sub>
+      <sub page="4">· 스텐실과 레이어 블렌딩 기능</sub>
+      <sub page="5">· 텍스처 페이퍼 기능</sub>
+      <sub page="6">· 타임라인 기능</sub>
+    </main>
+    <main page="7" title="꿀팁방출">
+    </main>
+    <main page="8" title="아웃트로">
+    </main>
+  </index>
+</list>

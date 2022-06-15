@@ -1,0 +1,127 @@
+.menu{
+  position: relative;
+  width: 63px;
+  height: 28px;
+  z-index: 101;
+  border: 2px #fff solid;
+  cursor: pointer;
+  background: none;
+  color: #fff;
+  margin: 3px 10px;
+  border-radius: 6px;
+  font-family: nanum_barun_gothic_light;
+  font-size: 15px;
+}
+.indexMenu {
+  position: absolute;
+  z-index: 300;
+  left:-255px;
+  top: 0;
+  background: #000;
+  width: 236px;
+  height: 100%;
+  transition-duration: 0.4s;
+  z-index: 210;
+  display: none;
+}
+
+.indexMenu > .closeMenu {
+  position: absolute;
+  z-index: 301;
+  top: 10px;
+  right: 1px;
+  background: url(../img/control/menu_close.png) no-repeat;
+  background-size: 100% 100%;
+  height: 40px;
+  width: 40px;
+  border: 0px;
+  cursor: pointer;
+}
+
+.indexMenu > .indexList{
+  position: relative;
+  top: 5%;
+}
+
+
+.indexMenu > .indexList > .menuLine {
+  background: none;
+  background-size: 100% 100%;
+  width: 100%;
+  height: 10px;
+  margin: 20px 0px;
+
+}
+
+.indexMenu > .indexList > .mainTitle {
+  color: #ffffff;
+  font-size: 22px;
+  border: 0px;
+  text-align: left;
+  background-color: hsla(0, 10%, 10%, 0);
+  margin-left: 20px;
+  font-family: nanum_square;
+  cursor: pointer;
+  margin-top: 25px;
+}
+
+
+.indexMenu > .indexList > .subTitle {
+  color: #ffffff;
+  font-size: 1.0em;
+  margin-left: 25px;
+  margin-top: 15px;
+  font-weight: 300;
+  width: 180px;
+  border: 0px;
+  text-align: left;
+  background-color: hsla(0, 10%, 10%, 0);
+  letter-spacing: -1px;
+  font-family: nanum_barun_gothic_light;
+  cursor: pointer;
+}
+
+.indexMenu > .indexList > .tempTitle {
+  color: #ffffff;
+  font-size: 1.0em;
+  margin-left: 35px;
+  margin-top: 15px;
+  font-weight: 300;
+  border: 0px;
+  text-align: left;
+  background-color: hsla(0, 10%, 10%, 0);
+  letter-spacing: -1px;
+  font-family: nanum_barun_gothic_light;
+  cursor: pointer;
+}
+
+.indexMenu > .indexList > .mainTitle.toggle {
+  color: #814988;
+}
+.indexMenu > .indexList > .subTitle.toggle {
+  color: #814988;
+}
+ 
+.indexMenu > .indexList > .subTitle:hover {
+  color: #814988;
+}
+
+.indexMenu > .indexList > .tempTitle.toggle {
+  color: #814988;
+}
+ 
+.indexMenu > .indexList > .tempTitle:hover {
+  color: #814988;
+}
+
+@media screen and (max-width: 400px) {
+  .menu{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .indexMenu > .indexList{top: 0;}
+  .indexMenu > .indexList > .mainTitle{    margin-top: 6px;}
+  .indexMenu > .indexList > .subTitle {    margin-top: 10px;}
+}

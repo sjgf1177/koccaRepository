@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<list>
+  <index>
+    <main page="1" title="들어가기">
+      <sub page="1">· 인트로</sub>
+      <sub page="2">· 오늘의 학습</sub>
+    </main>
+    <main page="3" title="학습하기">
+      <sub page="3">· 프로젝트 탭의 기본 조작과 썸네일뷰</sub>
+      <sub page="4">· 썸네일뷰와 타임라인뷰의 차이</sub>
+      <sub page="5">· 타임라인뷰와 오디오 사용법</sub>
+      <sub page="6">· 작업물 출력</sub>
+    </main>
+    <main page="7" title="꿀팁방출">
+    </main>
+    <main page="8" title="아웃트로">
+    </main>
+  </index>
+</list>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<list>
+  <index>
+    <main page="1" title="들어가기">
+      <sub page="1">· 인트로</sub>
+      <sub page="2">· 오늘의 학습</sub>
+    </main>
+    <main page="3" title="학습하기">
+      <sub page="3">· 파일 탭과 신규 프로젝트 생성</sub>
+      <sub page="4">· 레이어 패널과 메인 패널</sub>
+      <sub page="5">· 툴 패널</sub>
+      <sub page="6">· 부드러운 필기감을 위한 옵션 설정 방법</sub>
+    </main>
+    <main page="7" title="꿀팁방출">
+    </main>
+    <main page="8" title="아웃트로">
+    </main>
+  </index>
+</list>
