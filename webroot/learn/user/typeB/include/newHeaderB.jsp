@@ -52,10 +52,12 @@
                         	<c:choose>
                         		<c:when test="${sessionScope.userid eq null || sessionScope.userid == ''}">
                         			<span class="header_util_item"><a href="javascript:mainmenu('990');">로그인</a></span>
-		                            <hr class="header_util_line">
-		                            <span class="header_util_item"><a href="javascript:mainmenu('1');">회원가입</a></span>
-		                            <hr class="header_util_line">
-		                            <span class="header_util_item"><a href="javascript:mainmenu('2');">아이디/패스워드 찾기</a></span>
+									<c:if test="${sessionScope.tem_grcode ne 'N000134'}">
+										<hr class="header_util_line">
+										<span class="header_util_item"><a href="javascript:mainmenu('1');">회원가입</a></span>
+										<hr class="header_util_line">
+										<span class="header_util_item"><a href="javascript:mainmenu('2');">아이디/패스워드 찾기</a></span>
+									</c:if>
                         		</c:when>
                         		<c:otherwise>
                         			<span class="header_util_item"><a href="javascript:mainmenu('3');" >로그아웃</a></span>
@@ -127,7 +129,7 @@
 	                        </span>                        
 	                        <span class="gnb_con">
 	                            <ul class="col-center">
-									<c:if test="${sessionScope.tem_grcode ne 'N000179'}">
+									<c:if test="${sessionScope.tem_grcode ne 'N000179' && sessionScope.tem_grcode ne 'N000134'}">
 										<li>
 											<a href="javascript:menuForward('8', '01');">정규과정안내</a>
 											<ul>
@@ -143,9 +145,11 @@
 											</ul>
 										</li>
 									</c:if>
+									<c:if test="${sessionScope.tem_grcode ne 'N000134'}">
 	                                <li>
 	                                    <a href="javascript:menuForward('5', '01');">열린강좌</a>
 	                                </li>
+									</c:if>
 									<c:if test="${sessionScope.tem_grcode ne 'N000179'}">
 										<li>
 											<a href="javascript:menuForward('3', '11');">나의강의실</a>
