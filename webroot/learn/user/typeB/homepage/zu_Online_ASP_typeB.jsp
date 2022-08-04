@@ -220,13 +220,13 @@
 								<div class="swiper-slide">
 									<a href="#">
 										<span style="display: none;">융합형 인재양성의 허브 한국콘텐츠아카데미에서는 여려분의 다양한 꿈과 희망을 응원합니다.</span>
-										<img src="${sessionScope.tem_grcode ne "N000179"? "/common/image/banner1.png" : "/common/image/banner1791.png"}" title="융합형 인재양성의 허브 한국콘텐츠아카데미에서는 여려분의 다양한 꿈과 희망을 응원합니다." alt="융합형 인재양성의 허브 한국콘텐츠아카데미에서는 여려분의 다양한 꿈과 희망을 응원합니다.">
+										<img src="${(sessionScope.tem_grcode ne "N000179" && sessionScope.tem_grcode ne "N000134")? "/common/image/banner1.png" : "/common/image/banner1791.png"}" title="융합형 인재양성의 허브 한국콘텐츠아카데미에서는 여려분의 다양한 꿈과 희망을 응원합니다." alt="융합형 인재양성의 허브 한국콘텐츠아카데미에서는 여려분의 다양한 꿈과 희망을 응원합니다.">
 									</a>
 								</div>
 								<div class="swiper-slide">
 									<a href="#">
 										<span style="display: none;">언제 어디서나 누구나 방송영상, 게임, 문화 콘텐츠 분야의 꿈을 펼칠실 분들을 위한 맞춤 온라인 강의</span>
-										<img src="${sessionScope.tem_grcode ne "N000179"? "/common/image/banner2.jpg" : "/common/image/banner1792.png"}" title="언제 어디서나 누구나 방송영상, 게임, 문화 콘텐츠 분야의 꿈을 펼칠실 분들을 위한 맞춤 온라인 강의" alt="언제 어디서나 누구나 방송영상, 게임, 문화 콘텐츠 분야의 꿈을 펼칠실 분들을 위한 맞춤 온라인 강의">
+										<img src="${(sessionScope.tem_grcode ne "N000179" && sessionScope.tem_grcode ne "N000134")? "/common/image/banner2.jpg" : "/common/image/banner1792.png"}" title="언제 어디서나 누구나 방송영상, 게임, 문화 콘텐츠 분야의 꿈을 펼칠실 분들을 위한 맞춤 온라인 강의" alt="언제 어디서나 누구나 방송영상, 게임, 문화 콘텐츠 분야의 꿈을 펼칠실 분들을 위한 맞춤 온라인 강의">
 									</a>
 								</div>
 							</div>
