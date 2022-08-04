@@ -171,21 +171,16 @@
                         </div>
                     </div>
                     <div class="col-xl-3 <c:if test='${sessionScope.tem_grcode ne "N000179" && sessionScope.tem_grcode ne "N000134"}'>col-lg-4</c:if> col-md-6 col-sm-12">
-						<c:if test='${sessionScope.tem_grcode ne "N000179"}'>
+						<c:if test='${sessionScope.tem_grcode ne "N000179" && sessionScope.tem_grcode ne "N000134"}'>
 							<a href="javascript:menuForward('3','11');">
 								<div class="image_banner_con">
 									<div class="box_ct">
 										<img src="/common/image/banner_main_mypage2.jpg" alt="나의강의실 바로가기"/>
-										<!--
-										<span class="banner_title">나의강의실</span>
-										<a href="javascript:menuForward('3','11');">바로가기</a>
-										<p class="banner_con">온라인과정은 방송영상, 게임개발, 문화콘텐츠 관련 콘텐츠를 웹기반 교육시스템을 통해 시간과 공간의 제약없이 누구나 교육을 받을 수 있는 '열린'공간입니다.</p>
-										-->
 									</div>
 								</div>
 							</a>
 						</c:if>
-						<c:if test='${sessionScope.tem_grcode eq "N000179"}'>
+						<c:if test='${sessionScope.tem_grcode eq "N000179" || sessionScope.tem_grcode eq "N000134"}'>
 							<a href="javascript:menuForward('4','07');">
 								<div class="image_banner_con">
 									<div class="box_ct">
@@ -194,16 +189,6 @@
 								</div>
 							</a>
 						</c:if>
-                        <!-- 
-                        <div class="image_banner_con">
-                            <div class="box_ct">    
-                               	<img src="/common/image/banner_main_mypage.jpg" alt="나의강의실 바로가기"/>
-                                <span class="banner_title">나의강의실</span>
-                                <a href="javascript:menuForward('3','11');">바로가기</a>
-                                <p class="banner_con">온라인과정은 방송영상, 게임개발, 문화콘텐츠 관련 콘텐츠를 웹기반 교육시스템을 통해 시간과 공간의 제약없이 누구나 교육을 받을 수 있는 '열린'공간입니다.</p>
-                            </div>
-                        </div>
-                         -->
                     </div>
 					<c:if test="${sessionScope.tem_grcode ne 'N000179' && sessionScope.tem_grcode ne 'N000134'}">
 						<div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
@@ -230,44 +215,28 @@
 						</div>
 					</c:if>
                     <div class="col-xl-3 <c:if test='${sessionScope.tem_grcode ne "N000179" && sessionScope.tem_grcode ne "N000134"}'>col-lg-4</c:if> col-md-6 col-sm-12">
-						<c:choose>
-							<c:when test="${sessionScope.tem_grcode eq 'N000134'}">
-								<a href="/servlet/controller.homepage.HomeNoticeServlet">
-										<div class="image_banner_con">
-											<div class="box_ct">
-												<span style="display: none;">학습자 권한이 없습니다. 오류 발생 시 조치 사항 안내</span>
-												<img src="/common/image/banner4.png" class="fixed_img" title="학습자 권한이 없습니다. 오류 발생 시 조치 사항 안내" alt="학습자 권한이 없습니다. 오류 발생 시 조치 사항 안내">
-											</div>
-										</div>
+						<div class="box_ct swiper-container" style="padding:0" id="main_banner_slide">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">
+									<a href="#">
+										<span style="display: none;">융합형 인재양성의 허브 한국콘텐츠아카데미에서는 여려분의 다양한 꿈과 희망을 응원합니다.</span>
+										<img src="${sessionScope.tem_grcode ne "N000179"? "/common/image/banner1.png" : "/common/image/banner1791.png"}" title="융합형 인재양성의 허브 한국콘텐츠아카데미에서는 여려분의 다양한 꿈과 희망을 응원합니다." alt="융합형 인재양성의 허브 한국콘텐츠아카데미에서는 여려분의 다양한 꿈과 희망을 응원합니다.">
 									</a>
-							</c:when>
-							<c:otherwise>
-							<div class="box_ct swiper-container" style="padding:0" id="main_banner_slide">
-								<div class="swiper-wrapper">
-									<div class="swiper-slide">
-										<a href="#">
-											<span style="display: none;">융합형 인재양성의 허브 한국콘텐츠아카데미에서는 여려분의 다양한 꿈과 희망을 응원합니다.</span>
-											<img src="${sessionScope.tem_grcode ne "N000179"? "/common/image/banner1.png" : "/common/image/banner1791.png"}" title="융합형 인재양성의 허브 한국콘텐츠아카데미에서는 여려분의 다양한 꿈과 희망을 응원합니다." alt="융합형 인재양성의 허브 한국콘텐츠아카데미에서는 여려분의 다양한 꿈과 희망을 응원합니다.">
-										</a>
-									</div>
-									<div class="swiper-slide">
-										<a href="#">
-											<span style="display: none;">언제 어디서나 누구나 방송영상, 게임, 문화 콘텐츠 분야의 꿈을 펼칠실 분들을 위한 맞춤 온라인 강의</span>
-											<img src="${sessionScope.tem_grcode ne "N000179"? "/common/image/banner2.jpg" : "/common/image/banner1792.png"}" title="언제 어디서나 누구나 방송영상, 게임, 문화 콘텐츠 분야의 꿈을 펼칠실 분들을 위한 맞춤 온라인 강의" alt="언제 어디서나 누구나 방송영상, 게임, 문화 콘텐츠 분야의 꿈을 펼칠실 분들을 위한 맞춤 온라인 강의">
-										</a>
-									</div>
 								</div>
-								<c:if test="${sessionScope.tem_grcode ne 'N000134'}">
-									<div class="swiperControlBox">
-										<div class="col-12 swiper-pagination"></div>
-										<div class="swiper-button-prev"></div>
-										<div class="swiper-button-next"></div>
-										<div class="swiper-autoplay-stop"></div>
-									</div>
-								</c:if>
+								<div class="swiper-slide">
+									<a href="#">
+										<span style="display: none;">언제 어디서나 누구나 방송영상, 게임, 문화 콘텐츠 분야의 꿈을 펼칠실 분들을 위한 맞춤 온라인 강의</span>
+										<img src="${sessionScope.tem_grcode ne "N000179"? "/common/image/banner2.jpg" : "/common/image/banner1792.png"}" title="언제 어디서나 누구나 방송영상, 게임, 문화 콘텐츠 분야의 꿈을 펼칠실 분들을 위한 맞춤 온라인 강의" alt="언제 어디서나 누구나 방송영상, 게임, 문화 콘텐츠 분야의 꿈을 펼칠실 분들을 위한 맞춤 온라인 강의">
+									</a>
+								</div>
 							</div>
-							</c:otherwise>
-						</c:choose>
+							<div class="swiperControlBox">
+								<div class="col-12 swiper-pagination"></div>
+								<div class="swiper-button-prev"></div>
+								<div class="swiper-button-next"></div>
+								<div class="swiper-autoplay-stop"></div>
+							</div>
+						</div>
                     </div>
                 </div>
             </div>
