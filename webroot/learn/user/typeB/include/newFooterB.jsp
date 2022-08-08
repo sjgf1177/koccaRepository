@@ -32,7 +32,7 @@
                                 <img src="/common/image/icon_kocca_app.png" alt="아카데미앱 다운로드" style="width: 27px;"> 아카데미앱 다운로드
                             </a> -->
                         	<a href="https://edu.kocca.kr" target="_blank" style="display:inline-block; float: right;">
-                                <img src="/common/image/icon_kocca_web.png" alt="아카데미 바로가기" style="width: 27px;"> 한국콘텐츠아카데미 바로가기
+                                <img src="/common/image/icon_edukocca_web.png" alt="아카데미 바로가기" style="width: 27px;"> 에듀코카 바로가기
                             </a>
                         </div>
                         <!-- 
