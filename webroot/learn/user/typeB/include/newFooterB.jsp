@@ -21,7 +21,7 @@
                             <ul>
                                 <li>홍릉분원 : [02456] 서울특별시 동대문구 회기로 66</li>
                                 <li>본원 : [58217] 전라남도 나주시 교육길 35 한국콘텐츠진흥원 | 사업자번호 : 105-82-17272</li>
-                                <li>온라인교육 02-6310-0766</li>
+                                <li>온라인교육 02-6310-0770</li>
                                 <li>Copyright 2015. Korea Creative Content Agency all rights reserved.</li>
                             </ul>
                         </div>
