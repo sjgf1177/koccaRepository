@@ -1,5 +1,6 @@
 isPageControl = false;
 isFinishControl = false;
+lastChkPageNum = 0;
 
 function playPageSave(ct, tt, cc, cp, tp, np) {
     isPageControl = false;
@@ -18,6 +19,7 @@ function playPageSave(ct, tt, cc, cp, tp, np) {
         }
         ,   success : function(ajaxData) {
                 isPageControl = true;
+
                 if(cp == tp){
                     opener.lastPageProgress();
                 }
@@ -31,6 +33,7 @@ function playPageSave(ct, tt, cc, cp, tp, np) {
 function pageChk(chap, cp){
     isPageControl = false;
     isFinishControl = false;
+    lastChkPageNum = cp;
 
     $.ajax({
         type : "post"
@@ -46,6 +49,8 @@ function pageChk(chap, cp){
 
             if(data.resList.length > 0){
                 res = data.resList[0];
+
+                lastChkPageNum = res.lastChkPage;
 
                 if(res.pageChkYn == 'Y'){
                     isPageControl = true;

@@ -1198,6 +1198,7 @@ public class EduStart extends HttpServlet {
                     map.put("pageChkYn", dbox.getString("d_page_chk_yn"));
                     map.put("finishPageYn", dbox.getString("d_finishPageYn"));
                     map.put("nextPageChkYn", dbox.getString("d_nextPageChkYn"));
+                    map.put("lastChkPage", dbox.getString("d_lastChkPage"));
 
                     jsonList.add(map);
                 }
