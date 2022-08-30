@@ -2526,6 +2526,11 @@ public class LoginBean {
         String grcode = box.getSession("tem_grcode");
         String grPrefix = "", mobileUserid = "";
 
+        String v_not_comp = box.getString("p_notcompchk");
+        String v_cate = box.getString("p_cate");
+        String v_cate_txt = box.getString("p_cate_txt");
+        String v_comp_loct = box.getString("p_comp_location");
+
         try {
             connMgr = new DBConnectionManager();
 
@@ -2596,6 +2601,10 @@ public class LoginBean {
             sql.append("    ,   SEX             \n");
             sql.append("    ,   MOBILE_USERID   \n");
             sql.append("    ,   PASSCHANGEDT    \n");
+            sql.append("    ,   ISNOTCOMP       \n");
+            sql.append("    ,   CATE_FIELD      \n");
+            sql.append("    ,   CATE_TXT        \n");
+            sql.append("    ,   COMP_LOCT       \n");
             sql.append(" ) VALUES ( \n");
             sql.append("        ?                                       /* RESNO        */  \n");
             sql.append("    ,   ?                                       /* USERID       */  \n");
@@ -2637,6 +2646,10 @@ public class LoginBean {
             sql.append("    ,   ?                                       /* SEX          */  \n");
             sql.append("    ,   ?                                       /* MOBILE_USERID*/  \n");
             sql.append("    ,   TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')    /* PASSCHANGEDT */  \n");
+            sql.append("    ,   ?                                       /* ISNOTCOMP    */  \n");
+            sql.append("    ,   ?                                       /* CATE_FIELD   */  \n");
+            sql.append("    ,   ?                                       /* CATE_TXT     */  \n");
+            sql.append("    ,   ?                                       /* COMP_LOCT    */  \n");
             sql.append(")   \n");
 
             pstmt = connMgr.prepareStatement(sql.toString());
@@ -2677,6 +2690,10 @@ public class LoginBean {
             pstmt.setString(index++, v_memberday);
             pstmt.setString(index++, v_sex);
             pstmt.setString(index++, mobileUserid);
+            pstmt.setString(index++, v_not_comp);
+            pstmt.setString(index++, v_cate);
+            pstmt.setString(index++, v_cate_txt);
+            pstmt.setString(index++, v_comp_loct);
 
             isOk = pstmt.executeUpdate();
 
@@ -3627,9 +3644,23 @@ public class LoginBean {
         try {
             connMgr = new DBConnectionManager();
 
-            sql = " select  userid,name, crypto.dec('normal',email) email, crypto.dec('normal',hometel) hometel, crypto.dec('normal',handphone) handphone, post1,post2,addr, WORK_PLCNM,DEPTNAM, ismailing   from tz_member where userid='"
-                    + v_userid + "'";
-            sql += " and grcode='" + box.getSession("tem_grcode") + "'";
+            sql = " select userid";
+            sql += "     , name";
+            sql += "     , crypto.dec('normal',email) email";
+            sql += "     , crypto.dec('normal',hometel) hometel";
+            sql += "     , crypto.dec('normal',handphone) handphone";
+            sql += "     , post1";
+            sql += "     , post2";
+            sql += "     , addr";
+            sql += "     , WORK_PLCNM";
+            sql += "     , DEPTNAM";
+            sql += "     , ismailing";
+            sql += "     , isnotcomp";
+            sql += "     , cate_field";
+            sql += "     , cate_txt";
+            sql += "     , comp_loct";
+            sql += "  from tz_member where userid='" + v_userid + "'";
+            sql += "   and grcode='" + box.getSession("tem_grcode") + "'";
 
             ls = connMgr.executeQuery(sql);
 
@@ -3749,6 +3780,11 @@ public class LoginBean {
         String v_officegbnnm = box.getStringDefault("p_officegbnnm", "");
         String v_cono = box.getStringDefault("p_cono", "");
 
+        String v_not_comp = box.getString("p_notcompchk");
+        String v_cate = box.getString("p_cate");
+        String v_cate_txt = box.getString("p_cate_txt");
+        String v_comp_loct = box.getString("p_comp_location");
+
         try {
             connMgr = new DBConnectionManager();
             connMgr.setAutoCommit(false);
@@ -3764,9 +3800,13 @@ public class LoginBean {
             sql1 += "   ISMAILING       = ?, \n";
             sql1 += "   DEPTNAM         = ?, \n";
             sql1 += "   OFFICE_GBNNM    = ?, \n";
-            sql1 += "   CONO            = ? \n";
+            sql1 += "   CONO            = ?, \n";
+            sql1 += "   ISNOTCOMP       = ?, \n";
+            sql1 += "   CATE_FIELD      = ?, \n";
+            sql1 += "   CATE_TXT        = ?, \n";
+            sql1 += "   COMP_LOCT       = ?  \n";
             sql1 += "WHERE \n";
-            sql1 += "   USERID          = ? \n";
+            sql1 += "   USERID          = ?  \n";
             sql1 += "   AND GRCODE      = ?";
 
             pstmt = connMgr.prepareStatement(sql1);
@@ -3778,8 +3818,12 @@ public class LoginBean {
             pstmt.setString(5, v_deptnm);
             pstmt.setString(6, v_officegbnnm);
             pstmt.setString(7, v_cono);
-            pstmt.setString(8, v_userid);
-            pstmt.setString(9, box.getSession("tem_grcode"));
+            pstmt.setString(8, v_not_comp);
+            pstmt.setString(9, v_cate);
+            pstmt.setString(10, v_cate_txt);
+            pstmt.setString(11, v_comp_loct);
+            pstmt.setString(12, v_userid);
+            pstmt.setString(13, box.getSession("tem_grcode"));
 
             isOk = pstmt.executeUpdate();
 

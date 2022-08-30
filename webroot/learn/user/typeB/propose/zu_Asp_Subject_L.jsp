@@ -47,10 +47,19 @@ function whenSubjPropose(subj,year,subjseq, subjnm) {
 		alert("로그인이 필요합니다.");
 		return;
 	}
+
 	if(!confirm(subjnm+"과정을 수강신청하시겠습니까?")) {
 	 return;
 	}
-	var new_Open = window.open("","proposeWindow",'scrollbars=yes,width=800,height=600,resizable=no');
+
+	var new_Open = "";
+
+	if('${sessionScope.tem_grcode}' == "N000210"){
+		new_Open = window.open("","proposeWindow",'scrollbars=yes,width=1000,height=800,resizable=no');
+	}else{
+		new_Open = window.open("","proposeWindow",'scrollbars=yes,width=1000,height=600,resizable=no');
+	}
+
 	document.form1.p_process.value = "SubjectEduProposePage";
 	document.form1.target = "proposeWindow";
 	document.form1.p_subj.value = subj;

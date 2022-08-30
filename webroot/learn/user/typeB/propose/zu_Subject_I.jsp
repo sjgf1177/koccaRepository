@@ -3,6 +3,9 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page isELIgnored="false" %>
+<%@ page import = "com.credu.system.*" %>
+<%@ page import = "java.util.*" %>
+<%@ page import = "com.credu.library.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,16 +35,10 @@
     
     <script type="text/javascript">
 	    function whenPropose() {
-	    	
-	    	/*
-	    	if($('#p_privatetyes').is(':checked')){
-	    		$("[name='p_privateYn']").val("Y");
-	    	}else{
-	    		$("[name='p_privateYn']").val("N");
-	    		alert("개인정보 활용 동의를 확인해 주세요.");
-	    		return;
-	    	}
-	    	*/
+			if(($(":checkbox[name='p_sul']:checked").length < 1) && $(":checkbox[name='p_sul']").length > 0) {
+				alert("교육 수강목적을 선택해주세요.");
+				return;
+			}
 	
 			if(!confirm("${resultbox.d_subjnm} 과정을 수강신청 하시겠습니까?"))  return;
 			
@@ -146,6 +143,33 @@
 	                                            </tbody>
 	                                        </table>
 	                                    </div>
+										<div>
+											<c:if test="${sessionScope.tem_grcode eq 'N000210'}">
+												<h3>교육 수강목적(다중 선택 가능)</h3>
+												<%
+													List sulList = CodeAdminBean.selectListCode("0124");
+
+													if(sulList != null && sulList.size() > 0 ){
+														String sCode   = "";
+														String sCodeNm = "";
+														for(int i = 0 ; i < sulList.size() ; i++){
+															DataBox codeBox = (DataBox)sulList.get(i);
+
+															sCode   = codeBox.getString("d_code");
+															sCodeNm = codeBox.getString("d_codenm");
+
+												%>
+													<div style="margin-bottom: 10px">
+														<input type="checkbox" name="p_sul" value="<%=sCode %>" id="p_sul_<%=i %>" title="<%=sCodeNm %>" style="margin-right: 7px;">
+														<label for="p_sul_<%=i %>"><%=sCodeNm %></label>
+													</div>
+												<%
+
+														}
+													}
+												%>
+											</c:if>
+										</div>
 	                                    <div class="popup_btnBox">
 	                                        <a href="javascript:whenPropose();" class="btn_courseRegistration">수강신청</a>
 	                                        <a href="javascript:whenCancel();" class="btn_courseCancel">취소</a>

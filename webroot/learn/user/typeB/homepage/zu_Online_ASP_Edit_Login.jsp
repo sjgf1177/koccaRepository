@@ -1,11 +1,25 @@
 <%@ page import="com.credu.library.RequestBox" %>
 <%@ page import="com.credu.library.DataBox" %>
+<%@ page import = "com.credu.system.*" %>
+<%@ page import = "java.util.*" %>
+<%@ page import = "com.credu.library.*" %>
 <%@ page contentType = "text/html;charset=euc-kr" %>
 <%@ page errorPage = "/learn/library/error.jsp" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page isELIgnored="false" %>
+<%
+	RequestBox box = (RequestBox)request.getAttribute("requestbox");
 
+	String v_cate 	  = "";
+	String v_comp_loc = "";
+
+	DataBox dbox = (DataBox)request.getAttribute("ASP_Edit_Login");
+	if (dbox != null) {
+		v_cate 	   = dbox.getString("d_cate_field");
+		v_comp_loc = dbox.getString("d_comp_loct");
+	}
+%>
 <script type="text/javascript">
 	$(document).ready(function(){
 		if('<c:out value="${ASP_Edit_Login.d_ismailing}" />' == 'Y'){
@@ -14,6 +28,46 @@
 		}else{
 			$("[name='p_agreed_Yn']").attr("checked", false);
             $("[name='p_agreed']").val("N");
+		}
+
+		if('<c:out value="${ASP_Edit_Login.d_isnotcomp}" />' == 'Y'){
+			$("[name='p_notcompchk']").attr("checked", true);
+			$("#p_deptnm").attr("disabled", true);
+			$("#p_deptnm").val("");
+		}else{
+			$("[name='p_notcompchk']").attr("checked", false);
+			$("#p_deptnm").attr("disabled", false);
+		}
+
+		$("#p_notcompchk").click(function(){
+			var checked = $("#p_notcompchk").is(":checked");
+
+			if(!checked) {
+				$("#p_deptnm").attr("disabled", false);
+				$("#p_deptnm").val("${ASP_Edit_Login.d_deptnam }");
+				$("#p_deptnm").focus();
+			}else {
+				$("#p_deptnm").attr("disabled", true);
+				$("#p_deptnm").val("");
+			}
+		});
+
+		$("input:radio[name=p_cate]").click(function(){
+			if($("input[name=p_cate]:checked").val() == "CT009") {
+				$("#p_cate_txt").attr("disabled", false);
+				$("#p_cate_txt").val("${ASP_Edit_Login.d_cate_txt}");
+				$("#p_cate_txt").focus();
+			}else {
+				$("#p_cate_txt").attr("disabled", true);
+				$("#p_cate_txt").val("");
+			}
+		});
+
+		if('<c:out value="${ASP_Edit_Login.d_cate_field}" />' == 'CT009'){
+			$("#p_cate_txt").attr("disabled", false);
+		}else{
+			$("#p_cate_txt").attr("disabled", true);
+			$("#p_cate_txt").val("");
 		}
 		
 		$(document).on("keyup", "#p_tel1, #p_tel2, #p_mobil1, #p_mobil2", function(){
@@ -195,23 +249,73 @@
 	                                                <tbody>
 	                                                	<c:choose>
 	                                                    	<c:when test="${sessionScope.tem_grcode eq 'N000210'}">
-	                                                    		<%-- <tr>
-		                                                    		<th>
-			                                                        	회사명
-			                                                        </th>
-			                                                        <td>
-			                                                        	<input type="text" style="width:100%" name="p_deptnm" id="p_deptnm" title="회사명" value="<c:out value="${ASP_Edit_Login.d_deptnam }"/>">
-			                                                        	<span>[※ 정확한 회사명을 입력해주세요.]</span>
-			                                                        </td>
-		                                                        </tr> --%>
 		                                                        <tr>
 		                                                    		<th>
 			                                                        	회사명
 			                                                        </th>
 			                                                        <td>
 			                                                        	<input type="text" name="p_deptnm" id="p_deptnm" title="회사명" value="<c:out value="${ASP_Edit_Login.d_deptnam }"/>">
+																		<span style="width: 100%;">※ 사업자가 없는 창작자 등 소속이 없는 경우, ‘소속없음’ 에 체크해주세요.</span>
+																		<span>
+																			<input type="checkbox" name="p_notcompchk" id="p_notcompchk" checked value="Y" title="소속없음">
+																			<label for="p_notcompchk">소속없음</label>
+																		</span>
 			                                                        </td>
 		                                                        </tr>
+																<tr>
+																	<th><span>*</span>분야</th>
+																	<td>
+																		<%
+																			List cateList = CodeAdminBean.selectListCode("0122");
+
+																			if(cateList != null && cateList.size() > 0 ){
+																				String sCode   = "";
+																				String sCodeNm = "";
+																				for(int i = 0 ; i < cateList.size() ; i++){
+																					DataBox codeBox = (DataBox)cateList.get(i);
+
+																					sCode   = codeBox.getString("d_code");
+																					sCodeNm = codeBox.getString("d_codenm");
+
+																		%>
+																			<input type="radio" name="p_cate" value="<%=sCode %>" id="p_cate_<%=i %>" <%=sCode.equals(v_cate) ? "checked" : ""%> title="<%=sCodeNm %>">
+																			<label for="p_cate_<%=i %>"><%=sCodeNm %></label>
+																		<%
+
+																				}
+																			}
+																		%>
+																		<input type="text" name="p_cate_txt" id="p_cate_txt" title="기타" disabled value="<c:out value="${ASP_Edit_Login.d_cate_txt }"/>">
+																	</td>
+																</tr>
+																<tr>
+																	<th><span>*</span>사업장 소재지</th>
+																	<td>
+																		<label for="p_comp_location"></label>
+																		<select class="email3" name="p_comp_location" id="p_comp_location" title="사업장 소재지 선택">
+																			<option value="" title="선택">선택</option>
+																			<%
+																				List cLoctList = CodeAdminBean.selectListCode("0123");
+
+																				if(cLoctList != null && cLoctList.size() > 0 ){
+																					String sCode   = "";
+																					String sCodeNm = "";
+																					for(int i = 0 ; i < cLoctList.size() ; i++){
+																						DataBox codeBox = (DataBox)cLoctList.get(i);
+
+																						sCode   = codeBox.getString("d_code");
+																						sCodeNm = codeBox.getString("d_codenm");
+
+																			%>
+																				<option value="<%=sCode %>" title="<%=sCodeNm %>" <%=sCode.equals(v_comp_loc) ? "selected" : ""%>><%=sCodeNm %></option>
+																			<%
+
+																					}
+																				}
+																			%>
+																		</select>
+																	</td>
+																</tr>
 		                                                        <tr>
 			                                                        <th><span>*</span>성명(한글)</th>
 			                                                        <td><c:out value="${ASP_Edit_Login.d_name }" /> </td>

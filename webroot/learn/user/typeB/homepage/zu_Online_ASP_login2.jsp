@@ -1,4 +1,7 @@
 <%@ page import="com.credu.library.RequestBox" %>
+<%@ page import = "com.credu.system.*" %>
+<%@ page import = "java.util.*" %>
+<%@ page import = "com.credu.library.*" %>
 <%@ page contentType = "text/html;charset=euc-kr" %>
 <%@ page errorPage = "/learn/library/error.jsp" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -15,6 +18,28 @@
 		$(document).on("keyup", "input:text[name=p_id]", function(){
 			$(this).val($(this).val().replace(/[^a-z0-9]/g,""));
 			idExists = false;
+		});
+
+		$("input:radio[name=p_cate]").click(function(){
+			if($("input[name=p_cate]:checked").val() == "CT009") {
+				$("#p_cate_txt").attr("disabled", false);
+				$("#p_cate_txt").focus();
+			}else {
+				$("#p_cate_txt").attr("disabled", true);
+				$("#p_cate_txt").val("");
+			}
+		});
+
+		$("#p_notcompchk").click(function(){
+			var checked = $("#p_notcompchk").is(":checked");
+
+			if(!checked) {
+				$("#p_deptnm").attr("disabled", false);
+				$("#p_deptnm").focus();
+			}else {
+				$("#p_deptnm").attr("disabled", true);
+				$("#p_deptnm").val("");
+			}
 		});
 		
 		$("#p_pw1").on("keyup", function(){
@@ -82,10 +107,24 @@
 			$("input:text[name='p_email1']").val($.trim($("input:text[name='p_email1']").val()));
 			$("input:text[name='p_email2']").val($.trim($("input:text[name='p_email2']").val()));
 			$(".companyName").val($.trim($(".companyName").val()));
-			
+
 			if($(".companyName").length > 0 && $('.companyName').val() == ""){
-				alert("회사명을 입력하여 주십시오.");
-				$(".companyName").focus();
+				if(!$("#p_notcompchk").is(":checked")) {
+					alert("회사명을 입력하여 주십시오.");
+					$(".companyName").focus();
+					return;
+				}
+			}
+
+			if(($(":radio[name='p_cate']:checked").length < 1) && $(":radio[name='p_cate']").length > 0) {
+				alert("분야를 선택해주세요.");
+				$("#p_cate_1").focus();
+				return;
+			}
+
+			if((!$("#p_comp_addr > option:selected").val()) && $("#p_comp_addr").length > 0) {
+				alert("사업장 소재지를 선택해주세요.");
+				$("#p_comp_addr").focus();
 				return;
 			}
 			
@@ -383,15 +422,74 @@
 	                                               	<tbody>
 		                                                <c:choose>
 	                                                    	<c:when test="${sessionScope.tem_grcode eq 'N000210'}">
+																<h4 style="color: red;">※ 교육안내, 수료증 발급 등을 위해 정확한 정보를 입력해주세요.</h4>
 	                                                    		<tr>
 		                                                    		<th><span>*</span>회사명</th>
 			                                                        <td>
 			                                                        	<input type="text" style="width:100%" name="p_deptnm" id="p_deptnm" title="회사명" class="companyName">
-			                                                        	<span>[※ 공백 없이 정확한 회사명을 입력해주세요.]</span>
+																		<span style="width: 100%;">※ 사업자가 없는 창작자 등 소속이 없는 경우, ‘소속없음’ 에 체크해주세요.</span>
+																		<span>
+																		<input type="checkbox" name="p_notcompchk" id="p_notcompchk" value="Y" title="소속없음">
+																		<label for="p_notcompchk">소속없음</label>
+																		</span>
 			                                                        </td>
 			                                                    </tr>
+																<tr>
+																	<th><span>*</span>분야</th>
+																	<td>
+																		<%
+																			List cateList = CodeAdminBean.selectListCode("0122");
+
+																			if(cateList != null && cateList.size() > 0 ){
+																				String sCode   = "";
+																				String sCodeNm = "";
+																				for(int i = 0 ; i < cateList.size() ; i++){
+																					DataBox codeBox = (DataBox)cateList.get(i);
+
+																					sCode   = codeBox.getString("d_code");
+																					sCodeNm = codeBox.getString("d_codenm");
+
+																		%>
+																			<input type="radio" name="p_cate" value="<%=sCode %>" id="p_cate_<%=i %>" title="<%=sCodeNm %>">
+																			<label for="p_cate_<%=i %>"><%=sCodeNm %></label>
+																		<%
+
+																				}
+																			}
+																		%>
+																		<input type="text" name="p_cate_txt" id="p_cate_txt" title="기타" disabled>
+																	</td>
+																</tr>
+																<tr>
+																	<th><span>*</span>사업장 소재지</th>
+																	<td>
+																		<label for="p_comp_location"></label>
+																		<select class="email3" name="p_comp_location" id="p_comp_location" title="사업장 소재지 선택">
+																			<option value="" title="선택">선택</option>
+																			<%
+																				List cLoctList = CodeAdminBean.selectListCode("0123");
+
+																				if(cLoctList != null && cLoctList.size() > 0 ){
+																					String sCode   = "";
+																					String sCodeNm = "";
+																					for(int i = 0 ; i < cLoctList.size() ; i++){
+																						DataBox codeBox = (DataBox)cLoctList.get(i);
+
+																						sCode   = codeBox.getString("d_code");
+																						sCodeNm = codeBox.getString("d_codenm");
+
+																			%>
+																				<option value="<%=sCode %>" title="<%=sCodeNm %>"><%=sCodeNm %></option>
+																			<%
+
+																					}
+																				}
+																			%>
+																		</select>
+																	</td>
+																</tr>
 		                                                        <tr>
-			                                                        <th><span>*</span>성명(한글)111</th>
+			                                                        <th><span>*</span>성명(한글)</th>
 			                                                        <td><input type="text" name="p_kor_name" id="p_kor_name" title="성명(한글)"></td>
 			                                                    </tr>
 			                                                    <tr>
