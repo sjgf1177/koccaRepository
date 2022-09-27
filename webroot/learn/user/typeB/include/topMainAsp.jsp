@@ -6,7 +6,7 @@
 		<meta charset="euc-kr">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
-	    <title>EDUKOCCA</title>
+	    <title>에듀코카-B2B</title>
 	
 	    <!-- Bootstrap / Jquery UI -->
 	    <link href="/common/js/jquery-ui-1.12.1/jquery-ui.min.css" rel="stylesheet">
