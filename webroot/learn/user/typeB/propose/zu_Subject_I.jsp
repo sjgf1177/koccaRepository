@@ -39,6 +39,12 @@
 				alert("교육 수강목적을 선택해주세요.");
 				return;
 			}
+
+			if(($(":radio[name='p_cate']:checked").length < 1) && $(":radio[name='p_cate']").length > 0) {
+				alert("분야를 선택해주세요.");
+				$("#p_cate_1").focus();
+				return;
+			}
 	
 			if(!confirm("${resultbox.d_subjnm} 과정을 수강신청 하시겠습니까?"))  return;
 			
@@ -54,6 +60,18 @@
 				window.close();
 			}
 		}
+
+		$(document).ready(function() {
+			$("input:radio[name=p_cate]").click(function () {
+				if ($("input[name=p_cate]:checked").val() == "CT009") {
+					$("#p_cate_txt").attr("disabled", false);
+					$("#p_cate_txt").focus();
+				} else {
+					$("#p_cate_txt").attr("disabled", true);
+					$("#p_cate_txt").val("");
+				}
+			});
+		});
     </script>
 </head>
 <body>
@@ -145,29 +163,59 @@
 	                                    </div>
 										<div>
 											<c:if test="${sessionScope.tem_grcode eq 'N000210'}">
-												<h3>교육 수강목적(다중 선택 가능)</h3>
-												<%
-													List sulList = CodeAdminBean.selectListCode("0124");
+												<div>
+													<h3>교육 수강목적(다중 선택 가능)</h3>
+													<%
+														List sulList = CodeAdminBean.selectListCode("0124");
 
-													if(sulList != null && sulList.size() > 0 ){
-														String sCode   = "";
-														String sCodeNm = "";
-														for(int i = 0 ; i < sulList.size() ; i++){
-															DataBox codeBox = (DataBox)sulList.get(i);
+														if(sulList != null && sulList.size() > 0 ){
+															String sCode   = "";
+															String sCodeNm = "";
+															for(int i = 0 ; i < sulList.size() ; i++){
+																DataBox codeBox = (DataBox)sulList.get(i);
 
-															sCode   = codeBox.getString("d_code");
-															sCodeNm = codeBox.getString("d_codenm");
+																sCode   = codeBox.getString("d_code");
+																sCodeNm = codeBox.getString("d_codenm");
 
-												%>
-													<div style="margin-bottom: 10px">
-														<input type="checkbox" name="p_sul" value="<%=sCode %>" id="p_sul_<%=i %>" title="<%=sCodeNm %>" style="margin-right: 7px;">
-														<label for="p_sul_<%=i %>"><%=sCodeNm %></label>
-													</div>
-												<%
-
+													%>
+														<div style="margin-bottom: 10px">
+															<input type="checkbox" name="p_sul" value="<%=sCode %>" id="p_sul_<%=i %>" title="<%=sCodeNm %>" style="margin-right: 7px;">
+															<label for="p_sul_<%=i %>"><%=sCodeNm %></label>
+														</div>
+													<%
+																if("C004".equals(sCode)) {
+													%>
+														<label>관련사업명(생략가능)</label><input type="text" name="p_busiNm" id="p_busiNm"style="width: 100%;"/>
+													<%
+																}
+															}
 														}
-													}
-												%>
+													%>
+												</div>
+												<div>
+													<h3>분야</h3>
+													<%
+														List cateList = CodeAdminBean.selectListCode("0122");
+
+														if(cateList != null && cateList.size() > 0 ){
+															String sCode   = "";
+															String sCodeNm = "";
+															for(int i = 0 ; i < cateList.size() ; i++){
+																DataBox codeBox = (DataBox)cateList.get(i);
+
+																sCode   = codeBox.getString("d_code");
+																sCodeNm = codeBox.getString("d_codenm");
+
+													%>
+													<input type="radio" name="p_cate" value="<%=sCode %>" id="p_cate_<%=i %>" title="<%=sCodeNm %>">
+													<label for="p_cate_<%=i %>"><%=sCodeNm %></label>
+													<%
+
+															}
+														}
+													%>
+													<input type="text" name="p_cate_txt" id="p_cate_txt" title="기타" disabled>
+												</div>
 											</c:if>
 										</div>
 	                                    <div class="popup_btnBox">
