@@ -905,6 +905,8 @@ public class ProposeCourseBean {
         PreparedStatement pstmt3 = null;
         PreparedStatement pstmt4 = null;
         PreparedStatement pstmt5 = null;
+        PreparedStatement pstmt7 = null;
+
         ListSet ls1 = null;
         ListSet ls2 = null;
         ListSet ls3 = null;
@@ -916,6 +918,7 @@ public class ProposeCourseBean {
         String sql4 = "";
         String sql5 = "";
         String sql6 = "";
+        String sql7 = "";
         String sql0 = "";
 
         int isOk = 0;
@@ -953,6 +956,9 @@ public class ProposeCourseBean {
         String v_grcode = box.getSession("tem_grcode");
         String[] arr_sul_code = box.getStringArray("p_sul");
         String v_sul_code = "";
+        String v_busi_name = box.getString("p_busiNm");
+        String v_cate = box.getString("p_cate");
+        String v_cate_txt = box.getString("p_cate_txt");
 
         if(arr_sul_code != null){
             for(int x = 0; x < arr_sul_code.length; x++){
@@ -1113,8 +1119,8 @@ public class ProposeCourseBean {
                             isOk = pstmt3.executeUpdate();
                         } else {//신규신청
                             System.out.println("수강신청 테이블 조회 결과 기등록된 정보가 존재하지 않으면 insert 시작");
-                            sql3 = " insert into TZ_PROPOSE(subj, year, subjseq, userid, appdate, chkfirst, chkfinal, luserid, ldate,asp_gubun, asp_sul_cd)\n";
-                            sql3 += " values (?,?,?,?,'','Y',?,?,to_char(sysdate,'YYYYMMDDHH24MISS'),?,?)";
+                            sql3 = " insert into TZ_PROPOSE(subj, year, subjseq, userid, appdate, chkfirst, chkfinal, luserid, ldate,asp_gubun, asp_sul_cd, asp_business_name)\n";
+                            sql3 += " values (?,?,?,?,'','Y',?,?,to_char(sysdate,'YYYYMMDDHH24MISS'),?,?,?)";
 
                             pstmt3 = connMgr.prepareStatement(sql3);
                             pstmt3.setString(i++, v_subj_value);
@@ -1126,6 +1132,7 @@ public class ProposeCourseBean {
                             pstmt3.setString(i++, v_user_id);
                             pstmt3.setString(i++, v_grcode);
                             pstmt3.setString(i++, v_sul_code);
+                            pstmt3.setString(i++, v_busi_name);
 
                             System.out.println("변수 v_chkfinal : " + v_chkfinal);
                             System.out.println("변수 v_user_id : " + v_user_id);
@@ -1134,6 +1141,18 @@ public class ProposeCourseBean {
                             System.out.println("변수 v_subjseq_value : " + v_subjseq_value);
 
                             isOk = pstmt3.executeUpdate();
+
+                            if("N000210".equals(v_grcode)) {
+                                sql7 = " update TZ_MEMBER set cate_field=?, cate_txt=? where userid=? and grcode=?";
+                                pstmt7 = connMgr.prepareStatement(sql7);
+
+                                pstmt7.setString(1, v_cate);
+                                pstmt7.setString(2, v_cate_txt);
+                                pstmt7.setString(3, v_user_id);
+                                pstmt7.setString(4, v_grcode);
+
+                                pstmt7.executeUpdate();
+                            }
                         }
                     }
 
