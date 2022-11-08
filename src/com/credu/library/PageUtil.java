@@ -370,6 +370,86 @@ public class PageUtil {
         return str;
     }
 
+    // 2009.10.27 한페이지에 보여주는 레코드수를 선택하는 select box 표시
+    public static String printPageSizeList2(int totalPage, int currPage, int blockSize, int pageSize, int totalRowcount, int for1, int for2, int for3) throws Exception {
+        return printPageSizeList2(totalPage, currPage, blockSize, pageSize, totalRowcount, false, for1, for2, for3);
+    }
+
+    public static String printPageSizeList2(int totalPage, int currPage, int blockSize, int pageSize, int totalRowcount, boolean totallist, int for1, int for2, int for3) throws Exception {
+
+        currPage = (currPage == 0) ? 1 : currPage;
+        String str = "";
+        if (totalPage > 0) {
+            PageList pagelist = new PageList(totalPage, currPage, blockSize);
+
+            str += "<table border='0' width='100%' align='center'>";
+            str += "<tr>";
+            str += "    <td width='20%'/>";
+            str += "    <td width='60%' align='center'>";
+
+            //이전 10개
+            if (pagelist.previous()) {
+                //str += "<a href=\"javascript:goPage('" + pagelist.getPreviousStartPage() + "')\"><b><<이전10개</b></a>&nbsp;&nbsp;";
+                str += "<a href=\"javascript:goPage('" + pagelist.getPreviousStartPage() + "');\"><IMG src='/images/admin/common/prev.gif' border='0' align='absmiddle'></a>";
+            } else {
+                str += "<IMG src='/images/admin/common/prev.gif' border='0' align='absmiddle'>	";
+            }
+
+            for (int i = pagelist.getStartPage(); i <= pagelist.getEndPage(); i++) {
+                if (i == currPage) {
+                    str += "<b>" + i + "</b>&nbsp;";
+                } else {
+                    str += "<a href=\"javascript:goPage('" + i + "');\">" + i + "</a>&nbsp;";
+                }
+            }
+
+            //다음 10개
+            if (pagelist.next()) {
+                //str += "<a href=\"javascript:goPage('" + pagelist.getNextStartPage() + "')\">&nbsp;<b>다음10개>></b></a>";
+                str += "<a href=\"javascript:goPage('" + pagelist.getNextStartPage() + "');\"><IMG src='/images/admin/common/next.gif' border='0' align='absmiddle'></a>";
+            } else {
+                str += "<IMG src='/images/admin/common/next.gif' border='0' align='absmiddle'>	";
+            }
+
+            if (str.equals("")) {
+                str += "자료가 없습니다.";
+            }
+
+            str += "    </td>";
+        } else {
+            str += "<table border='0' width='100%' align='center'>";
+            str += "<tr>";
+            str += "    <td width='20%'/>";
+            str += "    <td width='60%' align='center'></td>";
+        }
+
+        str += "    <td width='20%' align='right'>";
+        str += "총 " + totalRowcount + "건&nbsp;&nbsp;";
+
+        //if (totalPage > 0) {
+        str += "<select onChange='pagesize(this.value)'>";
+
+        if (totallist) {
+            str += "<option value='9999999999999'>전체보기</option>";
+        }
+
+        for (int k = for1; k <= for2; k += for3) {
+            if (k == pageSize) {
+                str += "<option value=" + k + " selected>" + k + " 개씩 보기</option>";
+            } else {
+                str += "<option value=" + k + ">" + k + " 개씩 보기</option>";
+            }
+        }
+        str += "</select>";
+        //}
+
+        str += "    </td>";
+        str += "</tr>";
+        str += "</table>";
+
+        return str;
+    }
+
     public static String printPageSizeListDiv(int totalPage, int currPage, int blockSize, int pageSize, int totalRowcount) throws Exception {
 
         currPage = (currPage == 0) ? 1 : currPage;
