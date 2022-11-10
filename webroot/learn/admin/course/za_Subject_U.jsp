@@ -503,7 +503,7 @@
 							<td colspan="8" class="table_top_line"></td>
 						</tr>
 						<tr>
-							<td class="table_title" rowspan="27"><b>과정정보</b></td>
+							<td class="table_title" rowspan="29"><b>과정정보</b></td>
 							<td colspan="6" class="table_01"><font color="red">(*)</font> 표시는 필수 입력입니다.</td>
 						</tr>
 						<tr>
@@ -512,7 +512,7 @@
 								사이버 [<%=data.getSubj()%>]
 								<kocca_select:select name="p_area" sqlNum="0002"  param="101" type="2.2" onChange="" attr=" " selectedValue='<%= data.getArea() %>' isLoad="true" all="none" />
 							</td>
-							<td  rowspan="4" class="table_title"><b>콘텐츠정보</b> </td>
+							<td  rowspan="5" class="table_title"><b>콘텐츠정보</b> </td>
 							<td colspan="2" class="table_01">콘텐츠등급</td>
 							<td class="table_02_2" ><%=CodeConfigBean.getCodeGubunSelect ("0056", "", 1, "p_contentgrade", data.getContentgrade(), " tabindex=1", 0)%></td>
 						</tr>
@@ -530,8 +530,8 @@
 							<td class="table_02_2">코드 : <input type="text" class="input" name="p_producer" size="14" maxlength="13" value="<%=data.getProducer()%>" readonly tabindex=43></td>
 						</tr>
 						<tr>
-							<td class="table_01">과정분류<font color="red">(*)</font></td>
-							<td height="50" class="table_02_2">
+							<td class="table_01" rowspan="2">과정분류<font color="red">(*)</font></td>
+							<td height="50" class="table_02_2" rowspan="2">
 								대분류
 									<kocca:selectBox name="p_upperclass" id="oUpperclass" optionTitle="== 전체 ==" type="sqlID" sqlID="selectBox.subjAttUpperList" selectedValue="<%=data.getUpperclass() %>" isLoad="true" /><br/>
 								중분류 
@@ -555,6 +555,10 @@
 							</td>
 							<td colspan="2" class="table_01">제작일자</td>
 							<td class="table_02_2" ><input name="p_crdate_view" id="p_crdate_view" type="text" class="datepicker_input1" size="10" value="<%=FormatDate.getFormatDate(data.getCrdate(),"yyyy-MM-dd")%>" tabindex=47></td>
+						</tr>
+						<tr>
+							<td colspan="2" class="table_01">러닝타임</td>
+							<td class="table_02_2" ><input name="p_running_time" id="p_running_time" type="text" size="10" tabindex=46 value="<%=data.getRunningTime()%>"></td>
 						</tr>
 						<tr>
 							<td class="table_01">과정유형</td>
@@ -623,7 +627,7 @@
 									<option value='N' <% if( p_recom.equals("N")) out.print(" selected");%>>N</option>
 								</select>
 							</td>
-							<td rowspan="3" class="table_title"><b>학습정보</b></td>
+							<td rowspan="4" class="table_title"><b>학습정보</b></td>
 							<td colspan="2" class="table_01">학습방법(WBT%)</td>
 							<td class="table_02_2" ><input type="text" class="input" name="p_ratewbt" size="10" maxlength="3" value="<%=String.valueOf(data.getRatewbt())%>" tabindex=48></td>
 						</tr>
@@ -687,8 +691,8 @@
 									-->
 								</script>
 							</td>
-							<td colspan="2" class="table_01">복습가능여부</td>
-							<td class="table_02_2">
+							<td colspan="2" rowspan="2" class="table_01">복습가능여부</td>
+							<td class="table_02_2" rowspan="2">
 								<select name="p_isablereview"  class="inputpsearch" tabindex=53>
 									<option value='Y' <% if(data.getIsablereview().equals("Y") ||data.getIsablereview().equals("")) out.print(" selected");%>>Y</option>
 									<option value='N' <% if(data.getIsablereview().equals("N")) out.print(" selected");%>>N</option>
@@ -700,6 +704,12 @@
 	                                <option value="M" <% if (data.getReviewtype().equals("M")) out.println(" selected"); %>>개월</option>
 	                                <option value="Y" <% if (data.getReviewtype().equals("Y")) out.println(" selected"); %>>년</option>
 	                           </select>
+							</td>
+						</tr>
+						<tr>
+							<td height="31" class="table_01">강사정보</td>
+							<td class="table_02_2" >
+								<input type="text" class="input" name="p_tutor2" size="50" maxlength="200" value="<%=data.getTutor2()%>" tabindex="" ></td>
 							</td>
 						</tr>
 						<tr>

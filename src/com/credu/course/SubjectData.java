@@ -161,6 +161,8 @@ public class SubjectData {
     private String mobileUseYn; // 모바일 미리보기 url
     private String subjTags; // 태그
     private String subjSummary; // 과정개요
+    private String running_time; // 러닝타임
+    private String tutor2; // 강사정보
 
     public String getDegree() {
         return degree;
@@ -289,6 +291,7 @@ public class SubjectData {
         mobileUseYn = "";
         subjTags = "";
         subjSummary = "";
+        running_time = "";
     }
 
     public String getSubmainfilenamereal() {
@@ -1969,4 +1972,17 @@ public class SubjectData {
     public String getSubjSummary() {
     	return this.subjSummary;
     }
+
+    public void setRunningTime(String running_time) {
+        this.running_time = running_time;
+    }
+
+    public String getRunningTime() { return this.running_time; }
+
+    public void setTutor2(String tutor2) {
+        this.tutor2 = tutor2;
+    }
+
+    public String getTutor2() { return this.tutor2; }
+
 }

@@ -271,7 +271,7 @@ public class SubjectBean {
             sql.append("        A.INFORMATIONFILENAMEREAL, A.INFORMATIONFILENAMENEW, CONTENTGRADE, A.MEMO, A.ISORDINARY, A.ISWORKSHOP, A.ISUNIT, SPHERE, PREWIDTH, PREHEIGHT, REVIEWDAYS, REVIEWTYPE,\n");
             sql.append("		SUBJTYPE,AUTOCONFIRM, SURYOYN, SURYOTITLE, NEEDINPUT, \n");
             sql.append("        A.SUBMAINFILENAMEREAL, A.SUBMAINFILENAMENEW, A.AREA, A.DEGREE,A.HITNUMBER, A.SEARCH_NM, A.MOBILE_PREURL, A.BIZ_TYPE, NVL(A.MOBILE_USE_YN, 'N') AS MOBILE_USE_YN \n");
-            sql.append("        , A.SUBJSUMMARY, A.TAGS \n");
+            sql.append("        , A.SUBJSUMMARY, A.TAGS, A.RUNNING_TIME, A.TUTOR2 \n");
             sql.append("  FROM  TZ_SUBJ A \n");
             sql.append(" WHERE  A.SUBJ     =  " + SQLString.Format(v_subj) + " \n");
 
@@ -412,6 +412,8 @@ public class SubjectBean {
                 data.setMobileUseYn(ls.getString("mobile_use_yn"));
                 data.setSubjSummary(ls.getString("subjsummary"));
                 data.setSubjTags(ls.getString("tags"));
+                data.setRunningTime(ls.getString("running_time"));
+                data.setTutor2(ls.getString("tutor2"));
             }
         } catch (Exception ex) {
             ErrorManager.getErrorStackTrace(ex, box, sql.toString());
@@ -508,8 +510,8 @@ public class SubjectBean {
                 sql.append("        SURYOYN,        SURYOTITLE,     NEEDINPUT,          SUBMAINFILENAMEREAL,\n"); // 93 ~ 96
                 sql.append("        SUBMAINFILENAMENEW,             AREA,               DEGREE,             \n"); // 97 ~ 99
                 sql.append("        HITNUMBER,      SEARCH_NM,      MOBILE_PREURL,      BIZ_TYPE,           \n"); // 100 ~ 103
-                sql.append("        MOBILE_USE_YN                                                           \n"); // 104
-                sql.append("        , SUBJSUMMARY, TAGS		                                                            \n"); // 104
+                sql.append("        MOBILE_USE_YN,  SUBJSUMMARY,    TAGS,               RUNNING_TIME,       \n"); // 104 ~ 107
+                sql.append("        TUTOR2                                                                  \n"); // 108
                 sql.append(" ) VALUES ( \n");
                 sql.append("        ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,          \n"); // 1 ~ 16
                 sql.append("        ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,          \n"); // 17 ~ 32
@@ -517,8 +519,7 @@ public class SubjectBean {
                 sql.append("        ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,          \n"); // 49 ~ 64
                 sql.append("        ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,          \n"); // 65 ~ 80
                 sql.append("        ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,          \n"); // 81 ~ 96
-                sql.append("        ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?                                           \n"); // 97 ~ 104
-                sql.append("        , ?, ?							                                            \n"); // 97 ~ 104
+                sql.append("        ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?				            \n"); // 97 ~ 108
                 sql.append(" )  \n");
 
                 pstmt = connMgr.prepareStatement(sql.toString());
@@ -637,6 +638,8 @@ public class SubjectBean {
                 pstmt.setString(idx++, box.getString("mobileUseYn")); // 모바일 제고 여부
                 pstmt.setString(idx++, box.getString("p_subjsummary")); // 태그
                 pstmt.setString(idx++, box.getString("p_subjtags")); // 태그
+                pstmt.setString(idx++, box.getString("p_running_time")); // 러닝타임
+                pstmt.setString(idx++, box.getString("p_tutor2")); // 강사정보
 
                 isOk = pstmt.executeUpdate();
 
@@ -1300,9 +1303,11 @@ public class SubjectBean {
             sql.append("        SEARCH_NM = ?,                  \n");
             sql.append("        MOBILE_PREURL = ?,              \n");
             sql.append("        BIZ_TYPE = ?,                   \n");
-            sql.append("        MOBILE_USE_YN = ?               \n");
-            sql.append("        , SUBJSUMMARY = ?         	    \n");
-            sql.append("        , TAGS = ?         			    \n");
+            sql.append("        MOBILE_USE_YN = ?,              \n");
+            sql.append("        SUBJSUMMARY = ?,         	    \n");
+            sql.append("        TAGS = ?,         			    \n");
+            sql.append("        RUNNING_TIME = ?, 			    \n");
+            sql.append("        TUTOR2 = ?       			    \n");
             sql.append(" WHERE  SUBJ = ?                        \n");
 
             pstmt = connMgr.prepareStatement(sql.toString());
@@ -1414,6 +1419,8 @@ public class SubjectBean {
             pstmt.setString(idx++, box.getString("mobileUseYn"));
             pstmt.setString(idx++, box.getString("p_subjsummary"));
             pstmt.setString(idx++, box.getString("p_subjtags"));
+            pstmt.setString(idx++, box.getString("p_running_time"));
+            pstmt.setString(idx++, box.getString("p_tutor2"));
 
             //------------------------------------------------------------------------------//
             pstmt.setString(idx++, box.getString("p_subj"));
