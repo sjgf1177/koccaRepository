@@ -18,6 +18,7 @@
 <%@ page import = "com.credu.complete.*" %>
 <%@ page import = "com.credu.common.*" %>
 <%@ taglib uri="/tags/KoccaTaglib" prefix="kocca" %>
+<%@ taglib uri="/tags/KoccaSelectTaglib" prefix="kocca_select" %>
 <jsp:useBean id = "conf" class = "com.credu.library.ConfigSet"  scope = "page" />
 
 <%
@@ -420,9 +421,27 @@ function open_window(name, url, left, top, width, height, scrollbar, toolbar, me
         whenSelection("go");
     }
 
+    function fnChangeGrcode(){
+        var param = "type=sqlID&sqlID=selectBox.grYearList&param=" + $('#s_grcode').val();
+        $.ajaxSetup({cache:false});
+        $.ajax({
+            type : "get"
+            ,   url : "/learn/admin/common/za_GetSelectBoxAjaxResult.jsp"
+            ,   dataType : "json"
+            ,   data : param
+            ,   success : fnSetGrYear
+            ,   complete : function(arg1, arg2) {
+                // alert("complete : " + arg1);
+            }
+            ,   error :  function(arg1, arg2) {
+                // alert("error : " + arg1);
+            }
+        });
+    }
+
     // select box 설정
     $(function() {
-        $("#oGrcode").bind("change", function(){
+        $("#s_grcode").bind("change", function(){
             var param = "type=sqlID&sqlID=selectBox.grYearList&param=" + $(this).val();
             $.ajaxSetup({cache:false});
             $.ajax({
@@ -446,7 +465,7 @@ function open_window(name, url, left, top, width, height, scrollbar, toolbar, me
                 $("#oGrseq").append("<option value=\"\">== 선택 ==</option>");
                 return;
             } else {
-                var grcode = $("#oGrcode").val();
+                var grcode = $("#s_grcode").val();
                 var param = "type=sqlID&sqlID=selectBox.grSeqList&param=" + grcode + "," + $(this).val();
 
                 $.ajaxSetup({cache:false});
@@ -553,7 +572,14 @@ function open_window(name, url, left, top, width, height, scrollbar, toolbar, me
                 <tr>
                     <th><font color="red">★</font> 교육그룹</th>
                     <td>
-                         <kocca:selectBox name="s_grcode" id="oGrcode" optionTitle="-- 교육그룹 --" type="sqlID" sqlID="selectBox.grcodeList" selectedValue="<%= ss_grcode %>" isLoad="true" />
+                        <%if("H1".equals(box.getSession("gadmin")) || "H102".equals(box.getSession("gadmin"))){%>
+                            <kocca_select:select name="s_grcode" onChange="fnChangeGrcode();" sqlNum="course.0001" selectedValue="<%= ss_grcode %>" isLoad="true" all="false" />
+                            <%if(ss_gyear.equals("")){%>
+                                <script>$(document).ready(function(){setTimeout(fnChangeGrcode, 300);});</script>
+                            <%}%>
+                        <%}else{%>
+                            <kocca:selectBox name="s_grcode" id="s_grcode" optionTitle="-- 교육그룹 --" type="sqlID" sqlID="selectBox.grcodeList" selectedValue="<%= ss_grcode %>" isLoad="true" />
+                        <%}%>
                     </td>
                     <th>연도</th>
                     <td>

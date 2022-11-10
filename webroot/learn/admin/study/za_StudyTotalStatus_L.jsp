@@ -724,7 +724,7 @@
                                                     <tr>
                                                         <td class="_tdT"><font color="red">¡Ú</font>±³À°±×·ì</td>
                                                         <td class="_tdS">
-                                                        	<%if("H1".equals(box.getSession("gadmin"))){%>
+                                                        	<%if("H1".equals(box.getSession("gadmin")) || "H102".equals(box.getSession("gadmin"))){%>
 																<kocca_select:select name="s_grcode" onChange="fnChangeGrcode();" sqlNum="course.0001" selectedValue="<%= ss_grcode %>" isLoad="true" all="false" />
 																<%if(ss_gyear.equals("")){%>
 																	<script>$(document).ready(function(){setTimeout(fnChangeGrcode, 300);});</script>

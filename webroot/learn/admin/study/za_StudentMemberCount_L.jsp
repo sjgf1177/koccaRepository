@@ -641,7 +641,7 @@ solid buttonshadow;border-bottom: 1 solid buttonshadow;width:155;display:none;po
 							<tr>
 								<td width="10%" class="_tdT"><font color="red">¡Ú</font>±³À°±×·ì</td>
 								<td width="15%" class="_tdS">
-								<%if("H1".equals(box.getSession("gadmin"))){%>
+								<%if("H1".equals(box.getSession("gadmin")) || "H102".equals(box.getSession("gadmin"))){%>
 									<%@ taglib uri="/tags/KoccaSelectTaglib" prefix="kocca_select" %>
 									<kocca_select:select name="s_grcode" onChange="fnChangeGrcode();" sqlNum="course.0001" selectedValue="<%= ss_grcode %>" isLoad="true" all="false" />
 									<%if(ss_gyear.equals("")){%>
