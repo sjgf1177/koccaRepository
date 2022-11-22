@@ -1044,5 +1044,8 @@ function whenSelection() {
 
 <%@ include file = "/learn/library/getJspName.jsp" %>
 </form>
+<!--  웹필터 수정 -->
+<%@ include file="/webfilter/webfilter/inc/initCheckWebfilter.jsp"%>
+<!--  웹필터 수정 -->
 </body>
 </html>
