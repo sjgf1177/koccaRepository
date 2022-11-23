@@ -61,6 +61,7 @@
     String tags = "";				//태그
     String goldclasssummary = "";	//열린강좌 개요
     String v_subtitle = "";			//자막내용
+    String v_vtt_path = "";			//자막파일경로
 
     DataBox dbox = (DataBox)request.getAttribute("selectOffExpert");
 
@@ -92,6 +93,7 @@
         tags = dbox.getString("d_tags");
         goldclasssummary = dbox.getString("d_goldclasssummary");
         v_subtitle = dbox.getString("d_subtitle");
+        v_vtt_path = dbox.getString("d_vtt_path");
     }
 
     String s_gadmin = box.getSession("gadmin");
@@ -221,7 +223,14 @@
             saveForm.action = "/servlet/controller.infomation.GoldClassAdminServlet";
             saveForm.p_process.value="update";
 
-            saveForm.submit();
+            //saveForm.submit();
+
+            wf_page = "fnSaveGoldClass";
+            if(wf_flag == "off"){
+                submitWebFilter('form1');
+            }else{
+                document.form1.submit();
+            }
         }
     }
 
@@ -373,6 +382,12 @@
                 <td height="25" class="table_title"><strong>모바일 URL</strong></td>
                 <td class="table_02_2" colspan="3">
                     <input type="text" name="p_mobile_url" size="100" class="input" maxlength="80" value="<%= v_mobile_url %>" />
+                </td>
+            </tr>
+            <tr>
+                <td height="25" class="table_title"><strong>자막 파일 경로</strong></td>
+                <td class="table_02_2" colspan="3">
+                    <input type="text" name="p_vtt_path" size="100" class="input" value="<%= v_vtt_path %>" />
                 </td>
             </tr>
             <tr>
@@ -545,5 +560,8 @@
 
 <%@ include file = "/learn/library/getJspName.jsp" %>
 </form>
+<!--  웹필터 수정 -->
+<%@ include file="/webfilter/webfilter/inc/initCheckWebfilter.jsp"%>
+<!--  웹필터 수정 -->
 </body>
 </html>

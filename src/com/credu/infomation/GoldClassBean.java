@@ -201,6 +201,7 @@ public class GoldClassBean {
             sb.append("     ,   TAGS                                    \n");
             sb.append("     ,   GOLDCLASSSUMMARY                        \n");
             sb.append("     ,   SUBTITLE		                        \n");
+            sb.append("     ,   VTT_PATH    	                        \n");
             sb.append("     ) VALUES (                                  \n");
             sb.append("         ?                                       \n");
             sb.append("     ,   ?                                       \n");
@@ -224,6 +225,7 @@ public class GoldClassBean {
             sb.append("     ,   ?                                       \n");
             sb.append("     ,   TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')    \n");
             sb.append("     ,   TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')    \n");
+            sb.append("     ,   ?                                       \n");
             sb.append("     ,   ?                                       \n");
             sb.append("     ,   ?                                       \n");
             sb.append("     ,   ?                                       \n");
@@ -271,6 +273,7 @@ public class GoldClassBean {
             pstmt.setString(index++, box.getString("p_tags"));
             pstmt.setString(index++, box.getString("p_goldclasssummary"));
             pstmt.setCharacterStream(index++, new StringReader(v_subtitle), v_subtitle.length());
+            pstmt.setString(index++, box.getString("p_vtt_path"));
 
             pstmt.executeUpdate();
 
@@ -607,6 +610,7 @@ public class GoldClassBean {
             sb.append("     ,   NEW_YN          \n");
             sb.append("     ,   GOLDCLASSSUMMARY \n");
             sb.append("     ,   SUBTITLE		\n");
+            sb.append("     ,   VTT_PATH		\n");
             sb.append("   FROM  TZ_GOLDCLASS    \n");
             sb.append("  WHERE  SEQ = ").append(v_seq).append(" \n");
 

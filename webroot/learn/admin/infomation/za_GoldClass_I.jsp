@@ -163,7 +163,13 @@
         saveForm.action = "/servlet/controller.infomation.GoldClassAdminServlet";
         saveForm.p_process.value = "insert";
 
-        saveForm.submit();
+        //saveForm.submit();
+        wf_page = "fnSaveGoldClass";
+        if(wf_flag == "off"){
+            submitWebFilter('form1');
+        }else{
+            document.form1.submit();
+        }
     }
 
     /**
@@ -312,6 +318,12 @@
                     <td height="25" class="table_title"><strong>모바일 URL</strong></td>
                     <td class="table_02_2" colspan="3">
                           <input type="text" name="p_mobile_url" size="100" class="input" maxlength="80" value="/contents/openclass/" />
+                    </td>
+                </tr>
+                <tr>
+                    <td height="25" class="table_title"><strong>자막 파일 경로</strong></td>
+                    <td class="table_02_2" colspan="3">
+                        <input type="text" name="p_vtt_path" size="100" class="input" value="/edu/vtt/" />
                     </td>
                 </tr>
                 <tr>
@@ -472,5 +484,8 @@
 
 <%@ include file = "/learn/library/getJspName.jsp" %>
 </form>
+<!--  웹필터 수정 -->
+<%@ include file="/webfilter/webfilter/inc/initCheckWebfilter.jsp"%>
+<!--  웹필터 수정 -->
 </body>
 </html>
