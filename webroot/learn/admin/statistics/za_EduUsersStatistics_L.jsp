@@ -898,7 +898,7 @@
                                                                             %>
 
                                                                             <select name="p_out_eu" id="p_out_eu">
-                                                                                <option value="">-- 폐지구분 --<%=v_gubun_lv%>/<%=v_lv_type%>/<%=v_lv2%></option>
+                                                                                <option value="">-- 폐지구분 --</option>
                                                                                 <option value="C01" <% if ( v_out.equals("C01")) { %> selected <% } %>>폐지과정만</option>
                                                                                 <option value="C02" <% if ( v_out.equals("C02")) { %> selected <% } %>>폐지과정 제외</option>
                                                                                 <option value="C03" <% if ( v_out.equals("C03")) { %> selected <% } %>>미확인 과정만</option>

@@ -6,7 +6,6 @@
 <%@ page import = "com.credu.library.*" %>
 <%@ page import = "com.credu.contents.*" %>
 <%
-System.out.println("================================== 00000000000");
     RequestBox box = null;
     box = (RequestBox)request.getAttribute("requestbox");
     if (box == null) {
@@ -32,9 +31,6 @@ System.out.println("================================== 00000000000");
 
     //학습권한 얻기 (Y/P/N)
     String  v_eduauth = "";
-    
-    System.out.println("================================== v_ispreview : " + v_ispreview);
-    System.out.println("================================== v_review : " + v_review);
 
     if (v_ispreview.equals("Y")) {          // 맛보기 일경우
         box.setSession("s_eduauth","P");    //교육간 권한 세션 설정(P:콘텐츠 조회만 가능, 입력불가)
@@ -81,8 +77,10 @@ System.out.println("================================== 00000000000");
     String  v_spaceUrl      = "";                   //중앙정렬시 여백HTML 위치.
 
     if(v_iscentered.equals("Y"))    v_spaceUrl = EduEtc1Bean.make_eduURL(p_subj,"DOC")+"/docs/menuimg/space.html";
-    System.out.println("================================== 11111111");
-    System.out.println("================================== v_url_gong : " + v_url_gong);
+
+    if(v_contenttype.equals("M") && v_mftype.equals("ND")){
+        v_height = 685;
+    }
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ko">
@@ -185,13 +183,24 @@ System.out.println("================================== 00000000000");
     		"padding-bottom": "60%",
     		"height": "0",
     	});
-    	$("#iebody").css({
-    		position: "absolute",
-    		top: "0",
-    		left: "0",
-    		width: "100%",
-    		height: "100%"
-    	});
+
+        if('<%=v_contenttype%>' == 'M' && '<%=v_mftype%>' == 'ND'){
+            $("#iebody").css({
+                position: "absolute",
+                top: "0",
+                left: "0",
+                width: "100%"
+            });
+        }else{
+            $("#iebody").css({
+                position: "absolute",
+                top: "0",
+                left: "0",
+                width: "100%",
+                height: "100%"
+            });
+        }
+
     	
     });
 //     resizeWindow();
@@ -221,8 +230,7 @@ System.out.println("================================== 00000000000");
 </style>
 </head>
 <body>
-<%  
-	System.out.println("================================== data : " + v_contenttype + " // " + v_mftype);
+<%
 	if (v_contenttype.equals("M")){
         if (v_mftype.equals("ND")){ %>
             <table id="dragpointer" cellspacing="0" cellpadding="0">
@@ -251,7 +259,7 @@ System.out.println("================================== 00000000000");
 	            <iframe id="ietop" name="etop" title="내용 없는 프레임입니다." src="<%=v_url_up%>" frameborder="0" marginwidth="0" marginheight="0" width="<%=v_width%>" height="0" scrolling="no" style="position:absolute;"></iframe>
 	            
 	            <iframe id="iebody" name="ebody" title="과정 정보 프레임입니다." src="" frameborder="0" marginwidth="0" marginheight="0" framespacing="0" style="overflow-x:hidden; overflow-y:auto;" width="<%=v_width%>" height="<%=v_height%>" allowfullscreen="true"></iframe>
-	            
+
 	            <iframe id="iemenu" name="emenu" title="내용 없는 프레임입니다." src="<%=v_url_menu%>" marginwidth="0" marginheight="0" frameborder="0" scrolling="no" width="<%=v_width%>" height="0" style="position:absolute;"></iframe>
 	            <iframe src="" name="configs" title="빈 프레임입니다." width="0" height="0" marginwidth="0" marginheight="0" frameborder="0" style="position:absolute;"></iframe>
             </div>

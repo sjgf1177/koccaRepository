@@ -546,7 +546,6 @@
                                             <a href="javascript:upWin('/servlet/controller.study.SubjQnaStudyServlet?p_process=SubjQnaFrame&p_subj=<%=v_subj%>&p_year=<%=v_year%>&p_subjseq=<%=v_subjseq%>',1005,615);">과정 질문방</a>
                                             <a href="javascript:upWin('/servlet/controller.study.StudyDataServlet?&p_subj=<%=v_subj%>&p_year=<%=v_year%>&p_subjseq=<%=v_subjseq%>',1005,615);">과정 자료실</a>
                                             <a href="javascript:upWin('/servlet/controller.study.StudySulmunServlet?&p_subj=<%=v_subj%>&p_year=<%=v_year%>&p_subjseq=<%=v_subjseq%>&p_isalways=<%=v_isalways%>',1005,615);">과정 설문</a>
-                                            <a href="javascript:upWin('/servlet/controller.study.StudyExamServlet?p_process=StudyExamListPage&p_subj=<%=v_subj%>&p_year=<%=v_year%>&p_subjseq=<%=v_subjseq%>&p_isalways=<%=v_isalways%>',1005,615);">평가</a>
                                         </div>
                                         <%
                                         }
@@ -555,12 +554,14 @@
                                         <p class="sub_course_view_title" style="margin-top:50px;">차시정보</p>
                                         <table class="td_align_left1">
                                             <colgroup>
+												<col width="8%">
                                                 <col width="auto">
                                                 <col width="15%">
                                                 <col width="20%">
                                             </colgroup>
                                             <thead>
                                                 <tr>
+                                                    <th></th>
                                                     <th>차시</th>
                                                     <th>학습여부</th>
                                                     <th>최종학습일</th>
@@ -619,7 +620,12 @@
 								                    }
 											%>
                                                 <tr>
-                                                    <td><%= v_lesssonlink %><%= v_brlink %></td>
+													<td>
+														<div class="myCourseLearningBtn">
+															<a style="text-align: center; margin: 0px;" href="javascript:top.etop.starting('<%= x.getLesson() %>');">▶</a>
+														</div>
+													</td>
+													<td style="padding-left: 10px;"><%= v_lesssonlink %><%= v_brlink %></td>
                                                     <td><%= get_isEducatedTxt(x.getIsEducated()) %></td>
                                                     <td><%= FormatDate.getFormatDate(x.getLdate(),"yyyy.MM.dd-HH:mm") %></td>
                                                 </tr>
