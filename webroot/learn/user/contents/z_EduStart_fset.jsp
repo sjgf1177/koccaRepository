@@ -79,7 +79,7 @@
     if(v_iscentered.equals("Y"))    v_spaceUrl = EduEtc1Bean.make_eduURL(p_subj,"DOC")+"/docs/menuimg/space.html";
 
     if(v_contenttype.equals("M") && v_mftype.equals("ND")){
-        v_height = 685;
+        v_height = 760;
     }
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
