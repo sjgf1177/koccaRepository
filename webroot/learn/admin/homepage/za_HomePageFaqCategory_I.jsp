@@ -85,11 +85,11 @@ function insertAction() {
 	<form name="form1" method="post">
 		<input type="hidden" name="p_process" value=""> <input type="hidden" name="p_faqcategory" value="<%=v_faqcategory%>">
 
-		<table width="1000" border="0" cellspacing="0" cellpadding="0">
+		<table width="1300" border="0" cellspacing="0" cellpadding="0">
 			<tr>
 				<td align="center">
 
-					<table width="970" border="0" cellspacing="0" cellpadding="0" class=page_title>
+					<table width="1260" border="0" cellspacing="0" cellpadding="0" class=page_title>
 						<tr>
 							<td><img src="/images/admin/homepage/h_title01.gif"></td>
 							<td align="right"><img src="/images/admin/common/sub_title_tail.gif"></td>
@@ -107,7 +107,8 @@ function insertAction() {
 						<tr class="table_02_2">
 							<td height="25" class="table_title"><strong>대상교육그룹</strong></td>
 							<td height="25" class="table_02_2">
-							<%  
+							<%
+							int j = 1;
 							for(int i=0;i<list1.size();i++){
 								EduGroupData edudata = (EduGroupData)list1.get(i);
 							%> 
@@ -115,17 +116,18 @@ function insertAction() {
 									<input name="p_grcode" type=radio value="<%=edudata.getGrcode()%>"><%=edudata.getGrcodenm()%>&nbsp; 
 								</div>
 							<%
-								if(i>0 && i%4==0){
+								if(j%4==0){
 							%>
 									<br/>
 							<%
 								}
+								j++;
 							}
 							%>
 							</td>
 						</tr>
 					</table>
-					<table width="970" border="0" cellspacing="0" cellpadding="0">
+					<table width="1260" border="0" cellspacing="0" cellpadding="0">
 						<tr>
 							<td height=6></td>
 							<td height=6></td>
@@ -136,7 +138,7 @@ function insertAction() {
 						</tr>
 
 						<tr>
-							<td width="722" align="right"></td>
+							<td width="1032" align="right"></td>
 							<td width="150"></td>
 							<td width="10">&nbsp;</td>
 							<td width="32" align="right">

@@ -81,17 +81,17 @@ function deleteAction() {
 	<form name="form1" method="post">
 		<input type="hidden" name="p_process" value=""> <input type="hidden" name="p_faqcategory" value="<%=v_faqcategory%>">
 
-		<table width="1000" border="0" cellspacing="0" cellpadding="0">
+		<table width="1300" border="0" cellspacing="0" cellpadding="0">
 			<tr>
 				<td align="center">
 
-					<table width="970" border="0" cellspacing="0" cellpadding="0" class=page_title>
+					<table width="1260" border="0" cellspacing="0" cellpadding="0" class=page_title>
 						<tr>
 							<td><img src="/images/admin/homepage/h_title01.gif"></td>
 							<td align="right"><img src="/images/admin/common/sub_title_tail.gif"></td>
 						</tr>
 					</table> <br>
-					<table width="970" border="0" cellspacing="0" cellpadding="0">
+					<table width="1260" border="0" cellspacing="0" cellpadding="0">
 						<tr>
 							<td width="10%" class=txt_input align="left">¡Ú ±³À°±×·ì :</td>
 							<td width="35%" align="left"><%=v_grcodenm%></td>
@@ -111,7 +111,8 @@ function deleteAction() {
 						<tr class="table_02_2">
 							<td height="25" class="table_title"><strong>´ë»ó±³À°±×·ì</strong></td>
 							<td height="25" class="table_02_2">
-							<%  
+							<%
+							int j = 1;
 							for(int i=0;i<list1.size();i++){
 								EduGroupData edudata = (EduGroupData)list1.get(i);
 							%> 
@@ -119,17 +120,18 @@ function deleteAction() {
 									<input name="p_grcode" type=radio value="<%=edudata.getGrcode()%>" <%=v_grcode.equals(edudata.getGrcode()) ? "checked" : "" %>><%=edudata.getGrcodenm()%>&nbsp; 
 								</div>
 							<%
-								if(i>0 && i%4==0){
+								if(j%4==0){
 							%>
 									<br/>
 							<%
 								}
+								j++;
 							}
 							%>
 							</td>
 						</tr>
 					</table>
-					<table width="970" border="0" cellspacing="0" cellpadding="0">
+					<table width="1260" border="0" cellspacing="0" cellpadding="0">
 						<tr>
 							<td height=6></td>
 							<td height=6></td>
@@ -140,7 +142,7 @@ function deleteAction() {
 						</tr>
 
 						<tr>
-							<td width="823" align="right"></td>
+							<td width="1113" align="right"></td>
 							<td width="45" align="right">
 								<a href="javascript:updateAction()" onfocus=this.blur()> <img src="/images/admin/button/btn_save.gif" border="0"></a>
 							</td>
