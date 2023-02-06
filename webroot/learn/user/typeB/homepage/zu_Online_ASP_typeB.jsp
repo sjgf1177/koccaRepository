@@ -29,8 +29,70 @@
 			document.formMainSearch.submit();
 		}
 	}
+
+	function hiddenlayer(){
+		$('.layerpopup-box, .layerbg-box').hide();
+	}
 </script>
 	<section>
+		<c:if test="${sessionScope.tem_grcode eq 'N000241'}">
+			<script>
+
+			</script>
+			<div class="layerbg-box"></div>
+			<div class="layerpopup-box">
+				<div style="text-align: center">
+					<h2>팝업 메세지</h2>
+					<div class="content-box">
+						<p>
+							■ 2023년 한국예술인복지재단 온라인 교육 수강 안내<br><br>
+							2023년 1월 25일부터 강좌 수강이 가능합니다.<br>
+							<strong>한국예술인복지재단 홈페이지 공지사항</strong>을 참고해주십시오.<br>
+							①KAWF 게시글 링크 <a href="https://bit.ly/3YmpGcl">(https://bit.ly/3YmpGcl)</a><br><br>
+							■온라인 교육 수강 안내 (수강신청 방법, 수료증 발급 방법)<br>
+							<strong>-클릭 시 안내 페이지로 연결</strong><br><br>
+							②2023년 학습방법 안내 링크: <a href="https://bit.ly/3RzfWsl">(https://bit.ly/3RzfWsl)</a>
+						</p>
+					</div>
+					<div class="pop-btn-box"><button type="button" onclick="hiddenlayer();">확인</button></div>
+				</div>
+
+			</div>
+			<style>
+				.layerbg-box{
+					position: fixed;
+					top:0;
+					width: 100%;
+					height: 100%;
+					background-color: rgba(0, 0, 0, 0.52);
+					z-index: 1000;
+				}
+				.layerpopup-box{
+					position: absolute;
+					top:50%;
+					left:50%;
+					transform: translate(-50%, -50%);
+					width: 800px;
+					padding: 20px 20px;
+					z-index: 1001;
+					background-color: #fff;
+					border: 1px solid #222;
+
+				}
+				.layerpopup-box h2{
+					font-size: 24px;
+					margin-bottom: 15px;
+				}
+				.layerpopup-box .content-box{
+					font-size: 20px;
+					line-height: 32px;
+				}
+				.pop-btn-box button{
+					padding: 5px 8px;
+					font-size: 14px;
+				}
+			</style>
+		</c:if>
         <div class="wrapper">
             <div class="container">
                 <div class="row main_contents_searchBox">
@@ -242,3 +304,4 @@
             </div>
         </div>
     </section>
+
