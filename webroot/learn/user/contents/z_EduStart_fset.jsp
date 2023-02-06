@@ -80,6 +80,10 @@
 
     if(v_contenttype.equals("M") && v_mftype.equals("ND")){
         v_height = 760;
+
+        if("CK19001".equals(p_subj)){
+            v_height = 523;
+        }
     }
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
