@@ -216,21 +216,17 @@
             return;
         }
 
-        if( confirm("저장하시겠습니까?") ) {
-            // saveForm.p_pageno.value = 1;
-            // saveForm.p_searchtext.value = "";
-            // saveForm.p_search.value="";
-            saveForm.action = "/servlet/controller.infomation.GoldClassAdminServlet";
-            saveForm.p_process.value="update";
-
-            //saveForm.submit();
-
-            wf_page = "fnSaveGoldClass";
-            if(wf_flag == "off"){
+        wf_page = "fnSaveGoldClass";
+        if(wf_flag == "off"){
+            if ( confirm("저장하시겠습니까?") ) {
+                saveForm.action = "/servlet/controller.infomation.GoldClassAdminServlet";
+                saveForm.p_process.value="update";
                 submitWebFilter('form1');
-            }else{
-                document.form1.submit();
+            } else {
+                return;
             }
+        }else{
+            document.form1.submit();
         }
     }
 

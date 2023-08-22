@@ -47,6 +47,7 @@ public class DownloadServlet extends HttpServlet {
     }
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws javax.servlet.ServletException, java.io.IOException {
+
         RequestBox box = null;
         //PrintWriter out = null;
         File file=null;
@@ -60,7 +61,7 @@ public class DownloadServlet extends HttpServlet {
         boolean isFound = false;
 
         try {
-            response.setContentType("text/html;charset=UTF-8");
+            response.setContentType("text/html;charset=euc-kr");
             box = RequestManager.getBox(request);
 
             v_year     = box.getStringDefault("p_year","");

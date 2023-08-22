@@ -13,16 +13,21 @@ package controller.homepage;
 import java.io.PrintWriter;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import javax.mail.Authenticator;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Message;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.InternetAddress;
+import javax.mail.Transport;
 
 import com.credu.common.DomainUtil;
 import com.credu.homepage.HomeNoticeBean;
@@ -53,7 +58,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
 
     /**
      * Pass get requests through to PerformTask
-     * 
+     *
      * @param request encapsulates the request to the servlet
      * @param response encapsulates the response from the servlet
      */
@@ -64,7 +69,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
 
     /**
      * doPost
-     * 
+     *
      * @param request encapsulates the request to the servlet
      * @param response encapsulates the response from the servlet
      */
@@ -87,7 +92,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
             box.setSession("s_gubun", "0"); // 대메뉴 초기화 (대메뉴 이동시 구분값은 param 값으로 처리)
 
             hostname = request.getHeader("Host");
-            
+
 //            hostname = "freesem.edukocca.or.kr";
 //            System.out.println("v_process :: " + v_process);
 
@@ -129,7 +134,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
             	if (ErrorManager.isErrorMessageView()) {
                     box.put("errorout", out);
                 }
-            	
+
                 box.put("starttime", FormatDate.getDate("yyyyMMddHHmmssSSS"));
 
                 if (v_process.equals("authChange")) { // 권한 변경햇을때
@@ -234,7 +239,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
 
     /**
      * 메인
-     * 
+     *
      * @param request encapsulates the request to the servlet
      * @param response encapsulates the response from the servlet
      * @param box receive from the form object
@@ -247,21 +252,29 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
         try {
             // 접속 URL정보
             box.put("p_servernm", request.getServerName());
-            
+
             /* localhost 접속시 강제 grcode 부여
-			본서버에서는 주석 처리 해야한다. */
-            //box.setSession("tem_grcode", "N000134");
-            //box.setSession("tem_grcode", "N000215"); // 동부건설
-            //box.setSession("tem_grcode", "N000210"); // 한국콘텐츠진흥원(콘텐츠 성평등센터)
-            //box.setSession("tem_grcode", "N000057"); // test
-            //box.setSession("tem_grcode", "N000001"); // 한국콘텐츠아카데미
-            box.setSession("tem_grcode", "N000241"); // 한국예술복지재단
-            
-            TempletBean bean = new TempletBean(); 
+			본서버에서는 주석 처리 해야한다.
+			N000001 : 한국콘텐츠아카데미
+			N000022 : 문화체육관광부
+			N000057 : test
+			N000134 : 한국콘텐츠진흥원 / contenttest / contenttest
+			N000179 : test2
+			N000203 : 경기게임마이스터고
+			N000210 : 한국콘텐츠진흥원(콘텐츠 성평등센터) / ktest2103 / 1q2w3e4r!
+			N000213 : 국민체육진흥공단
+			N000215 : 동부건설
+			N000241 : 한국예술복지재단
+			N000243 : 서울항공비즈니스고등학교
+			N000244 : 지역문화진흥원
+			*/
+            box.setSession("tem_grcode", "N000241");
+
+            TempletBean bean = new TempletBean();
             DataBox listBean = bean.SelectGrcodeExists(box);
-            
+
             String type = "B";
-            
+
             if (listBean == null) {
                 box.setSession("tem_type", "B");
                 box.setSession("tem_grcode", "N000001");
@@ -279,7 +292,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
                 box.setSession("tem_menu_type", ""); // 메뉴 네비게이션 타입
                 box.setSession("tem_main_type", ""); // 메인 화면 타입
             }
-            
+
             // URL별 GRCODE 가져오기
             if (box.getSession("tem_grcode").equals("") || box.getSession("tem_grcode") == null) {
                 DataBox serverInfo = bean.getGroupInfo(box);
@@ -337,7 +350,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
 
                             box.put("p_tabseq", String.valueOf(tabseq));
                         }
-                        
+
                         v_url = "/learn/user/2013/portal/homepage/zu_Main_KOCCA.jsp";
 
                         box.setSession("KoccaYn", "Y");
@@ -364,7 +377,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
 
                         // 메인 카테고리 항목
                         request.setAttribute("mainCategoryList", mainBean.selectMainCategoryList(box));
-                        
+
                         // 팝업공지 리스트
                         ArrayList pnlist = nbean.selectListNoticePopupHome(box);
                         request.setAttribute("noticePopup", pnlist);
@@ -372,29 +385,29 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
                     } else {
                     	box.setSession("KoccaYn", "N");
                     	box.put("authority", "");
-                    	
+
                     	if(type.equals("B")){
                     		MainHomeTypeBBean bBean = new MainHomeTypeBBean();
-                    		
+
                     		// 정규강좌 리스트
                     		ArrayList subjectList = bBean.selectSubjectList(box);
                     		request.setAttribute("subjectList", subjectList);
-                    		
+
                     		// 열린강좌 리스트
                     		ArrayList goldClassList = bBean.selectGoldClassList(box);
                     		request.setAttribute("goldClassList", goldClassList);
-                    		
+
                     		box.put("p_tabseq", 12); //게시판 seq 셋팅
                     		// 공지사항 리스트
                     		ArrayList noticeList = bBean.selectNoticeList(box);
                     		request.setAttribute("noticeList", noticeList);
-                    		
+
                     		box.put("p_popup", "Y"); //팝업 조건 셋팅
                     		// 팝업 리스트
                     		ArrayList noticePopup = bBean.selectNoticeList(box);
                     		request.setAttribute("noticePopup", noticePopup);
                     		v_url = "/learn/user/typeB/homepage/zu_Online_ASP.jsp";
-                    		
+
                     	}else{
                     		NoticeAdminBean nbean = new NoticeAdminBean();
 
@@ -418,33 +431,33 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
 
                                 box.put("p_tabseq", String.valueOf(tabseq));
                             }
-                            
+
 	                    	// ASP 공지사항
 	                        HomeNoticeBean noticeBean = new HomeNoticeBean();
 	                        ArrayList noticeList = noticeBean.selectDirectList(box);
 	                        request.setAttribute("noticeList", noticeList);
-	
+
 	                        // ASP 실무강좌
 	//                        PracticalCourseHomePageBean Pbean = new PracticalCourseHomePageBean();
 	//                        List practicalList = Pbean.selectList(box);
 	//                        request.setAttribute("practicalList", practicalList);
-	                        
-	                        
+
+
 	                        //열린강좌
 	                        GoldClassHomePageBean Gbean = new GoldClassHomePageBean();
 	                        List goldclassList = Gbean.selectList(box);
 	                        request.setAttribute("goldclassList", goldclassList);
-	                        
+
 	                        // 팝업공지 리스트
 	                        ArrayList pnlist = nbean.selectListNoticePopupHome(box);
 	                        request.setAttribute("noticePopup", pnlist);
-	                        
+
 	                        v_url = "/learn/user/portal/homepage/zu_Online_ASP.jsp";
                     	}
                     }
                 }
             }
-         
+
             request.setAttribute("requestbox", box); // 명시적으로 box 객체를 넘겨준다
             ServletContext sc = getServletContext();
             RequestDispatcher rd = sc.getRequestDispatcher(v_url);
@@ -457,7 +470,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
 
     /**
      * 팝업상세보기
-     * 
+     *
      * @param request encapsulates the request to the servlet
      * @param response encapsulates the response from the servlet
      * @param box receive from the form object
@@ -516,7 +529,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
 
     /**
      * 공지사항리스트
-     * 
+     *
      * @param request encapsulates the request to the servlet
      * @param response encapsulates the response from the servlet
      * @param box receive from the form object
@@ -575,7 +588,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
 
     /**
      * 공지사항상세보기
-     * 
+     *
      * @param request encapsulates the request to the servlet
      * @param response encapsulates the response from the servlet
      * @param box receive from the form object
@@ -630,7 +643,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
 
     /**
      * 메일 보내기폼
-     * 
+     *
      * @param request encapsulates the request to the servlet
      * @param response encapsulates the response from the servlet
      * @param box receive from the form object
@@ -654,7 +667,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
 
     /**
      * 메일 전송
-     * 
+     *
      * @param request encapsulates the request to the servlet
      * @param response encapsulates the response from the servlet
      * @param box receive from the form object
@@ -691,7 +704,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
             request.setAttribute("requestbox", box); // 명시적으로 box 객체를 넘겨준다
             String gubun = box.getString("gubun");
             String v_url = "/learn/user/portal/homepage/zu_Online_ASP_Sub.jsp";
-            
+
             if(box.getSession("tem_type").equals("B")){
             	v_url = "/learn/user/typeB/homepage/zu_Online_ASP.jsp";
             }
@@ -736,12 +749,12 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
             if (gubun.equals("60")) { // 로그인
                 // 메인 화면에 오지 않고 외부에서 바로 오기 때문에
                 box.put("p_servernm", request.getServerName());
-                
+
                 TempletBean bean = new TempletBean();
                 DataBox listBean = bean.SelectGrcodeExists(box);
 
                 NoticeAdminBean nbean = new NoticeAdminBean(); // ASP 팝업공지
-System.out.println("=========================================== aspgubun : " + box.getString("p_aspgubun"));
+
                 if (box.getString("p_aspgubun").equals("kocsc")) {// kocsc 인경우 userid를 받아와서 pw를 가져온다.
                     DataBox kocscSsoPwd = bean.getKocscSsoPwd(box);
                     box.put("p_pw", kocscSsoPwd.get("d_pwd"));
@@ -783,7 +796,7 @@ System.out.println("=========================================== aspgubun : " + b
 
                 LoginBean bean1 = new LoginBean();
                 String isOk = bean1.getASP_Login(box, request);
-                
+
                 // 접속자 IP
                 String v_userip = request.getHeader("X-Forwarded-For");
                 if (v_userip == null || v_userip.equals("")) {
@@ -795,7 +808,7 @@ System.out.println("=========================================== aspgubun : " + b
                 // String tem_grcode = box.getStringDefault("tem_grcode",
                 // box.getSession("tem_grcode"));
                 box.setSession("KoccaYn", "N");
-                
+
                 /*
                 // 공지사항 시작
                 HomeNoticeBean noticeBean = new HomeNoticeBean();
@@ -825,10 +838,10 @@ System.out.println("=========================================== aspgubun : " + b
                 */
 
                 AlertManager alert = new AlertManager();
-                
+
                 if (isOk.equals("")) {
                     box.put("p_process", "");
-                    
+
                     String v_servernm = request.getServerName();
 
                     int isUserid = bean1.getASP_Login_Userid(box);
@@ -856,19 +869,19 @@ System.out.println("=========================================== aspgubun : " + b
                     box.setSession("authList", authList);
                     String msg = "";
                     box.put("p_process", "");
-                    
+
                 	if (box.getSession("agreechk").equals("N")) {
                 		box.put("p_process", "agreeChkPage");
                 		box.put("gubun", "88");
-                		
+
                         alert.alertOkMessage(out, "", v_mainurl, box);
                         return;
                 	}
-                	
+
                 	ArrayList<String> ssoGrcodeList = new ArrayList<String>(Arrays.asList(new String[] {"N000001", "N000022"}));
                     if(!ssoGrcodeList.contains(box.getSession("tem_grcode"))) {
                     	Boolean needPassChange = false;
-                    	
+
                     	if (box.getSession("passchangedt") == null || box.getSession("passchangedt").equals("")) {
                     		needPassChange = true;
                     	} else {
@@ -877,16 +890,16 @@ System.out.println("=========================================== aspgubun : " + b
                         	if (nowDt.after(transFormat.parse(box.getSession("passchangedt")))) {
                         		needPassChange = true;
                         	} else {
-                        		needPassChange = false; 
+                        		needPassChange = false;
                         	}
                     	}
-                    	
+
                     	if (needPassChange) {
                     		box.put("p_process", "passChangePage");
                     		box.put("gubun", "80");
                     		msg = "비밀번호를 변경한지 3개월 이상 경과하였습니다. 개인정보보호를 위해 비밀번호를 변경해주세요.";
                     	}
-                    	
+
                     }
 
                     alert.alertOkMessage(out, msg, v_mainurl, box);
@@ -901,34 +914,34 @@ System.out.println("=========================================== aspgubun : " + b
                 System.out.println(dbox);
                 request.setAttribute("ASP_Edit_Login", dbox);
             }
-            
+
             if (gubun.equals("89")) // 사이트이용동의 수정
             {
             	String v_mainurl = "/servlet/controller.homepage.MainServlet";
             	AlertManager alert = new AlertManager();
-            	
+
                 LoginBean bean = new LoginBean();
                 int isOK = bean.ASP_updateAgreeChk(box);
                 String msg = "귀하는 단체가입 회원에 해당되므로, 개인정보보호를 위해 비밀번호 변경을 권장드립니다.";
-                
+
         		box.put("p_process", "passChangePage");
         		box.put("p_id", box.getSession("userid"));
         		box.put("gubun", "80");
-        		
+
                 alert.alertOkMessage(out, msg, v_mainurl, box);
-                
+
                 return;
-            }            
+            }
 
             if (gubun.equals("100")) // 암호 변경
             {
                 LoginBean bean = new LoginBean();
                 int tmp = bean.changePwd(box);
-                
+
                 if(box.getSession("tem_type").equals("B")) {
                 	box.put("gubun", "");
                     box.sessionInvalidate();
-                    
+
                     AlertManager alert = new AlertManager();
                     box.put("p_process", "");
                 	alert.alertOkMessage(out, "비밀번호가 변경되었습니다. 다시 로그인 해주십시오", "/servlet/controller.homepage.MainServlet", box);
@@ -937,7 +950,7 @@ System.out.println("=========================================== aspgubun : " + b
                     box.put("dbLoad_ID_Exists", tmp);
                     v_url = "/learn/user/portal/homepage/zu_Online_ASP_ExistsID.jsp";
                 }
-                
+
             }
 
             if (gubun.equals("110")) // 실명인증에서 이름과 주민번호를 입력하고 기존 가입되어 있는지 여부를 확인한다.
@@ -968,7 +981,7 @@ System.out.println("=========================================== aspgubun : " + b
             if (box.getString("p_aspgubun").equals("kocsc") || box.getString("p_aspgubun").equals("edu1") || box.getString("p_aspgubun").equals("hns")) {
                 v_url = strHttp + "/servlet/controller.study.MyClassServlet?p_process=EducationSubjectPage&gubun=3";
             }
-            
+
             RequestDispatcher rd = sc.getRequestDispatcher(v_url);
             rd.forward(request, response);
             // Log.info.println(this, box, "Dispatch to " + v_url);
@@ -989,7 +1002,56 @@ System.out.println("=========================================== aspgubun : " + b
             if (gubun.equals("40")) // 아이디 찾기
             {
                 FreeMailBean bean = new FreeMailBean();
-                String isOk = bean.findIdFreeMail(box);
+                //String isOk = bean.findIdFreeMail(box);
+
+                // sets SMTP server properties
+                Properties properties = new Properties();
+                //properties.put("mail.smtp.host", "210.96.133.67");
+                properties.put("mail.smtp.host", "mail2.kocca.kr");
+                properties.put("mail.smtp.port", "9110");
+                properties.put("mail.smtp.auth", "true");
+                properties.put("mail.smtp.starttls.enable", "true");
+
+                // creates a new session with an authenticator
+                Authenticator auth = new Authenticator() {
+                    public PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication("academy@kocca.kr", "academy123!");
+                    }
+                };
+
+                Session session = Session.getInstance(properties, auth);
+
+                // creates a new e-mail message
+                Message msg = new MimeMessage(session);
+
+                msg.setFrom(new InternetAddress("academy@kocca.kr"));
+                InternetAddress[] toAddresses = { new InternetAddress("sjgf1177@nate.com") };
+                msg.setRecipients(Message.RecipientType.TO, toAddresses);
+                msg.setSubject("mail test1");
+                msg.setSentDate(new Date());
+                msg.setText("mail test2");
+
+                // sends the e-mail
+                Transport.send(msg);
+
+/*                Session session = Session.getDefaultInstance(properties, new javax.mail.Authenticator() {
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication("academy@kocca.kr", "academy123!");
+                    }
+                });*/
+
+/*                Message msg = new MimeMessage(session);
+                msg.setFrom(new InternetAddress("academy@kocca.kr"));
+                InternetAddress[] toAddresses = { new InternetAddress("sjgf1177@nate.com") };
+                msg.setRecipients(Message.RecipientType.TO, toAddresses);
+                msg.setSubject("mail test1");
+                msg.setSentDate(new Date());
+                msg.setText("mail test2");*/
+
+                // sends the e-mail
+                Transport.send(msg);
+
+                String isOk = "true:sjgf1177@nate.com";
 
                 box.put("dbLoad_ID_Exists", isOk);
                 v_url = "/learn/user/portal/homepage/zu_Online_ASP_ExistsID.jsp";
@@ -1023,7 +1085,7 @@ System.out.println("=========================================== aspgubun : " + b
             if(box.getSession("tem_type").equals("B")){
             	v_url = "/learn/user/typeB/homepage/zu_Online_ASP.jsp";
             }
-            
+
             LoginBean bean = new LoginBean();
             // int isOk = bean.insertUser_Compony(box);
             bean.insertUser_Compony(box);
@@ -1285,7 +1347,7 @@ System.out.println("=========================================== aspgubun : " + b
         }
 
     }
-    
+
     public void performPassChangePage(HttpServletRequest request, HttpServletResponse response, RequestBox box, PrintWriter out) throws Exception {
         try {
             String v_url = "";
@@ -1300,7 +1362,7 @@ System.out.println("=========================================== aspgubun : " + b
             throw new Exception("performReseach()\r\n" + ex.getMessage());
         }
     }
-    
+
     public void performAgreeChkPage(HttpServletRequest request, HttpServletResponse response, RequestBox box, PrintWriter out) throws Exception {
         try {
             String v_url = "";

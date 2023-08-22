@@ -44,15 +44,29 @@
 				<div style="text-align: center">
 					<h2>팝업 메세지</h2>
 					<div class="content-box">
+						<c:set var="now" value="<%=new java.util.Date()%>" />
+						<c:set var="nowDate"><fmt:formatDate value="${now}" pattern="yyyyMMddHHmmss" /></c:set>
+						<c:if test="${nowDate <= '20230725235959'}">
 						<p>
-							■ 2023년 한국예술인복지재단 온라인 교육 수강 안내<br><br>
-							2023년 1월 25일부터 강좌 수강이 가능합니다.<br>
-							<strong>한국예술인복지재단 홈페이지 공지사항</strong>을 참고해주십시오.<br>
-							①KAWF 게시글 링크 <a href="https://bit.ly/3YmpGcl">(https://bit.ly/3YmpGcl)</a><br><br>
+							■ 2023년 한국예술인복지재단 공개교육 안내<br><br>
+							문화예술계 성평등·성폭력 예방교육 공개교육<br>
+							(7월 27일 14:00~15:30 비대면 강의)<br>
+							<strong><a href="http://www.kawf.kr/notice/sub01View.do?selIdx=18319">-클릭 시 안내 페이지로 연결</a></strong><br><br>
+							■ 2023년 한국예술인복지재단 온라인 교육 수료증 안내<br><br>
+							모든 강좌는 과정 설문까지 응답하셔야 수료증 발급이 가능합니다<br><br>
+							<strong>과정 설문까지 반드시 응답</strong>해주시기 바랍니다.<br><br>
+						</p>
+						</c:if>
+						<c:if test="${nowDate > '20230725235959'}">
+						<p>
 							■온라인 교육 수강 안내 (수강신청 방법, 수료증 발급 방법)<br>
 							<strong>-클릭 시 안내 페이지로 연결</strong><br><br>
-							②2023년 학습방법 안내 링크: <a href="https://bit.ly/3RzfWsl">(https://bit.ly/3RzfWsl)</a>
+							2023년 학습방법 안내 링크: <a href="https://bit.ly/3RzfWsl">(https://bit.ly/3RzfWsl)</a><br><br>
+							■ 2023년 한국예술인복지재단 온라인 교육 수료증 안내<br><br>
+							모든 강좌는 과정 설문까지 응답하셔야 수료증 발급이 가능합니다<br><br>
+							<strong>과정 설문까지 반드시 응답</strong>해주시기 바랍니다.<br><br>
 						</p>
+						</c:if>
 					</div>
 					<div class="pop-btn-box"><button type="button" onclick="hiddenlayer();">확인</button></div>
 				</div>
@@ -115,7 +129,7 @@
                     </div>
                 </div>
                 <div class="row">
-					<c:if test="${sessionScope.tem_grcode ne 'N000179' && sessionScope.tem_grcode ne 'N000134'}">
+					<c:if test="${sessionScope.tem_grcode ne 'N000179'}">
 						<div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
 							<div class="box_ct">
 								<span class="ct_title">정규과정</span>
@@ -141,33 +155,31 @@
 							</div>
 						</div>
 					</c:if>
-					<c:if test="${sessionScope.tem_grcode ne 'N000134'}">
-						<div class="col-xl-3 <c:if test='${sessionScope.tem_grcode ne "N000179"}'>col-lg-4</c:if> col-md-6 col-sm-12">
-							<div class="box_ct">
-								<span class="ct_title">열린과정</span>
-								<span class="btn_more float-right"><a href="javascript:menuForward('5','01');">더보기</a></span>
+					<div class="col-xl-3 <c:if test='${sessionScope.tem_grcode ne "N000179"}'>col-lg-4</c:if> col-md-6 col-sm-12">
+						<div class="box_ct">
+							<span class="ct_title">열린강좌</span>
+							<span class="btn_more float-right"><a href="javascript:menuForward('5','01');">더보기</a></span>
 
-								<div class="vertical_slide scroll-none">
-									<ul>
-										<c:forEach items="${goldClassList }" var="list" varStatus="status">
-											<li>
-												<a href="javascript:viewContent('<c:out value="${list.d_seq }"/>', '<c:out value="${list.d_lecture_cls }"/>');">
-													<div class="img_box">
-														<img src="<c:out value="${list.d_vodimg }" />" alt="<c:out value="${list.d_lecnm }" />">
-													</div>
-													<div class="edu_info">
-														<span class="point_blue edu_title abbreviation"><c:out value="${list.d_lecnm }" /></span>
-														<p class="edu_content abbreviation2"><c:out value="${list.d_intro }" /></p>
-													</div>
-												</a>
-											</li>
-										</c:forEach>
-									</ul>
-								</div>
+							<div class="vertical_slide scroll-none">
+								<ul>
+									<c:forEach items="${goldClassList }" var="list" varStatus="status">
+										<li>
+											<a href="javascript:viewContent('<c:out value="${list.d_seq }"/>', '<c:out value="${list.d_lecture_cls }"/>');">
+												<div class="img_box">
+													<img src="<c:out value="${list.d_vodimg }" />" alt="<c:out value="${list.d_lecnm }" />">
+												</div>
+												<div class="edu_info">
+													<span class="point_blue edu_title abbreviation"><c:out value="${list.d_lecnm }" /></span>
+													<p class="edu_content abbreviation2"><c:out value="${list.d_intro }" /></p>
+												</div>
+											</a>
+										</li>
+									</c:forEach>
+								</ul>
 							</div>
 						</div>
-					</c:if>
-					<c:if test="${sessionScope.tem_grcode eq 'N000134'}">
+					</div>
+<%--					<c:if test="${sessionScope.tem_grcode eq 'N000134'}">
 						<div class="col-xl-3 col-md-6 col-sm-12">
 							<div class="box_ct">
 								<span class="ct_title">공지사항</span>
@@ -190,8 +202,8 @@
 								</div>
 							</div>
 						</div>
-					</c:if>
-                    <div class="col-xl-3 <c:if test='${sessionScope.tem_grcode ne "N000179" && sessionScope.tem_grcode ne "N000134"}'>col-lg-4</c:if> col-md-6 col-sm-12">
+					</c:if>--%>
+                    <div class="col-xl-3 <c:if test='${sessionScope.tem_grcode ne "N000179"}'>col-lg-4</c:if> col-md-6 col-sm-12">
                         <div class="box_ct">
                             <span class="ct_title">학습지원센터</span>
                             <div class="div4_box">
@@ -232,8 +244,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 <c:if test='${sessionScope.tem_grcode ne "N000179" && sessionScope.tem_grcode ne "N000134"}'>col-lg-4</c:if> col-md-6 col-sm-12">
-						<c:if test='${sessionScope.tem_grcode ne "N000179" && sessionScope.tem_grcode ne "N000134"}'>
+                    <div class="col-xl-3 <c:if test='${sessionScope.tem_grcode ne "N000179"}'>col-lg-4</c:if> col-md-6 col-sm-12">
+						<c:if test='${sessionScope.tem_grcode ne "N000179"}'>
+							<c:if test='${sessionScope.tem_grcode eq "N000134"}'>
+							<a href="https://edu.kocca.kr" target="_blank">
+								<div class="image_banner_con">
+									<div class="box_ct">
+										<img src="/common/image/edukocca_web_img01.png" alt="에듀코카 바로가기"/>
+									</div>
+								</div>
+							</a>
+							</c:if>
+							<c:if test='${sessionScope.tem_grcode ne "N000134"}'>
 							<a href="javascript:menuForward('3','11');">
 								<div class="image_banner_con">
 									<div class="box_ct">
@@ -241,8 +263,9 @@
 									</div>
 								</div>
 							</a>
+							</c:if>
 						</c:if>
-						<c:if test='${sessionScope.tem_grcode eq "N000179" || sessionScope.tem_grcode eq "N000134"}'>
+						<c:if test='${sessionScope.tem_grcode eq "N000179"}'>
 							<a href="javascript:menuForward('4','07');">
 								<div class="image_banner_con">
 									<div class="box_ct">
@@ -252,7 +275,7 @@
 							</a>
 						</c:if>
                     </div>
-					<c:if test="${sessionScope.tem_grcode ne 'N000179' && sessionScope.tem_grcode ne 'N000134'}">
+					<c:if test="${sessionScope.tem_grcode ne 'N000179'}">
 						<div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
 							<div class="box_ct">
 								<span class="ct_title">공지사항</span>
@@ -276,19 +299,20 @@
 							</div>
 						</div>
 					</c:if>
-                    <div class="col-xl-3 <c:if test='${sessionScope.tem_grcode ne "N000179" && sessionScope.tem_grcode ne "N000134"}'>col-lg-4</c:if> col-md-6 col-sm-12">
+                    <div class="col-xl-3 <c:if test='${sessionScope.tem_grcode ne "N000179"}'>col-lg-4</c:if> col-md-6 col-sm-12">
+						<c:if test='${sessionScope.tem_grcode ne "N000134"}'>
 						<div class="box_ct swiper-container" style="padding:0" id="main_banner_slide">
 							<div class="swiper-wrapper">
 								<div class="swiper-slide">
 									<a href="#">
 										<span style="display: none;">융합형 인재양성의 허브 한국콘텐츠아카데미에서는 여려분의 다양한 꿈과 희망을 응원합니다.</span>
-										<img src="${(sessionScope.tem_grcode ne "N000179" && sessionScope.tem_grcode ne "N000134")? "/common/image/banner1.png" : "/common/image/banner1791.png"}" title="융합형 인재양성의 허브 한국콘텐츠아카데미에서는 여려분의 다양한 꿈과 희망을 응원합니다." alt="융합형 인재양성의 허브 한국콘텐츠아카데미에서는 여려분의 다양한 꿈과 희망을 응원합니다.">
+										<img src="${(sessionScope.tem_grcode ne "N000179")? "/common/image/banner1.png" : "/common/image/banner1791.png"}" title="융합형 인재양성의 허브 한국콘텐츠아카데미에서는 여려분의 다양한 꿈과 희망을 응원합니다." alt="융합형 인재양성의 허브 한국콘텐츠아카데미에서는 여려분의 다양한 꿈과 희망을 응원합니다.">
 									</a>
 								</div>
 								<div class="swiper-slide">
 									<a href="#">
 										<span style="display: none;">언제 어디서나 누구나 방송영상, 게임, 문화 콘텐츠 분야의 꿈을 펼칠실 분들을 위한 맞춤 온라인 강의</span>
-										<img src="${(sessionScope.tem_grcode ne "N000179" && sessionScope.tem_grcode ne "N000134")? "/common/image/banner2.jpg" : "/common/image/banner1792.png"}" title="언제 어디서나 누구나 방송영상, 게임, 문화 콘텐츠 분야의 꿈을 펼칠실 분들을 위한 맞춤 온라인 강의" alt="언제 어디서나 누구나 방송영상, 게임, 문화 콘텐츠 분야의 꿈을 펼칠실 분들을 위한 맞춤 온라인 강의">
+										<img src="${(sessionScope.tem_grcode ne "N000179")? "/common/image/banner2.jpg" : "/common/image/banner1792.png"}" title="언제 어디서나 누구나 방송영상, 게임, 문화 콘텐츠 분야의 꿈을 펼칠실 분들을 위한 맞춤 온라인 강의" alt="언제 어디서나 누구나 방송영상, 게임, 문화 콘텐츠 분야의 꿈을 펼칠실 분들을 위한 맞춤 온라인 강의">
 									</a>
 								</div>
 							</div>
@@ -299,6 +323,14 @@
 								<div class="swiper-autoplay-stop"></div>
 							</div>
 						</div>
+						</c:if>
+						<c:if test='${sessionScope.tem_grcode eq "N000134"}'>
+							<div class="image_banner_con" style="margin: 0;">
+								<div class="box_ct" style="padding: 0!important;">
+									<iframe width="100%" height="100%" src="https://www.youtube.com/embed/ssNYj-IJg7U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+								</div>
+							</div>
+						</c:if>
                     </div>
                 </div>
             </div>

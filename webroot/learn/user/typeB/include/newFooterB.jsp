@@ -31,9 +31,28 @@
                             <!-- <a href="https://edu.kocca.kr/edu/main/contents.do?menuNo=500091" target="_blank" style="display:inline-block; float: right; margin-left:20px;">
                                 <img src="/common/image/icon_kocca_app.png" alt="아카데미앱 다운로드" style="width: 27px;"> 아카데미앱 다운로드
                             </a> -->
+                            <c:if test='${sessionScope.tem_grcode ne "N000134"}'>
                         	<a href="https://edu.kocca.kr" target="_blank" style="display:inline-block; float: right;">
                                 <img src="/common/image/icon_edukocca_web.png" alt="아카데미 바로가기" style="width: 27px;"> 에듀코카 바로가기
                             </a>
+                            </c:if>
+                            <c:if test='${sessionScope.tem_grcode eq "N000134"}'>
+                            <a href="https://www.facebook.com/edukocca" target="_blank" style="display:inline-block; margin-right: 15px;">
+                                <img src="/common/image/ico_facebook_black.png" alt="페이스북 바로가기">
+                            </a>
+                            <a href="https://twitter.com/edukocca" target="_blank" style="display:inline-block; margin-right: 15px;">
+                                <img src="/common/image/ico_twitter_black.png" alt="트위터 바로가기">
+                            </a>
+                            <a href="https://blog.naver.com/edukocca" target="_blank" style="display:inline-block; margin-right: 15px;">
+                                <img src="/common/image/ico_blog_black.png" alt="블로그 바로가기">
+                            </a>
+                            <a href="https://www.youtube.com/channel/UCJ78W_fNjOW7A-lZ6uEClgA" target="_blank" style="display:inline-block; margin-right: 15px;">
+                                <img src="/common/image/ico_youtube_black.png" alt="유튜브 바로가기">
+                            </a>
+                            <a href="https://www.instagram.com/edu.kocca/" target="_blank" style="display:inline-block;">
+                                <img src="/common/image/ico_instar_black.png" alt="인스타그램 바로가기">
+                            </a>
+                            </c:if>
                         </div>
                         <!-- 
                         <div class="footer_relation_site">
@@ -48,3 +67,11 @@
             </div>
         </div>
     </footer>
+
+<style>
+    @media screen and (max-width: 640px) {
+        .app_download{
+            margin-top: 15px;
+        }
+    }
+</style>

@@ -29,6 +29,7 @@
 	});
 	
 	function ajaxFind(gubun, email){
+        alert("aaa : " + gubun + " // " + email)
 		$.ajax({
 			url : '/servlet/controller.homepage.MainServlet',
 			contentType : "application/x-www-form-urlencoded;charset=UTF-8",
@@ -42,7 +43,11 @@
                 	alert(r2[1]+"(으)로 메일이 발송되었습니다.");
                 else if(r2[0]=="false")
                 	alert("회원님의 정보가 존재하지 않습니다.");
-			}
+			}        ,   	error:function(request, status, error){
+
+                alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+
+            }
 		});
 	}
 	

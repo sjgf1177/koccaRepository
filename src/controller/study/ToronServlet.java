@@ -1,11 +1,11 @@
 //**********************************************************
-//  1. Á¦      ¸ñ: TORON SERVLET
-//  2. ÇÁ·Î±×·¥¸í: ToronServlet.java
-//  3. °³      ¿ä: Åä·Ð¹æ servlet
-//  4. È¯      °æ: JDK 1.3
-//  5. ¹ö      Á¯: 1.0
-//  6. ÀÛ      ¼º: ¹ÚÁøÈñ 2003. 9. 02
-//  7. ¼ö      Á¤:
+//  1. ï¿½ï¿½      ï¿½ï¿½: TORON SERVLET
+//  2. ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½: ToronServlet.java
+//  3. ï¿½ï¿½      ï¿½ï¿½: ï¿½ï¿½Ð¹ï¿½ servlet
+//  4. È¯      ï¿½ï¿½: JDK 1.3
+//  5. ï¿½ï¿½      ï¿½ï¿½: 1.0
+//  6. ï¿½ï¿½      ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 2003. 9. 02
+//  7. ï¿½ï¿½      ï¿½ï¿½:
 //**********************************************************
 package controller.study;
 
@@ -20,7 +20,6 @@ import com.credu.study.*;
 import com.credu.library.*;
 import com.credu.system.*;
 
-@WebServlet("/servlet/controller.study.ToronServlet")
 public class ToronServlet extends javax.servlet.http.HttpServlet {
 
     /**
@@ -527,7 +526,7 @@ public class ToronServlet extends javax.servlet.http.HttpServlet {
         try {
             request.setAttribute("requestbox", box);
 
-            // °úÁ¤º° ¸Þ´º Á¢¼Ó Á¤º¸ Ãß°¡
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
             box.put("p_menu", "31");
             StudyCountBean scBean = new StudyCountBean();
             scBean.writeLog(box);

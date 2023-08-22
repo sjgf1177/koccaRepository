@@ -175,6 +175,11 @@ public class MenuCountServlet extends javax.servlet.http.HttpServlet {
             String v_msg = "";
             String v_url = "";
 
+            if("bora".equals(box.getString("p_mode"))){
+                box.setSession("tem_grcode", "N000210");
+                v_grcode = "N000210";
+            }
+
             AlertManager alert = new AlertManager();
 
             if (v_grcode.equals("")) {

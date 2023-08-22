@@ -1,11 +1,11 @@
 //**********************************************************
-//  1. Á¦      ¸ñ: Á¢¼ÓÅë°è Á¦¾îÇÏ´Â ¼­ºí¸´
-//  2. ÇÁ·Î±×·¥¸í : StudyCountServlet.java
-//  3. °³      ¿ä: Á¢¼ÓÅë°è ÆäÀÌÁöÀ» Á¦¾îÇÑ´Ù
-//  4. È¯      °æ: JDK 1.3
-//  5. ¹ö      Á¯: 1.0
-//  6. ÀÛ      ¼º: Á¤»óÁø 2003. 7. 7
-//  7. ¼ö      Á¤:
+//  1. ï¿½ï¿½      ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½
+//  2. ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ : StudyCountServlet.java
+//  3. ï¿½ï¿½      ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
+//  4. È¯      ï¿½ï¿½: JDK 1.3
+//  5. ï¿½ï¿½      ï¿½ï¿½: 1.0
+//  6. ï¿½ï¿½      ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 2003. 7. 7
+//  7. ï¿½ï¿½      ï¿½ï¿½:
 //**********************************************************
 
 package controller.system;
@@ -22,7 +22,6 @@ import com.credu.library.*;
 import com.credu.study.*;
 import com.credu.homepage.*;
 
-@WebServlet("/servlet/controller.system.KStudyCountServlet")
 public class KStudyCountServlet extends javax.servlet.http.HttpServlet {
 
     /**
@@ -46,7 +45,7 @@ public class KStudyCountServlet extends javax.servlet.http.HttpServlet {
             v_process = box.getString("p_process");
 
             ///////////////////////////////////////////////////////////////////
-            // selectMonthDay : ¿î¿µÀÚ È­¸éÀÌ¹Ç·Î Ã¼Å©
+            // selectMonthDay : ï¿½î¿µï¿½ï¿½ È­ï¿½ï¿½ï¿½Ì¹Ç·ï¿½ Ã¼Å©
 /*            if (v_process.equals("selectMonthDay")){
                 if (!AdminUtil.getInstance().checkRWRight("StudyCountServlet", v_process, out, box)) {
                     return;
@@ -55,12 +54,12 @@ public class KStudyCountServlet extends javax.servlet.http.HttpServlet {
             box.put("starttime", FormatDate.getDate("yyyyMMddHHmmssSSS"));
             ///////////////////////////////////////////////////////////////////
 
-            if(v_process.equals("myActivity")) {          //  Myactivity ÆäÀÌÁö
+            if(v_process.equals("myActivity")) {          //  Myactivity ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 this.performSelectActivity(request, response, box, out);
-            }else if(v_process.equals("writeLog")) {          //  ÇÐ½Àº°Á¢¼ÓÅë°è µî·Ï¶§
+            }else if(v_process.equals("writeLog")) {          //  ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ï¶ï¿½
                 this.performWriteLog(request, response, box, out);
             }
-            else if(v_process.equals("myActivityExcel")){          // Ãâ·Â
+            else if(v_process.equals("myActivityExcel")){          // ï¿½ï¿½ï¿½
                     this.performMyActivityExcel(request, response, box, out);
             }
 
@@ -71,7 +70,7 @@ public class KStudyCountServlet extends javax.servlet.http.HttpServlet {
 
 
     /**
-    MY Activity ÆäÀÌÁö
+    MY Activity ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     @param request  encapsulates the request to the servlet
     @param response encapsulates the response from the servlet
     @param box      receive from the form object
@@ -93,7 +92,7 @@ public class KStudyCountServlet extends javax.servlet.http.HttpServlet {
             //String v_subjseq = box.getString("subjseq");
 			String v_subjseq = box.getString("grseq");
 
-            if(v_subj.equals("") && v_year.equals("") && v_subjseq.equals("")){ // ÃÖÃÊ È­¸é ·Îµù½Ã¿¡ Ã¹¹øÂ° °úÁ¤ Á¤º¸¸¦ ÀÔ·ÂÇÑ´Ù.
+            if(v_subj.equals("") && v_year.equals("") && v_subjseq.equals("")){ // ï¿½ï¿½ï¿½ï¿½ È­ï¿½ï¿½ ï¿½Îµï¿½ï¿½Ã¿ï¿½ Ã¹ï¿½ï¿½Â° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ñ´ï¿½.
                 if(list1 != null && list1.size() > 0) {
                     DataBox dbox    = (DataBox)list1.get(0);
                     box.put("subj",     dbox.getString("d_subj"));
@@ -104,33 +103,33 @@ public class KStudyCountServlet extends javax.servlet.http.HttpServlet {
 
             StudyCountBean bean2 = new StudyCountBean();
 
-            // ÇÐ½Àº° Åë°è
+            // ï¿½Ð½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
             ArrayList list2 = bean2.SelectActivityList(box);
             request.setAttribute("selectActivity", list2);
 
-            // ÇÐ½À½Ã°£ Á¤º¸
+            // ï¿½Ð½ï¿½ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½
             ArrayList list3 = bean2.selectLearningTime(box);
             request.setAttribute("selectLearningTime", list3);
 
-            // ÃÖ±ÙÇÐ½ÀÀÏ
+            // ï¿½Ö±ï¿½ï¿½Ð½ï¿½ï¿½ï¿½
             String date  = bean2.selectStudyDate(box);
             request.setAttribute("studyDate", date);
 
-            // °­ÀÇ½Ç Á¢±ÙÁ¤º¸
+            // ï¿½ï¿½ï¿½Ç½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             String count  = bean2.selectStudyCount(box);
             request.setAttribute("studyCount", count);
 
-            // °­ÀÇ½Ç Á¢±ÙÁ¤º¸
+            // ï¿½ï¿½ï¿½Ç½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             String step  = bean2.selectStudyStep(box);
             request.setAttribute("studyStep", step);
 
 
-            // °Ô½ÃÆÇ Á¤º¸
+            // ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             ArrayList list4 = bean2.selectBoardCnt(box);
             request.setAttribute("selectBoard", list4);
 
 
-			// È¸¿øÁ¤º¸
+			// È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			MemberInfoBean bean3 = new MemberInfoBean();
 			DataBox list_member = bean3.memberInfoView(box);
 			request.setAttribute("memberView", list_member);
@@ -147,7 +146,7 @@ public class KStudyCountServlet extends javax.servlet.http.HttpServlet {
 
 
     /**
-    ÇÐ½Àº° Åë°è µî·Ï
+    ï¿½Ð½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
     @param request  encapsulates the request to the servlet
     @param response encapsulates the response from the servlet
     @param box      receive from the form object
@@ -164,7 +163,7 @@ public class KStudyCountServlet extends javax.servlet.http.HttpServlet {
             String v_msg = "";
             String v_url = "";
 //            box.put("p_process", "select");
-            //      ¼öÁ¤ ÈÄ ÇØ´ç ¸®½ºÆ® ÆäÀÌÁö·Î µ¹¾Æ°¡±â À§ÇØ
+            //      ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
             AlertManager alert = new AlertManager();
 
@@ -184,7 +183,7 @@ public class KStudyCountServlet extends javax.servlet.http.HttpServlet {
     }
 
     /**
-    Ãâ·Â
+    ï¿½ï¿½ï¿½
     @param request  encapsulates the request to the servlet
     @param response encapsulates the response from the servlet
     @param box      receive from the form object

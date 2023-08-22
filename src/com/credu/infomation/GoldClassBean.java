@@ -382,6 +382,7 @@ public class GoldClassBean {
             updateSql.append("     ,   TAGS = ?                                     \n");
             updateSql.append("     ,   GOLDCLASSSUMMARY = ?                         \n");
             updateSql.append("     ,   SUBTITLE = ?                                 \n");
+            updateSql.append("     ,   VTT_PATH = ?                                 \n");
             updateSql.append("  WHERE  SEQ = ?                                      \n");
             pstmt = connMgr.prepareStatement(updateSql.toString());
 
@@ -415,6 +416,7 @@ public class GoldClassBean {
             pstmt.setString(index++, box.getString("p_tags"));
             pstmt.setString(index++, box.getString("p_goldclasssummary"));
             pstmt.setCharacterStream(index++, new StringReader(v_subtitle), v_subtitle.length());
+            pstmt.setString(index++, box.getString("p_vtt_path"));
 
             pstmt.setInt(index++, v_seq);
 

@@ -1,11 +1,11 @@
 //**********************************************************
-//  1. Á¦      ¸ñ:  °úÁ¤ °­»ç¼Ò°³ ¼­ºí¸´
-//  2. ÇÁ·Î±×·¥¸í : TutorInfoServlet.java
-//  3. °³      ¿ä: °úÁ¤ °­»ç¼Ò°³ ¼­ºí¸´
-//  4. È¯      °æ: JDK 1.4
-//  5. ¹ö      Á¯: 1.0
-//  6. ÀÛ      ¼º: °­¼º¿í 2004. 12. 20
-//  7. ¼ö     Á¤1:
+//  1. ï¿½ï¿½      ï¿½ï¿½:  ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½
+//  2. ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ : TutorInfoServlet.java
+//  3. ï¿½ï¿½      ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½
+//  4. È¯      ï¿½ï¿½: JDK 1.4
+//  5. ï¿½ï¿½      ï¿½ï¿½: 1.0
+//  6. ï¿½ï¿½      ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 2004. 12. 20
+//  7. ï¿½ï¿½     ï¿½ï¿½1:
 //**********************************************************
 package controller.study;
 import java.io.*;
@@ -19,7 +19,6 @@ import com.credu.study.*;
 import com.credu.library.*;
 import com.credu.system.*;
 
-@WebServlet("/servlet/controller.study.TutorInfoServlet")
 public class TutorInfoServlet extends javax.servlet.http.HttpServlet implements Serializable {
 
     /**
@@ -52,7 +51,7 @@ public class TutorInfoServlet extends javax.servlet.http.HttpServlet implements 
             if(ErrorManager.isErrorMessageView()) {
                 box.put("errorout", out);
             }
-            if(v_process.equals("select")) {                  // ±ÇÇÑ ¸®½ºÆ®
+            if(v_process.equals("select")) {                  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
                 this.performSelectList(request, response, box, out);
             }
         }catch(Exception ex) {
@@ -61,7 +60,7 @@ public class TutorInfoServlet extends javax.servlet.http.HttpServlet implements 
     }
 
     /**
-    °ü¸®ÀÚ ¸®½ºÆ®
+    ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
     @param request  encapsulates the request to the servlet
     @param response encapsulates the response from the servlet
     @param box      receive from the form object
@@ -70,9 +69,9 @@ public class TutorInfoServlet extends javax.servlet.http.HttpServlet implements 
     */
     public void performSelectList(HttpServletRequest request, HttpServletResponse response, RequestBox box, PrintWriter out) throws Exception {
         try {
-            request.setAttribute("requestbox", box);    //¸í½ÃÀûÀ¸·Î box °´Ã¼¸¦ ³Ñ°ÜÁØ´Ù
+            request.setAttribute("requestbox", box);    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ box ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½Ñ°ï¿½ï¿½Ø´ï¿½
 
-			// °úÁ¤º° ¸Þ´º Á¢¼Ó Á¤º¸ Ãß°¡
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 			box.put("p_menu","94");
 			StudyCountBean scBean = new StudyCountBean();
 			scBean.writeLog(box);

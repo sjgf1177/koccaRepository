@@ -157,7 +157,7 @@ if (!topWarp_userid.equals("") && !topWarp_gadmin.equals("")){
                     <td align="left">
                         <img src="/images/portal/homepage_renewal/member/tit_loginbox01.gif" alt="아이디" /></td>
                     <td>
-                        <input type="text" name="p_userid" id="p_userid" style="width:202px; height:24px;" onkeypress="password_enter(event)" tabindex="1"/>
+                        <input type="text" name="p_userid" id="p_userid" style="width:202px; height:24px;" onkeypress="password_enter(event)" tabindex="1" value="lee1"/>
                     </td>
                     <td rowspan="3">
                         <a href="javascript:login();"><img src="/images/portal/homepage_renewal/member/btn_login02.gif" alt="로그인" tabindex="4" style="width: 86px;height: 59px;"/></a>
@@ -167,7 +167,7 @@ if (!topWarp_userid.equals("") && !topWarp_gadmin.equals("")){
                 <tr>
                     <td align="left" width="87"><img src="/images/portal/homepage_renewal/member/tit_loginbox02.gif" alt="패스워드" /></td>
                     <td>
-                        <input type="password" name="p_pwd" id="p_pwd" style="width:202px; height:24px;" onkeypress="password_enter(event)" tabindex="2"/>
+                        <input type="password" name="p_pwd" id="p_pwd" style="width:202px; height:24px;" onkeypress="password_enter(event)" tabindex="2" value="edukocca@1"/>
                     </td>
                 </tr>
                 <tr>

@@ -2,7 +2,7 @@
 <%
 	Socket s = null;
 	String wfcontextRoot = "/webfilter";
-	String wfServerAddress="210.96.133.11"; 
+	String wfServerAddress="210.96.133.11";
 	try{
 		s = new Socket();
 		s.connect(new InetSocketAddress(wfServerAddress,80),3000); 

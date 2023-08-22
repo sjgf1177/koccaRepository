@@ -1,11 +1,11 @@
 //**********************************************************
-//  1. Á¦      ¸ñ:  °úÁ¤ ¼ö°­»ý ÇöÈ² ¼­ºí¸´
-//  2. ÇÁ·Î±×·¥¸í : StudentListServlet.java
-//  3. °³      ¿ä: °úÁ¤ ¼ö°­»ýÀÇ ¸®½ºÆ®¸¦ Á¶È¸ÇÏ´Â ¼­ºí¸´
-//  4. È¯      °æ: JDK 1.4
-//  5. ¹ö      Á¯: 1.0
-//  6. ÀÛ      ¼º: °­¼º¿í 2004. 12. 20
-//  7. ¼ö     Á¤1:
+//  1. ï¿½ï¿½      ï¿½ï¿½:  ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È² ï¿½ï¿½ï¿½ï¿½
+//  2. ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ : StudentListServlet.java
+//  3. ï¿½ï¿½      ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½È¸ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½
+//  4. È¯      ï¿½ï¿½: JDK 1.4
+//  5. ï¿½ï¿½      ï¿½ï¿½: 1.0
+//  6. ï¿½ï¿½      ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 2004. 12. 20
+//  7. ï¿½ï¿½     ï¿½ï¿½1:
 //**********************************************************
 package controller.study;
 
@@ -20,7 +20,6 @@ import com.credu.study.*;
 import com.credu.library.*;
 import com.credu.system.*;
 
-@WebServlet("/servlet/controller.study.StudentListServlet")
 public class StudentListServlet extends javax.servlet.http.HttpServlet implements Serializable {
 
     /**
@@ -63,21 +62,21 @@ public class StudentListServlet extends javax.servlet.http.HttpServlet implement
                 box.put("errorout", out);
             }
 
-            // if(v_process.equals("selectView")){                      //±ÇÇÑ »ó¼¼º¸±â·Î ÀÌµ¿ÇÒ¶§
+            // if(v_process.equals("selectView")){                      //ï¿½ï¿½ï¿½ï¿½ ï¿½ó¼¼ºï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ò¶ï¿½
             //     this.performSelectView(request, response, box, out);
-            // } else if(v_process.equals("insertPage")) {              //±ÇÇÑ µî·ÏÆäÀÌÁö·Î ÀÌµ¿ÇÒ¶§
+            // } else if(v_process.equals("insertPage")) {              //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ò¶ï¿½
             //     this.performInsertPage(request, response, box, out);
-            // } else if(v_process.equals("insert")) {                  //±ÇÇÑ µî·ÏÇÒ¶§
+            // } else if(v_process.equals("insert")) {                  //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½
             //     this.performInsert(request, response, box, out);
-            // } else if(v_process.equals("updatePage")) {              //±ÇÇÑ ¼öÁ¤ÆäÀÌÁö·Î ÀÌµ¿ÇÒ¶§
+            // } else if(v_process.equals("updatePage")) {              //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ò¶ï¿½
             //     this.performUpdatePage(request, response, box, out);
-            // } else if(v_process.equals("update")) {                  //±ÇÇÑ ¼öÁ¤ÇÏ¿© ÀúÀåÇÒ¶§
+            // } else if(v_process.equals("update")) {                  //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½
             //     this.performUpdate(request, response, box, out);
-            // } else if(v_process.equals("delete")) {                  //±ÇÇÑ »èÁ¦ÇÒ¶§
+            // } else if(v_process.equals("delete")) {                  //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½
             //     this.performDelete(request, response, box, out);
-            // } else if(v_process.equals("select")) {                  //±ÇÇÑ ¸®½ºÆ®
+            // } else if(v_process.equals("select")) {                  //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
             //     this.performSelectList(request, response, box, out);
-            if (v_process.equals("select")) { // ±ÇÇÑ ¸®½ºÆ®
+            if (v_process.equals("select")) { // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
                 this.performSelectList(request, response, box, out);
             }
         } catch (Exception ex) {
@@ -86,7 +85,7 @@ public class StudentListServlet extends javax.servlet.http.HttpServlet implement
     }
 
     /**
-     * °ü¸®ÀÚ »ó¼¼º¸±â·Î ÀÌµ¿ÇÒ¶§
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ó¼¼ºï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ò¶ï¿½
      * 
      * @param request encapsulates the request to the servlet
      * @param response encapsulates the response from the servlet
@@ -96,7 +95,7 @@ public class StudentListServlet extends javax.servlet.http.HttpServlet implement
      */
     //public void performSelectView(HttpServletRequest request, HttpServletResponse response, RequestBox box, PrintWriter out) throws Exception {
     //    try {
-    //        request.setAttribute("requestbox", box);    //¸í½ÃÀûÀ¸·Î box °´Ã¼¸¦ ³Ñ°ÜÁØ´Ù
+    //        request.setAttribute("requestbox", box);    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ box ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½Ñ°ï¿½ï¿½Ø´ï¿½
     //
     //        PermissionBean bean = new PermissionBean();
     //
@@ -115,7 +114,7 @@ public class StudentListServlet extends javax.servlet.http.HttpServlet implement
     //}
 
     /**
-     * °ü¸®ÀÚ µî·ÏÆäÀÌÁö·Î ÀÌµ¿ÇÒ¶§
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ò¶ï¿½
      * 
      * @param request encapsulates the request to the servlet
      * @param response encapsulates the response from the servlet
@@ -125,7 +124,7 @@ public class StudentListServlet extends javax.servlet.http.HttpServlet implement
      */
     //public void performInsertPage(HttpServletRequest request, HttpServletResponse response, RequestBox box, PrintWriter out) throws Exception {
     //    try {
-    //        request.setAttribute("requestbox", box);        //      ¸í½ÃÀûÀ¸·Î box °´Ã¼¸¦ ³Ñ°ÜÁØ´Ù
+    //        request.setAttribute("requestbox", box);        //      ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ box ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½Ñ°ï¿½ï¿½Ø´ï¿½
     //
     //        ServletContext sc = getServletContext();
     //        RequestDispatcher rd = sc.getRequestDispatcher("/learn/admin/system/za_Permission_I.jsp");
@@ -139,7 +138,7 @@ public class StudentListServlet extends javax.servlet.http.HttpServlet implement
     //}
 
     /**
-     * °ü¸®ÀÚ µî·ÏÇÒ¶§
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½
      * 
      * @param request encapsulates the request to the servlet
      * @param response encapsulates the response from the servlet
@@ -182,7 +181,7 @@ public class StudentListServlet extends javax.servlet.http.HttpServlet implement
     //}
 
     /**
-     * °ü¸®ÀÚ ¼öÁ¤ÆäÀÌÁö·Î ÀÌµ¿ÇÒ¶§
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ò¶ï¿½
      * 
      * @param request encapsulates the request to the servlet
      * @param response encapsulates the response from the servlet
@@ -192,7 +191,7 @@ public class StudentListServlet extends javax.servlet.http.HttpServlet implement
      */
     //public void performUpdatePage(HttpServletRequest request, HttpServletResponse response, RequestBox box, PrintWriter out) throws Exception {
     //    try {
-    //        request.setAttribute("requestbox", box);        //      ¸í½ÃÀûÀ¸·Î box °´Ã¼¸¦ ³Ñ°ÜÁØ´Ù
+    //        request.setAttribute("requestbox", box);        //      ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ box ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½Ñ°ï¿½ï¿½Ø´ï¿½
     //
     //        PermissionBean bean = new PermissionBean();
     //
@@ -211,7 +210,7 @@ public class StudentListServlet extends javax.servlet.http.HttpServlet implement
     //}
 
     /**
-     * // °ü¸®ÀÚ ¼öÁ¤ÇÏ¿© ÀúÀåÇÒ¶§
+     * // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½
      * 
      * @param request encapsulates the request to the servlet
      * @param response encapsulates the response from the servlet
@@ -231,7 +230,7 @@ public class StudentListServlet extends javax.servlet.http.HttpServlet implement
     //        String v_msg = "";
     //        String v_url = "/servlet/controller.system.PermissionServlet";
     //        box.put("p_process", "select");
-    //        //      ¼öÁ¤ ÈÄ ÇØ´ç ¸®½ºÆ® ÆäÀÌÁö·Î µ¹¾Æ°¡±â À§ÇØ
+    //        //      ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     //
     //        AlertManager alert = new AlertManager();
     //
@@ -252,7 +251,7 @@ public class StudentListServlet extends javax.servlet.http.HttpServlet implement
     //}
 
     /**
-     * // °ü¸®ÀÚ »èÁ¦ÇÒ¶§
+     * // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½
      * 
      * @param request encapsulates the request to the servlet
      * @param response encapsulates the response from the servlet
@@ -291,7 +290,7 @@ public class StudentListServlet extends javax.servlet.http.HttpServlet implement
     //}
 
     /**
-     * °ü¸®ÀÚ ¸®½ºÆ®
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
      * 
      * @param request encapsulates the request to the servlet
      * @param response encapsulates the response from the servlet
@@ -302,9 +301,9 @@ public class StudentListServlet extends javax.servlet.http.HttpServlet implement
     @SuppressWarnings("unchecked")
     public void performSelectList(HttpServletRequest request, HttpServletResponse response, RequestBox box, PrintWriter out) throws Exception {
         try {
-            request.setAttribute("requestbox", box); //¸í½ÃÀûÀ¸·Î box °´Ã¼¸¦ ³Ñ°ÜÁØ´Ù
+            request.setAttribute("requestbox", box); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ box ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½Ñ°ï¿½ï¿½Ø´ï¿½
 
-            // °úÁ¤º° ¸Þ´º Á¢¼Ó Á¤º¸ Ãß°¡
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
             box.put("p_menu", "93");
             StudyCountBean scBean = new StudyCountBean();
             scBean.writeLog(box);

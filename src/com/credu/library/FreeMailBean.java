@@ -289,11 +289,19 @@ public class FreeMailBean {
                 String v_userid = ls.getString("userid");
 
                 v_title = "사용자 아이디 찾기";
+/*
                 v_content = "<br/>"
                         + v_toEmail
                         + "은 다음 아이디에 연결되어 있습니다.<br/><br/>아이디 : "
                         + v_userid
                         + "<br/><br/>요청하지 않았는데 본 메일이 수신된 경우 다른 사용자가 자신의 사용자 아이디을 기억하려고 하는 과정에서 실수로 귀하의 이메일 주소를 입력했을 수 있습니다.<br>요청하지 않았으면 아무 조치도 취할 필요 없이 이메일을 무시하셔도 됩니다.";
+*/
+
+                v_content = "<br/>"
+                        + "회원님께서 " + v_toEmail + "로 조회한 아이디는 다음과 같습니다.<br/><br/>아이디 : "
+                        + v_userid
+                        + "<br/><br/>만약, 에듀코카(EDUKOCCA) 온라인 단체 교육 사이트에 가입한 적이 없거나<br>계정 찾기 요청을 하지 않으신 경우 이 메일을 삭제 또는 무시해 주시기 바랍니다.";
+
 
                 if (!v_toEmail.equals("")) {
                     tc.setAID(v_aid);
@@ -409,11 +417,19 @@ public class FreeMailBean {
                 pstmt.executeUpdate();
 
                 v_title = "사용자  비밀번호  찾기";
+/*
                 v_content = "<br/>"
                         + v_toEmail
                         + "에 연결된 아이디의 임시비밀번호 입니다.<br/><br/>임시비밀번호 : "
                         + newpassword
                         + "<br/><br/>요청하지 않았는데 본 메일이 수신된 경우 다른 사용자가 자신의 사용자 아이디을 기억하려고 하는 과정에서 실수로 귀하의 이메일 주소를 입력했을 수 있습니다.<br>요청하지 않았으면 아무 조치도 취할 필요 없이 이메일을 무시하셔도 됩니다.";
+*/
+
+                v_content = "<br/>"
+                        + "회원님께서 " + v_toEmail + "와 연결된 아이디의 임시비밀번호가 발급되었습니다.<br/><br/>임시비밀번호 : "
+                        + newpassword
+                        + "<br/><br/>만약, 에듀코카(EDUKOCCA) 온라인 단체 교육 사이트에 가입한 적이 없거나<br>계정 찾기 요청을 하지 않으신 경우 이 메일을 삭제 또는 무시해 주시기 바랍니다.";
+
 
                 if (!v_toEmail.equals("")) {
                     tc.setAID(v_aid);
