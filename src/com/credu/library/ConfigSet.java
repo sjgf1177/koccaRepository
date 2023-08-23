@@ -37,7 +37,7 @@ public class ConfigSet {
     // Real Server
     //private static String cresys_file_name = "/data/kocca/lmswebapp/WEB-INF/classes/conf/cresys.properties";
     // dev
-    private static String cresys_file_name = "C:/kocca2021_aa/workspace/kocca/webroot/WEB-INF/classes/conf/cresys.properties";
+    private static String cresys_file_name = "C:/DEV/kocca/target/classes/conf/cresys.properties";
 
     // Local Server
     // private static String cresys_file_name =
