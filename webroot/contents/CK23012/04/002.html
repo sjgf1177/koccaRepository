@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link type="text/css" href="../css/reset.css" rel="stylesheet" />
+<link type="text/css" href="../css/jplayer.css" rel="stylesheet" />
+<link type="text/css" href="../css/content.css" rel="stylesheet" />
+<link type="text/css" href="../css/animate.css" rel="stylesheet" />
+<script type="text/javascript" src="../js/jquery1.12.4.min.js"></script>
+<script type="text/javascript" src="../js/jquery.jplayer.js"></script>
+<script type="text/javascript" src="../js/transit.js"></script>
+<script type="text/javascript" src="../js/jquery.textillate.js"></script>
+<script type="text/javascript" src="../js/jquery.fittext.js"></script>
+<script type="text/javascript" src="../js/jquery.lettering.js"></script>
+<script type="text/javascript" src="../js/siteSecurity_1.1.js"></script>
+<script type="text/javascript" src="../js/jquery.easing.js"></script>
+
+<script type="text/javascript" src="../js/common.js"></script>
+</head>
+<body>
+<div id="allWrap">
+<div id="wrap">
+
+
+	<!-- bg background -->
+	<div class="main_area"></div>
+	<!-- //bg background -->
+	<!--div id="headTit"><img src="img/title.png" /></div>
+	<div id="slogo"><img src="../images/img/s_logo.png"/></div-->
+	
+
+    <div id="jp_container_1" class="jp-video jp-video-360p subVideo" role="application" aria-label="media player">
+		
+
+		<!-- 영상 플레이어 -->
+        <div class="jp-type-single">
+            <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+			<div class="jpback"></div>
+			<div class="jp-gui">
+				<div class="jp-video-play"></div>
+				<div class="jp-gradient-box"></div>
+				<div class="jp-bottom-controls">
+					<div class="jp-progress">
+						<div class="jp-seek-bar">
+							<div class="jp-play-bar"></div>
+						</div>
+						<div class="jp-limit"></div> <!-- 컨트롤차단 -->
+					</div>
+					<div class="jp-interface">
+						<div class="jp-inbox">
+							<div class="jp-controls-holder">
+								<div class="jp-controls">
+									<!--button class="jp-script" role="button" tabindex="0">script</button-->
+									<button class="jp-play tooltip" role="button" tabindex="0" title="재생"><span class="sub_tooltip">재생</span></button>								
+									<div class="jp-time-display">
+										<div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+										<div class="jp-time-line">/</div>
+										<div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+									</div>
+								</div>
+							</div>
+							<div class="jp-volume-controls">
+								<button class="jp-mute tooltip" role="button" tabindex="0" title="볼륨"><span class="sub_tooltip">볼륨</span></button>
+								<div class="jp-volume-bar">
+									<div class="jp-volume-bar-value"></div>
+								</div>
+							</div>
+							<div class="jp-util">
+								<ul>
+									<li><a href="javascript:;" class="u_index tooltip" title="목차"><span class="sub_tooltip">목차</span></a></li>
+									<!-- <li><a href="javascript:;" class="u_chapter"title="차시목록"><span>CHASI</span></a></li>--> <!-- 차시목록 -->
+								</ul>
+								<div class="jp-toggles">
+									<div class="jp-speed">
+										<div class="jp-toggles-text tooltip" title="재생 속도"><span class="sub_tooltip">재생속도</span></div>
+										<div class="jp-speed-btn-box">
+											<button class="speed sp2" data-speed="0">0.5</button>
+											<button class="speed sp3" data-speed="2">1.0</button>
+											<button class="speed sp4" data-speed="4">1.5</button>
+											<button class="speed sp5" data-speed="6">2.0</button>  
+											<h4>재생 속도</h4>
+										</div>
+									</div>
+								</div>
+								<button class="jp-script tooltip" role="button" tabindex="0" title="자막"><span class="sub_tooltip">자막</span></button>
+								<button class="jp-full-screen tooltip" role="button" tabindex="0" title="전체화면"><span class="sub_tooltip">전체화면</span></button>
+							</div>
+							
+							
+						</div>
+						<div id="paging">
+							<!-- <div class="click"><a href="javascript:next(1);"><img src="../images/img/btn_click.png" alt="" /></a></div> -->
+						</div>
+						
+					</div>
+				</div>
+								
+				<!-- 인덱스 메뉴 -->
+				<div id="indexNavi"><div id="navigation"></div></div>
+				<!-- //인덱스 메뉴 -->
+		
+				<!-- 차시목록 메뉴 -->
+				<div id="chapterNavi"><div id="chapnavigation"></div></div>
+				<!-- //차시목록 메뉴 -->
+
+			</div>
+			<!-- 자막 스크립트 -->
+			<div id="scriptBox">
+				<div class="scConfBox">
+					<div class="scConf">
+						<p>자막이 들어오는 영역입니다.
+						</p>
+					</div>
+				</div>
+			</div>
+			<!-- //자막 스크립트 -->
+        </div>
+		<!-- //영상 플레이어 -->
+
+
+        <!--<a href="javascript:;" class="play"><img src="../images/img/btn_play.png" alt="재생" /></a>-->
+		<button class="jp-play mobile" role="button" tabindex="0" title="재생"></button>								
+    </div>
+
+
+
+</div>
+</div>
+
+
+<!-- <div class="effectspeak01"><audio controls muted preload="auto"><source type="audio/mp3" src="../mp3/next.mp3" /></audio></div> -->
+
+
+<link type="text/css" href="../css/jquery.mCustomScrollbar.css" rel="stylesheet" />
+<script type="text/javascript" src="../js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	//var effectAudio01 = function(){  $('.effectspeak01').find('audio')[0].play(); $('.effectspeak01').find('audio')[0].muted = false;};
+	
+
+    // win height
+    var winHChk = function(){
+        var winH = $(window).height();
+        $('#allWrap').css('height',winH);
+    }
+    //winHChk();
+    $(window).resize(function(){winHChk();});
+	
+	// player bar
+	var playbar = true;
+	var playControl = function(){
+		if (playbar == false){
+			$('.jp-seek-bar').css('display','none');
+		} else {
+			$('.jp-seek-bar').css('display','block');
+			$('.jp-progress').unbind('click');
+		}
+	}
+	$('.jp-progress').bind('click',function(){		
+		next(mypage);
+		return false;
+	});
+	playControl();
+
+
+    // movie
+    var movieUrl = [mp4_Name]; // 1300k, 500k
+      function jplayerControll(a){
+		var mUrl = movieUrl[a];
+		$('#jquery_jplayer_1').jPlayer({			
+			ready: function (event) {
+				$(this).jPlayer('setMedia', {
+					m4v: mUrl,
+					poster: '../images/img/cover.jpg' //썸네일
+				});
+
+				if(!navigator.userAgent.match(/Android|Mobile|iP(hone|od|ad)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
+					$(this).jPlayer('play');
+				}
+			
+			},
+			swfPath:'js',
+			supplied:'m4v',
+			size: {
+				width:'100%',
+				height:'auto',
+				cssClass:'jp-video-360p'
+			},
+			useStateClassSkin: true,
+			autoBlur: false,
+			smoothPlayBar: true,
+			keyEnabled: true,
+			remainingDuration: false,
+			toggleDuration: false,
+		//	autohide: {restored: true, fadeIn:200},
+			volume: 0.5,
+			ended : function(){
+                
+			}
+		});
+	}
+	var windowWidth = $( window ).width();
+	var nowspeed = function(){
+		var nows = $('.jp-speed').children('.on').index()-2;		
+		setTimeout( function() { $('.speed').eq(nows).click(); },200);
+	}
+
+	
+	$('.jp-play.mobile, .jp-controls .jp-play').bind('click',function(){
+
+		if (!$('#jp_container_1').is('.jp-state-playing')){
+			//영상이 재생중일때
+			$('#jquery_jplayer_1').jPlayer('pause');
+			$(".jp-gradient-box").fadeOut(2000);
+			$(".jp-gui").fadeOut(2000);
+			$(".jp-play.mobile").fadeOut(2000);
+			nowspeed();
+
+		} else{
+		
+			$('#jquery_jplayer_1').jPlayer('play');
+			$(".jp-play.mobile").fadeOut();
+			$(".jp-gui").fadeOut();
+			$(".jp-gradient-box").fadeOut();
+			nowspeed();
+		}
+	});
+
+	$('.jp-stop').bind('click',function(){
+		$('.play').fadeIn();
+		nowspeed();
+	});
+
+	/*
+	$('jp-controls .jp-play').bind('click',function(){
+		if ($('#jp_container_1').is('.jp-state-playing')){
+			//$('.jp-play.mobile').fadeIn();
+			
+		} else {
+			//$('.jp-play.mobile').fadeOut();
+		}
+		nowspeed();
+	});
+	
+	
+	if(!navigator.userAgent.match(/Android|Mobile|iP(hone|od|ad)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
+		$('.jp-play.mobile').fadeOut();
+	} else {
+		$('.jp-play').fadeIn();
+	}
+	*/
+	
+	// 스피드 변경
+	$('.speed').each(function(){
+		$(this).bind('click',function(){
+			if (!$(this).hasClass('on')){
+				var dataNum = $(this).attr('data-speed');
+				var speed = [0.5, 0.8, 1, 1.2, 1.5, 1.8, 2];
+				$('.speed').removeClass('on');
+				$(this).addClass('on');				
+				$('#jquery_jplayer_1').jPlayer('option','playbackRate',speed[dataNum]);
+			}
+		});
+	});
+	$('.speed').eq(1).click();
+
+	// 해상도 변경
+	$('.resolution').each(function(){
+		$(this).bind('click',function(index){
+			if (!$(this).hasClass('active')){
+				var dataType = $(this).attr('data-type');
+				$('.resolution').removeClass('active');
+				$(this).addClass('active');
+	
+				$('#jquery_jplayer_1').jPlayer('destroy');
+				if (dataType == 'high'){ jplayerControll(0);
+				} else { jplayerControll(1); }
+	//			setTimeout(function() { $('#jquery_jplayer_1').jPlayer('play'); },1200);
+			}
+		});
+	});
+
+
+	// replay
+	$('.jp-replay').bind('click',function(){
+		$('#jquery_jplayer_1').jPlayer('stop');
+		$('#jquery_jplayer_1').jPlayer('play');
+		nowspeed();
+	});
+
+	jplayerControll(0);
+
+	/*
+    $(window).load(function(){
+        $('.jp-gui').css('opacity','1');
+    }); 
+	
+	// 교안 다운로드
+	$('#tgDown').load('teacher_guide.html');
+
+	// 놀이영상
+	$('#tgMovie').load('movie_list.html');
+	*/
+
+
+	// 인덱스 네비
+	var depth1 = 2; // 1차뎁스
+	var depth2 = 2; // 2차뎁스
+	$('#indexNavi').load('index_navi.html',function(){
+		var de1 = depth1 - 1;
+		var de2 = depth2 - 1;
+		$('#navigation > ul > li:eq('+de1+') > a').addClass('on');
+		$('#navigation > ul > li:eq('+de1+') ul li:eq('+de2+') a').addClass('on');
+	});
+	
+	
+	
+	
+	// 스크립트 스크롤바
+	//$(".scConf").mCustomScrollbar({theme:'dark',mouseWheelPixels:150});
+
+
+	// 보안
+	$('body').siteSecurity({
+	//	f12:'y',         //f12키 막기
+		rightclick: 'y' //우클릭 막기
+	});
+
+});
+</script>
+
+<script type="text/javascript" src="../js/navi.js"></script>
+<script type="text/javascript" src="../js/script.js"></script>
+
+
+</body>
+</html>
