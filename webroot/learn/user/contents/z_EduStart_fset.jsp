@@ -184,7 +184,7 @@
     $(document).ready(function(){
     	$("#framebox").css({
     		"position": "relative",
-    		"padding-bottom": "60%",
+    		"padding-bottom": "56.25%",
     		"height": "0",
     	});
 

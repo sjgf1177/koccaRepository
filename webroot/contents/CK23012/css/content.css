@@ -291,6 +291,9 @@ textarea::-ms-input-placeholder { /* Internet Explorer Edge  */color:#c5c5c5;}
 .mCS-dark>.mCSB_scrollTools .mCSB_buttonLeft{	background-position:-80px -40px;}
 .mCS-dark>.mCSB_scrollTools .mCSB_buttonRight{	background-position:-80px -56px;}
 
+.jp-jplayer video::cue {color: transparent; background-color: transparent;}
+.jp-jplayer.script_active video::cue {color: #fff; background-color: rgba(38,38,38,1);}
+
 
 @media screen and (max-width:1023px){
 	/*자막*/

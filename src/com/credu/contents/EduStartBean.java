@@ -3947,5 +3947,299 @@ public class EduStartBean {
         }
         return list1;
     }
+
+    /**
+     * B2C 과정 페이지 수강 이력 저장
+     *
+     * @param box receive from the form object and session
+     * @return is_Ok 1 : login ok 2 : login fail
+     * @throws Exception
+     */
+    public int subjseqPageSearchInput(RequestBox box) throws Exception {
+        DBConnectionManager connMgr = null;
+        PreparedStatement pstmt = null;
+        String sql = "";
+        ListSet ls = null;
+        int is_Ok = 0;
+        int cTime = 0;
+
+        String p_userid = box.getSession("userid");
+        String p_subj = box.getSession("s_subj");
+        String p_year = box.getSession("s_year");
+        String p_subjseq = box.getSession("s_subjseq");
+        String p_grcode = box.getSession("tem_grcode");
+        String p_currentTime = box.getString("ct");
+        String p_totalTime = box.getString("tt");
+        String p_currentChapter = box.getString("cc");
+        String p_currentPage = box.getString("cp");
+        String p_totalPage = box.getString("tp");
+        String p_nextPage = box.getString("np");
+        String saveChk = "N";
+
+        try {
+            connMgr = new DBConnectionManager();
+            connMgr.setAutoCommit(false);
+
+            sql = "\n  /* com.credu.contents.EduStartBean() subjseqPageSearchInput (B2C 과정 페이지 수강 정보 조회) */ ";
+            sql += "\n select c_time, t_time   ";
+            sql += "\n   from tz_subj_play_chk ";
+            sql += "\n  where userid     = " + StringManager.makeSQL(p_userid);
+            sql += "\n    and grcode     = " + StringManager.makeSQL(p_grcode);
+            sql += "\n    and subj       = " + StringManager.makeSQL(p_subj);
+            sql += "\n    and year       = " + StringManager.makeSQL(p_year);
+            sql += "\n    and subjseq    = " + StringManager.makeSQL(p_subjseq);
+            sql += "\n    and chapter_no = " + StringManager.makeSQL(p_currentChapter);
+            sql += "\n    and c_page     = " + StringManager.makeSQL(p_currentPage);
+
+            ls = connMgr.executeQuery(sql);
+
+            if (ls.next()) {
+                cTime = ls.getInt("c_time");
+            } else {
+                saveChk = "Y";
+
+                sql = "\n  /* com.credu.contents.EduStartBean() subjseqPageSearchInput (B2C 과정 페이지 수강 정보 저장) */ ";
+                sql += "\n  insert into tz_subj_play_chk		     ";
+                sql += "\n  (    userid                              ";
+                sql += "\n  ,    grcode                              ";
+                sql += "\n  ,    subj                                ";
+                sql += "\n  ,    year                                ";
+                sql += "\n  ,    subjseq                             ";
+                sql += "\n  ,    chapter_no                          ";
+                sql += "\n  ,    c_page                              ";
+                sql += "\n  ,    t_page                              ";
+                sql += "\n  ,    n_page                              ";
+                sql += "\n  ,    c_time                              ";
+                sql += "\n  ,    t_time                              ";
+                sql += "\n  ,    c_date                              ";
+                sql += "\n  )		    					         ";
+                sql += "\n  values   						         ";
+                sql += "\n  (    ?                                   ";
+                sql += "\n  ,    ?                                   ";
+                sql += "\n  ,    ?                                   ";
+                sql += "\n  ,    ?                                   ";
+                sql += "\n  ,    ?                                   ";
+                sql += "\n  ,    ?                                   ";
+                sql += "\n  ,    ?                                   ";
+                sql += "\n  ,    ?                                   ";
+                sql += "\n  ,    ?                                   ";
+                sql += "\n  ,    ?                                   ";
+                sql += "\n  ,    ?                                   ";
+                sql += "\n  ,    to_char(sysdate,'YYYYMMDDHH24MISS') ";
+                sql += "\n  )										 ";
+
+                pstmt = connMgr.prepareStatement(sql);
+
+                pstmt.setString(1, p_userid);
+                pstmt.setString(2, p_grcode);
+                pstmt.setString(3, p_subj);
+                pstmt.setString(4, p_year);
+                pstmt.setString(5, p_subjseq);
+                pstmt.setString(6, p_currentChapter);
+                pstmt.setString(7, p_currentPage);
+                pstmt.setString(8, p_totalPage);
+                pstmt.setString(9, p_nextPage);
+                pstmt.setString(10, p_currentTime);
+                pstmt.setString(11, p_totalTime);
+            }
+
+            if ("Y".equals(saveChk)) {
+                is_Ok = pstmt.executeUpdate();
+            } else {
+                is_Ok = 1;
+            }
+
+            ls.close();
+
+            if (is_Ok == 1) {
+                connMgr.commit();
+            } else {
+                connMgr.rollback();
+            }
+        } catch (Exception ex) {
+            ErrorManager.getErrorStackTrace(ex, box, sql);
+            throw new Exception("sql = " + sql + "\r\n" + ex.getMessage());
+        } finally {
+            if (pstmt != null) {
+                try {
+                    pstmt.close();
+                } catch (Exception e) {
+                }
+            }
+            if (connMgr != null) {
+                try {
+                    connMgr.setAutoCommit(true);
+                } catch (Exception e10) {
+                }
+            }
+            if (connMgr != null) {
+                try {
+                    connMgr.freeConnection();
+                } catch (Exception e10) {
+                }
+            }
+        }
+
+        return cTime;
+    }
+
+    /**
+     * B2C 과정 페이지 수강 시간 저장
+     *
+     * @param box receive from the form object and session
+     * @return is_Ok 1 : login ok 2 : login fail
+     * @throws Exception
+     */
+    public int subjseqPageUpdate(RequestBox box) throws Exception {
+        DBConnectionManager connMgr = null;
+        PreparedStatement pstmt = null;
+        String sql = "";
+        ListSet ls = null;
+        int is_Ok = 0;
+
+        String p_userid = box.getSession("userid");
+        String p_subj = box.getSession("s_subj");
+        String p_year = box.getSession("s_year");
+        String p_subjseq = box.getSession("s_subjseq");
+        String p_grcode = box.getSession("tem_grcode");
+        String p_currentTime = box.getString("ct");
+        String p_totalTime = box.getString("tt");
+        String p_currentChapter = box.getString("cc");
+        String p_currentPage = box.getString("cp");
+        String p_totalPage = box.getString("tp");
+        String p_nextPage = box.getString("np");
+        String saveChk = "N";
+
+        try {
+            connMgr = new DBConnectionManager();
+            connMgr.setAutoCommit(false);
+
+            sql = "\n  /* com.credu.contents.EduStartBean() saveSubjseqPageClassInfo (과정 페이지 수강 정보 조회) */ ";
+            sql += "\n select c_time, t_time   ";
+            sql += "\n   from tz_subj_play_chk ";
+            sql += "\n  where userid     = " + StringManager.makeSQL(p_userid);
+            sql += "\n    and grcode     = " + StringManager.makeSQL(p_grcode);
+            sql += "\n    and subj       = " + StringManager.makeSQL(p_subj);
+            sql += "\n    and year       = " + StringManager.makeSQL(p_year);
+            sql += "\n    and subjseq    = " + StringManager.makeSQL(p_subjseq);
+            sql += "\n    and chapter_no = " + StringManager.makeSQL(p_currentChapter);
+            sql += "\n    and c_page     = " + StringManager.makeSQL(p_currentPage);
+
+            ls = connMgr.executeQuery(sql);
+
+            if (ls.next()) {
+                if (ls.getDouble("c_time") < ls.getDouble("t_time")) {
+                    saveChk = "Y";
+
+                    sql = "\n  /* com.credu.contents.EduStartBean() saveSubjseqPageClassInfo (과정 페이지 수강 이력 수정) */ ";
+                    sql += "\n update tz_subj_play_chk                                      ";
+                    sql += "\n    set c_time     = ?                                        ";
+                    sql += "\n      , u_date     = to_char(sysdate,'YYYYMMDDHH24MISS')      ";
+                    sql += "\n  where userid     = ?                                        ";
+                    sql += "\n    and grcode     = ?                                        ";
+                    sql += "\n    and subj       = ?                                        ";
+                    sql += "\n    and year       = ?                                        ";
+                    sql += "\n    and subjseq    = ?                                        ";
+                    sql += "\n    and chapter_no = ?                                        ";
+                    sql += "\n    and c_page     = ?                                        ";
+
+                    pstmt = connMgr.prepareStatement(sql);
+
+                    pstmt.setString(1, p_currentTime);
+                    pstmt.setString(2, p_userid);
+                    pstmt.setString(3, p_grcode);
+                    pstmt.setString(4, p_subj);
+                    pstmt.setString(5, p_year);
+                    pstmt.setString(6, p_subjseq);
+                    pstmt.setString(7, p_currentChapter);
+                    pstmt.setString(8, p_currentPage);
+                }
+            } else {
+                saveChk = "Y";
+
+                sql = "\n  /* com.credu.contents.EduStartBean() saveSubjseqPageClassInfo (과정 페이지 수강 정보 저장) */ ";
+                sql += "\n  insert into tz_subj_play_chk		     ";
+                sql += "\n  (    userid                              ";
+                sql += "\n  ,    grcode                              ";
+                sql += "\n  ,    subj                                ";
+                sql += "\n  ,    year                                ";
+                sql += "\n  ,    subjseq                             ";
+                sql += "\n  ,    chapter_no                          ";
+                sql += "\n  ,    c_page                              ";
+                sql += "\n  ,    t_page                              ";
+                sql += "\n  ,    n_page                              ";
+                sql += "\n  ,    c_time                              ";
+                sql += "\n  ,    t_time                              ";
+                sql += "\n  ,    c_date                              ";
+                sql += "\n  )		    					         ";
+                sql += "\n  values   						         ";
+                sql += "\n  (    ?                                   ";
+                sql += "\n  ,    ?                                   ";
+                sql += "\n  ,    ?                                   ";
+                sql += "\n  ,    ?                                   ";
+                sql += "\n  ,    ?                                   ";
+                sql += "\n  ,    ?                                   ";
+                sql += "\n  ,    ?                                   ";
+                sql += "\n  ,    ?                                   ";
+                sql += "\n  ,    ?                                   ";
+                sql += "\n  ,    ?                                   ";
+                sql += "\n  ,    ?                                   ";
+                sql += "\n  ,    to_char(sysdate,'YYYYMMDDHH24MISS') ";
+                sql += "\n  )										 ";
+
+                pstmt = connMgr.prepareStatement(sql);
+
+                pstmt.setString(1, p_userid);
+                pstmt.setString(2, p_grcode);
+                pstmt.setString(3, p_subj);
+                pstmt.setString(4, p_year);
+                pstmt.setString(5, p_subjseq);
+                pstmt.setString(6, p_currentChapter);
+                pstmt.setString(7, p_currentPage);
+                pstmt.setString(8, p_totalPage);
+                pstmt.setString(9, p_nextPage);
+                pstmt.setString(10, p_currentTime);
+                pstmt.setString(11, p_totalTime);
+            }
+
+            if ("Y".equals(saveChk)) {
+                is_Ok = pstmt.executeUpdate();
+            } else {
+                is_Ok = 1;
+            }
+
+            ls.close();
+
+            if (is_Ok == 1) {
+                connMgr.commit();
+            } else {
+                connMgr.rollback();
+            }
+        } catch (Exception ex) {
+            ErrorManager.getErrorStackTrace(ex, box, sql);
+            throw new Exception("sql = " + sql + "\r\n" + ex.getMessage());
+        } finally {
+            if (pstmt != null) {
+                try {
+                    pstmt.close();
+                } catch (Exception e) {
+                }
+            }
+            if (connMgr != null) {
+                try {
+                    connMgr.setAutoCommit(true);
+                } catch (Exception e10) {
+                }
+            }
+            if (connMgr != null) {
+                try {
+                    connMgr.freeConnection();
+                } catch (Exception e10) {
+                }
+            }
+        }
+
+        return is_Ok;
+    }
     
 }

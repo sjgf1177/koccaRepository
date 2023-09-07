@@ -34,8 +34,10 @@ $(function(){
 
 
   // 스크립트 창
+  /*
   $('.jp-script').bind('click',function(){
 
+    
     var h = $('.scHead').height()+$('.scConfBox').outerHeight();
     if ($(this).is('.on')){
       $('#scriptBox').stop().animate({'height':'0'},400);
@@ -49,8 +51,9 @@ $(function(){
   });
   $('.scClose').bind('click',function(){
     $('.jp-script').click();
+    
   });
-
+  */
 
   // 창숨기기
   $(document).mouseup(function(e){
@@ -74,7 +77,7 @@ $(function(){
           if ($('.quiz').length > 0 || $('.jp-limit').length > 0){}else{$('#jquery_jplayer_1').jPlayer('play');}
         }
       }
-
+      /*
       if (!$('#scriptBox, .jp-script').is(e.target) && $('#scriptBox, .jp-script').has(e.target).length === 0){
         if($('.jp-script').is('.on')){
           var h = $('.scHead').height()+$('.scConfBox').outerHeight();
@@ -83,7 +86,7 @@ $(function(){
           if ($('.quiz').length > 0 || $('.jp-limit').length > 0){}else{$('#jquery_jplayer_1').jPlayer('play');}
         }
       }
-
+      */
       if (!$('#navigation, .u_index').is(e.target) && $('#navigation, .u_index').has(e.target).length === 0){
         if($('.u_index').is('.on')){
           var h = $('#navigation').outerHeight();
@@ -92,6 +95,16 @@ $(function(){
           if ($('.quiz').length > 0 || $('.jp-limit').length > 0){}else{$('#jquery_jplayer_1').jPlayer('play');}
         }
       }
+
+      if($(".jp-speed").has(e.target).length === 0){
+        $(".jp-speed-btn-box, .jp-toggles-text").removeClass("on"); //speed 영역
+      }
+
+      if($(".u_chapter").has(e.target).length === 0){
+        $(".u_chapter").removeClass("on");
+        $('#chapterNavi').stop().animate({'height':'0'},400); //chasinavi 영역
+      }
+
     }
   });
 
@@ -135,21 +148,6 @@ $(window).load(function(){
 		$(".jp-gradient-box").hide();
 
 	});
-
-	
-
-  //해당영역 외에 클릭시 이벤트 제거
-  $(document).mouseup(function (e){
-    if($(".jp-speed").has(e.target).length === 0){
-      $(".jp-speed-btn-box, .jp-toggles-text").removeClass("on"); //speed 영역
-    }
-    if($(".u_chapter").has(e.target).length === 0){
-      $(".u_chapter").removeClass("on"); 
-      $('#chapterNavi').stop().animate({'height':'0'},400); //chasinavi 영역
-    }
-  });
-
-  
   
   //차시명
   
@@ -227,11 +225,6 @@ $(window).load(function(){
       }
       
     });
-
-
-
-      
-  
 
 });
 

@@ -85,7 +85,7 @@
 										</div>
 									</div>
 								</div>
-								<button class="jp-script tooltip" role="button" tabindex="0" title="자막"><span class="sub_tooltip">자막</span></button>
+								<button class="jp-script on tooltip" role="button" tabindex="0" title="자막"><span class="sub_tooltip">자막</span></button>
 								<button class="jp-full-screen tooltip" role="button" tabindex="0" title="전체화면"><span class="sub_tooltip">전체화면</span></button>
 							</div>
 							
@@ -111,8 +111,8 @@
 			<div id="scriptBox">
 				<div class="scConfBox">
 					<div class="scConf">
-						<p>자막이 들어오는 영역입니다.
-						</p>
+						<span class="teller"></span>
+						<p class="scriptTxt"></p>
 					</div>
 				</div>
 			</div>
@@ -165,7 +165,6 @@ $(function(){
 	});
 	playControl();
 
-
     // movie
     var movieUrl = [mp4_Name]; // 1300k, 500k
       function jplayerControll(a){
@@ -198,7 +197,7 @@ $(function(){
 		//	autohide: {restored: true, fadeIn:200},
 			volume: 0.5,
 			ended : function(){
-  
+
 			}
 		});
 	}
