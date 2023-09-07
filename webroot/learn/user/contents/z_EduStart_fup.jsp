@@ -198,7 +198,6 @@
 
             if (curbranch == mybranch) {
                 var url = '<%=v_eduChkURL%>' + current + '&p_gubun=' + gubun;
-                //alert("url="+url);
                 parent.echk.location = url;
             }
 

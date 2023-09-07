@@ -215,7 +215,7 @@ public class EduStart extends HttpServlet {
             	this.performCreduSubj(request, response, box, out);
             } else if (v_process.equals("subjseqPageClassInfo")) {
                 this.performSubjseqPageClassInfo(request, response, box, out);
-            } else if (v_process.equals("subjPageInfo")) {
+            }  else if (v_process.equals("subjPageInfo")) {
                 this.performSubjPageInfo(request, response, box, out);
             } else if (v_process.equals("pageControlChk")) {
                 this.performPageControlChk(request, response, box, out);
@@ -223,6 +223,10 @@ public class EduStart extends HttpServlet {
                 this.performSubjSeqPageChk(request, response, box, out);
             } else if (v_process.equals("lessonCompleteChk")) {
                 this.performLessonCompleteChk(request, response, box, out);
+            } else if (v_process.equals("subjseqPageSearchInput")) {
+                this.performSubjseqPageSearchInput(request, response, box, out);
+            } else if (v_process.equals("subjseqPageUpdate")) {
+                this.performSubjseqPageUpdate(request, response, box, out);
             }
 
         } catch (Exception ex) {
@@ -1286,6 +1290,62 @@ public class EduStart extends HttpServlet {
 
         out.print(jsonObj.toJSONString().replace("\\", ""));
         out.flush();
+    }
+
+    /**
+     * B2C 수강 페이지 이력 저장
+     *
+     * @param request encapsulates the request to the servlet
+     * @param response encapsulates the response from the servlet
+     * @param box receive from the form object
+     * @param out printwriter object
+     * @return void
+     */
+    public void performSubjseqPageSearchInput(HttpServletRequest request, HttpServletResponse response, RequestBox box, PrintWriter out) throws Exception {
+        try {
+            EduStartBean bean = new EduStartBean();
+
+            //int isOk = bean.saveSubjseqPageClassInfo(box);
+            int c_time = bean.subjseqPageSearchInput(box);
+
+            out.println("{\"cTime\" : \"" + c_time + "\"}");
+            out.flush();
+
+        } catch (Exception ex) {
+            ErrorManager.getErrorStackTrace(ex, out);
+            throw new Exception("performsubjseqPageSearchInput()\r\n" + ex.getMessage());
+        }
+    }
+
+    /**
+     * B2C 수강 페이지 시간 저장
+     *
+     * @param request encapsulates the request to the servlet
+     * @param response encapsulates the response from the servlet
+     * @param box receive from the form object
+     * @param out printwriter object
+     * @return void
+     */
+    public void performSubjseqPageUpdate(HttpServletRequest request, HttpServletResponse response, RequestBox box, PrintWriter out) throws Exception {
+        try {
+            EduStartBean bean = new EduStartBean();
+
+            int isOk = bean.subjseqPageUpdate(box);
+            String v_msg = "";
+            AlertManager alert = new AlertManager();
+
+            if (isOk > 0) {
+                v_msg = "";
+                alert.selfClose(out, v_msg);
+            } else {
+                v_msg = "실패했습니다.";
+                alert.selfClose(out, v_msg);
+            }
+
+        } catch (Exception ex) {
+            ErrorManager.getErrorStackTrace(ex, out);
+            throw new Exception("performSubjseqPageUpdate()\r\n" + ex.getMessage());
+        }
     }
     
 }

@@ -106,6 +106,9 @@ function prev(n){
 	}
 }
 
+if(nextEnd == true){ $(".jp-limit").hide();}; //프로그래스바 제어
+
+//다음페이지 버튼
 $('.nextFunc').bind('click',function(){
 	
 	var mypage = parseInt($(this).attr('data-page'));
