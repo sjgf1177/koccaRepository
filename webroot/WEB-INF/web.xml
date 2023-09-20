@@ -6,7 +6,8 @@
         <filter-class>com.tmax.sso.filter.SSOFilter</filter-class>
         <init-param>
             <param-name>com.tmax.sso.filter.conffile.path</param-name>
-            <param-value>C:/kocca2021_aa/workspace/kocca/webroot/sso/eamconf/ssofilter.conf</param-value>
+            <!--<param-value>C:/kocca2021_aa/workspace/kocca/webroot/sso/eamconf/ssofilter.conf</param-value>-->
+			<param-value>C:/DEV/kocca/webroot/sso/eamconf/ssofilter.conf</param-value>
             <!-- <param-value>D:/_DEV_/workspace_kocca/kocca/webroot/sso/eamconf/ssofilter.conf</param-value> -->
         </init-param>
     </filter>
