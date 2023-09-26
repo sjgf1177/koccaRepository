@@ -1,4 +1,4 @@
-@charset "euc-kr";
+@charset "utf-8";
 
 footer .container{border-top:solid 1px #e3eff3;}
 footer .footer_wrap{padding-top:15px; padding-bottom:15px;}
@@ -16,7 +16,7 @@ footer .footer_icon_con .footer_relation_site select option{font-size:1.2rem; li
 
 .dn{display: none !important;}
 
-/* ¹İÀÀÇü */
+/* ë°˜ì‘í˜• */
 @media (min-width: 576px){
 }
 

@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 header{position:relative; width:100%; height:auto; background:#1f6db5; padding:30px; height:145px;}
 header .header_after{position:absolute; top:145px; left:0; width:100%; background:#1f6db5; height:0; z-index: 999}
 header .wrapper{height:100%;}
@@ -8,8 +10,6 @@ header .container{position:static; height:100%;}
 .header-util-text .header_util_item:last-child{margin-right:0}
 .header-util-text .header_util_item a{color:white;}
 .header_util_line{display:inline-block}
-
-@charset "euc-kr";
 
 .logo{position: absolute; top:75%;width:200px; float:left; left:0; transform:translateY(-50%)}
 .gnb_con, .gnb_util_icon{padding-top:30px;}
