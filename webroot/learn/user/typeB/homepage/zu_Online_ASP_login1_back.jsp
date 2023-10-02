@@ -31,39 +31,63 @@
     <div class="wrapper">
         <div class="container">
             <div class="row">
-                <div class="col-12 mxw-450">
+                <div class="col-12">
+                    <jsp:include page="/learn/user/typeB/include_left/left_0.jsp">
+                    	<jsp:param value="1" name="left_active"/>
+                    </jsp:include>
                     <div class="subContainer">
                         <div class="sub_section">
                             <div class="sub_contents_header">
-                                <h1>회원가입</h1>
+                                <span>회원가입</span>
+                                <div class="linemap_wrap">
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <span>
+                                                    <img src="/common/image/home_icon.png" alt="메인">
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><span>회원/로그인</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><span>회원가입</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                             <div class="sub_contents_body">
                                 <div class="sub_boarder_body join_box">
                                     <div class="signUp_step_bar">
                                         <div class="step_wrap active">
                                             <p>
-                                                <i class="bi bi-check-circle-fill"></i>
-                                                약관동의
+                                                <span>STEP1</span>
+                                                이용약관 동의
                                             </p>
                                         </div>
-
+                                        <div class="step_line_wrap">
+                                            <div class="step_right_arrow"></div>
+                                        </div>
                                         <div class="step_wrap">
                                             <p>
-                                                <i class="bi bi-check-circle"></i>
-                                                정보입력
+                                                <span>STEP2</span>
+                                                회원정보 입력
                                             </p>
                                         </div>
-
+                                        <div class="step_line_wrap">
+                                            <div class="step_right_arrow"></div>
+                                        </div>
                                         <div class="step_wrap">
                                             <p>
-                                                <i class="bi bi-check-circle"></i>
+                                                <span>STEP3</span>
                                                 가입완료
                                             </p>
                                         </div>
                                     </div>
                                     
                                     <div class="agree_box">
-                                        <h3>약관동의</h3>
+                                        <span>사이트 이용약관</span>
                                         <div class="agree_con">
                                             <p>제1장 총칙</p>
                                             <span>제1조 목적</span>
@@ -212,7 +236,7 @@
                                             회원제 서비스 제공 및 고객 맞춤형 서비스 목적
                                             
                                             <span>2. 개인정보 수집 항목</span>
-                                            <span class="point_purple">[개인회원]</span>
+                                            <span class="point_blue">[개인회원]</span>
                                             <ul>
                                                 <li>
                                                     <span>필수항목 : </span>
@@ -223,7 +247,7 @@
                                                     거주지
                                                 </li>
                                             </ul>
-                                            <span class="point_purple">[기업회원]</span>
+                                            <span class="point_blue">[기업회원]</span>
                                             <ul>
                                                 <li>
                                                     <span>필수항목 : </span>
@@ -234,21 +258,21 @@
                                                     소속부서
                                                 </li>
                                             </ul>
-                                            <span class="point_purple">[온라인교육 수강정보]</span>
+                                            <span class="point_blue">[온라인교육 수강정보]</span>
                                             <ul>
                                                 <li>
                                                     <span>필수항목 : </span>
                                                     아이디, 성명, 휴대폰, 이메일, 수강과목정보
                                                 </li>
                                             </ul>
-                                            <span class="point_purple">[문의하기]</span>
+                                            <span class="point_blue">[문의하기]</span>
                                             <ul>
                                                 <li>
                                                     <span>필수항목 : </span>
                                                     아이디, 성명, 휴대폰, 이메일
                                                 </li>
                                             </ul>
-                                            <span class="point_purple">[오프라인교육 신청]</span>
+                                            <span class="point_blue">[오프라인교육 신청]</span>
                                             <ul>
                                                 <li>
                                                     <span>필수항목 : </span>
@@ -259,7 +283,7 @@
                                                     전문분야, 직위, 경력, 학력 등 교육프로그램에 따라 다르며 정보주체로부터 별도의 동의를 얻어 수집 및 처리합니다.
                                                 </li>
                                             </ul>
-                                            <span class="point_purple">[시설예약 신청]</span>
+                                            <span class="point_blue">[시설예약 신청]</span>
                                             <ul>
                                                 <li>
                                                     <span>필수항목 : </span>
@@ -271,7 +295,7 @@
 
                                                 </li>
                                             </ul>
-                                            <span class="point_purple">[시설예약 신청]</span>
+                                            <span class="point_blue">[시설예약 신청]</span>
                                             <ul>
                                                 <li>
                                                     <span>필수항목 : </span>
@@ -296,8 +320,8 @@
                                             <label for="agree2">위 약관에 동의합니다.</label>
                                         </div>
                                         <div class="agree_btn_box">
-                                            <a href="javascript:void(0);" id="btn_cancel" title="취소" class="btn btn-outline-secondary btn-lg btn_cancel">취소</a>
-                                            <a href="javascript:void(0);" id="btn_next" title="다음" class="btn btn-purple btn_next">다음</a>
+                                            <a href="javascript:void(0);" id="btn_cancel" title="취소" class="btn_cancel">취소</a>
+                                            <a href="javascript:void(0);" id="btn_next" title="다음" class="btn_next">다음</a>
                                         </div>
                                     </div>
                                 </div>

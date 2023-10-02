@@ -356,62 +356,87 @@
     <div class="wrapper">
         <div class="container">
             <div class="row">
-                <div class="col-12 mxw-450">
+                <div class="col-12">
+                    <jsp:include page="/learn/user/typeB/include_left/left_0.jsp">
+                    	<jsp:param value="1" name="left_active"/>
+                    </jsp:include>
                     <div class="subContainer">
                         <div class="sub_section">
                             <div class="sub_contents_header">
                                 <span>회원가입</span>
+                                <div class="linemap_wrap">
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <span>
+                                                    <img src="/common/image/home_icon.png" alt="메인">
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><span>회원/로그인</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><span>회원가입</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                             <div class="sub_contents_body">
                                 <div class="sub_info_body join_box">
-									<div class="signUp_step_bar">
-										<div class="step_wrap">
-											<p>
-												<i class="bi bi-check-circle"></i>
-												약관동의
-											</p>
-										</div>
-
-										<div class="step_wrap active">
-											<p>
-												<i class="bi bi-check-circle-fill"></i>
-												정보입력
-											</p>
-										</div>
-
-										<div class="step_wrap">
-											<p>
-												<i class="bi bi-check-circle"></i>
-												가입완료
-											</p>
-										</div>
-									</div>
-
-                                    <h3>회원정보</h3>
+                                    <div class="signUp_step_bar">
+                                        <div class="step_wrap">
+                                            <p>
+                                                <span>STEP1</span>이용약관 동의
+                                            </p>
+                                        </div>
+                                        <div class="step_line_wrap">
+                                            <div class="step_right_arrow"></div>
+                                        </div>
+                                        <div class="step_wrap active">
+                                            <p>
+                                                <span>STEP2</span>회원정보 입력
+                                            </p>
+                                        </div>
+                                        <div class="step_line_wrap">
+                                            <div class="step_right_arrow"></div>
+                                        </div>
+                                        <div class="step_wrap">
+                                            <p>
+                                                <span>STEP3</span>가입완료
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <p class="sub_course_view_title">회원정보</p>
                                     <div class="sub_course_view_wrap">
                                         <div class="info_box">
                                         	<form name="form_join" id="form_join" method="POST">
                                         		<input type="hidden" name="p_process" value="" />
                                         		<input type="hidden" name="menuid" value="" />
                                         		<input type="hidden" name="gubun" value="" />
-	                                            <ul class="">
+	                                            <table class="write_table th_align_left1">
+	                                                <colgroup>
+	                                                    <col width="30%">
+	                                                    <col width="auto">
+	                                                </colgroup>
+	                                               	<tbody>
 		                                                <c:choose>
 	                                                    	<c:when test="${sessionScope.tem_grcode eq 'N000210'}">
 																<h4 style="color: red;">※ 교육안내, 수료증 발급 등을 위해 정확한 정보를 입력해주세요.</h4>
-	                                                    		<li>
-		                                                    		<p><span>*</span>회사명</p>
-			                                                        <div>
+	                                                    		<tr>
+		                                                    		<th><span>*</span>회사명</th>
+			                                                        <td>
 			                                                        	<input type="text" style="width:100%" name="p_deptnm" id="p_deptnm" title="회사명" class="companyName">
 																		<span style="width: 100%;">※ 사업자가 없는 창작자 등 소속이 없는 경우, ‘소속없음’ 에 체크해주세요.</span>
 																		<span>
 																		<input type="checkbox" name="p_notcompchk" id="p_notcompchk" value="Y" title="소속없음">
 																		<label for="p_notcompchk">소속없음</label>
 																		</span>
-			                                                        </div>
-			                                                    </li>
-																<li>
-																	<p><span>*</span>분야</p>
-																	<div>
+			                                                        </td>
+			                                                    </tr>
+																<tr>
+																	<th><span>*</span>분야</th>
+																	<td>
 																		<%
 																			List cateList = CodeAdminBean.selectListCode("0122");
 
@@ -433,11 +458,11 @@
 																			}
 																		%>
 																		<input type="text" name="p_cate_txt" id="p_cate_txt" title="기타" disabled>
-																	</div>
-																</li>
-																<li>
-																	<p><span>*</span>사업장 소재지</p>
-																	<div>
+																	</td>
+																</tr>
+																<tr>
+																	<th><span>*</span>사업장 소재지</th>
+																	<td>
 																		<label for="p_comp_location"></label>
 																		<select class="email3" name="p_comp_location" id="p_comp_location" title="사업장 소재지 선택">
 																			<option value="" title="선택">선택</option>
@@ -461,58 +486,58 @@
 																				}
 																			%>
 																		</select>
-																	</div>
-																</li>
-		                                                        <li>
-			                                                        <p><span>*</span>성명(한글)</p>
-			                                                        <div><input type="text" name="p_kor_name" id="p_kor_name" title="성명(한글)"></div>
-			                                                    </li>
-			                                                    <li class="birthform_box">
-			                                                        <p><span>*</span>생년월일(예 1972년 01월 01일)</p>
-			                                                        <div>
-			                                                            <input type="text" name="p_birth_year" id="p_birth_year" maxlength="4" class="year" title="생년월일 (년도)"><span>년</span>
-																		<input type="text" name="p_birth_month" id="p_birth_month" maxlength="2" class="month" title="생년월일 (월)"><span>월</span>
-			                                                            <input type="text" name="p_birth_day" id="p_birth_day" maxlength="2" class="day" title="생년월일 (일)"><span>일</span>
-			                                                        </div>
-			                                                    </li>
-			                                                    <li>
-			                                                        <p><span>*</span>성별</p>
-			                                                        <div>
+																	</td>
+																</tr>
+		                                                        <tr>
+			                                                        <th><span>*</span>성명(한글)</th>
+			                                                        <td><input type="text" name="p_kor_name" id="p_kor_name" title="성명(한글)"></td>
+			                                                    </tr>
+			                                                    <tr>
+			                                                        <th><span>*</span>생년월일</th>
+			                                                        <td>
+			                                                            <input type="text" name="p_birth_year" id="p_birth_year" maxlength="4" class="year" title="생년월일 (년도)">년
+			                                                            <input type="text" name="p_birth_month" id="p_birth_month" maxlength="2" class="month" title="생년월일 (월)">월
+			                                                            <input type="text" name="p_birth_day" id="p_birth_day" maxlength="2" class="day" title="생년월일 (일)">일
+			                                                            <span>예(1972년 01월 01일)</span>
+			                                                        </td>
+			                                                    </tr>
+			                                                    <tr>
+			                                                        <th><span>*</span>성별</th>
+			                                                        <td>
 			                                                            <input type="radio" name="p_sex" value="2" id="gender2" title="여자">
 			                                                            <label for="gender2">여자</label>
 			                                                            <input type="radio" name="p_sex" value="1" id="gender1" title="남자">
 			                                                            <label for="gender1">남자</label>
-			                                                        </div>
-			                                                    </li>
-			                                                    <li>
-			                                                        <p><span>*</span>아이디</p>
-			                                                        <div>
-			                                                            <input type="text" name="p_id" id="p_id" maxlength="16" title="아이디 6~16자의 영문, 숫자 조합" placeholder="아이디는 6~30자의 소문자 영문, 숫자의 조합으로 만들 수 있습니다." />
-			                                                            <a href="javascript:existsId();" class="btn btn-primary mt10">중복확인</a>
-			                                                            <p id="id_alter_area" style="font-size:12px;"></p>
-			                                                        </div>
-			                                                    </li>
-			                                                    <li>
-			                                                        <p><span>*</span>비밀번호</p>
-			                                                        <div>
+			                                                        </td>
+			                                                    </tr>
+			                                                    <tr>
+			                                                        <th><span>*</span>아이디</th>
+			                                                        <td>
+			                                                            <input type="text" name="p_id" id="p_id" maxlength="16" title="아이디 6~16자의 영문, 숫자 조합" />
+			                                                            <a href="javascript:existsId();">중복확인</a>
+			                                                            <span id="id_alter_area"></span>
+			                                                            <span>* 아이디는 6~30자의 소문자 영문, 숫자의 조합으로 만들 수 있습니다.</span>
+			                                                        </td>
+			                                                    </tr>
+			                                                    <tr>
+			                                                        <th><span>*</span>비밀번호</th>
+			                                                        <td>
 			                                                            <input type="password" name="p_pw1" id="p_pw1" title="비밀번호 (8자 이상의 숫자 혹은 영문으로 입력해주세요. 연속된 숫자, 생일, 주민번호 등 알기쉬운 숫자는 피해주세요.)" />
 			                                                            <div id="chkMsg" style="font-size:12px;"></div>
-					                                                    <p class="sm_text">
-																			* 비밀번호는 8 ~ 16자 이어야 하며, 숫자/대문자/소문자/특수문자를 모두 포함해야 합니다.<br>
-																			* ID와 동일한 비밀번호, 동일문자, 연속문자 등은 사용하실 수 없습니다.
-																		</p>
-			                                                        </div>
-			                                                    </li>
-			                                                    <li>
-			                                                        <p><span>*</span>비밀번호 확인</p>
-			                                                        <div>
+					                                                    <span>* 비밀번호는 8 ~ 16자 이어야 하며, 숫자/대문자/소문자/특수문자를 모두 포함해야 합니다.</span>
+					                                                    <span>* ID와 동일한 비밀번호, 동일문자, 연속문자 등은 사용하실 수 없습니다.</span>
+			                                                        </td>
+			                                                    </tr>
+			                                                    <tr>
+			                                                        <th><span>*</span>비밀번호 확인</th>
+			                                                        <td>
 			                                                            <input type="password" name="p_pw2" id="p_pw2" title="비밀번호 확인 (비밀번호와 동일하게 입력해주세요.)">
-			                                                        </div>
-			                                                    </li>
-			                                                    <li class="number_box">
-			                                                        <p><span>*</span>전화번호</p>
-			                                                        <div><label for="p_tel0"></label>
-			                                                            <select class="phone1 text-center" name="p_tel0" id="p_tel0" title="전화번호 앞자리 선택">
+			                                                        </td>
+			                                                    </tr>
+			                                                    <tr>
+			                                                        <th><span>*</span>전화번호</th>
+			                                                        <td><label for="p_tel0"></label>
+			                                                            <select class="phone1" name="p_tel0" id="p_tel0" title="전화번호 앞자리 선택">
 			                                                                <option value="02" title="02">02</option>
 			                                                                <option value="031" title="031">031</option>
 			                                                                <option value="032" title="032">032</option>
@@ -533,14 +558,14 @@
 			                                                                <option value="070" title="070">070</option>
 			                                                            </select>
 			                                                            -
-			                                                            <input type="text" class="phone2 text-center" name="p_tel1" id="p_tel1" maxlength="4" title="전화번호 중간자리 입력">-
-			                                                            <input type="text" class="phone3 text-center" name="p_tel2" id="p_tel2" maxlength="4" title="전화번호 뒷자리 입력">
-			                                                        </div>
-			                                                    </li>
-			                                                    <li class="number_box">
-			                                                        <p><span>*</span>휴대폰</p>
-			                                                        <div><label for="p_mobil0"></label>
-			                                                            <select class="phone1 text-center" name="p_mobil0" id="p_mobil0" title="휴대폰 앞자리 선택">
+			                                                            <input type="text" class="phone2" name="p_tel1" id="p_tel1" maxlength="4" title="전화번호 중간자리 입력">-
+			                                                            <input type="text" class="phone3" name="p_tel2" id="p_tel2" maxlength="4" title="전화번호 뒷자리 입력">
+			                                                        </td>
+			                                                    </tr>
+			                                                    <tr>
+			                                                        <th><span>*</span>휴대폰</th>
+			                                                        <td><label for="p_mobil0"></label>
+			                                                            <select class="phone1" name="p_mobil0" id="p_mobil0" title="휴대폰 앞자리 선택">
 			                                                                <option value="010" title="010">010</option>
 			                                                                <option value="011" title="011">011</option>
 			                                                                <option value="016" title="016">016</option>
@@ -549,13 +574,13 @@
 			                                                                <option value="019" title="019">019</option>
 			                                                            </select>
 			                                                            -
-			                                                            <input type="text" class="phone2 text-center" name="p_mobil1" id="p_mobil1" maxlength="4" title="휴대폰 중간자리 입력">-
-			                                                            <input type="text" class="phone3 text-center" name="p_mobil2" id="p_mobil2" maxlength="4" title="휴대폰 뒷자리 입력">
-			                                                        </div>
-			                                                    </li>
-			                                                    <li class="email_box">
-			                                                        <p><span>*</span>이메일</p>
-			                                                        <div>
+			                                                            <input type="text" class="phone2" name="p_mobil1" id="p_mobil1" maxlength="4" title="휴대폰 중간자리 입력">-
+			                                                            <input type="text" class="phone3" name="p_mobil2" id="p_mobil2" maxlength="4" title="휴대폰 뒷자리 입력">
+			                                                        </td>
+			                                                    </tr>
+			                                                    <tr>
+			                                                        <th><span>*</span>이메일</th>
+			                                                        <td>
 			                                                            <input type="text" class="email1" name="p_email1" id="p_email1" title="이메일  아이디">@
 			                                                            <input type="text" class="email2" name="p_email2" id="p_email2" title="이메일  주소">
 			                                                            <label for="p_email20"></label>
@@ -566,71 +591,70 @@
 			                                                                <option value="hanmail.net" title="hanmail.net">hanmail.net</option>
 			                                                                <option value="nate.com" title="nate.com">nate.com</option>
 			                                                            </select>
-			                                                            <a href="javascript:existsEmail();" class="btn btn-primary mt10 mb5" title="이메일 중복확인">중복확인</a>
-			                                                            <span id="email_alter_area" style="font-size: 12px;"></span>
-			                                                            <span class="sm_text">* 한국콘텐츠진흥원에서 제공하는 웹진을 비롯 회원정보 수정정관련 필요한 것으로 주로 사용하시는 이메일 주소를 입력해 주세요.</span>
-			                                                        </div>
-			                                                    </li>
-			                                                    <li>
-			                                                        <p>정보수신 여부</p>
-			                                                        <div class="d-flex align-items-center">
+			                                                            <a href="javascript:existsEmail();" title="이메일 중복확인">중복확인</a>
+			                                                            <span id="email_alter_area"></span>
+			                                                            <span>* 한국콘텐츠진흥원에서 제공하는 웹진을 비롯 회원정보 수정정관련 필요한 것으로 주로 사용하시는 이메일 주소를 입력해 주세요.</span>
+			                                                        </td>
+			                                                    </tr>
+			                                                    <tr>
+			                                                        <th>정보수신 여부</th>
+			                                                        <td>
 			                                                            <input type="checkbox" name="p_agreed" id="p_agreed" value="Y" title="정보수신 여부 (서비스 및 이벤트 소식을 E-Mail 혹은 SMS으로 수신 하겠습니다.)">
-			                                                            <label for="p_agreed" style="padding-left: 10px; width: 93%;">서비스 및 이벤트 소식을 E-Mail 혹은 SMS으로 수신 하겠습니다.</label>
-			                                                        </div>
-			                                                    </li>
+			                                                            <label for="p_agreed">서비스 및 이벤트 소식을 E-Mail 혹은 SMS으로 수신 하겠습니다.</label>
+			                                                        </td>
+			                                                    </tr>
 	                                                    	</c:when>
 	                                                    	<c:otherwise>
-	                                                    		<li>
-			                                                        <p><span>*</span>성명(한글)</p>
-			                                                        <div><input type="text" name="p_kor_name" id="p_kor_name" title="성명(한글)"></div>
-			                                                    </li>
-			                                                    <li class="birthform_box">
-			                                                        <p><span>*</span>생년월일(예 1972년 01월 01일)</p>
-			                                                        <div>
-			                                                            <input type="text" name="p_birth_year" id="p_birth_year" maxlength="4" class="year" title="생년월일 (년도)"><span>년</span>
-			                                                            <input type="text" name="p_birth_month" id="p_birth_month" maxlength="2" class="month" title="생년월일 (월)"><span>월</span>
-			                                                            <input type="text" name="p_birth_day" id="p_birth_day" maxlength="2" class="day" title="생년월일 (일)"><span>일</span>
-			                                                        </div>
-			                                                    </li>
-			                                                    <li>
-			                                                        <p><span>*</span>성별</p>
-			                                                        <div>
+	                                                    		<tr>
+			                                                        <th><span>*</span>성명(한글)</th>
+			                                                        <td><input type="text" name="p_kor_name" id="p_kor_name" title="성명(한글)"></td>
+			                                                    </tr>
+			                                                    <tr>
+			                                                        <th><span>*</span>생년월일</th>
+			                                                        <td>
+			                                                            <input type="text" name="p_birth_year" id="p_birth_year" maxlength="4" class="year" title="생년월일 (년도)">년
+			                                                            <input type="text" name="p_birth_month" id="p_birth_month" maxlength="2" class="month" title="생년월일 (월)">월
+			                                                            <input type="text" name="p_birth_day" id="p_birth_day" maxlength="2" class="day" title="생년월일 (일)">일
+			                                                            <span>예(1972년 01월 01일)</span>
+			                                                        </td>
+			                                                    </tr>
+			                                                    <tr>
+			                                                        <th><span>*</span>성별</th>
+			                                                        <td>
 			                                                            <input type="radio" name="p_sex" value="2" id="gender2" title="여자">
 			                                                            <label for="gender2">여자</label>
 			                                                            <input type="radio" name="p_sex" value="1" id="gender1" title="남자">
 			                                                            <label for="gender1">남자</label>
-			                                                        </div>
-			                                                    </li>
-			                                                    <li>
-			                                                        <p><span>*</span>아이디</p>
-			                                                        <div>
-			                                                            <input type="text" name="p_id" id="p_id" maxlength="16" title="아이디 6~16자의 영문, 숫자 조합" placeholder="아이디는 6~30자의 영문, 숫자의 조합으로 만들 수 있습니다." />
-			                                                            <a href="javascript:existsId();" class="btn btn-primary mt10">중복확인</a>
-			                                                            <span id="id_alter_area" style="font-size: 12px;"></span>
-			                                                        </div>
-			                                                    </li>
-			                                                    <li>
-			                                                        <p><span>*</span>비밀번호</p>
-			                                                        <div>
+			                                                        </td>
+			                                                    </tr>
+			                                                    <tr>
+			                                                        <th><span>*</span>아이디</th>
+			                                                        <td>
+			                                                            <input type="text" name="p_id" id="p_id" maxlength="16" title="아이디 6~16자의 영문, 숫자 조합" />
+			                                                            <a href="javascript:existsId();">중복확인</a>
+			                                                            <span id="id_alter_area"></span>
+			                                                            <span>* 아이디는 6~30자의 영문, 숫자의 조합으로 만들 수 있습니다.</span>
+			                                                        </td>
+			                                                    </tr>
+			                                                    <tr>
+			                                                        <th><span>*</span>비밀번호</th>
+			                                                        <td>
 			                                                            <input type="password" name="p_pw1" id="p_pw1" title="비밀번호 (8자 이상의 숫자 혹은 영문으로 입력해주세요. 연속된 숫자, 생일, 주민번호 등 알기쉬운 숫자는 피해주세요.)" />
 			                                                            <div id="chkMsg" style="font-size:12px;"></div>
-					                                                    <span class="sm_text">
-																			* 비밀번호는 8 ~ 16자 이어야 하며, 숫자/대문자/소문자/특수문자를 모두 포함해야 합니다.<br>
-																			* ID와 동일한 비밀번호, 동일문자, 연속문자 등은 사용하실 수 없습니다.
-																		</span>
-
-			                                                        </div>
-			                                                    </li>
-			                                                    <li>
-			                                                        <p><span>*</span>비밀번호 확인</p>
-			                                                        <div>
+					                                                    <span>* 비밀번호는 8 ~ 16자 이어야 하며, 숫자/대문자/소문자/특수문자를 모두 포함해야 합니다.</span>
+					                                                    <span>* ID와 동일한 비밀번호, 동일문자, 연속문자 등은 사용하실 수 없습니다.</span>
+			                                                        </td>
+			                                                    </tr>
+			                                                    <tr>
+			                                                        <th><span>*</span>비밀번호 확인</th>
+			                                                        <td>
 			                                                            <input type="password" name="p_pw2" id="p_pw2" title="비밀번호 확인 (비밀번호와 동일하게 입력해주세요.)">
-			                                                        </div>
-			                                                    </li>
-			                                                    <li class="number_box">
-			                                                        <p><span>*</span>전화번호</p>
-			                                                        <div><label for="p_tel0"></label>
-			                                                            <select class="phone1 text-center" name="p_tel0" id="p_tel0" title="전화번호 앞자리 선택">
+			                                                        </td>
+			                                                    </tr>
+			                                                    <tr>
+			                                                        <th><span>*</span>전화번호</th>
+			                                                        <td><label for="p_tel0"></label>
+			                                                            <select class="phone1" name="p_tel0" id="p_tel0" title="전화번호 앞자리 선택">
 			                                                                <option value="02" title="02">02</option>
 			                                                                <option value="031" title="031">031</option>
 			                                                                <option value="032" title="032">032</option>
@@ -651,14 +675,14 @@
 			                                                                <option value="070" title="070">070</option>
 			                                                            </select>
 			                                                            -
-			                                                            <input type="text" class="phone2 text-center" name="p_tel1" id="p_tel1" maxlength="4" title="전화번호 중간자리 입력">-
-			                                                            <input type="text" class="phone3 text-center" name="p_tel2" id="p_tel2" maxlength="4" title="전화번호 뒷자리 입력">
-			                                                        </div>
-			                                                    </li>
-			                                                    <li class="number_box">
-			                                                        <p><span>*</span>휴대폰</p>
-			                                                        <div><label for="p_mobil0"></label>
-			                                                            <select class="phone1 text-center" name="p_mobil0" id="p_mobil0" title="휴대폰 앞자리 선택">
+			                                                            <input type="text" class="phone2" name="p_tel1" id="p_tel1" maxlength="4" title="전화번호 중간자리 입력">-
+			                                                            <input type="text" class="phone3" name="p_tel2" id="p_tel2" maxlength="4" title="전화번호 뒷자리 입력">
+			                                                        </td>
+			                                                    </tr>
+			                                                    <tr>
+			                                                        <th><span>*</span>휴대폰</th>
+			                                                        <td><label for="p_mobil0"></label>
+			                                                            <select class="phone1" name="p_mobil0" id="p_mobil0" title="휴대폰 앞자리 선택">
 			                                                                <option value="010" title="010">010</option>
 			                                                                <option value="011" title="011">011</option>
 			                                                                <option value="016" title="016">016</option>
@@ -667,13 +691,13 @@
 			                                                                <option value="019" title="019">019</option>
 			                                                            </select>
 			                                                            -
-			                                                            <input type="text" class="phone2 text-center" name="p_mobil1" id="p_mobil1" maxlength="4" title="휴대폰 중간자리 입력">-
-			                                                            <input type="text" class="phone3 text-center" name="p_mobil2" id="p_mobil2" maxlength="4" title="휴대폰 뒷자리 입력">
-			                                                        </div>
-			                                                    </li>
-			                                                    <li class="email_box">
-			                                                        <p><span>*</span>이메일</p>
-			                                                        <div>
+			                                                            <input type="text" class="phone2" name="p_mobil1" id="p_mobil1" maxlength="4" title="휴대폰 중간자리 입력">-
+			                                                            <input type="text" class="phone3" name="p_mobil2" id="p_mobil2" maxlength="4" title="휴대폰 뒷자리 입력">
+			                                                        </td>
+			                                                    </tr>
+			                                                    <tr>
+			                                                        <th><span>*</span>이메일</th>
+			                                                        <td>
 			                                                            <input type="text" class="email1" name="p_email1" id="p_email1" title="이메일  아이디">@
 			                                                            <input type="text" class="email2" name="p_email2" id="p_email2" title="이메일  주소">
 			                                                            <label for="p_email20"></label>
@@ -684,32 +708,32 @@
 			                                                                <option value="hanmail.net" title="hanmail.net">hanmail.net</option>
 			                                                                <option value="nate.com" title="nate.com">nate.com</option>
 			                                                            </select>
-			                                                            <a href="javascript:existsEmail();" class="btn btn-primary mt10 mb5" title="이메일 중복확인">중복확인</a>
-			                                                            <span id="email_alter_area" style="font-size: 12px;"></span>
-			                                                            <span class="sm_text">* 한국콘텐츠진흥원에서 제공하는 웹진을 비롯 회원정보 수정정관련 필요한 것으로 주로 사용하시는 이메일 주소를 입력해 주세요.</span>
-			                                                        </div>
-			                                                    </li>
-			                                                    <li>
-			                                                        <p>정보수신 여부</p>
-			                                                        <div class="d-flex align-items-center">
+			                                                            <a href="javascript:existsEmail();" title="이메일 중복확인">중복확인</a>
+			                                                            <span id="email_alter_area"></span>
+			                                                            <span>* 한국콘텐츠진흥원에서 제공하는 웹진을 비롯 회원정보 수정정관련 필요한 것으로 주로 사용하시는 이메일 주소를 입력해 주세요.</span>
+			                                                        </td>
+			                                                    </tr>
+			                                                    <tr>
+			                                                        <th>정보수신 여부</th>
+			                                                        <td>
 			                                                            <input type="checkbox" name="p_agreed" id="p_agreed" value="Y" title="정보수신 여부 (서비스 및 이벤트 소식을 E-Mail 혹은 SMS으로 수신 하겠습니다.)">
-			                                                            <label for="p_agreed" style="padding-left: 10px; width: 93%;">서비스 및 이벤트 소식을 E-Mail 혹은 SMS으로 수신 하겠습니다.</label>
-			                                                        </div>
-			                                                    </li>
-		                                                    	<li>
-		                                                    		<p>
+			                                                            <label for="p_agreed">서비스 및 이벤트 소식을 E-Mail 혹은 SMS으로 수신 하겠습니다.</label>
+			                                                        </td>
+			                                                    </tr>
+		                                                    	<tr>
+		                                                    		<th>
 			                                                        	소속부서
-			                                                        </p>
-			                                                        <div><input type="text" style="width:100%" name="p_deptnm" id="p_deptnm" title="소속부서"></div>
-			                                                    </li>
+			                                                        </th>
+			                                                        <td><input type="text" style="width:100%" name="p_deptnm" id="p_deptnm" title="소속부서"></td>
+			                                                    </tr>
 	                                                    	</c:otherwise>
 	                                                   	</c:choose>
                                                    	</tbody>
-	                                            </ul>
+	                                            </table>
                                             </form>
                                             <div class="agree_btn_box">
-                                                <a href="javascript:void(0);" title="취소" class="btn btn-outline-secondary btn-lg btn_cancel" id="btn_cancel">취소</a>
-                                                <a href="javascript:void(0);" title="가입" class="btn btn-purple btn_next" id="btn_next">가입</a>
+                                                <a href="javascript:void(0);" title="취소" class="btn_cancel" id="btn_cancel">취소</a>
+                                                <a href="javascript:void(0);" title="가입" class="btn_next" id="btn_next">가입</a>
                                             </div>
                                         </div>
                                     </div>

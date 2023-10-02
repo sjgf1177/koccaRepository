@@ -1,9 +1,9 @@
 <%@ page contentType = "text/html;charset=euc-kr" %>
 <jsp:include page="/learn/user/typeB/include/site_info.jsp" />
 	<!DOCTYPE html>
-	<html lang="en">
+	<html lang="ko">
 	<head>
-		<meta charset="euc-kr">
+		<meta charset="utf-8">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <title>에듀코카-B2B</title>

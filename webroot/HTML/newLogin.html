@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>에듀코카-B2B</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    <title>에듀코카-B2B</title>
+
+    <!-- Bootstrap-3.3.7 / Jquery UI -->
+    <link href="/common/js/jquery-ui-1.12.1/jquery-ui.min.css" rel="stylesheet">
+    <!--<link href="/common/js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" rel="stylesheet">-->
+    <!--<link href="/common/js/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">-->
+
+    <script src="/common/js/jquery-3.3.1.min.js"></script>
+    <script src="/common/js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <!--<script src="/common/js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
+    <!--<script src="/common/js/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>-->
+
+
+    <!-- Bootstrap-5.3.1 -->
+    <link href="/common/js/bootstrap-5.3.1-dist/css/bootstrap.css" rel="stylesheet">
+    <script src="/common/js/bootstrap-5.3.1-dist/js/bootstrap.bundle.js"></script>
+
+
+    <link href="/common/js/swiper/swiper.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/common/css/custom.css" rel="stylesheet">
+    <link href="/common/css/header.css" rel="stylesheet">
+    <link href="/common/css/footer.css" rel="stylesheet">
+    <link href="/common/css/Renewal/login.css" rel="stylesheet">
+
+    <!-- Custom JS -->
+    <script src="/common/js/custom.js"></script>
+
+    <!-- 기존 JS -->
+    <script type="text/javascript" src="/script/portal/common.js"></script>
+    <script language="javascript" src="/script/flash_TagScript.js"></script>
+    <script language="javascript" src="/script/mainscript.js"></script>
+</head>
+
+<body>
+    <script language="JavaScript" type="text/JavaScript">
+        $(document).ready(function(){
+            $("#p_id").focus();
+
+            $(document).on("keydown", "#p_pw", function(e){
+                if (e.keyCode == 13){
+                    ASP_login();
+                }
+            });
+        });
+
+        // 로그인
+        function ASP_login() {
+            if($("#p_id").val() == null || $("#p_id").val() == ""){
+                alert("아이디를 입력해주세요.");
+                $("#p_id").focus();
+                return;
+            }
+
+            if($("#p_pw").val() == null || $("#p_pw").val() == ""){
+                alert("비밀번호를 입력해주세요.");
+                $("#p_pw").focus();
+                return;
+            }
+
+            mainmenu("5");
+        }
+    </script>
+
+    <div class="d-flex align-items-center py-4 bg-body-tertiary h-100">
+        <main class="form-signin w-100 m-auto">
+            <form name="form1" id="form1" method="POST">
+                <input type="hidden" name="p_process" value="" />
+                <input type="hidden" name="gubun" value="" />
+                <input type="hidden" name="menuid" value="" />
+
+                <div class="text-center mb-5"><img src="/images/2023/logo.png" alt="한국콘텐츠진흥원"></div>
+                <h1 class="h3 mb-3 fw-normal text-center">로그인</h1>
+
+                <div class="form-floating">
+                    <input type="email" class="form-control" id="p_id" name="p_id" placeholder="아이디입력" title="아이디입력">
+                    <label for="p_id">아이디입력</label>
+                </div>
+                <div class="form-floating">
+                    <input type="password" class="form-control" id="p_pw" name="p_pw" placeholder="비밀번호입력" title="비밀번호입력">
+                    <label for="p_pw">비밀번호입력</label>
+                </div>
+
+                <button class="btn btn-purple w-100 py-2" type="button" value="로그인" onclick="javascript:ASP_login();" title="로그인"/>로그인</button>
+
+                <div class="mt-4 mb-3 text-body-secondary d-flex justify-content-md-center">
+                    <a href="javascript:mainmenu('1');">회원가입</a>
+                    <a href="javascript:mainmenu('2');">아이디 / 비밀번호 찾기</a>
+                </div>
+            </form>
+        </main>
+    </div>
+
+</body>
+</html>
