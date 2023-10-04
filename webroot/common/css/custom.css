@@ -338,7 +338,7 @@ input[type="chcekbox"] + label img{vertical-align: top;}
 .sub_info_body ul li:first-child{border-top:2px solid #573269;}
 .sub_info_body ul li:last-child{padding-bottom:16px; border-bottom: 2px solid #573269;}
 .sub_info_body ul li p{padding-top:18px; font-size:1.2rem; font-weight:400; line-height: 1.5rem; color:#313131;}
-.sub_info_body ul li input[type=text],.sub_info_body ul li input[type=password]{width: 100%; min-width: 25%; height:38px; border: 1px solid #e3e6e9; border-radius: 3px;padding-top: 9px; padding-bottom: 8px; padding-left: 5px; padding-right:5px; font-size: 0.8rem; line-height: 1rem;}
+input[type=text], input[type=password]{width: 100%; min-width: 25%; height:38px; border: 1px solid #e3e6e9; border-radius: 3px;padding-top: 9px; padding-bottom: 8px; padding-left: 5px; padding-right:5px; font-size: 0.8rem; line-height: 1rem;}
 .sub_info_body ul li.birthform_box input{width: 26%; min-width: 25%;}
 .sub_info_body ul li.birthform_box span{display: inline-block; margin: 0 5px;}
 .sub_info_body ul li.number_box input{width: 31%; min-width: 25%;}
@@ -357,7 +357,7 @@ input[type="chcekbox"] + label img{vertical-align: top;}
 .sub_info_body .sub_course_view_wrap table tr:first-child td span{display:inline-block; width:calc(100% - 130px);}
 
 /* 글쓰기 테이블 */
-.write_table input[type=text], .write_table input[type=password]{width:40%; min-width:200px; border:1px solid #e3e6e9; border-radius: 3px; padding-top:9px; padding-bottom:8px; padding-left:19px; padding-right:19px; font-size:1.5rem; line-height: 2.1rem;}
+.write_table input[type=text], .write_table input[type=password]{width:40%; min-width:200px; border:1px solid #e3e6e9; border-radius: 3px; padding-top:9px; padding-bottom:8px; padding-left:5px; padding-right:5px; font-size:0.8rem; line-height: 1rem;}
 .write_table select{width:40%; min-width: 200px; border:solid 1px #e3e6e9; border-radius: 3px; background-image: url(../image/select_style_1_arrow.png); background-repeat: no-repeat; background-position: right 12px center; background-color: transparent; padding-top:9px; padding-bottom:8px; padding-left:19px; padding-right:19px; cursor: pointer; font-size: 15px; line-height: 21px;}*/
 .write_table th span{color:red; padding-right:8px;}
 .write_table td input.year{width:80%; min-width: 0; margin-right:10px; margin-bottom:10px;}
@@ -474,14 +474,14 @@ input[type="chcekbox"] + label img{vertical-align: top;}
 .join_box .signUp_step_bar .step_wrap{padding:0 13%; display:inline-block; vertical-align: middle; text-align: center; position: relative;}
 .join_box .signUp_step_bar .step_wrap p{font-size:1rem; line-height: 1.9rem; font-weight: 400; color:#8f9191;}
 .join_box .signUp_step_bar .step_wrap p i{font-size: 2rem; display: block; position: relative; z-index: 5;}
-.join_box .signUp_step_bar .step_wrap.active p{color:#573269;}
+.join_box .signUp_step_bar .step_wrap.active p{color:#573269; font-weight: 600;}
 .join_box .signUp_step_bar .step_wrap.active p i{color:#573269;}
 .join_box .signUp_step_bar .step_line_wrap{display:table-cell; vertical-align: middle; text-align: center; background-image: url(../image/sub_signup_stepbar_dot.png); background-repeat: repeat-x; background-position: left center;}
 .join_box .signUp_step_bar .step_line_wrap .step_right_arrow{width:15px; height:15px; display: inline-block; background-color:#ced8e7; background-image: url(../image/sub_signup_setpbar_right.png); background-repeat: no-repeat; background-position: center; border-radius: 50%; margin-top:4px;}
 /* 이용약관동의 */
 .agree_box > span{font-size:2.1rem; font-weight: 400; line-height: 2.7rem; color:#313131; margin-bottom: 15px;}
 .agree_box .agree_con{font-size: 0.9rem; line-height: 1.5rem; overflow-y:auto; height:300px; width:100%; border:1px solid #c2c2c2; padding:10px; padding-left:30px; margin-top:30px;}
-.agree_box .agree_con p{font-size:1.5rem; margin-top:10px; margin-bottom:5px; margin-left:-20px;}
+.agree_box .agree_con p{font-size:1.1rem; margin-top:10px; margin-bottom:5px; margin-left:-20px;}
 .agree_box .agree_con span{font-weight: 600; display:block; margin-left:-10px;}
 .agree_box .agree_con + div{margin-top:10px;}
 .join_box .agree_btn_box{ text-align: center; margin-top:30px;}
@@ -619,4 +619,9 @@ input[type="chcekbox"] + label img{vertical-align: top;}
     .mo_table{display:table;}
     .sub_board_header .list_title > span{font-size:1.4rem;letter-spacing: -1px;}
     .sub_boarder_body table{table-layout:auto;}
+
+}
+
+@media all and (max-width: 375px){
+    .join_box .signUp_step_bar .step_wrap{padding: 0 11%;}
 }

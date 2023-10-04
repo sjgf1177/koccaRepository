@@ -56,18 +56,38 @@
     <div class="wrapper">
         <div class="container">
             <div class="row">
-                <div class="col-12 mxw-450">
+                <div class="col-12">
+                    <jsp:include page="/learn/user/typeB/include_left/left_0.jsp">
+                    	<jsp:param value="2" name="left_active"/>
+                    </jsp:include>
                     <div class="subContainer">
                         <div class="sub_section">
                             <div class="sub_contents_header">
-                                <h2>아이디/패스워드 찾기</h2>
+                                <span>아이디/패스워드 찾기</span>
+                                <div class="linemap_wrap">
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <span>
+                                                    <img src="/common/image/home_icon.png" alt="메인">
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><span>회원/로그인</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><span>아이디/패스워드 찾기</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                             <div class="sub_contents_body">
                                 <div class="sub_info_body">
                                     <p class="sub_course_view_title">아이디 찾기</p>
                                     <div class="sub_course_view_wrap">
                                         <div class="info_box">
-                                            <table class="write_table">
+                                            <table class="write_table th_align_left1">
                                                 <colgroup>
                                                     <col width="20%">
                                                     <col width="auto">
@@ -76,8 +96,8 @@
                                                 <tbody>
                                                     <tr>
                                                         <th><span>*</span>이메일</th>
-                                                        <td><input type="text" name="p_email_id" id="p_email_id" title="아이디 찾기 이메일 입력 (회원가입시 작성하신 이메일주소를 입력해주세요.)" placeholder="이메일주소를 입력해주세요."></td>
-                                                        <td><a href="javascript:void(0);" class="btn btn-primary w-100 ml10" id="btn_find_id">확인</a></td>
+                                                        <td><input type="text" name="p_email_id" id="p_email_id" title="아이디 찾기 이메일 입력 (회원가입시 작성하신 이메일주소를 입력해주세요.)"></td>
+                                                        <td><a href="javascript:void(0);" class="btn_findId" id="btn_find_id">확인</a></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -89,7 +109,7 @@
                                     <p class="sub_course_view_title">비밀번호 찾기</p>
                                     <div class="sub_course_view_wrap">
                                         <div class="info_box">
-                                            <table class="write_table">
+                                            <table class="write_table th_align_left1">
                                                 <colgroup>
                                                     <col width="20%">
                                                     <col width="auto">
@@ -98,8 +118,8 @@
                                                 <tbody>
                                                     <tr>
                                                         <th><span>*</span>이메일</th>
-                                                        <td><input type="text" name="p_email_pw" id="p_email_pw" title="비밀번호 찾기 이메일 입력 (회원가입시 작성하신 이메일주소를 입력해주세요.)" placeholder="이메일주소를 입력해주세요."></td>
-                                                        <td><a href="javascript:void(0);" class="btn btn-primary w-100 ml10" id="btn_find_pw">확인</a></td>
+                                                        <td><input type="text" name="p_email_pw" id="p_email_pw" title="비밀번호 찾기 이메일 입력 (회원가입시 작성하신 이메일주소를 입력해주세요.)"></td>
+                                                        <td><a href="javascript:void(0);" class="btn_findId" id="btn_find_pw">확인</a></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
