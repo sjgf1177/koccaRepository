@@ -79,21 +79,22 @@ function fnSelect(){
 					</div>
 					<div class="board_search_box">
 						<form name="form1" method="post">
-						<input type="hidden" name="p_process"   value="" />
-						<input type="hidden" name="p_seq"       value="" />
-						<input type="hidden" name="p_prePage"   value="" />
-						<input type="hidden" name="pageNo"	value="<c:out value="${param.pageNo }" />"/>
-						<input type="hidden" name="p_pagesize"  value="<c:out value="${param.p_pagesize }" />"/>
-						<input type="hidden" name="p_lecture_cls" value="<c:out value="${param.p_lecture_cls eq '' || param.p_lecture_cls eq null? 'ALL' : param.p_lecture_cls}" />" />
-						<input type="hidden" name="gubun" value="${param.gubun }" />
-						<input type="hidden" name="menuid" value="${param.menuid }" />
-						<div class="input-group mb-3 board_search_box">
-							<input type="text" name="p_searchtext" id="p_searchtext" class="form-control input board_search" value="<c:out value="${param.p_searchtext }" />" title="검색어를 입력해주세요" onkeypress="if(event.keyCode==13) {javascript:fnSelect()(); return false;}">
-							<input type="button" class="btn btn-outline-secondary input btn_board_search" value="" onclick="javascript:fnSelect();">
-						</div>
+							<input type="hidden" name="p_process"   value="" />
+							<input type="hidden" name="p_seq"       value="" />
+							<input type="hidden" name="p_prePage"   value="" />
+							<input type="hidden" name="pageNo"	value="<c:out value="${param.pageNo }" />"/>
+							<input type="hidden" name="p_pagesize"  value="<c:out value="${param.p_pagesize }" />"/>
+							<input type="hidden" name="p_lecture_cls" value="<c:out value="${param.p_lecture_cls eq '' || param.p_lecture_cls eq null? 'ALL' : param.p_lecture_cls}" />" />
+							<input type="hidden" name="gubun" value="${param.gubun }" />
+							<input type="hidden" name="menuid" value="${param.menuid }" />
+							<div class="input-group mb-3 board_search_box">
+								<input type="text" name="p_searchtext" id="p_searchtext" class="form-control input board_search" value="<c:out value="${param.p_searchtext }" />" title="검색어를 입력해주세요" onkeypress="if(event.keyCode==13) {javascript:fnSelect()(); return false;}">
+								<input type="button" class="btn btn-outline-secondary input btn_board_search" value="" onclick="javascript:fnSelect();">
+							</div>
 						</form>
 					</div>
 				</div>
+
 				<div class="sub_thumb_body d-flex justify-content-between flex-wrap">
 
 					<div class="thumb_box card">
@@ -169,7 +170,7 @@ function fnSelect(){
 				<div class="sub_thumb_body d-flex justify-content-between flex-wrap">
 					<c:forEach items="${openClassList }" var="list" varStatus="status">
 						<div class="thumb_box card">
-							<a href="" class="thumb_imgBox">
+							<a href="javascript:viewContent('<c:out value="${list.d_seq }" />');" class="thumb_imgBox">
 								<img src="<c:out value="${list.d_vodimg }" />" alt="<c:out value="${list.d_lecnm }" />">
 							</a>
 							<div class="thumb_con">
