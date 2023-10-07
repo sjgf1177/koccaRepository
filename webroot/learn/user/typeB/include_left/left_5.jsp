@@ -2,8 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page isELIgnored="false" %>
 <div class="lnb_wrap">
-	<span class="lnb_header">열린강좌</span>
-	<ul class="lnb_con">
+	<ul class="lnb_con d-flex">
 		<c:if test="${sessionScope.tem_grcode ne 'N000179'}">
 			<li <c:if test="${param.left_active eq '01' }" > class="on"</c:if>><a href="javascript:menuForward('5','01');">전체</a></li>
 			<li <c:if test="${param.left_active eq '17' }" > class="on"</c:if>><a href="javascript:menuForward('5','17');">방송영상</a></li>

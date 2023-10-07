@@ -28,7 +28,7 @@
 	    
 	    <!-- Custom CSS -->
 	    <link href="/common/css/custom.css" rel="stylesheet">
-	    <link href="/common/css/header.css" rel="stylesheet">
+	    <%--<link href="/common/css/header.css" rel="stylesheet">--%>
 	    <link href="/common/css/footer.css" rel="stylesheet">
 	    
 	    <!-- Custom JS -->

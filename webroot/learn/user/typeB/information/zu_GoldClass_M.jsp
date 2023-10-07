@@ -64,98 +64,147 @@ function fnSelect(){
     document.form1.submit();
 }
 </script>
-<section>
-	<div class="wrapper">
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
+<section class="container d-flex">
+	<div class=""></div>
+	<div class="subContainer">
+		<div class="sub_section">
+			<div class="sub_contents_body">
+				<div class="sub_board_header">
 					<jsp:include page="/learn/user/typeB/include_left/left_5.jsp">
-                    	<jsp:param value="${param.menuid }" name="left_active"/>
-                    </jsp:include>
-					<div class="subContainer">
-						<div class="sub_section">
-							<div class="sub_contents_header">
-								<span>열린강좌</span>
-                                <div class="linemap_wrap">
-                                    <ul>
-                                        <li>
-                                            <a href="#">
-                                                <span>
-                                                    <img src="/common/image/home_icon.png" alt="메인">
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><span>열린강좌</span></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="sub_contents_body">
-                            	<div class="sub_board_header">
-                                    <div class="list_title">
-                                        <span><span>·</span>열린강좌는 무료로 제공되는 공개강좌로 재미와 깊이가 함께 존재합니다.</span>
-                                        <span><span>·</span>훌륭한 명사의 강좌를 만나보실 수 있으며, 누구나 참여할 수 있는 열린 교육공간입니다.</span>
-                                    </div>
-	                                <div class="board_search_box">
-		                                <form name="form1" method="post">
-									    <input type="hidden" name="p_process"   value="" />
-									    <input type="hidden" name="p_seq"       value="" />
-									    <input type="hidden" name="p_prePage"   value="" />
-									    <input type="hidden" name="pageNo"	value="<c:out value="${param.pageNo }" />"/>
-										<input type="hidden" name="p_pagesize"  value="<c:out value="${param.p_pagesize }" />"/>
-									    <input type="hidden" name="p_lecture_cls" value="<c:out value="${param.p_lecture_cls eq '' || param.p_lecture_cls eq null? 'ALL' : param.p_lecture_cls}" />" />
-									    <input type="hidden" name="gubun" value="${param.gubun }" />
-									    <input type="hidden" name="menuid" value="${param.menuid }" />
-										<input type="text" name="p_searchtext" id="p_searchtext" class="board_search" value="<c:out value="${param.p_searchtext }" />" title="검색어를 입력해주세요" onkeypress="if(event.keyCode==13) {javascript:fnSelect()(); return false;}">
-										<input type="button" class="btn_board_search" value="" onclick="javascript:fnSelect();">
-										</form>
-	                                </div>
-                                </div>
-                                <div class="sub_thumb_body">
-                                	<c:forEach items="${openClassList }" var="list" varStatus="status">
-                                		<div class="thumb_box">
-	                                        <div class="thumb_imgBox">
-	                                            <img src="<c:out value="${list.d_vodimg }" />" alt="<c:out value="${list.d_lecnm }" />">
-	                                        </div>
-	                                        <div class="thumb_con">
-	                                            <a href="javascript:viewContent('<c:out value="${list.d_seq }" />');"><span class="thumb_title"><c:out value="${list.d_lecnm }" /></span></a>
-	                                            <ul class="thumb_con_Info">
-	                                                <li><span>강사명</span> : <c:out value="${list.d_tutornm }" /></li>
-	                                                <li><span>강의 시간</span> : <c:out value="${list.d_lectime }" /></li>
-	                                                <li><span>조회수</span> : <c:out value="${list.d_viewcnt }" /></li>
-	                                                <li><span>평가</span> : 
-	                                                	<c:forEach begin="1" end="${list.d_checkpoin }" step="1">
-	                                                		<img src="/common/image/ico_star_on.png" alt="별점">
-	                                                	</c:forEach>
-	                                                	<c:forEach begin="${list.d_checkpoin + 1 }" end="5" step="1">
-		                                                    <img src="/common/image/ico_star_off.png" alt="별점">
-	                                                	</c:forEach>
-	                                                </li>
-	                                            </ul>
-	                                            <div class="thumb_button">
-	                                                <a href="javascript:openGoldClass('<c:out value="${list.d_seq }" />', '<c:out value="${list.d_d_width_s }" />','<c:out value="${list.d_height_s }" />');" class="apply_btn" style="margin-top:15px;">강좌보기</a>
-	                                                <a href="javascript:goReply('<c:out value="${list.d_seq }" />');" class="command_btn" style="margin-top:15px;">의견달기</a>
-	                                            </div>
-	                                        </div>
-	                                    </div>
-	                                    <c:set var="totalpage" value="${list.d_totalpage }" />
-                                	</c:forEach>
-                                	<c:if test="${fn:length(openClassList) <= 0 }">
-                                		<div class="thumb_box">
-                                			등록된 열린강좌 내역이 없습니다.
-                                		</div>
-                                		<c:set var="totalpage" value="0" />
-                                	</c:if>
-                                </div>
-                                ${pu:typeB_printPageListDiv(totalpage, pageno, pagesize) }
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+						<jsp:param value="${param.menuid }" name="left_active"/>
+					</jsp:include>
+					<div class="list_title">
+						<span>열린강좌는 무료로 제공되는 공개강좌로 재미와 깊이가 함께 존재합니다.</span>
+						<span>훌륭한 명사의 강좌를 만나보실 수 있으며, 누구나 참여할 수 있는 열린 교육공간입니다.</span>
+					</div>
+					<div class="board_search_box">
+						<form name="form1" method="post">
+						<input type="hidden" name="p_process"   value="" />
+						<input type="hidden" name="p_seq"       value="" />
+						<input type="hidden" name="p_prePage"   value="" />
+						<input type="hidden" name="pageNo"	value="<c:out value="${param.pageNo }" />"/>
+						<input type="hidden" name="p_pagesize"  value="<c:out value="${param.p_pagesize }" />"/>
+						<input type="hidden" name="p_lecture_cls" value="<c:out value="${param.p_lecture_cls eq '' || param.p_lecture_cls eq null? 'ALL' : param.p_lecture_cls}" />" />
+						<input type="hidden" name="gubun" value="${param.gubun }" />
+						<input type="hidden" name="menuid" value="${param.menuid }" />
+						<div class="input-group mb-3 board_search_box">
+							<input type="text" name="p_searchtext" id="p_searchtext" class="form-control input board_search" value="<c:out value="${param.p_searchtext }" />" title="검색어를 입력해주세요" onkeypress="if(event.keyCode==13) {javascript:fnSelect()(); return false;}">
+							<input type="button" class="btn btn-outline-secondary input btn_board_search" value="" onclick="javascript:fnSelect();">
+						</div>
+						</form>
+					</div>
+				</div>
+				<div class="sub_thumb_body d-flex justify-content-between flex-wrap">
+
+					<div class="thumb_box card">
+
+							<a href="#"class="d-block thumb_imgBox"><img src="/images/banner/2014/20140410_01_imagine_camp.png" class="card-img-top" alt=""></a>
+							<div class="card-body thumb_con">
+
+								<a href="javascript:viewContent('#');" class="card-title"><span class="thumb_title textline2">제목이 오는 영역</span></a>
+								<ul class="thumb_con_Info card-text">
+									<li>
+										<img src="/common/image/ico_star_on.png" alt="별점">
+									</li>
+									<li><span>최지은 · 총 10분 · 조화수 222</span></li>
+								</ul>
+								<div class="thumb_button">
+									<a href="javascript:openGoldClass('#');" class="apply_btn btn btn-purple" style="margin-top:15px;">강좌보기</a>
+									<a href="javascript:goReply('#');" class="command_btn btn btn-secondary" style="margin-top:15px;">의견달기</a>
+								</div>
+
+							</div>
+
+
+
+						</div>
+
+					<div class="thumb_box card">
+
+						<a href="#"class="d-block thumb_imgBox"><img src="/images/banner/2014/20140410_01_imagine_camp.png" class="card-img-top" alt=""></a>
+						<div class="card-body thumb_con">
+
+							<a href="javascript:viewContent('#');" class="card-title"><span class="thumb_title textline2">제목이 오는 영역</span></a>
+							<ul class="thumb_con_Info card-text">
+								<li>
+									<img src="/common/image/ico_star_on.png" alt="별점">
+								</li>
+								<li><span>최지은 · 총 10분 · 조화수 222</span></li>
+							</ul>
+							<div class="thumb_button">
+								<a href="javascript:openGoldClass('#');" class="apply_btn btn btn-purple" style="margin-top:15px;">강좌보기</a>
+								<a href="javascript:goReply('#');" class="command_btn btn btn-secondary" style="margin-top:15px;">의견달기</a>
+							</div>
+
+						</div>
+
+
+
+					</div>
+
+					<div class="thumb_box card">
+
+						<a href="#"class="d-block thumb_imgBox"><img src="/images/banner/2014/20140410_01_imagine_camp.png" class="card-img-top" alt=""></a>
+						<div class="card-body thumb_con">
+
+							<a href="javascript:viewContent('#');" class="card-title"><span class="thumb_title textline2">제목이 오는 영역</span></a>
+							<ul class="thumb_con_Info card-text">
+								<li>
+									<img src="/common/image/ico_star_on.png" alt="별점">
+								</li>
+								<li><span>최지은 · 총 10분 · 조화수 222</span></li>
+							</ul>
+							<div class="thumb_button">
+								<a href="javascript:openGoldClass('#');" class="apply_btn btn btn-purple" style="margin-top:15px;">강좌보기</a>
+								<a href="javascript:goReply('#');" class="command_btn btn btn-secondary" style="margin-top:15px;">의견달기</a>
+							</div>
+
+						</div>
+
+
+
+					</div>
+				</div>
+
+				<div class="sub_thumb_body d-flex justify-content-between flex-wrap">
+					<c:forEach items="${openClassList }" var="list" varStatus="status">
+						<div class="thumb_box card">
+							<a href="" class="thumb_imgBox">
+								<img src="<c:out value="${list.d_vodimg }" />" alt="<c:out value="${list.d_lecnm }" />">
+							</a>
+							<div class="thumb_con">
+								<a href="javascript:viewContent('<c:out value="${list.d_seq }" />');" class="card-title"><span class="thumb_title textline2"><c:out value="${list.d_lecnm }" /></span></a>
+								<ul class="thumb_con_Info card-text">
+									<li><span>평가</span> :
+										<c:forEach begin="1" end="${list.d_checkpoin }" step="1">
+											<img src="/common/image/ico_star_on.png" alt="별점">
+										</c:forEach>
+										<c:forEach begin="${list.d_checkpoin + 1 }" end="5" step="1">
+											<img src="/common/image/ico_star_off.png" alt="별점">
+										</c:forEach>
+									</li>
+									<li><c:out value="${list.d_tutornm }" /> · <c:out value="${list.d_lectime }" /> · <c:out value="${list.d_viewcnt }" /></li>
+
+								</ul>
+								<div class="thumb_button">
+									<a href="javascript:openGoldClass('<c:out value="${list.d_seq }" />', '<c:out value="${list.d_d_width_s }" />','<c:out value="${list.d_height_s }" />');" class="apply_btn btn btn-purple" style="margin-top:15px;">강좌보기</a>
+									<a href="javascript:goReply('<c:out value="${list.d_seq }" />');" class="command_btn btn btn-secondary" style="margin-top:15px;">의견달기</a>
+								</div>
+							</div>
+						</div>
+						<c:set var="totalpage" value="${list.d_totalpage }" />
+					</c:forEach>
+					<c:if test="${fn:length(openClassList) <= 0 }">
+						<p class="text-center">
+							등록된 열린강좌 내역이 없습니다.
+						</p>
+						<c:set var="totalpage" value="0" />
+					</c:if>
+				</div>
+				${pu:typeB_printPageListDiv(totalpage, pageno, pagesize) }
+			</div>
+		</div>
+	</div>
 </section>
 
 <!-- footer -->
