@@ -444,7 +444,7 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:38px;
 
 /* 썸네일 게시판 바디 */
 .sub_thumb_body{}
-.sub_thumb_body .thumb_box{display: inline-block; max-width: 48%; margin:0 0 25px 0;}
+.sub_thumb_body .thumb_box{ max-width: 48%; margin:0 0 25px 0;}
 .sub_thumb_body .thumb_box.card{border:none;}
 .sub_thumb_body .thumb_box.card
 .sub_thumb_body .thumb_box:hover{}
