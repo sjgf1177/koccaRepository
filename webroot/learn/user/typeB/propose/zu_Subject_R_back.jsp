@@ -69,18 +69,36 @@ function whenSubjPropose(subj,year,subjseq, subjnm) {
     <input type="hidden" name="menuid" value="${param.menuid }" />
 </form>
 
-<section class="container d-flex">
-    <div class=""></div>
-    <div class="subContainer">
-        <div class="sub_section">
-            <div class="sub_contents_body">
-                <div class="sub_board_header">
-<%--                    <jsp:include page="/learn/user/typeB/include_left/left_9.jsp">--%>
-<%--                    	<jsp:param value="02" name="left_active"/>--%>
-<%--                    </jsp:include>--%>
-
+<section>
+    <div class="wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <jsp:include page="/learn/user/typeB/include_left/left_9.jsp">
+                    	<jsp:param value="02" name="left_active"/>
+                    </jsp:include>
                     <div class="subContainer">
                         <div class="sub_section">
+                            <div class="sub_contents_header">
+                                <span>수강신청</span>
+                                <div class="linemap_wrap">
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <span>
+                                                    <img src="/common/image/home_icon.png" alt="메인">
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><span>수강신청</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><span>수강신청</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                             <div class="sub_contents_body">
                                 <div class="sub_info_body">
                                     <p class="sub_course_view_title">과정소개</p>
@@ -136,36 +154,42 @@ function whenSubjPropose(subj,year,subjseq, subjnm) {
                                                     </tr>
                                                 </tbody>
                                             </table>
-
+                                            <div class="course_button">
+                                            	<c:if test="${subjectPreview.d_preurl ne '' && sessionScope.tem_grcode ne 'N000210'}">
+													<a href="javascript:whenPreShow('<c:out value="${subjectPreview.d_preurl}" />','<c:out value="${param.p_subj}" />', '<c:out value="${param.p_wj_classkey}" />' )" class="gustation_btn">강좌 맛보기</a>
+	                                            </c:if>
+                                                <a href="javascript:whenSubjList();" class="list_btn">목록가기</a>
+                                                <c:if test="${subjectPreview.d_propose_yn eq 'N' && subjectPreview.d_sugang_yn eq 'Y' }">
+                                                <a href="javascript:whenSubjPropose('<c:out value="${param.p_subj}" />','<c:out value="${param.p_year}" />','<c:out value="${param.p_subjseq}" />','<c:out value="${param.p_subjnm}" />')" class="apply_btn">수강신청</a>
+                                                </c:if>
+                                            </div>
                                         </div>
                                     </div>
                                  </div>
                                 <div class="sub_boarder_body">
                                     <p class="sub_course_view_title">차시정보</p>
-
                                     <table class="td_align_left">
-                                            <colgroup>
-                                                <col width="13%">
-                                                <col width="auto">
-                                            </colgroup>
-                                            <thead>
-                                                <tr>
-                                                    <th>차시</th>
-                                                    <th>강의주제</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <c:forEach items="${lessonList }" var="list" varStatus="status">
-                                                    <tr>
-                                                        <td><c:out value="${list.d_lesson }" /></td>
-                                                        <td><c:out value="${list.d_sdesc }" /></td>
-                                                    </tr>
-                                                </c:forEach>
-                                            </tbody>
-                                        </table>
-
+                                        <colgroup>
+                                            <col width="13%">
+                                            <col width="auto">
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th>차시</th>
+                                                <th>강의주제</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        	<c:forEach items="${lessonList }" var="list" varStatus="status">
+                                        		<tr>
+	                                                <td><c:out value="${list.d_lesson }" /></td>
+	                                                <td><c:out value="${list.d_sdesc }" /></td>
+	                                            </tr>
+                                        	</c:forEach>
+                                        </tbody>
+                                    </table>
+                                    
                                     <p class="sub_course_view_title">수료</p>
-
                                     <table>
                                         <colgroup>
                                             <col width="35%">
@@ -187,10 +211,9 @@ function whenSubjPropose(subj,year,subjseq, subjnm) {
                                             </tr>
                                         </tbody>
                                     </table>
-
+                                    
                                     <p class="sub_course_view_title">평가</p>
-                                    <div class="scroll-table-box">
-                                        <table>
+                                    <table>
                                         <colgroup>
                                             <col width="25%">
                                             <col width="10%">
@@ -226,18 +249,6 @@ function whenSubjPropose(subj,year,subjseq, subjnm) {
                                             </tr>
                                         </tbody>
                                     </table>
-                                    </div>
-
-                                </div>
-                                <div class="course_button">
-                                    <c:if test="${subjectPreview.d_preurl ne '' && sessionScope.tem_grcode ne 'N000210'}">
-                                        <a href="javascript:whenPreShow('<c:out value="${subjectPreview.d_preurl}" />','<c:out value="${param.p_subj}" />', '<c:out value="${param.p_wj_classkey}" />' )" class="gustation_btn btn btn-purple">강좌 맛보기</a>
-                                    </c:if>
-                                    <c:if test="${subjectPreview.d_propose_yn eq 'N' && subjectPreview.d_sugang_yn eq 'Y' }">
-                                        <a href="javascript:whenSubjPropose('<c:out value="${param.p_subj}" />','<c:out value="${param.p_year}" />','<c:out value="${param.p_subjseq}" />','<c:out value="${param.p_subjnm}" />')" class="apply_btn btn btn-purple">수강신청</a>
-                                    </c:if>
-                                    <a href="javascript:whenSubjList();" class="list_btn btn btn-secondary">목록가기</a>
-
                                 </div>
                                 
                             </div>
