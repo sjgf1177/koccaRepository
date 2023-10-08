@@ -135,6 +135,7 @@ section .wrapper{padding:50px 0;}
 .point_blue{color:#40abd4 !important;}
 .point_purple{color:#573269 !important;}
 .point_black{color:black !important;}
+.point_lightgray{color:#767676 !important;}
 .sm_text{font-size: 0.9rem; line-height: 1.2rem;}
 /* select */
 select{color:#666; border-left:0; border-top:0; border-right:0; border-bottom:1px solid #9999 !important; padding-bottom:8px; padding-right:20px; background:white url(../image/select_type_0_arrow.png) no-repeat right 15px center; padding:4px 0 3px; appearance: none; -moz-appearance: none; -webkit-appearance: none;}
@@ -309,6 +310,8 @@ input[type="chcekbox"] + label img{vertical-align: top;}
 .tab_style_con .tab_style_2 li.active span{background:#40abd4; color:white;}
 
 /* table */
+.noticelist .sub_boarder_body table tr td a{color: #000000;}
+.noticedetail .sub_info_body .sub_course_view_wrap table tr:first-child td span{width: 100%;}
 .sub_course_view_title{font-size:20px; line-height: 26px; color:#313131; font-weight: 400; margin-bottom:23px;}
 .th_align_left1 tr th{text-align: left !important; padding-left:20px;}
 .td_align_left tr td:nth-child(even){text-align:left; padding-left:20px;}
@@ -317,7 +320,7 @@ input[type="chcekbox"] + label img{vertical-align: top;}
 .td_align_center tr td{text-align: center}
 /* 테이블 검색 */
 .board_search_box{width:80%; margin-top:10px;}
-.board_search_box select{border:solid 1px #f1f1f1; height:37px; font-size:13px; font-size:1.3rem; line-height: 19px; line-height: 1.9rem; color:#313131; padding-top:9px; padding-bottom: 7px; padding-left:16px; padding-right:16px; min-width:130px; cursor: pointer}
+.board_search_box select{border:solid 1px #e3e6e9; height:40px; font-size:14px; line-height: 19px;  color:#313131; padding-top:9px; padding-bottom: 7px; padding-left:16px; padding-right:16px; min-width:130px; cursor: pointer;}
 .board_search_box input.board_search{vertical-align: middle; height:40px; font-size: 14px; color:#222; padding-top:9px; padding-bottom:7px; padding-left:16px; padding-right:16px; background-color:transparent;}
 .board_search_box input.btn_board_search{width:40px; height:40px; vertical-align: middle; background-image: url(../image/search_icon.png); background-repeat: no-repeat; background-position: center; border:none; background-color:#573269; background-size: 15px;}
 /* 게시판타이틀 */
@@ -668,18 +671,20 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:38px;
 .mo_table{display:none;}
 @media all and (max-width: 640px){
     .board_search_box.mo_width{width: 100%;display: flex;}
-    .board_search_box.mo_width form{margin:0 auto;}
-    .board_search_box.mo_width select{min-width:75px;}
+    .board_search_box.mo_width form{width: 100%;}
+    .board_search_box.mo_width select{min-width:85px;}
     .board_search_box.mo_width input.board_search{width:170px;}
 
     .pc_table{display:none;}
     .mo_table{display:table;}
     .sub_board_header .list_title > span{letter-spacing: -1px;}
     .sub_boarder_body table{table-layout:auto;}
-
+    .sub_boarder_body table.mo_table{table-layout: fixed;}
     .sub_thumb_body .thumb_box{max-width: 100%;}
 
     .sub_info_body .sub_course_alert_box p{font-size: 22px; line-height: 34px; letter-spacing: -1.4px;}
+
+    .noticelist .sub_boarder_body table tr td a{white-space: normal;}
 
 }
 

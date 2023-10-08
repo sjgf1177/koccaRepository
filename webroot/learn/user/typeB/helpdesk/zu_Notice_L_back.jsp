@@ -50,20 +50,43 @@
 	    document.nform1.submit();
 	}
 </script>
-<section class="container d-flex noticelist">
-    <div class=""></div>
-    <div class="subContainer">
-        <div class="sub_section">
-            <div class="sub_contents_body">
-                <div class="sub_board_header">
-
+<section>
+    <div class="wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <jsp:include page="/learn/user/typeB/include_left/left_4.jsp">
+                    	<jsp:param value="${param.menuid }" name="left_active"/>
+                    </jsp:include>
                     <div class="subContainer">
                         <div class="sub_section">
-
+                            <div class="sub_contents_header">
+                                <span>공지사항</span>
+                                <div class="linemap_wrap">
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <span>
+                                                    <img src="/common/image/home_icon.png" alt="메인">
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><span>학습지원센터</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><span>공지사항</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                             <div class="sub_contents_body">
                                 <div class="sub_board_header">
-
-                                    <div class="board_search_box mo_width" style="margin-top: 70px;">
+                                    <div class="list_title">
+                                        <span><span>·</span>학습지원센터에 오신것을 환영합니다.</span>
+                                        <span class="point_orange"><span>·</span>콘텐츠아카데미에서 알려드리는 새소식을 확인하실 수 있습니다.</span>
+                                    </div>
+                                    <div class="board_search_box mo_width">
                                         <form name="nform1" method="post">
 										    <input type="hidden" name="p_process">
 										    <input type="hidden" name="p_pageno"  value="${pageno }"> 
@@ -71,15 +94,13 @@
 											<input type="hidden" name="p_pagesize"  value="${pagesize}"/>
 											<input type="hidden" name="gubun" value="${param.gubun }" />
     										<input type="hidden" name="menuid" value="${param.menuid }" />
-                                            <div class="input-group mb-3 board_search_box">
-                                                <select name="p_search" id="p_search">
-                                                    <option value="adtitle" <c:if test="${param.p_search eq 'adtitle' }" > selected </c:if>>제목</option>
-                                                    <option value="adcontent" <c:if test="${param.p_search eq 'adcontent' }" > selected </c:if>>내용</option>
-                                                    <option value="adname" <c:if test="${param.p_search eq 'adname' }" > selected </c:if>>작성자</option>
-                                                </select>
-                                                <input type="text" name="p_searchtext" id="p_searchtext" class="form-control input board_search" value="<c:out value="${param.p_searchtext }" />" title="검색어를 입력해주세요">
-                                                <input type="button" class="btn btn-outline-secondary input btn_board_search" value="" onclick="javascript:select();">
-                                            </div>
+                                            <select name="p_search" id="p_search">
+                                                <option value="adtitle" <c:if test="${param.p_search eq 'adtitle' }" > selected </c:if>>제목</option>
+                                                <option value="adcontent" <c:if test="${param.p_search eq 'adcontent' }" > selected </c:if>>내용</option>
+                                                <option value="adname" <c:if test="${param.p_search eq 'adname' }" > selected </c:if>>작성자</option>
+                                            </select>
+                                            <input type="text" name="p_searchtext" id="p_searchtext" class="board_search" value="<c:out value="${param.p_searchtext }" />" title="검색어를 입력해주세요">
+                                            <input type="button" class="btn_board_search" value="" onclick="javascript:select();">
                                         </form>
                                     </div>
                                 </div>
@@ -102,7 +123,7 @@
                                         <tbody>
                                         	<c:forEach items="${selectNoticeList }" var="list" varStatus="status">
 	                                            <tr>
-	                                                <td class="sub_course_alert_box">${list.d_dispnum }</td>
+	                                                <td>${list.d_dispnum }</td>
 	                                                <td><a href="javascript:selectView('<c:out value="${list.d_seq }" />');"><c:out value="${list.d_adtitle }" /></a></td>
 	                                                <td>
 	                                                	<fmt:parseDate value="${list.d_addate }" var="addate" pattern="yyyyMMddHHmmss" />
