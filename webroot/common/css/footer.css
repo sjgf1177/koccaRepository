@@ -6,9 +6,9 @@ footer .footer_text_con .footer_util_text .footer_util_line{border-right:1px sol
 footer .footer_text_con .footer_util_text .footer_util_item{margin-right:15px;}
 footer .footer_text_con .footer_util_text .footer_util_item:first-child a{font-weight:700; color:black; font-size:12px;}
 footer .footer_text_con .footer_util_text .footer_util_item:last-child{margin-right:0}
-footer .footer_text_con .footer_util_text .footer_util_item a{font-size:11px; color:#666;}
-footer .footer_text_con .footer_copyright p{font-size:11px; color:#666; padding-top:15px;}
-footer .footer_text_con .footer_copyright ul li{font-size:11px; color:#666; line-height:16px; line-height:1.6rem; line-height:1.6rem;}
+footer .footer_text_con .footer_util_text .footer_util_item a{font-size:11px; color:#222;}
+footer .footer_text_con .footer_copyright p{font-size:11px; color:#222; padding-top:15px;}
+footer .footer_text_con .footer_copyright ul li{font-size:11px; color:#222; line-height:16px; line-height:1.6rem; line-height:1.6rem;}
 footer .footer_text_con .footer_copyright ul li:last-child{font-size:12px; line-height:18px; line-height:1.8rem; font-size:12px}
 
 footer .footer_icon_con .footer_relation_site select{margin-top:10px; font-size:1.2rem; line-height:2.0rem; width:150px; height:30px;}

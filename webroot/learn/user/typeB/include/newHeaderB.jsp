@@ -49,16 +49,17 @@
                 <div class="row header-util-wrap">
                     <div class="col-12 d-flex">
 						<!-- header 왼쪽 영역(로고, 프로필사진, 나의강의실, 로그아웃)-->
-						<ul class="header-left-box text-center">
+						<ul class="fixed-header-box text-center">
 							<li class="logo">
 								<a href="#" class="d-inblock"><img src="/images/newmain_20100625/<c:out value="${sessionScope.tem_grcode }"/>.png" alt="로고" /></a>
 							</li>
 							<li>
 								<span class="circle-box myname">이름</span>
-								<span class="d-block mt20" class="fc-light"><a href="javascript:mainmenu('3');" class="fc-light">로그아웃</a> ㅣ <a href="javascript:mainmenu('4');" class="fc-light">개인정보변경</a></span>
-								<a href="javascript:menuForward('3', '11');" class="d-block btn btn-success btn-md w-50 mt10">나의강의실</a>
+								<a href="javascript:menuForward('3', '11');" class="d-block btn btn-success btn-md w-50 mt20">나의강의실</a>
+								<span class="d-block mt10" class="fc-light"><a href="javascript:mainmenu('3');" class="fc-light">로그아웃</a> ㅣ <a href="javascript:mainmenu('4');" class="fc-light">개인정보변경</a></span>
 							</li>
 						</ul>
+						<div class="header-left-box"></div>
 						<!-- header 오른쪽 영역(Tab)-->
 						<div class="header-right-box">
 
@@ -79,10 +80,6 @@
 									<a href="#" class="nav-link">콘텐츠5</a>
 								</li>
 							</ul>
-							<!-- 배너 영역-->
-							<div class="header-benner-box">
-								<a href="" class="d-inblock"><img src="" class="img-fluid" alt="에듀코카 테마과정 바로가기 배너" ></a>
-							</div>
 
 						</div>
 

@@ -102,35 +102,54 @@
 					<jsp:include page="/learn/user/typeB/include_left/left_9.jsp">
 						<jsp:param value="${param.menuid }" name="left_active"/>
 					</jsp:include>
-
-					<div class="board_search_box">
-						<form name="form1" action="/servlet/controller.homepage.AspMenuMainServlet" method="post">
-							<input type="hidden" name="p_process"	value="<c:out value="${param.p_process }" />"/>
-							<input type="hidden" name="p_rprocess"	value=""/>
-							<input type="hidden" name="p_year"	value=""/>
-							<input type="hidden" name="p_subj"	value=""/>
-							<input type="hidden" name="p_subjseq"	value=""/>
-							<input type="hidden" name="p_subjnm"	value=""/>
-							<input type="hidden" name="p_order"	value="<c:out value="${param.p_order }" />"/>
-							<input type="hidden" name="p_iscourseYn"	value=""/>
-							<input type="hidden" name="p_upperclass"	value="<c:out value="${param.p_upperclass }" />"/>
-							<input type="hidden" name="p_upperclassnm"	value=""/>
-							<input type="hidden" name="p_action"	value="<c:out value="${param.p_action }" />"/>
-							<input type="hidden" name="p_pageno"	value="<c:out value="${param.p_pageno }" />"/>
-							<input type="hidden" name="p_pagesize"  value="<c:out value="${param.p_pagesize }" />"/>
-							<input type="hidden" name="p_area" id="p_area"	value="<c:out value="${param.p_area }" />"/>
-							<input type="hidden" name="p_wj_classkey" value=""/>
-							<input type="hidden" name="gubun" value="${param.gubun }" />
-							<input type="hidden" name="menuid" value="${param.menuid }" />
-							<div class="input-group mb-3 board_search_box">
-								<input type="text" name="p_searchtext" id="p_searchtext" class="form-control input board_search" value="<c:out value="${param.p_searchtext }" />" title="검색어를 입력해주세요" onkeypress="if(event.keyCode==13) {javascript:fnSelect()(); return false;}">
-								<input type="button" class="btn btn-outline-secondary input btn_board_search" value="" onclick="javascript:fnSelect();">
-							</div>
-						</form>
+					<div class="d-flex justify-content-lg-between">
+						<div class="board_search_box">
+							<form name="form1" action="/servlet/controller.homepage.AspMenuMainServlet" method="post">
+								<input type="hidden" name="p_process"	value="<c:out value="${param.p_process }" />"/>
+								<input type="hidden" name="p_rprocess"	value=""/>
+								<input type="hidden" name="p_year"	value=""/>
+								<input type="hidden" name="p_subj"	value=""/>
+								<input type="hidden" name="p_subjseq"	value=""/>
+								<input type="hidden" name="p_subjnm"	value=""/>
+								<input type="hidden" name="p_order"	value="<c:out value="${param.p_order }" />"/>
+								<input type="hidden" name="p_iscourseYn"	value=""/>
+								<input type="hidden" name="p_upperclass"	value="<c:out value="${param.p_upperclass }" />"/>
+								<input type="hidden" name="p_upperclassnm"	value=""/>
+								<input type="hidden" name="p_action"	value="<c:out value="${param.p_action }" />"/>
+								<input type="hidden" name="p_pageno"	value="<c:out value="${param.p_pageno }" />"/>
+								<input type="hidden" name="p_pagesize"  value="<c:out value="${param.p_pagesize }" />"/>
+								<input type="hidden" name="p_area" id="p_area"	value="<c:out value="${param.p_area }" />"/>
+								<input type="hidden" name="p_wj_classkey" value=""/>
+								<input type="hidden" name="gubun" value="${param.gubun }" />
+								<input type="hidden" name="menuid" value="${param.menuid }" />
+								<div class="input-group mb-3">
+									<input type="text" name="p_searchtext" id="p_searchtext" class="form-control input board_search" value="<c:out value="${param.p_searchtext }" />" title="검색어를 입력해주세요." placeholder="검색어를 입력해주세요." onkeypress="if(event.keyCode==13) {javascript:fnSelect()(); return false;}">
+									<input type="button" class="btn btn-outline-secondary input btn_board_search" value="" onclick="javascript:fnSelect();">
+								</div>
+							</form>
+						</div>
+						<ul class="radio-row-box">
+							<li class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+								<label class="form-check-label" for="inlineRadio1">전체</label>
+							</li>
+							<li class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+								<label class="form-check-label" for="inlineRadio2">신청가능</label>
+							</li>
+							<li class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+								<label class="form-check-label" for="inlineRadio3">마감</label>
+							</li>
+						</ul>
 					</div>
 				</div>
 
 				<div class="sub_thumb_body d-flex justify-content-between flex-wrap">
+					<!-- 배너 영역 4개 과정 나온 후 밑에 배너위치 하기-->
+					<div class="header-benner-box">
+						<a href="" class="d-inblock"><img src="" class="img-fluid" alt="에듀코카 테마과정 바로가기 배너" ></a>
+					</div>
 					<c:if test="${fn:length(SubjectList) <= 0 }">
 						<p class="text-center">
 							등록된 열린강좌 내역이 없습니다.
@@ -141,7 +160,7 @@
 							<a href="javascript:whenSubjInfo('<c:out value="${list.d_subj }" />','<c:out value="${list.d_subjnm }" />','<c:out value="${list.d_isonoff }" />','<c:out value="${list.d_scupperclass }" />','<c:out value="${list.d_uclassnm }" />','<c:out value="${list.d_scyear }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${list.d_wj_classkey }" />');" class="thumb_imgBox">
 								<img src="<c:out value="${list.d_introducefilenamenew }" />" alt="<c:out value="${list.d_subjnm }" />">
 							</a>
-							<div class="thumb_con">
+							<div class="card-body thumb_con">
 								<div class="thumb_top_tag">
 									<c:if test="${list.d_ishit eq 'Y' }"><span class="tab_type_popular"></span></c:if>
 									<c:if test="${list.d_isnew eq 'Y' }"><span class="tag_type_new"></span></c:if>

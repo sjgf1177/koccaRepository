@@ -201,17 +201,35 @@
 	});
 
 </script>
-<section class="container d-flex">
-	<div class=""></div>
-	<div class="subContainer">
-		<div class="sub_section">
-			<div class="sub_contents_body">
-				<div class="sub_board_header">
-
+<section>
+    <div class="wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <jsp:include page="/learn/user/typeB/include_left/left_0.jsp">
+                    	<jsp:param value="4" name="left_active"/>
+                    </jsp:include>
                     <div class="subContainer">
                         <div class="sub_section">
                             <div class="sub_contents_header">
                                 <span>개인정보 변경</span>
+                                <div class="linemap_wrap">
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <span>
+                                                    <img src="/common/image/home_icon.png" alt="메인">
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><span>회원/로그인</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><span>개인정보 변경</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                             <div class="sub_contents_body">
                                 <div class="sub_info_body join_box">
@@ -325,7 +343,7 @@
 			                                                        <th><span>*</span>새로운 비밀번호 확인</th>
 			                                                        <td>
 			                                                            <input type="password" name="p_pw2" id="p_pw2" title="새로운 비밀번호 확인">
-			                                                            <a href="javascript:void(0);" title="비빌번호 변경" id="btn_change_pwd" class="btn btn-primary">비밀번호 변경</a>
+			                                                            <a href="javascript:void(0);" title="비빌번호 변경" id="btn_change_pwd">비밀번호 변경</a>
 			                                                        </td>
 			                                                    </tr>
 			                                                    <tr>
@@ -426,10 +444,10 @@
 			                                                        </td>
 			                                                    </tr>
 			                                                    <tr>
-			                                                        <th><span>*</span>비밀번호 확인</th>
+			                                                        <th><span>*</span>새로운 비밀번호 확인</th>
 			                                                        <td>
 			                                                            <input type="password" name="p_pw2" id="p_pw2" title="새로운 비밀번호 확인">
-			                                                            <a href="javascript:void(0);" title="비빌번호 변경" id="btn_change_pwd" class="btn btn-primary">비밀번호 변경</a>
+			                                                            <a href="javascript:void(0);" title="비빌번호 변경" id="btn_change_pwd">비밀번호 변경</a>
 			                                                        </td>
 			                                                    </tr>
 			                                                    <tr>
@@ -515,8 +533,8 @@
 	                                            </table>
 	                                        </form>
                                             <div class="agree_btn_box">
-                                                <a href="javascript:history.go(-1);" class="btn_cancel btn btn-secondary" id="btn_cancel" title="취소">취소</a>
-                                                <a href="javascript:void(0);" class="btn_next btn btn-primary" id="btn_next" title="변경">변경</a>
+                                                <a href="javascript:history.go(-1);" class="btn_cancel" id="btn_cancel" title="취소">취소</a>
+                                                <a href="javascript:void(0);" class="btn_next" id="btn_next" title="변경">변경</a>
                                             </div>
                                         </div>
                                     </div>
@@ -529,10 +547,3 @@
         </div>
     </div>
 </section>
-
-<style>
-	@media all and (max-width: 640px){
-		.sub_info_body{margin-top: 0;}
-	}
-
-</style>

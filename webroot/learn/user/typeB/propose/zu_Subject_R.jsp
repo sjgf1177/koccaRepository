@@ -231,7 +231,7 @@ function whenSubjPropose(subj,year,subjseq, subjnm) {
                                 </div>
                                 <div class="course_button">
                                     <c:if test="${subjectPreview.d_preurl ne '' && sessionScope.tem_grcode ne 'N000210'}">
-                                        <a href="javascript:whenPreShow('<c:out value="${subjectPreview.d_preurl}" />','<c:out value="${param.p_subj}" />', '<c:out value="${param.p_wj_classkey}" />' )" class="gustation_btn btn btn-purple">°­ÁÂ ¸Àº¸±â</a>
+                                        <a href="javascript:whenPreShow('<c:out value="${subjectPreview.d_preurl}" />','<c:out value="${param.p_subj}" />', '<c:out value="${param.p_wj_classkey}" />' )" class="gustation_btn btn btn-secondary" style="float:left;">°­ÁÂ ¸Àº¸±â</a>
                                     </c:if>
                                     <c:if test="${subjectPreview.d_propose_yn eq 'N' && subjectPreview.d_sugang_yn eq 'Y' }">
                                         <a href="javascript:whenSubjPropose('<c:out value="${param.p_subj}" />','<c:out value="${param.p_year}" />','<c:out value="${param.p_subjseq}" />','<c:out value="${param.p_subjnm}" />')" class="apply_btn btn btn-purple">¼ö°­½ÅÃ»</a>

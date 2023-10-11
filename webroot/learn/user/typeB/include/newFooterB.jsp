@@ -6,7 +6,7 @@
             <div class="container">
                 <div class="row footer_wrap">
                 	<div class="col-md-1 dn">
-                		<img alt="KOCCA 한국콘텐츠진흥원" src="/common/image/kocca_logo.png" style="width: 100%; padding-right: 10px;">
+                		<img alt="KOCCA 한국콘텐츠진흥원" src="/common/image/footer_benner.png" style="width: 100%; padding-right: 10px;">
                 	</div>
                     <div class="col-md-7 footer_text_con">
                         <div class="footer_util_text">
@@ -33,7 +33,7 @@
                             </a> -->
                             <c:if test='${sessionScope.tem_grcode ne "N000134"}'>
                         	<a href="https://edu.kocca.kr" target="_blank" style="display:inline-block; float: right;">
-                                <img src="/common/image/icon_edukocca_web.png" alt="아카데미 바로가기" style="width: 27px;"> 에듀코카 바로가기
+                                <img src="/common/image/edukocca_link.png" alt="아카데미 바로가기">
                             </a>
                             </c:if>
                             <c:if test='${sessionScope.tem_grcode eq "N000134"}'>

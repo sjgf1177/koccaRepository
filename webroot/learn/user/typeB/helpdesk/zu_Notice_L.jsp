@@ -63,7 +63,7 @@
                             <div class="sub_contents_body">
                                 <div class="sub_board_header">
 
-                                    <div class="board_search_box mo_width" style="margin-top: 70px;">
+                                    <div class="board_search_box mo_width" style="margin: 70px auto 0 auto;">
                                         <form name="nform1" method="post">
 										    <input type="hidden" name="p_process">
 										    <input type="hidden" name="p_pageno"  value="${pageno }"> 
@@ -71,13 +71,13 @@
 											<input type="hidden" name="p_pagesize"  value="${pagesize}"/>
 											<input type="hidden" name="gubun" value="${param.gubun }" />
     										<input type="hidden" name="menuid" value="${param.menuid }" />
-                                            <div class="input-group mb-3 board_search_box">
+                                            <div class="input-group mb-3 board_search_box" style="width: 100%;">
                                                 <select name="p_search" id="p_search">
                                                     <option value="adtitle" <c:if test="${param.p_search eq 'adtitle' }" > selected </c:if>>제목</option>
                                                     <option value="adcontent" <c:if test="${param.p_search eq 'adcontent' }" > selected </c:if>>내용</option>
                                                     <option value="adname" <c:if test="${param.p_search eq 'adname' }" > selected </c:if>>작성자</option>
                                                 </select>
-                                                <input type="text" name="p_searchtext" id="p_searchtext" class="form-control input board_search" value="<c:out value="${param.p_searchtext }" />" title="검색어를 입력해주세요">
+                                                <input type="text" name="p_searchtext" id="p_searchtext" class="form-control input board_search" value="<c:out value="${param.p_searchtext }" />" title="검색어를 입력해주세요." placeholder="검색어를 입력해주세요.">
                                                 <input type="button" class="btn btn-outline-secondary input btn_board_search" value="" onclick="javascript:select();">
                                             </div>
                                         </form>
