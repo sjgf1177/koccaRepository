@@ -268,7 +268,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
 			N000243 : 서울항공비즈니스고등학교
 			N000244 : 지역문화진흥원
 			*/
-            box.setSession("tem_grcode", "N000241");
+            box.setSession("tem_grcode", "N000057");
 
             TempletBean bean = new TempletBean();
             DataBox listBean = bean.SelectGrcodeExists(box);
