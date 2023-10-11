@@ -75,7 +75,7 @@ function listnotice(){
                                             </div>
 
                                             <div class="course_button">
-                                                <a href="javascript:listnotice();" class="list_btn btn btn-secondary">목록가기</a>
+                                                <a href="javascript:listnotice();" class="list_btn btn btn-outline-secondary">목록가기</a>
 <!--                                                 <a href="#" class="link_copy_btn">링크복사</a> -->
                                             </div>
                                         </div>

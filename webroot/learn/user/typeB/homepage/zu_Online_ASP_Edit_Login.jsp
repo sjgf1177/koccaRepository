@@ -515,7 +515,7 @@
 	                                            </table>
 	                                        </form>
                                             <div class="agree_btn_box">
-                                                <a href="javascript:history.go(-1);" class="btn_cancel btn btn-secondary" id="btn_cancel" title="취소">취소</a>
+                                                <a href="javascript:history.go(-1);" class="btn_cancel btn btn-outline-secondary" id="btn_cancel" title="취소">취소</a>
                                                 <a href="javascript:void(0);" class="btn_next btn btn-primary" id="btn_next" title="변경">변경</a>
                                             </div>
                                         </div>

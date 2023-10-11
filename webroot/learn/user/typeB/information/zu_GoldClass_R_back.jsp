@@ -56,28 +56,41 @@ function openGoldClass(seq,w,h){
 	<input type="hidden" name="gubun" value="${param.gubun }" />
     <input type="hidden" name="menuid" value="${param.menuid }" />
 </form>
-<section class="container d-flex">
-    <div class=""></div>
-    <div class="subContainer">
-        <div class="sub_section">
-            <div class="sub_contents_body">
-                <div class="sub_board_header">
-                    <%--<jsp:include page="/learn/user/typeB/include_left/left_5.jsp">
+<section>
+    <div class="wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <jsp:include page="/learn/user/typeB/include_left/left_5.jsp">
                     	<jsp:param value="${param.menuid }" name="left_active"/>
-                    </jsp:include>--%>
-
+                    </jsp:include>
                     <div class="subContainer">
                         <div class="sub_section">
+                            <div class="sub_contents_header">
+                                <span>열린강좌</span>
+                                <div class="linemap_wrap">
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <span>
+                                                    <img src="/common/image/home_icon.png" alt="메인">
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><span>열린강좌</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                             <div class="sub_contents_body">
-                                <div class="sub_info_body">
-                                <p class="sub_course_view_title">과정 소개</p>
                                 <div class="sub_board_header">
                                     <div class="list_title">
-                                        <span>열린강좌는 무료로 제공되는 공개강좌로 재미와 깊이가 함께 존재합니다.</span>
-                                        <span>훌륭한 명사의 강좌를 만나보실 수 있으며, 누구나 참여할 수 있는 열린 교육공간입니다.</span>
+                                        <span><span>·</span>열린강좌는 무료로 제공되는 공개강좌로 재미와 깊이가 함께 존재합니다.</span>
+                                        <span><span>·</span>훌륭한 명사의 강좌를 만나보실 수 있으며, 누구나 참여할 수 있는 열린 교육공간입니다.</span>
                                     </div>
                                 </div>
-
+                                <div class="sub_info_body">
                                     <div class="sub_course_alert_box">
                                         <p><c:out value="${selectOffExpert.d_lecnm }" /></p>
                                     </div>
@@ -125,12 +138,12 @@ function openGoldClass(seq,w,h){
                                                 </tbody>
                                             </table>
                                             <div class="course_button">
-                                                <a href="javascript:openGoldClass('<c:out value="${param.p_seq }" />', '<c:out value="${selectOffExpert.d_width_s }" />','<c:out value="${selectOffExpert.d_height_s }" />');" class="apply_btn btn btn-purple">강좌보기</a>
-                                                <a href="javascript:selectList();" class="list_btn btn btn-outline-secondary">목록가기</a>
+                                                <a href="javascript:selectList();" class="list_btn">목록가기</a>
+                                                <a href="javascript:openGoldClass('<c:out value="${param.p_seq }" />', '<c:out value="${selectOffExpert.d_width_s }" />','<c:out value="${selectOffExpert.d_height_s }" />');" class="apply_btn">강좌보기</a>
                                             </div>
                                         </div>
                                     </div>
-
+                                 </div>
                             </div>
                         </div>
                     </div>

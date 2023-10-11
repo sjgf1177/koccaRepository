@@ -83,7 +83,7 @@ function whenSubjPropose(subj,year,subjseq, subjnm) {
                         <div class="sub_section">
                             <div class="sub_contents_body">
                                 <div class="sub_info_body">
-                                    <p class="sub_course_view_title">과정소개</p>
+                                    <p class="sub_course_view_title">과정 소개</p>
                                     <div class="sub_course_alert_box">
                                         <p><span>[<c:out value="${subjectPreview.d_areaname }" />]</span> <c:out value="${subjectPreview.d_subjnm }" /></p>
                                     </div>
@@ -231,12 +231,12 @@ function whenSubjPropose(subj,year,subjseq, subjnm) {
                                 </div>
                                 <div class="course_button">
                                     <c:if test="${subjectPreview.d_preurl ne '' && sessionScope.tem_grcode ne 'N000210'}">
-                                        <a href="javascript:whenPreShow('<c:out value="${subjectPreview.d_preurl}" />','<c:out value="${param.p_subj}" />', '<c:out value="${param.p_wj_classkey}" />' )" class="gustation_btn btn btn-secondary" style="float:left;">강좌 맛보기</a>
+                                        <a href="javascript:whenPreShow('<c:out value="${subjectPreview.d_preurl}" />','<c:out value="${param.p_subj}" />', '<c:out value="${param.p_wj_classkey}" />' )" class="gustation_btn btn btn-outline-secondary" style="float:left;">강좌 맛보기</a>
                                     </c:if>
                                     <c:if test="${subjectPreview.d_propose_yn eq 'N' && subjectPreview.d_sugang_yn eq 'Y' }">
                                         <a href="javascript:whenSubjPropose('<c:out value="${param.p_subj}" />','<c:out value="${param.p_year}" />','<c:out value="${param.p_subjseq}" />','<c:out value="${param.p_subjnm}" />')" class="apply_btn btn btn-purple">수강신청</a>
                                     </c:if>
-                                    <a href="javascript:whenSubjList();" class="list_btn btn btn-secondary">목록가기</a>
+                                    <a href="javascript:whenSubjList();" class="list_btn btn btn-outline-secondary">목록가기</a>
 
                                 </div>
                                 

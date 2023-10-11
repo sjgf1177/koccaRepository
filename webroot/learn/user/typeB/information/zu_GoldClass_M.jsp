@@ -133,7 +133,7 @@ function fnSelect(){
 								</ul>
 								<div class="thumb_button">
 									<a href="javascript:openGoldClass('<c:out value="${list.d_seq }" />', '<c:out value="${list.d_d_width_s }" />','<c:out value="${list.d_height_s }" />');" class="apply_btn btn btn-purple" style="margin-top:15px;">강좌보기</a>
-									<a href="javascript:goReply('<c:out value="${list.d_seq }" />');" class="command_btn btn btn-secondary" style="margin-top:15px;">의견달기</a>
+									<a href="javascript:goReply('<c:out value="${list.d_seq }" />');" class="command_btn btn btn-outline-secondary" style="margin-top:15px;">의견달기</a>
 								</div>
 							</div>
 						</div>

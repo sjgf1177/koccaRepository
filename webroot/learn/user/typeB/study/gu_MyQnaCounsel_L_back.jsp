@@ -62,27 +62,43 @@ function viewQna(seq,subj,year,subjseq) {
 	<input type="hidden" name="gubun" value="${param.gubun }" />
     <input type="hidden" name="menuid" value="${param.menuid }" />
 </form>
-<section class="container d-flex myclass02">
-    <div class=""></div>
-    <div class="subContainer">
-        <div class="sub_section">
-            <div class="sub_contents_body">
-                <div class="sub_board_header">
+<section>
+    <div class="wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
                     <jsp:include page="/learn/user/typeB/include_left/left_3.jsp">
                     	<jsp:param value="${param.menuid }" name="left_active"/>
                     </jsp:include>
-                    <div class="list_title">
-                        <span><span>·</span>나의 상담내역을 확인할 수 있는 공간입니다.</span>
-                        <span><span>·</span>Q&A, 과정질문방에 대한 답변을 확인할 수 있습니다.</span>
-                    </div>
-
                     <div class="subContainer">
                         <div class="sub_section">
                             <div class="sub_contents_header">
                                 <span>나의상담내역</span>
+                                <div class="linemap_wrap">
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <span>
+                                                    <img src="/common/image/home_icon.png" alt="메인">
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><span>나의강의실</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><span>나의 상담내역</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                             <div class="sub_contents_body">
-
+                                <div class="sub_board_header">
+                                   <div class="list_title">
+                                        <span><span>·</span>나의 상담내역을 확인할 수 있는 공간입니다.</span>
+                                        <span><span>·</span>Q&A, 과정질문방에 대한 답변을 확인할 수 있습니다.</span>
+                                    </div>
+                                </div>
                                 <div class="sub_boarder_body">
                                     <table class="td_align_left2">
                                         <colgroup>

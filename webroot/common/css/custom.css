@@ -319,7 +319,7 @@ input[type="chcekbox"] + label img{vertical-align: top;}
 .tab_style_con .tab_style_2 li.active span{background:#40abd4; color:white;}
 
 /* table */
-.noticelist .sub_boarder_body table tr td a{color: #000000;}
+.noticelist .sub_boarder_body table tr td a, [class*="myclass"] .sub_boarder_body table tr td a{color: #000000; text-decoration: underline;}
 .noticedetail .sub_info_body .sub_course_view_wrap table tr:first-child td span{width: 100%;}
 .sub_course_view_title{font-size:20px; line-height: 26px; color:#313131; font-weight: 400; margin-bottom:23px;}
 .th_align_left1 tr th{text-align: left !important; padding-left:20px;}
@@ -367,8 +367,8 @@ input[type="chcekbox"] + label img{vertical-align: top;}
 .sub_boarder_body table tr td.incomplete{color: #dd7b09;}
 .sub_boarder_body table tr td.complete{color:#01b69f}
 .sub_boarder_body table tr td a.btn_registrationCancel{background:#40abd4; text-decoration: none; text-align: center; color:white; height:25px; line-height: 25px; width:70px; border-radius:2px}
-.sub_boarder_body table tr td a.btn_introView{text-align: center !important; display:block; width:60px !important; text-overflow: clip; overflow: visible; background:#40abd4; color:white !important; border-radius: 3px; margin-top:5px; font-size: 1.5rem; line-height: 3.0rem; text-decoration: none !important; height:30px;}
-.sub_boarder_body table tr td a.btn_view{text-align: center !important; display:block; width:80px !important; text-overflow: clip; overflow: visible; background:#5ac9b7; color:white !important; border-radius: 3px; margin-top:5px; font-size: 1.5rem; line-height: 3.0rem; text-decoration: none !important; height:30px;}
+.sub_boarder_body table tr td a.btn_introView{text-align: center !important; display:block; width:60px !important; text-overflow: clip; overflow: visible; background:#40abd4; color:white !important; border-radius: 3px; margin-top:5px; font-size: 15px; line-height: 30px; text-decoration: none !important; height:30px;}
+.sub_boarder_body table tr td a.btn_view{text-align: center !important; display:block; width:80px !important; text-overflow: clip; overflow: visible; color:white !important; border-radius: 3px; margin-top:5px; font-size: 15px; line-height: 30px; text-decoration: none !important; height:30px;}
 .sub_boarder_body table tr td a.btn_view.goto_propose {width: auto !important; padding: 0 8px; display: inline-block;}
 .sub_boarder_body table tr td span.end {color: #666; font-size: 1.5rem;}
 .sub_boarder_body table tr td a.btn_record{background:#5ac9b7; text-align: center !important; color:white; padding-top:5px; padding-bottom:4px; border-radius: 2px; width:60px;}

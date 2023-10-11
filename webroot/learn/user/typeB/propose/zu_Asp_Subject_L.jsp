@@ -188,7 +188,7 @@
 									</c:choose>
 									<c:if test="${sessionScope.tem_grcode ne 'N000210'}">
 										<c:if test="${list.d_preurl ne '' }">
-											<a href="javascript:whenPreShow('<c:out value="${list.d_preurl }" />','<c:out value="${list.d_subj }" />','<c:out value="${list.d_prewidth }" />', '<c:out value="${list.d_preheight }" />', '<c:out value="${list.d_wj_classkey }" />');" class="gustation_btn btn btn-secondary">¸Àº¸±â</a>
+											<a href="javascript:whenPreShow('<c:out value="${list.d_preurl }" />','<c:out value="${list.d_subj }" />','<c:out value="${list.d_prewidth }" />', '<c:out value="${list.d_preheight }" />', '<c:out value="${list.d_wj_classkey }" />');" class="gustation_btn btn btn-outline-secondary">¸Àº¸±â</a>
 										</c:if>
 									</c:if>
 								</div>
