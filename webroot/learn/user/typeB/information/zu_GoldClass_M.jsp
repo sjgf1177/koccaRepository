@@ -128,7 +128,7 @@ function fnSelect(){
 											<img src="/common/image/ico_star_off.png" alt="별점">
 										</c:forEach>
 									</li>
-									<li><span><c:out value="${list.d_tutornm }" /> · 총 <c:out value="${list.d_lectime }" />분 · 조회수 <c:out value="${list.d_viewcnt }" /></span></li>
+									<li><span><c:out value="${list.d_tutornm }" /> · 총 <c:out value="${list.d_lectime }" />초 · 조회수 <c:out value="${list.d_viewcnt }" /></span></li>
 
 								</ul>
 								<div class="thumb_button">
