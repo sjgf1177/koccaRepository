@@ -79,14 +79,34 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
+                    <jsp:include page="/learn/user/typeB/include_left/left_0.jsp">
+                    	<jsp:param value="4" name="left_active"/>
+                    </jsp:include>
                     <div class="subContainer">
                         <div class="sub_section">
                             <div class="sub_contents_header">
                             	<span>비밀번호 변경</span>
+                            	<div class="linemap_wrap">
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <span>
+                                                    <img src="/common/image/home_icon.png" alt="메인">
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><span>회원/로그인</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><span>비밀번호 변경</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                             <div class="sub_contents_body">
 								<div class="sub_info_body join_box">
-                                	<div class="list_title" style="font-size:16px;padding:0 20px; text-align: center;">
+                                	<div class="list_title" style="font-size:18px;padding:30px; text-align: center;">
                                         <p style="font-weight:600; ">"회원님의 소중한 개인정보보호를 위해 비밀번호를 변경해주세요"</p>
                                         <p>한국콘텐츠아카데미에서는 회원님의 개인정보보호를 위해 3개월 이상 비밀번호를 변경하지 않은 경우 비밀번호 변경을 안내하고 있습니다.</p>
                                         <p>변경 시, 타인이 추측하기 쉬운 비밀번호는 도용위험성이 높으니, 영어/숫자/특수문자를 조합하여 안전하게 설정해주시기 바랍니다.</p>
@@ -129,8 +149,8 @@
                                     		</form>
                                     	</div>
                                     	<div style="padding-top:20px; text-align: center;">
-											<button onclick="changePw();" class="btn_small btn btn-purple">비밀번호 변경</button>
-											<button onclick="nextChangePw();" class="btn_small btn btn-outline-secondary">다음에 변경하기</button>
+											<button onclick="changePw();" class="btn_small">비밀번호 변경</button>
+											<button onclick="nextChangePw();" class="btn_small">다음에 변경하기</button>
 										</div>
                                     </div>
 								</div>
