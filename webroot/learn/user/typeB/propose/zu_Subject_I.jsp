@@ -119,7 +119,7 @@
 	                                    </div>
 	                                    -->
 	                                    <div class="sub_info_body">
-	                                        <p class="sub_course_view_title">신청과정</p>
+	                                        <p class="sub_course_view_title" style="font-weight: 600;">신청과정</p>
 	                                        <table class="td_align_left">
 	                                            <colgroup>
 	                                                <col width="20%">
@@ -167,8 +167,8 @@
 	                                    </div>
 										<div>
 											<c:if test="${sessionScope.tem_grcode eq 'N000210'}">
-												<div>
-													<h3>교육 수강목적(다중 선택 가능)</h3>
+												<div style="margin-top: 30px;">
+													<p class="sub_course_view_title" style="font-weight: 600;">교육 수강목적(다중 선택 가능)</p>
 													<%
 														List sulList = CodeAdminBean.selectListCode("0124");
 
@@ -196,8 +196,8 @@
 														}
 													%>
 												</div>
-												<div>
-													<h3>분야</h3>
+												<div style="margin-top: 30px;">
+													<p class="sub_course_view_title" style="font-weight: 600;">분야</p>
 													<%
 														List cateList = CodeAdminBean.selectListCode("0122");
 

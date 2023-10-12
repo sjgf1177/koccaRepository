@@ -277,6 +277,11 @@ input[type="chcekbox"] + label img{vertical-align: top;}
 .lnb_wrap .lnb_con li ul li a{background:url(../image/lnb_list_style_white.jpg) no-repeat left top 5px; color:white; font-size:12px; font-size:1.2rem; line-height:22px; line-height:2.2rem; font-weight:400; padding-left:14px; }
 .lnb_wrap .lnb_con li ul li.active a{color:#444; background:url(../image/lnb_list_style_black.jpg) no-repeat left top 5px; }
 
+.onedpas_lnb_wrap{margin-top: 20px;}
+.onedpas_lnb_wrap .lnb_con{justify-content: flex-start;}
+.onedpas_lnb_wrap .lnb_con li{margin:0;}
+.onedpas_lnb_wrap .lnb_con li a{font-size: 18px; line-height: 18px; font-weight: 400; padding: 10px; display: inline-block; text-decoration: none; color: #999999;}
+.onedpas_lnb_wrap .lnb_con li.on > a{text-decoration: underline; color: #222; font-weight: 600;}
 
 .subContainer{display:inline-block; width:100%}
 .subContainer_pop{display:inline-block; width:100%}
@@ -360,10 +365,10 @@ input[type="chcekbox"] + label img{vertical-align: top;}
 .sub_boarder_body table tr.recommand td:nth-child(2){padding-left:35px; background-image: url(../image/ico_re.gif); background-repeat: no-repeat; background-position: left center;}
 .sub_boarder_body table tr td{font-size:14px; font-weight:400; line-height: 21px; color:#767676; text-align: center; padding: 12px 10px;}
 .sub_boarder_body table tr td a{text-align:left; display:block; width:100%; text-overflow:ellipsis; white-space:nowrap; word-wrap: normal; overflow: hidden;}
-.sub_boarder_body table tr td .gray{color:#a2a1a1; font-size:13px; font-size:1.3rem;}
+.sub_boarder_body table tr td .gray{color:#a2a1a1; font-size:13px;}
 .sub_boarder_body table tr td .incomplete{color: #dd7b09;}
-.sub_boarder_body table tr td .complete{color:#01b69f}
-.sub_boarder_body table tr td.gray{color:#a2a1a1; font-size:13px; font-size:1.3rem;}
+.sub_boarder_body table tr td .complete{color:#01b69f; font-weight: 600;}
+.sub_boarder_body table tr td.gray{color:#a2a1a1; font-size:13px;}
 .sub_boarder_body table tr td.incomplete{color: #dd7b09;}
 .sub_boarder_body table tr td.complete{color:#01b69f}
 .sub_boarder_body table tr td a.btn_registrationCancel{background:#40abd4; text-decoration: none; text-align: center; color:white; height:25px; line-height: 25px; width:70px; border-radius:2px}
@@ -379,6 +384,8 @@ input[type="chcekbox"] + label img{vertical-align: top;}
 .layer_board_table_wrap table{width: 100%;}
 .layer_board_table_wrap table th{font-size: 16px; font-weight: 400; line-height: 34px;}
 .layer_board_table_wrap table td{font-weight: 600; line-height: 34px;}
+
+.layer_board_table_wrap table.td_align_left tr td:nth-child(even){padding-left:10px;}
 
 /* 과정 상세보기 테이블 바디 */
 .sub_info_body{width:100%; margin-top: 70px;}
@@ -649,6 +656,8 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:38px;
     .paging .paginationSet .pagination li.end{width:32px;}
 }
 
+
+
 @media (min-width: 992px){
     .container{width:930px; padding:0 !important;}
     /* main */
@@ -688,6 +697,7 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:38px;
     section.container.d-flex > div:first-child{display: none;}
 
     .lnb_wrap .lnb_con li > a{padding: 10px; white-space: nowrap; font-size: 14px;}
+    .onedpas_lnb_wrap .lnb_con li a{font-size: 16px;}
 
     .board_search_box{width: 100%;}
 
@@ -697,6 +707,18 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:38px;
 
 
 .mo_table{display:none;}
+
+@media all and (max-width: 768px){
+    .layer_board_table_wrap table, .layer_board_table_wrap table tbody,
+    .layer_board_table_wrap table th, .layer_board_table_wrap table td{display: block;}
+    .layer_board_table_wrap table tr{display: flex; flex-direction: row; flex-wrap: wrap;}
+
+    .layer_board_table_wrap table th{width: 30%;}
+    .layer_board_table_wrap table td{width: 70%;}
+    .layer_board_table_wrap table th, .layer_board_table_wrap table td{border-bottom: 1px solid #eaeaea; padding: 10px 0;}
+    .layer_board_table_wrap table tr:first-child th, .layer_board_table_wrap table tr:first-child td{padding-top: 0;}
+}
+
 @media all and (max-width: 640px){
     .board_search_box.mo_width{width: 100%;display: flex;}
     .board_search_box.mo_width form{width: 100%;}
@@ -726,8 +748,12 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:38px;
 
 
 
+
+
 }
 
 @media all and (max-width: 375px){
     .join_box .signUp_step_bar .step_wrap{padding: 0 11%;}
+
+    .layer_board_table_wrap table th, .layer_board_table_wrap table td{font-size: 14px;}
 }

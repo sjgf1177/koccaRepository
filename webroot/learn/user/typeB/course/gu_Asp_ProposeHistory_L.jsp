@@ -46,42 +46,22 @@ function cancelPropose(p_tid, p_paymethod){
     <input type='hidden' name='p_tid'	    >
     <input type='hidden' name='p_paymethod' >
 </form>
-<section>
-    <div class="wrapper">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
+<section class="container d-flex">
+    <div class=""></div>
+    <div class="subContainer">
+        <div class="sub_section">
+            <div class="sub_contents_body">
+                <div class="sub_board_header">
                     <jsp:include page="/learn/user/typeB/include_left/left_9.jsp">
                     	<jsp:param value="${param.menuid }" name="left_active"/>
                     </jsp:include>
+                    <div class="list_title">
+                        <span>수강신청이 완료된 과정목록입니다. 신청한 과정명과 교육기간을 확인하세요.</span>
+                    </div>
                     <div class="subContainer">
                         <div class="sub_section">
-                            <div class="sub_contents_header">
-                                <span>수강신청 확인/취소</span>
-                                <div class="linemap_wrap">
-                                    <ul>
-                                        <li>
-                                            <a href="#">
-                                                <span>
-                                                    <img src="/common/image/home_icon.png" alt="메인">
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><span>수강신청</span></a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><span>수강신청확인/취소</span></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+
                             <div class="sub_contents_body">
-                                <div class="sub_board_header">
-                                    <div class="list_title">
-                                        <span><span>·</span>수강신청이 완료된 과정목록입니다. 신청한 과정명과 교육기간을 확인하세요.</span>
-                                    </div>
-                                </div>
                                 <div class="sub_boarder_body">
                                     <table>
                                         <colgroup>
@@ -171,7 +151,12 @@ function cancelPropose(p_tid, p_paymethod){
         </div>
     </div>
 </section>
+<style>
+	@media all and (max-width: 640px){
+		.sub_boarder_body{margin-top: 30px;}
+	}
 
+</style>
 <!-- footer -->
 <jsp:include page="/learn/user/typeB/include/newFooterB.jsp" />
 <!-- footer -->
