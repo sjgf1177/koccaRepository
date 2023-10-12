@@ -289,9 +289,9 @@
 											<c:set var="totalpage" value="${list.d_totalpage }" />
 										</c:forEach>
 										<c:if test="${fn:length(StudyHistoryList) le 0 }">
-											<tr>
-												<td colspan="7">나의 교육이력 내역이 없습니다</td>
-											</tr>
+											<p class="text-center">
+												나의 교육이력 내역이 없습니다.
+											</p>
 											<c:set var="totalpage" value="0" />
 										</c:if>
 										</tbody>
