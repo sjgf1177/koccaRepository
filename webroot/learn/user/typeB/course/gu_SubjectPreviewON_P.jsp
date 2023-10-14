@@ -39,7 +39,7 @@
 </head>
 <body>
     <section>
-        <div class="wrapper">
+        <div class="wrapper layer_board_table_wrap">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -104,5 +104,14 @@
         </div>
     </section>
 </body>
+<style>
+    @media (min-width: 768px){
+        .layer_board_table_wrap table th, .layer_board_table_wrap table td{
+            padding: 10px 0;
+            border-bottom: 1px solid #eaeaea;
+        }
+    }
+
+</style>
 </html>
 
