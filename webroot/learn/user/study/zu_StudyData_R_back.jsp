@@ -130,7 +130,7 @@
 	    <input type = "hidden" name = "p_subjseq"    value = "<%= v_subjseq %>"/>
 	</form>
     <section>
-        <div class="wrapper layer_board_table_wrap">
+        <div class="wrapper">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -161,28 +161,23 @@
                                                 <col width="auto">
                                             </colgroup>
                                             <tbody>
-                                            <tr>
-                                                <th>제목</th>
-                                                <td colspan="3"><%= v_title %></td>
-                                            </tr>
-                                            <tr>
-                                                <th>내용</th>
-                                                <td colspan="4"><%= v_content %></td>
-                                            </tr>
-                                            <tr>
-                                                <th>작성자</th>
-                                                <td colspan="3"><%= v_name %></td>
-                                            </tr>
-                                            <tr>
-                                                <th>작성일</th>
-                                                <td><%= FormatDate.getFormatDate(v_indate, "yyyy.MM.dd") %></td>
-                                            </tr>
-                                            <tr>
-                                                <th>조회수</th>
-                                                <td><%= v_cnt %></td>
-                                            </tr>
-
-
+                                                <tr>
+                                                    <th>작성일</th>
+                                                    <td><%= FormatDate.getFormatDate(v_indate, "yyyy.MM.dd") %></td>
+                                                    <th>조회수</th>
+                                                    <td><%= v_cnt %></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>작성자</th>
+                                                    <td colspan="3"><%= v_name %></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>제목</th>
+                                                    <td colspan="3"><%= v_title %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4"><%= v_content %></td>
+                                                </tr>
 												<!-- 파일첨부 시작 -->
 									            <%
 									                String gubun = "6";
