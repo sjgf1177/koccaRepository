@@ -364,7 +364,7 @@ input[type="chcekbox"] + label img{vertical-align: top;}
 .sub_boarder_body table tr th{font-size:14px; font-weight:400; line-height:19px; color:#000; text-align: center; padding: 12px 10px;}
 .sub_boarder_body table tr.recommand td:nth-child(2){padding-left:35px; background-image: url(../image/ico_re.gif); background-repeat: no-repeat; background-position: left center;}
 .sub_boarder_body table tr td{font-size:14px; font-weight:400; line-height: 21px; color:#767676; text-align: center; padding: 12px 10px;}
-.sub_boarder_body table tr td a{text-align:left; display:block; width:100%; text-overflow:ellipsis; white-space:nowrap; word-wrap: normal; overflow: hidden;}
+.sub_boarder_body table tr td a{text-align:left; display:block; width:100%; text-overflow:ellipsis; /*white-space:nowrap;*/ word-wrap: normal; overflow: hidden;}
 .sub_boarder_body table tr td .gray{color:#a2a1a1; font-size:13px;}
 .sub_boarder_body table tr td .incomplete{color: #dd7b09;}
 .sub_boarder_body table tr td .complete{color:#01b69f; font-weight: 600;}
@@ -372,11 +372,17 @@ input[type="chcekbox"] + label img{vertical-align: top;}
 .sub_boarder_body table tr td.incomplete{color: #dd7b09;}
 .sub_boarder_body table tr td.complete{color:#01b69f}
 .sub_boarder_body table tr td a.btn_registrationCancel{background:#40abd4; text-decoration: none; text-align: center; color:white; height:25px; line-height: 25px; width:70px; border-radius:2px}
-.sub_boarder_body table tr td a.btn_introView{text-align: center !important; display:block; width:60px !important; text-overflow: clip; overflow: visible; background:#40abd4; color:white !important; border-radius: 3px; margin-top:5px; font-size: 15px; line-height: 30px; text-decoration: none !important; height:30px;}
-.sub_boarder_body table tr td a.btn_view{text-align: center !important; display:block; width:80px !important; text-overflow: clip; overflow: visible; color:white !important; border-radius: 3px; margin-top:5px; font-size: 15px; line-height: 30px; text-decoration: none !important; height:30px;}
+.sub_boarder_body table tr td a.btn_introView{text-align: center !important; display:block; width:60px !important; text-overflow: clip; overflow: visible; background:#40abd4; color:white !important; border-radius: 3px; font-size: 15px; line-height: 30px; text-decoration: none !important; height:30px;}
+.sub_boarder_body table tr td a.btn_view{text-align: center !important; display:block; width:80px !important; text-overflow: clip; overflow: visible; color:white !important; border-radius: 3px; font-size: 15px; text-decoration: none !important; height:30px;  padding: 0; border:0; line-height: 30px;}
 .sub_boarder_body table tr td a.btn_view.goto_propose {width: auto !important; padding: 0 8px; display: inline-block;}
 .sub_boarder_body table tr td span.end {color: #666; font-size: 1.5rem;}
 .sub_boarder_body table tr td a.btn_record{background:#5ac9b7; text-align: center !important; color:white; padding-top:5px; padding-bottom:4px; border-radius: 2px; width:60px;}
+
+/* 모바일 테이블 */
+.sub_boarder_body table.mo_view.board_table tr{border-bottom: 1px solid #eaeaea;}
+.sub_boarder_body table.mo_view.board_table tr th{padding: 12px 0;}
+.sub_boarder_body table.mo_view.board_table tr td{padding: 12px 0;}
+.sub_boarder_body table.mo_view.board_table tr td a{white-space: normal; text-align: center;}
 
 .btn_record{background:#5ac9b7; text-align: center !important; color:white !important; padding:4px;  width:150px; border-radius: 3px;}
 
@@ -390,9 +396,9 @@ input[type="chcekbox"] + label img{vertical-align: top;}
 /* 과정 상세보기 테이블 바디 */
 .sub_info_body{width:100%; margin-top: 70px;}
 .sub_info_body ul{width:100%; padding-left: 0;}
-.sub_info_body ul li{font-size:1rem; font-weight:400; line-height: 1.9rem; color:#313131; text-align: left; padding-top:17px;}
-.sub_info_body ul li:first-child{border-top:2px solid #441CBA;}
-.sub_info_body ul li:last-child{padding-bottom:16px; border-bottom: 2px solid #441CBA;}
+.sub_info_body ul li{font-size:14px; font-weight:400; line-height: 1.9rem; color:#313131; text-align: left; padding-top:17px;}
+.sub_info_body ul li:first-child{border-top:2px solid #eaeaea;}
+.sub_info_body ul li:last-child{padding-bottom:16px; border-bottom: 2px solid #eaeaea;}
 .sub_info_body ul li p{padding-top:18px; font-size:1.2rem; font-weight:400; line-height: 1.5rem; color:#313131;}
 input[type=text], input[type=password]{width: 100%; min-width: 25%; height:38px; border: 1px solid #e3e6e9; border-radius: 3px;padding-top: 9px; padding-bottom: 8px; padding-left: 5px; padding-right:5px; font-size: 0.8rem; line-height: 1rem;}
 .sub_info_body ul li.birthform_box input{width: 26%; min-width: 25%;}
@@ -504,9 +510,9 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:38px;
 .sub_thumb_body .thumb_box .thumb_con .thumb_button a.command_btn{}
 /* 강의실 */
 .myCourseLearningBtn{text-align: center}
-.myCourseLearningBtn a{padding:10px; display:inline-block; border-radius: 5px; margin:0 5px; background:#b5b5b5; color:white;}
+.myCourseLearningBtn a{padding:10px; display:inline-block; border-radius: 5px; margin:0 5px 5px 5px; background:#b5b5b5; color:white;}
 .myCourseBoardBtn{width:100%; text-align: right;margin-top:10px;}
-.myCourseBoardBtn a{padding-top:13px; padding-bottom:11px; display:inline-block; padding-left:20px; padding-right:20px; border:solid 1px #ddd; border-radius: 5px; margin-right:10px; text-decoration: none;}
+.myCourseBoardBtn a{padding-top:13px; padding-bottom:11px; display:inline-block; padding-left:20px; pading-right:20px; border:solid 1px #ddd; border-radius: 5px; margin-right:10px; text-decoration: none;}
 
 /* 개인정보처리방침 */
 .useful_con .useful_title{margin-bottom:6px; font-size:2rem; line-height: 2.4rem; color:#313131; font-weight: 300; }
@@ -613,6 +619,7 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:38px;
 
 
 
+
 /* -------------------------------------------------------------------- */
 /* 반응형 */
 @media (min-width: 576px){
@@ -655,7 +662,9 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:38px;
     .paging .paginationSet .pagination li.next{background-position: -116px 12px; width:45px; margin-left:40px;}
     .paging .paginationSet .pagination li.end{width:32px;}
 }
+@media (min-width: 768px){
 
+}
 
 
 @media (min-width: 992px){
@@ -707,7 +716,7 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:38px;
 
 
 .mo_table{display:none;}
-
+.mo_view{display: none;}
 @media all and (max-width: 768px){
     .layer_board_table_wrap table, .layer_board_table_wrap table tbody,
     .layer_board_table_wrap table th, .layer_board_table_wrap table td{display: block;}
@@ -727,6 +736,7 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:38px;
 
     .pc_table{display:none;}
     .mo_table{display:table;}
+    .mo_view{display: block;}
     .sub_board_header .list_title > span{letter-spacing: -1px;}
     .sub_boarder_body table{table-layout:auto;}
     .sub_boarder_body table.mo_table{table-layout: fixed;}

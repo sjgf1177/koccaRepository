@@ -115,15 +115,20 @@
 					<jsp:include page="/learn/user/typeB/include_left/left_3.jsp">
 						<jsp:param value="${param.menuid }" name="left_active"/>
 					</jsp:include>
-					<div class="list_title">
-						<span>현재 수강중인 과정 목록입니다.</span>
-						<span>수강중의 과정이 있을 경우 학습창으로 이동하실 수 있습니다.</span>
-					</div>
+
 					<div class="subContainer">
 						<div class="sub_section">
+							<div class="sub_contents_header">
+								<span>수강중인과정</span>
+								<div class="list_title">
+									<span>현재 수강중인 과정 목록입니다.</span>
+									<span>수강중의 과정이 있을 경우 학습창으로 이동하실 수 있습니다.</span>
+								</div>
+							</div>
 							<div class="sub_contents_body">
 
 								<div class="sub_boarder_body">
+
 									<table class="td_align_left2">
 										<colgroup>
 											<col width="auto">
@@ -134,7 +139,7 @@
 										<thead>
 										<tr>
 											<th>과정명</th>
-											<th>교육기간</th>
+											<th class="pc_table">교육기간</th>
 											<th>학습현황</th>
 											<th>학습하기</th>
 										</tr>
@@ -146,8 +151,15 @@
 													<a href="javascript:whenSubjInfoPopup('<c:out value="${list.d_subj }" />','<c:out value="${list.d_subjnm }" />','<c:out value="${list.d_isonoff }" />');">
 														<c:out value="${list.d_subjnm }"/>
 													</a>
+													<p class="mo_view">
+														<fmt:parseDate value="${list.d_edustart }" var="edustart" pattern="yyyyMMddHH"/>
+														<fmt:formatDate value="${edustart }" pattern="yyyy.MM.dd"/>
+														~
+														<fmt:parseDate value="${list.d_eduend }" var="eduend" pattern="yyyyMMddHH"/>
+														<fmt:formatDate value="${eduend }" pattern="yyyy.MM.dd"/>
+													</p>
 												</td>
-												<td>
+												<td class="pc_table">
 													<fmt:parseDate value="${list.d_edustart }" var="edustart" pattern="yyyyMMddHH"/>
 													<fmt:formatDate value="${edustart }" pattern="yyyy.MM.dd"/>
 													~
@@ -194,13 +206,13 @@
 												<td>
 													<c:choose>
 														<c:when test="${list.d_controlstudy > 0 }">
-															<a href="javascript:controlstudy();" class="btn_view">학습하기</a>
+															<a href="javascript:controlstudy();" class="btn_view btn btn-purple">학습하기</a>
 														</c:when>
 														<c:otherwise>
 															<c:if test="${list.d_isstudyyn eq 'Y'}">
 																<c:choose>
 																	<c:when test="${sessionScope.tem_grcode eq 'N000031' }">
-																		<a href="javascript:studyOpen2('<c:out value="${eduUrl }" />','<c:out value="${ieduurl }" />>', '<c:out value="${list.d_wj_classkey }" />', '<c:out value="${list.d_edustartdt }" />');" class="btn_view">학습하기</a>
+																		<a href="javascript:studyOpen2('<c:out value="${eduUrl }" />','<c:out value="${ieduurl }" />>', '<c:out value="${list.d_wj_classkey }" />', '<c:out value="${list.d_edustartdt }" />');" class="btn_view btn btn-purple">학습하기</a>
 																	</c:when>
 																	<c:otherwise>
 																		<a href="javascript:studyOpen('<c:out value="${eduUrl }" />','<c:out value="${ieduurl }" />');" class="btn_view btn btn-purple">학습하기</a>
@@ -221,6 +233,7 @@
 										</c:if>
 										</tbody>
 									</table>
+
 								</div>
 								${pu:typeB_printPageListDiv(totalpage, pageno, pagesize) }
 							</div>

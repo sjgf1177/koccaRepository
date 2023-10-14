@@ -129,19 +129,22 @@
 					<jsp:include page="/learn/user/typeB/include_left/left_3.jsp">
 						<jsp:param value="${param.menuid }" name="left_active"/>
 					</jsp:include>
-					<div class="list_title">
-						<span>수강을 마친 과정 목록입니다.</span>
-						<span>수강을 마친 과정이 있을 경우 성적 및 수료여부를 확인할 수 있습니다.</span>
-					</div>
+
 					<div class="subContainer">
 						<div class="sub_section">
 							<div class="sub_contents_header">
 								<span>나의교육이력</span>
+								<div class="list_title">
+									<span>수강을 마친 과정 목록입니다.</span>
+									<span>수강을 마친 과정이 있을 경우 성적 및 수료여부를 확인할 수 있습니다.</span>
+								</div>
 							</div>
+
 							<div class="sub_contents_body">
 
 								<div class="sub_boarder_body">
-									<table class="td_align_left2">
+									<!-- pc table start-->
+									<table class="td_align_left2 pc_table">
 										<colgroup>
 											<col width="auto">
 											<col width="15%">
@@ -216,7 +219,7 @@
 																	<a href="javascript:studyOpen2('<c:out value="${eduUrl }" />','<c:out value="${ieduurl }" />>', '<c:out value="${list.d_wj_classkey }" />', '<c:out value="${list.d_edustartdt }" />');" class="btn_view">복습</a>
 																</c:when>
 																<c:otherwise>
-																	<a href="javascript:studyOpen('<c:out value="${eduUrl }" />','<c:out value="${ieduurl }" />');" class="btn_view">복습</a>
+																	<a href="javascript:studyOpen('<c:out value="${eduUrl }" />','<c:out value="${ieduurl }" />');" class="btn_introView">복습</a>
 																</c:otherwise>
 															</c:choose>
 														</c:when>
@@ -236,49 +239,49 @@
 												<td>
 													<c:choose>
 														<c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && eduend < today}">
-															<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_introView">인쇄</a>
+															<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_view btn btn-purple">수료증</a>
 														</c:when>
 														<c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && sessionScope.tem_grcode eq 'N000210'}">
-															<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_introView">인쇄</a>
+															<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_view btn btn-purple">수료증</a>
 														</c:when>
 														<c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && sessionScope.tem_grcode eq 'N000206'}">
-															<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_introView">인쇄</a>
+															<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_view btn btn-purple">수료증</a>
 														</c:when>
 														<c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && sessionScope.tem_grcode eq 'N000235'}">
-															<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_introView">인쇄</a>
+															<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_view btn btn-purple">수료증</a>
 														</c:when>
 														<c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && sessionScope.tem_grcode eq 'N000232'}">
-															<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_introView">인쇄</a>
+															<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_view btn btn-purple">수료증</a>
 														</c:when>
 														<c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && sessionScope.tem_grcode eq 'N000233'}">
-															<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_introView">인쇄</a>
+															<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_view btn btn-purple">수료증</a>
 														</c:when>
 														<c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && sessionScope.tem_grcode eq 'N000222'}">
-															<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_introView">인쇄</a>
+															<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_view btn btn-purple">수료증</a>
 														</c:when>
 														<c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && sessionScope.tem_grcode eq 'N000240'}">
-															<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_introView">인쇄</a>
+															<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_view btn btn-purple">수료증</a>
 														</c:when>
 														<c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && sessionScope.tem_grcode eq 'N000241'}">
-															<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_introView">인쇄</a>
+															<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_view btn btn-purple">수료증</a>
 														</c:when>
 														<c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && sessionScope.tem_grcode eq 'N000242'}">
-															<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_introView">인쇄</a>
+															<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_view btn btn-purple">수료증</a>
 														</c:when>
 														<c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && sessionScope.tem_grcode eq 'N000243'}">
-															<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_introView">인쇄</a>
+															<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_view btn btn-purple">수료증</a>
 														</c:when>
 														<c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && sessionScope.tem_grcode eq 'N000248'}">
-															<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_introView">인쇄</a>
+															<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_view btn btn-purple">수료증</a>
 														</c:when>
 														<c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && sessionScope.tem_grcode eq 'N000253'}">
-															<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_introView">인쇄</a>
+															<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_view btn btn-purple">수료증</a>
 														</c:when>
 														<c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && sessionScope.tem_grcode eq 'N000256'}">
-															<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_introView">인쇄</a>
+															<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_view btn btn-purple">수료증</a>
 														</c:when>
 														<c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && sessionScope.tem_grcode eq 'N000229'}">
-															<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_introView">인쇄</a>
+															<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_view btn btn-purple">수료증</a>
 														</c:when>
 														<c:otherwise>
 															-
@@ -296,6 +299,157 @@
 										</c:if>
 										</tbody>
 									</table>
+									<!-- pc table end-->
+
+									<!-- 모바일 table start-->
+									<table class="mo_view board_table">
+										<colgroup>
+											<col width="40%">
+											<col width="auto">
+											<col width="auto">
+											<col width="auto">
+										</colgroup>
+										<thead>
+											<th>과정명</th>
+											<th>복습</th>
+											<th>성적</th>
+											<th>수료여부</th>
+										</thead>
+
+										<tbody>
+											<c:forEach items="${StudyHistoryList }" var="list" varStatus="status">
+											<fmt:parseDate value="${list.d_courseedustart }" var="courseedustart" pattern="yyyyMMddHH" />
+											<fmt:parseDate value="${list.d_courseeduend }" var="courseeduend" pattern="yyyyMMddHH" />
+											<fmt:parseDate value="${list.d_reviewstart }" var="reviewstart" pattern="yyyyMMdd" />
+											<fmt:parseDate value="${list.d_reviewend }" var="reviewend" pattern="yyyyMMdd" />
+											<fmt:formatDate value="${courseedustart }" pattern="yyyyMMdd" var="edustart"/>
+											<fmt:formatDate value="${courseeduend }" pattern="yyyyMMdd" var="eduend"/>
+											<tr>
+												<td>
+													<a href="javascript:whenSubjInfoPopup('<c:out value="${list.d_subj }" />','<c:out value="${list.d_subjnm }" />','<c:out value="${list.d_isonoff }" />');" class="mb5"><c:out value="${list.d_subjnm }" /></a>
+													<fmt:formatDate value="${courseedustart }" pattern="yyyy.MM.dd"/>
+													~
+													<fmt:formatDate value="${courseeduend }" pattern="yyyy.MM.dd"/>
+												</td>
+												<td>
+													<c:choose>
+														<c:when test="${list.d_isablereview eq 'Y' && list.d_isgraduated eq 'Y' && eduend < today}">
+															<c:set var="ieduurl" value="${(list.d_eduurl eq '' || list.d_eduurl eq null)? 0 : 1 }" />
+															<c:choose>
+																<c:when test="${list.d_isoutsourcing eq 'Y' }">
+																	<c:url value="/servlet/controller.contents.EduStart" var="eduUrl">
+																		<c:param name="FIELD1" value="${sessionScope.userid }" />
+																		<c:param name="FIELD2" value="${list.d_year }" />
+																		<c:param name="FIELD3" value="${list.d_cpsubj }" />
+																		<c:param name="FIELD4" value="${list.d_cpsubjseq }" />
+																		<c:param name="FIELD99" value="${list.d_company }" />
+																		<c:param name="FIELD100" value="N" />
+																		<c:param name="contenttype" value="${list.d_contenttype }" />
+																		<c:param name="p_subj" value="${list.d_subj }" />
+																		<c:param name="p_year" value="${list.d_year }" />
+																		<c:param name="p_subjseq" value="${list.d_subjseq }" />
+																	</c:url>
+																</c:when>
+																<c:otherwise>
+																	<c:if test="${list.d_eduurl eq '' || list.d_eduurl eq null }">
+																		<c:url value="/servlet/controller.contents.EduStart" var="eduUrl">
+																			<c:param name="p_subj" value="${list.d_subj }" />
+																			<c:param name="p_year" value="${(list.d_year eq null || list.d_year eq '')? '2000' : list.d_year}" />
+																			<c:param name="p_subjseq" value="${(list.d_subjseq eq null || list.d_subjseq eq '')? '0001' : list.d_subjseq }" />
+																			<c:param name="contenttype" value="${list.d_contenttype }" />
+																		</c:url>
+																	</c:if>
+																</c:otherwise>
+															</c:choose>
+															<c:choose>
+																<c:when test="${sessionScope.tem_grcode eq 'N000031' }">
+																	<a href="javascript:studyOpen2('<c:out value="${eduUrl }" />','<c:out value="${ieduurl }" />>', '<c:out value="${list.d_wj_classkey }" />', '<c:out value="${list.d_edustartdt }" />');" class="btn_introView">복습</a>
+																</c:when>
+																<c:otherwise>
+																	<a href="javascript:studyOpen('<c:out value="${eduUrl }" />','<c:out value="${ieduurl }" />');" class="btn_introView">복습</a>
+																</c:otherwise>
+															</c:choose>
+														</c:when>
+														<c:otherwise>-</c:otherwise>
+													</c:choose>
+												</td>
+												<td><c:out value="${list.d_tstep}"/></td>
+												<td>
+													<span>
+														<c:choose>
+															<c:when test="${list.d_isgraduated eq 'A' }">-</c:when>
+															<c:when test="${list.d_isgraduated eq 'B' }">처리중</c:when>
+															<c:when test="${list.d_isgraduated eq 'Y' }">수료</c:when>
+															<c:when test="${list.d_isgraduated eq 'N' }">미수료</c:when>
+															<c:otherwise>-</c:otherwise>
+														</c:choose>
+													</span>
+
+														<c:choose>
+															<c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && eduend < today}">
+																<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_view btn btn-purple">수료증</a>
+															</c:when>
+															<c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && sessionScope.tem_grcode eq 'N000210'}">
+																<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_view btn btn-purple">수료증</a>
+															</c:when>
+															<c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && sessionScope.tem_grcode eq 'N000206'}">
+																<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_view btn btn-purple">수료증</a>
+															</c:when>
+															<c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && sessionScope.tem_grcode eq 'N000235'}">
+																<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_view btn btn-purple">수료증</a>
+															</c:when>
+															<c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && sessionScope.tem_grcode eq 'N000232'}">
+																<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_view btn btn-purple">수료증</a>
+															</c:when>
+															<c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && sessionScope.tem_grcode eq 'N000233'}">
+																<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_view btn btn-purple">수료증</a>
+															</c:when>
+															<c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && sessionScope.tem_grcode eq 'N000222'}">
+																<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_view btn btn-purple">수료증</a>
+															</c:when>
+															<c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && sessionScope.tem_grcode eq 'N000240'}">
+																<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_view btn btn-purple">수료증</a>
+															</c:when>
+															<c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && sessionScope.tem_grcode eq 'N000241'}">
+																<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_view btn btn-purple">수료증</a>
+															</c:when>
+															<c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && sessionScope.tem_grcode eq 'N000242'}">
+																<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_view btn btn-purple">수료증</a>
+															</c:when>
+															<c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && sessionScope.tem_grcode eq 'N000243'}">
+																<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_view btn btn-purple">수료증</a>
+															</c:when>
+															<c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && sessionScope.tem_grcode eq 'N000248'}">
+																<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_view btn btn-purple">수료증</a>
+															</c:when>
+															<c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && sessionScope.tem_grcode eq 'N000253'}">
+																<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_view btn btn-purple">수료증</a>
+															</c:when>
+															<c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && sessionScope.tem_grcode eq 'N000256'}">
+																<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_view btn btn-purple">수료증</a>
+															</c:when>
+															<c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && sessionScope.tem_grcode eq 'N000229'}">
+																<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_view btn btn-purple">수료증</a>
+															</c:when>
+															<c:otherwise>
+																<%-- - --%>
+															</c:otherwise>
+														</c:choose>
+
+												</td>
+											</tr>
+												<c:set var="totalpage" value="${list.d_totalpage }" />
+											</c:forEach>
+											<c:if test="${fn:length(StudyHistoryList) le 0 }">
+												<tr class="text-center">
+													나의 교육이력 내역이 없습니다.
+												</tr>
+												<c:set var="totalpage" value="0" />
+											</c:if>
+										</tbody>
+									</table>
+									<!-- 모바일 table end-->
+
 								</div>
 								${pu:typeB_printPageListDiv(totalpage, pageno, pagesize) }
 							</div>
@@ -310,4 +464,11 @@
 <jsp:include page="/learn/user/typeB/include/newFooterB.jsp" />
 <!-- footer -->
 </body>
+<style>
+	@media all and (max-width: 768px){
+		.sub_boarder_body table tr td a.btn_view {
+			width: 60px !important;
+		}
+	}
+</style>
 </html>
