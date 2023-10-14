@@ -97,19 +97,15 @@
 	<div class=""></div>
 	<div class="subContainer">
 		<div class="sub_section">
+			<div class="sub_contents_header" style="padding-bottom: 0; margin-bottom: 0;">
+				<span style="margin-top: 30px;">정규과정</span>
+			</div>
 			<div class="sub_contents_body">
 				<div class="sub_board_header">
 					<jsp:include page="/learn/user/typeB/include_left/left_9.jsp">
 						<jsp:param value="${param.menuid }" name="left_active"/>
 					</jsp:include>
-					<div class="lnb_wrap">
-						<ul class="lnb_con d-flex">
-							<li <c:if test="${param.p_area eq '' || param.p_area eq null || param.p_area eq 'ALL'}"> class="on"</c:if>><a href="javascript:selectArea('');"><span>전체</span></a></li>
-							<li <c:if test="${param.p_area eq 'B0' }"> class="on"</c:if>><a href="javascript:selectArea('B0');"><span>방송영상</span></a></li>
-							<li <c:if test="${param.p_area eq 'G0' }"> class="on"</c:if>><a href="javascript:selectArea('G0');"><span>게임</span></a></li>
-							<li <c:if test="${param.p_area eq 'K0' }"> class="on"</c:if>><a href="javascript:selectArea('K0');"><span>문화</span></a></li>
-						</ul>
-					</div>
+
 					<div class="d-flex justify-content-lg-between">
 						<div class="board_search_box">
 							<form name="form1" action="/servlet/controller.homepage.AspMenuMainServlet" method="post">

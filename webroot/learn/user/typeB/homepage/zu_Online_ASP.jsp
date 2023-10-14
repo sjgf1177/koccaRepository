@@ -93,7 +93,7 @@ function toggleSubMenu(menuId, flag) {
     
     <input type="hidden" name="p_lecture_cls" value="" />
     <input type="hidden" name="p_prePage"   value="" />
-    <input type="" name="aaa"   value="<c:out value='${param.p_id}'/>" />
+    <input type="hidden" name="aaa"   value="<c:out value='${param.p_id}'/>" />
 </form>
 <!-- body -->
 	<c:choose>

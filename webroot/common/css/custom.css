@@ -292,7 +292,7 @@ input[type="chcekbox"] + label img{vertical-align: top;}
 /* 페이지 타이틀 */
 .sub_section{width:100%;}
 .sub_contents_header{width:100%; padding-bottom:17px; margin-bottom:34px;}
-.sub_contents_header > span{color:#434; font-size:30px; line-height: 32px; line-height: 3.2rem; }
+.sub_contents_header > span, .sub_board_header > span{color:#434; font-size:30px; line-height: 32px; line-height: 3.2rem; }
 /* 라인맵 */
 .sub_contents_header .linemap_wrap{float:right; display:none;}
 .sub_contents_header .linemap_wrap ul li{display:inline-block; margin-top:5x;}
