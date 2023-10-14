@@ -221,7 +221,7 @@
     <input type = "hidden" name = "r_comseq"/>
     
     <section>
-        <div class="wrapper layer_board_table_wrap">
+        <div class="wrapper">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -252,28 +252,23 @@
                                                 <col width="auto">
                                             </colgroup>
                                             <tbody>
-
                                                 <tr>
-                                                    <th>제목</th>
-                                                    <td colspan="3"><%= v_title %></td>
-                                                </tr>
-                                                <tr>
-                                                    <th>내용</th>
-                                                    <td colspan="4"><%= v_content.replaceAll("\r\n", "<br/>") %></td>
+                                                    <th>작성일</th>
+                                                    <td><%= FormatDate.getFormatDate(v_indate, "yyyy.MM.dd") %></td>
+                                                    <th>조회수</th>
+                                                    <td><%= v_cnt %></td>
                                                 </tr>
                                                 <tr>
                                                     <th>작성자</th>
                                                     <td colspan="3"><%= v_name %></td>
                                                 </tr>
                                                 <tr>
-                                                    <th>작성일</th>
-                                                    <td><%= FormatDate.getFormatDate(v_indate, "yyyy.MM.dd") %></td>
+                                                    <th>제목</th>
+                                                    <td colspan="3"><%= v_title %></td>
                                                 </tr>
                                                 <tr>
-                                                    <th>조회수</th>
-                                                    <td><%= v_cnt %></td>
+                                                    <td colspan="4"><%= v_content.replaceAll("\r\n", "<br/>") %></td>
                                                 </tr>
-
 <!-- 파일첨부 시작 -->
 <%
 	Vector i_realfileVector    = (Vector)dbox.getObject("d_realfile");        // 실제 파일명
@@ -322,7 +317,7 @@
                                                 <tr>
                                                     <th>작성자</th>
                                                     <th>댓글</th>
-                                                    <th class="pc_table">날짜</th>
+                                                    <th>날짜</th>
                                                     <th></th>
                                                 </tr>
                                             </thead>
@@ -349,9 +344,9 @@
 		r_ldate     = rbox.getDate("d_ldate", ".");
 %>
                                                 <tr>
-                                                    <td><%= r_name %><p class="mo_view"><%= r_ldate %></p></td>
+                                                    <td><%= r_name %></td>
                                                     <td><%= r_content %></td>
-                                                    <td class="pc_table"><%= r_ldate %></td>
+                                                    <td><%= r_ldate %></td>
                                                     <td>
 <%
 		if( box.getSession("userid").trim().equals(r_userid) ) {
@@ -390,14 +385,4 @@
     </section>
 </form>
 </body>
-<style>
-
-    table.td_align_left2{display: table;}
-    table.td_align_left2 tbody{display: table-row-group;}
-    table.td_align_left2 tr{display: table-row;}
-    table.td_align_left2 th, table.td_align_left2 td{display: table-cell;}
-    table.td_align_left2 td{word-break: break-all;}
-
-    .layer_board_table_wrap table.td_align_left2 tr:first-child th, .layer_board_table_wrap table.td_align_left2 tr:first-child td{padding-top: 12px;}
-</style>
 </html>

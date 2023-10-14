@@ -163,7 +163,7 @@
     <input type = "hidden" name = "p_subjseq"    value = "<%= v_subjseq %>"/>
     
     <section>
-        <div class="wrapper">
+        <div class="wrapper layer_board_table_wrap">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -186,7 +186,8 @@
                                     </div>
 <%  } %>
                                     <div class="sub_info_body">
-                                        <table class="write_table th_align_left1">
+
+                                        <table class="write_table th_align_left1 ">
                                             <colgroup>
                                                 <col width="25%">
                                                 <col width="auto">
@@ -221,6 +222,7 @@
                                                 </tr>
                                             </tbody>
                                         </table>
+
                                     </div>
                                 </div>
                                 <div class="popup_btnBox">
@@ -236,4 +238,7 @@
     </section>
 </form>
 </body>
+<style>
+    .layer_board_table_wrap table th, .layer_board_table_wrap table td{border-bottom: 1px solid #eaeaea; padding: 10px 0;}
+</style>
 </html>
