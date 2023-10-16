@@ -56,7 +56,7 @@
 %>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="euc-kr">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>한국콘텐츠아카데미</title>
@@ -64,21 +64,17 @@
     <!-- Bootstrap / Jquery UI -->
     <link href="/common/js/jquery-ui-1.12.1/jquery-ui.min.css" rel="stylesheet">
     <!--<link href="/common/js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" rel="stylesheet">-->
-    <!--<link href="/common/js/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">-->
-
+    <link href="/common/js/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <script src="/common/js/jquery-3.3.1.min.js"></script>
     <script src="/common/js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
     <!--<script src="/common/js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
-    <!--<script src="/common/js/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>-->
-
-    <!-- Bootstrap-5.3.1 -->
-    <link href="/common/js/bootstrap-5.3.1-dist/css/bootstrap.css" rel="stylesheet">
-    <script src="/common/js/bootstrap-5.3.1-dist/js/bootstrap.bundle.js"></script>
-
-
+    <script src="/common/js/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    
+    
     <!-- Custom CSS -->
     <link href="/common/css/custom.css" rel="stylesheet">
-    <!--<link href="/common/css/header.css" rel="stylesheet">-->
+    <link href="/common/css/header.css" rel="stylesheet">
     <link href="/common/css/footer.css" rel="stylesheet">
     
     <!-- Custom JS -->
@@ -129,7 +125,7 @@
 	</script>
 </head>
 <body id="pop_study">
-    <section class="myclass">
+    <section>
         <div class="wrapper">
             <div class="container">
                 <div class="row">
@@ -153,7 +149,7 @@
                                     </div>
 <%	} %>
                                     <div class="sub_boarder_body">
-                                        <div class="input-group mb-3 board_search_box" style="width: 100%; margin-bottom: 30px;">
+                                        <div class="board_search_box" style="text-align: right; margin-bottom:30px;">
                                             <form name="ff" method="post" action="/servlet/controller.study.SubjQnaStudyServlet">
 												<input type="hidden" name="p_process"  value="SubjQnaList"/>
 												<input type="hidden" name="p_subj"     value="<%=v_subj%>"/>
@@ -164,29 +160,33 @@
 												<input type="hidden" name="p_seq"      value=""/>
 												<input type="hidden" name="p_gadminYn" value="<%=v_gadminYn%>"/>
 										        <input type = "hidden" name = "p_pageno"  value = "<%=v_pageno%>"/>
-                                                <div class="input-group mb-3 board_search_box" style="width: 100%;">
-                                                    <select name="p_search">
-                                                        <option value="title" <% if (v_search.equals("title")) out.print("selected"); %>>제목</option>
-                                                        <option value="content" <% if (v_search.equals("content")) out.print("selected"); %>>내용</option>
-                                                        <option value="name" <% if (v_search.equals("name")) out.print("selected"); %>>작성자</option>
-                                                    </select>
-                                                    <input type="text" name="p_searchtext" class="form-control input board_search" title="검색어를 입력해주세요" value='<%=v_searchtext %>' onKeyPress="fnKeyPressEnter(event,'qna_search');">
-                                                    <input type="button" class="btn btn-outline-secondary input btn_board_search" value="" onclick="javascript:qna_search();">
-                                                </div>
-
-
+                                                <select name="p_search">
+						                            <option value="title" <% if (v_search.equals("title")) out.print("selected"); %>>제목</option>
+						                            <option value="content" <% if (v_search.equals("content")) out.print("selected"); %>>내용</option>
+						                            <option value="name" <% if (v_search.equals("name")) out.print("selected"); %>>작성자</option>
+                                                </select>
+                                                <input type="text" name="p_searchtext" class="board_search" title="검색어를 입력해주세요" value='<%=v_searchtext %>' onKeyPress="fnKeyPressEnter(event,'qna_search');">
+                                                <input type="button" class="btn_board_search" value="" onclick="javascript:qna_search();">
                                             </form>
                                         </div>
                                         <table>
-
+                                            <colgroup>
+                                                <col width="8%">
+                                                <col width="auto">
+                                                <col width="12%">
+                                                <col width="20%">
+                                                <col width="12%">
+                                                <col width="12%">
+                                                <col width="8%">
+                                            </colgroup>
                                             <thead>
                                                 <tr>
-                                                    <th class="pc_table">번호</th>
+                                                    <th>번호</th>
                                                     <th>제목</th>
                                                     <th>작성자</th>
-                                                    <th class="pc_table">작성일자</th>
+                                                    <th>작성일자</th>
                                                     <th>답변여부</th>
-                                                    <th class="pc_table">첨부</th>
+                                                    <th>첨부</th>
                                                     <th>조회수</th>
                                                 </tr>
                                             </thead>
@@ -210,12 +210,12 @@
 		v_dispnum		= dbox.getInt("d_dispnum");
 %>
                                                 <tr>
-                                                    <td class="pc_table"><%= v_dispnum %></td>
+                                                    <td><%= v_dispnum %></td>
                                                     <td><a href="javascript:qna_select(<%=v_seq%>, '<%=v_isopen%>', '<%=v_inuserid%>', '<%=v_userid%>', '<%=v_gadminYn%>');"><%= v_title %></a></td>
-                                                    <td><%= v_inusernm %><p class="mo_view"><%= v_indate %></p></td>
-                                                    <td class="pc_table"><%= v_indate %></td>
+                                                    <td><%= v_inusernm %></td>
+                                                    <td><%= v_indate %></td>
                                                     <td><% if(v_anscnt > 0 ){ out.println("<span class=\"point_blue\">답변완료</span>"); } else { out.println("<span class=\"point_orange\">답변준비중</span>"); }%></td>
-                                                    <td class="pc_table"><% if( v_upfilecnt>0){ %><img src="/common/image/ico_file.gif" alt="첨부파일"><% } %></td>
+                                                    <td><% if( v_upfilecnt>0){ %><img src="/common/image/ico_file.gif" alt="첨부파일"><% } %></td>
                                                     <td><%= v_cnt %></td>
                                                 </tr>
 <%
