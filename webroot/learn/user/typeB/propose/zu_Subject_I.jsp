@@ -236,4 +236,8 @@
 	    </section>
 	</form>
 </body>
+<style>
+	.layer_board_table_wrap table{background-color: #eaeaea;}
+	.layer_board_table_wrap table th, .layer_board_table_wrap table td{padding: 10px;}
+</style>
 </html>

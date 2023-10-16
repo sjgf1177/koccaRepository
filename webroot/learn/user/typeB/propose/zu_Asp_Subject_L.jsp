@@ -176,8 +176,9 @@
 									</span>
 								</a>
 								<ul class="thumb_con_Info card-text">
-									<li class="point_purple">
-										<span>수강신청기간</span> : <c:out value="${list.d_edustart }" /> ~ <c:out value="${list.d_eduend }" /></li>
+									<li>
+										<span>수강신청기간 : <c:out value="${list.d_edustart }" /> ~ <c:out value="${list.d_eduend }" /></span>
+									</li>
 								</ul>
 								<div class="thumb_button">
 									<c:choose>
