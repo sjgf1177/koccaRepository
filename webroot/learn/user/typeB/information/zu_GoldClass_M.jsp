@@ -122,12 +122,14 @@ function fnSelect(){
 							<div class="card-body thumb_con">
 								<a href="javascript:viewContent('<c:out value="${list.d_seq }" />');" class="card-title"><span class="thumb_title textline2"><c:out value="${list.d_lecnm }" /></span></a>
 								<ul class="thumb_con_Info card-text">
-									<li>
+									<li style="margin-bottom: 5px;">
 										<c:forEach begin="1" end="${list.d_checkpoin }" step="1">
-											<img src="/common/image/ico_star_on.png" alt="별점">
+											<!--<img src="/common/image/ico_star_on.png" alt="별점">-->
+											<i class="bi bi-star-fill" style="color: #f3c71a; font-size: 15px;" title="별점"></i>
 										</c:forEach>
 										<c:forEach begin="${list.d_checkpoin + 1 }" end="5" step="1">
-											<img src="/common/image/ico_star_off.png" alt="별점">
+											<!--<img src="/common/image/ico_star_off.png" alt="별점">-->
+											<i class="bi bi-star-fill" style="color: #cfd1d3; font-size: 15px;" title="별점"></i>
 										</c:forEach>
 									</li>
 									<li><span><c:out value="${list.d_tutornm }" /> · 총 <c:out value="${list.d_lectime }" />초 · 조회수 <c:out value="${list.d_viewcnt }" /></span></li>
