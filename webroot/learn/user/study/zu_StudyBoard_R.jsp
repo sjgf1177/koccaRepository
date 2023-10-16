@@ -283,26 +283,27 @@
 <!-- 파일첨부 종료-->
                                             </tbody>
                                         </table>
-                                        <div class="myCourseBoardBtn">
-<%
-	if( !box.getSession("userid").equals("") ) {
-%>
-                                            <a href="javascript:reply_StudyBoard();">답변</a>
-<%
-	}
-	if(BulletinManager.isAuthority(box, box.getString("p_canModify"))) {
-%>
-                                            <a href="javascript:modify_StudyBoard();">수정</a>
-<%
-	}
-	if(BulletinManager.isAuthority(box, box.getString("p_canDelete"))) {
-%>
-                                            <a href="javascript:delete_StudyBoard();">삭제</a>
-<%
-	}
-%>
-                                            <a href="javascript:selectList();">목록</a>
-                                        </div>
+
+                                    </div>
+                                    <div class="myCourseBoardBtn">
+                                        <%
+                                            if( !box.getSession("userid").equals("") ) {
+                                        %>
+                                        <a href="javascript:reply_StudyBoard();">답변</a>
+                                        <%
+                                            }
+                                            if(BulletinManager.isAuthority(box, box.getString("p_canModify"))) {
+                                        %>
+                                        <a href="javascript:modify_StudyBoard();">수정</a>
+                                        <%
+                                            }
+                                            if(BulletinManager.isAuthority(box, box.getString("p_canDelete"))) {
+                                        %>
+                                        <a href="javascript:delete_StudyBoard();">삭제</a>
+                                        <%
+                                            }
+                                        %>
+                                        <a href="javascript:selectList();">목록</a>
                                     </div>
                                     <div class="sub_contents_body sub_boarder_body" style="margin-top:50px;">
                                         <p class="sub_course_view_title" style="margin-bottom:0">댓글</p>
