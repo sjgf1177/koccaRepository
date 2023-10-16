@@ -211,7 +211,7 @@
                     <div class="subContainer">
                         <div class="sub_section">
                             <div class="sub_contents_header">
-                                <span>개인정보 변경</span>
+                                <span style="margin-top: 30px;">개인정보 변경</span>
                             </div>
                             <div class="sub_contents_body">
                                 <div class="sub_info_body join_box">
