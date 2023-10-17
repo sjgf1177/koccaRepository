@@ -12,15 +12,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>한국콘텐츠아카데미</title>
 
-    <!-- Bootstrap / Jquery UI -->
-    <link href="/common/js/jquery-ui-1.12.1/jquery-ui.min.css" rel="stylesheet">
-    <!--<link href="/common/js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" rel="stylesheet">-->
-    <link href="/common/js/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <script src="/common/js/jquery-3.3.1.min.js"></script>
-    <script src="/common/js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
-    <!--<script src="/common/js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
-    <script src="/common/js/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+	<!-- Bootstrap-3.3.7 / Jquery UI -->
+	<link href="/common/js/jquery-ui-1.12.1/jquery-ui.min.css" rel="stylesheet">
+	<!--<link href="/common/js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" rel="stylesheet">-->
+	<!--<link href="/common/js/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">-->
+
+	<script src="/common/js/jquery-3.3.1.min.js"></script>
+	<script src="/common/js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+	<!--<script src="/common/js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
+	<!--<script src="/common/js/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>-->
+
+
+	<!-- Bootstrap-5.3.1 -->
+	<link href="/common/js/bootstrap-5.3.1-dist/css/bootstrap.css" rel="stylesheet">
+	<script src="/common/js/bootstrap-5.3.1-dist/js/bootstrap.bundle.js"></script>
     
     
     <!-- Custom CSS -->
