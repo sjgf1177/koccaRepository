@@ -1,5 +1,5 @@
 $(function(){
-    //¸ğ¹ÙÀÏ »çÀÌÁî Ã¼Å©
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
     var isMobileSize = false;
     function checkMobileSize() {
 	    var x = $(window).width();
@@ -37,7 +37,7 @@ $(function(){
     isMobileSize = checkMobileSize();
     
     
-    //À©µµ¿ì Ã¢»çÀÌÁî º¯°æ
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     $(window).resize(function(){
 		isMobileSize = checkMobileSize();
         if(!isMobileSize){
@@ -77,7 +77,7 @@ $(function(){
     });
     
     
-    //°Ë»ö¹öÆ°
+    //ï¿½Ë»ï¿½ï¿½ï¿½Æ°
     $("#search_label").on("click",function(){
         if(!isMobileSize){
             $(".gnb_util_icon").addClass("active");
@@ -87,7 +87,7 @@ $(function(){
         }
     });
     
-    //gnb¸Ş´º ¸¶¿ì½º È£¹ö
+    //gnbï¿½Ş´ï¿½ ï¿½ï¿½ï¿½ì½º È£ï¿½ï¿½
     $(".gnb_con > ul > li").mouseover(function(){
         if(!isMobileSize){
             if(!$(".gnb_con").hasClass("active")){
@@ -107,13 +107,13 @@ $(function(){
         }
     });
     
-    //gnb ÀüÃ¼¸Ş´º
+    //gnb ï¿½ï¿½Ã¼ï¿½Ş´ï¿½
     $(".gnb_menu").on("click",function(){
         if(!isMobileSize){
-            $("#search_label , .seperate_line").css({"display":"none"}); //°Ë»ö °¡¸®±â
-            $(".gnb_icon").css({"float":"right"}); //¾ÆÀÌÄÜ À§Ä¡ Á¶Á¤
+            $("#search_label , .seperate_line").css({"display":"none"}); //ï¿½Ë»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            $(".gnb_icon").css({"float":"right"}); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
             $(".gnb_con > ul > li > ul").css({"display":"block"});
-            //header ³ôÀÌ ´Ã¸®±â
+            //header ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½
             var subMenuLength = 0;
             $(".gnb_con > ul > li").each(function(){
                 subMenuLength = subMenuLength < $(this).find("li").length ? $(this).find("li").length : subMenuLength;
@@ -128,12 +128,12 @@ $(function(){
             $("section").css({"position":"fixed"});
         }
         
-        $(".gnb_menu").css({"display":"none"}); //gnb ¿­±â ¾ÆÀÌÄÜ °¡¸®±â
-        $(".gnb_close").css({"display":"inline-block"}); //gnb ´İ±â ¾ÆÀÌÄÜ º¸ÀÌ±â
+        $(".gnb_menu").css({"display":"none"}); //gnb ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        $(".gnb_close").css({"display":"inline-block"}); //gnb ï¿½İ±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½
         $(".gnb_con").addClass("active");
     });
     
-    //gnb ¹× °Ë»ö ´İ±â
+    //gnb ï¿½ï¿½ ï¿½Ë»ï¿½ ï¿½İ±ï¿½
     $(".gnb_close").on("click",function(){
         if(!isMobileSize){
             if($(".gnb_util_icon").hasClass("active")){
@@ -154,7 +154,7 @@ $(function(){
         $(".gnb_close").css({"display":"none"});
     });
     
-    //¸ğ¹ÙÀÏ¿¡¼­ liÅ¬¸¯½Ã ¼­ºê¸Ş´º
+    //ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ liÅ¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ş´ï¿½
     $(".gnb_con > ul > li").on("click", function(){
         if(isMobileSize){
             if($(this).find("ul").css("display") == "none"){
@@ -200,7 +200,7 @@ $(function(){
         });
     });
     
-    //¸ŞÀÎ ½½¶óÀÌµå ¹è³Ê
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½
     if($("#main_banner_slide").length > 0){
     	swiper0 = new Swiper('#main_banner_slide', {
     		pagination: '.swiper-pagination'
@@ -208,13 +208,13 @@ $(function(){
     				,loop : true
     				,autoplay: 4000
     				,paginationClickable: true
-    				,direction: 'horizontal' // ½½¶óÀÌµå ÁøÇà¹æÇâÀº ¼öÆò(verticalÇÏ¸é ¼öÁ÷À¸·Î ¿òÁ÷ÀÓ)
-    					,slidesPerView: 1 // ÇÑ¹ø¿¡ º¸ÀÌ´Â ½½¶óÀÌµå °¹¼ö
-    					,spaceBetween: 0 // ½½¶óÀÌµå »çÀÌÀÇ °£°İ px ´ÜÀ§
-    					,mousewheelControl: true // ¸¶¿ì½º ÈÙ·Î ½½¶óÀÌµå ¿òÁ÷ÀÓ
+    				,direction: 'horizontal' // ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(verticalï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+    					,slidesPerView: 1 // ï¿½Ñ¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
+    					,spaceBetween: 0 // ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ px ï¿½ï¿½ï¿½ï¿½
+    					,mousewheelControl: true // ï¿½ï¿½ï¿½ì½º ï¿½Ù·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     					,autoplayDisableOnInteraction: false
-    					,nextButton: '.swiper-button-next' //´ÙÀ½¹öÆ°
-    					,prevButton: '.swiper-button-prev' //ÀÌÀü¹öÆ°
+    					,nextButton: '.swiper-button-next' //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ°
+    					,prevButton: '.swiper-button-prev' //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ°
     	});
     }
     
@@ -245,5 +245,29 @@ $(function(){
 	        }
 	    });
 	}
+
+
+    //ë§¨ ìœ„ë¡œ ì´ë™ Top ì„ ì–¸
+    function TopmoveEvent(){
+        // ë§¨ ìœ„ë¡œ ì´ë™ ë²„íŠ¼ ìƒì„±
+        $('section').append('<button type="button" class="topmove bi bi-arrow-up-circle-fill" title="ë§¨ ìœ„ë¡œ ì´ë™"></button>')
+
+        //ìŠ¤í¬ë¡¤ ì‹œ ë²„íŠ¼ ë³´ì—¬ì§,ìˆ¨ê¹€
+        $( window ).scroll( function() {
+            if ( $( this ).scrollTop() > 200 ) {
+                $( '.topmove' ).fadeIn();
+            } else {
+                $( '.topmove' ).fadeOut();
+            }
+        } );
+
+        //ë²„íŠ¼ í´ë¦­ì‹œ ë§¨ ìœ„ë¡œ ì´ë™
+        $( '.topmove' ).click( function() {
+            $( 'html, body' ).animate( { scrollTop : 0 }, 400 );
+            return false;
+        } );
+    };
+
+    TopmoveEvent(); // ë§¨ ìœ„ë¡œ ì´ë™ ë²„íŠ¼ ì´ë²¤íŠ¸
 
 });

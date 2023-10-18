@@ -495,11 +495,11 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:38px;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: normal;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     word-wrap: break-word;
     letter-spacing: -0.025em;
-    height: 45px;}
+    height: 25px;}
 .sub_thumb_body .thumb_box .thumb_con .thumb_con_Info li{font-size:14px; line-height:16px; font-weight: 400;}
 .sub_thumb_body .thumb_box .thumb_con .thumb_con_Info li.blue{color:#40abd4 !important;}
 .sub_thumb_body .thumb_box .thumb_con .thumb_con_Info li span{color:#999999;}
@@ -622,6 +622,9 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:38px;
 
 .subContainer_pop .sub_info_body + .sub_info_body{background-color: #eaeaea;}
 .subContainer_pop .sub_info_body + .sub_info_body .write_table th, .subContainer_pop .sub_info_body + .sub_info_body .write_table td{padding: 10px;}
+
+/* 맨 위로 이동 */
+.topmove{position: fixed; bottom: 20px; right: 20px; font-size: 40px; border: none; background-color: #fff;}
 
 /* -------------------------------------------------------------------- */
 /* 반응형 */
