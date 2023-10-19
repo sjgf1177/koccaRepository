@@ -42,28 +42,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
 
 <link rel="stylesheet" type="text/css" href="/css/admin_style.css">
-<link rel="stylesheet" type="text/css" href="/css/ui-lightness/ui.all.css" />
 <script type="text/javascript" src="/script/jquery-1.3.2.min.js"></script>
-<script type="text/javascript" src="/script/ui.core.js"></script>
-<script type="text/javascript" src="/script/ui.datepicker.js"></script>
 <script type="text/javascript" src="/script/cresys_lib.js"></script>
 <script language="VBScript" src="/script/cresys_lib.vbs"></script>
 <script type="text/javascript">
-//<!--
-    /**
-     * 달력 스크립트
-     */
-    //function Datehowevent(){
-    $(document).ready(function(){
-        // $(".date_view").datepicker({
-        //     defaultDate: new Date(),
-        //     showOn: "both",
-        //     //showAnim: "blind", //에러로인해 주석처리
-        //     showOptions: {direction: 'horizontal'},
-        //     duration: 200
-        // });
-
-    });
+<!--
 
     /**
      * 열린강좌 유효성 체크 및 등록
@@ -460,7 +443,6 @@
                     <td height="25" class="table_title"><strong>신규여부</strong></td>
                     <td class="table_02_2" colspan="3">
                         <input type="checkbox" id="oNewYn" name="p_new_yn" value="Y" />
-                        <input name="" id="" type="text" class="datepicker_input1 new date_view" size="10" value="" tabindex=47 style="display: none;" disabled>
                     </td>
                 </tr>
                 <tr>
@@ -506,29 +488,4 @@
 <%@ include file="/webfilter/webfilter/inc/initCheckWebfilter.jsp"%>
 <!--  웹필터 수정 -->
 </body>
-<script>
-    // datepicker 생성
-    function dateCreate() {
-        $(".date_view").datepicker({
-            defaultDate: new Date(),
-            showOn: "both",
-            //showAnim: "blind", //에러로인해 주석처리
-            showOptions: {direction: 'horizontal'},
-            duration: 200
-        });
-    };
-
-    // 신규여부 체크여부에 따라 datepicker on/off
-    var newchk = $('#oNewYn').val();
-    $('#oNewYn').click(function (){
-        if (document.getElementById('oNewYn').checked) {
-            dateCreate();
-            $('.new, .ui-datepicker-trigger').show();
-
-        } else {
-            $('.new, .ui-datepicker-trigger').hide();
-        }
-    });
-    // }
-</script>
 </html>
