@@ -3976,6 +3976,21 @@ public class EduStartBean {
         String p_nextPage = box.getString("np");
         String saveChk = "N";
 
+        System.out.println("==========================================================");
+        System.out.println("p_userid : " + p_userid);
+        System.out.println("p_subj : " + p_subj);
+        System.out.println("p_year : " + p_year);
+        System.out.println("p_subjseq : " + p_subjseq);
+        System.out.println("p_grcode : " + p_grcode);
+        System.out.println("p_currentTime : " + p_currentTime);
+        System.out.println("p_totalTime : " + p_totalTime);
+        System.out.println("p_currentChapter : " + p_currentChapter);
+        System.out.println("p_currentPage : " + p_currentPage);
+        System.out.println("p_totalPage : " + p_totalPage);
+        System.out.println("p_nextPage : " + p_nextPage);
+        System.out.println("saveChk : " + saveChk);
+        System.out.println("==========================================================");
+
         try {
             connMgr = new DBConnectionManager();
             connMgr.setAutoCommit(false);
@@ -3990,6 +4005,8 @@ public class EduStartBean {
             sql += "\n    and subjseq    = " + StringManager.makeSQL(p_subjseq);
             sql += "\n    and chapter_no = " + StringManager.makeSQL(p_currentChapter);
             sql += "\n    and c_page     = " + StringManager.makeSQL(p_currentPage);
+
+            System.out.println("sql : " + sql);
 
             ls = connMgr.executeQuery(sql);
 

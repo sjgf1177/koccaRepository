@@ -625,6 +625,13 @@
 			                                                            <label for="gender2">여자</label>
 			                                                            <input type="radio" name="p_sex" value="1" id="gender1" title="남자">
 			                                                            <label for="gender1">남자</label>
+																		<c:if test="${sessionScope.tem_grcode eq 'N000241'}">
+																			<span>
+																				※ 귀하의 성별 정체성을 수집하는 문항이 아니며,<br />
+																				&nbsp;&nbsp;&nbsp;&nbsp;인구통계학적 분석을 위한 기초자료로 활용됨을 안내 드립니다.<br />
+																				&nbsp;&nbsp;&nbsp;&nbsp;통계학적 분석상 제한된 선택지가 제공됨을 양해 부탁드립니다.
+																			</span>
+																		</c:if>
 			                                                        </td>
 			                                                    </tr>
 			                                                    <tr>

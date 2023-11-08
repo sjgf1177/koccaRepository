@@ -251,7 +251,11 @@ function suRoyJeung(subj, year, subjseq, userid, kind, subjgrcode){
 	                                                	</c:choose>
 	                                                </td>
 	                                                <td>
-	                                                	<c:choose>	                                                		
+														1 : ${not empty list.d_subj}
+														2 : ${list.d_isgraduated}
+														3 : ${sessionScope.tem_grcode}}
+														4 : ${list}
+	                                                	<c:choose>
 	                                                		<c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && eduend < today}">		                          			
 	                                                			<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_introView">¿Œº‚</a>
 	                                                		</c:when>
@@ -295,6 +299,9 @@ function suRoyJeung(subj, year, subjseq, userid, kind, subjgrcode){
 																<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_introView">¿Œº‚</a>
 															</c:when>
 															<c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && sessionScope.tem_grcode eq 'N000229'}">
+																<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_introView">¿Œº‚</a>
+															</c:when>
+															<c:when test="${not empty list.d_subj && list.d_isgraduated eq 'Y' && sessionScope.tem_grcode eq 'N000257'}">
 																<a href="javascript:suRoyJeung('<c:out value="${list.d_subj }" />','<c:out value="${list.d_year }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${sessionScope.userid }" />','<c:out value="${list.d_kind}" />','<c:out value="${list.d_subjgrcode }" />');" class="btn_introView">¿Œº‚</a>
 															</c:when>
 															<c:otherwise>
