@@ -1,0 +1,86 @@
+@charset "utf-8";
+
+/* 레이아웃 */
+.d-flex{display: flex;}
+.d-inblock{display: inline-block;}
+.d-block{display: block;}
+.justify-content-center{justify-content: center;}
+.justify-content-between{justify-content: space-between;}
+.justify-content-around{justify-content: space-around;}
+.flex-wrap{flex-wrap: wrap;}
+.align-item-center{align-items: center;}
+.overflow-scroll-x{overflow-x: auto;}
+.overflow-scroll-y{overflow-y: auto;}
+
+/**/
+.w100{width:100%;}
+.fw_bold{font-weight: 600 !important;}
+/* 색상 */
+
+.fc_red{color: #dc3545 !important;}
+.fc_skyblue{color:#3B85FF !important;}
+.fc_white{color: #ffffff !important;}
+
+
+.bg_darkgray{background-color: #777 !important;}
+.bg_skyblue{background-color: #3B85FF !important;}
+.bg_green{background-color: #039143 !important;}
+.bg_beage{background-color: #A37500 !important;}
+.bg_orange{background-color: orange !important;}
+
+
+/* layer 창 */
+.layer_wrap, .layer_wrap * {list-style: none; margin: 0; padding: 0;  border: none; background-color: transparent; color:#222; font-size: 12px;}
+.layer_wrap, .sub_layer, [class*="opacity_layer_bg"]{display: none;}
+.layer_wrap button{cursor: pointer;}
+.layer_wrap.on, .sub_layer.on, [class*="opacity_layer_bg"].on{display: block;}
+.opacity_layer_bg01, .opacity_layer_bg02{position: fixed; top:0; left:0; width: 100%; height: 100%; background-color: rgb(0,0,0, 0.6);}
+/*.layer_wrap{position: absolute; top:50%; left:50%; transform: translate(-50%, -50%); width: 90%; height: 85%; background-color: #ffffff; box-shadow: 0 4px 7px rgba(0,0,0,.03); border-radius: 3px;}*/
+.layer_wrap{position: fixed; top:0; left:0; width: 100%; height: 100%; background-color: #ffffff;}
+.layer_tab_menu_list{ padding: 30px;}
+.layer_tab_menu_list li{position: relative; margin-right: 20px;}
+/*.layer_tab_menu_list li.active:after{content: ""; position: absolute; bottom: -30px; left: 0; width: 100%; height: 2px; background-color: #3B85FF;}*/
+.layer_top{position: relative; padding: 40px 0;}
+.layer_top .btn_layerClose{position: absolute;top: 20px;right: 20px; width:20px; height:20px; cursor: pointer; text-indent: -99999px; background-image: url("/images/2023/gnb_close.png"); background-repeat: no-repeat; background-size: contain;}
+.layer_top h3{text-align: center; font-size: 26px; line-height: 48px;}
+.layer_wrap .layer_tab_menu{font-size: 20px; font-weight: 600; border: 2px solid #CCCCCC; color: #CCCCCC; padding: 5px 20px; border-radius: 20px;}
+.layer_wrap .layer_tab_menu.active{color:#3B85FF; border: 2px solid #3B85FF;}
+.layer_wrap .roadmap_table_wrap{padding: 20px;}
+.layer_wrap .roadmap_table_wrap > p{ margin-bottom: 20px;}
+.layer_wrap .roadmap_table_wrap > p > span{font-size: 20px;}
+.layer_wrap .roadmap_table_wrap > p > span strong{font-size: 20px;}
+.roadmap_table_top{font-size: 16px; font-weight: 600; position: sticky; top:0; left: 0;}
+.roadmap_table_top li{flex: 1 auto; padding:7px 0; text-align: center; font-size: 14px; line-height: 30px; color:#fff; border-right: 1px solid #f4f4f4;}
+.roadmap_table_top li:last-child{border-right: 1px solid #ccc;}
+
+.layer_wrap .roadmap_table_top, .layer_wrap .one_daps{}
+
+
+.roadmap_table_top li:nth-child(n+1):nth-child(-n+2),
+.layer_wrap .roadmap_table_wrap .one_daps > span,
+.layer_wrap .roadmap_table_wrap .three_daps > span { /*&max-width: 108px;*/ max-width: 60px; background-color: #efefef; font-size: 12px;}
+
+.layer_wrap .roadmap_table_wrap .one_daps > span{flex:1;}
+.layer_wrap .roadmap_table_wrap .two_daps{flex:7;}
+
+.layer_wrap .roadmap_table_wrap .one_daps > span, .layer_wrap .roadmap_table_wrap .three_daps > span,
+.layer_wrap .roadmap_table_wrap .three_daps .list_box{border-right: 1px solid #ccc; border-bottom: 1px solid #ccc;}
+
+.layer_wrap .roadmap_table_wrap .three_daps .list_box{padding: 7px 0;}
+.layer_wrap .roadmap_table_wrap .three_daps .list_box, .layer_wrap .roadmap_table_wrap .three_daps > span{flex:1;}
+.layer_wrap .roadmap_table_wrap .three_daps .list_box button{width:100%; font-size: 12px; line-height: 15px; letter-spacing: -1px; padding: 5px; cursor: pointer; text-align: left;}
+.layer_wrap .roadmap_table_wrap .three_daps .list_box button:hover{background-color: rgb(0,0,0, 1);}
+.layer_wrap .roadmap_table_wrap .three_daps .list_box button strong{display:inline-block; vertical-align:bottom; max-width: 203px; text-overflow: ellipsis; overflow: hidden; font-weight: 500; color:#b2b2b2;}
+.layer_wrap .roadmap_table_wrap .three_daps *{text-align: center;}
+
+/* sub layer */
+.sub_layer{width: 500px; height: auto; top: 50%; left: 50%; transform: translate(-50%, -50%); box-shadow: 0 4px 7px rgba(0,0,0,.03); border-radius: 3px;}
+.layer_body{padding: 0 20px;}
+.sub_layer .snail_box{width:140px; height:100px; margin-right: 10px;}
+.title_txt{font-size: 14px; font-weight: 600;}
+.guide_txt{color:#B9B7B7 !important; font-size: 12px;}
+.sub_layer .tag{margin-right: 3px; font-size: 12px; padding: 3px;}
+.sub_layer .tag:last-child{margin-right: 0px;}
+.sub_layer .linegray{border: 1px solid #ededed;}
+.sub_layer .bottom_list_box ul{padding: 10px 0 30px;}
+.sub_layer .bottom_list_box li{line-height: 30px;}
