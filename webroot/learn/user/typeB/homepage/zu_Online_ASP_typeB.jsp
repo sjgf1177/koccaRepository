@@ -61,7 +61,7 @@
 						<p>
 							■온라인 교육 수강 안내 (수강신청 방법, 수료증 발급 방법)<br>
 							<strong>-클릭 시 안내 페이지로 연결</strong><br><br>
-							2023년 학습방법 안내 링크 : <a href="https://bit.ly/3RzfWsl">(https://bit.ly/3RzfWsl)</a><br>
+							2023년 학습방법 안내 링크 : <a href="https://bit.ly/3RzfWsl">(https://bit.ly/3RzfWsl)</a><br><br>
 							■ 2023년 한국예술인복지재단 온라인 교육 종료 안내 (~11.30)<br><br>
 							모든 강좌는 <strong>11월 30일(목)까지</strong> 수강신청, 학습하기, 과정설문 참여가 가능합니다.<br><br>
 							이후엔 학습이 불가하오니, 기한 내에 학습 후 과정 설문까지 참여하시기 바랍니다.<br><br>
