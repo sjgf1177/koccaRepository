@@ -356,7 +356,7 @@
     <div class="wrapper">
         <div class="container">
             <div class="row">
-                <div class="col-12 mxw-450">
+                <div class="col-12 mxw-640">
                     <div class="subContainer">
                         <div class="sub_section">
                             <div class="sub_contents_header">
@@ -488,7 +488,7 @@
 			                                                        <p><span>*</span>아이디</p>
 			                                                        <div>
 			                                                            <input type="text" name="p_id" id="p_id" maxlength="16" title="아이디 6~16자의 영문, 숫자 조합" placeholder="아이디는 6~30자의 소문자 영문, 숫자의 조합으로 만들 수 있습니다." />
-			                                                            <a href="javascript:existsId();" class="btn btn-primary mt10">중복확인</a>
+			                                                            <a href="javascript:existsId();" class="btn btn-purple ml10">중복확인</a>
 			                                                            <p id="id_alter_area" style="font-size:12px;"></p>
 			                                                        </div>
 			                                                    </li>
@@ -497,7 +497,7 @@
 			                                                        <div>
 			                                                            <input type="password" name="p_pw1" id="p_pw1" title="비밀번호 (8자 이상의 숫자 혹은 영문으로 입력해주세요. 연속된 숫자, 생일, 주민번호 등 알기쉬운 숫자는 피해주세요.)" />
 			                                                            <div id="chkMsg" style="font-size:12px;"></div>
-					                                                    <p class="sm_text">
+					                                                    <p class="sm_text point_sgray mt10">
 																			* 비밀번호는 8 ~ 16자 이어야 하며, 숫자/대문자/소문자/특수문자를 모두 포함해야 합니다.<br>
 																			* ID와 동일한 비밀번호, 동일문자, 연속문자 등은 사용하실 수 없습니다.
 																		</p>
@@ -532,8 +532,10 @@
 			                                                                <option value="064" title="064">064</option>
 			                                                                <option value="070" title="070">070</option>
 			                                                            </select>
-			                                                            -
-			                                                            <input type="text" class="phone2 text-center" name="p_tel1" id="p_tel1" maxlength="4" title="전화번호 중간자리 입력">-
+			                                                            <span class="d-inline-block" style="margin: 0 8px;">-</span>
+			                                                            <input type="text" class="phone2 text-center" name="p_tel1" id="p_tel1" maxlength="4" title="전화번호 중간자리 입력">
+																		<span class="d-inline-block" style="margin: 0 8px;">-</span>
+
 			                                                            <input type="text" class="phone3 text-center" name="p_tel2" id="p_tel2" maxlength="4" title="전화번호 뒷자리 입력">
 			                                                        </div>
 			                                                    </li>
@@ -548,8 +550,8 @@
 			                                                                <option value="018" title="018">018</option>
 			                                                                <option value="019" title="019">019</option>
 			                                                            </select>
-			                                                            -
-			                                                            <input type="text" class="phone2 text-center" name="p_mobil1" id="p_mobil1" maxlength="4" title="휴대폰 중간자리 입력">-
+																		<span class="d-inline-block" style="margin: 0 8px;">-</span>
+			                                                            <input type="text" class="phone2 text-center" name="p_mobil1" id="p_mobil1" maxlength="4" title="휴대폰 중간자리 입력"><span class="d-inline-block" style="margin: 0 8px;">-</span>
 			                                                            <input type="text" class="phone3 text-center" name="p_mobil2" id="p_mobil2" maxlength="4" title="휴대폰 뒷자리 입력">
 			                                                        </div>
 			                                                    </li>
@@ -566,9 +568,9 @@
 			                                                                <option value="hanmail.net" title="hanmail.net">hanmail.net</option>
 			                                                                <option value="nate.com" title="nate.com">nate.com</option>
 			                                                            </select>
-			                                                            <a href="javascript:existsEmail();" class="btn btn-primary mt10 mb5" title="이메일 중복확인">중복확인</a>
+			                                                            <a href="javascript:existsEmail();" class="btn btn-purple mb5" title="이메일 중복확인">중복확인</a>
 			                                                            <span id="email_alter_area" style="font-size: 12px;"></span>
-			                                                            <span class="sm_text">* 한국콘텐츠진흥원에서 제공하는 웹진을 비롯 회원정보 수정정관련 필요한 것으로 주로 사용하시는 이메일 주소를 입력해 주세요.</span>
+			                                                            <span class="sm_text point_sgray mt10">* 한국콘텐츠진흥원에서 제공하는 웹진을 비롯 회원정보 수정정관련 필요한 것으로 주로 사용하시는 이메일 주소를 입력해 주세요.</span>
 			                                                        </div>
 			                                                    </li>
 			                                                    <li>
@@ -603,9 +605,9 @@
 			                                                    </li>
 			                                                    <li>
 			                                                        <p><span>*</span>아이디</p>
-			                                                        <div>
+			                                                        <div class="join_input_box">
 			                                                            <input type="text" name="p_id" id="p_id" maxlength="16" title="아이디 6~16자의 영문, 숫자 조합" placeholder="아이디는 6~30자의 영문, 숫자의 조합으로 만들 수 있습니다." />
-			                                                            <a href="javascript:existsId();" class="btn btn-primary mt10">중복확인</a>
+			                                                            <a href="javascript:existsId();" class="btn btn-purple ml10">중복확인</a>
 			                                                            <span id="id_alter_area" style="font-size: 12px;"></span>
 			                                                        </div>
 			                                                    </li>
@@ -614,7 +616,7 @@
 			                                                        <div>
 			                                                            <input type="password" name="p_pw1" id="p_pw1" title="비밀번호 (8자 이상의 숫자 혹은 영문으로 입력해주세요. 연속된 숫자, 생일, 주민번호 등 알기쉬운 숫자는 피해주세요.)" />
 			                                                            <div id="chkMsg" style="font-size:12px;"></div>
-					                                                    <span class="sm_text">
+					                                                    <span class="sm_text point_sgray mt10">
 																			* 비밀번호는 8 ~ 16자 이어야 하며, 숫자/대문자/소문자/특수문자를 모두 포함해야 합니다.<br>
 																			* ID와 동일한 비밀번호, 동일문자, 연속문자 등은 사용하실 수 없습니다.
 																		</span>
@@ -650,8 +652,9 @@
 			                                                                <option value="064" title="064">064</option>
 			                                                                <option value="070" title="070">070</option>
 			                                                            </select>
-			                                                            -
-			                                                            <input type="text" class="phone2 text-center" name="p_tel1" id="p_tel1" maxlength="4" title="전화번호 중간자리 입력">-
+																		<span class="d-inline-block" style="margin: 0 8px;">-</span>
+			                                                            <input type="text" class="phone2 text-center" name="p_tel1" id="p_tel1" maxlength="4" title="전화번호 중간자리 입력">
+																		<span class="d-inline-block" style="margin: 0 8px;">-</span>
 			                                                            <input type="text" class="phone3 text-center" name="p_tel2" id="p_tel2" maxlength="4" title="전화번호 뒷자리 입력">
 			                                                        </div>
 			                                                    </li>
@@ -666,8 +669,9 @@
 			                                                                <option value="018" title="018">018</option>
 			                                                                <option value="019" title="019">019</option>
 			                                                            </select>
-			                                                            -
-			                                                            <input type="text" class="phone2 text-center" name="p_mobil1" id="p_mobil1" maxlength="4" title="휴대폰 중간자리 입력">-
+																		<span class="d-inline-block" style="margin: 0 8px;">-</span>
+			                                                            <input type="text" class="phone2 text-center" name="p_mobil1" id="p_mobil1" maxlength="4" title="휴대폰 중간자리 입력">
+																		<span class="d-inline-block" style="margin: 0 8px;">-</span>
 			                                                            <input type="text" class="phone3 text-center" name="p_mobil2" id="p_mobil2" maxlength="4" title="휴대폰 뒷자리 입력">
 			                                                        </div>
 			                                                    </li>
@@ -677,16 +681,16 @@
 			                                                            <input type="text" class="email1" name="p_email1" id="p_email1" title="이메일  아이디">@
 			                                                            <input type="text" class="email2" name="p_email2" id="p_email2" title="이메일  주소">
 			                                                            <label for="p_email20"></label>
-			                                                            <select class="email3" name="p_email20" id="p_email20" title="이메일  주소 선택">
+			                                                            <select class="email3 mr10" name="p_email20" id="p_email20" title="이메일  주소 선택">
 			                                                                <option value="" title="직접입력">직접입력</option>
 			                                                                <option value="naver.com" title="naver.com">naver.com</option>
 			                                                                <option value="gmail.com" title="gmail.com">gmail.com</option>
 			                                                                <option value="hanmail.net" title="hanmail.net">hanmail.net</option>
 			                                                                <option value="nate.com" title="nate.com">nate.com</option>
 			                                                            </select>
-			                                                            <a href="javascript:existsEmail();" class="btn btn-primary mt10 mb5" title="이메일 중복확인">중복확인</a>
+			                                                            <a href="javascript:existsEmail();" class="btn btn-purple mb5" title="이메일 중복확인">중복확인</a>
 			                                                            <span id="email_alter_area" style="font-size: 12px;"></span>
-			                                                            <span class="sm_text">* 한국콘텐츠진흥원에서 제공하는 웹진을 비롯 회원정보 수정정관련 필요한 것으로 주로 사용하시는 이메일 주소를 입력해 주세요.</span>
+			                                                            <span class="sm_text point_sgray mt10">* 한국콘텐츠진흥원에서 제공하는 웹진을 비롯 회원정보 수정정관련 필요한 것으로 주로 사용하시는 이메일 주소를 입력해 주세요.</span>
 			                                                        </div>
 			                                                    </li>
 			                                                    <li>
@@ -722,3 +726,8 @@
         </div>
     </div>
 </section>
+<style>
+	.sub_info_body ul li:last-child{
+		border-bottom: none;
+	}
+</style>

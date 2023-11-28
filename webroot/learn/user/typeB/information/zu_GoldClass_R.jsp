@@ -70,66 +70,75 @@ function openGoldClass(seq,w,h){
                         <div class="sub_section">
                             <div class="sub_contents_body">
                                 <div class="sub_info_body">
-                                <p class="sub_course_view_title">과정 소개</p>
-                                <div class="sub_board_header">
-                                    <div class="list_title">
-                                        <span>열린강좌는 무료로 제공되는 공개강좌로 재미와 깊이가 함께 존재합니다.</span>
-                                        <span>훌륭한 명사의 강좌를 만나보실 수 있으며, 누구나 참여할 수 있는 열린 교육공간입니다.</span>
+<%--                                <p class="sub_course_view_title">과정 소개</p>--%>
+                                <div class="sub_board_header col-right">
+                                    <a href="javascript:selectList();" class="list_btn btn btn-outline-secondary">목록으로</a>
+<%--                                    <div class="list_title">--%>
+<%--                                        <span>열린강좌는 무료로 제공되는 공개강좌로 재미와 깊이가 함께 존재합니다.</span>--%>
+<%--                                        <span>훌륭한 명사의 강좌를 만나보실 수 있으며, 누구나 참여할 수 있는 열린 교육공간입니다.</span>--%>
+<%--                                    </div>--%>
+                               </div>
+                                <div class="sub_course_alert_box">
+                                    <p><c:out value="${selectOffExpert.d_lecnm }" /></p>
+                                </div>
+                                <div class="video_watch_w">
+
+                                    <!-- 영상 들어가는 곳-->
+                                    <div class="video">
+
+                                    </div>
+                                    <!--// 영상 들어가는 곳-->
+                                </div>
+                                <div class="sub_course_view_wrap">
+
+                                    <div class="info_box">
+                                        <table class="tutor">
+                                            <colgroup>
+                                                <col width="25%">
+                                                <col width="auto">
+                                            </colgroup>
+                                            <tbody>
+                                                <tr>
+                                                    <th>강사소개</th>
+                                                    <td>
+                                                        <img src="/servlet/controller.library.DownloadServlet?p_savefile=<c:out value="${selectOffExpert.d_tutorimg }" />" alt="강사">
+                                                        <span>이름 : <c:out value="${selectOffExpert.d_tutornm }" /></span>
+                                                        <span>
+                                                            약력<br/>
+                                                            <c:set var="tutorcareer" value="${fn:replace(selectOffExpert.d_tutorcareer, CRLF, BR)}" />
+                                                            <c:set var="tutorcareer" value="${fn:replace(tutorcareer, LF, BR)}" />
+                                                            <c:set var="tutorcareer" value="${fn:replace(tutorcareer, CR, BR)}" />
+                                                            <c:out value="${tutorcareer }" escapeXml="false" />
+                                                        </span>
+                                                        <span></span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>강좌소개 (강좌개요)</th>
+                                                    <td>
+                                                        <c:set var="intro" value="${fn:replace(selectOffExpert.d_intro, CRLF, BR)}" />
+                                                        <c:set var="intro" value="${fn:replace(intro, LF, BR)}" />
+                                                        <c:set var="intro" value="${fn:replace(intro, CR, BR)}" />
+                                                        <c:out value="${intro }" escapeXml="false" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>강좌내용</th>
+                                                    <td>
+                                                        <c:set var="contents" value="${fn:replace(selectOffExpert.d_contents, CRLF, BR)}" />
+                                                        <c:set var="contents" value="${fn:replace(contents, LF, BR)}" />
+                                                        <c:set var="contents" value="${fn:replace(contents, CR, BR)}" />
+                                                        <c:out value="${contents }" escapeXml="false" />
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+<%--                                        <div class="course_button">--%>
+<%--                                            <a href="javascript:openGoldClass('<c:out value="${param.p_seq }" />', '<c:out value="${selectOffExpert.d_width_s }" />','<c:out value="${selectOffExpert.d_height_s }" />');" class="apply_btn btn btn-purple big_btn">강좌보기</a>--%>
+<%--                                            <a href="javascript:selectList();" class="list_btn btn btn-outline-secondary">목록으로</a>--%>
+<%--                                        </div>--%>
                                     </div>
                                 </div>
-
-                                    <div class="sub_course_alert_box">
-                                        <p><c:out value="${selectOffExpert.d_lecnm }" /></p>
-                                    </div>
-                                    <div class="sub_course_view_wrap">
-                                        <div class="info_box">
-                                            <table class="tutor">
-                                                <colgroup>
-                                                    <col width="25%">
-                                                    <col width="auto">
-                                                </colgroup>
-                                                <tbody>
-                                                    <tr>
-                                                        <th>강사소개</th>
-                                                        <td>
-                                                            <img src="/servlet/controller.library.DownloadServlet?p_savefile=<c:out value="${selectOffExpert.d_tutorimg }" />" alt="강사">
-                                                            <span>이름 : <c:out value="${selectOffExpert.d_tutornm }" /></span>
-                                                            <span>
-                                                            	약력<br/>
-                                                            	<c:set var="tutorcareer" value="${fn:replace(selectOffExpert.d_tutorcareer, CRLF, BR)}" />
-																<c:set var="tutorcareer" value="${fn:replace(tutorcareer, LF, BR)}" />
-																<c:set var="tutorcareer" value="${fn:replace(tutorcareer, CR, BR)}" />
-																<c:out value="${tutorcareer }" escapeXml="false" />
-                                                            </span>
-                                                            <span></span>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>강좌소개 (강좌개요)</th>
-                                                        <td>
-                                                        	<c:set var="intro" value="${fn:replace(selectOffExpert.d_intro, CRLF, BR)}" />
-															<c:set var="intro" value="${fn:replace(intro, LF, BR)}" />
-															<c:set var="intro" value="${fn:replace(intro, CR, BR)}" />
-															<c:out value="${intro }" escapeXml="false" />
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>강좌내용</th>
-                                                        <td>
-                                                        	<c:set var="contents" value="${fn:replace(selectOffExpert.d_contents, CRLF, BR)}" />
-															<c:set var="contents" value="${fn:replace(contents, LF, BR)}" />
-															<c:set var="contents" value="${fn:replace(contents, CR, BR)}" />
-															<c:out value="${contents }" escapeXml="false" />
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <div class="course_button">
-                                                <a href="javascript:openGoldClass('<c:out value="${param.p_seq }" />', '<c:out value="${selectOffExpert.d_width_s }" />','<c:out value="${selectOffExpert.d_height_s }" />');" class="apply_btn btn btn-purple">강좌보기</a>
-                                                <a href="javascript:selectList();" class="list_btn btn btn-outline-secondary">목록가기</a>
-                                            </div>
-                                        </div>
-                                    </div>
 
                             </div>
                         </div>
@@ -145,4 +154,9 @@ function openGoldClass(seq,w,h){
 <jsp:include page="/learn/user/typeB/include/newFooterB.jsp" />
 <!-- footer -->
 </body>
+<style>
+    .info_box table tr{
+        border-bottom: none;
+    }
+</style>
 </html>

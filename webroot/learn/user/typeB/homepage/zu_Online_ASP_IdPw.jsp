@@ -56,7 +56,7 @@
     <div class="wrapper">
         <div class="container">
             <div class="row">
-                <div class="col-12 mxw-450">
+                <div class="col-12 mxw-640">
                     <div class="subContainer">
                         <div class="sub_section">
                             <div class="sub_contents_header">

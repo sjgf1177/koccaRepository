@@ -153,9 +153,9 @@
                 <div class="col-12">
                     <div class="subContainer_pop">
                         <div class="sub_section">
-                            <div class="sub_contents_header">
-                                <span>과정 상세정보</span>
-                            </div>
+<%--                            <div class="sub_contents_header">--%>
+<%--                                <span>과정 상세정보</span>--%>
+<%--                            </div>--%>
                             <div class="sub_contents_body">
                                 <div class="sub_info_body">
                                     <div class="sub_course_alert_box">

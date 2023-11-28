@@ -182,7 +182,7 @@ function deleteAction() {
                                             	<c:if test="${sessionScope.userid eq selectQna.d_inuserid && selectQna.d_okyn1 ne '3' }">
                                             		<a href="javascript:deleteAction();" class="delete_btn">삭제</a>
                                             	</c:if>
-                                                <a href="javascript:selectList()" class="list_btn">목록가기</a>
+                                                <a href="javascript:selectList()" class="list_btn">목록으로</a>
                                                 <c:if test="${sessionScope.userid eq selectQna.d_inuserid && selectQna.d_okyn1 ne '3' }">
                                             		<a href="javascript:updatePage();" class="apply_btn">수정</a>
                                             	</c:if>

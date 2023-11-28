@@ -325,7 +325,7 @@
 			                                                        <th><span>*</span>새로운 비밀번호 확인</th>
 			                                                        <td>
 			                                                            <input type="password" name="p_pw2" id="p_pw2" title="새로운 비밀번호 확인">
-			                                                            <a href="javascript:void(0);" title="비빌번호 변경" id="btn_change_pwd" class="btn btn-primary">비밀번호 변경</a>
+			                                                            <a href="javascript:void(0);" title="비빌번호 변경" id="btn_change_pwd" class="btn btn-purple">비밀번호 변경</a>
 			                                                        </td>
 			                                                    </tr>
 			                                                    <tr>
@@ -429,7 +429,7 @@
 			                                                        <th><span>*</span>비밀번호 확인</th>
 			                                                        <td>
 			                                                            <input type="password" name="p_pw2" id="p_pw2" title="새로운 비밀번호 확인">
-			                                                            <a href="javascript:void(0);" title="비빌번호 변경" id="btn_change_pwd" class="btn btn-primary">비밀번호 변경</a>
+			                                                            <a href="javascript:void(0);" title="비빌번호 변경" id="btn_change_pwd" class="btn btn-purple">비밀번호 변경</a>
 			                                                        </td>
 			                                                    </tr>
 			                                                    <tr>
@@ -516,7 +516,7 @@
 	                                        </form>
                                             <div class="agree_btn_box">
                                                 <a href="javascript:history.go(-1);" class="btn_cancel btn btn-outline-secondary" id="btn_cancel" title="취소">취소</a>
-                                                <a href="javascript:void(0);" class="btn_next btn btn-primary" id="btn_next" title="변경">변경</a>
+                                                <a href="javascript:void(0);" class="btn_next btn btn-purple" id="btn_next" title="변경">변경</a>
                                             </div>
                                         </div>
                                     </div>
@@ -531,6 +531,11 @@
 </section>
 
 <style>
+	.info_box table td{
+		border:none;
+		background-color: transparent;
+	}
+
 	@media all and (max-width: 640px){
 		.sub_info_body{margin-top: 0;}
 	}

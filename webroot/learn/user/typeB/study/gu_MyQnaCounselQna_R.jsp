@@ -144,7 +144,7 @@ function selectList() {
                                             	</c:forEach>
 	                                        </c:if>
                                             <div class="course_button">
-                                                <a href="javascript:selectList();" class="list_btn">목록가기</a>
+                                                <a href="javascript:selectList();" class="list_btn">목록으로</a>
                                             </div>
                                         </div>
                                     </div>

@@ -223,8 +223,8 @@
 											</c:if>
 										</div>
 	                                    <div class="popup_btnBox">
-	                                        <a href="javascript:whenPropose();" class="btn_courseRegistration">수강신청</a>
-	                                        <a href="javascript:whenCancel();" class="btn_courseCancel">취소</a>
+	                                        <a href="javascript:whenPropose();" class="btn_courseRegistration big_btn">수강신청</a>
+	                                        <a href="javascript:whenCancel();" class="btn_courseCancel big_btn">취소</a>
 	                                    </div>
 	                                </div>
 	                            </div>

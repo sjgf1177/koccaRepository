@@ -134,7 +134,7 @@
 						</div>
 						<ul class="radio-row-box">
 							<li class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+								<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked>
 								<label class="form-check-label" for="inlineRadio1">전체</label>
 							</li>
 							<li class="form-check form-check-inline">
@@ -152,7 +152,7 @@
 				<div class="sub_thumb_body d-flex justify-content-between flex-wrap">
 					<!-- 배너 영역 4개 과정 나온 후 밑에 배너위치 하기-->
 					<div class="header-benner-box">
-						<a href="" class="d-inblock"><img src="" class="img-fluid" alt="에듀코카 테마과정 바로가기 배너" ></a>
+						<a href="https://edu.kocca.kr/edu/onlineEdu/themeLecture/list.do?menuNo=500157" class="d-inblock"><img src="/images/2023/B2B_benner01.png" class="img-fluid" alt="에듀코카 테마과정 바로가기 배너" ></a>
 					</div>
 					<c:if test="${fn:length(SubjectList) <= 0 }">
 						<p class="text-center">

@@ -83,14 +83,47 @@ function whenSubjPropose(subj,year,subjseq, subjnm) {
                         <div class="sub_section">
                             <div class="sub_contents_body">
                                 <div class="sub_info_body">
-                                    <p class="sub_course_view_title">과정 소개</p>
-                                    <div class="sub_course_alert_box">
-                                        <p><span>[<c:out value="${subjectPreview.d_areaname }" />]</span> <c:out value="${subjectPreview.d_subjnm }" /></p>
+<%--                                    <p class="sub_course_view_title">과정 소개</p>--%>
+                                    <div class="sub_board_header col-right">
+                                        <a href="javascript:whenSubjList();" class="list_btn btn btn-outline-secondary">목록으로</a>
                                     </div>
+
                                     <div class="sub_course_view_wrap">
-                                        <div class="img_box">
-                                            <img src="<c:out value="${subjectPreview.d_introducefilenamenew }" />" alt="<c:out value="${subjectPreview.d_subjnm }" />" />
+                                        <div class="lesson_bg_box">
+                                            <div class="sub_course_alert_box">
+                                                <p><span>[<c:out value="${subjectPreview.d_areaname }" />]</span> <c:out value="${subjectPreview.d_subjnm }" /></p>
+                                            </div>
+                                            <div class="img_box d-inblock"> <img src="<c:out value="${subjectPreview.d_introducefilenamenew }" />" alt="<c:out value="${subjectPreview.d_subjnm }" />" /></div>
+                                            <div class="info_box d-inblock">
+                                                <dl class="d-flex">
+                                                    <dt>제작년도</dt>
+                                                    <dd>2023-00-00~2023-00-00 (16시간)</dd>
+                                                </dl>
+                                                <dl class="d-flex">
+                                                    <dt>차시수</dt>
+                                                    <dd>8차시</dd>
+                                                </dl>
+                                                <dl class="d-flex">
+                                                    <dt>러닝타임</dt>
+                                                    <dd>1시간 30분 52초</dd>
+                                                </dl>
+                                                <dl class="d-flex">
+                                                    <dt>강사명</dt>
+                                                    <dd> 김두한</dd>
+                                                </dl>
+                                            </div>
+                                            <div class="bottom_button">
+                                                <c:if test="${subjectPreview.d_preurl ne '' && sessionScope.tem_grcode ne 'N000210'}">
+                                                    <a href="javascript:whenPreShow('<c:out value="${subjectPreview.d_preurl}" />','<c:out value="${param.p_subj}" />', '<c:out value="${param.p_wj_classkey}" />' )" class="gustation_btn btn btn-outline-secondary" style="float:left;">미리보기</a>
+                                                </c:if>
+                                                <c:if test="${subjectPreview.d_propose_yn eq 'N' && subjectPreview.d_sugang_yn eq 'Y' }">
+                                                    <a href="javascript:whenSubjPropose('<c:out value="${param.p_subj}" />','<c:out value="${param.p_year}" />','<c:out value="${param.p_subjseq}" />','<c:out value="${param.p_subjnm}" />')" class="apply_btn btn btn-purple">수강신청</a>
+                                                </c:if>
+                                            </div>
                                         </div>
+<%--                                        <div class="img_box">--%>
+<%--                                            <img src="<c:out value="${subjectPreview.d_introducefilenamenew }" />" alt="<c:out value="${subjectPreview.d_subjnm }" />" />--%>
+<%--                                        </div>--%>
                                         <div class="info_box">
                                             <table>
                                                 <colgroup>
@@ -101,6 +134,7 @@ function whenSubjPropose(subj,year,subjseq, subjnm) {
                                                     <tr>
                                                         <th>교육대상</th>
                                                         <td>
+                                                            <i class="icon_chk"></i>
                                                         	<c:set var="edumans" value="${fn:replace(subjectPreview.d_edumans, CRLF, BR)}" />
 															<c:set var="edumans" value="${fn:replace(edumans, CR, BR)}" />
 															<c:set var="edumans" value="${fn:replace(edumans, LF, BR)}" />
@@ -110,6 +144,7 @@ function whenSubjPropose(subj,year,subjseq, subjnm) {
                                                     <tr>
                                                         <th>교육목적</th>
                                                         <td>
+                                                            <i class="icon_chk"></i>
                                                         	<c:set var="intro" value="${fn:replace(subjectPreview.d_intro, CRLF, BR)}" />
 															<c:set var="intro" value="${fn:replace(intro, CR, BR)}" />
 															<c:set var="intro" value="${fn:replace(intro, LF, BR)}" />
@@ -119,6 +154,7 @@ function whenSubjPropose(subj,year,subjseq, subjnm) {
                                                     <tr>
                                                         <th>교육내용</th>
                                                         <td>
+                                                            <i class="icon_chk"></i>
                                                         	<c:set var="explain" value="${fn:replace(subjectPreview.d_explain, CRLF, BR)}" />
 															<c:set var="explain" value="${fn:replace(explain, CR, BR)}" />
 															<c:set var="explain" value="${fn:replace(explain, LF, BR)}" />
@@ -128,6 +164,7 @@ function whenSubjPropose(subj,year,subjseq, subjnm) {
                                                     <tr>
                                                         <th>강의교재/참고</th>
                                                         <td>
+                                                            <i class="icon_chk"></i>
                                                         	<c:set var="memo" value="${fn:replace(subjectPreview.d_memo, CRLF, BR)}" />
 															<c:set var="memo" value="${fn:replace(memo, CR, BR)}" />
 															<c:set var="memo" value="${fn:replace(memo, LF, BR)}" />
@@ -156,8 +193,8 @@ function whenSubjPropose(subj,year,subjseq, subjnm) {
                                             </thead>
                                             <tbody>
                                                 <c:forEach items="${lessonList }" var="list" varStatus="status">
-                                                    <tr>
-                                                        <td><c:out value="${list.d_lesson }" /></td>
+                                                    <tr class="left_line">
+                                                        <td class="text_circle"><c:out value="${list.d_lesson }" /></td>
                                                         <td><c:out value="${list.d_sdesc }" /></td>
                                                     </tr>
                                                 </c:forEach>
@@ -230,13 +267,13 @@ function whenSubjPropose(subj,year,subjseq, subjnm) {
 
                                 </div>
                                 <div class="course_button">
-                                    <c:if test="${subjectPreview.d_preurl ne '' && sessionScope.tem_grcode ne 'N000210'}">
-                                        <a href="javascript:whenPreShow('<c:out value="${subjectPreview.d_preurl}" />','<c:out value="${param.p_subj}" />', '<c:out value="${param.p_wj_classkey}" />' )" class="gustation_btn btn btn-outline-secondary" style="float:left;">강좌 맛보기</a>
-                                    </c:if>
+<%--                                    <c:if test="${subjectPreview.d_preurl ne '' && sessionScope.tem_grcode ne 'N000210'}">--%>
+<%--                                        <a href="javascript:whenPreShow('<c:out value="${subjectPreview.d_preurl}" />','<c:out value="${param.p_subj}" />', '<c:out value="${param.p_wj_classkey}" />' )" class="gustation_btn btn btn-outline-secondary" style="float:left;">강좌 맛보기</a>--%>
+<%--                                    </c:if>--%>
                                     <c:if test="${subjectPreview.d_propose_yn eq 'N' && subjectPreview.d_sugang_yn eq 'Y' }">
-                                        <a href="javascript:whenSubjPropose('<c:out value="${param.p_subj}" />','<c:out value="${param.p_year}" />','<c:out value="${param.p_subjseq}" />','<c:out value="${param.p_subjnm}" />')" class="apply_btn btn btn-purple">수강신청</a>
+                                        <a href="javascript:whenSubjPropose('<c:out value="${param.p_subj}" />','<c:out value="${param.p_year}" />','<c:out value="${param.p_subjseq}" />','<c:out value="${param.p_subjnm}" />')" class="apply_btn btn btn-purple big_btn">수강신청</a>
                                     </c:if>
-                                    <a href="javascript:whenSubjList();" class="list_btn btn btn-outline-secondary">목록가기</a>
+                                    <a href="javascript:whenSubjList();" class="list_btn btn btn-outline-secondary">목록으로</a>
 
                                 </div>
                                 
@@ -254,4 +291,10 @@ function whenSubjPropose(subj,year,subjseq, subjnm) {
 <jsp:include page="/learn/user/typeB/include/newFooterB.jsp" />
 <!-- footer -->
 </body>
+<style>
+    .info_box table tr{
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+</style>
 </html>

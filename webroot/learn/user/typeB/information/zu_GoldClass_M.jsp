@@ -70,11 +70,11 @@ function fnSelect(){
 		<div class="sub_section">
 			<div class="sub_contents_body">
 				<div class="sub_board_header">
-					<span style="margin-top: 30px;">열린과정</span>
-					<div class="list_title">
-						<span>열린강좌는 무료로 제공되는 공개강좌로 재미와 깊이가 함께 존재합니다.</span>
-						<span>훌륭한 명사의 강좌를 만나보실 수 있으며, 누구나 참여할 수 있는 열린 교육공간입니다.</span>
-					</div>
+<%--					<span style="margin-top: 30px;">열린과정</span>--%>
+<%--					<div class="list_title">--%>
+<%--						<span>열린강좌는 무료로 제공되는 공개강좌로 재미와 깊이가 함께 존재합니다.</span>--%>
+<%--						<span>훌륭한 명사의 강좌를 만나보실 수 있으며, 누구나 참여할 수 있는 열린 교육공간입니다.</span>--%>
+<%--					</div>--%>
 					<jsp:include page="/learn/user/typeB/include_left/left_5.jsp">
 						<jsp:param value="${param.menuid }" name="left_active"/>
 					</jsp:include>
@@ -98,7 +98,7 @@ function fnSelect(){
 						</div>
 						<ul class="radio-row-box">
 							<li class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+								<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked>
 								<label class="form-check-label" for="inlineRadio1">전체</label>
 							</li>
 							<li class="form-check form-check-inline">

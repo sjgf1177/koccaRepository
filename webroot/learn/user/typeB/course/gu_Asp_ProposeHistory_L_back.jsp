@@ -55,35 +55,14 @@ function cancelPropose(p_tid, p_paymethod){
                     <jsp:include page="/learn/user/typeB/include_left/left_9.jsp">
                     	<jsp:param value="${param.menuid }" name="left_active"/>
                     </jsp:include>
-<%--                    <div class="list_title">--%>
-<%--                        <span>수강신청이 완료된 과정목록입니다. 신청한 과정명과 교육기간을 확인하세요.</span>--%>
-<%--                    </div>--%>
+                    <div class="list_title">
+                        <span>수강신청이 완료된 과정목록입니다. 신청한 과정명과 교육기간을 확인하세요.</span>
+                    </div>
                     <div class="subContainer">
                         <div class="sub_section">
 
                             <div class="sub_contents_body">
                                 <div class="sub_boarder_body">
-									<ul class="my_card_list_box">
-										<li class="d-flex">
-											<div class="tnail_box">
-												<img src="" alt="섬네일 호출">
-											</div>
-											<div class="info_text_box">
-												<h5>과정명이 호출됩니다.</h5>
-												<p>교육기간 : 2023.06.07 ~ 2023.06.07</p>
-												<p>수강신청일 : 2023.06.07</p>
-											</div>
-											<div class="state_box">
-												<span>승인</span>
-											</div>
-											<div class="btn_box">
-												<a href="" class="btn_registrationCancel">수강취소</a>
-											</div>
-										</li>
-										<li>
-											<span>수강신청 확인/취소 내역이 없습니다.</span>
-										</li>
-									</ul>
                                     <table>
                                         <colgroup>
                                             <col width="auto">

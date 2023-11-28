@@ -55,11 +55,21 @@
 							</li>
 							<li>
 								<span class="circle-box myname">이름</span>
-								<a href="javascript:menuForward('3', '11');" class="d-block btn btn-success btn-md w-50 mt20">나의강의실</a>
+								<a href="javascript:menuForward('3', '11');" class="d-block btn btn-success btn-md w-75 mt20">나의강의실</a>
 								<span class="d-block mt10" class="fc-light"><a href="javascript:mainmenu('3');" class="fc-light">로그아웃</a> ㅣ <a href="javascript:mainmenu('4');" class="fc-light">개인정보변경</a></span>
 							</li>
 						</ul>
-						<div class="header-left-box"></div>
+						<div class="header-left-box">
+							<!-- 임의로 살려둔곳 추후 제거-->
+							<div class="header-util-text" style="position: relative; z-index: 9999;">
+								<span class="header_util_item"><a href="javascript:mainmenu('990');">로그인</a></span>
+								<hr class="header_util_line">
+								<span class="header_util_item"><a href="javascript:mainmenu('1');">회원가입</a></span>
+								<hr class="header_util_line">
+								<span class="header_util_item"><a href="javascript:mainmenu('2');">아이디/패스워드 찾기</a></span>
+							</div>
+							<!-- 임의로 살려둔곳 추후 제거-->
+						</div>
 						<!-- header 오른쪽 영역(Tab)-->
 						<div class="header-right-box">
 

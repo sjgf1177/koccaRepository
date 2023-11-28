@@ -35,62 +35,33 @@
     }
 </script>
 
-<section>
-    <div class="wrapper">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <jsp:include page="/learn/user/typeB/include_left/left_0.jsp">
-                    	<jsp:param value="990" name="left_active"/>
-                    </jsp:include>
-                    <div class="subContainer">
-                        <div class="sub_section">
-                            <div class="sub_contents_header">
-                                <span>로그인</span>
-                                <div class="linemap_wrap">
-                                    <ul>
-                                        <li>
-                                            <a href="#">
-                                                <span>
-                                                    <img src="/common/image/home_icon.png" alt="메인">
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><span>회원/로그인</span></a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><span>로그인</span></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="sub_contents_body">
-                                <div class="sub_boarder_body login_box">
-                                    <form name="form1" id="form1" method="POST">
-                                    	<input type="hidden" name="p_process" value="" />
-                                    	<input type="hidden" name="gubun" value="" />
-                                    	<input type="hidden" name="menuid" value="" />
-                                        <input type="text" name="p_id" id="p_id" title="아이디입력" placeholder="아이디입력111" />
-                                        <input type="password" name="p_pw" id="p_pw" title="비밀번호입력" placeholder="비밀번호입력" />
-                                        <input type="button" value="로그인" class="btn_login" onclick="javascript:ASP_login();" title="로그인"/>
-                                    </form>
-                                    <ul>
-                                        <li><a href="javascript:mainmenu('1');">회원가입</a></li>
-                                        <li><a href="javascript:mainmenu('2');">아이디 / 비밀번호 찾기</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<div class="d-flex align-items-center py-4 bg-body-tertiary h-100">
+        <main class="form-signin w-100 m-auto">
+            <form name="form1" id="form1" method="POST">
+                <input type="hidden" name="p_process" value="" />
+                <input type="hidden" name="gubun" value="" />
+                <input type="hidden" name="menuid" value="" />
 
-<!-- footer -->
-<jsp:include page="/learn/user/typeB/include/newFooterB.jsp" />
-<!-- footer -->
+                <div class="text-center mb-5"><img src="/images/2023/logo.png" alt="한국콘텐츠진흥원"></div>
+                <h1 class="h3 mb-5 fw-normal text-center">로그인</h1>
+
+                <div class="form-floating">
+                    <input type="text" class=" innut_id" id="p_id" name="p_id" placeholder="아이디입력" title="아이디입력" style="margin-bottom: 5px;">
+                    <label for="p_id">아이디입력</label>
+                </div>
+                <div class="form-floating">
+                    <input type="password" class=" input_pw" id="p_pw" name="p_pw" placeholder="비밀번호입력" title="비밀번호입력" style="margin-bottom: 30px;">
+                    <label for="p_pw">비밀번호입력</label>
+                </div>
+
+                <button class="btn btn-purple w-100 py-2" type="button" value="로그인" onclick="javascript:ASP_login();" title="로그인"/>로그인</button>
+
+                <div class="mt-4 mb-3 text-body-secondary d-flex justify-content-md-center">
+                    <a href="javascript:mainmenu('1');" style="color: #8f9191;">회원가입</a>
+                    <a href="javascript:mainmenu('2');" style="color: #8f9191;">아이디 / 비밀번호 찾기</a>
+                </div>
+            </form>
+        </main>
+    </div>
 </body>
 </html>

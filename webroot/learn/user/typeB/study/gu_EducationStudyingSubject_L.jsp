@@ -118,13 +118,13 @@
 
 					<div class="subContainer">
 						<div class="sub_section">
-							<div class="sub_contents_header">
-								<span>수강중인과정</span>
-								<div class="list_title">
-									<span>현재 수강중인 과정 목록입니다.</span>
-									<span>수강중의 과정이 있을 경우 학습창으로 이동하실 수 있습니다.</span>
-								</div>
-							</div>
+<%--							<div class="sub_contents_header">--%>
+<%--								<span>수강중인과정</span>--%>
+<%--								<div class="list_title">--%>
+<%--									<span>현재 수강중인 과정 목록입니다.</span>--%>
+<%--									<span>수강중의 과정이 있을 경우 학습창으로 이동하실 수 있습니다.</span>--%>
+<%--								</div>--%>
+<%--							</div>--%>
 							<div class="sub_contents_body">
 
 								<div class="sub_boarder_body">
@@ -248,5 +248,6 @@
 <!-- footer -->
 <jsp:include page="/learn/user/typeB/include/newFooterB.jsp"/>
 <!-- footer -->
+
 </body>
 </html>

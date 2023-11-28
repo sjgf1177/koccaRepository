@@ -345,25 +345,25 @@
 				<div class="col-12">
 					<div class="subContainer_pop">
 						<div class="sub_section">
-							<div class="sub_contents_header">
-								<span>학습하기</span>
-							</div>
+<%--							<div class="sub_contents_header">--%>
+<%--								<span>학습하기</span>--%>
+<%--							</div>--%>
 							<div class="sub_contents_body">
 								<div class="sub_info_body">
 									<div class="sub_course_alert_box">
 										<p><%= subjdata.getSubjnm() %></p>
 									</div>
-									<div class="sub_course_view_wrap" style="margin-bottom:30px;">
-										<ul class="myCourseDetail">
-											<li><span>학습시작일</span>&nbsp;:&nbsp;&nbsp;<%=v_edustart %></li>
-											<li><span>최근학습일</span>&nbsp;:&nbsp;&nbsp;<%=v_edudate %></li>
-											<li><span>학습횟수</span>&nbsp;:&nbsp;&nbsp;<%=v_educount %>회</li>
-										</ul>
-										<ul class="myCourseDetail">
-											<li><span>나의 진도율</span>&nbsp;:&nbsp;<span class="progress_bar blue"><%= v_progress %>%</span></li>
-											<li><span>이수기준</span>&nbsp;:&nbsp;&nbsp;<span class="courseDetailList">진도율 <%=v_gradstep%>% 이상</span></li>
-										</ul>
-									</div>
+<%--									<div class="sub_course_view_wrap" style="margin-bottom:30px;">--%>
+<%--										<ul class="myCourseDetail">--%>
+<%--											<li><span>학습시작일</span>&nbsp;:&nbsp;&nbsp;<%=v_edustart %></li>--%>
+<%--											<li><span>최근학습일</span>&nbsp;:&nbsp;&nbsp;<%=v_edudate %></li>--%>
+<%--											<li><span>학습횟수</span>&nbsp;:&nbsp;&nbsp;<%=v_educount %>회</li>--%>
+<%--										</ul>--%>
+<%--										<ul class="myCourseDetail">--%>
+<%--											<li><span>나의 진도율</span>&nbsp;:&nbsp;<span class="progress_bar blue"><%= v_progress %>%</span></li>--%>
+<%--											<li><span>이수기준</span>&nbsp;:&nbsp;&nbsp;<span class="courseDetailList">진도율 <%=v_gradstep%>% 이상</span></li>--%>
+<%--										</ul>--%>
+<%--									</div>--%>
 									<!--
                                         <div class="sub_course_alert_box">
                                             <p style="font-size: 12px;">본 과정은 상시학습으로 특별한 수료기준이 없으나 학습 현황 참고사항이며, 수료확인 또는 증빙이 필요할 경우 진도율 <%=v_gradstep%>%이상이 되어야 수료층 출력이 가능합니다.</p>
@@ -436,6 +436,108 @@
                                             </tbody>
                                         </table>
                                         -->
+
+
+									<!-- 학습창메뉴 -->
+									<%
+										if (!v_ispreview.equals("Y")) {
+									%>
+									<div class="myCourseLearningBtn">
+<%--										<a href="javascript:upWin('/servlet/controller.contents.EduStart?p_process=eduList&p_lesson_link=Y',1005,615);">과정 상세정보</a>--%>
+										<a href="javascript:upWin('/servlet/controller.study.StudyBoardServlet?&p_subj=<%=v_subj%>&p_year=<%=v_year%>&p_subjseq=<%=v_subjseq%>',1005,615);">과정 게시판</a>
+										<a href="javascript:upWin('/servlet/controller.study.SubjQnaStudyServlet?p_process=SubjQnaFrame&p_subj=<%=v_subj%>&p_year=<%=v_year%>&p_subjseq=<%=v_subjseq%>',1005,615);">과정 질문방</a>
+										<a href="javascript:upWin('/servlet/controller.study.StudyDataServlet?&p_subj=<%=v_subj%>&p_year=<%=v_year%>&p_subjseq=<%=v_subjseq%>',1005,615);">과정 자료실</a>
+<%--										<a href="javascript:upWin('/servlet/controller.study.StudySulmunServlet?&p_subj=<%=v_subj%>&p_year=<%=v_year%>&p_subjseq=<%=v_subjseq%>&p_isalways=<%=v_isalways%>',1005,615);">과정 설문</a>--%>
+									</div>
+									<%
+										}
+									%>
+
+									<p class="sub_course_view_title" style="margin-top:50px;">차시정보</p>
+									<table class="td_align_left1">
+										<colgroup>
+											<col width="8%">
+											<col width="auto">
+											<col width="15%">
+											<col width="20%">
+										</colgroup>
+										<thead>
+										<tr>
+											<th></th>
+											<th>차시</th>
+											<th>학습여부</th>
+											<th>최종학습일</th>
+										</tr>
+										</thead>
+										<tbody>
+										<%
+											String v_module="";
+											String v_brlink="";
+											String v_lesssonlink="";
+
+
+											int n = 0;
+											EduListData x = null;
+											ArrayList brlist = null;
+											MfBranchData bData = null;
+											String today = FormatDate.getDate("yyyyMMdd");
+											list = (ArrayList)request.getAttribute("EduList");
+
+											for (int i=0; i<list.size(); i++) {
+												x  = (EduListData)list.get(i);
+												int m=0;
+
+												for(int k=n;k < list.size();k++) {
+													EduListData y = (EduListData)list.get(k);
+													if (y.getRecordType().equals("STEP")) {
+														if(y.getModule().equals(x.getModule()) ) {
+															m++;
+														} else {
+															n=k;
+															break;
+														}
+													}
+												}
+
+												if(x.getRecordType().equals("STEP")){
+
+													if(x.getIsbranch().equals("Y")){
+														v_brlink = "<br>";
+														for(int j=0;j<brlist.size();j++){
+															bData = (MfBranchData)brlist.get(j);
+															v_brlink=v_brlink + "<a href=\"javascript:whenBr('"+x.getLesson()+"','"+bData.getBranch()+"')\">"+bData.getSdesc()+"</a>&nbsp;&nbsp";
+														}
+													}
+
+													String fromdate = FormatDate.getRelativeDate(x.getEdustart(), Integer.parseInt(x.getFromdate()));
+													String todate   = FormatDate.getRelativeDate(x.getEdustart(), Integer.parseInt(x.getTodate()));
+
+													v_lesssonlink   = "<a href=\"javascript:top.etop.starting('" + x.getLesson() + "')\">"+ x.getLesson() + "-" + x.getSdesc() + "</a>";
+													if (Integer.parseInt(x.getTodate()) != 0 && !"".equals(fromdate) && !"".equals(todate)) {
+														if ((Integer.parseInt(today) >= Integer.parseInt(fromdate)) && (Integer.parseInt(today) <= Integer.parseInt(todate))) {
+															v_lesssonlink = "<a href=\"javascript:top.etop.starting('" + x.getLesson() + "')\">"+ x.getLesson() + "-" + x.getSdesc() + "</a>";
+														} else {
+															v_lesssonlink = x.getLesson() + "-" + x.getSdesc();
+														}
+													}
+										%>
+										<tr>
+											<td>
+												<div class="myCourseLearningBtn">
+													<a style="text-align: center; margin: 0px;" href="javascript:top.etop.starting('<%= x.getLesson() %>');">▶</a>
+												</div>
+											</td>
+											<td style="padding-left: 10px;"><%= v_lesssonlink %><%= v_brlink %></td>
+											<td><%= get_isEducatedTxt(x.getIsEducated()) %></td>
+											<td><%= FormatDate.getFormatDate(x.getLdate(),"yyyy.MM.dd-HH:mm") %></td>
+										</tr>
+										<%
+												}
+											}
+										%>
+										</tbody>
+									</table>
+
 									<p class="sub_course_view_title" style="margin-top:50px;">설문</p>
 									<table>
 										<colgroup>
@@ -534,106 +636,6 @@
 											</td>
 										</tr>
 										<%
-											}
-										%>
-										</tbody>
-									</table>
-
-									<!-- 학습창메뉴 -->
-									<%
-										if (!v_ispreview.equals("Y")) {
-									%>
-									<div class="myCourseLearningBtn">
-										<a href="javascript:upWin('/servlet/controller.contents.EduStart?p_process=eduList&p_lesson_link=Y',1005,615);">과정 상세정보</a>
-										<a href="javascript:upWin('/servlet/controller.study.StudyBoardServlet?&p_subj=<%=v_subj%>&p_year=<%=v_year%>&p_subjseq=<%=v_subjseq%>',1005,615);">과정 게시판</a>
-										<a href="javascript:upWin('/servlet/controller.study.SubjQnaStudyServlet?p_process=SubjQnaFrame&p_subj=<%=v_subj%>&p_year=<%=v_year%>&p_subjseq=<%=v_subjseq%>',1005,615);">과정 질문방</a>
-										<a href="javascript:upWin('/servlet/controller.study.StudyDataServlet?&p_subj=<%=v_subj%>&p_year=<%=v_year%>&p_subjseq=<%=v_subjseq%>',1005,615);">과정 자료실</a>
-										<a href="javascript:upWin('/servlet/controller.study.StudySulmunServlet?&p_subj=<%=v_subj%>&p_year=<%=v_year%>&p_subjseq=<%=v_subjseq%>&p_isalways=<%=v_isalways%>',1005,615);">과정 설문</a>
-									</div>
-									<%
-										}
-									%>
-
-									<p class="sub_course_view_title" style="margin-top:50px;">차시정보</p>
-									<table class="td_align_left1">
-										<colgroup>
-											<col width="8%">
-											<col width="auto">
-											<col width="15%">
-											<col width="20%">
-										</colgroup>
-										<thead>
-										<tr>
-											<th></th>
-											<th>차시</th>
-											<th>학습여부</th>
-											<th>최종학습일</th>
-										</tr>
-										</thead>
-										<tbody>
-										<%
-											String v_module="";
-											String v_brlink="";
-											String v_lesssonlink="";
-
-
-											int n = 0;
-											EduListData x = null;
-											ArrayList brlist = null;
-											MfBranchData bData = null;
-											String today = FormatDate.getDate("yyyyMMdd");
-											list = (ArrayList)request.getAttribute("EduList");
-
-											for (int i=0; i<list.size(); i++) {
-												x  = (EduListData)list.get(i);
-												int m=0;
-
-												for(int k=n;k < list.size();k++) {
-													EduListData y = (EduListData)list.get(k);
-													if (y.getRecordType().equals("STEP")) {
-														if(y.getModule().equals(x.getModule()) ) {
-															m++;
-														} else {
-															n=k;
-															break;
-														}
-													}
-												}
-
-												if(x.getRecordType().equals("STEP")){
-
-													if(x.getIsbranch().equals("Y")){
-														v_brlink = "<br>";
-														for(int j=0;j<brlist.size();j++){
-															bData = (MfBranchData)brlist.get(j);
-															v_brlink=v_brlink + "<a href=\"javascript:whenBr('"+x.getLesson()+"','"+bData.getBranch()+"')\">"+bData.getSdesc()+"</a>&nbsp;&nbsp";
-														}
-													}
-
-													String fromdate = FormatDate.getRelativeDate(x.getEdustart(), Integer.parseInt(x.getFromdate()));
-													String todate   = FormatDate.getRelativeDate(x.getEdustart(), Integer.parseInt(x.getTodate()));
-
-													v_lesssonlink   = "<a href=\"javascript:top.etop.starting('" + x.getLesson() + "')\">"+ x.getLesson() + "-" + x.getSdesc() + "</a>";
-													if (Integer.parseInt(x.getTodate()) != 0 && !"".equals(fromdate) && !"".equals(todate)) {
-														if ((Integer.parseInt(today) >= Integer.parseInt(fromdate)) && (Integer.parseInt(today) <= Integer.parseInt(todate))) {
-															v_lesssonlink = "<a href=\"javascript:top.etop.starting('" + x.getLesson() + "')\">"+ x.getLesson() + "-" + x.getSdesc() + "</a>";
-														} else {
-															v_lesssonlink = x.getLesson() + "-" + x.getSdesc();
-														}
-													}
-										%>
-										<tr>
-											<td>
-												<div class="myCourseLearningBtn">
-													<a style="text-align: center; margin: 0px;" href="javascript:top.etop.starting('<%= x.getLesson() %>');">▶</a>
-												</div>
-											</td>
-											<td style="padding-left: 10px;"><%= v_lesssonlink %><%= v_brlink %></td>
-											<td><%= get_isEducatedTxt(x.getIsEducated()) %></td>
-											<td><%= FormatDate.getFormatDate(x.getLdate(),"yyyy.MM.dd-HH:mm") %></td>
-										</tr>
-										<%
-												}
 											}
 										%>
 										</tbody>
