@@ -195,12 +195,13 @@ public class LoginServlet extends javax.servlet.http.HttpServlet implements Seri
 
             LoginBean bean = new LoginBean();
             int isOk1 = 0;
+            int isFail = 0;
 
             String v_auth = "";
             v_auth = box.getString("p_auth");
 
             if (!v_auth.equals("")) {
-                System.out.println("+++++++++++++++++++++++++++++++ IP체크 : v_auth" + v_auth);
+                /*System.out.println("+++++++++++++++++++++++++++++++ IP체크 : v_auth" + v_auth);*/
 
                 /** 관리자 ip체크 **/
                 if (v_auth.equals("A1")) { // A1 일때 아이피 체크
@@ -216,12 +217,20 @@ public class LoginServlet extends javax.servlet.http.HttpServlet implements Seri
                 }
 
                 System.out.println("==================================== p_auth : " + box.getString("p_auth"));
-                isOk1 = bean.adminLogin(box);
+
+                isFail = bean.getLgFail(box);
+
+                if(isFail < 5) {
+                    isOk1 = bean.adminLogin(box);
+                    isFail = bean.getLgFail(box);
+                } else {
+                    isOk1 = -3;
+                }
 
             } else {
                 isOk1 = bean.login(box);
             }
-            System.out.println("+++++++++++++++++++++++++++++++ p_auth : " + box.getString("p_auth"));
+            /*System.out.println("+++++++++++++++++++++++++++++++ p_auth : " + box.getString("p_auth"));*/
 
             /*
              * 
@@ -266,7 +275,11 @@ public class LoginServlet extends javax.servlet.http.HttpServlet implements Seri
                 } else if (isOk1 == -2) {
                     v_msg = "죄송합니다. 사용할 수 없는 아이디입니다.";
                 } else if (isOk1 == -3) {
-                    v_msg = "비밀번호가 맞지 않습니다.";
+                    if(isFail < 5) {
+                        v_msg = "비밀번호가 맞지 않습니다. (" + isFail + " / 5)";
+                    } else {
+                        v_msg = "비밀번호를 5회 잘못 입력하였습니다.\\n5회 입력 오류로 사용이 제한되었습니다.\\n문의 : 02-6310-0770";
+                    }
                 } else {
                     v_msg = "";
                 }

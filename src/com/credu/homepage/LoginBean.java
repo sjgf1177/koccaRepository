@@ -538,7 +538,7 @@ public class LoginBean {
 
             } else if (is_Ok == -3) {
                 // 오류 회수 추가
-                // is_Ok2 = updateLoginFail(connMgr, v_userid);
+                updateLoginFail(connMgr, v_userid);
 
             }
             connMgr.commit();
@@ -1270,7 +1270,7 @@ public class LoginBean {
 
             // 정보 업데이트
             sql = " update TZ_MEMBER                       ";
-            sql += "\n set lgcnt = lgcnt + 1, lglast = to_char(sysdate, 'YYYYMMDDHH24MISS'), lgip = " + StringManager.makeSQL(v_userip);
+            sql += "\n set lgcnt = lgcnt + 1, lgfail = 0, lglast = to_char(sysdate, 'YYYYMMDDHH24MISS'), lgip = " + StringManager.makeSQL(v_userip);
             if (cnt > 0) {
                 sql += " , lgfirst = to_char(sysdate, 'YYYYMMDDHH24MISS') ";
             }
@@ -4178,5 +4178,45 @@ public class LoginBean {
             }
         }
         return isOk;
+    }
+
+    // 로그인 실패횟 수 가져오기
+    public int getLgFail(RequestBox box) throws Exception {
+        DBConnectionManager connMgr = null;
+        ListSet ls1 = null;
+        String sql1 = "";
+        String v_userid = box.getString("p_userid");
+        int result = 0;
+
+        try {
+            connMgr = new DBConnectionManager();
+
+            // 아이디로 비교
+            sql1 = " select nvl(lgfail, 0) as lgfail     ";
+            sql1 += " from TZ_MEMBER  ";
+            sql1 += " WHERE userid =" + StringManager.makeSQL(v_userid);
+
+            ls1 = connMgr.executeQuery(sql1);
+            if (ls1.next()) {
+                result = ls1.getInt("lgfail");
+            }
+        } catch (Exception ex) {
+            ErrorManager.getErrorStackTrace(ex, box, sql1);
+            throw new Exception("sql = " + sql1 + "\r\n" + ex.getMessage());
+        } finally {
+            if (ls1 != null) {
+                try {
+                    ls1.close();
+                } catch (Exception e) {
+                }
+            }
+            if (connMgr != null) {
+                try {
+                    connMgr.freeConnection();
+                } catch (Exception e10) {
+                }
+            }
+        }
+        return result;
     }
 }
