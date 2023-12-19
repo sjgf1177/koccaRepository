@@ -145,6 +145,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
     <link rel="stylesheet" href="/css/admin_style.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="/css/ui-lightness/ui.all.css" />
+    <link rel="stylesheet" type="text/css" href="/css/2023/admin.css"> <!-- 커스텀 css 추가-->
     <script language = "javascript" src = "/script/cresys_lib.js"></script>
     <script language = "VBScript" src = "/script/cresys_lib.vbs"></script>
     <script type='text/javascript' src='/script/jquery-1.3.2.min.js'></script>
@@ -155,7 +156,22 @@
     <script type="text/javascript" src="/script/ui.datepicker.js"></script>
 
     <script language="JavaScript">
-        <!--
+        //레이어창 열기
+        function fnlayerpopup(){
+            $(this).click(function (){
+                //$('html, body').css("overflow","hidden");
+                $('.sub_layer_statistics, .opacity_layer_bg01').addClass('on');
+            });
+        }
+
+        // 레이어창 닫기
+        function layerClose(){
+            $(this).click(function (){
+                //$('html, body').css('overflow','auto');
+                $('.sub_layer_statistics, .opacity_layer_bg01').removeClass('on');
+            });
+        }
+        //<!--
         // 조회 검색
 
         var type = "";
@@ -475,12 +491,16 @@
                 return;
             }
 
+
             $("#p_memo").val($("#downMemo").val());
 
             document.form1.target = "_self";
             document.form1.action = '/servlet/controller.statistics.SynthesizeStatisticServlet';
             document.form1.p_process.value = "selectEduUsersStatisticListExcel";
             document.form1.submit();
+
+            layerClose(); // 레이어창 닫힘
+
         }
 
         // 탭 선택
@@ -1067,9 +1087,8 @@
                                             </td>
                                             <% if( ss_action.equals("go") ){  %>
                                             <td align="right">
-                                                <input type="text" id="downMemo">
-                                                <input type="button" id="btnDown" value="Excel" onclick="goExcel()">
-                                                <a href="javascript:alert('팝업 변경.');" class="c"><img src="/images/admin/button/btn_excelprint.gif"  border="0"></a>
+                                                <!--<a href="javascript:fnlayerpopup();" class="c"><img src="/images/admin/button/btn_excelprint.gif"  border="0"></a>-->
+                                                <span onclick="fnlayerpopup();" class="c" style="cursor: pointer;"><img src="/images/admin/button/btn_excelprint.gif"  border="0"></span>
                                             </td>
                                             <% } else { %>
                                             <td align="right"><a href="javascript:alert('조회 후 엑셀을 출력하세요.');" class="c"><img src="/images/admin/button/btn_excelprint.gif"  border="0"></a></td>
@@ -1192,6 +1211,24 @@
         <td><%@ include file = "/learn/library/getJspName.jsp" %></td>
     </tr>
 </table>
+
+<!-- layer -->
+<div class="opacity_layer_bg01"></div>
+<div class="layer_wrap sub_layer_statistics">
+    <div class="layer_top">
+        <button type="button" title="닫기" class="btn_layerClose" onclick="layerClose();">닫기</button>
+        <h5>다운로드 사유</h5>
+    </div>
+    <div class="content_box">
+        <input type="text" id="downMemo" placeholder="다운로드 사유를 입력하세요.">
+    </div>
+    <div class="double_btn_box">
+        <span title="확인" class="btn_layerClose" onclick="goExcel();">확인</span>
+        <span title="닫기" class="btn_layerClose" onclick="layerClose();">닫기</span>
+    </div>
+
+</div>
+
 <style>
     ._tdT{text-align: right;}
     .tdT2{padding: 0 7px;}
