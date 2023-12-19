@@ -434,7 +434,6 @@
             document.form1.submit();
 
             layerClose(); // ·¹ÀÌ¾îÃ¢ ´ÝÈû
-            console.log('2');
         }
 
         // ÅÇ ¼±ÅÃ
@@ -931,7 +930,7 @@
                                         <tr>
                                             <% if( ss_action.equals("go") ){  %>
                                             <td align="right">
-                                                <!--<a href="javascript:fnlayerpopup();" class="c"><img src="/images/admin/button/btn_excelprint.gif"  border="0"></a>-->
+                                                <%--<a href="javascript:fnlayerpopup();" class="c"><img src="/images/admin/button/btn_excelprint.gif"  border="0"></a>--%>
                                                 <span onclick="fnlayerpopup();" class="c" style="cursor: pointer;"><img src="/images/admin/button/btn_excelprint.gif"  border="0"></span>
                                             </td>
                                             <% } else { %>

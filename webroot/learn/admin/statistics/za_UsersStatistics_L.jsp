@@ -347,7 +347,6 @@
 
         //¿¢¼¿ Ãâ·Â
         function goExcel() {
-
             if($("#downMemo").val() == "") {
                 alert("¿¢¼¿ ´Ù¿î »çÀ¯¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
                 $("#downMemo").focus();
@@ -355,9 +354,7 @@
                 return;
             }
 
-
             $("#p_memo").val($("#downMemo").val());
-
 
             document.form1.target = "_self";
             document.form1.action = '/servlet/controller.statistics.SynthesizeStatisticServlet';
@@ -647,7 +644,7 @@
                                             <td align="right">
                                             <% if( ss_action.equals("go") ){  %>
 
-                                                <!--<a href="javascript:fnlayerpopup();" class="c"><img src="/images/admin/button/btn_excelprint.gif"  border="0"></a>-->
+                                                <%--<a href="javascript:fnlayerpopup();" class="c"><img src="/images/admin/button/btn_excelprint.gif"  border="0"></a>--%>
                                                 <span onclick="fnlayerpopup();" class="c" style="cursor: pointer;"><img src="/images/admin/button/btn_excelprint.gif"  border="0"></span>
                                             <% } else { %>
                                                 <a href="javascript:alert('Á¶È¸ ÈÄ ¿¢¼¿À» Ãâ·ÂÇÏ¼¼¿ä.');" class="c"><img src="/images/admin/button/btn_excelprint.gif"  border="0"></a>

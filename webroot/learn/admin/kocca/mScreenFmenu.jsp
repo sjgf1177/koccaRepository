@@ -89,6 +89,23 @@
         }
     }
 
+
+    var idleTime = 0;
+    $(document).ready(function () { //Increment the idle time counter every minute.
+        var idleInterval = setInterval(timerIncrement, 60000); // 1 minute
+        //일정시간 움직임이 있으면 초기화
+        $(this).mousemove(function (e) { idleTime = 0; });
+        $(this).keypress(function (e) { idleTime = 0; });
+    });
+
+    function timerIncrement() {
+        idleTime = idleTime + 1;
+        if (idleTime >= 120) { // 120 minutes
+            parent.location.href="/learn/admin/kocca/autoLogout.jsp";
+        }
+        //console.log(idleTime);
+    }
+
 </script>
 </head>
 <body leftmargin="0" topmargin="0" marginwidth=0 marginheight=0>
@@ -99,8 +116,8 @@
         <!--
         <td bgcolor="7B6AAE"><img src="/images/admin/system/admin_main_top_01.gif"></td>
         -->
-        <td><img src="/images/admin/system/admin_main_top_01.gif" width="260" height="66"><%=v_gadminnm%> <%=name%>님 | 
-            <input type="button"  onclick="javascript:fnlogout();" value="로그아웃">            
+        <td><img src="/images/admin/system/admin_main_top_01.gif" width="260" height="66"><%=v_gadminnm%> <%=name%>님 |
+            <input type="button"  onclick="javascript:fnlogout();" value="로그아웃">
         <td align="right"><img src="/images/admin/system/admin_main_top_02.gif" width="274" height="66"></td>
     </tr>
 </table>
