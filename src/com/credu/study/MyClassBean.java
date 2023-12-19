@@ -411,7 +411,7 @@ public class MyClassBean {
             head_sql1.append("		  WHERE UPPERCLASS = A.SCUPPERCLASS AND MIDDLECLASS = A.SCMIDDLECLASS AND LOWERCLASS = '000'\n");
             head_sql1.append("		) MIDDLECLASSNM ,\n");
             head_sql1.append("		ISNULL(D.PAYMONEY, 0) AS  BIYONG  , ISNULL(C.LDATE , 'N') AS ISUSEYN,\n");
-            head_sql1.append("		CASE WHEN TO_CHAR(SYSDATE,'YYYYMMDDHH24')||00 BETWEEN A.EDUSTART AND A.EDUEND\n");
+            head_sql1.append("		CASE WHEN TO_CHAR(SYSDATE,'YYYYMMDD')||'00' BETWEEN A.EDUSTART AND A.EDUEND\n");
             head_sql1.append("             THEN 'Y' ELSE 'N' END ISSTUDYYN, \n");
             head_sql1.append("     A.WJ_CLASSKEY\n");
 
@@ -426,7 +426,7 @@ public class MyClassBean {
             if (!v_upperclass.equals("ALL"))
                 body_sql1.append(" AND A.SCUPPERCLASS = " + SQLString.Format(v_upperclass) + "\n");
 
-            body_sql1.append("    AND TO_CHAR(SYSDATE,'YYYYMMDDHH24')||'23' <= A.EDUEND\n");
+            body_sql1.append("    AND TO_CHAR(SYSDATE,'YYYYMMDDHH24') <= A.EDUEND\n");
 
             order_sql1.append(" ORDER BY A.EDUSTART DESC, A.COURSE, A.SCUPPERCLASS, A.SCMIDDLECLASS, A.SUBJNM, A.SUBJ,A.YEAR,A.SUBJSEQ,A.EDUEND\n");
 
@@ -659,7 +659,7 @@ public class MyClassBean {
             head_sql1.append("		  WHERE UPPERCLASS = A.SCUPPERCLASS AND MIDDLECLASS = A.SCMIDDLECLASS AND LOWERCLASS = '000'\n");
             head_sql1.append("		) MIDDLECLASSNM ,\n");
             head_sql1.append("		ISNULL(D.PAYMONEY, 0) AS  BIYONG  , ISNULL(C.LDATE , 'N') AS ISUSEYN,\n");
-            head_sql1.append("		CASE WHEN TO_CHAR(SYSDATE,'YYYYMMDDHH24')||00 BETWEEN A.EDUSTART AND A.EDUEND\n");
+            head_sql1.append("		CASE WHEN TO_CHAR(SYSDATE,'YYYYMMDD')||00 BETWEEN A.EDUSTART AND A.EDUEND\n");
             head_sql1.append("             THEN 'Y' ELSE 'N' END ISSTUDYYN, \n");
             head_sql1.append("     A.WJ_CLASSKEY\n");
 
@@ -674,7 +674,7 @@ public class MyClassBean {
             if (!v_upperclass.equals("ALL"))
                 body_sql1.append(" AND A.SCUPPERCLASS = " + SQLString.Format(v_upperclass) + "\n");
 
-            body_sql1.append("    AND TO_CHAR(SYSDATE,'YYYYMMDDHH24')||'23' <= A.EDUEND\n");
+            body_sql1.append("    AND TO_CHAR(SYSDATE,'YYYYMMDDHH24') <= A.EDUEND\n");
 
             order_sql1.append(" ORDER BY A.EDUSTART DESC, A.COURSE, A.SCUPPERCLASS, A.SCMIDDLECLASS, A.SUBJNM, A.SUBJ,A.YEAR,A.SUBJSEQ,A.EDUEND\n");
 
