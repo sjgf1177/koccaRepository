@@ -401,6 +401,15 @@
 
         //¿¢¼¿ Ãâ·Â
         function goExcel() {
+            if($("#downMemo").val() == "") {
+                alert("¿¢¼¿ ´Ù¿î »çÀ¯¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+                $("#downMemo").focus();
+
+                return;
+            }
+
+            $("#p_memo").val($("#downMemo").val());
+
             document.form1.target = "_self";
             document.form1.action = '/servlet/controller.statistics.SynthesizeStatisticServlet';
             document.form1.p_process.value = "selectEduResultStatisticListExcel";
@@ -658,6 +667,7 @@
                                         <input type="hidden" name="p_action"   value="">
                                         <input type="hidden" name="p_lv_type_er" id="p_lv_type_er" value="">
                                         <input type="hidden" name="p_sort_er" id="p_sort_er" value="">
+                                        <input type="hidden" name="p_memo" id="p_memo" value="">
                                         <tr>
                                             <td bgcolor="#C6C6C6" align="center">
                                                 <table class="form_table_bg" style="width: 1200px; float:left;">
@@ -899,7 +909,11 @@
                                     <table cellpadding="0" cellspacing="0" class="table1" style="width:100%;">
                                         <tr>
                                             <% if( ss_action.equals("go") ){  %>
-                                            <td align="right"><a href="javascript:goExcel()" class="c"><img src="/images/admin/button/btn_excelprint.gif"  border="0"></a></td>
+                                            <td align="right">
+                                                <input type="text" id="downMemo">
+                                                <input type="button" id="btnDown" value="Excel" onclick="goExcel()">
+                                                <a href="javascript:alert('ÆË¾÷ º¯°æ.');" class="c"><img src="/images/admin/button/btn_excelprint.gif"  border="0"></a>
+                                            </td>
                                             <% } else { %>
                                             <td align="right"><a href="javascript:alert('Á¶È¸ ÈÄ ¿¢¼¿À» Ãâ·ÂÇÏ¼¼¿ä.');" class="c"><img src="/images/admin/button/btn_excelprint.gif"  border="0"></a></td>
                                             <% } %>
