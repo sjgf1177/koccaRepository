@@ -241,10 +241,8 @@ function fnLevelTypeSave(type){
 
 
 function fnloadmap(){
-	$(this).click(function (){
-		$('html, body').css("overflow","hidden");
-		$('.main_layer').addClass('on');
-	});
+	$('html, body').css("overflow","hidden");
+	$('.main_layer').addClass('on');
 }
 
 // 레이어창 열기
