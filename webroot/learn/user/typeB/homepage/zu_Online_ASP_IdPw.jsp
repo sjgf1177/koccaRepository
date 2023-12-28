@@ -114,3 +114,6 @@
         </div>
     </div>
 </section>
+<style>
+    .info_box table td{border:none; background-color: transparent;}
+</style>

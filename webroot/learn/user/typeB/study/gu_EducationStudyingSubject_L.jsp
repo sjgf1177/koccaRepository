@@ -126,47 +126,36 @@
 <%--								</div>--%>
 <%--							</div>--%>
 							<div class="sub_contents_body">
-
-								<div class="sub_boarder_body">
-
-									<table class="td_align_left2">
-										<colgroup>
-											<col width="auto">
-											<col width="25%">
-											<col width="15%">
-											<col width="15%">
-										</colgroup>
-										<thead>
-										<tr>
-											<th>과정명</th>
-											<th class="pc_table">교육기간</th>
-											<th>학습현황</th>
-											<th>학습하기</th>
-										</tr>
-										</thead>
-										<tbody>
+								<div class="sub_boarder_body mb-5">
+									<ul class="my_card_list_box">
 										<c:forEach items="${EducationStudyingSubjectList }" var="list" varStatus="status">
-											<tr>
-												<td>
+										<li class="d-flex">
+											<div class="tnail_box">
+												<img src="https://test.edukocca.or.kr/upload/bulletin/2022/GoldClassAdmin_img_file_202208301403281_lee1.jpg" alt="섬네일 호출">
+											</div>
+											<div class="info_text_box">
+												<h5>
 													<a href="javascript:whenSubjInfoPopup('<c:out value="${list.d_subj }" />','<c:out value="${list.d_subjnm }" />','<c:out value="${list.d_isonoff }" />');">
 														<c:out value="${list.d_subjnm }"/>
 													</a>
-													<p class="mo_view">
-														<fmt:parseDate value="${list.d_edustart }" var="edustart" pattern="yyyyMMddHH"/>
-														<fmt:formatDate value="${edustart }" pattern="yyyy.MM.dd"/>
-														~
-														<fmt:parseDate value="${list.d_eduend }" var="eduend" pattern="yyyyMMddHH"/>
-														<fmt:formatDate value="${eduend }" pattern="yyyy.MM.dd"/>
-													</p>
-												</td>
-												<td class="pc_table">
+												</h5>
+												<p>교육기간 :
 													<fmt:parseDate value="${list.d_edustart }" var="edustart" pattern="yyyyMMddHH"/>
 													<fmt:formatDate value="${edustart }" pattern="yyyy.MM.dd"/>
 													~
 													<fmt:parseDate value="${list.d_eduend }" var="eduend" pattern="yyyyMMddHH"/>
 													<fmt:formatDate value="${eduend }" pattern="yyyy.MM.dd"/>
-												</td>
-												<td>
+												</p>
+												<!--<p>수강신청일 : 2023.06.07</p>-->
+												<div class="progress-box  mt-2">
+													<div class="progress" role="progressbar" aria-label="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+														<div class="progress-bar" style="width: 75%; margin:0;"></div>
+													</div>
+													<span>75%</span>
+												</div>
+											</div>
+											<div class="state_box">
+												<span>
 													<c:set var="ieduurl" value="${(list.d_eduurl eq '' || list.d_eduurl eq null)? 0 : 1 }"/>
 													<c:url value="/servlet/controller.contents.EduStart" var="edulist_value">
 														<c:param name="p_process" value="eduList"/>
@@ -201,9 +190,11 @@
 															</c:if>
 														</c:otherwise>
 													</c:choose>
-													<a href="javascript:whenEdulist('<c:out value="${ieduurl }" />','','<c:out value="${edulist_value }" />');" class="btn_introView">보기</a>
-												</td>
-												<td>
+													<a href="javascript:whenEdulist('<c:out value="${ieduurl }" />','','<c:out value="${edulist_value }" />');"  class="btn_view btn btn-outline-purple">학습현황</a>
+												</span>
+											</div>
+											<div class="btn_box">
+												<span>
 													<c:choose>
 														<c:when test="${list.d_controlstudy > 0 }">
 															<a href="javascript:controlstudy();" class="btn_view btn btn-purple">학습하기</a>
@@ -221,18 +212,18 @@
 															</c:if>
 														</c:otherwise>
 													</c:choose>
-												</td>
-											</tr>
-											<c:set var="totalpage" value="${list.d_totalpage }"/>
+												</span>
+											</div>
+										</li>
+										<c:set var="totalpage" value="${list.d_totalpage }"/>
 										</c:forEach>
 										<c:if test="${fn:length(EducationStudyingSubjectList) <= 0 }">
-											<tr>
-												<td colspan="4">수강중인 과정이 없습니다.</td>
-											</tr>
+											<li class="text-center">
+												<span>수강중인 과정이 없습니다.</span>
+											</li>
 											<c:set var="totalpage" value="0"/>
 										</c:if>
-										</tbody>
-									</table>
+									</ul>
 
 								</div>
 								${pu:typeB_printPageListDiv(totalpage, pageno, pagesize) }

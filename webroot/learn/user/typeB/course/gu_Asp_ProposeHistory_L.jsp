@@ -52,7 +52,7 @@ function cancelPropose(p_tid, p_paymethod){
         <div class="sub_section">
             <div class="sub_contents_body">
                 <div class="sub_board_header">
-                    <jsp:include page="/learn/user/typeB/include_left/left_9.jsp">
+                    <jsp:include page="/learn/user/typeB/include_left/left_3.jsp">
                     	<jsp:param value="${param.menuid }" name="left_active"/>
                     </jsp:include>
 <%--                    <div class="list_title">--%>
@@ -64,105 +64,78 @@ function cancelPropose(p_tid, p_paymethod){
                             <div class="sub_contents_body">
                                 <div class="sub_boarder_body">
 									<ul class="my_card_list_box">
+									<c:forEach items="${ProposeHistoryList }" var="list" varStatus="status">
+										<fmt:parseDate value="${list.d_edustart }" var="edustart" pattern="yyyyMMddHH" />
+										<fmt:parseDate value="${list.d_eduend }" var="eduend" pattern="yyyyMMddHH" />
+										<fmt:parseDate value="${list.d_appdate }" var="appdate" pattern="yyyyMMddHHmmss" />
 										<li class="d-flex">
 											<div class="tnail_box">
-												<img src="" alt="섬네일 호출">
+												<img src="https://test.edukocca.or.kr/upload/bulletin/2022/GoldClassAdmin_img_file_202208301403281_lee1.jpg" alt="섬네일 호출">
 											</div>
 											<div class="info_text_box">
-												<h5>과정명이 호출됩니다.</h5>
-												<p>교육기간 : 2023.06.07 ~ 2023.06.07</p>
-												<p>수강신청일 : 2023.06.07</p>
+												<h5><c:out value="${list.d_subjnm }" /></h5>
+												<p>교육기간 : <fmt:formatDate value="${edustart }" pattern="yyyy.MM.dd" /> ~ <fmt:formatDate value="${eduend }" pattern="yyyy.MM.dd" /><br/>
+													수강신청일 : <c:if test="${list.d_appdate ne '' }">
+														<fmt:formatDate value="${appdate }" pattern="yyyy.MM.dd" />
+													</c:if>
+												</p>
+
 											</div>
 											<div class="state_box">
-												<span>승인</span>
+												<c:choose>
+													<c:when test="${list.d_chkfirst eq 'Y' && list.d_chkfinal eq 'Y' }"><span class="complete">승인완료</span></c:when>
+													<c:when test="${list.d_chkfirst eq 'Y' && list.d_chkfinal eq 'B' }"><span class="incomplete">승인대기</span></c:when>
+													<c:when test="${list.d_chkfirst eq 'Y' && list.d_chkfinal eq 'N' }"><span class="gray">반려</span></c:when>
+													<c:otherwise><span class="gray">-</span></c:otherwise>
+												</c:choose>
 											</div>
 											<div class="btn_box">
-												<a href="" class="btn_registrationCancel">수강취소</a>
-											</div>
-										</li>
-										<li>
-											<span>수강신청 확인/취소 내역이 없습니다.</span>
-										</li>
-									</ul>
-                                    <table>
-                                        <colgroup>
-                                            <col width="auto">
-                                            <col width="30%">
-                                            <col width="15%">
-                                            <col width="11%">
-                                        </colgroup>
-                                        <thead>
-                                            <tr>
-                                                <th>과정명</th>
-                                                <th>교육기간<br/>(수강신청일)</th>
-                                                <th>승인상태</th>
-                                                <th>비고</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        	<c:forEach items="${ProposeHistoryList }" var="list" varStatus="status">
-                                        		<fmt:parseDate value="${list.d_edustart }" var="edustart" pattern="yyyyMMddHH" />
-                                        		<fmt:parseDate value="${list.d_eduend }" var="eduend" pattern="yyyyMMddHH" />
-                                        		<fmt:parseDate value="${list.d_appdate }" var="appdate" pattern="yyyyMMddHHmmss" />
-	                                        	<tr>
-	                                                <td><c:out value="${list.d_subjnm }" /></td>
-	                                                <td class="gray">
-	                                                	<fmt:formatDate value="${edustart }" pattern="yyyy.MM.dd" /> ~ <fmt:formatDate value="${eduend }" pattern="yyyy.MM.dd" /><br/>
-	                                                	<c:if test="${list.d_appdate ne '' }">
-	                                                		(<fmt:formatDate value="${appdate }" pattern="yyyy.MM.dd" />)
-	                                                	</c:if>
-	                                                </td>
-	                                                <td>
-	                                                	<c:choose>
-	                                                		<c:when test="${list.d_chkfirst eq 'Y' && list.d_chkfinal eq 'Y' }"><span class="complete">승인</span></c:when>
-	                                                		<c:when test="${list.d_chkfirst eq 'Y' && list.d_chkfinal eq 'B' }"><span class="incomplete">승인대기</span></c:when>
-	                                                		<c:when test="${list.d_chkfirst eq 'Y' && list.d_chkfinal eq 'N' }"><span class="gray">반려</span></c:when>
-	                                                		<c:otherwise><span class="gray">-</span></c:otherwise>
-	                                                	</c:choose>
-	                                                </td>
-	                                                <td class="gray">
+												<span>
+												<c:choose>
+													<c:when test="${list.d_refundyn eq 'N' && list.d_refundableyn eq 'Y' }">
 														<c:choose>
-															<c:when test="${list.d_refundyn eq 'N' && list.d_refundableyn eq 'Y' }">
-																<c:choose>
-																	<c:when test="${list.d_canceldate ne '' }">
-																		취소요청일<br/>
-																		<c:out value="${list.d_canceldate }" />
-																	</c:when>
-																	<c:otherwise>
-																		<c:choose>
-																			<c:when test="${list.d_cancelableyn eq 'Y' }">
-																				<a href="javascript:cancelPropose('<c:out value="${list.d_tid }" />','<c:out value="${list.d_paymethod }" />');" class="btn_registrationCancel">수강취소</a>
-																			</c:when>
-																			<c:otherwise>
-																				<a href="javascript:cancelApply('<c:out value="${list.d_tid }" />','<c:out value="${list.d_paymethod }" />');" class="btn_registrationCancel">취소요청</a>
-																			</c:otherwise>
-																		</c:choose>
-																	</c:otherwise>
-																</c:choose>
+															<c:when test="${list.d_canceldate ne '' }">
+																<b class="gray">취소요청일<br/>
+																	<c:out value="${list.d_canceldate }" />
+																</b>
 															</c:when>
 															<c:otherwise>
 																<c:choose>
-																	<c:when test="${list.d_refundyn eq 'Y' }">
-																		취소일<br/>
-																		<fmt:parseDate value="${list.d_refunddate }" var="refunddate" pattern="yyyyMMddHHmmss" />
-																		<fmt:formatDate value="${refunddate }" pattern="yyyy.MM.dd"/>
+																	<c:when test="${list.d_cancelableyn eq 'Y' }">
+																		<a href="javascript:cancelPropose('<c:out value="${list.d_tid }" />','<c:out value="${list.d_paymethod }" />');" class="btn btn-secondary btn_view">수강취소</a>
 																	</c:when>
 																	<c:otherwise>
-																		기간만료
+																		<a href="javascript:cancelApply('<c:out value="${list.d_tid }" />','<c:out value="${list.d_paymethod }" />');" class="btn btn-secondary btn_view">취소요청</a>
 																	</c:otherwise>
 																</c:choose>
 															</c:otherwise>
 														</c:choose>
-													</td>
-	                                            </tr>
-                                        	</c:forEach>
-                                        	<c:if test="${fn:length(ProposeHistoryList) <= 0 }">
-                                        		<tr>
-                                        			<td colspan="4">수강신청 확인/취소 내역이 없습니다.</td>
-                                        		</tr>
-                                        	</c:if>
-                                        </tbody>
-                                    </table>
+													</c:when>
+													<c:otherwise>
+														<c:choose>
+															<c:when test="${list.d_refundyn eq 'Y' }">
+																<b class="gray">취소일<br/>
+																	<fmt:parseDate value="${list.d_refunddate }" var="refunddate" pattern="yyyyMMddHHmmss" />
+																	<fmt:formatDate value="${refunddate }" pattern="yyyy.MM.dd"/>
+																</b>
+															</c:when>
+															<c:otherwise>
+																<b class="gray">기간만료</b>
+															</c:otherwise>
+														</c:choose>
+													</c:otherwise>
+												</c:choose>
+												</span>
+											</div>
+										</li>
+										</c:forEach>
+										<c:if test="${fn:length(ProposeHistoryList) <= 0 }">
+											<li class="text-center">
+												<span>수강신청 확인/취소 내역이 없습니다.</span>
+											</li>
+										</c:if>
+									</ul>
+
                                 </div>
                             </div>
                         </div>
