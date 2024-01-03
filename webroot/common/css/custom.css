@@ -207,6 +207,7 @@ footer{width: 1280px;}
 .mb5{margin-bottom: 5px;}
 .mb10{margin-bottom: 10px;}
 .mb15{margin-bottom: 15px;}
+.mb30{margin-bottom: 30px;}
 
 .ml5{margin-left: 5px;}
 .ml10{margin-left: 10px;}
@@ -561,6 +562,13 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:45px;
 .my_card_list_box li .btn_box .btn_registrationCancel{width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;}
 .my_card_list_box li .gray{color: #999999;}
 
+/* 대시보드 */
+.dashboard_contents_box .card-list-box .card{width: 24%; text-align: center;}
+.dashboard_contents_box .card-list-box .card-title{font-size: 14px; margin-bottom: 1rem;}
+.dashboard_contents_box .card-list-box .card-text{font-size: 24px;}
+.dashboard_contents_box .study-list-box .top-box{display: flex; justify-content: space-between; margin-bottom: }
+.dashboard_contents_box .study-list-box .top-box > *{margin: 0;}
+.dashboard_contents_box .study-list-box .top-box a{font-size: 14px; color:#999999;}
 
 /* 개인정보처리방침 */
 .useful_con .useful_title{margin-bottom:6px; font-size:2rem; line-height: 2.4rem; color:#313131; font-weight: 300; }
@@ -685,7 +693,8 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:45px;
 .progress{height: 14px; width: 90%; margin: 0;}
 .progress-box .progress-bar{background-color:#441CBA; }
 .progress-box span{font-size: 14px; color:#441CBA; margin: 0;}
-.
+
+
 
 /* -------------------------------------------------------------------- */
 /* 반응형 */
@@ -809,6 +818,9 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:45px;
     .my_card_list_box li .state_box > span, .my_card_list_box li .btn_box > span{height: auto;}
     .my_card_list_box li .btn_view{width: 100%; padding: 0.8rem 0;}
     .my_card_list_box li .btn_box .btn_registrationCancel{height: auto;}
+
+    /* 정규과정 상세 */
+    .sub_boarder_body table tr.left_line td{padding: 12px 20px;}
 }
 
 @media all and (max-width: 640px){
@@ -838,6 +850,14 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:45px;
     .sub_board_header .d-flex.justify-content-lg-between{flex-direction: column;}
     .radio-row-box{margin-top: 30px; justify-content: end;}
     input[type=radio] + label{font-size: 16px;}
+
+    /* 정규과정 상세 */
+    .sub_info_body .sub_course_view_wrap .img_box{width: 100%;}
+    .sub_info_body .sub_course_view_wrap .lesson_bg_box .info_box{width: 100%; padding-left: 0; margin-top: 20px;}
+    .sub_info_body .sub_course_view_wrap .lesson_bg_box .info_box dl{padding-bottom: 10px;}
+
+    /* 회원가입 */
+    .join_box .write_table td #p_pw2{min-width: inherit;}
 
 
 

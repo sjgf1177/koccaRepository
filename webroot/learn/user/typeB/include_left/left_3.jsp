@@ -3,7 +3,7 @@
 <%@ page isELIgnored="false" %>
 <div class="lnb_wrap">
 	<ul class="lnb_con d-flex">
-		<li><a href="">대시보드</a></li>
+		<li><a href="/HTML/dashboard.html">대시보드</a></li>
 		<li <c:if test="${param.left_active eq '11' }" > class="on"</c:if>><a href="javascript:menuForward('3','11');">수강 중 과정</a></li>
 		<li <c:if test="${param.left_active eq '03' }" > class="on"</c:if>><a href="javascript:menuForward('9', '03');">신청한 과정</a></li>
 		<li <c:if test="${param.left_active eq '02' }" > class="on"</c:if>><a href="javascript:menuForward('3','02');">나의교육이력</a></li>
