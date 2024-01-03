@@ -1,0 +1,230 @@
+.jp-gui {display:none; transition: 3s;}
+.jpback {display:none;}
+button{background: transparent; border: none;}
+
+.jp-limit {position:absolute; left:0; top:0; width:100%; height:100%; background:url('../images/img/bg_movieview.png') left top repeat; z-index:100;}
+
+#jp_video_0 {position:relative;}
+/*jplay desing ==========================================================================================================================*/
+.jp-video *:focus {outline:none;}
+.jp-video button:-moz-focus-inner {border:0;}
+.jp-controls button {display:block; float:left;  border:none; cursor:pointer; margin: 0 7px;}
+.jp_poster_0 {width:100%;}
+
+.jp-bottom-controls{position: absolute; left: 0; bottom: 0; width:100%; height:40px; z-index:120; background-color:rgb(0,0,0,0.7);} 
+.jp-video {position:absolute; width:100%; height:100%; font-size:12px;}
+.jp-interface {height: 100%;}
+.jp-gradient-box {display:none; position: absolute; bottom: 0; left: 0; width:100%; height: 150px; background: url(../images/gradient.png); }
+.jp-inbox, .jp-inbox > div {display: flex; align-items: center; height: 100%; }
+/*.subVideo {position:absolute; left:15%; top:10%  ; width:1120px; height:630px; margin:0 0 0 0; padding:0px 0 0 0px;  background:url('../images/img/bg_jp_container_1_round.png') left top repeat;}*/
+.subVideo {position:absolute; left:0px; top:0px; width:100%; height:100%; margin:0px 0 0 0px; padding:0px 0 0 0px;  background:url('../images/img/bg_jp_container_1_round.png') left top repeat;}
+
+.jp-util {position:absolute; right:85px; bottom:0px; }
+.jp-util ul:after {content:""; display:block; clear:both;}
+.jp-util ul li {float:left;}
+.jp-util ul li a {position:relative; display:inline-block;}
+.jp-util ul li a span {display:none; position:absolute; left:50%; top:-50px; width:61px; height:35px; margin:0 0 0 -100px;}
+.jp-util ul li .u_index {position: relative ;width:55px; height:22px; background:url('../images/img/img_u_index.png') left top no-repeat;}
+/*.jp-util ul li .u_index:hover {background:url('../images/img/img_u_index_on.png') left top no-repeat;}*/
+.jp-util ul li .u_index span {background:url('../images/img/img_u_index_alert.png') left top no-repeat;}
+.jp-util ul li .u_chapter {position: relative ;width:55px; height:22px; background:url('../images/img/img_u_chasi.png') left top no-repeat;}
+
+
+
+.jp-controls-holder {width:230px; height:100%; z-index:10;}
+.jp-controls {display:flex; align-items:center; width:100%; height: 100%; margin-left: 10px;}
+.jp-play {position:relative; width:38px; height:30px; padding:0;}
+.jp-play {background:url('../images/svg/play_arrow_FILL1_wght400_GRAD0_opsz48.svg') center no-repeat; background-color:transparent;}
+/*.jp-play:hover {background:url('../images/jplayer/jp_play_btn_on.png') left center no-repeat;}*/
+.jp-state-playing .jp-play {background:url('../images/svg/pause_FILL1_wght400_GRAD0_opsz48.svg') no-repeat; background-color:transparent;}
+/*.jp-state-playing .jp-play:hover {background:url('../images/jplayer/jp_pause_btn_on.png') center center no-repeat;}*/
+.jp-stop {position:fixed; top:50%; left:50%; width:204px; height:201px; transform: translate(-50%, -50%); padding:0; background-color:transparent; display: none;}
+/*.jp-stop:hover {background:url('../images/jplayer/jp_stop_btn_on.png') left top no-repeat;}*/
+.jp-stop img{width: 100%; height: 100%;}
+.jp-script {width:43px; height:30px; padding:0; background:url('../images/jplayer/jp_script_btn.png') left top no-repeat;}
+/*.jp-script:hover {background:url('../images/jplayer/jp_script_btn_on.png') left top no-repeat;}*/
+.jp-replay {width:40px; height:30px; padding:0; background:url('../images/jplayer/jp_replay_btn.png') left top no-repeat;}
+/*.jp-replay:hover {background:url('../images/jplayer/jp_replay_btn_on.png') left top no-repeat;}*/
+
+.jp-time-display{display: flex; align-items: center; margin-left: 10px;}
+/*.jp-current-time {width:auto; top:2px; float:left; display:inline-block; cursor:default; font-size:12px; color:#0dccfa;}*/
+.jp-current-time {width:auto; top:2px; float:left; display:inline-block; cursor:default; font-size:12px; color:#fff;}
+.jp-duration { width:auto; top:2px; display:inline-block; text-align:left; cursor:default; font-size:12px; color:#fff;}
+.jp-time-line{color:#fff; margin: 0 5px;}
+/*.mt {position:absolute; width:auto; top:9px; left:462px; display:inline-block; text-align:left; font-size:12px; color:#fff;}*/
+
+.jp-progress {position:relative; width:100%; z-index:90;}
+.jp-seek-bar { width:100%; height:3px; background:rgba(255,255,255, 0.35); cursor:pointer; display:block !important; z-index:1;}
+.jp-play-bar {position:relative; width:100%; height:3px; background:rgb(255 0 0); overflow:visible !important; z-index:2;}
+.moveBar {position:absolute; right:-28px; top:-13px; z-index:10;}
+.finGoal {position:absolute; right:-38px; top:-34px; z-index:20;}
+
+
+.jp-mute {position:relative; width:20px; height:17px; z-index:1000;}
+.jp-mute {background:url('../images/svg/volume_up_FILL1_wght400_GRAD0_opsz48.svg') center no-repeat; background-color:transparent;}
+.jp-state-muted .jp-mute {background:url('../images/svg/volume_off_FILL1_wght400_GRAD0_opsz48.svg') center no-repeat; background-color:transparent;}
+
+.jp-volume-controls {display: flex; align-items: center;}
+.jp-volume-bar {display: inline-block; width:0; height:3px; overflow:hidden; background:rgba(255,255,255, 0.35); cursor:pointer; transition: 0.3s;}
+.jp-volume-controls:hover .jp-volume-bar {width: 54px;}
+.jp-volume-bar-value {width:0px; height:4px; background:#fff;}
+.jp-volume-controls button { display:inline-block; border:none; cursor:pointer; }
+
+/*.jp-toggles {position:absolute; top:10px; left:-770px; height:29px; width:160px; opacity : 0;}*/
+.jp-toggles {height:100%;}
+.jp-speed {position:relative; display:inline-block; height: 100%;}
+.jp-resolution {position:relative; left:18px; display:inline; display:none;}
+
+.jp-toggles button {display:inline-block; color:#fff; font-size: 14px; font-weight: 600; padding:15px; background: transparent; border:none; cursor:pointer;}
+.jp-toggles button:hover{background: rgba(255,255,255, 0.13); border-radius: 3%;}
+.jp-toggles-text {position: relative; display:inline-block; width: 62px; height: 100%; color:#fff; background: url(../images/svg/speed_FILL0_wght400_GRAD0_opsz48.svg) center no-repeat; cursor: pointer;} 
+.jp-speed-btn-box{display:none; position: absolute; top: -246px; left: -60px; width: 180px; background:rgb(0,0,0, 0.85); flex-direction: column-reverse; box-sizing: border-box; border-radius: 4%; transition: 0.3s;}
+.jp-speed-btn-box h4{font-size: 14px; color:#fff; text-align: center; border-bottom: 1px solid rgba(255,255,255, 0.35); padding: 15px 0;}
+.jp-speed-btn-box.on{display: flex; z-index: 101;}
+
+.jp-script{width:55px; height: 100%; background: url(../images/svg/subtitles_FILL1_wght400_GRAD200_opsz48.svg) center no-repeat; cursor: pointer;}
+
+
+.jp-util ul li .u_index:after, .jp-toggles-text:after, .jp-script:after, .jp-util ul .u_chapter:after{
+  content: "";
+  position: absolute;
+    left: 50%;
+    bottom: -5px;
+    transform: translate(-45%, 0);
+    width: 0;
+    height: 3px;
+    background-color: rgb(255 0 0);
+    transition: all 0.3s;}
+.jp-toggles-text:after{bottom:3px;}
+.jp-script:after{left:2.1em; bottom:3px;}
+.jp-util ul li .u_index:hover:after, .jp-util ul li .u_index.on:after{width: 100%;}
+.jp-util ul li .u_chapter:hover:after, .jp-util ul li .u_chapter.on:after{width: 100%;}
+.jp-toggles-text:hover:after, .jp-toggles-text.on:after{width: 60%;}
+.jp-script:hover:after, .jp-script.on:after{width: 45px;}
+
+/*툴팁*/
+.tooltip{position: relative;}
+
+.sub_tooltip, .jp-util ul li a span.sub_tooltip{
+  display: none;
+  position: absolute;
+  z-index: 100;
+  left: 50%;
+  transform: translate(-50%, 0);
+  bottom: 45px;
+  padding: 5px 10px;
+  color: #fff;
+  background: #373d40;
+  font: 12px/1.2 "NGB", verdana, applegothic, sans-serif !important;
+  border-radius: 2px;
+  font-size: 12px;
+  white-space: nowrap;
+  font-weight: bold;
+}
+.u_index.tooltip  .sub_tooltip, .jp-full-screen .sub_tooltip, .jp-mute .sub_tooltip{transform: translate(-50%, 10px);}
+.jp-util ul li a span.sub_tooltip{width: auto; height: auto; margin: 0;}
+
+.tooltip:hover .sub_tooltip, .jp-util ul li a.tooltip:hover span.sub_tooltip{display: block;}
+
+/* 스피드 */
+
+/*
+.speed.sp0 {width:30px; height:22px; background:url('../images/jplayer/jp_control_img.png') 0px 0px no-repeat;}
+.speed.sp1 {width:30px; height:22px; background:url('../images/jplayer/jp_control_img.png') -29px 0px no-repeat;}
+.speed.sp2 {width:38px; height:17px; background:url('../images/jplayer/jp_control_img.png') 0 0px no-repeat;}
+.speed.sp3 {width:35px; height:17px; background:url('../images/jplayer/jp_control_img.png') -39px 0px no-repeat;}
+.speed.sp4 {width:36px; height:17px; background:url('../images/jplayer/jp_control_img.png') -76px 0px no-repeat;}
+.speed.sp5 {width:36px; height:17px; background:url('../images/jplayer/jp_control_img.png') -115px 0px no-repeat;}
+
+
+.speed.sp0.on {width:30px; height:22px; background:url('../images/jplayer/jp_control_img.png') 0px -20px no-repeat;}
+.speed.sp1.on {width:30px; height:22px; background:url('../images/jplayer/jp_control_img.png') -29px -20px no-repeat;}
+.speed.sp2.on {width:38px; height:17px; background:url('../images/jplayer/jp_control_img.png') 0 -17px no-repeat;}
+.speed.sp3.on {width:35px; height:17px; background:url('../images/jplayer/jp_control_img.png') -39px -17px no-repeat;}
+.speed.sp4.on {width:36px; height:17px; background:url('../images/jplayer/jp_control_img.png') -76px -17px no-repeat;}
+.speed.sp5.on {width:36px; height:17px; background:url('../images/jplayer/jp_control_img.png') -115px -17px no-repeat;}
+*/
+
+.speed.on {color:#3B85FF;}
+
+
+
+/* 해상도 */
+.resolution[data-type='high'] {width:47px; height:22px; background:url('../images/jplayer/jp_control_img.png') -203px 0px no-repeat;}
+.resolution[data-type='high'].active {width:47px; height:22px; background:url('../images/jplayer/jp_control_img.png') -203px -20px no-repeat;}
+.resolution[data-type='low'] {width:47px; height:22px; background: url('../images/jplayer/jp_control_img.png') -249px 0px no-repeat;}
+.resolution[data-type='low'].active {width:47px; height:22px; background:url('../images/jplayer/jp_control_img.png') -249px -20px no-repeat;}
+.resolution {display:none !important;}
+.jp-full-screen {width: 55px; height: 17px; background: url('../images/svg/fullscreen_FILL1_wght400_GRAD200_opsz48.svg') center no-repeat transparent;border: none; cursor: pointer;}
+.jp-video-full .jp-full-screen {background: url('../images/svg/fullscreen_exit_FILL1_wght400_GRAD200_opsz48.svg') center no-repeat transparent;}
+
+
+/* ie6 */
+.jp-video-full {position:static; width:1024px; height:576px;}
+
+.jp-video-full .jp-jplayer {position:fixed; top:0; left:0; overflow:hidden;}
+.jp-video-full .jp-gui {    position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  }
+.jp-video-full .jp-interface {position:absolute; bottom:-2px; left:0px; width:100%;}
+
+.jp-video-full .jpback {position:fixed; bottom:0; left:0; width:100%; height:35px; z-index: 900; background:url('../images/jplayer/jpback.png') left top repeat-x;}
+
+.jp-video-full .jp-util{left:auto; right: 100px;}
+
+.jp-video-full #scriptBox{left:40%; bottom:3%; transform: translateX(-50%);}
+
+
+/* btn area */
+.prevBtn {position:absolute; left:-100%; top:50%; margin:-45px 0 0 0; z-index:10;}
+.nextBtn {position:absolute; right:-100%; top:50%; margin:-45px 0 0 0; z-index:10;}
+.play {display:none; position:absolute; left:50%; top:50%; margin:-100px 0 0 -102px; z-index:10;}
+
+
+.jp-play.mobile{position: fixed; top:50%; left:50%; width:210px; height:210px; transform: translate(-50%, -50%); cursor: pointer; display: inline; background: url(../images/svg/play_circle_FILL0_wght500_GRAD0_opsz48.svg) no-repeat; background-size: contain;}
+.jp-state-playing .jp-play.mobile{background: url('../images/svg/pause_circle_FILL0_wght500_GRAD0_opsz48.svg') no-repeat; background-size: contain;}
+
+
+@media screen and (max-width:1024px){
+  .jp-gradient-box{height: 100%; background: rgb(0,0,0, 0.7);}
+  .jp-current-time, .jp-time-line, .jp-duration{font-size: 14px;}
+  .jp-controls-holder{width: 240px;}
+  
+  .jp-script{position: relative;}
+  .jp-script:after{left:25px;}
+
+  .play{position: fixed; top:50%; left:50%; transform:translate(-50%, -50%); margin: 0; display: none !important;}
+  .play img{width: 100%; height: 100%;}
+  
+  
+  
+}
+
+@media screen and (max-width:640px){
+  .jp-controls-holder{width: 105px;}
+  .jp-controls .jp-play, .jp-inbox > div.jp-volume-controls, .jp-speed{display: none;}
+  .u_chapter{display: none;}
+  
+  .jp-util ul li .u_index, .jp-util ul li .u_chapter{display: none;}
+  .jp-time-display{margin-left: 0;}
+  .jp-play.mobile{width: 10em; height: 10em; display:inline-block;}
+  .jp-controls .pagePrev, .jp-controls .pageNext{position: fixed; top:50%; transform: translateY(-50%); margin: 0; width: 70px; height: 70px;}
+  .jp-controls .pagePrev{left: 3em;}
+  .jp-controls .pageNext{right: 3em;}
+
+  .jp-stop{width: 10em; height: 10em;}
+}
+
+@media screen and (max-width:380px){
+	.jp-play.mobile{width:7em; height:7em;}
+	.jp-controls .pagePrev, .jp-controls .pageNext{width:50px;height:50px;}
+}
+@media screen and (max-width:320px){
+	.jp-current-time, .jp-time-line, .jp-duration{font-size:12px;}
+	
+}
+
