@@ -14,12 +14,19 @@
     ArrayList onlineList = (ArrayList)request.getAttribute("onlineList");
     ArrayList categoryList = (ArrayList)request.getAttribute("categoryList");
     ArrayList jobList = (ArrayList)request.getAttribute("jobList");
+    ArrayList loadMapList1 = (ArrayList)request.getAttribute("loadMapList1");
+    ArrayList loadMapList2 = (ArrayList)request.getAttribute("loadMapList2");
+    ArrayList loadMapList3 = (ArrayList)request.getAttribute("loadMapList3");
     ArrayList lvCdList = (ArrayList)request.getAttribute("lvCdList");
 
     DataBox dbox = null;
     DataBox dbox1 = null;
+    DataBox dbox2 = null;
+    DataBox dbox3 = null;
+    DataBox dbox4 = null;
 
     String upperClsCd = box.getStringDefault("upperClsCd", "0000");
+    String lmType = box.getStringDefault("lmType", "B0");
 %>
 
 <html>
@@ -98,12 +105,20 @@ function fnSelectTab( area ) {
         $(tab).find('#Td4').removeClass("black_butt_middle").addClass("blue_butt_middle");
         $(tab).find('#Td5').removeClass("black_butt_bottom").addClass("blue_butt_bottom");
 	}
-	
+
 	$('#OnlineArea').hide();
 	$('#MobileArea').hide();
 	$('#JobArea').hide();
+	$('#LoadMapArea').hide();
 	$('#'+area).show();
     $("#oUpperClsCd").val( $(tab).attr('tabidx') );
+
+	if(area == 'LoadMapArea'){
+		$('.table1').hide();
+		fnloadmap();
+	}else{
+		$('.table1').show();
+	}
 }
 
 /**
@@ -265,6 +280,16 @@ function layerClose(){
 	});
 }
 
+/*
+* 학습로드맵 목록을 조회한다.
+*/
+function fnLoadMapList(t) {
+	$("#oSubjClassifyForm").action = "/servlet/controller.course.SubjectClassifyServlet";
+	$("#oProcess").val("listPage");
+	$("#lmType").val(t);
+	$("#oSubjClassifyForm").submit();
+}
+
 
 
 /**
@@ -277,8 +302,24 @@ $(document).ready( function () {
 		tab = "MobileArea";
 	}else if(upperClsCd == "2000"){
 		tab = "JobArea";
+	}else if(upperClsCd == "0001"){
+		tab = "LoadMapArea";
 	}
     fnSelectTab(tab);
+
+	$(".layer_tab_menu").removeClass("active");
+
+	if($("#lmType").val() == "G0") {
+		$(".lmap_g").addClass("active");
+	} else if($("#lmType").val() == "M0") {
+		$(".lmap_m").addClass("active");
+	} else if($("#lmType").val() == "S0") {
+		$(".lmap_s").addClass("active");
+	} else if($("#lmType").val() == "K0") {
+		$(".lmap_k").addClass("active");
+	} else {
+		$(".lmap_b").addClass("active");
+	}
 });
 //-->
 </script>
@@ -288,7 +329,7 @@ $(document).ready( function () {
 
 	<form id="oSubjClassifyForm" name="subjClassifyForm" method="post">
 		<input type="hidden" id="oProcess" name="process" value="" /> 
-		<input type="hidden" id="oUpperClsCd" name="upperClsCd" value="<%= upperClsCd %>" /> 
+		<input type="hidden" id="oUpperClsCd" name="upperClsCd" value="<%= upperClsCd %>" />
 		<input type="hidden" id="oClsCd" name="clsCd" value="" /> 
 		<input type="hidden" id="oClsNm" name="clsNm" value="" />
 		<input type="hidden" id="gubun1" name="gubun1" value="" />
@@ -297,6 +338,7 @@ $(document).ready( function () {
 		<input type="hidden" id="type" name="type" value="" />
 		<input type="hidden" id="lvcd" name="lvcd" value="" />
 		<input type="hidden" id="hcd" name="hcd" value="" />
+		<input type="hidden" id="lmType" name="lmType" value="<%= lmType %>" />
 
 		<table width="1000" border="0" cellspacing="0" cellpadding="0" height="663">
 			<tr>
@@ -358,17 +400,17 @@ $(document).ready( function () {
 								</table>
 							</td>
 							<td width="12%">
-								<table cellspacing="0" cellpadding="0" class="s_table" tabidx="2000" id="">
+								<table cellspacing="0" cellpadding="0" class="s_table" tabidx="0001" id="LoadMapAreaTab">
 									<tr>
-										<td rowspan="3" class="black_butt_left" id=""></td>
-										<td class="black_butt_top" id=""></td>
-										<td rowspan="3" class="black_butt_right" id=""></td>
+										<td rowspan="3" class="black_butt_left" id="Td1"></td>
+										<td class="black_butt_top" id="Td2"></td>
+										<td rowspan="3" class="black_butt_right" id="Td3"></td>
 									</tr>
 									<tr>
-										<td class="black_butt_middle" id=""><a href="javascript:fnloadmap()" class="c">학습로드맵</a></td>
+										<td class="black_butt_middle" id="Td4"><a href="javascript:fnSelectTab('LoadMapArea')" class="c">학습로드맵</a></td>
 									</tr>
 									<tr>
-										<td class="black_butt_bottom" id=""></td>
+										<td class="black_butt_bottom" id="Td5"></td>
 									</tr>
 								</table>
 							</td>
@@ -623,237 +665,143 @@ $(document).ready( function () {
 
 		<!-- layer -->
 		<div class="opacity_layer_bg01"></div>
-		<div class="layer_wrap main_layer">
+		<div class="layer_wrap main_layer" id="LoadMapArea1" style="overflow: auto;">
 			<div class="layer_top">
 				<button type="button" title="닫기" class="btn_layerClose" onclick="layerClose();">닫기</button>
 				<h3>에듀코카 전체 과정 전체로드맵</h3>
 			</div>
 			<ul class="layer_tab_menu_list d-flex justify-content-center">
-				<Li><button type="button" class="layer_tab_menu active">방송영상</button></Li>
-				<Li><button type="button" class="layer_tab_menu">게임</button></Li>
-				<Li><button type="button" class="layer_tab_menu">만화/애니/캐릭터</button></Li>
-				<Li><button type="button" class="layer_tab_menu">음악/공연</button></Li>
-				<Li><button type="button" class="layer_tab_menu">인물교양</button></Li>
+				<Li><button type="button" class="layer_tab_menu lmap_b active" onclick="fnLoadMapList('B0')">방송영상</button></Li>
+				<Li><button type="button" class="layer_tab_menu lmap_g" onclick="fnLoadMapList('G0')">게임</button></Li>
+				<Li><button type="button" class="layer_tab_menu lmap_k" onclick="fnLoadMapList('K0')">만화/애니/캐릭터</button></Li>
+				<Li><button type="button" class="layer_tab_menu lmap_m" onclick="fnLoadMapList('M0')">음악/공연</button></Li>
+				<Li><button type="button" class="layer_tab_menu lmap_s" onclick="fnLoadMapList('S0')">인물교양</button></Li>
 			</ul>
 			<div class="roadmap_table_wrap">
-				<p><span class="fw-bold">총 <strong class="fc_skyblue">999</strong> 과정</span></p>
-				<div class="overflow-scroll-x overflow-scroll-y" style="border-left: 1px solid #ccc; max-height: 63%;">
+				<p><span class="fw-bold">총 <strong class="fc_skyblue"><%= loadMapList3.size() %></strong> 과정</span></p>
+				<div class="overflow-scroll-x overflow-scroll-y" style="border-left: 1px solid #ccc; max-height: 100%;">
 					<ul class="roadmap_table_top d-flex justify-content-between">
-						<li class="bg_darkgray">총분류</li>
+						<li class="bg_darkgray">대분류</li>
 						<li class="bg_darkgray">소분류</li>
-						<li class="bg_green">초급(정규과정)</li>
-						<li class="bg_green">초급(열린과정)</li>
-						<li class="bg_beage">중급(정규과정)</li>
-						<li class="bg_beage">중급(열린과정)</li>
-						<li class="bg_orange">고급(정규과정)</li>
-						<li class="bg_orange">고급(열린과정)</li>
+						<li class="bg_green">초급(로그인 후 수강)</li>
+						<li class="bg_green">초급(바로 수강)</li>
+						<li class="bg_beage">중급(로그인 후 수강)</li>
+						<li class="bg_beage">중급(바로 수강)</li>
+						<li class="bg_orange">고급(로그인 후 수강)</li>
+						<li class="bg_orange">고급(바로 수강)</li>
 					</ul>
-					<!-- 기획 -->
-					<div class="one_daps d-flex">
-						<span class="d-flex align-item-center justify-content-center">기획</span>
-						<ul class="two_daps">
-							<li class="three_daps d-flex">
-								<span class="d-flex align-item-center justify-content-center">구성 및<br> 제작기획</span>
-								<div class="list_box">
-									<button type="button" class="d-block" onclick="fnsubclass();"><span class="fc_red">2020</span><strong title="슬기로운 유튜버생활_모션 그래픽 편">슬기로운 유튜버생활_모션 그래픽 편</strong><span class="fc_skyblue">(13)</span></button>
-									<button type="button" class="d-block" onclick="fnsubclass();"><span class="fc_red">2020</span><strong title="슬기로운 유튜버생활_프리미어 프로 편">슬기로운 유튜버생활_모션 프리미어 프로 편</strong><span class="fc_skyblue">(13)</span></button>
-									<button type="button" class="d-block" onclick="fnsubclass();"><span class="fc_red">2020</span><strong title="슬기로운 유튜버생활_모채널성장과 마케팅 편">슬기로운 유튜버생활_모션 채널성장과 마케팅 편</strong><span class="fc_skyblue">(13)</span></button>
+			<%
+				if (loadMapList1.size() > 0){
+					String v_html = "";
+					String v_tmp1 = "";
+					String v_tmp2 = "";
+					String v_tmp3 = "";
+					String v_div1 = "";
+					String v_div2 = "";
+					String v_div3 = "";
+					String v_div4 = "";
+					String v_div5 = "";
+					String v_div6 = "";
 
-								</div>
-								<div class="list_box">
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠12</strong><span class="fc_skyblue">(13)</span></button>
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠01</strong><span class="fc_skyblue">(13)</span></button>
-								</div>
-								<div class="list_box">
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠13</strong><span class="fc_skyblue">(13)</span></button>
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠01</strong><span class="fc_skyblue">(13)</span></button>
-								</div>
-								<div class="list_box">
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠14</strong><span class="fc_skyblue">(13)</span></button>
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠01</strong><span class="fc_skyblue">(13)</span></button>
-								</div>
-								<div class="list_box">
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠15</strong><span class="fc_skyblue">(13)</span></button>
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠01</strong><span class="fc_skyblue">(13)</span></button>
-								</div>
-								<div class="list_box">
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠15</strong><span class="fc_skyblue">(13)</span></button>
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠01</strong><span class="fc_skyblue">(13)</span></button>
-								</div>
-							</li>
-							<li class="three_daps d-flex">
-								<span class="d-flex align-item-center justify-content-center">시나리오 작성</span>
-								<div class="list_box">
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠01</strong><span class="fc_skyblue">(13)</span></button>
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠01</strong><span class="fc_skyblue">(13)</span></button>
-								</div>
-								<div class="list_box"></div>
-								<div class="list_box"></div>
-								<div class="list_box"></div>
-								<div class="list_box"></div>
-								<div class="list_box"></div>
-							</li>
-						</ul>
-					</div>
-					<!-- 제작 -->
-					<div class="one_daps d-flex">
-						<span class="d-flex align-item-center justify-content-center">제작</span>
-						<ul class="two_daps">
-							<li class="three_daps d-flex">
-								<span class="d-flex align-item-center justify-content-center">연출</span>
-								<div class="list_box">
-									<button type="button" class="d-block" onclick="fnsubclass();"><span class="fc_red">2020</span><strong title="슬기로운 유튜버생활_모션 그래픽 편">슬기로운 유튜버생활_모션 그래픽 편</strong><span class="fc_skyblue">(13)</span></button>
-									<button type="button" class="d-block" onclick="fnsubclass();"><span class="fc_red">2020</span><strong title="슬기로운 유튜버생활_프리미어 프로 편">슬기로운 유튜버생활_모션 프리미어 프로 편</strong><span class="fc_skyblue">(13)</span></button>
-									<button type="button" class="d-block" onclick="fnsubclass();"><span class="fc_red">2020</span><strong title="슬기로운 유튜버생활_모채널성장과 마케팅 편">슬기로운 유튜버생활_모션 채널성장과 마케팅 편</strong><span class="fc_skyblue">(13)</span></button>
-								</div>
-								<div class="list_box">
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠12</strong><span class="fc_skyblue">(13)</span></button>
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠01</strong><span class="fc_skyblue">(13)</span></button>
-								</div>
-								<div class="list_box">
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠13</strong><span class="fc_skyblue">(13)</span></button>
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠01</strong><span class="fc_skyblue">(13)</span></button>
-								</div>
-								<div class="list_box">
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠14</strong><span class="fc_skyblue">(13)</span></button>
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠01</strong><span class="fc_skyblue">(13)</span></button>
-								</div>
-								<div class="list_box">
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠15</strong><span class="fc_skyblue">(13)</span></button>
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠01</strong><span class="fc_skyblue">(13)</span></button>
-								</div>
-								<div class="list_box">
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠15</strong><span class="fc_skyblue">(13)</span></button>
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠01</strong><span class="fc_skyblue">(13)</span></button>
-								</div>
-							</li>
-							<li class="three_daps d-flex">
-								<span class="d-flex align-item-center justify-content-center">촬영</span>
-								<div class="list_box">
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠01</strong><span class="fc_skyblue">(13)</span></button>
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠01</strong><span class="fc_skyblue">(13)</span></button>
-								</div>
-								<div class="list_box"></div>
-								<div class="list_box"></div>
-								<div class="list_box"></div>
-								<div class="list_box"></div>
-								<div class="list_box"></div>
-							</li>
-							<li class="three_daps d-flex">
-								<span class="d-flex align-item-center justify-content-center">편집</span>
-								<div class="list_box">
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠01</strong><span class="fc_skyblue">(13)</span></button>
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠01</strong><span class="fc_skyblue">(13)</span></button>
-								</div>
-								<div class="list_box"></div>
-								<div class="list_box"></div>
-								<div class="list_box"></div>
-								<div class="list_box"></div>
-								<div class="list_box"></div>
-							</li>
-							<li class="three_daps d-flex">
-								<span class="d-flex align-item-center justify-content-center">음향</span>
-								<div class="list_box">
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠01</strong><span class="fc_skyblue">(13)</span></button>
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠01</strong><span class="fc_skyblue">(13)</span></button>
-								</div>
-								<div class="list_box"></div>
-								<div class="list_box"></div>
-								<div class="list_box"></div>
-								<div class="list_box"></div>
-								<div class="list_box"></div>
-							</li>
-						</ul>
-					</div>
-					<!-- 비즈니스 -->
-					<div class="one_daps d-flex">
-						<span class="d-flex align-item-center justify-content-center">비즈니스</span>
-						<ul class="two_daps">
-							<li class="three_daps d-flex">
-								<span class="d-flex align-item-center justify-content-center">전략</span>
-								<div class="list_box">
-									<button type="button" class="d-block" onclick="fnsubclass();"><span class="fc_red">2020</span><strong title="슬기로운 유튜버생활_모션 그래픽 편">슬기로운 유튜버생활_모션 그래픽 편</strong><span class="fc_skyblue">(13)</span></button>
-									<button type="button" class="d-block" onclick="fnsubclass();"><span class="fc_red">2020</span><strong title="슬기로운 유튜버생활_프리미어 프로 편">슬기로운 유튜버생활_모션 프리미어 프로 편</strong><span class="fc_skyblue">(13)</span></button>
-									<button type="button" class="d-block" onclick="fnsubclass();"><span class="fc_red">2020</span><strong title="슬기로운 유튜버생활_모채널성장과 마케팅 편">슬기로운 유튜버생활_모션 채널성장과 마케팅 편</strong><span class="fc_skyblue">(13)</span></button>
-								</div>
-								<div class="list_box">
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠12</strong><span class="fc_skyblue">(13)</span></button>
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠01</strong><span class="fc_skyblue">(13)</span></button>
-								</div>
-								<div class="list_box">
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠13</strong><span class="fc_skyblue">(13)</span></button>
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠01</strong><span class="fc_skyblue">(13)</span></button>
-								</div>
-								<div class="list_box">
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠14</strong><span class="fc_skyblue">(13)</span></button>
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠01</strong><span class="fc_skyblue">(13)</span></button>
-								</div>
-								<div class="list_box">
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠15</strong><span class="fc_skyblue">(13)</span></button>
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠01</strong><span class="fc_skyblue">(13)</span></button>
-								</div>
-								<div class="list_box">
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠15</strong><span class="fc_skyblue">(13)</span></button>
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠01</strong><span class="fc_skyblue">(13)</span></button>
-								</div>
-							</li>
-						</ul>
-					</div>
-					<!-- 공통 -->
-					<div class="one_daps d-flex">
-						<span class="d-flex align-item-center justify-content-center">공통</span>
-						<ul class="two_daps">
-							<li class="three_daps d-flex">
-								<span class="d-flex align-item-center justify-content-center">직업이해</span>
-								<div class="list_box">
-									<button type="button" class="d-block" onclick="fnsubclass();"><span class="fc_red">2020</span><strong title="슬기로운 유튜버생활_모션 그래픽 편">슬기로운 유튜버생활_모션 그래픽 편</strong><span class="fc_skyblue">(13)</span></button>
-									<button type="button" class="d-block" onclick="fnsubclass();"><span class="fc_red">2020</span><strong title="슬기로운 유튜버생활_프리미어 프로 편">슬기로운 유튜버생활_모션 프리미어 프로 편</strong><span class="fc_skyblue">(13)</span></button>
-									<button type="button" class="d-block" onclick="fnsubclass();"><span class="fc_red">2020</span><strong title="슬기로운 유튜버생활_모채널성장과 마케팅 편">슬기로운 유튜버생활_모션 채널성장과 마케팅 편</strong><span class="fc_skyblue">(13)</span></button>
-								</div>
-								<div class="list_box">
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠12</strong><span class="fc_skyblue">(13)</span></button>
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠01</strong><span class="fc_skyblue">(13)</span></button>
-								</div>
-								<div class="list_box">
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠13</strong><span class="fc_skyblue">(13)</span></button>
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠01</strong><span class="fc_skyblue">(13)</span></button>
-								</div>
-								<div class="list_box">
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠14</strong><span class="fc_skyblue">(13)</span></button>
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠01</strong><span class="fc_skyblue">(13)</span></button>
-								</div>
-								<div class="list_box">
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠15</strong><span class="fc_skyblue">(13)</span></button>
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠01</strong><span class="fc_skyblue">(13)</span></button>
-								</div>
-								<div class="list_box">
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠15</strong><span class="fc_skyblue">(13)</span></button>
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠01</strong><span class="fc_skyblue">(13)</span></button>
-								</div>
-							</li>
-							<li class="three_daps d-flex">
-								<span class="d-flex align-item-center justify-content-center">방송교양</span>
-								<div class="list_box">
-									<button type="button" class="d-block" onclick="fnsubclass();"><span class="fc_red">2020</span><strong title="슬기로운 유튜버생활_모션 그래픽 편">슬기로운 유튜버생활_모션 그래픽 편</strong><span class="fc_skyblue">(13)</span></button>
-									<button type="button" class="d-block" onclick="fnsubclass();"><span class="fc_red">2020</span><strong title="슬기로운 유튜버생활_프리미어 프로 편">슬기로운 유튜버생활_모션 프리미어 프로 편</strong><span class="fc_skyblue">(13)</span></button>
-									<button type="button" class="d-block" onclick="fnsubclass();"><span class="fc_red">2020</span><strong title="슬기로운 유튜버생활_모채널성장과 마케팅 편">슬기로운 유튜버생활_모션 채널성장과 마케팅 편</strong><span class="fc_skyblue">(13)</span></button>
-								</div>
-								<div class="list_box">
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠12</strong><span class="fc_skyblue">(13)</span></button>
-									<button type="button" class="d-block"><span class="fc_red">2020</span><strong>슬기로운 유튜버생활 콘텐츠01</strong><span class="fc_skyblue">(13)</span></button>
-								</div>
-								<div class="list_box">
-								</div>
-								<div class="list_box">
-								</div>
-								<div class="list_box">
-								</div>
-								<div class="list_box">
-								</div>
-							</li>
-						</ul>
-					</div>
+					for ( int i = 0 ;i < loadMapList1.size() ; i++ ) {
+						dbox2 = (DataBox) loadMapList1.get(i);
+						v_tmp1 = dbox2.getString("d_g2c");
+						v_html += "	<div class='one_daps d-flex'>\n";
+						v_html += "		<span class='d-flex align-item-center justify-content-center'>" + dbox2.getString("d_g2n") + "</span>\n";
+						v_html += "		<ul class='two_daps'>\n";
 
+						for ( int j = 0 ;j < loadMapList2.size() ; j++ ) {
+							dbox3 = (DataBox) loadMapList2.get(j);
+							v_tmp2 = dbox3.getString("d_g2c");
+							v_tmp3 = dbox3.getString("d_g3c");
+
+							if(v_tmp1.equals(v_tmp2)) {
+								v_html += "			<li class='three_daps d-flex'>\n";
+								v_html += "				<span class='d-flex align-item-center justify-content-center'>" + dbox3.getString("d_g3n") + "</span>\n";
+
+								for ( int k = 0 ;k < loadMapList3.size() ; k++ ) {
+									dbox4 = (DataBox) loadMapList3.get(k);
+
+									if(v_tmp2.equals(dbox4.getString("d_g2c"))) {
+										if(v_tmp3.equals(dbox4.getString("d_g3c"))) {
+											if ("1".equals(dbox4.getString("d_type"))) {
+												v_div1 += "					<button type='button' class='d-block' onclick='fnsubclass();'>\n";
+												v_div1 += "						<span class='fc_red'>2020</span>\n";
+												v_div1 += "						<strong title='" + dbox4.getString("d_nm") + "'>" + dbox4.getString("d_nm") + "</strong>\n";
+												v_div1 += "						<span class='fc_skyblue'>(13)</span>\n";
+												v_div1 += "					</button>\n";
+											} else if ("2".equals(dbox4.getString("d_type"))) {
+												v_div2 += "					<button type='button' class='d-block' onclick='fnsubclass();'>\n";
+												v_div2 += "						<span class='fc_red'>2020</span>\n";
+												v_div2 += "						<strong title='" + dbox4.getString("d_nm") + "'>" + dbox4.getString("d_nm") + "</strong>\n";
+												v_div2 += "						<span class='fc_skyblue'>(13)</span>\n";
+												v_div2 += "					</button>\n";
+											} else if ("3".equals(dbox4.getString("d_type"))) {
+												v_div3 += "					<button type='button' class='d-block' onclick='fnsubclass();'>\n";
+												v_div3 += "						<span class='fc_red'>2020</span>\n";
+												v_div3 += "						<strong title='" + dbox4.getString("d_nm") + "'>" + dbox4.getString("d_nm") + "</strong>\n";
+												v_div3 += "						<span class='fc_skyblue'>(13)</span>\n";
+												v_div3 += "					</button>\n";
+											} else if ("4".equals(dbox4.getString("d_type"))) {
+												v_div4 += "					<button type='button' class='d-block' onclick='fnsubclass();'>\n";
+												v_div4 += "						<span class='fc_red'>2020</span>\n";
+												v_div4 += "						<strong title='" + dbox4.getString("d_nm") + "'>" + dbox4.getString("d_nm") + "</strong>\n";
+												v_div4 += "						<span class='fc_skyblue'>(13)</span>\n";
+												v_div4 += "					</button>\n";
+											} else if ("5".equals(dbox4.getString("d_type"))) {
+												v_div5 += "					<button type='button' class='d-block' onclick='fnsubclass();'>\n";
+												v_div5 += "						<span class='fc_red'>2020</span>\n";
+												v_div5 += "						<strong title='" + dbox4.getString("d_nm") + "'>" + dbox4.getString("d_nm") + "</strong>\n";
+												v_div5 += "						<span class='fc_skyblue'>(13)</span>\n";
+												v_div5 += "					</button>\n";
+											} else if ("6".equals(dbox4.getString("d_type"))) {
+												v_div6 += "					<button type='button' class='d-block' onclick='fnsubclass();'>\n";
+												v_div6 += "						<span class='fc_red'>2020</span>\n";
+												v_div6 += "						<strong title='" + dbox4.getString("d_nm") + "'>" + dbox4.getString("d_nm") + "</strong>\n";
+												v_div6 += "						<span class='fc_skyblue'>(13)</span>\n";
+												v_div6 += "					</button>\n";
+											}
+										}
+									}
+								}
+
+								v_html += "				<div class='list_box'>\n";
+								v_html += v_div1;
+								v_html += "				</div>\n";
+								v_html += "				<div class='list_box'>\n";
+								v_html += v_div2;
+								v_html += "				</div>\n";
+								v_html += "				<div class='list_box'>\n";
+								v_html += v_div3;
+								v_html += "				</div>\n";
+								v_html += "				<div class='list_box'>\n";
+								v_html += v_div4;
+								v_html += "				</div>\n";
+								v_html += "				<div class='list_box'>\n";
+								v_html += v_div5;
+								v_html += "				</div>\n";
+								v_html += "				<div class='list_box'>\n";
+								v_html += v_div6;
+								v_html += "				</div>\n";
+								v_html += "			</li>\n";
+
+								v_div1 = "";
+								v_div2 = "";
+								v_div3 = "";
+								v_div4 = "";
+								v_div5 = "";
+								v_div6 = "";
+							}
+						}
+
+						v_html += "		</ul>\n";
+						v_html += "	</div>\n";
+					}
+			%>
+					<%= v_html %>
+			<%
+				}
+			%>
 				</div>
 			</div>
 
@@ -885,7 +833,6 @@ $(document).ready( function () {
 					</div>
 				</div>
 			</div>
-
 		</div>
 	</form>
 

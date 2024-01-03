@@ -1785,5 +1785,306 @@ public class SubjectClassifyBean {
 		}
 		
 		return result;
-	}	
+	}
+
+    /**
+     * 학습로드맵 1뎁스 목록을 조회한다.
+     *
+     * @param box receive from the form object and session
+     * @return ArrayList
+     * @throws Exception
+     */
+    public ArrayList selectLoadMapClassifyList1(RequestBox box) throws Exception {
+
+        DBConnectionManager connMgr = null;
+        ListSet ls = null;
+        ArrayList list = null;
+        StringBuffer sql = new StringBuffer();
+        DataBox dbox = null;
+
+        String lm_type = box.getStringDefault("lmType", "B0");
+
+        try {
+            connMgr = new DBConnectionManager();
+
+            list = new ArrayList();
+
+            sql.append("/* com.credu.course.SubjectClassifyBean() selectLoadMapClassifyList1 (학습로드맵 1뎁스 목록 조회) */  \n");
+            sql.append(" SELECT DISTINCT M.GUBUN_2                                                              G2C \n");
+            sql.append("      , (SELECT X.CODENM FROM TZ_CODE X WHERE X.GUBUN = '0110' AND X.CODE = M.GUBUN_2)  G2N \n");
+            sql.append("   FROM (                                                                                   \n");
+            sql.append("            SELECT A.GUBUN_2                                                                \n");
+            sql.append("                 , A.GUBUN_3                                                                \n");
+            sql.append("                 , (SELECT X.SUBJ FROM TZ_SUBJHOMEGUBUN_LEVEL X WHERE A.SUBJ = X.SUBJ AND X.LVCODE IN ('L0101', 'L0201')) X1    \n");
+            sql.append("                 , (SELECT X.SUBJ FROM TZ_SUBJHOMEGUBUN_LEVEL X WHERE A.SUBJ = X.SUBJ AND X.LVCODE IN ('L0102', 'L0203')) X2    \n");
+            sql.append("                 , (SELECT X.SUBJ FROM TZ_SUBJHOMEGUBUN_LEVEL X WHERE A.SUBJ = X.SUBJ AND X.LVCODE IN ('L0103', 'L0203')) X3    \n");
+            sql.append("                 , NULL Z1  \n");
+            sql.append("                 , NULL Z2  \n");
+            sql.append("                 , NULL Z3  \n");
+            sql.append("                 , CASE WHEN (SELECT X.SUBJ FROM TZ_SUBJHOMEGUBUN_LEVEL X WHERE A.SUBJ = X.SUBJ AND X.LVCODE IN ('L0101', 'L0201')) IS NOT NULL THEN '1'   \n");
+            sql.append("                        WHEN (SELECT X.SUBJ FROM TZ_SUBJHOMEGUBUN_LEVEL X WHERE A.SUBJ = X.SUBJ AND X.LVCODE IN ('L0102', 'L0202')) IS NOT NULL THEN '3'   \n");
+            sql.append("                        WHEN (SELECT X.SUBJ FROM TZ_SUBJHOMEGUBUN_LEVEL X WHERE A.SUBJ = X.SUBJ AND X.LVCODE IN ('L0103', 'L0203')) IS NOT NULL THEN '5'   \n");
+            sql.append("                        ELSE '99'                   \n");
+            sql.append("                    END TYPE                        \n");
+            sql.append("              FROM TZ_SUBJHOMEGUBUN A               \n");
+            sql.append("             WHERE A.GUBUN   = 'GS'                 \n");
+            sql.append("               AND A.GUBUN_1 = '" + lm_type + "'    \n");
+
+            sql.append("             UNION ALL                  \n");
+
+            sql.append("            SELECT A.GUBUN_2            \n");
+            sql.append("                 , A.GUBUN_3            \n");
+            sql.append("                 , NULL                 \n");
+            sql.append("                 , NULL                 \n");
+            sql.append("                 , NULL                 \n");
+            sql.append("                 , (SELECT Z.SEQ FROM TZ_GOLDHOMEGUBUN_LEVEL Z WHERE A.SEQ = Z.SEQ AND Z.LVCODE IN ('L0101', 'L0201'))  \n");
+            sql.append("                 , (SELECT Z.SEQ FROM TZ_GOLDHOMEGUBUN_LEVEL Z WHERE A.SEQ = Z.SEQ AND Z.LVCODE IN ('L0102', 'L0203'))  \n");
+            sql.append("                 , (SELECT Z.SEQ FROM TZ_GOLDHOMEGUBUN_LEVEL Z WHERE A.SEQ = Z.SEQ AND Z.LVCODE IN ('L0103', 'L0203'))  \n");
+            sql.append("                 , CASE WHEN (SELECT X.SEQ FROM TZ_GOLDHOMEGUBUN_LEVEL X WHERE A.SEQ = X.SEQ AND X.LVCODE IN ('L0101', 'L0201')) IS NOT NULL THEN '2'   \n");
+            sql.append("                        WHEN (SELECT X.SEQ FROM TZ_GOLDHOMEGUBUN_LEVEL X WHERE A.SEQ = X.SEQ AND X.LVCODE IN ('L0102', 'L0202')) IS NOT NULL THEN '4'   \n");
+            sql.append("                        WHEN (SELECT X.SEQ FROM TZ_GOLDHOMEGUBUN_LEVEL X WHERE A.SEQ = X.SEQ AND X.LVCODE IN ('L0103', 'L0203')) IS NOT NULL THEN '6'   \n");
+            sql.append("                        ELSE '99'                   \n");
+            sql.append("                    END TYPE                        \n");
+            sql.append("              FROM TZ_GOLDHOMEGUBUN A               \n");
+            sql.append("             WHERE A.GUBUN   = 'GC'                 \n");
+            sql.append("               AND A.GUBUN_1 = '" + lm_type + "'    \n");
+            sql.append("        ) M                                         \n");
+            sql.append("    ORDER BY M.GUBUN_2                              \n");
+
+            ls = connMgr.executeQuery(sql.toString());
+
+            while (ls.next()) {
+                dbox = ls.getDataBox();
+
+                list.add(dbox);
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            ErrorManager.getErrorStackTrace(ex);
+            throw new Exception("sql = " + sql.toString() + "\r\n" + ex.getMessage());
+        } finally {
+            if (ls != null) {
+                try {
+                    ls.close();
+                } catch (Exception e) {
+                }
+            }
+            if (connMgr != null) {
+                try {
+                    connMgr.freeConnection();
+                } catch (Exception e10) {
+                }
+            }
+        }
+        return list;
+    }
+
+    /**
+     * 학습로드맵 2뎁스 목록을 조회한다.
+     *
+     * @param box receive from the form object and session
+     * @return ArrayList
+     * @throws Exception
+     */
+    public ArrayList selectLoadMapClassifyList2(RequestBox box) throws Exception {
+
+        DBConnectionManager connMgr = null;
+        ListSet ls = null;
+        ArrayList list = null;
+        StringBuffer sql = new StringBuffer();
+        DataBox dbox = null;
+
+        String lm_type = box.getStringDefault("lmType", "B0");
+
+        try {
+            connMgr = new DBConnectionManager();
+
+            list = new ArrayList();
+
+            sql.append("/* com.credu.course.SubjectClassifyBean() selectLoadMapClassifyList2 (학습로드맵 2뎁스 목록 조회) */  \n");
+            sql.append(" SELECT DISTINCT M.GUBUN_2                                                              G2C \n");
+            sql.append("      , M.GUBUN_3                                                                       G3C \n");
+            sql.append("      , (SELECT X.CODENM FROM TZ_CODE X WHERE X.GUBUN = '0110' AND X.CODE = M.GUBUN_3)  G3N \n");
+            sql.append("   FROM (                                                                                   \n");
+            sql.append("            SELECT A.GUBUN_2                                                                \n");
+            sql.append("                 , A.GUBUN_3                                                                \n");
+            sql.append("                 , (SELECT X.SUBJ FROM TZ_SUBJHOMEGUBUN_LEVEL X WHERE A.SUBJ = X.SUBJ AND X.LVCODE IN ('L0101', 'L0201')) X1    \n");
+            sql.append("                 , (SELECT X.SUBJ FROM TZ_SUBJHOMEGUBUN_LEVEL X WHERE A.SUBJ = X.SUBJ AND X.LVCODE IN ('L0102', 'L0203')) X2    \n");
+            sql.append("                 , (SELECT X.SUBJ FROM TZ_SUBJHOMEGUBUN_LEVEL X WHERE A.SUBJ = X.SUBJ AND X.LVCODE IN ('L0103', 'L0203')) X3    \n");
+            sql.append("                 , NULL Z1  \n");
+            sql.append("                 , NULL Z2  \n");
+            sql.append("                 , NULL Z3  \n");
+            sql.append("                 , CASE WHEN (SELECT X.SUBJ FROM TZ_SUBJHOMEGUBUN_LEVEL X WHERE A.SUBJ = X.SUBJ AND X.LVCODE IN ('L0101', 'L0201')) IS NOT NULL THEN '1'   \n");
+            sql.append("                        WHEN (SELECT X.SUBJ FROM TZ_SUBJHOMEGUBUN_LEVEL X WHERE A.SUBJ = X.SUBJ AND X.LVCODE IN ('L0102', 'L0202')) IS NOT NULL THEN '3'   \n");
+            sql.append("                        WHEN (SELECT X.SUBJ FROM TZ_SUBJHOMEGUBUN_LEVEL X WHERE A.SUBJ = X.SUBJ AND X.LVCODE IN ('L0103', 'L0203')) IS NOT NULL THEN '5'   \n");
+            sql.append("                        ELSE '99'                   \n");
+            sql.append("                    END TYPE                        \n");
+            sql.append("              FROM TZ_SUBJHOMEGUBUN A               \n");
+            sql.append("             WHERE A.GUBUN   = 'GS'                 \n");
+            sql.append("               AND A.GUBUN_1 = '" + lm_type + "'    \n");
+
+            sql.append("             UNION ALL                  \n");
+
+            sql.append("            SELECT A.GUBUN_2            \n");
+            sql.append("                 , A.GUBUN_3            \n");
+            sql.append("                 , NULL                 \n");
+            sql.append("                 , NULL                 \n");
+            sql.append("                 , NULL                 \n");
+            sql.append("                 , (SELECT Z.SEQ FROM TZ_GOLDHOMEGUBUN_LEVEL Z WHERE A.SEQ = Z.SEQ AND Z.LVCODE IN ('L0101', 'L0201'))  \n");
+            sql.append("                 , (SELECT Z.SEQ FROM TZ_GOLDHOMEGUBUN_LEVEL Z WHERE A.SEQ = Z.SEQ AND Z.LVCODE IN ('L0102', 'L0203'))  \n");
+            sql.append("                 , (SELECT Z.SEQ FROM TZ_GOLDHOMEGUBUN_LEVEL Z WHERE A.SEQ = Z.SEQ AND Z.LVCODE IN ('L0103', 'L0203'))  \n");
+            sql.append("                 , CASE WHEN (SELECT X.SEQ FROM TZ_GOLDHOMEGUBUN_LEVEL X WHERE A.SEQ = X.SEQ AND X.LVCODE IN ('L0101', 'L0201')) IS NOT NULL THEN '2'   \n");
+            sql.append("                        WHEN (SELECT X.SEQ FROM TZ_GOLDHOMEGUBUN_LEVEL X WHERE A.SEQ = X.SEQ AND X.LVCODE IN ('L0102', 'L0202')) IS NOT NULL THEN '4'   \n");
+            sql.append("                        WHEN (SELECT X.SEQ FROM TZ_GOLDHOMEGUBUN_LEVEL X WHERE A.SEQ = X.SEQ AND X.LVCODE IN ('L0103', 'L0203')) IS NOT NULL THEN '6'   \n");
+            sql.append("                        ELSE '99'                   \n");
+            sql.append("                    END TYPE                        \n");
+            sql.append("              FROM TZ_GOLDHOMEGUBUN A               \n");
+            sql.append("             WHERE A.GUBUN   = 'GC'                 \n");
+            sql.append("               AND A.GUBUN_1 = '" + lm_type + "'    \n");
+            sql.append("        ) M                                         \n");
+            sql.append("    ORDER BY M.GUBUN_2, M.GUBUN_3                   \n");
+
+            ls = connMgr.executeQuery(sql.toString());
+
+            while (ls.next()) {
+                dbox = ls.getDataBox();
+
+                list.add(dbox);
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            ErrorManager.getErrorStackTrace(ex);
+            throw new Exception("sql = " + sql.toString() + "\r\n" + ex.getMessage());
+        } finally {
+            if (ls != null) {
+                try {
+                    ls.close();
+                } catch (Exception e) {
+                }
+            }
+            if (connMgr != null) {
+                try {
+                    connMgr.freeConnection();
+                } catch (Exception e10) {
+                }
+            }
+        }
+        return list;
+    }
+
+    /**
+     * 학습로드맵 3뎁스 목록을 조회한다.
+     *
+     * @param box receive from the form object and session
+     * @return ArrayList
+     * @throws Exception
+     */
+    public ArrayList selectLoadMapClassifyList3(RequestBox box) throws Exception {
+
+        DBConnectionManager connMgr = null;
+        ListSet ls = null;
+        ArrayList list = null;
+        StringBuffer sql = new StringBuffer();
+        DataBox dbox = null;
+
+        String lm_type = box.getStringDefault("lmType", "B0");
+
+        try {
+            connMgr = new DBConnectionManager();
+
+            list = new ArrayList();
+
+            sql.append("/* com.credu.course.SubjectClassifyBean() selectLoadMapClassifyList3 (학습로드맵 3뎁스 목록 조회) */  \n");
+            sql.append(" SELECT M.GUBUN_2                                                                       G2C \n");
+            sql.append("      , (SELECT X.CODENM FROM TZ_CODE X WHERE X.GUBUN = '0110' AND X.CODE = M.GUBUN_2)  G2N \n");
+            sql.append("      , M.GUBUN_3                                                                       G3C \n");
+            sql.append("      , (SELECT X.CODENM FROM TZ_CODE X WHERE X.GUBUN = '0110' AND X.CODE = M.GUBUN_3)  G3N \n");
+            sql.append("      , M.GUBUN_3                                                                       G3C \n");
+            sql.append("      , (SELECT X.CODENM FROM TZ_CODE X WHERE X.GUBUN = '0110' AND X.CODE = M.GUBUN_3)  G3N \n");
+            sql.append("      , M.TYPE                                                                              \n");
+            sql.append("      , CASE M.TYPE                                                                         \n");
+            sql.append("            WHEN '1' THEN M.X1                                                              \n");
+            sql.append("            WHEN '2' THEN TO_CHAR(M.Z1)                                                     \n");
+            sql.append("            WHEN '3' THEN M.X2                                                              \n");
+            sql.append("            WHEN '4' THEN TO_CHAR(M.Z2)                                                     \n");
+            sql.append("            WHEN '5' THEN M.X3                                                              \n");
+            sql.append("            WHEN '6' THEN TO_CHAR(M.Z3)                                                     \n");
+            sql.append("        END                                                                             CD  \n");
+            sql.append("      , CASE M.TYPE                                                                         \n");
+            sql.append("            WHEN '1' THEN (SELECT X.SUBJNM FROM TZ_SUBJ      X WHERE X.SUBJ = M.X1)         \n");
+            sql.append("            WHEN '2' THEN (SELECT X.LECNM  FROM TZ_GOLDCLASS X WHERE X.SEQ  = M.Z1)         \n");
+            sql.append("            WHEN '3' THEN (SELECT X.SUBJNM FROM TZ_SUBJ      X WHERE X.SUBJ = M.X2)         \n");
+            sql.append("            WHEN '4' THEN (SELECT X.LECNM  FROM TZ_GOLDCLASS X WHERE X.SEQ  = M.Z2)         \n");
+            sql.append("            WHEN '5' THEN (SELECT X.SUBJNM FROM TZ_SUBJ      X WHERE X.SUBJ = M.X3)         \n");
+            sql.append("            WHEN '6' THEN (SELECT X.LECNM  FROM TZ_GOLDCLASS X WHERE X.SEQ  = M.Z3)         \n");
+            sql.append("        END                                                                             NM  \n");
+            sql.append("   FROM (                                                                                   \n");
+            sql.append("            SELECT A.GUBUN_2                                                                \n");
+            sql.append("                 , A.GUBUN_3                                                                \n");
+            sql.append("                 , (SELECT X.SUBJ FROM TZ_SUBJHOMEGUBUN_LEVEL X WHERE A.SUBJ = X.SUBJ AND X.LVCODE IN ('L0101', 'L0201')) X1    \n");
+            sql.append("                 , (SELECT X.SUBJ FROM TZ_SUBJHOMEGUBUN_LEVEL X WHERE A.SUBJ = X.SUBJ AND X.LVCODE IN ('L0102', 'L0203')) X2    \n");
+            sql.append("                 , (SELECT X.SUBJ FROM TZ_SUBJHOMEGUBUN_LEVEL X WHERE A.SUBJ = X.SUBJ AND X.LVCODE IN ('L0103', 'L0203')) X3    \n");
+            sql.append("                 , NULL Z1  \n");
+            sql.append("                 , NULL Z2  \n");
+            sql.append("                 , NULL Z3  \n");
+            sql.append("                 , CASE WHEN (SELECT X.SUBJ FROM TZ_SUBJHOMEGUBUN_LEVEL X WHERE A.SUBJ = X.SUBJ AND X.LVCODE IN ('L0101', 'L0201')) IS NOT NULL THEN '1'   \n");
+            sql.append("                        WHEN (SELECT X.SUBJ FROM TZ_SUBJHOMEGUBUN_LEVEL X WHERE A.SUBJ = X.SUBJ AND X.LVCODE IN ('L0102', 'L0202')) IS NOT NULL THEN '3'   \n");
+            sql.append("                        WHEN (SELECT X.SUBJ FROM TZ_SUBJHOMEGUBUN_LEVEL X WHERE A.SUBJ = X.SUBJ AND X.LVCODE IN ('L0103', 'L0203')) IS NOT NULL THEN '5'   \n");
+            sql.append("                        ELSE '99'                   \n");
+            sql.append("                    END TYPE                        \n");
+            sql.append("              FROM TZ_SUBJHOMEGUBUN A               \n");
+            sql.append("             WHERE A.GUBUN   = 'GS'                 \n");
+            sql.append("               AND A.GUBUN_1 = '" + lm_type + "'    \n");
+
+            sql.append("             UNION ALL                  \n");
+
+            sql.append("            SELECT A.GUBUN_2            \n");
+            sql.append("                 , A.GUBUN_3            \n");
+            sql.append("                 , NULL                 \n");
+            sql.append("                 , NULL                 \n");
+            sql.append("                 , NULL                 \n");
+            sql.append("                 , (SELECT Z.SEQ FROM TZ_GOLDHOMEGUBUN_LEVEL Z WHERE A.SEQ = Z.SEQ AND Z.LVCODE IN ('L0101', 'L0201'))  \n");
+            sql.append("                 , (SELECT Z.SEQ FROM TZ_GOLDHOMEGUBUN_LEVEL Z WHERE A.SEQ = Z.SEQ AND Z.LVCODE IN ('L0102', 'L0203'))  \n");
+            sql.append("                 , (SELECT Z.SEQ FROM TZ_GOLDHOMEGUBUN_LEVEL Z WHERE A.SEQ = Z.SEQ AND Z.LVCODE IN ('L0103', 'L0203'))  \n");
+            sql.append("                 , CASE WHEN (SELECT X.SEQ FROM TZ_GOLDHOMEGUBUN_LEVEL X WHERE A.SEQ = X.SEQ AND X.LVCODE IN ('L0101', 'L0201')) IS NOT NULL THEN '2'   \n");
+            sql.append("                        WHEN (SELECT X.SEQ FROM TZ_GOLDHOMEGUBUN_LEVEL X WHERE A.SEQ = X.SEQ AND X.LVCODE IN ('L0102', 'L0202')) IS NOT NULL THEN '4'   \n");
+            sql.append("                        WHEN (SELECT X.SEQ FROM TZ_GOLDHOMEGUBUN_LEVEL X WHERE A.SEQ = X.SEQ AND X.LVCODE IN ('L0103', 'L0203')) IS NOT NULL THEN '6'   \n");
+            sql.append("                        ELSE '99'                   \n");
+            sql.append("                    END TYPE                        \n");
+            sql.append("              FROM TZ_GOLDHOMEGUBUN A               \n");
+            sql.append("             WHERE A.GUBUN   = 'GC'                 \n");
+            sql.append("               AND A.GUBUN_1 = '" + lm_type + "'    \n");
+            sql.append("        ) M                                         \n");
+            sql.append("    ORDER BY M.GUBUN_2, M.GUBUN_3, M.TYPE, M.X1, M.X2, M.X3, M.Z1, M.Z2, M.Z3   \n");
+
+            ls = connMgr.executeQuery(sql.toString());
+
+            while (ls.next()) {
+                dbox = ls.getDataBox();
+
+                list.add(dbox);
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            ErrorManager.getErrorStackTrace(ex);
+            throw new Exception("sql = " + sql.toString() + "\r\n" + ex.getMessage());
+        } finally {
+            if (ls != null) {
+                try {
+                    ls.close();
+                } catch (Exception e) {
+                }
+            }
+            if (connMgr != null) {
+                try {
+                    connMgr.freeConnection();
+                } catch (Exception e10) {
+                }
+            }
+        }
+        return list;
+    }
 }

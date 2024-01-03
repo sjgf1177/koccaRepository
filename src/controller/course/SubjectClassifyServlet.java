@@ -113,11 +113,17 @@ public class SubjectClassifyServlet extends javax.servlet.http.HttpServlet imple
             ArrayList onlineList = bean.selectOnlineClassifyList();
             ArrayList categoryList = bean.selectSubjClassifyList("1000");
             ArrayList jobList = bean.selectSubjClassifyList("2000");
+            ArrayList loadMapList1 = bean.selectLoadMapClassifyList1(box);
+            ArrayList loadMapList2 = bean.selectLoadMapClassifyList2(box);
+            ArrayList loadMapList3 = bean.selectLoadMapClassifyList3(box);
         	ArrayList lvCdList = bean.selectCodeList("0121", 1, "");
             
             req.setAttribute("onlineList", onlineList);
             req.setAttribute("categoryList", categoryList);
             req.setAttribute("jobList", jobList);
+            req.setAttribute("loadMapList1", loadMapList1);
+            req.setAttribute("loadMapList2", loadMapList2);
+            req.setAttribute("loadMapList3", loadMapList3);
         	req.setAttribute("lvCdList", lvCdList);
 
             ServletContext sc = getServletContext();
