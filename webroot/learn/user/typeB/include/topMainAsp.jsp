@@ -38,6 +38,31 @@
 	    <script type="text/javascript" src="/script/portal/common.js"></script>
 		<script language="javascript" src="/script/flash_TagScript.js"></script>
 		<script language="javascript" src="/script/mainscript.js"></script>
+
+		<!-- Ãªº¿ JS-->
+		<script>
+			var ht = null;
+			(function(id, scriptSrc, callback) {
+				var d = document,
+						tagName = 'script',
+						$script = d.createElement(tagName),
+						$element = d.getElementsByTagName(tagName)[0];
+
+				$script.id = id;
+				$script.async = true;
+				$script.src = scriptSrc;
+
+				if (callback) { $script.addEventListener('load', function (e) { callback(null, e); }, false); }
+				$element.parentNode.insertBefore($script, $element);
+			})('happytalkSDK', 'https://chat-static.happytalkio.com/sdk/happytalk.chat.v2.min.js', function() {
+				ht = new Happytalk({
+					siteId: '6000000472',
+					siteName: '(ÁÖ)½ºÅè¹Ìµð¾î',
+					categoryId: '175412',
+					divisionId: '175413'
+				});
+			});
+		</script>
 	</head>
 	<body>
 		<jsp:include page="/learn/user/typeB/include/common.jsp" />
