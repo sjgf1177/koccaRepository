@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>에듀코카-B2B</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    <title>에듀코카-B2B</title>
+
+    <!-- Bootstrap-3.3.7 / Jquery UI -->
+    <link href="/common/js/jquery-ui-1.12.1/jquery-ui.min.css" rel="stylesheet">
+    <!--<link href="/common/js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" rel="stylesheet">-->
+    <!--<link href="/common/js/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">-->
+
+    <script src="/common/js/jquery-3.3.1.min.js"></script>
+    <script src="/common/js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <!--<script src="/common/js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
+    <!--<script src="/common/js/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>-->
+
+
+    <!-- Bootstrap-5.3.1 -->
+    <link href="/common/js/bootstrap-5.3.1-dist/css/bootstrap.css" rel="stylesheet">
+    <script src="/common/js/bootstrap-5.3.1-dist/js/bootstrap.bundle.js"></script>
+
+    <!-- 네이버 차트 라이브러리 -->
+    <link href="/common/js/billboard/billboard.css" rel="stylesheet">
+    <script src="/common/js/billboard/billboard.js"></script>
+    <script src="/common/js/billboard/billboard.pkgd.js"></script>
+
+
+    <link href="/common/js/swiper/swiper.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/common/css/custom.css" rel="stylesheet">
+    <link href="/common/css/header.css" rel="stylesheet">
+    <link href="/common/css/footer.css" rel="stylesheet">
+    <link href="/common/css/Renewal/login.css" rel="stylesheet">
+
+    <!-- Custom JS -->
+    <script src="/common/js/custom.js"></script>
+
+    <!-- 기존 JS -->
+    <script type="text/javascript" src="/script/portal/common.js"></script>
+    <script language="javascript" src="/script/flash_TagScript.js"></script>
+    <script language="javascript" src="/script/mainscript.js"></script>
+
+
+</head>
+
+<body>
+
+
+<header>
+    <div class="wrapper">
+        <div class="container mt20">
+            <div class="row header-util-wrap">
+                <div class="col-12 d-flex">
+                    <!-- header 왼쪽 영역(로고, 프로필사진, 나의강의실, 로그아웃)-->
+                    <ul class="fixed-header-box text-center">
+                        <li class="logo">
+                            <a href="#" class="d-inblock"><img src="/images/newmain_20100625/N000057.png" alt="로고"></a>
+                        </li>
+                        <li>
+                            <span class="circle-box myname">이름</span>
+                            <a href="javascript:menuForward('3', '11');" class="d-block btn btn-success btn-md w-75 mt20">나의강의실</a>
+                            <span class="d-block mt10"><a href="javascript:mainmenu('3');" class="fc-light">로그아웃</a> ㅣ <a href="javascript:mainmenu('4');" class="fc-light">개인정보변경</a></span>
+                        </li>
+                    </ul>
+                    <div class="header-left-box">
+
+                    </div>
+                    <!-- header 오른쪽 영역(Tab)-->
+                    <div class="header-right-box">
+
+                        <ul class="nav nav-tabs nav-justified">
+                            <li class="nav-item">
+                                <a href="javascript:menuForward('9', '02');" class="nav-link">정규과정</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="javascript:menuForward('5', '01');" class="nav-link active">열린과정</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="javascript:menuForward('4', '07');" class="nav-link">공지사항</a>
+                            </li>
+                            <!--
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">콘텐츠4</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">콘텐츠5</a>
+                            </li>
+                            -->
+                        </ul>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</header>
+
+<section class="container d-flex myclass01">
+    <div class=""></div>
+    <div class="subContainer">
+        <div class="sub_section">
+            <div class="sub_contents_body">
+                <div class="sub_board_header">
+                    <div class="lnb_wrap">
+                        <ul class="lnb_con d-flex">
+                            <li><a href="/HTML/dashboard.html">대시보드</a></li>
+                            <li class="on"><a href="javascript:menuForward('3','11');">수강 중 과정</a></li>
+                            <li><a href="javascript:menuForward('9', '03');">신청한 과정</a></li>
+                            <li><a href="javascript:menuForward('3','02');">나의교육이력</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="subContainer">
+                        <div class="sub_section">
+                            <div class="sub_contents_body">
+                                <!-- 대시 보드 시작 start -->
+                                <div class="dashboard_contents_box">
+                                    <div class="card-list-box d-flex overflow-auto mb30">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <p class="card-title">신청한 과정</p>
+                                                <b class="card-text">20</b>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <p class="card-title">수강 중인 과정</p>
+                                                <b class="card-text">20</b>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <p class="card-title">수료한 과정</p>
+                                                <b class="card-text">20</b>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <p class="card-title">미수료한 과정</p>
+                                                <b class="card-text">20</b>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="study-list-box mb30">
+                                        <div class="top-box">
+                                            <h5>수강중인 과정</h5>
+                                            <a href="#">전체보기</a>
+                                        </div>
+                                        <ul class="my_card_list_box d-flex">
+
+                                            <li class="">
+                                                <div class="tnail_box">
+                                                    <img src="https://test.edukocca.or.kr/upload/bulletin/2022/GoldClassAdmin_img_file_202208301403281_lee1.jpg" alt="섬네일 호출">
+                                                </div>
+                                                <div class="info_text_box">
+                                                    <h5>
+                                                        <a href="">디지털 트랜스포메이션 비즈니스 패러다임을 꿈을 바꾸다 정말로</a>
+                                                    </h5>
+                                                    <p>2023.10.00 ~ 2023.12.31</p>
+                                                    <div class="progress-box  mt-2">
+                                                        <div class="progress" role="progressbar" aria-label="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                                            <div class="progress-bar" style="width: 75%; margin:0;"></div>
+                                                        </div>
+                                                        <span>75%</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="">
+                                                <div class="tnail_box">
+                                                    <img src="https://test.edukocca.or.kr/upload/bulletin/2022/GoldClassAdmin_img_file_202208301403281_lee1.jpg" alt="섬네일 호출">
+                                                </div>
+                                                <div class="info_text_box">
+                                                    <h5>
+                                                        <a href="">디지털 트랜스포메이션 비즈니스 패러다임을 꿈을 바꾸다 정말로</a>
+                                                    </h5>
+                                                    <p>2023.10.00 ~ 2023.12.31</p>
+                                                    <div class="progress-box  mt-2">
+                                                        <div class="progress" role="progressbar" aria-label="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                                            <div class="progress-bar" style="width: 75%; margin:0;"></div>
+                                                        </div>
+                                                        <span>75%</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="">
+                                                <div class="tnail_box">
+                                                    <img src="https://test.edukocca.or.kr/upload/bulletin/2022/GoldClassAdmin_img_file_202208301403281_lee1.jpg" alt="섬네일 호출">
+                                                </div>
+                                                <div class="info_text_box">
+                                                    <h5>
+                                                        <a href="">디지털 트랜스포메이션 비즈니스 패러다임을 꿈을 바꾸다 정말로</a>
+                                                    </h5>
+                                                    <p>2023.10.00 ~ 2023.12.31</p>
+                                                    <div class="progress-box  mt-2">
+                                                        <div class="progress" role="progressbar" aria-label="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                                            <div class="progress-bar" style="width: 75%; margin:0;"></div>
+                                                        </div>
+                                                        <span>75%</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+                                            <!-- 수강중인 과정 없을 때-->
+                                            <!--
+                                            <li class="text-center">
+                                                <span>수강중인 과정이 없습니다.</span>
+                                            </li>
+                                            -->
+                                        </ul>
+                                    </div>
+                                    <div class="d-flex row-chart-box mb30">
+                                        <div class="category-chart-box">
+                                            <div class="top-box">
+                                                <h5>분야별 나의수강현황<small>(회)</small></h5>
+                                            </div>
+                                            <div class="chart-box">
+                                                <div id="expandRate"></div>
+
+                                                <script type="text/javascript">
+                                                    var expandRate = bb.generate({
+                                                        bindto: "#expandRate",
+                                                        data: {
+                                                            columns: [
+                                                                ["방송영상", 30],
+                                                                ["게임", 30],
+                                                                ["만화/애니/캐릭터", 30],
+                                                                ["음악/공연", 30],
+                                                                ["인문교양", 120]
+                                                            ],
+                                                            type : "pie"
+                                                        },
+                                                        pie: {
+                                                            label: {
+                                                                format: function(value, ratio, id) {
+                                                                    return value +"\회";
+                                                                }
+                                                            }
+                                                        },
+                                                    });
+                                                </script>
+                                            </div>
+                                        </div>
+
+                                        <div class="timechart-box">
+                                            <div class="top-box">
+                                                <h5>나의 학습 현황<small>(시간)</small></h5>
+                                            </div>
+                                            <div class="chart-box">
+                                                <div id="xAxisTickPosition01"></div>
+                                                <script type="text/javascript">
+                                                    var xAxisTickPositionchart01 = bb.generate({
+                                                        bindto: "#xAxisTickPosition01",
+                                                        data: {
+                                                            x: "x",
+                                                            columns: [
+                                                                ["x", "회원평균", "나"],
+                                                                ["시간", 1, 5],
+                                                            ],
+                                                            type: "bar",
+                                                        },
+                                                        axis: {
+                                                            rotated: true,
+                                                            x: {
+                                                                type: "category",
+                                                                clipPath: false,
+                                                                inner: false,
+                                                            },
+                                                            y: {
+                                                                show: false
+                                                            }
+                                                        },
+                                                        bar: { //바 너비
+                                                            width: {
+                                                                ratio: 0.9,
+                                                                max: 40
+                                                            }
+                                                        },
+                                                    });
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="mouthchart-box mb30">
+                                        <div class="top-box">
+                                            <h5>나의 학습 주이<small>(시간)</small></h5>
+                                        </div>
+                                        <div class="chart-box">
+                                            <div id="lineChart"></div>
+                                            <script type="text/javascript">
+                                                var chart = bb.generate({
+                                                    bindto: "#lineChart",
+                                                    data: {
+                                                        x: "x",
+                                                        columns: [
+                                                            ["x", "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+                                                            ["회원평균", 30, 200, 100, 100, 150, 250, 200, 180, 220, 280, 310, 330],
+                                                            ["나", 15, 100, 70, 54, 90, 200, 100, 160, 170, 170, 220, 300],
+                                                        ],
+                                                        type: "line", // for ESM specify as: line()
+                                                    },
+                                                    axis: {
+                                                        x: {
+                                                            type: "category"
+                                                        }
+                                                    },
+                                                    grid: {
+                                                        x: {
+                                                            show: true
+                                                        },
+                                                        y: {
+                                                            show: true
+                                                        }
+                                                    },
+
+                                                });
+                                            </script>
+                                        </div>
+                                    </div>
+
+                                    <div class="my-activi-box">
+                                        <div class="top-box">
+                                            <h5>나의 학습 활동</h5>
+                                        </div>
+                                        <div class="chart-box sub_boarder_body">
+                                            <table class="td_align_left">
+                                                <colgroup>
+                                                    <col width="13%">
+                                                    <col width="auto">
+                                                </colgroup>
+                                                <tbody>
+
+                                                <tr class="left_line">
+                                                    <td class="text_circle"><b class="point_purple">신청완료</b></td>
+                                                    <td>
+                                                        <b class="point_purple">디지털 트랜스포메이션, 비즈니스 패러다임을 바꾸다</b> 과정<br>
+                                                        - 15분전
+                                                    </td>
+                                                </tr>
+
+                                                <tr class="left_line">
+                                                    <td class="text_circle"><b class="point_purple">학습시작</b></td>
+                                                    <td>
+                                                        <b class="point_purple">디지털 트랜스포메이션, 비즈니스 패러다임을 바꾸다</b> 과정<br>
+                                                        - 2024.02.15
+                                                    </td>
+                                                </tr>
+
+                                                <tr class="left_line">
+                                                    <td class="text_circle"><b class="point_purple">학습완료</b></td>
+                                                    <td>
+                                                        <b class="point_purple">디지털 트랜스포메이션, 비즈니스 패러다임을 바꾸다</b> 과정<br>
+                                                        - 2024.02.15
+                                                    </td>
+                                                </tr>
+
+                                                <tr class="left_line">
+                                                    <td class="text_circle"><b class="point_purple">복습시작</b></td>
+                                                    <td>
+                                                        <b class="point_purple">디지털 트랜스포메이션, 비즈니스 패러다임을 바꾸다</b> 과정<br>
+                                                        - 2024.02.15
+                                                    </td>
+                                                </tr>
+
+                                                <tr class="left_line">
+                                                    <td class="text_circle"><b class="point_purple">복습완료</b></td>
+                                                    <td>
+                                                        <b class="point_purple">디지털 트랜스포메이션, 비즈니스 패러다임을 바꾸다</b> 과정<br>
+                                                        - 2024.02.15
+                                                    </td>
+                                                </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+
+                                <!-- 대시 보드 시작 end-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="topmove bi bi-arrow-up-circle-fill" title="留� �꾨줈 �대룞"></button></section>
+
+<!-- footer -->
+
+
+
+<footer class="d-flex">
+    <div></div>
+    <div class="wrapper">
+        <div class="">
+            <div class="row footer_wrap">
+
+                <div class="footer_back_con&quot;">
+                    <div class="footer_util_top d-flex justify-content-between">
+                        <div style="margin: 0;">
+                            <span class="footer_util_item"><a href="http://www.kocca.kr/cop/contents.do?menuNo=200931" target="_blank">개인정보처리방침</a></span>
+
+                            <span class="footer_util_item"><a href="javascript:menuMainForward('99', '/servlet/controller.homepage.HomePageHelpServlet?p_process=Footer&amp;p_code=FOOTER_EMAIL_TYPEB');">이메일무단수집거부</a></span>
+                            <!--                             <hr class="footer_util_line"> -->
+                            <!--                             <span class="footer_util_item"><a href="javascript:mainmenu('50');">아카데미 소개</a></span> -->
+                        </div>
+
+                        <div class="app_download">
+                            <!-- <a href="https://edu.kocca.kr/edu/main/contents.do?menuNo=500091" target="_blank" style="display:inline-block; float: right; margin-left:20px;">
+                                <img src="/common/image/icon_kocca_app.png" alt="아카데미앱 다운로드" style="width: 27px;"> 아카데미앱 다운로드
+                            </a> -->
+
+                            <a href="https://edu.kocca.kr" target="_blank" style="display:inline-block;">
+                                <img src="/common/image/edukocca_link.png" alt="아카데미 바로가기">
+                            </a>
+
+
+                        </div>
+                        <!--
+                        <div class="footer_relation_site">
+                            <select class="relation_site" name="relation_site" id="relation_site" onchange="window.open(this.options[this.selectedIndex].value,'_blank')">
+                                <option value="">관련사이트</option>
+                                <option value="https://edu.kocca.kr">콘텐츠인재캠퍼스</option>
+                            </select>
+                        </div>
+                        -->
+                    </div>
+
+                    <div class="" style="margin: 40px 0 20px 0;">
+                        <img alt="KOCCA 한국콘텐츠진흥원" src="/common/image/footer_benner.png" style="width: 120px; height: 56px; margin: 0;">
+                    </div>
+
+                    <div class="footer_copyright">
+                        <p>본 페이지에 게시된 이메일 주소가 자동 수집되는 것을 거부하며, 이를 위반 시 정보통신법에 의해 처벌됨을 유념하시기 바랍니다.</p>
+                        <ul>
+                            <li>홍릉분원 : [02456] 서울특별시 동대문구 회기로 66</li>
+                            <li>본원 : [58217] 전라남도 나주시 교육길 35 한국콘텐츠진흥원 | 사업자번호 : 105-82-17272</li>
+
+
+                            <li style="margin-top: 30px">Copyright 2015. Korea Creative Content Agency all rights reserved.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<style>
+
+</style>
+<!-- footer -->
+
+
+</body>
+</html>

@@ -547,10 +547,10 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:45px;
 .myCourseBoardBtn{width:100%; text-align: right;margin-top:10px;}
 .myCourseBoardBtn a{padding-top:13px; padding-bottom:11px; display:inline-block; padding-left:20px; padding-right:20px; border:solid 1px #ddd; border-radius: 5px; margin-right:10px; text-decoration: none; color:#222;}
 
-.my_card_list_box li{border-top: 1px solid #e9e9e9; padding: 20px 0;}
+.my_card_list_box li{/*border-top: 1px solid #e9e9e9;*/ padding: 20px 0;}
 .my_card_list_box li:last-child{border-bottom: 1px solid #e9e9e9;}
 .my_card_list_box li > div{flex:1 1 auto;}
-.my_card_list_box li .tnail_box{height: 118px; margin-right: 30px;}
+.my_card_list_box li .tnail_box{height: 150px; margin-right: 30px;}
 .my_card_list_box li .tnail_box img{width: 100%; height: 100%;}
 .my_card_list_box li .info_text_box{flex:8;}
 .my_card_list_box li .info_text_box h5{max-width: 399px; margin: 0 0 10px 0;}
@@ -563,12 +563,28 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:45px;
 .my_card_list_box li .gray{color: #999999;}
 
 /* 대시보드 */
+.dashboard_contents_box .top-box h5 small{font-size: 14px; color:#7F7F7F; margin-left:4px;}
+.dashboard_contents_box .top-box{display: flex; justify-content: space-between; margin-bottom: 10px;}
+.dashboard_contents_box .top-box > *{margin: 0;}
+.dashboard_contents_box .top-box a{font-size: 14px; color:#999999;}
+
+.dashboard_contents_box .chart-box{background-color: #f4f4f4; padding: 10px;}
+
 .dashboard_contents_box .card-list-box .card{width: 24%; text-align: center;}
 .dashboard_contents_box .card-list-box .card-title{font-size: 14px; margin-bottom: 1rem;}
 .dashboard_contents_box .card-list-box .card-text{font-size: 24px;}
-.dashboard_contents_box .study-list-box .top-box{display: flex; justify-content: space-between; margin-bottom: }
-.dashboard_contents_box .study-list-box .top-box > *{margin: 0;}
-.dashboard_contents_box .study-list-box .top-box a{font-size: 14px; color:#999999;}
+
+.dashboard_contents_box .my_card_list_box li{margin-right: 15px;}
+.dashboard_contents_box .my_card_list_box li:last-child{border-bottom: 0;}
+.dashboard_contents_box .my_card_list_box .tnail_box{margin-right: 0;}
+
+.dashboard_contents_box .row-chart-box{}
+.dashboard_contents_box .row-chart-box > div{width: 48%; margin:0;}
+.dashboard_contents_box .row-chart-box > div:first-child{margin-right: 4%;}
+
+.dashboard_contents_box .sub_boarder_body{margin-top: 0;}
+.dashboard_contents_box .sub_boarder_body table{border:0; margin: 0;}
+.dashboard_contents_box .sub_boarder_body table .left_line:after{height: 50%;}
 
 /* 개인정보처리방침 */
 .useful_con .useful_title{margin-bottom:6px; font-size:2rem; line-height: 2.4rem; color:#313131; font-weight: 300; }
@@ -583,6 +599,7 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:45px;
 .useful_con table ul li span{margin-left:-72px; display:inline-block;}
 .useful_con table ul li{padding-left:72px; text-align: left;}
 .useful_con ul li a{background:#1f6db5; color:white; width:50px; display:inline-block; margin-left:10px; text-align: center; font-size:1.1rem; height:20px; line-height: 2.0rem; text-decoration: none;}
+
 /* 로그인 */
 .form-signin {max-width: 500px; padding: 1rem;}
 .form-signin .form-floating:focus-within {z-index: 2;}
@@ -821,6 +838,12 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:45px;
 
     /* 정규과정 상세 */
     .sub_boarder_body table tr.left_line td{padding: 12px 20px;}
+
+
+    /* 대시보드 */
+    .dashboard_contents_box .row-chart-box{flex-direction: column}
+    .dashboard_contents_box .row-chart-box > div{width: 100%;}
+    .dashboard_contents_box .row-chart-box > div:first-child{margin:0 0 30px 0;}
 }
 
 @media all and (max-width: 640px){
@@ -859,7 +882,11 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:45px;
     /* 회원가입 */
     .join_box .write_table td #p_pw2{min-width: inherit;}
 
-
+    /* 대시보드 */
+    .dashboard_contents_box .card-list-box{flex-wrap: wrap;}
+    .dashboard_contents_box .card-list-box .card{width: 48%;}
+    .dashboard_contents_box .card-list-box .card:nth-child(1),
+    .dashboard_contents_box .card-list-box .card:nth-child(2){margin-bottom: 10px;r}
 
 
 
