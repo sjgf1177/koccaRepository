@@ -902,7 +902,7 @@ button.btn_basic {
 
 			<!-- layer in layer -->
 			<div class="opacity_layer_bg02"></div>
-			<div class="layer_wrap sub_layer" style="width: 600px;">
+			<div class="layer_wrap sub_layer" style="width: 900px;">
 				<div class="layer_top">
 					<button type="button" title="´Ý±â" class="btn_layerClose" onclick="layerClose();">´Ý±â</button>
 				</div>

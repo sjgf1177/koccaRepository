@@ -92,6 +92,7 @@
 .sub_layer .tag:last-child{margin-right: 0px;}
 .sub_layer .linegray{border: 1px solid #ededed;}
 .sub_layer .bottom_list_box ul{padding: 10px 0 30px;}
+.sub_layer .bottom_list_box ul.linkCrs{max-height: 350px; overflow-y: auto;}
 .sub_layer .bottom_list_box li{line-height: 30px;}
 
 
