@@ -283,7 +283,7 @@ button.btn_basic {
 				res = data.resInfo[0];
 
 				$(".depth").text(res.d1 + " > " + res.d2);
-				$(".title_txt").text("[" + res.crdate + "]" + res.courseNm);
+				$(".title_txt").text("[" + res.crdate + "]" + res.courseNm.replaceAll("u2018", "'").replaceAll("u2019", "'"));
 				$(".taglv").removeClass("bg_orange");
 				$(".taglv").removeClass("bg_beage");
 				$(".taglv").removeClass("bg_green");
@@ -308,14 +308,14 @@ button.btn_basic {
 					$(".eduview").attr("href", "javascript:whenViewEdu('G', '" + res.vodUrl + "', " + res.widthS + ", " + res.heightS + ")");
 				}
 
-				$("#snimg").attr("alt", res.courseNm);
+				$("#snimg").attr("alt", res.courseNm.replaceAll("u2018", "'").replaceAll("u2019", "'"));
 				$("#snimg").attr("src", "https://edu.kocca.kr/" + res.img);
 				//<li><span className="fc_red">[2020]</span>슬기로운 유튜버생활_모션 그래픽 편<span className="bg_orange fc_white tag" style="margin-left: 3px;">고급</span><span className="tag linegray">열린</span></li>
 
 				$("#h5").text("연계과정(" + data.resList.length + ")");
 				$.each(data.resList, function() {
 					listStr += "<li>   \n";
-					listStr += "    <span class=\"fc_red\">[" + this.crDate + "]</span>" + this.courseNm + "     \n";
+					listStr += "    <span class=\"fc_red\">[" + this.crDate + "]</span>" + this.courseNm.replaceAll("u2018", "'").replaceAll("u2019", "'") + "     \n";
 
 					if (this.lvNm == "초급") {
 						listStr += "    <span class=\"bg_green fc_white tag\" style=\"margin-left: 3px;\">" + this.lvNm + "</span>    \n";
