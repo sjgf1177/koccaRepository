@@ -770,7 +770,7 @@ button.btn_basic {
 			<div class="roadmap_table_wrap">
 				<p><span class="fw-bold">총 <strong class="fc_skyblue"><%= loadMapList3.size() %></strong> 과정</span></p>
 				<div class="overflow-scroll-x overflow-scroll-y" style="border-left: 1px solid #ccc; max-height: 100%;">
-					<ul class="roadmap_table_top d-flex justify-content-between">
+					<ul class="roadmap_table_top d-flex">
 						<li class="bg_darkgray">대분류</li>
 						<li class="bg_darkgray">소분류</li>
 						<li class="bg_green">초급(로그인 후)</li>

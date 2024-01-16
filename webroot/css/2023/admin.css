@@ -50,7 +50,7 @@
 .layer_wrap .roadmap_table_wrap > p > span{font-size: 20px;}
 .layer_wrap .roadmap_table_wrap > p > span strong{font-size: 20px;}
 .roadmap_table_top{font-size: 16px; font-weight: 600; position: sticky; top:0; left: 0;}
-.roadmap_table_top li{flex: 1 auto; padding:7px 0; text-align: center; font-size: 14px; line-height: 30px; color:#fff; border-right: 1px solid #f4f4f4;}
+.roadmap_table_top li{/*flex: 1 auto;*/ width:261px; padding:7px 0; text-align: center; font-size: 14px; line-height: 30px; color:#fff; border-right: 1px solid #f4f4f4;}
 .roadmap_table_top li:last-child{border-right: 1px solid #ccc;}
 
 .layer_wrap .roadmap_table_top, .layer_wrap .one_daps{}
@@ -58,7 +58,7 @@
 
 .roadmap_table_top li:nth-child(n+1):nth-child(-n+2),
 .layer_wrap .roadmap_table_wrap .one_daps > span,
-.layer_wrap .roadmap_table_wrap .three_daps > span { /*&max-width: 108px;*/ max-width: 60px; background-color: #efefef; font-size: 12px;}
+.layer_wrap .roadmap_table_wrap .three_daps > span { /*&max-width: 108px;*/ width:61px; max-width: 61px; background-color: #efefef; font-size: 12px;}
 
 .layer_wrap .roadmap_table_wrap .one_daps > span{flex:1;}
 .layer_wrap .roadmap_table_wrap .two_daps{flex:7;}
@@ -67,17 +67,17 @@
 .layer_wrap .roadmap_table_wrap .three_daps .list_box{border-right: 1px solid #ccc; border-bottom: 1px solid #ccc;}
 
 .layer_wrap .roadmap_table_wrap .three_daps .list_box{padding: 7px 0;}
-.layer_wrap .roadmap_table_wrap .three_daps > span{flex: 1;}
+/*.layer_wrap .roadmap_table_wrap .three_daps > span{flex: 1;}*/
 .layer_wrap .roadmap_table_wrap .three_daps .list_box:nth-child(2),
 .layer_wrap .roadmap_table_wrap .three_daps .list_box:nth-child(4),
-.layer_wrap .roadmap_table_wrap .three_daps .list_box:nth-child(6){width: 261.17px;}
+.layer_wrap .roadmap_table_wrap .three_daps .list_box:nth-child(6){width: 261px;}
 
 .layer_wrap .roadmap_table_wrap .three_daps .list_box:nth-child(3),
 .layer_wrap .roadmap_table_wrap .three_daps .list_box:nth-child(5),
-.layer_wrap .roadmap_table_wrap .three_daps .list_box:nth-child(7){width: 261.17px;}
+.layer_wrap .roadmap_table_wrap .three_daps .list_box:nth-child(7){width: 261px;}
 .layer_wrap .roadmap_table_wrap .three_daps .list_box button{width:100%; font-size: 12px; line-height: 15px; letter-spacing: -1px; padding: 5px; cursor: pointer; text-align: left;}
 .layer_wrap .roadmap_table_wrap .three_daps .list_box button:hover{background-color: rgb(0,0,0, 1);}
-.layer_wrap .roadmap_table_wrap .three_daps .list_box button strong{display:inline-block; vertical-align:bottom; max-width: 188px; text-overflow: ellipsis; overflow: hidden; font-weight: 500; color:#b2b2b2;}
+.layer_wrap .roadmap_table_wrap .three_daps .list_box button strong{display:inline-block; vertical-align:bottom; max-width: 206px; text-overflow: ellipsis; overflow: hidden; font-weight: 500; color:#b2b2b2;}
 .layer_wrap .roadmap_table_wrap .three_daps *{text-align: center;}
 
 /* sub layer */
