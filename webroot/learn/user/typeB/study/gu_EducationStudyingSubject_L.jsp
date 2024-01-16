@@ -147,7 +147,8 @@
 													<fmt:formatDate value="${eduend }" pattern="yyyy.MM.dd"/>
 												</p>
 												<!--<p>수강신청일 : 2023.06.07</p>-->
-												<div class="progress-box  mt-2">
+												<p class="mt-2">진도율</p>
+												<div class="progress-box">
 													<div class="progress" role="progressbar" aria-label="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
 														<div class="progress-bar" style="width: 75%; margin:0;"></div>
 													</div>
