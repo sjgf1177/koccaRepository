@@ -50,7 +50,7 @@
 .layer_wrap .roadmap_table_wrap > p > span{font-size: 20px;}
 .layer_wrap .roadmap_table_wrap > p > span strong{font-size: 20px;}
 .roadmap_table_top{font-size: 16px; font-weight: 600; position: sticky; top:0; left: 0;}
-.roadmap_table_top li{flex: 1 auto; padding:7px 0; text-align: center; font-size: 14px; line-height: 30px; color:#fff; border-right: 1px solid #f4f4f4;}
+.roadmap_table_top li{/*flex: 1 auto;*/ width:261px; padding:7px 0; text-align: center; font-size: 14px; line-height: 30px; color:#fff; border-right: 1px solid #f4f4f4;}
 .roadmap_table_top li:last-child{border-right: 1px solid #ccc;}
 
 .layer_wrap .roadmap_table_top, .layer_wrap .one_daps{}
@@ -58,7 +58,7 @@
 
 .roadmap_table_top li:nth-child(n+1):nth-child(-n+2),
 .layer_wrap .roadmap_table_wrap .one_daps > span,
-.layer_wrap .roadmap_table_wrap .three_daps > span { /*&max-width: 108px;*/ max-width: 60px; background-color: #efefef; font-size: 12px;}
+.layer_wrap .roadmap_table_wrap .three_daps > span { /*&max-width: 108px;*/ width:61px; max-width: 61px; background-color: #efefef; font-size: 12px;}
 
 .layer_wrap .roadmap_table_wrap .one_daps > span{flex:1;}
 .layer_wrap .roadmap_table_wrap .two_daps{flex:7;}
@@ -67,20 +67,42 @@
 .layer_wrap .roadmap_table_wrap .three_daps .list_box{border-right: 1px solid #ccc; border-bottom: 1px solid #ccc;}
 
 .layer_wrap .roadmap_table_wrap .three_daps .list_box{padding: 7px 0;}
-.layer_wrap .roadmap_table_wrap .three_daps .list_box, .layer_wrap .roadmap_table_wrap .three_daps > span{flex:1;}
+/*.layer_wrap .roadmap_table_wrap .three_daps > span{flex: 1;}*/
+.layer_wrap .roadmap_table_wrap .three_daps .list_box:nth-child(2),
+.layer_wrap .roadmap_table_wrap .three_daps .list_box:nth-child(4),
+.layer_wrap .roadmap_table_wrap .three_daps .list_box:nth-child(6){width: 261px;}
+
+.layer_wrap .roadmap_table_wrap .three_daps .list_box:nth-child(3),
+.layer_wrap .roadmap_table_wrap .three_daps .list_box:nth-child(5),
+.layer_wrap .roadmap_table_wrap .three_daps .list_box:nth-child(7){width: 261px;}
 .layer_wrap .roadmap_table_wrap .three_daps .list_box button{width:100%; font-size: 12px; line-height: 15px; letter-spacing: -1px; padding: 5px; cursor: pointer; text-align: left;}
 .layer_wrap .roadmap_table_wrap .three_daps .list_box button:hover{background-color: rgb(0,0,0, 1);}
-.layer_wrap .roadmap_table_wrap .three_daps .list_box button strong{display:inline-block; vertical-align:bottom; max-width: 203px; text-overflow: ellipsis; overflow: hidden; font-weight: 500; color:#b2b2b2;}
+.layer_wrap .roadmap_table_wrap .three_daps .list_box button strong{display:inline-block; vertical-align:bottom; max-width: 206px; text-overflow: ellipsis; overflow: hidden; font-weight: 500; color:#b2b2b2;}
 .layer_wrap .roadmap_table_wrap .three_daps *{text-align: center;}
 
 /* sub layer */
 .sub_layer{width: 500px; height: auto; top: 50%; left: 50%; transform: translate(-50%, -50%); box-shadow: 0 4px 7px rgba(0,0,0,.03); border-radius: 3px;}
 .layer_body{padding: 0 20px;}
-.sub_layer .snail_box{width:140px; height:100px; margin-right: 10px;}
+.sub_layer .snail_box{width:180px; height:100px; margin-right: 10px;}
+.sub_layer .snail_box img{width: 100%; height: 100%;}
+.sub_layer .class_info_box .info_box{width:calc(100% - 180px);}
 .title_txt{font-size: 14px; font-weight: 600;}
 .guide_txt{color:#B9B7B7 !important; font-size: 12px;}
 .sub_layer .tag{margin-right: 3px; font-size: 12px; padding: 3px;}
 .sub_layer .tag:last-child{margin-right: 0px;}
 .sub_layer .linegray{border: 1px solid #ededed;}
 .sub_layer .bottom_list_box ul{padding: 10px 0 30px;}
+.sub_layer .bottom_list_box ul.linkCrs{max-height: 350px; overflow-y: auto;}
 .sub_layer .bottom_list_box li{line-height: 30px;}
+
+
+
+/* 통계 팝업 */
+.layer_wrap.sub_layer_statistics{width: 600px; height: 310px; top: 50%; left: 50%; transform: translate(-50%, -50%);}
+.layer_wrap.sub_layer_statistics h5{font-size: 20px; text-align: center;}
+.layer_wrap.sub_layer_statistics .content_box{text-align: center;}
+.layer_wrap.sub_layer_statistics .content_box #downMemo{width: 90%; padding: 8px; font-size: 12px; height: 50px; border:1px solid #000000;}
+.sub_layer_statistics .double_btn_box{display: flex; justify-content: center; margin-top: 20px;}
+.sub_layer_statistics .double_btn_box span{display:inline-block; padding: 5px 10px; text-align: center; font-size: 13px; border:1px solid #ededed; cursor: pointer;}
+.sub_layer_statistics .double_btn_box span:nth-child(1){margin-right: 10px;}
+.warning_txt{color: #F43E3E; margin-top: 10px;}

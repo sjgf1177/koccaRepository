@@ -38,7 +38,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet implements Seri
 
     /**
      * Pass get requests through to PerformTask
-     * 
+     *
      * @param request
      *            encapsulates the request to the servlet
      * @param response
@@ -51,7 +51,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet implements Seri
 
     /**
      * doPost
-     * 
+     *
      * @param request
      *            encapsulates the request to the servlet
      * @param response
@@ -82,7 +82,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet implements Seri
                 this.performLogout(request, response, box, out);
 
             } else if (v_process.equals("gologout")) { // in case of gameuser
-                                                       // logout
+                // logout
                 this.performGoLogout(request, response, box, out);
 
             } else if (v_process.equals("tutorlogout")) { // in case of logout
@@ -92,7 +92,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet implements Seri
                 this.performLossPwd(request, response, box, out);
 
             } else if (v_process.equals("golosspwd")) { // in case of logout
-                                                        // 패스워드 분실
+                // 패스워드 분실
                 this.performGoLossPwd(request, response, box, out);
 
             } else if (v_process.equals("sendmail")) { // in case of send mail
@@ -102,28 +102,28 @@ public class LoginServlet extends javax.servlet.http.HttpServlet implements Seri
                 this.performSendResult(request, response, box, out);
 
             } else if (v_process.equals("lossidresult")) { // in case of 아이디 찾기
-                                                           // 결과
+                // 결과
                 this.performLossIdResult(request, response, box, out);
 
             } else if (v_process.equals("firstLoginPagePre")) { // in case of
-                                                                // qualification
-                                                                // page open
+                // qualification
+                // page open
                 this.performFirstLoginPagePre(request, response, box, out);
 
             } else if (v_process.equals("firstLoginPage")) { // in case of
-                                                             // qualification
-                                                             // page
+                // qualification
+                // page
                 this.performFirstLoginPage(request, response, box, out);
 
             } else if (v_process.equals("firstLogin")) { // in case of
-                                                         // qualification
+                // qualification
                 this.performFirstLogin(request, response, box, out);
 
             } else if (v_process.equals("cubicnetLogin")) { // in case of 큐빅넷 로긴
                 this.performCubicnetLogin(request, response, box, out);
 
             } else if (v_process.equals("cubicnetApproval")) { // in case of 큐빅넷
-                                                               // 결재
+                // 결재
                 this.performCubicnetApproval(request, response, box, out);
 
             } else if (v_process.equals("SSO")) { // SSO 로그인 연동
@@ -136,7 +136,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet implements Seri
 
     /**
      * LOGIN PROCESS
-     * 
+     *
      * @param request
      *            encapsulates the request to the servlet
      * @param response
@@ -163,9 +163,9 @@ public class LoginServlet extends javax.servlet.http.HttpServlet implements Seri
                 box.setSession("s_userid", box.getString("p_userid"));
 
             } else if (box.getString("p_eventgubun").equals("S")) { // 취업이벤트에서
-                                                                    // 왔다면 로그인 후
-                                                                    // 개인정보 페이로
-                                                                    // 이동
+                // 왔다면 로그인 후
+                // 개인정보 페이로
+                // 이동
                 v_url = "/servlet/controller.community.CommunityRiskServlet?p_gubun_inja=D0001&p_process=login";
                 box.put("p_process", "MemberInfoUpdate"); // 취업 이벤트
                 box.setSession("s_userid", box.getString("p_userid"));
@@ -195,12 +195,13 @@ public class LoginServlet extends javax.servlet.http.HttpServlet implements Seri
 
             LoginBean bean = new LoginBean();
             int isOk1 = 0;
+            int isFail = 0;
 
             String v_auth = "";
             v_auth = box.getString("p_auth");
 
             if (!v_auth.equals("")) {
-                System.out.println("+++++++++++++++++++++++++++++++ IP체크 : v_auth" + v_auth);
+                /*System.out.println("+++++++++++++++++++++++++++++++ IP체크 : v_auth" + v_auth);*/
 
                 /** 관리자 ip체크 **/
                 if (v_auth.equals("A1")) { // A1 일때 아이피 체크
@@ -216,18 +217,26 @@ public class LoginServlet extends javax.servlet.http.HttpServlet implements Seri
                 }
 
                 System.out.println("==================================== p_auth : " + box.getString("p_auth"));
-                isOk1 = bean.adminLogin(box);
+
+                isFail = bean.getLgFail(box);
+
+                if(isFail < 5) {
+                    isOk1 = bean.adminLogin(box);
+                    isFail = bean.getLgFail(box);
+                } else {
+                    isOk1 = -3;
+                }
 
             } else {
                 isOk1 = bean.login(box);
             }
-            System.out.println("+++++++++++++++++++++++++++++++ p_auth : " + box.getString("p_auth"));
+            /*System.out.println("+++++++++++++++++++++++++++++++ p_auth : " + box.getString("p_auth"));*/
 
             /*
-             * 
+             *
              * //교육서비스 설문 응시 여부 체크 시작.. int isOk2 =
              * bean.eduServiceSulCheck(box);
-             * 
+             *
              * if(isOk2 == 0){ box.put("p_eduServiceSulCheck", "Y"); }else {
              * box.put("p_eduServiceSulCheck", "N"); } //교육서비스 설문 응시 여부 체크 끝..
              */
@@ -266,7 +275,11 @@ public class LoginServlet extends javax.servlet.http.HttpServlet implements Seri
                 } else if (isOk1 == -2) {
                     v_msg = "죄송합니다. 사용할 수 없는 아이디입니다.";
                 } else if (isOk1 == -3) {
-                    v_msg = "비밀번호가 맞지 않습니다.";
+                    if(isFail < 5) {
+                        v_msg = "비밀번호가 맞지 않습니다. (" + isFail + " / 5)";
+                    } else {
+                        v_msg = "비밀번호를 5회 잘못 입력하였습니다.\\n5회 입력 오류로 사용이 제한되었습니다.\\n문의 : 02-6310-0770";
+                    }
                 } else {
                     v_msg = "";
                 }
@@ -353,7 +366,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet implements Seri
 
     /**
      * LOGOUT PROCESS
-     * 
+     *
      * @param request
      *            encapsulates the request to the servlet
      * @param response
@@ -386,9 +399,9 @@ public class LoginServlet extends javax.servlet.http.HttpServlet implements Seri
 
                 alert.alertOkMessage(out, v_msg, v_url, box);
             }/*
-              * else{ v_msg = "logout.fail"; alert.alertFailMessage(out, v_msg);
-              * }
-              */
+             * else{ v_msg = "logout.fail"; alert.alertFailMessage(out, v_msg);
+             * }
+             */
         } catch (Exception ex) {
             ErrorManager.getErrorStackTrace(ex, out);
             throw new Exception("performLogout()\r\n" + ex.getMessage());
@@ -426,9 +439,9 @@ public class LoginServlet extends javax.servlet.http.HttpServlet implements Seri
 
                 alert.alertOkMessage(out, v_msg, v_url, box);
             }/*
-              * else{ v_msg = "logout.fail"; alert.alertFailMessage(out, v_msg);
-              * }//
-              */
+             * else{ v_msg = "logout.fail"; alert.alertFailMessage(out, v_msg);
+             * }//
+             */
         } catch (Exception ex) {
             ErrorManager.getErrorStackTrace(ex, out);
             throw new Exception("performLogout()\r\n" + ex.getMessage());
@@ -437,7 +450,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet implements Seri
 
     /**
      * TUTOR LOGOUT PROCESS
-     * 
+     *
      * @param request
      *            encapsulates the request to the servlet
      * @param response
@@ -468,7 +481,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet implements Seri
 
     /**
      * 로그인 페이지로 이동할때
-     * 
+     *
      * @param request
      *            encapsulates the request to the servlet
      * @param response
@@ -497,7 +510,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet implements Seri
 
     /**
      * 패스워드 찾기페이지로 이동할때
-     * 
+     *
      * @param request
      *            encapsulates the request to the servlet
      * @param response
@@ -542,7 +555,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet implements Seri
 
     /**
      * 패스워드 메일전송할때
-     * 
+     *
      * @param request
      *            encapsulates the request to the servlet
      * @param response
@@ -585,7 +598,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet implements Seri
 
     /**
      * 패스워드 메일전송결과 페이지로 이동할때
-     * 
+     *
      * @param request
      *            encapsulates the request to the servlet
      * @param response
@@ -619,7 +632,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet implements Seri
 
     /**
      * 아이디 찾기 결과 페이지로 이동할때
-     * 
+     *
      * @param request
      *            encapsulates the request to the servlet
      * @param response
@@ -652,7 +665,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet implements Seri
 
     /**
      * 처음 로긴했을 때 팝업 띄우는 페이지로
-     * 
+     *
      * @param request
      *            encapsulates the request to the servlet
      * @param response
@@ -682,7 +695,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet implements Seri
 
     /**
      * 처음 로긴했을 때 페이지로
-     * 
+     *
      * @param request
      *            encapsulates the request to the servlet
      * @param response
@@ -714,7 +727,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet implements Seri
 
     /**
      * 처음 로긴처리
-     * 
+     *
      * @param request
      *            encapsulates the request to the servlet
      * @param response
@@ -755,7 +768,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet implements Seri
 
     /**
      * 큐빅넷 로긴
-     * 
+     *
      * @param request
      *            encapsulates the request to the servlet
      * @param response
@@ -807,7 +820,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet implements Seri
 
     /**
      * 큐빅넷 결제
-     * 
+     *
      * @param request
      *            encapsulates the request to the servlet
      * @param response
@@ -861,7 +874,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet implements Seri
 
     /**
      * LOGIN SSO PROCESS
-     * 
+     *
      * @param request
      *            encapsulates the request to the servlet
      * @param response

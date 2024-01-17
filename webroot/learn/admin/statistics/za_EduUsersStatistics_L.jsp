@@ -145,6 +145,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
     <link rel="stylesheet" href="/css/admin_style.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="/css/ui-lightness/ui.all.css" />
+    <link rel="stylesheet" type="text/css" href="/css/2023/admin.css"> <!-- 커스텀 css 추가-->
     <script language = "javascript" src = "/script/cresys_lib.js"></script>
     <script language = "VBScript" src = "/script/cresys_lib.vbs"></script>
     <script type='text/javascript' src='/script/jquery-1.3.2.min.js'></script>
@@ -155,7 +156,22 @@
     <script type="text/javascript" src="/script/ui.datepicker.js"></script>
 
     <script language="JavaScript">
-        <!--
+        //레이어창 열기
+        function fnlayerpopup(){
+            $(this).click(function (){
+                //$('html, body').css("overflow","hidden");
+                $('.sub_layer_statistics, .opacity_layer_bg01').addClass('on');
+            });
+        }
+
+        // 레이어창 닫기
+        function layerClose(){
+            $(this).click(function (){
+                //$('html, body').css('overflow','auto');
+                $('.sub_layer_statistics, .opacity_layer_bg01').removeClass('on');
+            });
+        }
+        //<!--
         // 조회 검색
 
         var type = "";
@@ -468,10 +484,23 @@
 
         //엑셀 출력
         function goExcel() {
+            if($("#downMemo").val() == "") {
+                alert("엑셀 다운 사유를 입력하세요.");
+                $("#downMemo").focus();
+
+                return;
+            }
+
+
+            $("#p_memo").val($("#downMemo").val());
+
             document.form1.target = "_self";
             document.form1.action = '/servlet/controller.statistics.SynthesizeStatisticServlet';
             document.form1.p_process.value = "selectEduUsersStatisticListExcel";
             document.form1.submit();
+
+            layerClose(); // 레이어창 닫힘
+
         }
 
         // 탭 선택
@@ -720,30 +749,31 @@
                                 <td bgcolor="#FFFFFF" align="center" valign="top">
                                     <table cellspacing="0" cellpadding="1" class="form_table_out" style="width: 100%;">
                                         <form id="form1" name="form1" method="post" action="/servlet/controller.statistics.SynthesizeStatisticServlet">
-                                        <input type="hidden" name="p_pageno" value="<%=v_pageno%>">
-                                        <input type="hidden" name="p_pagesize" value="<%=v_pagesize%>">
-                                        <input type="hidden" name="p_process"  value="">
-                                        <input type="hidden" name="p_action"   value="">
-                                        <input type="hidden" name="p_lv_type" id="p_lv_type" value="">
-                                        <input type="hidden" name="p_sort_eu" id="p_sort_eu" value="">
-                                        <tr>
-                                            <td bgcolor="#C6C6C6" align="center">
-                                                <table class="form_table_bg" style="width: 1200px; float:left;">
-                                                    <tr>
-                                                        <td height="7"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="center">
-                                                            <table border="0" width="99%" class="form_table">
-                                                                <colgroup>
-                                                                    <col width="13%">
-                                                                    <col width="21%">
-                                                                    <col width="12%">
-                                                                    <col width="21%">
-                                                                    <col width="12%">
-                                                                    <col width="21%">
-                                                                </colgroup>
-                                                                <tbody>
+                                            <input type="hidden" name="p_pageno" value="<%=v_pageno%>">
+                                            <input type="hidden" name="p_pagesize" value="<%=v_pagesize%>">
+                                            <input type="hidden" name="p_process"  value="">
+                                            <input type="hidden" name="p_action"   value="">
+                                            <input type="hidden" name="p_lv_type" id="p_lv_type" value="">
+                                            <input type="hidden" name="p_sort_eu" id="p_sort_eu" value="">
+                                            <input type="hidden" name="p_memo" id="p_memo" value="">
+                                            <tr>
+                                                <td bgcolor="#C6C6C6" align="center">
+                                                    <table class="form_table_bg" style="width: 1200px; float:left;">
+                                                        <tr>
+                                                            <td height="7"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="center">
+                                                                <table border="0" width="99%" class="form_table">
+                                                                    <colgroup>
+                                                                        <col width="13%">
+                                                                        <col width="21%">
+                                                                        <col width="12%">
+                                                                        <col width="21%">
+                                                                        <col width="12%">
+                                                                        <col width="21%">
+                                                                    </colgroup>
+                                                                    <tbody>
                                                                     <tr>
                                                                         <td class="_tdT">
                                                                             교육구분
@@ -768,11 +798,11 @@
 
                                                                                             if( g_dbox.getString("d_grcode").equals(v_grcode)) {
                                                                                 %>
-                                                                                    <option value="<%= g_dbox.getString("d_grcode") %>" selected><%= g_dbox.getString("d_grcodenm") %></option>
+                                                                                <option value="<%= g_dbox.getString("d_grcode") %>" selected><%= g_dbox.getString("d_grcodenm") %></option>
                                                                                 <%
-                                                                                            } else {
+                                                                                } else {
                                                                                 %>
-                                                                                    <option value="<%= g_dbox.getString("d_grcode") %>"><%= g_dbox.getString("d_grcodenm") %></option>
+                                                                                <option value="<%= g_dbox.getString("d_grcode") %>"><%= g_dbox.getString("d_grcodenm") %></option>
                                                                                 <%
                                                                                             }
                                                                                         }
@@ -782,27 +812,13 @@
                                                                             <%
                                                                                 if ( !v_year.equals("") ) {
                                                                             %>
-                                                                                    <kocca:selectBox name="p_year_eu" id="p_year_eu" optionTitle="-- 연도2 --" type="sqlID" param="<%= v_grcode %>" sqlID="selectBox.grYearList" selectedValue="<%= v_year %>" isLoad="true" />
+                                                                            <kocca:selectBox name="p_year_eu" id="p_year_eu" optionTitle="-- 연도2 --" type="sqlID" param="<%= v_grcode %>" sqlID="selectBox.grYearList" selectedValue="<%= v_year %>" isLoad="true" />
                                                                             <%
-                                                                                } else {
+                                                                            } else {
                                                                             %>
-                                                                                    <select name="p_year_eu" id="p_year_eu">
-                                                                                        <option value="">-- 연도 --</option>
-                                                                                    </select>
-                                                                            <%
-                                                                                }
-                                                                            %>
-
-                                                                            <%
-                                                                                if ( !v_seq.equals("") ) {
-                                                                            %>
-                                                                                    <kocca:selectBox name="p_seq_eu" id="p_seq_eu" optionTitle="-- 차수 --" type="sqlID" param="<%= v_grcode + ',' + v_year %>" sqlID="selectBox.grSeqList" selectedValue="<%= v_seq %>" isLoad="true" />
-                                                                            <%
-                                                                                } else {
-                                                                            %>
-                                                                                    <select name="p_seq_eu" id="p_seq_eu">
-                                                                                        <option value="">-- 차수 --</option>
-                                                                                    </select>
+                                                                            <select name="p_year_eu" id="p_year_eu">
+                                                                                <option value="">-- 연도 --</option>
+                                                                            </select>
                                                                             <%
                                                                                 }
                                                                             %>
@@ -810,22 +826,36 @@
                                                                             <%
                                                                                 if ( !v_seq.equals("") ) {
                                                                             %>
-                                                                                    <kocca:selectBox name="p_subj_eu" id="p_subj_eu" optionTitle="-- 과정 --" type="sqlID" param="<%= v_grcode + ',' + v_year + ',' + v_seq  %>" sqlID="selectBox.subjListAll" selectedValue="<%= v_subj %>" isLoad="true" />
+                                                                            <kocca:selectBox name="p_seq_eu" id="p_seq_eu" optionTitle="-- 차수 --" type="sqlID" param="<%= v_grcode + ',' + v_year %>" sqlID="selectBox.grSeqList" selectedValue="<%= v_seq %>" isLoad="true" />
                                                                             <%
-                                                                                } else {
+                                                                            } else {
                                                                             %>
-                                                                                    <select name="p_subj_eu" id="p_subj_eu">
-                                                                                        <option value="">-- 과정 --</option>
-                                                                                    </select>
+                                                                            <select name="p_seq_eu" id="p_seq_eu">
+                                                                                <option value="">-- 차수 --</option>
+                                                                            </select>
+                                                                            <%
+                                                                                }
+                                                                            %>
+
+                                                                            <%
+                                                                                if ( !v_seq.equals("") ) {
+                                                                            %>
+                                                                            <kocca:selectBox name="p_subj_eu" id="p_subj_eu" optionTitle="-- 과정 --" type="sqlID" param="<%= v_grcode + ',' + v_year + ',' + v_seq  %>" sqlID="selectBox.subjListAll" selectedValue="<%= v_subj %>" isLoad="true" />
+                                                                            <%
+                                                                            } else {
+                                                                            %>
+                                                                            <select name="p_subj_eu" id="p_subj_eu">
+                                                                                <option value="">-- 과정 --</option>
+                                                                            </select>
                                                                             <%
                                                                                 }
                                                                             %>
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
-                                                                       <td class="_tdT">
-                                                                           카테고리
-                                                                       </td>
+                                                                        <td class="_tdT">
+                                                                            카테고리
+                                                                        </td>
                                                                         <td class="_tdS" colspan="5">
                                                                             <select id="p_g1_eu" name="p_g1_eu">
                                                                                 <option value="">-- 장르 --</option>
@@ -855,14 +885,14 @@
                                                                             <%
                                                                                 if ( !v_g1.equals("") ) {
                                                                             %>
-                                                                                    <kocca:selectBox name="p_g2_eu" id="p_g2_eu" optionTitle="-- 대분류 --" type="sqlID" sqlID="code.list.0004" param="<%= v_gubun + ',' + v_g1 + ',' + v_lv2 %>" selectedValue="<%= v_g2 %>" isLoad="true" />
+                                                                            <kocca:selectBox name="p_g2_eu" id="p_g2_eu" optionTitle="-- 대분류 --" type="sqlID" sqlID="code.list.0004" param="<%= v_gubun + ',' + v_g1 + ',' + v_lv2 %>" selectedValue="<%= v_g2 %>" isLoad="true" />
 
                                                                             <%
-                                                                                } else {
+                                                                            } else {
                                                                             %>
-                                                                                    <select name="p_g2_eu" id="p_g2_eu">
-                                                                                        <option value="">-- 대분류 --</option>
-                                                                                    </select>
+                                                                            <select name="p_g2_eu" id="p_g2_eu">
+                                                                                <option value="">-- 대분류 --</option>
+                                                                            </select>
                                                                             <%
                                                                                 }
                                                                             %>
@@ -870,14 +900,14 @@
                                                                             <%
                                                                                 if ( !v_g2.equals("") ) {
                                                                             %>
-                                                                                    <kocca:selectBox name="p_g3_eu" id="p_g3_eu" optionTitle="-- 소분류 --" type="sqlID" sqlID="code.list.0004" param="<%= v_gubun + ',' + v_g2 + ',' + v_lv3 %>" selectedValue="<%= v_g3 %>" isLoad="true" />
+                                                                            <kocca:selectBox name="p_g3_eu" id="p_g3_eu" optionTitle="-- 소분류 --" type="sqlID" sqlID="code.list.0004" param="<%= v_gubun + ',' + v_g2 + ',' + v_lv3 %>" selectedValue="<%= v_g3 %>" isLoad="true" />
 
                                                                             <%
-                                                                                } else {
+                                                                            } else {
                                                                             %>
-                                                                                    <select name="p_g3_eu" id="p_g3_eu">
-                                                                                        <option value="">-- 소분류 --</option>
-                                                                                    </select>
+                                                                            <select name="p_g3_eu" id="p_g3_eu">
+                                                                                <option value="">-- 소분류 --</option>
+                                                                            </select>
                                                                             <%
                                                                                 }
                                                                             %>
@@ -885,14 +915,14 @@
                                                                             <%
                                                                                 if ( !v_g1.equals("") ) {
                                                                             %>
-                                                                                    <kocca:selectBox name="p_lv_eu" id="p_lv_eu" optionTitle="-- 난이도 --" type="sqlID" sqlID="code.list.0004" param="<%= v_gubun_lv + ',' + v_lv_type + ',' + v_lv2 %>" selectedValue="<%= v_lv %>" isLoad="true" />
+                                                                            <kocca:selectBox name="p_lv_eu" id="p_lv_eu" optionTitle="-- 난이도 --" type="sqlID" sqlID="code.list.0004" param="<%= v_gubun_lv + ',' + v_lv_type + ',' + v_lv2 %>" selectedValue="<%= v_lv %>" isLoad="true" />
 
                                                                             <%
-                                                                                } else {
+                                                                            } else {
                                                                             %>
-                                                                                    <select name="p_lv_eu" id="p_lv_eu">
-                                                                                        <option value="">-- 난이도 --</option>
-                                                                                    </select>
+                                                                            <select name="p_lv_eu" id="p_lv_eu">
+                                                                                <option value="">-- 난이도 --</option>
+                                                                            </select>
                                                                             <%
                                                                                 }
                                                                             %>
@@ -1036,13 +1066,13 @@
                                                                     <tr>
                                                                         <td height="9"></td>
                                                                     </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
                                         </form>
                                     </table>
                                     <br>
@@ -1056,7 +1086,10 @@
                                                 </select>
                                             </td>
                                             <% if( ss_action.equals("go") ){  %>
-                                            <td align="right"><a href="javascript:goExcel()" class="c"><img src="/images/admin/button/btn_excelprint.gif"  border="0"></a></td>
+                                            <td align="right">
+                                                <%--<a href="javascript:fnlayerpopup();" class="c"><img src="/images/admin/button/btn_excelprint.gif"  border="0"></a>--%>
+                                                <span onclick="fnlayerpopup();" class="c" style="cursor: pointer;"><img src="/images/admin/button/btn_excelprint.gif"  border="0"></span>
+                                            </td>
                                             <% } else { %>
                                             <td align="right"><a href="javascript:alert('조회 후 엑셀을 출력하세요.');" class="c"><img src="/images/admin/button/btn_excelprint.gif"  border="0"></a></td>
                                             <% } %>
@@ -1066,95 +1099,95 @@
                                         </tr>
                                     </table>
                                     <div style="overflow-x: scroll; width: 1200px;">
-                                    <table cellspacing="1" cellpadding="0" class="box_table_out" style="width: 105%; white-space: nowrap;">
-                                        <tr>
-                                            <td colspan="25" class="table_top_line"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="table_title">No</td>
-                                            <td class="table_title">교육그룹</td>
-                                            <td class="table_title">과정명</td>
-                                            <td class="table_title">차수</td>
-                                            <td class="table_title">장르</td>
-                                            <td class="table_title">대분류</td>
-                                            <td class="table_title">소분류</td>
-                                            <td class="table_title">난이도</td>
-                                            <td class="table_title">아이디</td>
-                                            <td class="table_title">성명</td>
-                                            <td class="table_title">성별</td>
-                                            <td class="table_title">생년월일</td>
-                                            <td class="table_title">지역</td>
-                                            <td class="table_title">직업</td>
-                                            <td class="table_title">연령대</td>
-                                            <td class="table_title">신청일자</td>
-                                            <td class="table_title">학습여부</td>
-                                            <td class="table_title">수료여부</td>
-                                            <td class="table_title">설문참여여부</td>
-                                            <td class="table_title">설문일자</td>
-                                            <td class="table_title">답안</td>
-                                            <td class="table_title">평균</td>
-                                        </tr>
-                                        <%
-                                            DataBox dbox = null;
+                                        <table cellspacing="1" cellpadding="0" class="box_table_out" style="width: 105%; white-space: nowrap;">
+                                            <tr>
+                                                <td colspan="25" class="table_top_line"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="table_title">No</td>
+                                                <td class="table_title">교육그룹</td>
+                                                <td class="table_title">과정명</td>
+                                                <td class="table_title">차수</td>
+                                                <td class="table_title">장르</td>
+                                                <td class="table_title">대분류</td>
+                                                <td class="table_title">소분류</td>
+                                                <td class="table_title">난이도</td>
+                                                <td class="table_title">아이디</td>
+                                                <td class="table_title">성명</td>
+                                                <td class="table_title">성별</td>
+                                                <td class="table_title">생년월일</td>
+                                                <td class="table_title">지역</td>
+                                                <td class="table_title">직업</td>
+                                                <td class="table_title">연령대</td>
+                                                <td class="table_title">신청일자</td>
+                                                <td class="table_title">학습여부</td>
+                                                <td class="table_title">수료여부</td>
+                                                <td class="table_title">설문참여여부</td>
+                                                <td class="table_title">설문일자</td>
+                                                <td class="table_title">답안</td>
+                                                <td class="table_title">평균</td>
+                                            </tr>
+                                            <%
+                                                DataBox dbox = null;
 
-                                            if(ss_action.equals("go") ){	//go button 선택일때라면
-                                                if( list.size() != 0 ){		// 검색된 내용이 있다면
-                                                    v_total = list.size();
+                                                if(ss_action.equals("go") ){	//go button 선택일때라면
+                                                    if( list.size() != 0 ){		// 검색된 내용이 있다면
+                                                        v_total = list.size();
 
-                                                    for(i = 0; i < v_total; i++) {
-                                                        dbox = (DataBox)list.get(i);
+                                                        for(i = 0; i < v_total; i++) {
+                                                            dbox = (DataBox)list.get(i);
 
-                                                        v_totalpage = dbox.getInt("d_totalpage");
-                                                        v_totalrowcount = dbox.getInt("d_totalrowcount");
+                                                            v_totalpage = dbox.getInt("d_totalpage");
+                                                            v_totalrowcount = dbox.getInt("d_totalrowcount");
 
-                                                        if(dbox.getString("d_upperclass").equals("X01")){
-                                                            _gm1 = "폐지";
-                                                            _gm2 = "";
-                                                            _gm3 = "";
-                                                            _lvnm = "";
-                                                        }else{
-                                                            _gm1 = dbox.getString("d_gnm1");
-                                                            _gm2 = dbox.getString("d_gnm2");
-                                                            _gm3 = dbox.getString("d_gnm3");
-                                                            _lvnm = dbox.getString("d_lvnm");
-                                                        }
-                                        %>
-                                        <tr>
-                                            <td class="table_02_1 tdT2"><%= v_totalrowcount - v_pagesize * v_pageno + v_pagesize - i %></td>
-                                            <td class="table_02_2 tdT2">[<%= dbox.getString("d_edu_type") %>] <%= dbox.getString("d_grcodenm") %></td>
-                                            <td class="table_02_2 tdT2">[<%= dbox.getString("d_subj") %>] <%= dbox.getString("d_subjnm") %></td>
-                                            <td class="table_02_2 tdT2">[<%= dbox.getString("d_year") %>] <%= dbox.getString("d_grseqnm") %></td>
-                                            <td class="table_02_1 tdT2"><%= _gm1 %></td>
-                                            <td class="table_02_1 tdT2"><%= _gm2 %></td>
-                                            <td class="table_02_1 tdT2"><%= _gm3 %></td>
-                                            <td class="table_02_1 tdT2"><%= _lvnm %></td>
-                                            <td class="table_02_1 tdT2"><%= dbox.getString("d_user_id") %></td>
-                                            <td class="table_02_1 tdT2"><%= dbox.getString("d_user_nm") %></td>
-                                            <td class="table_02_1 tdT2"><%= dbox.getString("d_sex_nm") %></td>
-                                            <td class="table_02_1 tdT2"><%= dbox.getString("d_brthdy") %></td>
-                                            <td class="table_02_1 tdT2"><%= dbox.getString("d_region") %></td>
-                                            <td class="table_02_1 tdT2"><%= dbox.getString("d_job_nm") %></td>
-                                            <td class="table_02_1 tdT2"><%= dbox.getString("d_age2") %></td>
-                                            <td class="table_02_1 tdT2" style="padding: 0 7px;"><%= dbox.getString("d_appdt") %></td>
-                                            <td class="table_02_1 tdT2"><%= dbox.getString("d_learn_yn") %></td>
-                                            <td class="table_02_1 tdT2"><%= dbox.getString("d_graduated_yn") %></td>
-                                            <td class="table_02_1 tdT2"><%= dbox.getString("d_suleach2_yn") %></td>
-                                            <td class="table_02_1 tdT2"><%= dbox.getString("d_suldt") %></td>
-                                            <td class="table_02_2 tdT2"><%= dbox.getString("d_answers") %></td>
-                                            <td class="table_02_1 tdT2"><%= dbox.getString("d_distcode1_avg") %></td>
-                                        </tr>
-                                        <%
-                                                    }
-                                                } else {
-                                        %>
-                                        <tr>
-                                            <td align="center" bgcolor="#F7F7F7" height="50" colspan="25">검색된 데이터가 없습니다</td>
-                                        </tr>
-                                        <%
+                                                            if(dbox.getString("d_upperclass").equals("X01")){
+                                                                _gm1 = "폐지";
+                                                                _gm2 = "";
+                                                                _gm3 = "";
+                                                                _lvnm = "";
+                                                            }else{
+                                                                _gm1 = dbox.getString("d_gnm1");
+                                                                _gm2 = dbox.getString("d_gnm2");
+                                                                _gm3 = dbox.getString("d_gnm3");
+                                                                _lvnm = dbox.getString("d_lvnm");
+                                                            }
+                                            %>
+                                            <tr>
+                                                <td class="table_02_1 tdT2"><%= v_totalrowcount - v_pagesize * v_pageno + v_pagesize - i %></td>
+                                                <td class="table_02_2 tdT2">[<%= dbox.getString("d_edu_type") %>] <%= dbox.getString("d_grcodenm") %></td>
+                                                <td class="table_02_2 tdT2">[<%= dbox.getString("d_subj") %>] <%= dbox.getString("d_subjnm") %></td>
+                                                <td class="table_02_2 tdT2">[<%= dbox.getString("d_year") %>] <%= dbox.getString("d_grseqnm") %></td>
+                                                <td class="table_02_1 tdT2"><%= _gm1 %></td>
+                                                <td class="table_02_1 tdT2"><%= _gm2 %></td>
+                                                <td class="table_02_1 tdT2"><%= _gm3 %></td>
+                                                <td class="table_02_1 tdT2"><%= _lvnm %></td>
+                                                <td class="table_02_1 tdT2"><%= dbox.getString("d_user_id") %></td>
+                                                <td class="table_02_1 tdT2"><%= dbox.getString("d_user_nm") %></td>
+                                                <td class="table_02_1 tdT2"><%= dbox.getString("d_sex_nm") %></td>
+                                                <td class="table_02_1 tdT2"><%= dbox.getString("d_brthdy") %></td>
+                                                <td class="table_02_1 tdT2"><%= dbox.getString("d_region") %></td>
+                                                <td class="table_02_1 tdT2"><%= dbox.getString("d_job_nm") %></td>
+                                                <td class="table_02_1 tdT2"><%= dbox.getString("d_age2") %></td>
+                                                <td class="table_02_1 tdT2" style="padding: 0 7px;"><%= dbox.getString("d_appdt") %></td>
+                                                <td class="table_02_1 tdT2"><%= dbox.getString("d_learn_yn") %></td>
+                                                <td class="table_02_1 tdT2"><%= dbox.getString("d_graduated_yn") %></td>
+                                                <td class="table_02_1 tdT2"><%= dbox.getString("d_suleach2_yn") %></td>
+                                                <td class="table_02_1 tdT2"><%= dbox.getString("d_suldt") %></td>
+                                                <td class="table_02_2 tdT2"><%= dbox.getString("d_answers") %></td>
+                                                <td class="table_02_1 tdT2"><%= dbox.getString("d_distcode1_avg") %></td>
+                                            </tr>
+                                            <%
                                                 }
-                                            }
-                                        %>
-                                    </table>
+                                            } else {
+                                            %>
+                                            <tr>
+                                                <td align="center" bgcolor="#F7F7F7" height="50" colspan="25">검색된 데이터가 없습니다</td>
+                                            </tr>
+                                            <%
+                                                    }
+                                                }
+                                            %>
+                                        </table>
                                     </div>
                                     <br>
                                 </td>
@@ -1178,6 +1211,24 @@
         <td><%@ include file = "/learn/library/getJspName.jsp" %></td>
     </tr>
 </table>
+
+<!-- layer -->
+<div class="opacity_layer_bg01"></div>
+<div class="layer_wrap sub_layer_statistics">
+    <div class="layer_top">
+        <button type="button" title="닫기" class="btn_layerClose" onclick="layerClose();">닫기</button>
+        <h5>다운로드 사유</h5>
+    </div>
+    <div class="content_box">
+        <input type="text" id="downMemo" placeholder="다운로드 사유를 입력하세요.">
+    </div>
+    <div class="double_btn_box">
+        <span title="확인" class="btn_layerClose" onclick="goExcel();">확인</span>
+        <span title="닫기" class="btn_layerClose" onclick="layerClose();">닫기</span>
+    </div>
+
+</div>
+
 <style>
     ._tdT{text-align: right;}
     .tdT2{padding: 0 7px;}

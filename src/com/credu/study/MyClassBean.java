@@ -175,7 +175,7 @@ public class MyClassBean {
 
     /**
      * 과정 찜하기 등록
-     * 
+     *
      * @param box
      * @return
      */
@@ -298,7 +298,7 @@ public class MyClassBean {
 
     /**
      * 과정 찜하기 취소
-     * 
+     *
      * @param box
      * @return
      * @throws Exception
@@ -366,7 +366,7 @@ public class MyClassBean {
 
     /**
      * 수강중인 과정 리스트 on-line
-     * 
+     *
      * @param box receive from the form object and session
      * @return ArrayList
      */
@@ -411,7 +411,7 @@ public class MyClassBean {
             head_sql1.append("		  WHERE UPPERCLASS = A.SCUPPERCLASS AND MIDDLECLASS = A.SCMIDDLECLASS AND LOWERCLASS = '000'\n");
             head_sql1.append("		) MIDDLECLASSNM ,\n");
             head_sql1.append("		ISNULL(D.PAYMONEY, 0) AS  BIYONG  , ISNULL(C.LDATE , 'N') AS ISUSEYN,\n");
-            head_sql1.append("		CASE WHEN TO_CHAR(SYSDATE,'YYYYMMDDHH24')||00 BETWEEN A.EDUSTART AND A.EDUEND\n");
+            head_sql1.append("		CASE WHEN TO_CHAR(SYSDATE,'YYYYMMDD')||'00' BETWEEN A.EDUSTART AND A.EDUEND\n");
             head_sql1.append("             THEN 'Y' ELSE 'N' END ISSTUDYYN, \n");
             head_sql1.append("     A.WJ_CLASSKEY\n");
 
@@ -426,7 +426,7 @@ public class MyClassBean {
             if (!v_upperclass.equals("ALL"))
                 body_sql1.append(" AND A.SCUPPERCLASS = " + SQLString.Format(v_upperclass) + "\n");
 
-            body_sql1.append("    AND TO_CHAR(SYSDATE,'YYYYMMDDHH24')||'23' <= A.EDUEND\n");
+            body_sql1.append("    AND TO_CHAR(SYSDATE,'YYYYMMDDHH24') <= A.EDUEND\n");
 
             order_sql1.append(" ORDER BY A.EDUSTART DESC, A.COURSE, A.SCUPPERCLASS, A.SCMIDDLECLASS, A.SUBJNM, A.SUBJ,A.YEAR,A.SUBJSEQ,A.EDUEND\n");
 
@@ -475,7 +475,7 @@ public class MyClassBean {
 
     /**
      * 정규과정 수강중인 과정 목록을 조회한다.
-     * 
+     *
      * @param box receive from the form object and session
      * @return ArrayList
      */
@@ -550,14 +550,14 @@ public class MyClassBean {
             sql.append("   AND  B.USERID = '").append(v_user_id).append("'  \n");
             sql.append("   AND  A.grcode = '").append(v_grcode).append("'   \n");
             sql.append("   AND  TO_CHAR (SYSDATE, 'YYYYMMDDHH24') || '23' <= A.EDUEND                     \n");
-            
+
             if (gubun.equals("I")) {
                 sql.append("   AND  TO_CHAR (SYSDATE, 'YYYYMMDDHH24') || 00 BETWEEN A.EDUSTART AND A.EDUEND     \n");
             } else if (gubun.equals("P")) {
                 sql.append("   AND  TO_CHAR (SYSDATE, 'YYYYMMDDHH24') || 00 BETWEEN A.PROPSTART AND A.PROPEND   \n");
             }
             sql.append(" ORDER  BY GRSEQ, APPDATE, SUBJNM   \n");
-//            
+//
 //            head_sql1.append("/* com.credu.study.MyClassBean selectSubjectList3 (정규과정 수강과정목록 조회) */\n");
 //            head_sql1.append("SELECT    A.SCUPPERCLASS, a.introducefilenamenew, A.ISONOFF, A.COURSE, A.CYEAR, A.COURSESEQ,\n");
 //            head_sql1.append("		A.COURSENM, A.GRCODE,A.ISBELONGCOURSE, A.SUBJCNT, A.SUBJ,\n");
@@ -591,7 +591,7 @@ public class MyClassBean {
                 list1.add(dbox);
             }
         } catch (Exception ex) {
-        	
+
             ErrorManager.getErrorStackTrace(ex, box, sql.toString());
             throw new Exception("sql1 = " + sql.toString() + "\r\n" + ex.getMessage());
         } finally {
@@ -614,7 +614,7 @@ public class MyClassBean {
 
     /**
      * 수강중인 과정 리스트 모바일 on-line
-     * 
+     *
      * @param box receive from the form object and session
      * @return ArrayList
      */
@@ -659,7 +659,7 @@ public class MyClassBean {
             head_sql1.append("		  WHERE UPPERCLASS = A.SCUPPERCLASS AND MIDDLECLASS = A.SCMIDDLECLASS AND LOWERCLASS = '000'\n");
             head_sql1.append("		) MIDDLECLASSNM ,\n");
             head_sql1.append("		ISNULL(D.PAYMONEY, 0) AS  BIYONG  , ISNULL(C.LDATE , 'N') AS ISUSEYN,\n");
-            head_sql1.append("		CASE WHEN TO_CHAR(SYSDATE,'YYYYMMDDHH24')||00 BETWEEN A.EDUSTART AND A.EDUEND\n");
+            head_sql1.append("		CASE WHEN TO_CHAR(SYSDATE,'YYYYMMDD')||00 BETWEEN A.EDUSTART AND A.EDUEND\n");
             head_sql1.append("             THEN 'Y' ELSE 'N' END ISSTUDYYN, \n");
             head_sql1.append("     A.WJ_CLASSKEY\n");
 
@@ -674,7 +674,7 @@ public class MyClassBean {
             if (!v_upperclass.equals("ALL"))
                 body_sql1.append(" AND A.SCUPPERCLASS = " + SQLString.Format(v_upperclass) + "\n");
 
-            body_sql1.append("    AND TO_CHAR(SYSDATE,'YYYYMMDDHH24')||'23' <= A.EDUEND\n");
+            body_sql1.append("    AND TO_CHAR(SYSDATE,'YYYYMMDDHH24') <= A.EDUEND\n");
 
             order_sql1.append(" ORDER BY A.EDUSTART DESC, A.COURSE, A.SCUPPERCLASS, A.SCMIDDLECLASS, A.SUBJNM, A.SUBJ,A.YEAR,A.SUBJSEQ,A.EDUEND\n");
 
@@ -723,7 +723,7 @@ public class MyClassBean {
 
     /**
      * 수강중인 과정 리스트 off-line
-     * 
+     *
      * @param box receive from the form object and session
      * @return ArrayList
      */
@@ -807,7 +807,7 @@ public class MyClassBean {
 
     /**
      * 수강중인 과정 리스트 off-line 학기별 점수
-     * 
+     *
      * @param box receive from the form object and session
      * @return ArrayList
      */
@@ -870,7 +870,7 @@ public class MyClassBean {
 
     /**
      * off-line 단기 점수
-     * 
+     *
      * @param box receive from the form object and session
      * @return ArrayList
      */
@@ -927,7 +927,7 @@ public class MyClassBean {
 
     /**
      * 수강 신청중인 과정 리스트
-     * 
+     *
      * @param box receive from the form object and session
      * @return ArrayList
      */
@@ -987,7 +987,7 @@ public class MyClassBean {
 
     /**
      * 수강 완료한 과정 리스트
-     * 
+     *
      * @param box receive from the form object and session
      * @return ArrayList
      */
@@ -1064,7 +1064,7 @@ public class MyClassBean {
 
     /**
      * 취소신청가능 과정리스트 조회
-     * 
+     *
      * @param box receive from the form object and session
      * @return ArrayList 취소신청가능 과정리스트
      */
@@ -1125,7 +1125,7 @@ public class MyClassBean {
 
     /**
      * 수강신청 이력 리스트 조회 - 수강신청 확인 취소 리스트
-     * 
+     *
      * @param box receive from the form object and session
      * @return ArrayList 수강신청 확인 취소 리스트
      */
@@ -1182,7 +1182,7 @@ public class MyClassBean {
             sql.append("                       THEN 'Y'\n");
             sql.append("                       ELSE 'N'\n");
             sql.append("                  END REFUNDABLEYN,\n");
-            
+
             //			sql.append("                  CASE\n");
             //			sql.append("                     WHEN (TO_CHAR (  TO_DATE (SUBSTR (EDUSTART, 1, 8),\n");
             //			sql.append("                                               'YYYYMMDD'\n");
@@ -1281,7 +1281,7 @@ public class MyClassBean {
 
     /**
      * 취소신청 과정 목록조회
-     * 
+     *
      * @param box receive from the form object and session
      * @return ArrayList 취소신청 과정 목록 조회
      */
@@ -1334,7 +1334,7 @@ public class MyClassBean {
 
     /**
      * 수강신청취소 신청
-     * 
+     *
      * @param box receive from the form object and session
      * @return int
      */
@@ -1377,7 +1377,7 @@ public class MyClassBean {
             }
 
             if (v_biyong.equals("0")) {
-                box.setSession("msg", "propcancel.delete.ok"); // 취소가 완료되면 나오는 메시지를 구분하기 위해서 
+                box.setSession("msg", "propcancel.delete.ok"); // 취소가 완료되면 나오는 메시지를 구분하기 위해서
 
                 sql2 = "delete from TZ_STUDENT where subj = ? and year = ? and subjseq = ? and userid = ?  ";
                 pstmt2 = connMgr.prepareStatement(sql2);
@@ -1445,7 +1445,7 @@ public class MyClassBean {
 
     /**
      * off-line 수강신청 이력 리스트 조회 - 수강신청 확인 취소 리스트
-     * 
+     *
      * @param box receive from the form object and session
      * @return ArrayList off-line 수강신청 확인 취소 리스트
      */
@@ -1590,7 +1590,7 @@ public class MyClassBean {
 
     /**
      * off-line 취소신청 과정 목록조회
-     * 
+     *
      * @param box receive from the form object and session
      * @return ArrayList off-line 취소신청 과정 목록 조회
      */
@@ -1643,7 +1643,7 @@ public class MyClassBean {
 
     /**
      * 수강신청취소 신청
-     * 
+     *
      * @param box receive from the form object and session
      * @return int
      */
@@ -1720,7 +1720,7 @@ public class MyClassBean {
 
     /**
      * 수강신청취소
-     * 
+     *
      * @param box receive from the form object and session
      * @return int
      */
@@ -1942,7 +1942,7 @@ public class MyClassBean {
 
     /**
      * 수강신청취소 2010.01.26
-     * 
+     *
      * @param box receive from the form object and session
      * @return int
      */
@@ -2277,7 +2277,7 @@ public class MyClassBean {
 
                     /****************************************************************
                      * 4. 취소 결과
-                     * 
+                     *
                      * 결과코드 : inipay.GetResult("ResultCode") ("00"이면 취소 성공) 결과내용
                      * : inipay.GetResult("ResultMsg") (취소결과에 대한 설명) 취소날짜 :
                      * inipay.GetResult("CancelDate") (YYYYMMDD) 취소시각 :
@@ -2557,7 +2557,7 @@ public class MyClassBean {
 
     /**
      * off-line 수강신청취소 2010.01.27
-     * 
+     *
      * @param box receive from the form object and session
      * @return int
      */
@@ -2692,14 +2692,14 @@ public class MyClassBean {
              * v_year = ls1.getString("year"); String v_subjseq =
              * ls1.getString("subjseq"); String v_seq = ls1.getString("seq");
              * String v_user_id = ls1.getString("userid");
-             * 
+             *
              * sql4 =
              * "delete from TZ_OFFPROPOSE where subj = ? and year = ? and subjseq = ? and seq = ? and userid = ?\n"
              * ; pstmt4 = connMgr.prepareStatement(sql4); pstmt4.setString(1,
              * v_subj); pstmt4.setString(2, v_year); pstmt4.setString(3,
              * v_subjseq); pstmt4.setString(4, v_seq); pstmt4.setString(5,
              * v_user_id);
-             * 
+             *
              * System.out.println("######################");
              * System.out.println("##sql4##" + sql4);
              * System.out.println("##v_subj##" + v_subj);
@@ -2708,20 +2708,20 @@ public class MyClassBean {
              * System.out.println("##v_seq##" + v_seq);
              * System.out.println("##v_user_id##" + v_user_id);
              * System.out.println("######################");
-             * 
+             *
              * isOk4 = pstmt4.executeUpdate(); } ls1.moveFirst();
-             * 
+             *
              * //1.4 조회된 데이터를 사용하여 수강생 테이블 삭제 while(ls1.next()){ String v_subj =
              * ls1.getString("subj"); String v_year = ls1.getString("year");
              * String v_subjseq = ls1.getString("subjseq"); String v_user_id =
              * ls1.getString("userid");
-             * 
+             *
              * sql5 =
              * "delete from TZ_OFFSTUDENT where subj = ? and year = ? and subjseq = ? and userid = ?\n"
              * ; pstmt5 = connMgr.prepareStatement(sql5); pstmt5.setString(1,
              * v_subj); pstmt5.setString(2, v_year); pstmt5.setString(3,
              * v_subjseq); pstmt5.setString(4, v_user_id);
-             * 
+             *
              * isOk5 = pstmt5.executeUpdate(); }
              */
             isOk5 = 1;
@@ -2833,7 +2833,7 @@ public class MyClassBean {
 
             /****************************************************************
              * 4. 취소 결과
-             * 
+             *
              * 결과코드 : inipay.GetResult("ResultCode") ("00"이면 취소 성공) 결과내용 :
              * inipay.GetResult("ResultMsg") (취소결과에 대한 설명) 취소날짜 :
              * inipay.GetResult("CancelDate") (YYYYMMDD) 취소시각 :
@@ -3075,7 +3075,7 @@ public class MyClassBean {
 
     /**
      * off-line 수강신청취소 2010.10.11
-     * 
+     *
      * @param box receive from the form object and session
      * @return int
      */
@@ -3202,7 +3202,7 @@ public class MyClassBean {
 
     /**
      * 교육개인교육이력
-     * 
+     *
      * @param box receive from the form object and session
      * @return ArrayList
      */
@@ -3269,7 +3269,7 @@ public class MyClassBean {
             sql.append("         WHERE  TS.SUBJ = C.SUBJ            \n");
             sql.append("           AND  TO_CHAR(SYSDATE, 'YYYYMMDDHH24') BETWEEN TS.EDUSTART AND TS.EDUEND  \n");
             sql.append("           AND  TS.GRCODE = '").append(v_grcode).append("'  \n");
-            sql.append("        ) AS POSSIBLE_CNT   \n"); 
+            sql.append("        ) AS POSSIBLE_CNT   \n");
             sql.append("  FROM  TZ_SUBJSEQ A        \n");
             sql.append("    ,   TZ_PROPOSE B        \n");
             sql.append("    ,   TZ_SUBJ C           \n");
@@ -3293,7 +3293,7 @@ public class MyClassBean {
             sql.append("   AND  B.SUBJSEQ = E.SUBJSEQ(+)\n");
             sql.append("   AND  B.USERID = E.USERID(+)  \n");
             sql.append(" ORDER  BY A.EDUSTART DESC, C.SUBJNM    \n");
-            
+
             ls = connMgr.executeQuery(sql.toString());
 
             int total_row_count = 0;
@@ -3309,16 +3309,16 @@ public class MyClassBean {
 
             while (ls.next()) {
                 dbox = ls.getDataBox();
-                
+
                 dbox.put("d_reviewstart", FormatDate.getDateAdd(FormatDate.getFormatDate(dbox.getString("d_courseeduend"),"yyyyMMdd"),"yyyyMMdd", "date", 1));
                 if(dbox.getString("d_reviewtype").equals("D")){
-                	dbox.put("d_reviewend", FormatDate.getDateAdd(FormatDate.getFormatDate(dbox.getString("d_reviewstart"),"yyyyMMdd"),"yyyyMMdd", "date", dbox.getInt("d_reviewdays") - 1));
+                    dbox.put("d_reviewend", FormatDate.getDateAdd(FormatDate.getFormatDate(dbox.getString("d_reviewstart"),"yyyyMMdd"),"yyyyMMdd", "date", dbox.getInt("d_reviewdays") - 1));
                 }else if(dbox.getString("d_reviewtype").equals("W")){
-                	dbox.put("d_reviewend", FormatDate.getDateAdd(FormatDate.getFormatDate(dbox.getString("d_reviewstart"),"yyyyMMdd"),"yyyyMMdd", "date", dbox.getInt("d_reviewdays") * 7 - 1));
+                    dbox.put("d_reviewend", FormatDate.getDateAdd(FormatDate.getFormatDate(dbox.getString("d_reviewstart"),"yyyyMMdd"),"yyyyMMdd", "date", dbox.getInt("d_reviewdays") * 7 - 1));
                 }else if(dbox.getString("d_reviewtype").equals("M")){
-                	dbox.put("d_reviewend", FormatDate.getDateAdd(FormatDate.getFormatDate(dbox.getString("d_reviewstart"),"yyyyMMdd"),"yyyyMMdd", "month", dbox.getInt("d_reviewdays")));
+                    dbox.put("d_reviewend", FormatDate.getDateAdd(FormatDate.getFormatDate(dbox.getString("d_reviewstart"),"yyyyMMdd"),"yyyyMMdd", "month", dbox.getInt("d_reviewdays")));
                 }else if(dbox.getString("d_reviewtype").equals("Y")){
-                	dbox.put("d_reviewend", FormatDate.getDateAdd(FormatDate.getFormatDate(dbox.getString("d_reviewstart"),"yyyyMMdd"),"yyyyMMdd", "year", dbox.getInt("d_reviewdays")));
+                    dbox.put("d_reviewend", FormatDate.getDateAdd(FormatDate.getFormatDate(dbox.getString("d_reviewstart"),"yyyyMMdd"),"yyyyMMdd", "year", dbox.getInt("d_reviewdays")));
                 }
 
                 dbox.put("d_dispnum", new Integer(total_row_count - ls.getRowNum() + 1));
@@ -3351,7 +3351,7 @@ public class MyClassBean {
 
     /**
      * 교육개인교육이력 off-line
-     * 
+     *
      * @param box receive from the form object and session
      * @return ArrayList
      */
@@ -3456,7 +3456,7 @@ public class MyClassBean {
 
     /**
      * 수료증 정보 리턴
-     * 
+     *
      * @param box receive from the form object and session
      * @return TutorData
      */
@@ -3545,7 +3545,7 @@ public class MyClassBean {
 
     /**
      * HOMEPAGE 메인 날자표시값 리턴
-     * 
+     *
      * @param edustart 교육시작일
      * @param eduend 교육종료일
      * @return Vector
@@ -3577,7 +3577,7 @@ public class MyClassBean {
 
     /**
      * 나의 강의실
-     * 
+     *
      * @param box receive from the form object and session
      * @return ArrayList
      */
@@ -3639,7 +3639,7 @@ public class MyClassBean {
 
     /**
      * 나의 강의실
-     * 
+     *
      * @param box receive from the form object and session
      * @return ArrayList
      */
@@ -3790,7 +3790,7 @@ public class MyClassBean {
 
     /**
      * 나의 교육이력 건수
-     * 
+     *
      * @param box receive from the form object and session
      * @return int 나의 교육이력 건수
      * @throws Exception
@@ -3857,7 +3857,7 @@ public class MyClassBean {
 
     /**
      * 나의 온라인 수강 건수
-     * 
+     *
      * @param box receive from the form object and session
      * @return int 나의 온라인 수강 건수
      * @throws Exception
@@ -3910,7 +3910,7 @@ public class MyClassBean {
 
     /**
      * 나의 오프라인 수강 건수
-     * 
+     *
      * @param box receive from the form object and session
      * @return int 나의 오프라인 수강 건수
      * @throws Exception
@@ -3963,7 +3963,7 @@ public class MyClassBean {
 
     /**
      * 오늘의 명언
-     * 
+     *
      * @param box receive from the form object and session
      * @return String 오늘의 명언
      * @throws Exception
@@ -4022,7 +4022,7 @@ public class MyClassBean {
 
     /**
      * 수강중인 과정 (on + off)
-     * 
+     *
      * @param box receive from the form object and session
      * @return ArrayList
      */
@@ -4097,7 +4097,7 @@ public class MyClassBean {
 
     /**
      * 수강료조회/납부 과정 (on + off)
-     * 
+     *
      * @param box receive from the form object and session
      * @return ArrayList
      */
@@ -4219,7 +4219,7 @@ public class MyClassBean {
 
     /**
      * 관심과정
-     * 
+     *
      * @param box receive from the form object and session
      * @return ArrayList
      */
@@ -4283,7 +4283,7 @@ public class MyClassBean {
 
     /**
      * 과정질문방 건수
-     * 
+     *
      * @param box receive from the form object and session
      * @return int 과정질문방 건수
      * @throws Exception
@@ -4331,7 +4331,7 @@ public class MyClassBean {
 
     /**
      * Q&A 건수
-     * 
+     *
      * @param box receive from the form object and session
      * @return int Q&A 건수
      * @throws Exception
@@ -4381,7 +4381,7 @@ public class MyClassBean {
 
     /**
      * 1vs1 건수
-     * 
+     *
      * @param box receive from the form object and session
      * @return int 1vs1 수강 건수
      * @throws Exception
@@ -4431,7 +4431,7 @@ public class MyClassBean {
 
     /**
      * 나의 이벤트 건수
-     * 
+     *
      * @param box receive from the form object and session
      * @return int 나의 이벤트 수강 건수
      * @throws Exception
@@ -4479,7 +4479,7 @@ public class MyClassBean {
 
     /**
      * 나의 당첨이벤트 건수
-     * 
+     *
      * @param box receive from the form object and session
      * @return int 나의 당첨이벤트 수강 건수
      * @throws Exception
@@ -4528,7 +4528,7 @@ public class MyClassBean {
 
     /**
      * 나의 워크샵 수강 건수
-     * 
+     *
      * @param box receive from the form object and session
      * @return int 나의 워크샵 수강 건수
      * @throws Exception
@@ -4578,7 +4578,7 @@ public class MyClassBean {
 
     /**
      * 오프라인 수강취소(승인전 혹은 결재전)
-     * 
+     *
      * @param box receive from the form object and session
      * @return isOk 1:insert success,0:insert fail
      */
@@ -4645,7 +4645,7 @@ public class MyClassBean {
 
     /**
      * 회원등록
-     * 
+     *
      * @param box receive from the form object and session
      * @return String
      * @throws Exception
@@ -4770,7 +4770,7 @@ public class MyClassBean {
 
     /**
      * 나의 수강신청 이력건수(온라인/최종승인)
-     * 
+     *
      * @param box receive from the form object and session
      * @return int 나의 워크샵 수강 건수
      * @throws Exception
@@ -4823,7 +4823,7 @@ public class MyClassBean {
 
     /**
      * 나의 수강신청 이력건수(온라인/승인대기)
-     * 
+     *
      * @param box receive from the form object and session
      * @return int 나의 워크샵 수강 건수
      * @throws Exception
@@ -4876,7 +4876,7 @@ public class MyClassBean {
 
     /**
      * 나의 수강신청 이력건수(오프라인/승인대기)
-     * 
+     *
      * @param box receive from the form object and session
      * @return int 나의 워크샵 수강 건수
      * @throws Exception
@@ -4931,7 +4931,7 @@ public class MyClassBean {
 
     /**
      * 나의 수강신청 이력건수(오프라인/최종승인)
-     * 
+     *
      * @param box receive from the form object and session
      * @return int 나의 워크샵 수강 건수
      * @throws Exception

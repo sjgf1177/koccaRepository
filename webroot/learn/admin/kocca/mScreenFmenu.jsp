@@ -89,6 +89,23 @@
             }
         }
 
+
+        var idleTime = 0;
+        $(document).ready(function () { //Increment the idle time counter every minute.
+            var idleInterval = setInterval(timerIncrement, 60000); // 1 minute
+            //일정시간 움직임이 있으면 초기화
+            $(this).mousemove(function (e) { idleTime = 0; });
+            $(this).keypress(function (e) { idleTime = 0; });
+        });
+
+        function timerIncrement() {
+            idleTime = idleTime + 1;
+            if (idleTime >= 120) { // 120 minutes
+                parent.location.href="/learn/admin/kocca/autoLogout.jsp";
+            }
+            //console.log(idleTime);
+        }
+
     </script>
 </head>
 <body leftmargin="0" topmargin="0" marginwidth=0 marginheight=0>
@@ -142,6 +159,5 @@
         </tr>
     </table>
 </form>
-
 </body>
 </html>

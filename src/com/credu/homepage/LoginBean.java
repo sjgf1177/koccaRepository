@@ -44,7 +44,7 @@ public class LoginBean {
 
     /**
      * 로그인 (세션 세팅)
-     * 
+     *
      * @param box receive from the form object and session
      * @return is_Ok 1 : login ok -1 : ID 오류 -2 : 퇴직자 -3 : 비밀번호 오류
      * @throws Exception
@@ -161,7 +161,7 @@ public class LoginBean {
 
     /**
      * 로그인 (세션 세팅)
-     * 
+     *
      * @param box receive from the form object and session
      * @return is_Ok 1 : login ok -1 : ID 오류 -2 : 퇴직자 -3 : 비밀번호 오류
      * @throws Exception
@@ -349,7 +349,7 @@ public class LoginBean {
 
     /**
      * LMS 관리자 로그인 (세션 세팅)
-     * 
+     *
      * @param box receive from the form object and session
      * @return is_Ok 1 : login ok -1 : ID 오류 -2 : 퇴직자 -3 : 비밀번호 오류
      * @throws Exception
@@ -538,7 +538,7 @@ public class LoginBean {
 
             } else if (is_Ok == -3) {
                 // 오류 회수 추가
-                // is_Ok2 = updateLoginFail(connMgr, v_userid);
+                updateLoginFail(connMgr, v_userid);
 
             }
             connMgr.commit();
@@ -565,7 +565,7 @@ public class LoginBean {
 
     /**
      * 로그인 이력 정보를 저장한다.
-     * 
+     *
      * @param connMgr
      * @param box
      * @throws Exception
@@ -614,7 +614,7 @@ public class LoginBean {
 
     /**
      * 패스워드 검색
-     * 
+     *
      * @param box receive from the form object and session
      * @return String 패스워드 검색 결과
      * @throws Exception
@@ -678,7 +678,7 @@ public class LoginBean {
 
     /**
      * ID 검색
-     * 
+     *
      * @param box receive from the form object and session
      * @return String ID 검색 결과
      * @throws Exception
@@ -821,7 +821,7 @@ public class LoginBean {
 
     /**
      * ID 검색
-     * 
+     *
      * @param box receive from the form object and session
      * @return String ID 검색 결과
      * @throws Exception
@@ -877,7 +877,7 @@ public class LoginBean {
 
     /**
      * 담당기관 구하기
-     * 
+     *
      * @param box receive from the form object and session
      * @return String 담당기관
      * @throws Exception
@@ -939,7 +939,7 @@ public class LoginBean {
 
     /**
      * 로그인 연동(세션 세팅)
-     * 
+     *
      * @param box receive from the form object and session
      * @return is_Ok 1 : login ok 2 : login fail
      * @throws Exception
@@ -1037,7 +1037,7 @@ public class LoginBean {
 
     /**
      * 외부강의실 로그인 연동(세션 세팅)
-     * 
+     *
      * @param box receive from the form object and session
      * @return is_Ok 1 : login ok 2 : login fail
      * @throws Exception
@@ -1134,7 +1134,7 @@ public class LoginBean {
 
     /**
      * Login 정보 변경 (lgcnt:로그인횟수, lglast:최종로그인시간, lgip:로그인ip
-     * 
+     *
      * @param box receive from the form object and session
      * @return is_Ok 1 : success 2 : fail
      */
@@ -1190,7 +1190,7 @@ public class LoginBean {
 
     /**
      * Login 정보 변경 (lgcnt:로그인횟수, lglast:최종로그인시간, lgip:로그인ip, lgfirst : 최초로그인
-     * 
+     *
      * @param box receive from the form object and session
      * @return is_Ok 1 : success 2 : fail
      */
@@ -1240,7 +1240,7 @@ public class LoginBean {
     }
 
     /**
-     * 
+     *
      * @param connMgr
      * @param p_userid
      * @param p_userip
@@ -1270,7 +1270,7 @@ public class LoginBean {
 
             // 정보 업데이트
             sql = " update TZ_MEMBER                       ";
-            sql += "\n set lgcnt = lgcnt + 1, lglast = to_char(sysdate, 'YYYYMMDDHH24MISS'), lgip = " + StringManager.makeSQL(v_userip);
+            sql += "\n set lgcnt = lgcnt + 1, lgfail = 0, lglast = to_char(sysdate, 'YYYYMMDDHH24MISS'), lgip = " + StringManager.makeSQL(v_userip);
             if (cnt > 0) {
                 sql += " , lgfirst = to_char(sysdate, 'YYYYMMDDHH24MISS') ";
             }
@@ -1296,7 +1296,7 @@ public class LoginBean {
 
     /**
      * 비밀번호 오류 회수 증가
-     * 
+     *
      * @param box receive from the form object and session
      * @return is_Ok 1 : success 2 : fail
      */
@@ -1324,7 +1324,7 @@ public class LoginBean {
 
     /**
      * 비밀번호 오류 회수 증가
-     * 
+     *
      * @param box receive from the form object and session
      * @return is_Ok 1 : success 2 : fail
      */
@@ -1358,7 +1358,7 @@ public class LoginBean {
 
     /**
      * 정보동의 체크
-     * 
+     *
      * @param box receive from the form object and session
      * @return is_Ok 0 : 정보동의필요 1 : 정보동의함
      * @throws Exception
@@ -1408,7 +1408,7 @@ public class LoginBean {
 
     /**
      * 이메일 불러오기
-     * 
+     *
      * @param box receive from the form object and session
      * @return return
      * @throws Exception
@@ -1455,7 +1455,7 @@ public class LoginBean {
 
     /**
      * 정보보호 확인
-     * 
+     *
      * @param box receive from the form object and session
      * @return is_Ok 1 : login ok 2 : login fail
      * @throws Exception
@@ -1591,7 +1591,7 @@ public class LoginBean {
 
     /**
      * 비밀번호 분실 폼메일 발송
-     * 
+     *
      * @param box receive from the form object and session
      * @return is_Ok 1 : send ok 2 : send fail
      * @throws Exception
@@ -1717,7 +1717,7 @@ public class LoginBean {
 
     /**
      * 비밀번호 분실 폼메일 발송
-     * 
+     *
      * @param box receive from the form object and session
      * @return is_Ok 1 : send ok 2 : send fail
      * @throws Exception
@@ -1827,7 +1827,7 @@ public class LoginBean {
 
     /**
      * 권한 셀렉트 박스
-     * 
+     *
      * @param userid 유저아이디
      * @param name 셀렉트박스명
      * @param selected 선택값
@@ -1904,7 +1904,7 @@ public class LoginBean {
 
     /**
      * 권한 셀렉트 박스
-     * 
+     *
      * @param name 셀렉트박스명
      * @return
      * @throws Exception
@@ -1965,7 +1965,7 @@ public class LoginBean {
 
     /**
      * SSO 로그인 (세션 세팅)
-     * 
+     *
      * @param box receive from the form object and session
      * @return is_Ok 1 : login ok 2 : login fail
      * @throws Exception
@@ -2154,7 +2154,7 @@ public class LoginBean {
 
     /**
      * 유저메일전송 (TZ_USERMAIL 에 등록)
-     * 
+     *
      * @param box receive from the form object and session
      * @return isOk 1:insert success,0:insert fail
      * @throws Exception
@@ -2356,7 +2356,7 @@ public class LoginBean {
                 // 접속통계 누적 부분
                 CountBean bean1 = new CountBean();
                 bean1.writeLog(connMgr, box); // 로그 작성
-                
+
                 // LOGIN DATA UPDATE
                 updateLoginData(connMgr, v_userid, v_userip, box.getSession("tem_grcode"));
                 createMemberLoginLog(connMgr, box, "ASP_SSO");
@@ -3360,15 +3360,15 @@ public class LoginBean {
                         sql.append("    ,   'Y'                                     /* STATE        */  \n");
                         sql.append("    ,   ?                                       /* MOBILE_USERID*/  \n");
                         sql.append("    ) \n");
-                        
+
                         pstmt = connMgr.prepareStatement(sql.toString());
-                        
+
                         pstmt.setString(index++, v_id);
                         pstmt.setString(index++, v_name);
                         pstmt.setString(index++, v_pw);
                         pstmt.setString(index++, grcode);
                         pstmt.setString(index++, mobileUserid);
-                        
+
                     } else {
                         sql.setLength(0);
                         sql.append("INSERT  INTO TZ_MEMBER (    \n");
@@ -3442,9 +3442,9 @@ public class LoginBean {
                         sql.append("    ,   ?                                       /* SEX      */  \n");
                         sql.append("    ,   ?                                       /* MOBILE_USERID*/  \n");
                         sql.append("    ) \n");
-    
+
                         pstmt = connMgr.prepareStatement(sql.toString());
-    
+
                         pstmt.setString(index++, "");
                         pstmt.setString(index++, v_id);
                         pstmt.setString(index++, v_pw);
@@ -3595,7 +3595,7 @@ public class LoginBean {
         int result = 0;
 
         try {
-            
+
             v_pwd = HashCipher.createHash(v_pwd);
 
             connMgr = new DBConnectionManager();
@@ -3610,9 +3610,9 @@ public class LoginBean {
             if (ls1.next()) {
                 if (ls1.getString("pwd").equals(v_pwd)) {
                     result = 1;
-                } 
+                }
             }
-            
+
         } catch (Exception ex) {
             ErrorManager.getErrorStackTrace(ex, box, sql1);
             throw new Exception("sql = " + sql1 + "\r\n" + ex.getMessage());
@@ -3720,9 +3720,9 @@ public class LoginBean {
                 connMgr = new DBConnectionManager();
                 connMgr.setAutoCommit(false);
                 sql = "update tz_member set "
-                		+ "pwd=?, "
-                		+ "passchangedt=to_char(sysdate, 'yyyymmddhh24miss') "
-                		+ "where userid=? and grcode=?";
+                        + "pwd=?, "
+                        + "passchangedt=to_char(sysdate, 'yyyymmddhh24miss') "
+                        + "where userid=? and grcode=?";
 
                 pstmt = connMgr.prepareStatement(sql);
 
@@ -3970,10 +3970,10 @@ public class LoginBean {
             connMgr = new DBConnectionManager();
             connMgr.setAutoCommit(false);
             sql1 = " update TZ_MEMBER set "
-            		+ "nextchange='Y', "
-            		+ "nextchangedate = to_char(sysdate, 'YYYYMMDDHH24MISS'), "
-            		+ "passchangedt = TO_CHAR((ADD_MONTHS(sysdate, -2)), 'YYYYMMDDHH24MISS')  "
-            		+ "where userid=?  \n";
+                    + "nextchange='Y', "
+                    + "nextchangedate = to_char(sysdate, 'YYYYMMDDHH24MISS'), "
+                    + "passchangedt = TO_CHAR((ADD_MONTHS(sysdate, -2)), 'YYYYMMDDHH24MISS')  "
+                    + "where userid=?  \n";
 
             pstmt = connMgr.prepareStatement(sql1);
 
@@ -4061,11 +4061,11 @@ public class LoginBean {
         }
         return is_Ok;
     }
-    
-    
+
+
     /**
      * 권한 리스트 가져오기
-     * 
+     *
      * @param box
      * @return
      * @throws Exception
@@ -4073,13 +4073,13 @@ public class LoginBean {
     public String selectAuthList(RequestBox box) throws Exception {
         DBConnectionManager connMgr = null;
         ListSet ls = null;
-        
+
         String v_userid = box.getString("p_id");
         StringBuffer sql = new StringBuffer();
-        
+
         DataBox dbox = null;
         String return_auth = "";
-        
+
         try {
             connMgr = new DBConnectionManager();
 
@@ -4092,14 +4092,14 @@ public class LoginBean {
             sql.append(" ORDER BY B.GADMIN ASC ");
 
             ls = connMgr.executeQuery(sql.toString());
-            
+
             while(ls.next()){
-            	dbox = ls.getDataBox();
-            	return_auth = return_auth + dbox.getString("d_gadmin") + "^" + dbox.getString("d_gadminnm") + "||";
+                dbox = ls.getDataBox();
+                return_auth = return_auth + dbox.getString("d_gadmin") + "^" + dbox.getString("d_gadminnm") + "||";
             }
-            
+
             if(!return_auth.equals("")){
-            	return_auth = return_auth.substring(0, return_auth.length() - 2);
+                return_auth = return_auth.substring(0, return_auth.length() - 2);
             }
         } catch (Exception ex) {
             ErrorManager.getErrorStackTrace(ex);
@@ -4120,7 +4120,7 @@ public class LoginBean {
         }
         return return_auth;
     }
-    
+
     public int ASP_updateAgreeChk(RequestBox box) throws Exception {
         DBConnectionManager connMgr = null;
         ListSet ls = null;
@@ -4147,7 +4147,7 @@ public class LoginBean {
             isOk = pstmt.executeUpdate();
 
             if (isOk == 1) {
-            	box.setSession("agreechk", "Y");
+                box.setSession("agreechk", "Y");
                 connMgr.commit();
             } else {
                 connMgr.rollback();
@@ -4178,5 +4178,45 @@ public class LoginBean {
             }
         }
         return isOk;
+    }
+
+    // 로그인 실패횟 수 가져오기
+    public int getLgFail(RequestBox box) throws Exception {
+        DBConnectionManager connMgr = null;
+        ListSet ls1 = null;
+        String sql1 = "";
+        String v_userid = box.getString("p_userid");
+        int result = 0;
+
+        try {
+            connMgr = new DBConnectionManager();
+
+            // 아이디로 비교
+            sql1 = " select nvl(lgfail, 0) as lgfail     ";
+            sql1 += " from TZ_MEMBER  ";
+            sql1 += " WHERE userid =" + StringManager.makeSQL(v_userid);
+
+            ls1 = connMgr.executeQuery(sql1);
+            if (ls1.next()) {
+                result = ls1.getInt("lgfail");
+            }
+        } catch (Exception ex) {
+            ErrorManager.getErrorStackTrace(ex, box, sql1);
+            throw new Exception("sql = " + sql1 + "\r\n" + ex.getMessage());
+        } finally {
+            if (ls1 != null) {
+                try {
+                    ls1.close();
+                } catch (Exception e) {
+                }
+            }
+            if (connMgr != null) {
+                try {
+                    connMgr.freeConnection();
+                } catch (Exception e10) {
+                }
+            }
+        }
+        return result;
     }
 }

@@ -117,6 +117,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
     <link rel="stylesheet" href="/css/admin_style.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="/css/ui-lightness/ui.all.css" />
+    <link rel="stylesheet" type="text/css" href="/css/2023/admin.css"> <!-- 커스텀 css 추가-->
     <script language = "javascript" src = "/script/cresys_lib.js"></script>
     <script language = "VBScript" src = "/script/cresys_lib.vbs"></script>
     <script type='text/javascript' src='/script/jquery-1.3.2.min.js'></script>
@@ -127,7 +128,23 @@
     <script type="text/javascript" src="/script/ui.datepicker.js"></script>
 
     <script language="JavaScript">
-        <!--
+        //레이어창 열기
+        function fnlayerpopup(){
+            $(this).click(function (){
+                //$('html, body').css("overflow","hidden");
+                $('.sub_layer_statistics, .opacity_layer_bg01').addClass('on');
+            });
+        }
+
+        // 레이어창 닫기
+        function layerClose(){
+            $(this).click(function (){
+                //$('html, body').css('overflow','auto');
+                $('.sub_layer_statistics, .opacity_layer_bg01').removeClass('on');
+            });
+        }
+
+        //<!--
         // 조회 검색
         function whenSelection(p_action) {
             if($("#p_sdt").val() == "") {
@@ -330,10 +347,24 @@
 
         //엑셀 출력
         function goExcel() {
+            if($("#downMemo").val() == "") {
+                alert("엑셀 다운 사유를 입력하세요.");
+                $("#downMemo").focus();
+
+                return;
+            }
+
+            $("#p_memo").val($("#downMemo").val());
+
             document.form1.target = "_self";
             document.form1.action = '/servlet/controller.statistics.SynthesizeStatisticServlet';
             document.form1.p_process.value = "selectUsersStatisticListExcel";
             document.form1.submit();
+
+            layerClose(); // 레이어창 닫힘
+
+
+
         }
 
         // 탭 선택
@@ -427,27 +458,28 @@
                                 <td bgcolor="#FFFFFF" align="center" valign="top">
                                     <table cellspacing="0" cellpadding="1" class="form_table_out" style="width: 100%;">
                                         <form id="form1" name="form1" method="post" action="/servlet/controller.statistics.SynthesizeStatisticServlet">
-                                        <input type="hidden" name="p_pageno" value="<%=v_pageno%>">
-                                        <input type="hidden" name="p_pagesize" value="<%=v_pagesize%>">
-                                        <input type="hidden" name="p_process" value="">
-                                        <input type="hidden" name="p_action" value="">
-                                        <input type="hidden" name="p_sort" value="">
-                                        <tr>
-                                            <td bgcolor="#C6C6C6" align="center">
-                                                <table class="form_table_bg" >
-                                                    <tr>
-                                                        <td height="7"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="center">
-                                                            <table border="0" width="99%" class="form_table">
-                                                                <colgroup>
-                                                                    <col width="10%">
-                                                                    <col width="30%">
-                                                                    <col width="5%">
-                                                                    <col width="55%">
-                                                                </colgroup>
-                                                                <tbody>
+                                            <input type="hidden" name="p_pageno" value="<%=v_pageno%>">
+                                            <input type="hidden" name="p_pagesize" value="<%=v_pagesize%>">
+                                            <input type="hidden" name="p_process" value="">
+                                            <input type="hidden" name="p_action" value="">
+                                            <input type="hidden" name="p_sort" value="">
+                                            <input type="hidden" name="p_memo" id="p_memo" value="">
+                                            <tr>
+                                                <td bgcolor="#C6C6C6" align="center">
+                                                    <table class="form_table_bg" >
+                                                        <tr>
+                                                            <td height="7"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="center">
+                                                                <table border="0" width="99%" class="form_table">
+                                                                    <colgroup>
+                                                                        <col width="10%">
+                                                                        <col width="30%">
+                                                                        <col width="5%">
+                                                                        <col width="55%">
+                                                                    </colgroup>
+                                                                    <tbody>
                                                                     <tr>
                                                                         <td class="_tdT">
                                                                             교육구분
@@ -472,11 +504,11 @@
 
                                                                                             if( g_dbox.getString("d_grcode").equals(v_grcode)) {
                                                                                 %>
-                                                                                    <option value="<%= g_dbox.getString("d_grcode") %>" selected><%= g_dbox.getString("d_grcodenm") %></option>
+                                                                                <option value="<%= g_dbox.getString("d_grcode") %>" selected><%= g_dbox.getString("d_grcodenm") %></option>
                                                                                 <%
-                                                                                            } else {
+                                                                                } else {
                                                                                 %>
-                                                                                    <option value="<%= g_dbox.getString("d_grcode") %>"><%= g_dbox.getString("d_grcodenm") %></option>
+                                                                                <option value="<%= g_dbox.getString("d_grcode") %>"><%= g_dbox.getString("d_grcodenm") %></option>
                                                                                 <%
                                                                                             }
                                                                                         }
@@ -590,13 +622,13 @@
                                                                     <tr>
                                                                         <td height="9"></td>
                                                                     </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
                                         </form>
                                     </table>
                                     <br>
@@ -610,11 +642,13 @@
                                                 </select>
                                             </td>
                                             <td align="right">
-                                            <% if( ss_action.equals("go") ){  %>
-                                                <a href="javascript:goExcel()" class="c"><img src="/images/admin/button/btn_excelprint.gif"  border="0"></a>
-                                            <% } else { %>
+                                                <% if( ss_action.equals("go") ){  %>
+
+                                                <%--<a href="javascript:fnlayerpopup();" class="c"><img src="/images/admin/button/btn_excelprint.gif"  border="0"></a>--%>
+                                                <span onclick="fnlayerpopup();" class="c" style="cursor: pointer;"><img src="/images/admin/button/btn_excelprint.gif"  border="0"></span>
+                                                <% } else { %>
                                                 <a href="javascript:alert('조회 후 엑셀을 출력하세요.');" class="c"><img src="/images/admin/button/btn_excelprint.gif"  border="0"></a>
-                                            <% } %>
+                                                <% } %>
                                             </td>
                                         </tr>
                                         <tr>
@@ -675,8 +709,8 @@
                                             <td class="table_02_1"><%= dbox.getInt("d_gra_cnt") %></td>
                                         </tr>
                                         <%
-                                                    }
-                                                } else {
+                                            }
+                                        } else {
                                         %>
                                         <tr>
                                             <td align="center" bgcolor="#F7F7F7" height="50" colspan="15">검색된 데이터가 없습니다</td>
@@ -708,6 +742,24 @@
         <td><%@ include file = "/learn/library/getJspName.jsp" %></td>
     </tr>
 </table>
+
+<!-- layer -->
+<div class="opacity_layer_bg01"></div>
+<div class="layer_wrap sub_layer_statistics">
+    <div class="layer_top">
+        <button type="button" title="닫기" class="btn_layerClose" onclick="layerClose();">닫기</button>
+        <h5>다운로드 사유</h5>
+    </div>
+    <div class="content_box">
+        <input type="text" id="downMemo" placeholder="다운로드 사유를 입력하세요.">
+    </div>
+    <div class="double_btn_box">
+        <span title="확인" class="btn_layerClose" onclick="goExcel();">확인</span>
+        <span title="닫기" class="btn_layerClose" onclick="layerClose();">닫기</span>
+    </div>
+
+</div>
+
 <style>
     ._tdT{text-align: right;}
 </style>

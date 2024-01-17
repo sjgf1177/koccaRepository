@@ -12,6 +12,7 @@ import com.credu.library.*;
 import com.dunet.common.util.Constants;
 import com.dunet.common.util.EncryptUtil;
 
+import java.sql.PreparedStatement;
 import java.util.*;
 
 @SuppressWarnings("unchecked")
@@ -30,9 +31,9 @@ public class SynthesizeStatisticsBean {
 	}
 
 	/**
-    회원 통계 리스트
-    @param box      receive from the form object and session
-    @return ArrayList
+	 회원 통계 리스트
+	 @param box      receive from the form object and session
+	 @return ArrayList
 	 */
 	public ArrayList selectUsersStatisticList(RequestBox box) throws Exception {
 		DBConnectionManager connMgr = null;
@@ -1295,6 +1296,7 @@ public class SynthesizeStatisticsBean {
 	 */
 	public ArrayList selectUsersStatisticListExcel(RequestBox box) throws Exception {
 		DBConnectionManager connMgr = null;
+		PreparedStatement pstmt = null;
 		ListSet ls = null;
 		ArrayList<DataBox> list = null;
 		DataBox dbox = null;
@@ -1302,6 +1304,7 @@ public class SynthesizeStatisticsBean {
 		String sql2 = "";
 		String sql3 = "";
 		String query = "";
+		String sql = "";
 
 		String v_edu_type = box.getString("p_edu_type");
 		String v_grcode = box.getString("p_grcode");
@@ -1590,6 +1593,32 @@ public class SynthesizeStatisticsBean {
 				list.add(dbox);
 			}
 
+			String v_userid = box.getSession("userid");
+			String v_memo = box.getString("p_memo");
+			String v_hostAddress = box.getString("userip");
+
+			sql = "INSERT INTO TZ_DOWN_MEMO ( 				\n";
+			sql += "	down_dt								\n";
+			sql += ", 	userid								\n";
+			sql += ", 	userip								\n";
+			sql += ", 	down_menu							\n";
+			sql += ", 	down_memo 							\n";
+			sql += ") 										\n";
+			sql += " VALUES (								\n";
+			sql += "	to_char(sysdate,'YYYYMMDDHH24MISS')	\n";
+			sql += ", 	?									\n";
+			sql += ", 	?									\n";
+			sql += ", 	'통계/분석-종합통계-회원통계'			\n";
+			sql += ", 	?									\n";
+			sql += ")";
+
+			pstmt = connMgr.prepareStatement(sql);
+			pstmt.setString(1, v_userid);
+			pstmt.setString(2, v_hostAddress);
+			pstmt.setString(3, v_memo);
+
+			pstmt.executeUpdate();
+
 		} catch (Exception ex) {
 			ErrorManager.getErrorStackTrace(ex, box, query);
 			throw new Exception("sql1 = " + query + "\r\n" + ex.getMessage());
@@ -1606,6 +1635,12 @@ public class SynthesizeStatisticsBean {
 				} catch (Exception e10) {
 				}
 			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (Exception e) {
+				}
+			}
 		}
 		return list;
 	}
@@ -1617,12 +1652,14 @@ public class SynthesizeStatisticsBean {
 	 */
 	public ArrayList selectEduUsersStatisticListExcel(RequestBox box) throws Exception {
 		DBConnectionManager connMgr = null;
+		PreparedStatement pstmt = null;
 		ListSet ls = null;
 		ArrayList<DataBox> list = null;
 		DataBox dbox = null;
 		String sql1 = "";
 		String sql2 = "";
 		String sql3 = "";
+		String sql = "";
 		String query = "";
 
 		String v_edu_type = box.getString("p_edu_type_eu");
@@ -2034,6 +2071,32 @@ public class SynthesizeStatisticsBean {
 				list.add(dbox);
 			}
 
+			String v_userid = box.getSession("userid");
+			String v_memo = box.getString("p_memo");
+			String v_hostAddress = box.getString("userip");
+
+			sql = "INSERT INTO TZ_DOWN_MEMO ( 				\n";
+			sql += "	down_dt								\n";
+			sql += ", 	userid								\n";
+			sql += ", 	userip								\n";
+			sql += ", 	down_menu							\n";
+			sql += ", 	down_memo 							\n";
+			sql += ") 										\n";
+			sql += " VALUES (								\n";
+			sql += "	to_char(sysdate,'YYYYMMDDHH24MISS')	\n";
+			sql += ", 	?									\n";
+			sql += ", 	?									\n";
+			sql += ", 	'통계/분석-종합통계-교육인원통계'		\n";
+			sql += ", 	?									\n";
+			sql += ")";
+
+			pstmt = connMgr.prepareStatement(sql);
+			pstmt.setString(1, v_userid);
+			pstmt.setString(2, v_hostAddress);
+			pstmt.setString(3, v_memo);
+
+			pstmt.executeUpdate();
+
 		} catch (Exception ex) {
 			ErrorManager.getErrorStackTrace(ex, box, query);
 			throw new Exception("sql1 = " + query + "\r\n" + ex.getMessage());
@@ -2050,6 +2113,12 @@ public class SynthesizeStatisticsBean {
 				} catch (Exception e10) {
 				}
 			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (Exception e) {
+				}
+			}
 		}
 		return list;
 	}
@@ -2061,12 +2130,14 @@ public class SynthesizeStatisticsBean {
 	 */
 	public ArrayList selectEduResultStatisticListExcel(RequestBox box) throws Exception {
 		DBConnectionManager connMgr = null;
+		PreparedStatement pstmt = null;
 		ListSet ls = null;
 		ArrayList<DataBox> list = null;
 		DataBox dbox = null;
 		String sql1 = "";
 		String sql2 = "";
 		String sql3 = "";
+		String sql = "";
 		String query = "";
 
 		String v_edu_type = box.getString("p_edu_type_er");
@@ -2323,6 +2394,32 @@ public class SynthesizeStatisticsBean {
 				list.add(dbox);
 			}
 
+			String v_userid = box.getSession("userid");
+			String v_memo = box.getString("p_memo");
+			String v_hostAddress = box.getString("userip");
+
+			sql = "INSERT INTO TZ_DOWN_MEMO ( 				\n";
+			sql += "	down_dt								\n";
+			sql += ", 	userid								\n";
+			sql += ", 	userip								\n";
+			sql += ", 	down_menu							\n";
+			sql += ", 	down_memo 							\n";
+			sql += ") 										\n";
+			sql += " VALUES (								\n";
+			sql += "	to_char(sysdate,'YYYYMMDDHH24MISS')	\n";
+			sql += ", 	?									\n";
+			sql += ", 	?									\n";
+			sql += ", 	'통계/분석-종합통계-교육성과통계'		\n";
+			sql += ", 	?									\n";
+			sql += ")";
+
+			pstmt = connMgr.prepareStatement(sql);
+			pstmt.setString(1, v_userid);
+			pstmt.setString(2, v_hostAddress);
+			pstmt.setString(3, v_memo);
+
+			pstmt.executeUpdate();
+
 		} catch (Exception ex) {
 			ErrorManager.getErrorStackTrace(ex, box, query);
 			throw new Exception("sql1 = " + query + "\r\n" + ex.getMessage());
@@ -2337,6 +2434,12 @@ public class SynthesizeStatisticsBean {
 				try {
 					connMgr.freeConnection();
 				} catch (Exception e10) {
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (Exception e) {
 				}
 			}
 		}
