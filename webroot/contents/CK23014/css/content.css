@@ -115,13 +115,14 @@ textarea::-ms-input-placeholder { /* Internet Explorer Edge  */color:#c5c5c5;}
 #navigation ul > li:nth-child(2) ul li a {padding:0; background:url('');}
 
 /*차시목록*/
-#chapterNavi {position:absolute; top:0; left:0; top:0; width:23%; height:0; margin:0 0 0 0px; background:rgb(0,0,0, 0.9);  border-radius:22px 22px 0 0; overflow-y:hidden; z-index:110;}
+#chapterNavi {position:absolute; top:0; left:-999px; width:23%; height:93%; margin:0 0 0 0; background:rgb(0,0,0, 0.8); overflow-y:hidden; z-index:110;}
 #chapnavigation {width:100%; height:100%; overflow-y: auto;}
 #chapnavigation:after {content:""; display:block; clear:both;}
 #chapnavigation > ul {padding:20px 0 0 0;}
 #chapnavigation > ul > li > div{display: flex;}
-#chapnavigation > ul > li > div > span, #chapnavigation > ul > li > div > a {display:block; font-size:15px; color:#fff; font-weight:600; line-height:1.4; margin:0 0 6px 0; padding:0 0 0 12px; }
+#chapnavigation > ul > li > div > span, #chapnavigation > ul > li > div > a {display:block; font-size:13px; color:#fff; font-weight:600; line-height:1.4; margin:0 0 6px 0; padding:0 0 0 12px; }
 #chapnavigation > ul > li > div > span.ltxton, #chapnavigation > ul > li > div > a.ltxton{color:#fff;}
+/*#chapnavigation > ul > li > div > a.ltxton:hover{color:rgb(255 0 0);}*/
 
 
 /** quiz *

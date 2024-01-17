@@ -7,7 +7,7 @@ button{background: transparent; border: none;}
 #jp_video_0 {position:relative;}
 /*jplay desing ==========================================================================================================================*/
 .jp-video *:focus {outline:none;}
-.jp-video button:-moz-focus-inner {border:0;}
+.jp-video button::-moz-focus-inner {border:0;}
 .jp-controls button {display:block; float:left;  border:none; cursor:pointer; margin: 0 7px;}
 .jp_poster_0 {width:100%;}
 
@@ -26,8 +26,9 @@ button{background: transparent; border: none;}
 .jp-util ul li a span {display:none; position:absolute; left:50%; top:-50px; width:61px; height:35px; margin:0 0 0 -100px;}
 .jp-util ul li .u_index {position: relative ;width:55px; height:22px; background:url('../images/img/img_u_index.png') left top no-repeat;}
 /*.jp-util ul li .u_index:hover {background:url('../images/img/img_u_index_on.png') left top no-repeat;}*/
-.jp-util ul li .u_index span {background:url('../images/img/img_u_index_alert.png') left top no-repeat;}
-.jp-util ul li .u_chapter {position: relative ;width:55px; height:22px; background:url('../images/img/img_u_chasi.png') left top no-repeat;}
+/*.jp-util ul li .u_index span {background:url('../images/img/img_u_index_alert.png') left top no-repeat;}*/
+/*.jp-util ul li .u_chapter {position: relative ;width:55px; height:22px; background:url('../images/img/img_u_chasi.png') left top no-repeat;}*/
+.jp-util ul li .u_chapter {position: relative ;width:55px; height:22px; background:url('../images/img/img_u_index.png') left top no-repeat;}
 
 
 
@@ -45,6 +46,12 @@ button{background: transparent; border: none;}
 /*.jp-script:hover {background:url('../images/jplayer/jp_script_btn_on.png') left top no-repeat;}*/
 .jp-replay {width:40px; height:30px; padding:0; background:url('../images/jplayer/jp_replay_btn.png') left top no-repeat;}
 /*.jp-replay:hover {background:url('../images/jplayer/jp_replay_btn_on.png') left top no-repeat;}*/
+
+.jp-cur-rewind{position:relative; width:30px; height:30px; padding:0;}
+.jp-cur-rewind{background:url('../images/jplayer/fast_rewind_FILL1_wght400_GRAD0_opsz48.svg') center no-repeat; background-color:transparent; background-size: contain;}
+.jp-cur-forward{position:relative; width:30px; height:30px; padding:0;}
+.jp-cur-forward{background:url('../images/jplayer/fast_forward_FILL1_wght400_GRAD0_opsz48.svg') center no-repeat; background-color:transparent; background-size: contain;}
+
 
 .jp-time-display{display: flex; align-items: center; margin-left: 10px;}
 /*.jp-current-time {width:auto; top:2px; float:left; display:inline-block; cursor:default; font-size:12px; color:#0dccfa;}*/
@@ -121,7 +128,11 @@ button{background: transparent; border: none;}
   white-space: nowrap;
   font-weight: bold;
 }
-.u_index.tooltip  .sub_tooltip, .jp-full-screen .sub_tooltip, .jp-mute .sub_tooltip{transform: translate(-50%, 10px);}
+.u_index.tooltip  .sub_tooltip,
+.jp-full-screen .sub_tooltip,
+.jp-mute .sub_tooltip{transform: translate(-50%, 10px);}
+.sub_tooltip, .jp-util ul li .u_chapter .sub_tooltip{transform: translate(-50%, 10px);}
+
 .jp-util ul li a span.sub_tooltip{width: auto; height: auto; margin: 0;}
 
 .tooltip:hover .sub_tooltip, .jp-util ul li a.tooltip:hover span.sub_tooltip{display: block;}
@@ -185,14 +196,27 @@ button{background: transparent; border: none;}
 .play {display:none; position:absolute; left:50%; top:50%; margin:-100px 0 0 -102px; z-index:10;}
 
 
-.jp-play.mobile{position: fixed; top:50%; left:50%; width:210px; height:210px; transform: translate(-50%, -50%); cursor: pointer; display: inline; background: url(../images/svg/play_circle_FILL0_wght500_GRAD0_opsz48.svg) no-repeat; background-size: contain;}
-.jp-state-playing .jp-play.mobile{background: url('../images/svg/pause_circle_FILL0_wght500_GRAD0_opsz48.svg') no-repeat; background-size: contain;}
+.jp-play.mobile{position: fixed; top:50%; left:50%; width:110px; height:110px; transform: translate(-50%, -50%); cursor: pointer; display: inline; background: url(../images/svg/play_circle_FILL0_wght500_GRAD0_opsz48.svg) no-repeat; background-size: contain; z-index: 1001;}
+/*.jp-state-playing .jp-play.mobile{background: url('../images/svg/pause_circle_FILL0_wght500_GRAD0_opsz48.svg') no-repeat; background-size: contain;}*/
+.jp-state-playing .jp-play.mobile{background: url('../images/jplayer/btn_pause.png') no-repeat;}
 
 
+[class^="circle-static"]{display:none; position: absolute; top:50%; width:110px; transform: translate(-50%, -50%); padding-top: 70px; background-repeat: no-repeat; background-size: 30px; background-position: center; background-color: rgba(0,0,0,.6); border-radius: 50%; transition: all 2s;}
+[class^="circle-static"] p{margin-bottom: 30px; font-size: 1.2rem; color:#fff; text-align: center;}
+.circle-static-rewind{left:20%; background-image: url("../images/jplayer/fast_rewind_FILL1_wght400_GRAD0_opsz48.svg");}
+.circle-static-forward{right:10%; background-image: url("../images/jplayer/fast_forward_FILL1_wght400_GRAD0_opsz48.svg");}
+
+/* 자막 */
+.scriptWrap{ display: none; position: absolute; left: 50%; transform: translateX(-50%);}
+.scriptWrap .scriptTxt{font-size: 13px; background-color: rgba(8, 8, 8, 0.75); color: #fff; padding: 10px; border-radius: 6px;}
+
+@media screen and (max-width:1100px){
+  .jp-controls-holder{width: 27em;}
+}
 @media screen and (max-width:1024px){
   .jp-gradient-box{height: 100%; background: rgb(0,0,0, 0.7);}
   .jp-current-time, .jp-time-line, .jp-duration{font-size: 14px;}
-  .jp-controls-holder{width: 240px;}
+
   
   .jp-script{position: relative;}
   .jp-script:after{left:25px;}
@@ -217,6 +241,9 @@ button{background: transparent; border: none;}
   .jp-controls .pageNext{right: 3em;}
 
   .jp-stop{width: 10em; height: 10em;}
+
+  .scriptWrap .scriptTxt{font-size: 10px; padding: 5px;}
+  .jp-controls button{display: none;}
 }
 
 @media screen and (max-width:380px){

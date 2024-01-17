@@ -1,7 +1,7 @@
 
 ///////////////////////// HTML 설정 ///////////////////////////////////////////////////////////////////////
-var topTitle = "콘텐츠 타이틀 명 ";							// 브라우저 타이틀
-document.title = topTitle;
+var topTitle = "콘텐츠 타이틀 명 "; // 브라우저 타이틀
+//document.title = topTitle;
 
 var buttonclick_key;
 
@@ -29,35 +29,39 @@ return str;
 }
 
 
-/*****************************************************************************************/ 
-//영상경로 설정
-/*****************************************************************************************/
+///////////////////////// 영상경로 설정 ///////////////////////////////////////////////////////////////////////
 var nowIndex = document.URL.split(File_makeName)[0];
 var chapter = nowIndex.substring(nowIndex.length-5,nowIndex.length-3); // 차시
 var page = nowIndex.substring(nowIndex.length-2,nowIndex.length); // 페이지
 var subjectCode = "CK23014"; // 과정코드
 
 
+/*
+** 포팅시 수정
+*/
 //var mURL = "../mp4"; //로컬
 var mURL = "https://edu_kocca.ecn.cdn.infralab.net/kocca/mp4/onlineclass"; //서버 영상경로
-var mp4_Name = mURL +"/" + subjectCode + "/" + chapter+ "/" + chapter + "_" + page + ".mp4";
+// var mp4_Name = mURL +"/" + subjectCode + "/" + chapter+ "/" + chapter + "_" + page + ".mp4"; // 01/01_01.mp4
+var mp4_Name = mURL +"/" + subjectCode + "/" + chapter + ".mp4";  // 01.mp4
 
 
 
 
-/*****************************************************************************************/ 
-// 차시별 페이지 설정
-/*****************************************************************************************/
+///////////////////////// 차시별 페이지 설정 ///////////////////////////////////////////////////////////////////////
+
+/*
+** 포팅시 수정
+*/
 var tot_page = new Array();
 // EX) 총 5페이지 = 05  / 총 10페이지 = 10 
-
-tot_page[1]="04"; // 1차시 10페이지 = tot_page[차시번호]="페이지수";
-tot_page[2]="04";
-tot_page[3]="04";
-tot_page[4]="04";
-tot_page[5]="04";
-tot_page[6]="04";
-tot_page[7]="04";
+// 1차시 10페이지 = tot_page[차시번호]="페이지수";
+tot_page[1]="12";
+tot_page[2]="14";
+tot_page[3]="14";
+tot_page[4]="16";
+tot_page[5]="17";
+tot_page[6]="17";
+tot_page[7]="15";
 
 //페이지 이동 버튼 생성
 function page_movebtn(){
@@ -65,7 +69,7 @@ function page_movebtn(){
 	//이전페이지 이동 버튼
 	$(".jp-controls").prepend("<a href='javascript:prev(" + page + ");' class='pagePrev motoggle tooltip' title='이전'><span class='sub_tooltip'>이전</span></a>");
 	//다음페이지 이동 버튼
-	$(".jp-play.tooltip").after("<a href='javascript:;' class='nextFunc pageNext motoggle tooltip' data-page='" + page + "'title='다음'><span class='sub_tooltip'>다음</span></a>");
+	$(".jp-cur-forward.tooltip").after("<a href='javascript:;' class='nextFunc pageNext motoggle tooltip' data-page='" + page + "'title='다음'><span class='sub_tooltip'>다음</span></a>");
 };
 
 page_movebtn();
