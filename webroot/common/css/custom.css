@@ -507,30 +507,29 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:45px;
 /* 썸네일 게시판 바디 */
 .sub_thumb_body{}
 .sub_thumb_body .thumb_box{ max-width: 48%; margin:0 0 25px 0; flex:1 1 auto;}
-.sub_thumb_body .thumb_box.card{border:none;}
-.sub_thumb_body .thumb_box.card{}
+.sub_thumb_body .thumb_box.card{border: 1px solid #ededed; box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.1); padding: 10px;}
 .sub_thumb_body .thumb_box:hover{}
 .sub_thumb_body .thumb_box:after{content:''; display:block; clear:both;}
 .sub_thumb_body .thumb_box .thumb_imgBox{width:100%; height: 228px;}
 .sub_thumb_body .thumb_box .thumb_imgBox img{width: 100%; height: 100%;}
 .sub_thumb_body .thumb_box .thumb_con{width: 100%;}
-.sub_thumb_body .thumb_box .thumb_con .thumb_top_tag{width:100%; height:20px; margin-bottom:5px;}
-.sub_thumb_body .thumb_box .thumb_con .thumb_top_tag .tag_type_new{width:40px; border-radius: 5px; height:20px; background:#149f80; text-align: center;}
-.sub_thumb_body .thumb_box .thumb_con .thumb_top_tag .tag_type_new:after{content:'신규'; color:white; width:100%; line-height: 20px; font-weight: 400; font-size:12px;}
-.sub_thumb_body .thumb_box .thumb_con .thumb_top_tag .tag_type_recommend{width:40px; border-radius: 5px; height:20px; background:#566bcf; text-align: center;}
-.sub_thumb_body .thumb_box .thumb_con .thumb_top_tag .tag_type_recommend:after{content:'추천'; color:white; width:100%; line-height: 20px; font-weight: 400; font-size:13px;}
-.sub_thumb_body .thumb_box .thumb_con .thumb_top_tag .tab_type_popular{width:40px; border-radius: 5px; height:20px;  background-color:#441CBA; text-align: center;}
-.sub_thumb_body .thumb_box .thumb_con .thumb_top_tag .tab_type_popular:after{content:'인기'; color:white; width:100%; line-height: 20px; font-weight:400; font-size:13px;}
-.sub_thumb_body .thumb_box .thumb_con .thumb_title{color:#333; font-size:16px; font-weight: 600; margin-bottom:15px;}
+.sub_thumb_body .thumb_box .thumb_con .thumb_top_tag{width:100%; height:26px; margin-bottom:10px;}
+.sub_thumb_body .thumb_box .thumb_con .thumb_top_tag .tag_type_new{width:40px; border-radius: 9px; border:1px solid #149f80; text-align: center;}
+.sub_thumb_body .thumb_box .thumb_con .thumb_top_tag .tag_type_new:after{content:'신규'; color:#149f80; width:100%; line-height: 20px; font-weight: 400; font-size:13px;}
+.sub_thumb_body .thumb_box .thumb_con .thumb_top_tag .tag_type_recommend{width:40px; border-radius: 9px;  border:1px solid #566bcf; text-align: center;}
+.sub_thumb_body .thumb_box .thumb_con .thumb_top_tag .tag_type_recommend:after{content:'추천'; color:#566bcf; width:100%; line-height: 20px; font-weight: 400; font-size:13px;}
+.sub_thumb_body .thumb_box .thumb_con .thumb_top_tag .tag_type_popular{width:40px; border-radius: 9px; border:1px solid #441CBA; text-align: center;}
+.sub_thumb_body .thumb_box .thumb_con .thumb_top_tag .tag_type_popular:after{content:'인기'; color:#441CBA; width:100%; line-height: 20px; font-weight:400; font-size:13px;}
+.sub_thumb_body .thumb_box .thumb_con .thumb_title{color:#333; font-size:20px; font-weight: 600; margin-bottom:15px; line-height: 26px;}
 .textline2{display: -webkit-box;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: normal;
-    -webkit-line-clamp: 1;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     word-wrap: break-word;
     letter-spacing: -0.025em;
-    height: 25px;}
+    height: 55px;}
 .sub_thumb_body .thumb_box .thumb_con .thumb_con_Info li{font-size:14px; line-height:16px; font-weight: 400;}
 .sub_thumb_body .thumb_box .thumb_con .thumb_con_Info li.blue{color:#40abd4 !important;}
 .sub_thumb_body .thumb_box .thumb_con .thumb_con_Info li span{color:#999999;}
@@ -792,7 +791,9 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:45px;
     .image_banner_con a{float:right; color:white; border:solid 1px white; border-radius: 12px; width:80px; height:24px; text-align: center; line-height:24px; line-height: 2.4rem; font-size:11px; font-size: 1.1rem;}
     .image_banner_con p{color:#ececec; font-size:12px; font-size:1.2rem; line-height:20px; line-height: 2.0rem; position: absolute; bottom:65px; left:50%; width:278px; transform:translateX(-50%); margin-bottom:0}
 }
-
+@media (min-width:2400px){
+    .fixed-header-box{width: 18%;}
+}
 @media (min-width: 1299px){
 
 }

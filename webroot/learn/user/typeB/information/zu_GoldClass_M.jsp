@@ -117,12 +117,18 @@ function fnSelect(){
 					<c:forEach items="${openClassList }" var="list" varStatus="status">
 						<div class="thumb_box card">
 							<a href="javascript:viewContent('<c:out value="${list.d_seq }" />');" class="thumb_imgBox">
-								<img src="<c:out value="${list.d_vodimg }" />" alt="<c:out value="${list.d_lecnm }" />">
+								<%--<img src="<c:out value="${list.d_vodimg }" />" alt="<c:out value="${list.d_lecnm }" />">--%>
+									<img src="/images/2023/CB23003.png" alt="섬네일 호출">
 							</a>
 							<div class="card-body thumb_con">
+								<div class="thumb_top_tag">
+									<span class="tag_type_new"></span>
+									<span class="tag_type_recommend"></span>
+									<span class="tag_type_popular"></span>
+								</div>
 								<a href="javascript:viewContent('<c:out value="${list.d_seq }" />');" class="card-title"><span class="thumb_title textline2"><c:out value="${list.d_lecnm }" /></span></a>
 								<ul class="thumb_con_Info card-text">
-									<li style="margin-bottom: 5px;">
+									<%--<li style="margin-bottom: 5px;">
 										<c:forEach begin="1" end="${list.d_checkpoin }" step="1">
 											<!--<img src="/common/image/ico_star_on.png" alt="별점">-->
 											<i class="bi bi-star-fill" style="color: #f3c71a; font-size: 15px;" title="별점"></i>
@@ -131,14 +137,14 @@ function fnSelect(){
 											<!--<img src="/common/image/ico_star_off.png" alt="별점">-->
 											<i class="bi bi-star-fill" style="color: #cfd1d3; font-size: 15px;" title="별점"></i>
 										</c:forEach>
-									</li>
-									<li><span><c:out value="${list.d_tutornm }" /> · 총 <c:out value="${list.d_lectime }" />초 · 조회수 <c:out value="${list.d_viewcnt }" /></span></li>
+									</li>--%>
+									<li><span><c:out value="${list.d_tutornm }" /> <%--· 총 <c:out value="${list.d_lectime }" />초--%> · 조회수 <c:out value="${list.d_viewcnt }" /></span></li>
 
 								</ul>
-								<div class="thumb_button">
+								<%--<div class="thumb_button">
 									<a href="javascript:openGoldClass('<c:out value="${list.d_seq }" />', '<c:out value="${list.d_d_width_s }" />','<c:out value="${list.d_height_s }" />');" class="apply_btn btn btn-purple" style="margin-top:15px;">강좌보기</a>
 									<a href="javascript:goReply('<c:out value="${list.d_seq }" />');" class="command_btn btn btn-outline-secondary" style="margin-top:15px;">의견달기</a>
-								</div>
+								</div>--%>
 							</div>
 						</div>
 						<c:set var="totalpage" value="${list.d_totalpage }" />
