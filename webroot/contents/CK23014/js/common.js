@@ -291,6 +291,7 @@ $(window).load(function(){
                 //console.log(track.activeCues[0].text);
                 $('.scriptTxt').html(activeCue.text.replace("\n", "<br/>")); //vtt 텍스트 출력
             } catch (e) {
+                $('.scriptTxt').html('자막이 제공되지 않는 콘텐츠 입니다.');
             }
 
         });

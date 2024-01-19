@@ -198,7 +198,7 @@ button{background: transparent; border: none;}
 
 .jp-play.mobile{position: fixed; top:50%; left:50%; width:110px; height:110px; transform: translate(-50%, -50%); cursor: pointer; display: inline; background: url(../images/svg/play_circle_FILL0_wght500_GRAD0_opsz48.svg) no-repeat; background-size: contain; z-index: 1001;}
 /*.jp-state-playing .jp-play.mobile{background: url('../images/svg/pause_circle_FILL0_wght500_GRAD0_opsz48.svg') no-repeat; background-size: contain;}*/
-.jp-state-playing .jp-play.mobile{background: url('../images/jplayer/btn_pause.png') no-repeat;}
+.jp-state-playing .jp-play.mobile{background: url('../images/jplayer/btn_pause.png') no-repeat; background-size: contain;}
 
 
 [class^="circle-static"]{display:none; position: absolute; top:50%; width:110px; transform: translate(-50%, -50%); padding-top: 70px; background-repeat: no-repeat; background-size: 30px; background-position: center; background-color: rgba(0,0,0,.6); border-radius: 50%; transition: all 2s;}
@@ -247,7 +247,7 @@ button{background: transparent; border: none;}
 }
 
 @media screen and (max-width:380px){
-	.jp-play.mobile{width:7em; height:7em;}
+	.jp-play.mobile{width:6em; height:6em;}
 	.jp-controls .pagePrev, .jp-controls .pageNext{width:50px;height:50px;}
 }
 @media screen and (max-width:320px){
