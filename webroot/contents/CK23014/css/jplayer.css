@@ -208,15 +208,13 @@ button{background: transparent; border: none;}
 
 /* 자막 */
 .scriptWrap{ display: none; position: absolute; left: 50%; transform: translateX(-50%);}
-.scriptWrap .scriptTxt{font-size: 13px; background-color: rgba(8, 8, 8, 0.75); color: #fff; padding: 10px; border-radius: 6px;}
+.scriptWrap .scriptTxt{font-size: 13px; background-color: rgba(8, 8, 8, 0.75); color: #fff; padding: 10px; border-radius: 6px; display: block;}
 
-@media screen and (max-width:1100px){
-  .jp-controls-holder{width: 27em;}
-}
+
 @media screen and (max-width:1024px){
   .jp-gradient-box{height: 100%; background: rgb(0,0,0, 0.7);}
   .jp-current-time, .jp-time-line, .jp-duration{font-size: 14px;}
-
+	.jp-controls-holder{width: 27em;}
   
   .jp-script{position: relative;}
   .jp-script:after{left:25px;}
@@ -229,7 +227,7 @@ button{background: transparent; border: none;}
 }
 
 @media screen and (max-width:640px){
-  .jp-controls-holder{width: 105px;}
+  .jp-controls-holder{width: 16em;}
   .jp-controls .jp-play, .jp-inbox > div.jp-volume-controls, .jp-speed{display: none;}
   .u_chapter{display: none;}
   
@@ -242,14 +240,27 @@ button{background: transparent; border: none;}
 
   .jp-stop{width: 10em; height: 10em;}
 
-  .scriptWrap .scriptTxt{font-size: 10px; padding: 5px;}
-  .jp-controls button{display: none;}
+  .scriptWrap .scriptTxt{font-size: 10px; padding: 5px; width: 90vw; line-height: 14px;}
+  /*.jp-controls button{display: none;}*/
+}
+
+@media screen and (max-width:480px){
+	.jp-util{right:70px;}
+	.jp-script{wider:45px;}
+	.jp-current-time, .jp-time-line, .jp-duration{font-size:13px;}
+	
+	.jp-seek-bar, .jp-play-bar{height:4px;}
+	
 }
 
 @media screen and (max-width:380px){
 	.jp-play.mobile{width:6em; height:6em;}
 	.jp-controls .pagePrev, .jp-controls .pageNext{width:50px;height:50px;}
+	.jp-script, .jp-full-screen{width:40px;}
+	
+	
 }
+
 @media screen and (max-width:320px){
 	.jp-current-time, .jp-time-line, .jp-duration{font-size:12px;}
 	
