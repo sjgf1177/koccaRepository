@@ -85,7 +85,7 @@ function whenSubjPropose(subj,year,subjseq, subjnm) {
                                 <div class="sub_info_body">
 <%--                                    <p class="sub_course_view_title">과정 소개</p>--%>
                                     <div class="sub_board_header col-right">
-                                        <a href="javascript:whenSubjList();" class="list_btn btn btn-outline-secondary">목록으로</a>
+                                        <a href="javascript:whenSubjList();" class="list_btn btn">목록으로</a>
                                     </div>
 
                                     <div class="sub_course_view_wrap">
@@ -273,7 +273,7 @@ function whenSubjPropose(subj,year,subjseq, subjnm) {
                                     <c:if test="${subjectPreview.d_propose_yn eq 'N' && subjectPreview.d_sugang_yn eq 'Y' }">
                                         <a href="javascript:whenSubjPropose('<c:out value="${param.p_subj}" />','<c:out value="${param.p_year}" />','<c:out value="${param.p_subjseq}" />','<c:out value="${param.p_subjnm}" />')" class="apply_btn btn btn-purple big_btn">수강신청</a>
                                     </c:if>
-                                    <a href="javascript:whenSubjList();" class="list_btn btn btn-outline-secondary">목록으로</a>
+                                    <a href="javascript:whenSubjList();" class="list_btn btn">목록으로</a>
 
                                 </div>
                                 

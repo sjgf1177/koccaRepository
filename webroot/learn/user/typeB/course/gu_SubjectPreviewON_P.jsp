@@ -55,7 +55,7 @@
                                         </div>
                                         <table>
                                             <colgroup>
-                                                <col width="15%">
+                                                <col width="10%">
                                                 <col width="auto">
                                             </colgroup>
                                             <tbody>
@@ -105,11 +105,12 @@
     </section>
 </body>
 <style>
-    @media (min-width: 768px){
-        .layer_board_table_wrap table th, .layer_board_table_wrap table td{
-            padding: 10px 0;
-            border-bottom: 1px solid #eaeaea;
-        }
+    .layer_board_table_wrap table{display: block; border:1px solid #ededed; border-radius: 15px; padding: 5px 20px;}
+    .layer_board_table_wrap table th{font-weight: 600; line-height: 25px;}
+    .layer_board_table_wrap table td{font-weight: 400; line-height: 20px;}
+
+    @media (max-width: 768px){
+        .layer_board_table_wrap table th, .layer_board_table_wrap table td{border-bottom: 0;}
     }
 
 </style>

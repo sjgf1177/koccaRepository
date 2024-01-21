@@ -284,7 +284,7 @@ if(!v_end.equals("0")) {
 					if (j == (list.size()-1)) {    
 %>
 															<li>
-																기타의견<textarea name="<%= dbox.getInt("d_sulnum") %>|C" maxlength="200"></textarea>
+																기타의견<textarea name="<%= dbox.getInt("d_sulnum") %>|C" maxlength=""></textarea>
 															</li>
 <%				
 					}
@@ -338,5 +338,8 @@ if(!v_end.equals("0")) {
     </section>
 </form>
 </body>
+<style>
+    .subContainer_pop .sub_info_body + .sub_info_body .write_table th{}
+</style>
 </html>
 

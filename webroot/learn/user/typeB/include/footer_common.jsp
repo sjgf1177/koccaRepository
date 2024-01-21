@@ -6,22 +6,23 @@
 
 <jsp:include page="/learn/user/typeB/include/topMainAsp.jsp" />
 
-<section>
-    <div class="wrapper">
-        <div class="container">
+<section class="container d-flex">
+    <div class=""></div>
+    <div class="subContainer">
+        <div class="sub_section">
             <div class="row">
                 <div class="col-12">
                     <div class="lnb_wrap">
-                        <span class="lnb_header">이용안내</span>
-                        <ul class="lnb_con">
-                            <li <c:if test="${param.p_code eq 'FOOTER_PRIVACY_TYPEB' }"> class="on"</c:if>><a href="http://www.kocca.kr/cop/contents.do?menuNo=200931" target="_blank">개인정보처리방침</a></li>
+                        <%--<span class="lnb_header">이용안내</span>--%>
+                        <ul class="lnb_con d-flex">
+                            <li <c:if test="${param.p_code eq 'FOOTER_PRIVACY_TYPEB' }"> class="on"</c:if>><a href="https://www.kocca.kr/kocca/subPage.do?menuNo=204912" target="_blank">개인정보처리방침</a></li>
                             <li <c:if test="${param.p_code eq 'FOOTER_EMAIL_TYPEB' }"> class="on"</c:if>><a href="javascript:menuMainForward('99', '/servlet/controller.homepage.HomePageHelpServlet?p_process=Footer&p_code=FOOTER_EMAIL_TYPEB');">이메일 무단수집 거부</a></li>
                         </ul>
                     </div>
                     <div class="subContainer">
                         <div class="sub_section">
                             <div class="sub_contents_header">
-                                <span>개인정보처리방침</span>
+                                <span>이메일무단수집거부</span>
                                 <div class="linemap_wrap">
                                     <ul>
                                         <li>

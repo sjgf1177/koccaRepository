@@ -25,7 +25,8 @@
 
 
 		<link href="/common/js/swiper/swiper.min.css" rel="stylesheet">
-	    
+		<script src="/common/js/swiper/swiper.min.js"></script>
+
 	    <!-- Custom CSS -->
 	    <link href="/common/css/custom.css" rel="stylesheet">
 	    <%--<link href="/common/css/header.css" rel="stylesheet">--%>

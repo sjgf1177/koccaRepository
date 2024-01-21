@@ -10,7 +10,7 @@
                     <div class=footer_back_con">
                         <div class="footer_util_top d-flex justify-content-between">
                             <div style="margin: 0;">
-                                <span class="footer_util_item"><a href="http://www.kocca.kr/cop/contents.do?menuNo=200931" target="_blank">개인정보처리방침</a></span>
+                                <span class="footer_util_item"><a href="https://www.kocca.kr/kocca/subPage.do?menuNo=204912" target="_blank">개인정보처리방침</a></span>
 <%--                            <hr class="footer_util_line">--%>
                                 <span class="footer_util_item"><a href="javascript:menuMainForward('99', '/servlet/controller.homepage.HomePageHelpServlet?p_process=Footer&p_code=FOOTER_EMAIL_TYPEB');">이메일무단수집거부</a></span>
 <!--                             <hr class="footer_util_line"> -->

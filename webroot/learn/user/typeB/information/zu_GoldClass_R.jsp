@@ -72,7 +72,7 @@ function openGoldClass(seq,w,h){
                                 <div class="sub_info_body">
 <%--                                <p class="sub_course_view_title">과정 소개</p>--%>
                                 <div class="sub_board_header col-right">
-                                    <a href="javascript:selectList();" class="list_btn btn btn-outline-secondary">목록으로</a>
+                                    <a href="javascript:selectList();" class="list_btn btn">목록으로</a>
 <%--                                    <div class="list_title">--%>
 <%--                                        <span>열린강좌는 무료로 제공되는 공개강좌로 재미와 깊이가 함께 존재합니다.</span>--%>
 <%--                                        <span>훌륭한 명사의 강좌를 만나보실 수 있으며, 누구나 참여할 수 있는 열린 교육공간입니다.</span>--%>
@@ -85,7 +85,7 @@ function openGoldClass(seq,w,h){
 
                                     <!-- 영상 들어가는 곳-->
                                     <div class="video">
-
+                                        <video src="http://edu_kocca.ecn.cdn.infralab.net/kocca/mp4/openclass/1034/01.mp4" style="width: 100%; height: auto;"></video>
                                     </div>
                                     <!--// 영상 들어가는 곳-->
                                 </div>
@@ -101,7 +101,7 @@ function openGoldClass(seq,w,h){
                                                 <tr>
                                                     <th>강사소개</th>
                                                     <td>
-                                                        <img src="/servlet/controller.library.DownloadServlet?p_savefile=<c:out value="${selectOffExpert.d_tutorimg }" />" alt="강사">
+                                                        <%--<img src="/servlet/controller.library.DownloadServlet?p_savefile=<c:out value="${selectOffExpert.d_tutorimg }" />" alt="강사">--%>
                                                         <span>이름 : <c:out value="${selectOffExpert.d_tutornm }" /></span>
                                                         <span>
                                                             약력<br/>

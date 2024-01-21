@@ -523,7 +523,7 @@
 										%>
 										<tr>
 											<td>
-												<div class="myCourseLearningBtn">
+												<div class="">
 													<a style="text-align: center; margin: 0px;" href="javascript:top.etop.starting('<%= x.getLesson() %>');">▶</a>
 												</div>
 											</td>
@@ -570,7 +570,7 @@
 													if(sdbox.getString("d_eachcnt").equals("0") && (Double.parseDouble(v_progress)>=Double.parseDouble(sdbox.getString("d_progress")))){
 														if(sdbox.getString("d_dispyn").equals("Y")) {
 												%>
-												<a href="javascript:contentsWright1('<%=sdbox.getString("d_subjnm")%>', '<%=sdbox.getString("d_subj")%>', '<%=sdbox.getString("d_grcode")%>', '<%=sdbox.getString("d_year")%>', '<%=sdbox.getString("d_subjseq")%>', '<%=sdbox.getInt("d_sulpapernum")%>', '<%=sdbox.getString("d_sulpapernm")%>', '', '','<%=sdbox.getString("d_sulnums")%>')">
+												<a href="javascript:contentsWright1('<%=sdbox.getString("d_subjnm")%>', '<%=sdbox.getString("d_subj")%>', '<%=sdbox.getString("d_grcode")%>', '<%=sdbox.getString("d_year")%>', '<%=sdbox.getString("d_subjseq")%>', '<%=sdbox.getInt("d_sulpapernum")%>', '<%=sdbox.getString("d_sulpapernm")%>', '', '','<%=sdbox.getString("d_sulnums")%>')" style="text-align: center">
 													<span class="btn_record">참여하기</span>
 												</a>
 												<%
@@ -614,7 +614,7 @@
 											<td>
 												<%
 													if(box.getString("p_contentsdata").equals("0")){%>
-												<a href="javascript:contentsWright()"><span class="btn_record">참여하기</span></a>
+												<a href="javascript:contentsWright()" style="text-align: center;"><span class="btn_record" >참여하기</span></a>
 												<%
 												}else{
 												%>
@@ -654,10 +654,9 @@
 </section>
 </body>
 <style>
+	.sub_boarder_body{margin-top: 0;}
 	@media all and (max-width: 768px){
 		.sub_boarder_body table tr td{padding: 12px 0;}
-
-
 	}
 </style>
 </html>
