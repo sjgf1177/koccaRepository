@@ -194,7 +194,8 @@ alert("[<%=box.getSession("gadmin")%>][<%=box.getSession("s_subj")%>]죄송합니다.
                     position: "absolute",
                     top: "0",
                     left: "0",
-                    width: "100%"
+                    width: "100%",
+                    height: "100%" //플레이어 교체 작업하면서 추가
                 });
             }else{
                 $("#iebody").css({
