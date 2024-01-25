@@ -96,7 +96,7 @@ table {border-collapse: collapse;}
 /* input */
 input, button, textarea {font-family: inherit; font-size:14px; color:#000;}
 select, textarea {font-family: inherit; border: 1px solid #B7B6B6; background: #FFFFFF; color: #222; font-size: 14px; vertical-align: middle;}
-textarea {overflow:auto;}
+textarea {overflow:auto; resize: none; padding: 9px 5px; border: 1px solid #4a4a4a;}
 
 select, input, img, li {vertical-align: middle; text-align:inherit;}
 address, caption, cite, code, dfn, em, strong, th, var {font-style : normal; font-weight : 900;}
@@ -134,7 +134,7 @@ section .wrapper{padding:50px 0;}
 .btn-outline-purple, .btn-outline-purple:hover{border: 1px solid #441CBA; color: #441CBA;}
 .btn-bg-purple, .list_btn{background-color: #441CBA; color: #ffffff;}
 .btn-bg-purple:hover, .list_btn:hover{background-color: #441CBA; color: #ffffff;}
-
+.preview-btn{background-color: #74848b; color: #fff;}
 
 /* text */
 .point_orange{color:#dd7b09 !important;}
@@ -193,7 +193,7 @@ input[type="chcekbox"] + label img{vertical-align: top;}
 .header-right-box ul li a{color: #222;}
 .header-right-box ul li a.active{}
 
-.header-benner-box{height: calc(100% - 60.39px); margin-top: 20px; background-color: #0E8D2B;}
+.header-benner-box{height: calc(100% - 60.39px); margin: 20px 0 40px; background-color: #0E8D2B;}
 
 footer{width: 1280px;}
 
@@ -341,7 +341,7 @@ footer{width: 1280px;}
 .tab_style_con .tab_style_2 li.active span{background:#40abd4; color:white;}
 
 /* table */
-.noticelist .sub_boarder_body table tr td a, [class*="myclass"] .sub_boarder_body table tr td a{color: #000000; text-decoration: underline;}
+.noticelist .sub_boarder_body table tr td a, [class*="myclass"] .sub_boarder_body table tr td a{color: #000000;}
 .noticedetail .sub_info_body .sub_course_view_wrap table tr:first-child td span{width: 100%;}
 .sub_course_view_title{font-size:20px; line-height: 26px; color:#313131; font-weight: 400; margin-bottom:23px;}
 .th_align_left1 tr th{text-align: left !important; padding-left:20px;}
@@ -377,10 +377,10 @@ footer{width: 1280px;}
 .sub_boarder_body{width:100%; margin-top: 70px;}
 .sub_boarder_body .sub_course_view_title{margin: 70px 0 0;}
 .sub_boarder_body table{margin-bottom:60px; width:100%; border-top: 1px solid #000; border-bottom: 1px solid #eaeaea;}
-.sub_boarder_body table thead{background-color: #f8f8f8;}
-.sub_boarder_body table tr th{font-size:14px; font-weight:400; line-height:19px; color:#000; text-align: center; padding: 12px 10px;}
+.sub_boarder_body table thead{background-color: #f5f7f9;}
+.sub_boarder_body table tr th{font-size:14px; font-weight:400; line-height:19px; color:#000; text-align: center; padding: 15px 10px;}
 .sub_boarder_body table tr.recommand td:nth-child(2){padding-left:35px; background-image: url(../image/ico_re.gif); background-repeat: no-repeat; background-position: left center;}
-.sub_boarder_body table tr td{font-size:14px; font-weight:400; line-height: 21px; /*color:#767676;*/ text-align: center; padding: 12px 10px;}
+.sub_boarder_body table tr td{font-size:14px; font-weight:400; line-height: 21px; /*color:#767676;*/ text-align: center; padding: 13px 10px;}
 .sub_boarder_body table tr td a{text-align:left; display:block; width:100%; text-overflow:ellipsis; /*white-space:nowrap;*/ word-wrap: normal; overflow: hidden;}
 .sub_boarder_body table tr td .gray{color:#a2a1a1; font-size:13px;}
 .sub_boarder_body table tr td .incomplete{color: #dd7b09;}
@@ -434,11 +434,11 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:45px;
 .sub_info_body ul li .list_text{padding-left:15px; width:100%;}
 .sub_info_body ul li .list_text:before{content:'-'; display:inline-block; width:15px; margin-left:-15px;}
 .sub_info_body .sub_course_alert_box{padding:14px 0px; margin-bottom:20px;}
-.sub_info_body .sub_course_alert_box p{font-size:26px; line-height: 40px; color:#441CBA; font-weight: 600; margin:0; word-break: break-all;}
+.sub_info_body .sub_course_alert_box p{font-size:26px; line-height: 40px; font-weight: 600; margin:0; word-break: break-all;}
 .sub_info_body .sub_course_alert_box p span{font-weight: 600;}
 .sub_info_body .sub_course_view_wrap .img_box{width:40%; text-align: center; vertical-align: top;}
 .sub_info_body .sub_course_view_wrap .img_box img{width:100%;}
-.sub_info_body .sub_course_view_wrap .lesson_bg_box {padding: 0 20px 20px 20px; background-color: #f8f8f8;}
+.sub_info_body .sub_course_view_wrap .lesson_bg_box {padding: 0 20px 20px 20px; background-color: #f5f7f9;}
 .sub_info_body .sub_course_view_wrap .lesson_bg_box .info_box{width: 59%; padding-left: 50px;}
 .sub_info_body .sub_course_view_wrap .lesson_bg_box .info_box dl{padding-bottom: 20px;}
 .sub_info_body .sub_course_view_wrap .lesson_bg_box .info_box dl dt{width: 20%;}
@@ -448,7 +448,7 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:45px;
 .sub_info_body .sub_course_view_wrap table tr:first-child td span{display:inline-block; width:calc(100% - 130px);}
 .sub_info_body .sub_course_view_wrap .lesson_bg_box .bottom_button {margin-top: 20px; display: flex; justify-content: space-between;}
 .sub_info_body .sub_course_view_wrap .lesson_bg_box .bottom_button a{width: 40%; margin:0;}
-.sub_info_body .sub_course_view_wrap .lesson_bg_box .bottom_button a.apply_btn{width: 200px;}
+.sub_info_body .sub_course_view_wrap .lesson_bg_box .bottom_button a.apply_btn{width: 54%;}
 
 
 
@@ -727,18 +727,21 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:45px;
 /* table 상세정보 */
 .info_box table, .info_box table thead, .info_box tbody, .info_box tr, .info_box td, .info_box th{display: block;}
 .info_box table tr{/*padding-bottom: 50px;*/  border-bottom: 1px solid #eaeaea;}
-.info_box table tr:nth-child(n+2){margin-top: 60px;}
-.info_box table th, .sub_boarder_body .sub_course_view_title{font-size: 20px; padding-bottom: 20px; font-weight: 600;}
+.info_box table tr:first-child{margin-top: 20px;}
+.info_box table tr:nth-child(n+2){margin-top: 20px;}
+.info_box table th, .sub_boarder_body .sub_course_view_title{font-size: 24px; padding-bottom: 20px; font-weight: 600;}
 /*.info_box table td{color: #595959; font-size: 15px; line-height: 23px; letter-spacing: -0.01em;}*/
-.info_box table td{color: #222; font-size: 15px; line-height: 23px; letter-spacing: -0.01em; padding: 20px 10px; border: 1px solid #d9d9d9; background-color: #f8f8f8;}
+.info_box table td{color: #222; font-size: 16px; line-height: 23px; letter-spacing: -0.01em; padding: 20px 10px; background-color: #f5f7f9;}
 
 
 
 /*.subContainer_pop .sub_info_body + .sub_info_body{background-color: #eaeaea;}*/
+.subContainer_pop .sub_info_body .write_table{width: 100%; margin: 0;}
 .subContainer_pop .sub_info_body + .sub_info_body .write_table th, .subContainer_pop .sub_info_body + .sub_info_body .write_table td{padding: 10px;}
-
+.subContainer_pop .sub_info_body .sub_course_alert_box p{color:#441CBA;}
+.subContainer_pop .sub_info_body .write_table input[type=text]{border:1px solid #4a4a4a;}
 /* 맨 위로 이동 */
-.topmove{position: fixed; bottom: 20px; right: 20px; font-size: 40px; border: none; background-color: #fff;}
+.topmove{position: fixed; bottom: 20px; right: 90px; font-size: 40px; border: none; background-color: #fff;}
 
 /* 수강 중 과정 */
 .wd-txt-box{width: 60px; margin: 0; display: inline-block;}
@@ -748,6 +751,9 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:45px;
 .progress-box span{font-size: 14px; margin: 0;}
 .progress-box.red .progress-bar{background-color: #f43e3e;}
 .progress-box.red span{color: #f43e3e;}
+
+/* 공지사항 */
+.sub_boarder_body table.pc_table tbody tr{border-bottom: 1px solid #eaeaea;}
 
 
 
@@ -893,6 +899,8 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:45px;
 }
 @media all and (max-width: 430px) {
     .myCourseLearningBtn a {padding: 5px 10px;font-size: 14px; margin-bottom: 5px;}
+    .subContainer_pop .sub_info_body .write_table{table-layout: fixed;}
+
 }
 @media all and (max-width: 360px){
     /* 신규 클래스 */

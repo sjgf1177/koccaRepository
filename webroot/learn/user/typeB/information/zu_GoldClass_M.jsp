@@ -117,8 +117,8 @@ function fnSelect(){
 					<c:forEach items="${openClassList }" var="list" varStatus="status">
 						<div class="thumb_box card">
 							<a href="javascript:viewContent('<c:out value="${list.d_seq }" />');" class="thumb_imgBox">
-								<%--<img src="<c:out value="${list.d_vodimg }" />" alt="<c:out value="${list.d_lecnm }" />">--%>
-									<img src="/images/2023/CB23003.png" alt="级匙老 龋免">
+								<img src="<c:out value="${list.d_vodimg }" />" alt="<c:out value="${list.d_lecnm }" />">
+									<%--<img src="/images/2023/CB23003.png" alt="级匙老 龋免">--%>
 							</a>
 							<div class="card-body thumb_con">
 								<div class="thumb_top_tag">

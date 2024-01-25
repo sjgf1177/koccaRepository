@@ -58,7 +58,7 @@
 			})('happytalkSDK', 'https://chat-static.happytalkio.com/sdk/happytalk.chat.v2.min.js', function() {
 				ht = new Happytalk({
 					siteId: '6000000472',
-					siteName: '(주)스톰미디어',
+					siteName: '에듀코카',
 					categoryId: '175412',
 					divisionId: '175413'
 				});

@@ -76,10 +76,10 @@
 
 							<ul class="nav nav-tabs nav-justified">
 								<li class="nav-item">
-									<a href="javascript:menuForward('9', '02');" class="nav-link">정규과정</a>
+									<a href="javascript:menuForward('9', '02');" class="nav-link active">정규과정</a>
 								</li>
 								<li class="nav-item">
-									<a href="javascript:menuForward('5', '01');" class="nav-link active">열린과정</a>
+									<a href="javascript:menuForward('5', '01');" class="nav-link">열린과정</a>
 								</li>
 								<li class="nav-item">
 									<a href="javascript:menuForward('4', '07');" class="nav-link">공지사항</a>

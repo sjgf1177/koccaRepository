@@ -144,4 +144,5 @@
 </section>
 <style>
 	.btn_small{padding:10px; border:1px solid #eeeeee; font-size:14px;margin:5px;}
+	.info_box table td{background-color: transparent;}
 </style>

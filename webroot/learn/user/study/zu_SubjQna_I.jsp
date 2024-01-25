@@ -172,7 +172,7 @@
 	                                    <div class="sub_info_body">
 	                                        <table class="write_table th_align_left1">
 	                                            <colgroup>
-	                                                <col width="25%">
+	                                                <col width="17%">
 	                                                <col width="auto">
 	                                            </colgroup>
 	                                            <tbody>
@@ -182,12 +182,12 @@
 	                                                        <input type="radio" name="p_togubun" id="forAdmin" value="1" checked>
 	                                                        <label for="forAdmin">운영자에게</label>
 	                                                        <input type="radio" name="p_togubun" id="forLecturer" value="2">
-	                                                        <label for="forLecturer">강사에게</label>
+	                                                        <label for="forLecturer">강사에게123</label>
 	                                                    </td>
 	                                                </tr>
 	                                                <tr>
 	                                                    <th><span>*</span>제목</th>
-	                                                    <td><input type="text" name="p_title" style="width:100%"></td>
+	                                                    <td><input type="text" name="p_title" style="width:100%" placeholder="제목을 입력하세요."></td>
 	                                                </tr>
 	                                                <tr>
 	                                                    <th><span>*</span>작성자</th>
@@ -204,7 +204,7 @@
 	                                                </tr>
 	                                                <tr>
 	                                                    <th><span>*</span>내용</th>
-	                                                    <td><textarea name="p_content" id="p_content"></textarea></td>
+	                                                    <td><textarea name="p_content" id="p_content" placeholder="내용을 입력하세요."></textarea></td>
 	                                                </tr>
 	                                                <tr>
 	                                                    <th>첨부파일</th>

@@ -11,7 +11,7 @@
                     <div class="subContainer">
                         <div class="sub_section">
                             <div class="sub_contents_header">
-                                <span>회원가입</span>
+                                <h1>회원가입</h1>
                             </div>
                             <div class="sub_contents_body">
                                 <div class="sub_info_body join_box">

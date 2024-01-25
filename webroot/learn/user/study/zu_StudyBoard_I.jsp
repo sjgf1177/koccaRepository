@@ -146,7 +146,7 @@
                                     <div class="sub_info_body">
                                         <table class="write_table th_align_left1">
                                             <colgroup>
-                                                <col width="25%">
+                                                <col width="17%">
                                                 <col width="auto">
                                             </colgroup>
                                             <tbody>
@@ -157,11 +157,11 @@
                                                 
                                                 <tr>
                                                     <th><span>*</span>제목</th>
-                                                    <td><input type="text" name="p_title" style="width:100%"></td>
+                                                    <td><input type="text" name="p_title" style="width:100%" placeholder="제목을 입력하세요."></td>
                                                 </tr>
                                                 <tr>
                                                     <th><span>*</span>내용</th>
-                                                    <td><textarea id="p_content" name="p_content"></textarea></td>
+                                                    <td><textarea id="p_content" name="p_content" placeholder="내용을 입력하세요."></textarea></td>
                                                 </tr>
                                                 <tr>
                                                     <th>첨부파일</th>
