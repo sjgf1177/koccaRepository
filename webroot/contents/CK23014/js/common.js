@@ -274,8 +274,8 @@ $(window).load(function(){
 
     /* 자막 */
     setTimeout(function() {
-        //$(videoDOM).append("<track default kind='subtitles' srclang='ko' label='켜짐' src='../vtt/" + chapter + "_" + page + ".vtt' />");
-        $(videoDOM).append("<track default kind='subtitles' srclang='ko' label='켜짐' src='../vtt/" + "01_03" + ".vtt' />"); //테스트용
+        $(videoDOM).append("<track default kind='subtitles' srclang='ko' label='켜짐' src='../vtt/" + chapter + "_" + page + ".vtt' />");
+        //$(videoDOM).append("<track default kind='subtitles' srclang='ko' label='켜짐' src='../vtt/" + "01_03" + ".vtt' />"); //테스트용
 
 
         ///vtt 텍스트 ///

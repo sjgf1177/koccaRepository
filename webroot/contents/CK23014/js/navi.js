@@ -90,7 +90,6 @@ tot_page[7]="04";
 
 
 
-
 //페이지 이동 버튼 생성
 function page_movebtn(){
 	

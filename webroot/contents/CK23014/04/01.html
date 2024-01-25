@@ -19,6 +19,7 @@
 <script type="text/javascript" src="../js/jquery.easing.js"></script>
 
 <script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/index_list.js"></script>
 </head>
 <body>
 <div id="allWrap">
@@ -53,8 +54,10 @@
 						<div class="jp-inbox">
 							<div class="jp-controls-holder">
 								<div class="jp-controls">
-									<!--button class="jp-script" role="button" tabindex="0">script</button-->
-									<button class="jp-play tooltip" role="button" tabindex="0" title="재생"><span class="sub_tooltip">재생</span></button>								
+									<!--<button class="jp-script" role="button" tabindex="0">script</button>-->
+									<button class="jp-cur-rewind tooltip" role="button" tabIndex="0" title="10초이전"><span class="sub_tooltip">10초이전</span></button>
+									<button class="jp-play tooltip" role="button" tabindex="0" title="재생"><span class="sub_tooltip">재생</span></button>
+									<button class="jp-cur-forward tooltip" role="button" tabIndex="0" title="10초건너뛰기"><span class="sub_tooltip">10초건너뛰기</span></button>
 									<div class="jp-time-display">
 										<div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
 										<div class="jp-time-line">/</div>
@@ -70,8 +73,8 @@
 							</div>
 							<div class="jp-util">
 								<ul>
-									<li><a href="javascript:;" class="u_index tooltip" title="목차"><span class="sub_tooltip">목차</span></a></li>
-									<!-- <li><a href="javascript:;" class="u_chapter"title="차시목록"><span>CHASI</span></a></li>--> <!-- 차시목록 -->
+									<!--<li><a href="javascript:;" class="u_index tooltip" title="index"><span class="sub_tooltip">index</span></a></li>-->
+									<li><a href="javascript:;" class="tooltip u_chapter" title="목차"><span class="sub_tooltip">목차</span></a></li>
 								</ul>
 								<div class="jp-toggles">
 									<div class="jp-speed">
@@ -85,7 +88,7 @@
 										</div>
 									</div>
 								</div>
-								<button class="jp-script on tooltip" role="button" tabindex="0" title="자막"><span class="sub_tooltip">자막</span></button>
+								<button class="jp-script tooltip" role="button" tabindex="0" title="자막"><span class="sub_tooltip">자막</span></button>
 								<button class="jp-full-screen tooltip" role="button" tabindex="0" title="전체화면"><span class="sub_tooltip">전체화면</span></button>
 							</div>
 							
@@ -108,21 +111,23 @@
 
 			</div>
 			<!-- 자막 스크립트 -->
-			<div id="scriptBox">
-				<div class="scConfBox">
-					<div class="scConf">
-						<span class="teller"></span>
-						<p class="scriptTxt"></p>
-					</div>
+			<div class="scriptWrap">
+				<div class="ScriptPart">
+					<span class="teller"></span>
+					<span class="scriptTxt"></span>
 				</div>
 			</div>
+
+
 			<!-- //자막 스크립트 -->
         </div>
 		<!-- //영상 플레이어 -->
 
 
         <!--<a href="javascript:;" class="play"><img src="../images/img/btn_play.png" alt="재생" /></a>-->
-		<button class="jp-play mobile" role="button" tabindex="0" title="재생"></button>								
+		<div class="circle-static-rewind"><p class="">10초이전</p></div>
+		<button class="jp-play mobile" role="button" tabindex="0" title="재생"></button>
+		<div class="circle-static-forward"><p class="">10초건너뛰기</p></div>
     </div>
 
 
@@ -165,7 +170,6 @@ $(function(){
 	});
 	playControl();
 
-
     // movie
     var movieUrl = [mp4_Name]; // 1300k, 500k
       function jplayerControll(a){
@@ -198,7 +202,7 @@ $(function(){
 		//	autohide: {restored: true, fadeIn:200},
 			volume: 0.5,
 			ended : function(){
-                
+
 			}
 		});
 	}
@@ -214,17 +218,17 @@ $(function(){
 		if (!$('#jp_container_1').is('.jp-state-playing')){
 			//영상이 재생중일때
 			$('#jquery_jplayer_1').jPlayer('pause');
-			$(".jp-gradient-box").fadeOut(2000);
-			$(".jp-gui").fadeOut(2000);
-			$(".jp-play.mobile").fadeOut(2000);
+			//$(".jp-gradient-box").fadeOut(2000);
+			//$(".jp-gui").fadeOut(2000);
+			//$(".jp-play.mobile").fadeOut(2000);
 			nowspeed();
 
 		} else{
 		
 			$('#jquery_jplayer_1').jPlayer('play');
-			$(".jp-play.mobile").fadeOut();
-			$(".jp-gui").fadeOut();
-			$(".jp-gradient-box").fadeOut();
+			//$(".jp-play.mobile").fadeOut();
+			//$(".jp-gui").fadeOut();
+			//$(".jp-gradient-box").fadeOut();
 			nowspeed();
 		}
 	});
