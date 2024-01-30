@@ -45,6 +45,9 @@
 </script>
 	<header>
         <div class="wrapper">
+			00 : ${param}
+			<c:set var="gubunId" value="${param.gubun}_${param.menuid}" />
+			<c:if test="${not empty param.gubun and param.gubun ne '0' and param.gubun ne '2' and gubunId ne '3_0' and param.gubun ne '4' and param.gubun ne '10' and param.gubun ne '60'}">
             <div class="container mt20">
                 <div class="row header-util-wrap">
                     <div class="col-12 d-flex">
@@ -55,7 +58,7 @@
 								<a href="#" class="d-inblock"><img src="/images/2023/renew_logo.svg" alt="로고" /></a>
 							</li>
 							<li>
-								<span class="circle-box myname">이름</span>
+								<span class="circle-box myname">${sessionScope.name}</span>
 								<a href="javascript:menuForward('3', '11');" class="d-block btn btn-success btn-md w-75 mt20">나의강의실</a>
 								<span class="d-block mt10" class="fc-light"><a href="javascript:mainmenu('3');" class="fc-light">로그아웃</a> ㅣ <a href="javascript:mainmenu('4');" class="fc-light">개인정보변경</a></span>
 							</li>
@@ -63,26 +66,26 @@
 						<div class="header-left-box">
 							<!-- 임의로 살려둔곳 추후 제거-->
 							<div class="header-util-text" style="position: relative; z-index: 9999;">
-								<span class="header_util_item"><a href="javascript:mainmenu('990');">로그인</a></span>
+<%--								<span class="header_util_item"><a href="javascript:mainmenu('990');">로그인</a></span>
 								<hr class="header_util_line">
 								<span class="header_util_item"><a href="javascript:mainmenu('1');">회원가입</a></span>
 								<hr class="header_util_line">
-								<span class="header_util_item"><a href="javascript:mainmenu('2');">아이디/패스워드 찾기</a></span>
+								<span class="header_util_item"><a href="javascript:mainmenu('2');">아이디/패스워드 찾기</a></span>--%>
 							</div>
 							<!-- 임의로 살려둔곳 추후 제거-->
 						</div>
 						<!-- header 오른쪽 영역(Tab)-->
 						<div class="header-right-box">
-
+							<c:if test="${param.gubun ne '70'}">
 							<ul class="nav nav-tabs nav-justified">
 								<li class="nav-item">
-									<a href="javascript:menuForward('9', '02');" class="nav-link active">정규과정</a>
+									<a href="javascript:menuForward('9', '02');" class="nav-link <c:if test="${param.gubun eq '9'}">active</c:if>">정규과정</a>
 								</li>
 								<li class="nav-item">
-									<a href="javascript:menuForward('5', '01');" class="nav-link">열린과정</a>
+									<a href="javascript:menuForward('5', '01');" class="nav-link <c:if test="${param.gubun eq '5'}">active</c:if>">열린과정</a>
 								</li>
 								<li class="nav-item">
-									<a href="javascript:menuForward('4', '07');" class="nav-link">공지사항</a>
+									<a href="javascript:menuForward('4', '07');" class="nav-link <c:if test="${param.gubun eq '4'}">active</c:if>">공지사항</a>
 								</li>
 								<!--
 								<li class="nav-item">
@@ -93,13 +96,14 @@
 								</li>
 								-->
 							</ul>
-
+							</c:if>
 						</div>
 
                     </div>
                 </div>
 
-            </div>    
+            </div>
+			</c:if>
         </div>
 
     </header>

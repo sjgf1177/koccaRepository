@@ -59,14 +59,19 @@
                                                 <col width="auto">
                                             </colgroup>
                                             <tbody>
+                                                <c:if test="${not empty subjectPreview.d_classname }">
                                                 <tr>
                                                     <th>과정 분류명</th>
                                                     <td><c:out value="${subjectPreview.d_classname }" /></td>
                                                 </tr>
+                                                </c:if>
+                                                <c:if test="${not empty subjectPreview.d_isonoff }">
                                                 <tr>
                                                     <th>교육구분</th>
                                                     <td><c:out value="${subjectPreview.d_isonoff eq 'ON' ? '사이버' : '집합'}" /></td>
                                                 </tr>
+                                                </c:if>
+                                                <c:if test="${not empty subjectPreview.d_intro }">
                                                 <tr>
                                                     <th>교육목표</th>
                                                     <td>
@@ -76,6 +81,8 @@
 														<c:out value="${intro }" escapeXml="false" />
                                                     </td>
                                                 </tr>
+                                                </c:if>
+                                                <c:if test="${not empty subjectPreview.d_explain }">
                                                 <tr>
                                                     <th>교육내용</th>
                                                     <td>
@@ -85,10 +92,13 @@
 														<c:out value="${explain }" escapeXml="false" />
 													</td>
                                                 </tr>
+                                                </c:if>
+                                                <c:if test="${not empty subjectPreview.d_mastertel }">
                                                 <tr>
                                                     <th>교육담당자</th>
                                                     <td><c:out value="${subjectPreview.d_mastertel }" /></td>
                                                 </tr>
+                                                </c:if>
                                             </tbody>
                                         </table> 
                                     </div>

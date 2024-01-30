@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=euc-kr"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page isELIgnored="false" %>
-	<footer class="d-flex">
+	<footer class="<c:if test="${param.gubun ne '2' and param.gubun ne '3' and param.gubun ne '4' and param.gubun ne '10'}">d-flex</c:if>">
         <div></div>
         <div class="wrapper">
             <div class="">

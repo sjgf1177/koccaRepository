@@ -162,6 +162,9 @@ public class MyClassServlet extends javax.servlet.http.HttpServlet implements Se
             } else if (v_process.equals("manageFavorSubj")) {
                 this.pefromManageFavorSubj(request, response, box, out); // 과정 찜하기 관리
 
+            } else if (v_process.equals("DashboardPage")) {
+                this.performDashboardPage(request, response, box, out); // 과정 찜하기 관리
+
             }
         } catch (Exception ex) {
             ErrorManager.getErrorStackTrace(ex, out);
@@ -1222,5 +1225,28 @@ public class MyClassServlet extends javax.servlet.http.HttpServlet implements Se
             throw new Exception(this.getClass().getName() + " peformB2BLoginPage()\r\n" + ex.getMessage());
         }
 
+    }
+
+    public void performDashboardPage(HttpServletRequest request, HttpServletResponse response, RequestBox box, PrintWriter out) throws Exception {
+        try {
+
+            String v_url = "";
+            v_url = "/learn/user/typeB/study/gu_DashboardPage_L.jsp";
+
+            MyClassBean bean = new MyClassBean();
+            ArrayList list = bean.selectProposeHistoryList(box);
+
+            request.setAttribute("requestbox", box); //      명시적으로 box 객체를 넘겨준다
+            request.setAttribute("proposeHistoryList", list);
+            request.setAttribute("proposeHistoryListCnt", list.size());
+
+
+            ServletContext sc = getServletContext();
+            RequestDispatcher rd = sc.getRequestDispatcher(v_url);
+            rd.forward(request, response);
+        } catch (Exception ex) {
+            ErrorManager.getErrorStackTrace(ex, out);
+            throw new Exception("performDashboardPage()\r\n" + ex.getMessage());
+        }
     }
 }

@@ -3755,6 +3755,8 @@ public class ProposeCourseBean {
             sql.append("    ,DECODE( (SELECT COUNT(USERID) FROM TZ_PROPOSE WHERE SUBJ= '").append(v_subj).append("' AND USERID='").append(userid).append("' AND YEAR ='").append(year).append("' AND SUBJSEQ = '").append(subjseq).append(
                     "'), 0, 'N', 'Y') AS PROPOSE_YN \n");
             sql.append("    , (SELECT COMP FROM TZ_MEMBER WHERE USERID = '").append(userid).append("' AND GRCODE ='").append(v_grcode).append("') AS COMPANY \n");
+            sql.append("    , LEFT(A.CRDATE, 4) CRDATE, A.RUNNING_TIME, A.TUTOR2 \n");
+            sql.append("    , (SELECT COUNT(*) FROM TZ_SUBJLESSON X WHERE X.SUBJ = A.SUBJ) LESSON_CNT \n");
             sql.append(" FROM TZ_SUBJ A\n");
             sql.append("    LEFT OUTER JOIN TZ_SUBJSEQ B ON A.SUBJ = B.SUBJ and b.year = '").append(year).append("' and b.subjseq = '").append(subjseq).append("' \n");
             sql.append("    LEFT OUTER JOIN TZ_TUTOR T ON A.MUSERID = T.USERID\n");

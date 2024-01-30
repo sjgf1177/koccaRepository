@@ -41,7 +41,7 @@
                                         <span><c:out value="${param.p_kor_name }" />님의 회원가입이 완료되었습니다.</span>
                                     </div>
                                     <div class="agree_btn_box btn_complete">
-                                        <a href="/" class="btn btn-primary">홈으로</a>
+                                        <a href="javascript:mainmenu('990');" class="btn btn-primary">홈으로</a>
                                     </div>
                                  </div>
                             </div>

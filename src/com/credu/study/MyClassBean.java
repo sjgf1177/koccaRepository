@@ -413,7 +413,8 @@ public class MyClassBean {
             head_sql1.append("		ISNULL(D.PAYMONEY, 0) AS  BIYONG  , ISNULL(C.LDATE , 'N') AS ISUSEYN,\n");
             head_sql1.append("		CASE WHEN TO_CHAR(SYSDATE,'YYYYMMDD')||'00' BETWEEN A.EDUSTART AND A.EDUEND\n");
             head_sql1.append("             THEN 'Y' ELSE 'N' END ISSTUDYYN, \n");
-            head_sql1.append("     A.WJ_CLASSKEY\n");
+            head_sql1.append("     A.WJ_CLASSKEY,\n");
+            head_sql1.append("     (SELECT X.SCORE FROM TZ_STUDENT X WHERE A.SUBJ=X.SUBJ AND A.YEAR=X.YEAR AND A.SUBJSEQ=X.SUBJSEQ AND B.USERID = X.USERID) SCORE \n");
 
             body_sql1.append("   FROM VZ_SCSUBJSEQIMGMOBILE A, TZ_PROPOSE B, TZ_TAX C, TZ_BILLING D\n");
             body_sql1.append("  WHERE A.SUBJ=B.SUBJ AND A.YEAR=B.YEAR AND A.SUBJSEQ=B.SUBJSEQ \n");
@@ -3270,6 +3271,7 @@ public class MyClassBean {
             sql.append("           AND  TO_CHAR(SYSDATE, 'YYYYMMDDHH24') BETWEEN TS.EDUSTART AND TS.EDUEND  \n");
             sql.append("           AND  TS.GRCODE = '").append(v_grcode).append("'  \n");
             sql.append("        ) AS POSSIBLE_CNT   \n");
+            sql.append("    ,   C.INTRODUCEFILENAMENEW   \n");
             sql.append("  FROM  TZ_SUBJSEQ A        \n");
             sql.append("    ,   TZ_PROPOSE B        \n");
             sql.append("    ,   TZ_SUBJ C           \n");
@@ -4982,6 +4984,139 @@ public class MyClassBean {
             }
         }
         return result;
+    }
+
+    /**
+     * 수강신청리스트
+     *
+     * @param box receive from the form object and session
+     * @return ArrayList 수강신청리스트
+     */
+    public ArrayList<DataBox> selectProposeList(RequestBox box) throws Exception {
+        DBConnectionManager connMgr = null;
+        DataBox dbox = null;
+        ListSet ls = null;
+        ArrayList<DataBox> list = null;
+        StringBuffer sql = new StringBuffer();
+        String v_userid = box.getSession("userid");
+        String v_upperclass = box.getStringDefault("p_upperclass", "ALL");
+
+        int v_pageno = box.getInt("p_pageno");
+
+        try {
+            connMgr = new DBConnectionManager();
+            list = new ArrayList<DataBox>();
+
+            sql.append(" SELECT TID, SUBJ, YEAR, SUBJSEQ, SUBJNM, EDUSTART,BIYONG, introducefilenamenew, \n");
+            sql.append("		EDUEND, APPDATE, REFUNDDATE, CHKFIRST, CHKFINAL,\n");
+            sql.append("         (SELECT SA.CLASSNAME\n");
+            sql.append("            FROM TZ_SUBJ SB, TZ_SUBJATT SA\n");
+            sql.append("           WHERE SB.UPPERCLASS = SA.UPPERCLASS\n");
+            sql.append("             AND SA.MIDDLECLASS = '000'\n");
+            sql.append("             AND SA.LOWERCLASS = '000'\n");
+            sql.append("             AND SB.SUBJ = A.SUBJ) CLASSNAME,\n");
+            sql.append("          REFUNDABLEDATE, REFUNDABLEYN, CANCELABLEYN, REFUNDYN, CANCELDATE, PAYMETHOD,\n");
+            sql.append("          ACCEPTYN, RANK,\n");
+            sql.append("          CASE\n");
+            sql.append("             WHEN RANK = 1\n");
+            sql.append("                THEN COUNT (*) OVER (PARTITION BY TID)\n");
+            sql.append("             ELSE 0\n");
+            sql.append("          END AS ROWSPAN\n");
+            sql.append("     FROM (SELECT D.introducefilenamenew, A.TID, B.SUBJ, B.YEAR, B.SUBJSEQ, B.SUBJNM, B.EDUSTART,\n");
+            sql.append("                  B.EDUEND, A.APPDATE, 'Y' ACCEPTYN, 'N' REFUNDYN, A.CHKFIRST, A.CHKFINAL,\n");
+            sql.append("                  A.CANCELDATE, C.PAYMETHOD, D.UPPERCLASS, '' REFUNDDATE,\n");
+            sql.append("                  TO_CHAR (  TO_DATE (SUBSTR (EDUSTART, 1, 8), 'YYYYMMDD')\n");
+            sql.append("                           + B.CANCELDAYS,\n");
+            sql.append("                           'YYYYMMDD'\n");
+            sql.append("                          ) AS REFUNDABLEDATE,\n");
+            sql.append("                  CASE WHEN (    SUBSTR (REPLACE(STARTCANCELDATE,'-'), 1, 8) <= TO_CHAR (SYSDATE, 'YYYYMMDD')\n");
+            sql.append("                             AND SUBSTR (REPLACE(ENDCANCELDATE,'-'), 1, 8) >= TO_CHAR (SYSDATE, 'YYYYMMDD') )\n");
+            sql.append("                       THEN 'Y'\n");
+            sql.append("                       ELSE 'N'\n");
+            sql.append("                  END REFUNDABLEYN,\n");
+            sql.append("                  CASE WHEN (    SUBSTR (REPLACE(STARTCANCELDATE,'-'), 1, 8) <= TO_CHAR (SYSDATE, 'YYYYMMDD')\n");
+            sql.append("                             AND SUBSTR (REPLACE(ENDCANCELDATE,'-'), 1, 8) >= TO_CHAR (SYSDATE, 'YYYYMMDD') )\n");
+            sql.append("                       THEN 'Y'\n");
+            sql.append("                       ELSE 'N'\n");
+            sql.append("                  END CANCELABLEYN,\n");
+            sql.append("                  RANK () OVER (PARTITION BY A.TID ORDER BY A.TID,\n");
+            sql.append("                   B.SUBJ) RANK, B.BIYONG\n");
+            sql.append("             FROM TZ_PROPOSE A\n");
+            sql.append("             left join TZ_SUBJSEQ B on A.SUBJ = B.SUBJ and A.YEAR = B.YEAR and A.SUBJSEQ = B.SUBJSEQ\n");
+            sql.append("             left join TZ_BILLINFO C on A.TID = C.TID\n");
+            sql.append("             left join  TZ_SUBJ D on A.SUBJ = D.SUBJ\n");
+            sql.append("            WHERE \n");
+            sql.append("               A.USERID = ").append(SQLString.Format(v_userid)).append("\n");
+            sql.append("              AND b.grcode = ").append(SQLString.Format(box.getSession("tem_grcode"))).append("\n");
+
+            if (!v_upperclass.equals("ALL"))
+                sql.append(" AND D.UPPERCLASS = ").append(SQLString.Format(v_upperclass)).append("\n");
+
+            sql.append("           UNION ALL\n");
+            sql.append("           SELECT d.introducefilenamenew, A.TID, B.SUBJ, B.YEAR, B.SUBJSEQ, B.SUBJNM, B.EDUSTART,  \n");
+            sql.append("                  B.EDUEND, A.APPDATE, 'N' ACCEPTYN, 'Y' REFUNDYN, '' CHKFIRST, '' CHKFINAL,\n");
+            sql.append("                  A.CANCELDATE, C.PAYMETHOD, D.UPPERCLASS, A.REFUNDDATE,\n");
+            sql.append("                  TO_CHAR (  TO_DATE (SUBSTR (EDUSTART, 1, 8), 'YYYYMMDD')\n");
+            sql.append("                           + B.CANCELDAYS,\n");
+            sql.append("                           'YYYYMMDD'\n");
+            sql.append("                          ) AS REFUNDABLEDATE,\n");
+            sql.append("                  'N' REFUNDABLEYN,\n");
+            sql.append("                  'N' CALCELABLEYN,\n");
+            sql.append("                  RANK () OVER (PARTITION BY A.TID ORDER BY A.TID,\n");
+            sql.append("                   B.SUBJ) RANK, B.BIYONG\n");
+            sql.append("             FROM TZ_CANCEL A, TZ_SUBJSEQ B, TZ_BILLINFO C, TZ_SUBJ D\n");
+            sql.append("            WHERE (1 = 1)\n");
+            sql.append("              AND A.TID = C.TID\n");
+            sql.append("              AND A.USERID = ").append(SQLString.Format(v_userid)).append("\n");
+            sql.append("              AND A.SUBJ = B.SUBJ\n");
+            sql.append("              AND A.YEAR = B.YEAR\n");
+            sql.append("              AND A.SUBJSEQ = B.SUBJSEQ\n");
+            sql.append("              AND B.grcode = ").append(SQLString.Format(box.getSession("tem_grcode"))).append("\n");
+            sql.append("              AND A.SUBJ = D.SUBJ\n");
+
+            if (!v_upperclass.equals("ALL"))
+                sql.append(" AND D.UPPERCLASS = ").append(SQLString.Format(v_upperclass)).append("\n");
+
+            sql.append("		    ) A\n");
+            sql.append(" ORDER BY EDUSTART DESC \n");
+
+            ls = connMgr.executeQuery(sql.toString());
+
+            String count_sql1 = "";
+            count_sql1 = "select count(*) from ( " + sql.toString() + ")";
+            int total_row_count = BoardPaging.getTotalRow(connMgr, count_sql1); // 전체 row 수를 반환한다
+
+            ls.setPageSize(row); // 페이지당 row 갯수를 세팅한다
+            ls.setCurrentPage(v_pageno, total_row_count); // 현재페이지번호를 세팅한다.
+            int total_page_count = ls.getTotalPage(); // 전체 페이지 수를 반환한다
+
+            while (ls.next()) {
+                dbox = ls.getDataBox();
+
+                dbox.put("d_dispnum", new Integer(total_row_count - ls.getRowNum() + 1));
+                dbox.put("d_totalpage", new Integer(total_page_count));
+                dbox.put("d_rowcount", new Integer(row));
+
+                list.add(dbox);
+            }
+        } catch (Exception ex) {
+            ErrorManager.getErrorStackTrace(ex, box, sql.toString());
+            throw new Exception("sql = " + sql.toString() + "\r\n" + ex.getMessage());
+        } finally {
+            if (ls != null) {
+                try {
+                    ls.close();
+                } catch (Exception e) {
+                }
+            }
+            if (connMgr != null) {
+                try {
+                    connMgr.freeConnection();
+                } catch (Exception e10) {
+                }
+            }
+        }
+        return list;
     }
 
 }
