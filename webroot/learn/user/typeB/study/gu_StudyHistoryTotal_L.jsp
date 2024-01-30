@@ -461,7 +461,7 @@
 											<fmt:formatDate value="${courseeduend }" pattern="yyyyMMdd" var="eduend"/>
 											<li class="d-flex">
 												<div class="tnail_box">
-													<img src="https://test.edukocca.or.kr/upload/bulletin/2022/GoldClassAdmin_img_file_202208301403281_lee1.jpg" alt="섬네일 호출">
+													<img src="https://test.edukocca.or.kr${list.d_introducefilenamenew}" alt="섬네일 호출">
 												</div>
 												<div class="info_text_box">
 													<h5><a href="javascript:whenSubjInfoPopup('<c:out value="${list.d_subj }" />','<c:out value="${list.d_subjnm }" />','<c:out value="${list.d_isonoff }" />');"><c:out value="${list.d_subjnm }" /></a></h5>
@@ -587,13 +587,13 @@
 												</div>
 											</li>
 											<c:set var="totalpage" value="${list.d_totalpage }" />
-											</c:forEach>
-											<c:if test="${fn:length(StudyHistoryList) le 0 }">
-												<p class="text-center">
-													나의 교육이력 내역이 없습니다.
-												</p>
-												<c:set var="totalpage" value="0" />
-											</c:if>
+										</c:forEach>
+										<c:if test="${fn:length(StudyHistoryList) le 0 }">
+											<p class="text-center">
+												나의 교육이력 내역이 없습니다.
+											</p>
+											<c:set var="totalpage" value="0" />
+										</c:if>
 									</ul>
 
 								</div>
