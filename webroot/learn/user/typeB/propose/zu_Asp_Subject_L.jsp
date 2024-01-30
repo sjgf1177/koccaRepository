@@ -377,11 +377,12 @@
 						<c:forEach items="${SubjectList }" var="list" varStatus="status">
 							<div class="thumb_box card">
 								<a href="javascript:whenSubjInfo('<c:out value="${list.d_subj }" />','<c:out value="${list.d_subjnm }" />','<c:out value="${list.d_isonoff }" />','<c:out value="${list.d_scupperclass }" />','<c:out value="${list.d_uclassnm }" />','<c:out value="${list.d_scyear }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${list.d_wj_classkey }" />');" class="thumb_imgBox">
-									<img src="<c:out value="${list.d_introducefilenamenew }" />" alt="<c:out value="${list.d_subjnm }" />">
-									<%--<img src="/images/2023/CB23003.png" alt="级匙老 龋免">--%>
+									<%--<img src="<c:out value="${list.d_introducefilenamenew }" />" alt="<c:out value="${list.d_subjnm }" />">--%>
+									<img src="/images/2023/CB19026.png" alt="级匙老 龋免">
 								</a>
 								<div class="card-body thumb_con">
 									<div class="thumb_top_tag">
+										<%--<c:if test="${list.d_isrecom eq 'Y' }"><span class="tag_test"></span></c:if>--%>
 										<c:if test="${list.d_ishit eq 'Y' }"><span class="tab_type_popular"></span></c:if>
 										<c:if test="${list.d_isnew eq 'Y' }"><span class="tag_type_new"></span></c:if>
 										<c:if test="${list.d_isrecom eq 'Y' }"><span class="tag_type_recommend"></span></c:if>

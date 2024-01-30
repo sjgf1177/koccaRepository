@@ -117,14 +117,12 @@ function fnSelect(){
 					<c:forEach items="${openClassList }" var="list" varStatus="status">
 						<div class="thumb_box card">
 							<a href="javascript:viewContent('<c:out value="${list.d_seq }" />');" class="thumb_imgBox">
-								<img src="<c:out value="${list.d_vodimg }" />" alt="<c:out value="${list.d_lecnm }" />">
-									<%--<img src="/images/2023/CB23003.png" alt="级匙老 龋免">--%>
+								<%--<img src="<c:out value="${list.d_vodimg }" />" alt="<c:out value="${list.d_lecnm }" />">--%>
+								<img src="/images/2023/154.png" alt="级匙老 龋免">
 							</a>
 							<div class="card-body thumb_con">
 								<div class="thumb_top_tag">
-									<span class="tag_type_new"></span>
-									<span class="tag_type_recommend"></span>
-									<span class="tag_type_popular"></span>
+									<span class="tag_test"><c:out value="${list.d_lectime }" /></span>
 								</div>
 								<a href="javascript:viewContent('<c:out value="${list.d_seq }" />');" class="card-title"><span class="thumb_title textline2"><c:out value="${list.d_lecnm }" /></span></a>
 								<ul class="thumb_con_Info card-text">
