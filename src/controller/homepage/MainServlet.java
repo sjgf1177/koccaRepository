@@ -264,6 +264,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
 			N000210 : 한국콘텐츠진흥원(콘텐츠 성평등센터) / ktest2103 / 1q2w3e4r!
 			N000213 : 국민체육진흥공단
 			N000215 : 동부건설
+			N000219 : 개발
 			N000241 : 한국예술복지재단
 			N000243 : 서울항공비즈니스고등학교
 			N000244 : 지역문화진흥원
@@ -456,6 +457,11 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
                     	}
                     }
                 }
+            }
+
+            String userid = box.getSession("userid");
+            if(userid.equals("")) {
+                this.performMainLogin(request, response, box, out);
             }
 
             request.setAttribute("requestbox", box); // 명시적으로 box 객체를 넘겨준다
@@ -901,6 +907,11 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
                     	}
 
                     }
+
+                    v_mainurl = "/servlet/controller.system.MenuCountServlet";
+                    box.put("p_process", "writeLog");
+                    box.put("gubun", "9");
+                    box.put("menuid", "02");
 
                     alert.alertOkMessage(out, msg, v_mainurl, box);
                     return;
