@@ -129,33 +129,33 @@
 								<div class="sub_boarder_body mb-5">
 									<ul class="my_card_list_box">
 										<c:forEach items="${EducationStudyingSubjectList }" var="list" varStatus="status">
-										<li class="d-flex">
-											<div class="tnail_box">
-												<img src="/images/2023/CB19026.png" alt="섬네일 호출">
-											</div>
-											<div class="info_text_box">
-												<h5>
-													<a href="javascript:whenSubjInfoPopup('<c:out value="${list.d_subj }" />','<c:out value="${list.d_subjnm }" />','<c:out value="${list.d_isonoff }" />');">
-														<c:out value="${list.d_subjnm }"/>
-													</a>
-												</h5>
-												<p>교육기간 :
-													<fmt:parseDate value="${list.d_edustart }" var="edustart" pattern="yyyyMMddHH"/>
-													<fmt:formatDate value="${edustart }" pattern="yyyy.MM.dd"/>
-													~
-													<fmt:parseDate value="${list.d_eduend }" var="eduend" pattern="yyyyMMddHH"/>
-													<fmt:formatDate value="${eduend }" pattern="yyyy.MM.dd"/>
-												</p>
-												<!--<p>수강신청일 : 2023.06.07</p>-->
-												<p class="mt-2">진도율</p>
-												<div class="progress-box">
-													<div class="progress" role="progressbar" aria-label="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-														<div class="progress-bar" style="width: 75%; margin:0;"></div>
-													</div>
-													<span>75%</span>
+											<li class="d-flex">
+												<div class="tnail_box">
+													<img src="https://test.edukocca.or.kr${list.d_introducefilenamenew}" alt="섬네일 호출">
 												</div>
-											</div>
-											<div class="state_box">
+												<div class="info_text_box">
+													<h5>
+														<a href="javascript:whenSubjInfoPopup('<c:out value="${list.d_subj }" />','<c:out value="${list.d_subjnm }" />','<c:out value="${list.d_isonoff }" />');">
+															<c:out value="${list.d_subjnm }"/>
+														</a>
+													</h5>
+													<p>교육기간 :
+														<fmt:parseDate value="${list.d_edustart }" var="edustart" pattern="yyyyMMddHH"/>
+														<fmt:formatDate value="${edustart }" pattern="yyyy.MM.dd"/>
+														~
+														<fmt:parseDate value="${list.d_eduend }" var="eduend" pattern="yyyyMMddHH"/>
+														<fmt:formatDate value="${eduend }" pattern="yyyy.MM.dd"/>
+													</p>
+													<!--<p>수강신청일 : 2023.06.07</p>-->
+													<p class="mt-2">진도율</p>
+													<div class="progress-box">
+														<div class="progress" role="progressbar" aria-label="progressbar" aria-valuenow="${list.d_score}" aria-valuemin="0" aria-valuemax="100">
+															<div class="progress-bar" style="width: ${list.d_score}%; margin:0;"></div>
+														</div>
+														<span>${list.d_score}%</span>
+													</div>
+												</div>
+												<div class="state_box">
 												<span>
 													<c:set var="ieduurl" value="${(list.d_eduurl eq '' || list.d_eduurl eq null)? 0 : 1 }"/>
 													<c:url value="/servlet/controller.contents.EduStart" var="edulist_value">

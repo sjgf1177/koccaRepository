@@ -45,9 +45,8 @@
 </script>
 	<header>
         <div class="wrapper">
-			00 : ${param}
 			<c:set var="gubunId" value="${param.gubun}_${param.menuid}" />
-			<c:if test="${not empty param.gubun and param.gubun ne '0' and param.gubun ne '2' and gubunId ne '3_0' and param.gubun ne '4' and param.gubun ne '10' and param.gubun ne '60'}">
+			<c:if test="${not empty param.gubun and param.gubun ne '0' and param.gubun ne '2' and gubunId ne '3_0' and gubunId ne '4_0' and param.gubun ne '10' and param.gubun ne '60'}">
             <div class="container mt20">
                 <div class="row header-util-wrap">
                     <div class="col-12 d-flex">

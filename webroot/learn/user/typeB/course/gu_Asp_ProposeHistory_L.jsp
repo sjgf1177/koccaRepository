@@ -64,21 +64,21 @@ function cancelPropose(p_tid, p_paymethod){
                             <div class="sub_contents_body">
                                 <div class="sub_boarder_body">
 									<ul class="my_card_list_box">
-									<c:forEach items="${ProposeHistoryList }" var="list" varStatus="status">
-										<fmt:parseDate value="${list.d_edustart }" var="edustart" pattern="yyyyMMddHH" />
-										<fmt:parseDate value="${list.d_eduend }" var="eduend" pattern="yyyyMMddHH" />
-										<fmt:parseDate value="${list.d_appdate }" var="appdate" pattern="yyyyMMddHHmmss" />
-										<li class="d-flex">
-											<div class="tnail_box">
-												<img src="/images/2023/CB19026.png" alt="섬네일 호출">
-											</div>
-											<div class="info_text_box">
-												<h5><c:out value="${list.d_subjnm }" /></h5>
-												<p>교육기간 : <fmt:formatDate value="${edustart }" pattern="yyyy.MM.dd" /> ~ <fmt:formatDate value="${eduend }" pattern="yyyy.MM.dd" /><br/>
-													수강신청일 : <c:if test="${list.d_appdate ne '' }">
-														<fmt:formatDate value="${appdate }" pattern="yyyy.MM.dd" />
-													</c:if>
-												</p>
+										<c:forEach items="${ProposeHistoryList }" var="list" varStatus="status">
+											<fmt:parseDate value="${list.d_edustart }" var="edustart" pattern="yyyyMMddHH" />
+											<fmt:parseDate value="${list.d_eduend }" var="eduend" pattern="yyyyMMddHH" />
+											<fmt:parseDate value="${list.d_appdate }" var="appdate" pattern="yyyyMMddHHmmss" />
+											<li class="d-flex">
+												<div class="tnail_box">
+													<img src="https://test.edukocca.or.kr${list.d_introducefilenamenew}" alt="섬네일 호출">
+												</div>
+												<div class="info_text_box">
+													<h5><c:out value="${list.d_subjnm }" /></h5>
+													<p>교육기간 : <fmt:formatDate value="${edustart }" pattern="yyyy.MM.dd" /> ~ <fmt:formatDate value="${eduend }" pattern="yyyy.MM.dd" /><br/>
+														수강신청일 : <c:if test="${list.d_appdate ne '' }">
+															<fmt:formatDate value="${appdate }" pattern="yyyy.MM.dd" />
+														</c:if>
+													</p>
 
 											</div>
 											<div class="state_box">

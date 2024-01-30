@@ -182,7 +182,7 @@
 	                                                        <input type="radio" name="p_togubun" id="forAdmin" value="1" checked>
 	                                                        <label for="forAdmin">운영자에게</label>
 	                                                        <input type="radio" name="p_togubun" id="forLecturer" value="2">
-	                                                        <label for="forLecturer">강사에게123</label>
+	                                                        <label for="forLecturer">강사에게</label>
 	                                                    </td>
 	                                                </tr>
 	                                                <tr>

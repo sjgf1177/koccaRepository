@@ -97,18 +97,18 @@ function fnSelect(){
 							</form>
 						</div>
 						<ul class="radio-row-box">
-							<li class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked>
-								<label class="form-check-label" for="inlineRadio1">전체</label>
-							</li>
-							<li class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-								<label class="form-check-label" for="inlineRadio2">신청가능</label>
-							</li>
-							<li class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-								<label class="form-check-label" for="inlineRadio3">마감</label>
-							</li>
+							<%--							<li class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked>
+                                                            <label class="form-check-label" for="inlineRadio1">전체</label>
+                                                        </li>
+                                                        <li class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                                            <label class="form-check-label" for="inlineRadio2">신청가능</label>
+                                                        </li>
+                                                        <li class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                                                            <label class="form-check-label" for="inlineRadio3">마감</label>
+                                                        </li>--%>
 						</ul>
 					</div>
 				</div>
@@ -117,12 +117,14 @@ function fnSelect(){
 					<c:forEach items="${openClassList }" var="list" varStatus="status">
 						<div class="thumb_box card">
 							<a href="javascript:viewContent('<c:out value="${list.d_seq }" />');" class="thumb_imgBox">
-								<%--<img src="<c:out value="${list.d_vodimg }" />" alt="<c:out value="${list.d_lecnm }" />">--%>
-								<img src="/images/2023/154.png" alt="섬네일 호출">
+								<img src="https://test.edukocca.or.kr<c:out value="${list.d_vodimg }" />" alt="<c:out value="${list.d_lecnm }" />">
+									<%--<img src="/images/2023/CB23003.png" alt="섬네일 호출">--%>
 							</a>
 							<div class="card-body thumb_con">
 								<div class="thumb_top_tag">
-									<span class="tag_test"><c:out value="${list.d_lectime }" /></span>
+									<span class="tag_type_new"></span>
+									<span class="tag_type_recommend"></span>
+									<span class="tag_type_popular"></span>
 								</div>
 								<a href="javascript:viewContent('<c:out value="${list.d_seq }" />');" class="card-title"><span class="thumb_title textline2"><c:out value="${list.d_lecnm }" /></span></a>
 								<ul class="thumb_con_Info card-text">

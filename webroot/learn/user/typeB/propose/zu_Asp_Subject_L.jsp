@@ -132,7 +132,7 @@
 								</div>
 							</form>
 						</div>
-						<ul class="radio-row-box">
+						<%--<ul class="radio-row-box">
 							<li class="form-check form-check-inline">
 								<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked>
 								<label class="form-check-label" for="inlineRadio1">전체</label>
@@ -145,7 +145,7 @@
 								<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
 								<label class="form-check-label" for="inlineRadio3">마감</label>
 							</li>
-						</ul>
+						</ul>--%>
 					</div>
 				</div>
 
@@ -365,9 +365,7 @@
 					</div>
 					<div class="d-flex justify-content-between flex-wrap">
 						<!-- 해당배너영역은 4개 과정 나온 후 밑에 배너위치 하기-->
-						<div class="header-benner-box">
-							<a href="https://edu.kocca.kr/edu/onlineEdu/themeLecture/list.do?menuNo=500157" class="d-inblock"><img src="/images/2023/B2B_benner01.png" class="img-fluid" alt="에듀코카 테마과정 바로가기 배너" ></a>
-						</div>
+
 						<!-- 해당배너영역은 4개 과정 나온 후 밑에 배너위치 하기-->
 						<c:if test="${fn:length(SubjectList) <= 0 }">
 							<p class="text-center">
@@ -375,10 +373,15 @@
 							</p>
 						</c:if>
 						<c:forEach items="${SubjectList }" var="list" varStatus="status">
+							<c:if test="${status.count eq 5}">
+								<div class="header-benner-box">
+									<a href="https://edu.kocca.kr/edu/onlineEdu/themeLecture/list.do?menuNo=500157" class="d-inblock"><img src="/images/2023/B2B_benner01.png" class="img-fluid" alt="에듀코카 테마과정 바로가기 배너" ></a>
+								</div>
+							</c:if>
 							<div class="thumb_box card">
 								<a href="javascript:whenSubjInfo('<c:out value="${list.d_subj }" />','<c:out value="${list.d_subjnm }" />','<c:out value="${list.d_isonoff }" />','<c:out value="${list.d_scupperclass }" />','<c:out value="${list.d_uclassnm }" />','<c:out value="${list.d_scyear }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${list.d_wj_classkey }" />');" class="thumb_imgBox">
-									<%--<img src="<c:out value="${list.d_introducefilenamenew }" />" alt="<c:out value="${list.d_subjnm }" />">--%>
-									<img src="/images/2023/CB19026.png" alt="섬네일 호출">
+									<img src="https://test.edukocca.or.kr<c:out value="${list.d_introducefilenamenew }" />" alt="<c:out value="${list.d_subjnm }" />">
+										<%--<img src="/images/2023/CB23003.png" alt="섬네일 호출">--%>
 								</a>
 								<div class="card-body thumb_con">
 									<div class="thumb_top_tag">
