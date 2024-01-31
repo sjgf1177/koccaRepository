@@ -103,9 +103,8 @@
                                                         <th>강사소개</th>
                                                         <td>
                                                                 <%--<img src="/servlet/controller.library.DownloadServlet?p_savefile=<c:out value="${selectOffExpert.d_tutorimg }" />" alt="강사">--%>
-                                                            <span><i class="icon_chk"></i>이름 : <c:out value="${selectOffExpert.d_tutornm }" /></span><br>
-                                                            <span>
-                                                            약력<br/>
+                                                            <span><i class="icon_chk"></i>이름 : <c:out value="${selectOffExpert.d_tutornm }" /></span><br><br>
+                                                            <span><i class="icon_chk"></i>약력<br/>
                                                             <c:set var="tutorcareer" value="${fn:replace(selectOffExpert.d_tutorcareer, CRLF, BR)}" />
                                                             <c:set var="tutorcareer" value="${fn:replace(tutorcareer, LF, BR)}" />
                                                             <c:set var="tutorcareer" value="${fn:replace(tutorcareer, CR, BR)}" />
