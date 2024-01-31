@@ -380,8 +380,9 @@
 							</c:if>
 							<div class="thumb_box card">
 								<a href="javascript:whenSubjInfo('<c:out value="${list.d_subj }" />','<c:out value="${list.d_subjnm }" />','<c:out value="${list.d_isonoff }" />','<c:out value="${list.d_scupperclass }" />','<c:out value="${list.d_uclassnm }" />','<c:out value="${list.d_scyear }" />','<c:out value="${list.d_subjseq }" />','<c:out value="${list.d_wj_classkey }" />');" class="thumb_imgBox">
-									<img src="https://test.edukocca.or.kr<c:out value="${list.d_introducefilenamenew }" />" alt="<c:out value="${list.d_subjnm }" />">
-										<%--<img src="/images/2023/CB23003.png" alt="¼¶³×ÀÏ È£Ãâ">--%>
+									<img src="<c:out value="${list.d_introducefilenamenew }" />" alt="<c:out value="${list.d_subjnm }" />">
+									<%--<img src="https://test.edukocca.or.kr<c:out value="${list.d_introducefilenamenew }" />" alt="<c:out value="${list.d_subjnm }" />">--%>
+
 								</a>
 								<div class="card-body thumb_con">
 									<div class="thumb_top_tag">

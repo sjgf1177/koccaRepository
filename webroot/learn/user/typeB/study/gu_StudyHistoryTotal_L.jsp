@@ -461,7 +461,8 @@
 											<fmt:formatDate value="${courseeduend }" pattern="yyyyMMdd" var="eduend"/>
 											<li class="d-flex">
 												<div class="tnail_box">
-													<img src="https://test.edukocca.or.kr${list.d_introducefilenamenew}" alt="级匙老 龋免">
+													<img src="${list.d_introducefilenamenew}" alt="级匙老 龋免">
+													<%--<img src="https://test.edukocca.or.kr${list.d_introducefilenamenew}" alt="级匙老 龋免">--%>
 												</div>
 												<div class="info_text_box">
 													<h5><a href="javascript:whenSubjInfoPopup('<c:out value="${list.d_subj }" />','<c:out value="${list.d_subjnm }" />','<c:out value="${list.d_isonoff }" />');"><c:out value="${list.d_subjnm }" /></a></h5>

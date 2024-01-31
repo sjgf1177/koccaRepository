@@ -436,12 +436,12 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:45px;
 .sub_info_body .sub_course_alert_box{padding:14px 0px; margin-bottom:20px;}
 .sub_info_body .sub_course_alert_box p{font-size:26px; line-height: 40px; font-weight: 600; margin:0; word-break: break-all;}
 .sub_info_body .sub_course_alert_box p span{font-weight: 600;}
-.sub_info_body .sub_course_view_wrap .img_box{width:40%; text-align: center; vertical-align: top;}
+.sub_info_body .sub_course_view_wrap .img_box{width:40%; text-align: center; vertical-align: top; height: 185px; overflow: hidden;}
 .sub_info_body .sub_course_view_wrap .img_box img{width:100%;}
 .sub_info_body .sub_course_view_wrap .lesson_bg_box {padding: 0 20px 20px 20px; background-color: #f5f7f9;}
 .sub_info_body .sub_course_view_wrap .lesson_bg_box .info_box{width: 59%; padding-left: 50px;}
 .sub_info_body .sub_course_view_wrap .lesson_bg_box .info_box dl{padding-bottom: 20px;}
-.sub_info_body .sub_course_view_wrap .lesson_bg_box .info_box dl dt{width: 20%;}
+.sub_info_body .sub_course_view_wrap .lesson_bg_box .info_box dl dt{width: 26%;}
 .sub_info_body .sub_course_view_wrap .lesson_bg_box .info_box dl:nth-child(2) dt,
 .sub_info_body .sub_course_view_wrap .lesson_bg_box .info_box dl:nth-child(4) dt{letter-spacing: 8px;}
 .sub_info_body .sub_course_view_wrap table.tutor td img{width:100px; float:left; margin-right:20px;}
@@ -609,11 +609,13 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:45px;
 .dashboard_contents_box .card-list-box .card-title{font-size: 14px; margin-bottom: 1rem;}
 .dashboard_contents_box .card-list-box .card-text{font-size: 24px;}
 
-.dashboard_contents_box .my_card_list_box li{margin-right: 15px; border-top:0;}
+.dashboard_contents_box .my_card_list_box li{margin-right: 15px; border-top:0; width: 33%;}
 .dashboard_contents_box .my_card_list_box li:last-child{margin-right:0; border-bottom: 0;}
-.dashboard_contents_box .my_card_list_box .tnail_box{margin-right: 0;}
+.dashboard_contents_box .my_card_list_box .tnail_box{margin-right: 0; width: 100%;}
+.dashboard_contents_box .my_card_list_box li .info_text_box h5 a{height: 45px; }
 
 .dashboard_contents_box .study-list-box .my_card_list_box li .info_text_box{margin-top: 8px;}
+
 
 .dashboard_contents_box .row-chart-box{}
 .dashboard_contents_box .row-chart-box > div{width: 48%; margin:0;}
@@ -879,7 +881,7 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:45px;
 
     /* 수강 중 과정 */
     .my_card_list_box li.d-flex{display: block!important; width: 90%;}
-    .my_card_list_box li .tnail_box{height:13rem; margin-right: 0; margin-bottom: 20px; width:100%;}
+    .my_card_list_box li .tnail_box{height:17.5rem; margin-right: 0; margin-bottom: 20px; width:100%;}
     .my_card_list_box li .info_text_box{margin-bottom: 20px;}
     .my_card_list_box li > .state_box, .my_card_list_box li > .btn_box{width: 49%; margin: 0; display: inline-block;}
     .my_card_list_box li .state_box > span, .my_card_list_box li .btn_box > span{height: auto;}
@@ -897,6 +899,8 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:45px;
 
     /* 신규 클래스 */
     .pc-slide-snail{display: none;}
+
+    .my_card_list_box li .state_box > span, .my_card_list_box li .btn_box > span{justify-content: center;}
 
 }
 @media all and (max-width: 430px) {
@@ -968,6 +972,26 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:45px;
 }
 
 
+@media all and (max-width: 1300px){
+    .sub_info_body .sub_course_view_wrap .img_box{height: 8.6em;}
+}
+@media all and (max-width: 991px){
+    .sub_info_body .sub_course_view_wrap .img_box{height: 10em;}
+}
+@media all and (max-width: 768px){
+    .sub_info_body .sub_course_view_wrap .img_box{height: 10em;}
+}
+@media all and (max-width: 640px){
+    .sub_info_body .sub_course_view_wrap .img_box{height: 18em;}
+}
+@media all and (max-width: 430px){
+    .sub_info_body .sub_course_view_wrap .img_box{height: 14em;}
+}
+@media all and (max-width: 390px){
+    .sub_info_body .sub_course_view_wrap .img_box{height: 12em;}
+}
+
+
 
 @media (min-width: 1300px) and (max-width: 1400px){
     .sub_thumb_body .thumb_box .thumb_con .thumb_title{font-size: 18px;}
@@ -977,14 +1001,18 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:45px;
     .my_card_list_box li .tnail_box{height: 165px;}
 }
 @media (min-width: 992px) and (max-width: 1300px){
+    .header-right-box, section.container.d-flex > div.subContainer, footer.d-flex div.wrapper{max-width: 72%;}
+
     .sub_thumb_body .thumb_box .thumb_con .thumb_title{font-size: 16px; line-height: 18px; margin-bottom: 5px;}
     .sub_thumb_body .thumb_box .thumb_con .thumb_title.textline2{height: 38px;}
 
-    .sub_thumb_body .thumb_box .thumb_con .thumb_top_tag{margin-bottom: 33px;}
+    .sub_thumb_body .thumb_box .thumb_con .thumb_top_tag{margin-bottom: 3px;}
 
     .my_card_list_box li .tnail_box{height: 121px;}
+
+    .sub_info_body .sub_course_view_wrap .img_box{height: 140px;}
 }
-@media (min-width: 768px) and (max-width: 991px){
+@media (min-width: 769px) and (max-width: 991px){
     .sub_thumb_body .thumb_box .thumb_con{bottom: 5px;}
     .sub_thumb_body .thumb_box .thumb_con .thumb_title{font-size: 16px; line-height: 18px; margin-bottom: 5px;}
     .sub_thumb_body .thumb_box .thumb_con .thumb_title.textline2{height: 38px;}
@@ -1009,15 +1037,19 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:45px;
 
 @media (max-width: 430px){
     .sub_thumb_body .thumb_box .thumb_con .thumb_top_tag{margin-bottom: 28px;}
+
+    .my_card_list_box li .tnail_box{height: 13.7em;}
 }
 
 @media (max-width: 390px){
     .sub_thumb_body .thumb_box .thumb_con{left: 23px;}
-    .sub_thumb_body .thumb_box .thumb_con .thumb_top_tag{margin-bottom: 18px;}
+    .sub_thumb_body .thumb_box .thumb_con .thumb_top_tag{margin-bottom: 0;}
+
+    .my_card_list_box li .tnail_box{height: 200px;}
 }
 
 
 
 @media (max-width: 330px){
-    .sub_thumb_body .thumb_box .thumb_con .thumb_top_tag{margin-bottom: 13px;}
+    .sub_thumb_body .thumb_box .thumb_con .thumb_top_tag{margin-bottom: 0; height: 19px;}
 }

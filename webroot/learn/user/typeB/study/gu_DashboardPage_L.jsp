@@ -129,11 +129,12 @@
 
                                                 <li class="">
                                                     <div class="tnail_box">
-                                                        <img src="https://test.edukocca.or.kr${list.d_introducefilenamenew}" alt="${list.d_subjnm}">
+                                                        <img src="${list.d_introducefilenamenew}" alt="${list.d_subjnm}">
+                                                        <%--<img src="https://test.edukocca.or.kr${list.d_introducefilenamenew}" alt="${list.d_subjnm}">--%>
                                                     </div>
                                                     <div class="info_text_box">
                                                         <h5>
-                                                            <a href="javascript:whenSubjInfoPopup('<c:out value="${list.d_subj }" />','<c:out value="${list.d_subjnm }" />','<c:out value="${list.d_isonoff }" />');">${list.d_subjnm}</a>
+                                                            <a href="javascript:whenSubjInfoPopup('<c:out value="${list.d_subj }" />','<c:out value="${list.d_subjnm }" />','<c:out value="${list.d_isonoff }" />');" class="textline2">${list.d_subjnm}</a>
                                                         </h5>
                                                         <p><fmt:formatDate value="${sttDt}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${sttDt}" pattern="yyyy.MM.dd"/></p>
                                                         <div class="progress-box mt-2">
@@ -155,7 +156,6 @@
                                         -->
                                     </ul>
                                 </div>
-                                00 : '${cateList}';
                                 <c:set var="b_cnt" value="0" />
                                 <c:set var="g_cnt" value="0" />
                                 <c:set var="k_cnt" value="0" />
@@ -177,10 +177,6 @@
                                         <c:set var="x_cnt" value="${list.d_cnt}" />
                                     </c:if>
                                 </c:forEach>
-                                b : ${b_cnt}
-                                g : ${g_cnt}
-                                k : ${k_cnt}
-                                x : ${x_cnt}
                                 <div class="d-flex row-chart-box mb30">
                                     <div class="category-chart-box">
                                         <div class="top-box">
