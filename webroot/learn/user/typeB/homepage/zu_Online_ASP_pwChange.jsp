@@ -105,7 +105,7 @@
 	                                                </colgroup>
 	                                                <tbody>
 	                                                	<tr>
-	                                                		<th>현재 비밀번호111</th>
+	                                                		<th>현재 비밀번호</th>
 	                                                		<td>
 	                                                			<input type="password" name="p_usepw" id="p_usepw" title="현재 비밀번호" />
 	                                                		</td>

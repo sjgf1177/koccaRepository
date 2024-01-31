@@ -5119,4 +5119,224 @@ public class MyClassBean {
         return list;
     }
 
+    /**
+     * 대시보드 수강 종합 갯 수 리스트
+     *
+     * @param box receive from the form object and session
+     * @return ArrayList 대시보드 수강 종합 갯 수 리스트
+     */
+    public ArrayList<DataBox> selectDashboardCntList(RequestBox box) throws Exception {
+        DBConnectionManager connMgr = null;
+        DataBox dbox = null;
+        ListSet ls = null;
+        ArrayList<DataBox> list = null;
+        StringBuffer sql = new StringBuffer();
+        String v_userid = box.getSession("userid");
+
+        try {
+            connMgr = new DBConnectionManager();
+            list = new ArrayList<DataBox>();
+
+            sql.append(" SELECT proposeCnt                                                                                                  \n");
+            sql.append("      , graduatedCnt                                                                                                \n");
+            sql.append("      , proposeCnt - graduatedCnt ungraduatedCnt                                                                    \n");
+            sql.append("   FROM (                                                                                                           \n");
+            sql.append("            SELECT (                                                                                                \n");
+            sql.append("                       SELECT COUNT(*)                                                                              \n");
+            sql.append("                         FROM TZ_PROPOSE A                                                                          \n");
+            sql.append("                            , TZ_SUBJSEQ B                                                                          \n");
+            sql.append("                        WHERE A.SUBJ     = B.SUBJ(+)                                                                 \n");
+            sql.append("                          AND A.YEAR     = B.YEAR(+)                                                                 \n");
+            sql.append("                          AND A.SUBJSEQ  = B.SUBJSEQ(+)                                                             \n");
+            sql.append("                          AND A.USERID   = ").append(SQLString.Format(v_userid)).append("                           \n");
+            sql.append("                          AND B.GRCODE   = ").append(SQLString.Format(box.getSession("tem_grcode"))).append("   \n");
+            sql.append("                   ) proposeCnt                                                                                     \n");
+            sql.append("                 , (                                                                                                \n");
+            sql.append("                       SELECT COUNT(*)                                                                              \n");
+            sql.append("                         FROM TZ_PROPOSE A                                                                          \n");
+            sql.append("                            , TZ_STUDENT B                                                                          \n");
+            sql.append("                            , TZ_SUBJSEQ C                                                                          \n");
+            sql.append("                        WHERE A.SUBJ     = B.SUBJ(+)                                                                \n");
+            sql.append("                          AND A.YEAR     = B.YEAR(+)                                                                \n");
+            sql.append("                          AND A.SUBJSEQ  = B.SUBJSEQ(+)                                                             \n");
+            sql.append("                          AND A.USERID   = B.USERID(+)                                                              \n");
+            sql.append("                          AND A.SUBJ     = C.SUBJ(+)                                                                \n");
+            sql.append("                          AND A.YEAR     = C.YEAR(+)                                                                \n");
+            sql.append("                          AND A.SUBJSEQ  = C.SUBJSEQ(+)                                                             \n");
+            sql.append("                          AND A.USERID   = ").append(SQLString.Format(v_userid)).append("                           \n");
+            sql.append("                          AND C.GRCODE   = ").append(SQLString.Format(box.getSession("tem_grcode"))).append("   \n");
+            sql.append("                          AND B.ISGRADUATED = 'Y'                                                                   \n");
+            sql.append("                          AND B.SERNO IS NOT NULL                                                                   \n");
+            sql.append("                   ) graduatedCnt                                                                                   \n");
+            sql.append("              FROM DUAL                                                                                             \n");
+            sql.append("        )                                                                                                           \n");
+
+            ls = connMgr.executeQuery(sql.toString());
+
+            while (ls.next()) {
+                dbox = ls.getDataBox();
+
+                list.add(dbox);
+            }
+        } catch (Exception ex) {
+            ErrorManager.getErrorStackTrace(ex, box, sql.toString());
+            throw new Exception("sql = " + sql.toString() + "\r\n" + ex.getMessage());
+        } finally {
+            if (ls != null) {
+                try {
+                    ls.close();
+                } catch (Exception e) {
+                }
+            }
+            if (connMgr != null) {
+                try {
+                    connMgr.freeConnection();
+                } catch (Exception e10) {
+                }
+            }
+        }
+        return list;
+    }
+
+    /**
+     * 대시보드 수강 중인 과정 리스트
+     *
+     * @param box receive from the form object and session
+     * @return ArrayList 대시보드 수강 중인 과정 리스트
+     */
+    public ArrayList<DataBox> dashBoardStudyList(RequestBox box) throws Exception {
+        DBConnectionManager connMgr = null;
+        DataBox dbox = null;
+        ListSet ls = null;
+        ArrayList<DataBox> list = null;
+        StringBuffer sql = new StringBuffer();
+        String v_userid = box.getSession("userid");
+
+        try {
+            connMgr = new DBConnectionManager();
+            list = new ArrayList<DataBox>();
+
+            sql.append("SELECT A.INTRODUCEFILENAMENEW                                                                                       \n");
+            sql.append("     , A.SUBJ                                                                                                       \n");
+            sql.append("     , A.SUBJNM                                                                                                     \n");
+            sql.append("     , A.ISONOFF                                                                                                    \n");
+            sql.append("     , A.EDUSTART                                                                                                   \n");
+            sql.append("     , A.EDUEND                                                                                                     \n");
+            sql.append("     , (SELECT X.SCORE                                                                                              \n");
+            sql.append("          FROM TZ_STUDENT X                                                                                         \n");
+            sql.append("         WHERE A.SUBJ    = X.SUBJ                                                                                   \n");
+            sql.append("           AND A.YEAR    = X.YEAR                                                                                   \n");
+            sql.append("           AND A.SUBJSEQ = X.SUBJSEQ                                                                                \n");
+            sql.append("           AND B.USERID  = X.USERID) SCORE                                                                          \n");
+            sql.append("  FROM VZ_SCSUBJSEQIMGMOBILE A                                                                                      \n");
+            sql.append("     , TZ_PROPOSE            B                                                                                      \n");
+            sql.append("     , TZ_TAX                C                                                                                      \n");
+            sql.append("     , TZ_BILLING            D                                                                                      \n");
+            sql.append(" WHERE A.SUBJ     = B.SUBJ                                                                                          \n");
+            sql.append("   AND A.YEAR     = B.YEAR                                                                                          \n");
+            sql.append("   AND A.SUBJSEQ  = B.SUBJSEQ                                                                                       \n");
+            sql.append("   AND A.SCSUBJ   = C.SUBJ(+)                                                                                       \n");
+            sql.append("   AND A.YEAR     = C.YEAR(+)                                                                                       \n");
+            sql.append("   AND A.SUBJSEQ  = C.SUBJSEQ(+)                                                                                    \n");
+            sql.append("   AND A.SCSUBJ   = D.SUBJ(+)                                                                                       \n");
+            sql.append("   AND A.YEAR     = D.YEAR(+)                                                                                       \n");
+            sql.append("   AND A.SUBJSEQ  = D.SUBJSEQ(+)                                                                                    \n");
+            sql.append("   AND B.CHKFINAL = 'Y'                                                                                             \n");
+            sql.append("   AND B.USERID   = ").append(SQLString.Format(v_userid)).append("                                                  \n");
+            sql.append("   AND A.GRCODE   = ").append(SQLString.Format(box.getSession("tem_grcode"))).append("                          \n");
+            sql.append("   AND TO_CHAR(SYSDATE, 'YYYYMMDDHH24') <= A.EDUEND                                                                 \n");
+            sql.append(" ORDER BY A.EDUSTART DESC, A.COURSE, A.SCUPPERCLASS, A.SCMIDDLECLASS, A.SUBJNM, A.SUBJ,A.YEAR,A.SUBJSEQ,A.EDUEND    \n");
+
+            ls = connMgr.executeQuery(sql.toString());
+
+            while (ls.next()) {
+                dbox = ls.getDataBox();
+
+                list.add(dbox);
+            }
+        } catch (Exception ex) {
+            ErrorManager.getErrorStackTrace(ex, box, sql.toString());
+            throw new Exception("sql = " + sql.toString() + "\r\n" + ex.getMessage());
+        } finally {
+            if (ls != null) {
+                try {
+                    ls.close();
+                } catch (Exception e) {
+                }
+            }
+            if (connMgr != null) {
+                try {
+                    connMgr.freeConnection();
+                } catch (Exception e10) {
+                }
+            }
+        }
+        return list;
+    }
+
+    /**
+     * 대시보드 카테고리 리스트
+     *
+     * @param box receive from the form object and session
+     * @return ArrayList 대시보드 카테고리 리스트
+     */
+    public ArrayList<DataBox> selectDashboardCateList(RequestBox box) throws Exception {
+        DBConnectionManager connMgr = null;
+        DataBox dbox = null;
+        ListSet ls = null;
+        ArrayList<DataBox> list = null;
+        StringBuffer sql = new StringBuffer();
+        String v_userid = box.getSession("userid");
+
+        try {
+            connMgr = new DBConnectionManager();
+            list = new ArrayList<DataBox>();
+
+            sql.append("SELECT NVL(C.AREA, 'XX') AREA                                                               \n");
+            sql.append("     , NVL((SELECT CODENM                                                                   \n");
+            sql.append("              FROM TZ_CODE                                                                  \n");
+            sql.append("             WHERE GUBUN = '0101'                                                           \n");
+            sql.append("               AND CODE  = NVL(C.AREA, 'XX')), '기타') AREANAME                               \n");
+            sql.append("     , COUNT(NVL(C.AREA, 'XX')) CNT                                                          \n");
+            sql.append("  FROM TZ_PROPOSE A                                                                         \n");
+            sql.append("     , TZ_SUBJSEQ B                                                                         \n");
+            sql.append("     , TZ_SUBJ    C                                                                         \n");
+            sql.append(" WHERE A.SUBJ    = B.SUBJ(+)                                                                \n");
+            sql.append("   AND A.YEAR    = B.YEAR(+)                                                                \n");
+            sql.append("   AND A.SUBJSEQ = B.SUBJSEQ(+)                                                             \n");
+            sql.append("   AND B.SUBJ    = C.SUBJ                                                                  \n");
+            sql.append("   AND A.USERID  = ").append(SQLString.Format(v_userid)).append("                          \n");
+            sql.append("   AND B.GRCODE  = ").append(SQLString.Format(box.getSession("tem_grcode"))).append(" \n");
+            sql.append("   AND C.ISUSE   = 'Y'                                                                     \n");
+            sql.append("   AND NVL(C.AREA, 'XX') != 'W0'                                                            \n");
+            sql.append(" GROUP BY NVL(C.AREA, 'XX')                                                                 \n");
+            sql.append(" ORDER BY NVL(C.AREA, 'XX')                                                                 \n");
+
+            ls = connMgr.executeQuery(sql.toString());
+
+            while (ls.next()) {
+                dbox = ls.getDataBox();
+
+                list.add(dbox);
+            }
+        } catch (Exception ex) {
+            ErrorManager.getErrorStackTrace(ex, box, sql.toString());
+            throw new Exception("sql = " + sql.toString() + "\r\n" + ex.getMessage());
+        } finally {
+            if (ls != null) {
+                try {
+                    ls.close();
+                } catch (Exception e) {
+                }
+            }
+            if (connMgr != null) {
+                try {
+                    connMgr.freeConnection();
+                } catch (Exception e10) {
+                }
+            }
+        }
+        return list;
+    }
+
 }

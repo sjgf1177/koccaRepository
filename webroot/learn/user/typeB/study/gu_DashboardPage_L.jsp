@@ -20,6 +20,8 @@
 <%@ page import = "com.credu.course.*" %>
 <jsp:useBean id = "conf" class = "com.credu.library.ConfigSet"  scope = "page" />
 <%@ taglib uri="/tags/KoccaSelectTaglib" prefix="kocca_select" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
     //DEFINED class&variable START
     RequestBox box = (RequestBox)request.getAttribute("requestbox");
@@ -29,8 +31,49 @@
 <link href="/common/js/billboard/billboard.css" rel="stylesheet">
 <script src="/common/js/billboard/billboard.js"></script>
 <script src="/common/js/billboard/billboard.pkgd.js"></script>
+<script type="text/javascript">
+    //과정상세정보 POPUP
+    function whenSubjInfoPopup(subj, subjnm, isonoff) {
+        window.self.name = "SubjList";
+        window.open("", "openSubjInfo", "scrollbars=no,width=720,height=800,scrollbars=yes,resizable=yes'");
+
+        document.form1.target = "openSubjInfo"
+        document.form1.p_subj.value = subj;
+        document.form1.p_subjnm.value = subjnm;
+        document.form1.p_isonoff.value = isonoff;
+        document.form1.p_process.value = 'SubjectPreviewPopup';
+        document.form1.action = '/servlet/controller.propose.ProposeCourseServlet';
+        document.form1.submit();
+
+        document.form1.target = window.self.name;
+    }
+</script>
 
 <jsp:include page="/learn/user/typeB/include/topMainAsp.jsp"/>
+<form name="form1" method="post">
+    <input type='hidden' name='p_process'>
+    <input type='hidden' name='p_subj' value="">
+    <input type='hidden' name='p_year' value="">
+    <input type='hidden' name='p_subjseq' value="">
+    <input type='hidden' name='p_scsubjseq' value="">
+    <input type='hidden' name='p_subjnm' value="">
+    <input type='hidden' name='p_userid' value="">
+    <input type='hidden' name='p_gubun' value="">
+    <input type='hidden' name='p_rejectedreason' value="">
+    <input type='hidden' name='p_isonoff' value="">
+    <input type='hidden' name='p_kind' value="">
+    <input type='hidden' name='p_grcode' value="${sessionScope.tem_grcode }">
+    <input type='hidden' name='s_grcode' value="${sessionScope.tem_grcode }">
+    <input type="hidden" name="p_pageno" value="<c:out value="${param.p_pageno }" />">
+    <input type="hidden" name="p_pagesize" value="<c:out value="${param.p_pagesize }" />"/>
+    <!-- 학습창 다시띄우기용 1:다시 안띄우기  2:다시띄우기(학습컨텐츠에서 닫았을경우) -->
+    <input type='hidden' name='lessonRepopup' value="1">
+    <input type='hidden' name='lessonReurl' value="">
+    <input type='hidden' name='lessonReiurl' value="">
+    <!-- <input type='hidden' name='wj_classkey' value="">-->
+    <input type="hidden" name="gubun" value="${param.gubun }"/>
+    <input type="hidden" name="menuid" value="${param.menuid }"/>
+</form>
 <section class="container d-flex myclass01">
     <div class=""></div>
     <div class="subContainer">
@@ -41,7 +84,6 @@
                         <jsp:param value="${param.menuid }" name="left_active"/>
                     </jsp:include>
                 </div>
-
                 <div class="subContainer">
                     <div class="sub_section">
                         <div class="sub_contents_body">
@@ -51,25 +93,25 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <p class="card-title">신청한 과정</p>
-                                            <b class="card-text">20</b>
+                                            <b class="card-text">${cntList[0].d_proposecnt}</b>
                                         </div>
                                     </div>
                                     <div class="card">
                                         <div class="card-body">
                                             <p class="card-title">수강 중인 과정</p>
-                                            <b class="card-text">20</b>
+                                            <b class="card-text">${dashBoardStudyListCnt}</b>
                                         </div>
                                     </div>
                                     <div class="card">
                                         <div class="card-body">
                                             <p class="card-title">수료한 과정</p>
-                                            <b class="card-text">20</b>
+                                            <b class="card-text">${cntList[0].d_graduatedcnt}</b>
                                         </div>
                                     </div>
                                     <div class="card">
                                         <div class="card-body">
                                             <p class="card-title">미수료한 과정</p>
-                                            <b class="card-text">20</b>
+                                            <b class="card-text">${cntList[0].d_ungraduatedcnt}</b>
                                         </div>
                                     </div>
                                 </div>
@@ -77,61 +119,33 @@
                                 <div class="study-list-box mb30">
                                     <div class="top-box">
                                         <h5>수강중인 과정</h5>
-                                        <a href="#">전체보기</a>
+                                        <a href="javascript:menuForward('3', '11');">전체보기</a>
                                     </div>
                                     <ul class="my_card_list_box d-flex">
+                                        <c:forEach items="${dashBoardStudyList }" var="list" varStatus="status">
+                                            <c:if test="${status.count lt 4}">
+                                                <fmt:parseDate value="${list.d_edustart}" var="sttDt" pattern="yyyyMMddHH"/>
+                                                <fmt:parseDate value="${list.d_eduend}" var="endDt" pattern="yyyyMMddHH"/>
 
-                                        <li class="">
-                                            <div class="tnail_box">
-                                                <img src="/images/2023/CB23003-ezgif.com-crop.png" alt="섬네일 호출">
-                                            </div>
-                                            <div class="info_text_box">
-                                                <h5>
-                                                    <a href="">디지털 트랜스포메이션 비즈니스 패러다임을 꿈을 바꾸다 정말로</a>
-                                                </h5>
-                                                <p>2023.10.00 ~ 2023.12.31</p>
-                                                <div class="progress-box mt-2">
-                                                    <div class="progress" role="progressbar" aria-label="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                                        <div class="progress-bar" style="width: 75%; margin:0;"></div>
+                                                <li class="">
+                                                    <div class="tnail_box">
+                                                        <img src="https://test.edukocca.or.kr${list.d_introducefilenamenew}" alt="${list.d_subjnm}">
                                                     </div>
-                                                    <span>75%</span>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="">
-                                            <div class="tnail_box">
-                                                <img src="/images/2023/CB23003-ezgif.com-crop.png" alt="섬네일 호출">
-                                            </div>
-                                            <div class="info_text_box">
-                                                <h5>
-                                                    <a href="">디지털 트랜스포메이션 비즈니스 패러다임을 꿈을 바꾸다 정말로</a>
-                                                </h5>
-                                                <p>2023.10.00 ~ 2023.12.31</p>
-                                                <div class="progress-box mt-2 red">
-                                                    <div class="progress" role="progressbar" aria-label="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
-                                                        <div class="progress-bar" style="width: 10%; margin:0;"></div>
+                                                    <div class="info_text_box">
+                                                        <h5>
+                                                            <a href="javascript:whenSubjInfoPopup('<c:out value="${list.d_subj }" />','<c:out value="${list.d_subjnm }" />','<c:out value="${list.d_isonoff }" />');">${list.d_subjnm}</a>
+                                                        </h5>
+                                                        <p><fmt:formatDate value="${sttDt}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${sttDt}" pattern="yyyy.MM.dd"/></p>
+                                                        <div class="progress-box mt-2">
+                                                            <div class="progress" role="progressbar" aria-label="progressbar" aria-valuenow="${list.d_score}" aria-valuemin="0" aria-valuemax="100">
+                                                                <div class="progress-bar" style="width: ${list.d_score}%; margin:0;"></div>
+                                                            </div>
+                                                            <span>${list.d_score}%</span>
+                                                        </div>
                                                     </div>
-                                                    <span>10%</span>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="">
-                                            <div class="tnail_box">
-                                                <img src="/images/2023/CB23003-ezgif.com-crop.png" alt="섬네일 호출">
-                                            </div>
-                                            <div class="info_text_box">
-                                                <h5>
-                                                    <a href="">디지털 트랜스포메이션 비즈니스 패러다임을 꿈을 바꾸다 정말로</a>
-                                                </h5>
-                                                <p>2023.10.00 ~ 2023.12.31</p>
-                                                <div class="progress-box  mt-2">
-                                                    <div class="progress" role="progressbar" aria-label="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                                        <div class="progress-bar" style="width: 75%; margin:0;"></div>
-                                                    </div>
-                                                    <span>75%</span>
-                                                </div>
-                                            </div>
-                                        </li>
+                                                </li>
+                                            </c:if>
+                                        </c:forEach>
 
                                         <!-- 수강중인 과정 없을 때-->
                                         <!--
@@ -141,6 +155,32 @@
                                         -->
                                     </ul>
                                 </div>
+                                00 : '${cateList}';
+                                <c:set var="b_cnt" value="0" />
+                                <c:set var="g_cnt" value="0" />
+                                <c:set var="k_cnt" value="0" />
+                                <c:set var="x_cnt" value="0" />
+                                <c:forEach items="${cateList }" var="list" varStatus="status">
+                                    <c:if test="${list.d_area eq 'B0' and list.d_cnt gt 0}">
+                                        <c:set var="b_cnt" value="${list.d_cnt}" />
+                                    </c:if>
+
+                                    <c:if test="${list.d_area eq 'G0' and list.d_cnt gt 0}">
+                                        <c:set var="g_cnt" value="${list.d_cnt}" />
+                                    </c:if>
+
+                                    <c:if test="${list.d_area eq 'K0' and list.d_cnt gt 0}">
+                                        <c:set var="k_cnt" value="${list.d_cnt}" />
+                                    </c:if>
+
+                                    <c:if test="${list.d_area eq 'XX' and list.d_cnt gt 0}">
+                                        <c:set var="x_cnt" value="${list.d_cnt}" />
+                                    </c:if>
+                                </c:forEach>
+                                b : ${b_cnt}
+                                g : ${g_cnt}
+                                k : ${k_cnt}
+                                x : ${x_cnt}
                                 <div class="d-flex row-chart-box mb30">
                                     <div class="category-chart-box">
                                         <div class="top-box">
@@ -154,11 +194,10 @@
                                                     bindto: "#expandRate",
                                                     data: {
                                                         columns: [
-                                                            ["방송영상", 30],
-                                                            ["게임", 30],
-                                                            ["만화/애니/캐릭터", 30],
-                                                            ["음악/공연", 30],
-                                                            ["인문교양", 120]
+                                                            ["방송영상", ${b_cnt}],
+                                                            ["게임", ${g_cnt}],
+                                                            ["문화", ${k_cnt}],
+                                                            ["기타", ${x_cnt}]
                                                         ],
                                                         type : "pie"
                                                     },

@@ -1234,12 +1234,16 @@ public class MyClassServlet extends javax.servlet.http.HttpServlet implements Se
             v_url = "/learn/user/typeB/study/gu_DashboardPage_L.jsp";
 
             MyClassBean bean = new MyClassBean();
-            ArrayList list = bean.selectProposeHistoryList(box);
+            ArrayList list = bean.dashBoardStudyList(box);
+            ArrayList cntList = bean.selectDashboardCntList(box);
+            ArrayList cateList = bean.selectDashboardCateList(box);
 
             request.setAttribute("requestbox", box); //      명시적으로 box 객체를 넘겨준다
-            request.setAttribute("proposeHistoryList", list);
-            request.setAttribute("proposeHistoryListCnt", list.size());
+            request.setAttribute("dashBoardStudyList", list);
+            request.setAttribute("dashBoardStudyListCnt", list.size());
 
+            request.setAttribute("cntList", cntList);
+            request.setAttribute("cateList", cateList);
 
             ServletContext sc = getServletContext();
             RequestDispatcher rd = sc.getRequestDispatcher(v_url);
