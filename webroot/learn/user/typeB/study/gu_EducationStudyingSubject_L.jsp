@@ -131,7 +131,8 @@
 										<c:forEach items="${EducationStudyingSubjectList }" var="list" varStatus="status">
 											<li class="d-flex">
 												<div class="tnail_box">
-													<img src="https://test.edukocca.or.kr${list.d_introducefilenamenew}" alt="级匙老 龋免">
+													<img src="${list.d_introducefilenamenew}" alt="级匙老 龋免">
+													<%--<img src="https://test.edukocca.or.kr${list.d_introducefilenamenew}" alt="级匙老 龋免">--%>
 												</div>
 												<div class="info_text_box">
 													<h5>

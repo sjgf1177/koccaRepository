@@ -92,7 +92,10 @@
                                             <div class="sub_course_alert_box">
                                                 <p><span>[<c:out value="${subjectPreview.d_areaname }" />]</span> <c:out value="${subjectPreview.d_subjnm }" /></p>
                                             </div>
-                                            <div class="img_box d-inblock"> <img src="https://test.edukocca.or.kr<c:out value="${subjectPreview.d_introducefilenamenew }" />" alt="<c:out value="${subjectPreview.d_subjnm }" />" /></div>
+                                            <div class="img_box d-inblock">
+                                                <img src="<c:out value="${subjectPreview.d_introducefilenamenew }" />" alt="<c:out value="${subjectPreview.d_subjnm }" />" />
+                                                <%--<img src="https://test.edukocca.or.kr<c:out value="${subjectPreview.d_introducefilenamenew }" />" alt="<c:out value="${subjectPreview.d_subjnm }" />" />--%>
+                                            </div>
                                             <div class="info_box d-inblock">
                                                 <dl class="d-flex">
                                                     <dt>제작년도</dt>

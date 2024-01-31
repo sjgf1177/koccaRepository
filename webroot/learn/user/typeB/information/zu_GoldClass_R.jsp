@@ -103,7 +103,7 @@
                                                         <th>강사소개</th>
                                                         <td>
                                                                 <%--<img src="/servlet/controller.library.DownloadServlet?p_savefile=<c:out value="${selectOffExpert.d_tutorimg }" />" alt="강사">--%>
-                                                            <span>이름 : <c:out value="${selectOffExpert.d_tutornm }" /></span>
+                                                            <span><i class="icon_chk"></i>이름 : <c:out value="${selectOffExpert.d_tutornm }" /></span><br>
                                                             <span>
                                                             약력<br/>
                                                             <c:set var="tutorcareer" value="${fn:replace(selectOffExpert.d_tutorcareer, CRLF, BR)}" />
@@ -118,7 +118,7 @@
                                                 <c:if test="${not empty selectOffExpert.d_intro}">
                                                     <tr>
                                                         <th>강좌소개 (강좌개요)</th>
-                                                        <td>
+                                                        <td><i class="icon_chk"></i>
                                                             <c:set var="intro" value="${fn:replace(selectOffExpert.d_intro, CRLF, BR)}" />
                                                             <c:set var="intro" value="${fn:replace(intro, LF, BR)}" />
                                                             <c:set var="intro" value="${fn:replace(intro, CR, BR)}" />
@@ -129,7 +129,7 @@
                                                 <c:if test="${not empty selectOffExpert.d_contents}">
                                                     <tr>
                                                         <th>강좌내용</th>
-                                                        <td>
+                                                        <td><i class="icon_chk"></i>
                                                             <c:set var="contents" value="${fn:replace(selectOffExpert.d_contents, CRLF, BR)}" />
                                                             <c:set var="contents" value="${fn:replace(contents, LF, BR)}" />
                                                             <c:set var="contents" value="${fn:replace(contents, CR, BR)}" />

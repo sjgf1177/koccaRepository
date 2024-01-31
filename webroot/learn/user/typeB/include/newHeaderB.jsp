@@ -61,8 +61,8 @@
 						<!-- header 왼쪽 영역(로고, 프로필사진, 나의강의실, 로그아웃)-->
 						<ul class="fixed-header-box text-center">
 							<li class="logo">
-								<%--<a href="#" class="d-inblock"><img src="/images/newmain_20100625/<c:out value="${sessionScope.tem_grcode }"/>.png" alt="로고" /></a>--%>
-								<a href="#" class="d-inblock"><img src="/images/2023/renew_logo.svg" alt="로고" /></a>
+								<a href="#" class="d-inblock"><img src="/images/newmain_20100625/<c:out value="${sessionScope.tem_grcode }"/>.png" alt="로고" /></a>
+								<%--<a href="#" class="d-inblock"><img src="/images/2023/renew_logo.svg" alt="로고" /></a>--%>
 							</li>
 							<li>
 								<span class="circle-box myname">${sessionScope.name}</span>
