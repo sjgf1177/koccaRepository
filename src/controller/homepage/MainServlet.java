@@ -269,7 +269,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
 			N000243 : 서울항공비즈니스고등학교
 			N000244 : 지역문화진흥원
 			*/
-            box.setSession("tem_grcode", "N000057");
+            /*box.setSession("tem_grcode", "N000057");*/
 
             TempletBean bean = new TempletBean();
             DataBox listBean = bean.SelectGrcodeExists(box);
@@ -1013,56 +1013,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
             if (gubun.equals("40")) // 아이디 찾기
             {
                 FreeMailBean bean = new FreeMailBean();
-                //String isOk = bean.findIdFreeMail(box);
-
-                // sets SMTP server properties
-                Properties properties = new Properties();
-                //properties.put("mail.smtp.host", "210.96.133.67");
-                properties.put("mail.smtp.host", "mail2.kocca.kr");
-                properties.put("mail.smtp.port", "9110");
-                properties.put("mail.smtp.auth", "true");
-                properties.put("mail.smtp.starttls.enable", "true");
-
-                // creates a new session with an authenticator
-                Authenticator auth = new Authenticator() {
-                    public PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication("academy@kocca.kr", "academy123!");
-                    }
-                };
-
-                Session session = Session.getInstance(properties, auth);
-
-                // creates a new e-mail message
-                Message msg = new MimeMessage(session);
-
-                msg.setFrom(new InternetAddress("academy@kocca.kr"));
-                InternetAddress[] toAddresses = { new InternetAddress("sjgf1177@nate.com") };
-                msg.setRecipients(Message.RecipientType.TO, toAddresses);
-                msg.setSubject("mail test1");
-                msg.setSentDate(new Date());
-                msg.setText("mail test2");
-
-                // sends the e-mail
-                Transport.send(msg);
-
-/*                Session session = Session.getDefaultInstance(properties, new javax.mail.Authenticator() {
-                    protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication("academy@kocca.kr", "academy123!");
-                    }
-                });*/
-
-/*                Message msg = new MimeMessage(session);
-                msg.setFrom(new InternetAddress("academy@kocca.kr"));
-                InternetAddress[] toAddresses = { new InternetAddress("sjgf1177@nate.com") };
-                msg.setRecipients(Message.RecipientType.TO, toAddresses);
-                msg.setSubject("mail test1");
-                msg.setSentDate(new Date());
-                msg.setText("mail test2");*/
-
-                // sends the e-mail
-                Transport.send(msg);
-
-                String isOk = "true:sjgf1177@nate.com";
+                String isOk = bean.findIdFreeMail(box);
 
                 box.put("dbLoad_ID_Exists", isOk);
                 v_url = "/learn/user/portal/homepage/zu_Online_ASP_ExistsID.jsp";

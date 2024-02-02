@@ -42,7 +42,9 @@
                 <input type="hidden" name="gubun" value="" />
                 <input type="hidden" name="menuid" value="" />
 
-                <div class="text-center mb-5"><img src="/images/2023/logo.png" alt="ÇÑ±¹ÄÜÅÙÃ÷ÁøÈï¿ø"></div>
+                <div class="text-center mb-5">
+                    <img src="/images/newmain_20100625/<c:out value="${sessionScope.tem_grcode }"/>.png" alt="·Î°í" onerror="this.src='/images/2023/logo.png'">
+                </div>
                 <h1 class="h3 mb-5 fw-normal text-center">·Î±×ÀÎ</h1>
 
                 <div class="form-floating">
