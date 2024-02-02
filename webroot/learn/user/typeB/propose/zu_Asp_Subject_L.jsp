@@ -97,9 +97,9 @@
 	<div class=""></div>
 	<div class="subContainer">
 		<div class="sub_section">
-			<div class="sub_contents_header" style="padding-bottom: 0; margin-bottom: 0;">
+			<%--<div class="sub_contents_header" style="padding-bottom: 0; margin-bottom: 0;">
 				<span style="margin-top: 30px;">정규과정</span>
-			</div>
+			</div>--%>
 			<div class="sub_contents_body">
 				<div class="sub_board_header">
 					<jsp:include page="/learn/user/typeB/include_left/left_9.jsp">
@@ -158,7 +158,7 @@
 							<ul class="swiper-wrapper">
 								<li class="swiper-slide">
                                     <span class="new_snail_box">
-                                        <a href="https://edu.kocca.kr/edu/onlineEdu/openLecture/view.do?menuNo=500085&pSeq=1172&pLectureCls=GC01" tabindex="-1">
+                                        <a href="https://edu.kocca.kr/edu/onlineEdu/openLecture/view.do?menuNo=500085&pSeq=1172&pLectureCls=GC01" tabindex="-1" target="_blank">
 											<!-- 360px 초과 섬네일 -->
                                             <img src="https://edu.kocca.kr/edu/images/renew2022/new_class06.png" alt="" class="pc-slide-snail">
 											<!-- 360px 이하(모바일) 섬네일 -->
@@ -168,15 +168,15 @@
 									<div class="new_txt_box pc-slide-txt">
 										<h3>크리에이터를 만드는 크리에이터</h3>
 										<p class="new_info_box">
-											채널 컨설팅부터 마케팅과 브랜딩까지!<br>
-											콘텐츠의 시작과 끝을 책임진다.<br>
+											채널 컨설팅부터 마케팅과 브랜딩까지!
+											콘텐츠의 시작과 끝을 책임진다.
 											크리에이터와 함께하는 사람들의 이야기
 										</p>
 									</div>
 								</li>
 								<li class="swiper-slide">
                                     <span class="new_snail_box">
-                                        <a href="https://edu.kocca.kr/edu/onlineEdu/openLecture/view.do?menuNo=500085&pSeq=1166&pLectureCls=GC04" tabindex="-1">
+                                        <a href="https://edu.kocca.kr/edu/onlineEdu/openLecture/view.do?menuNo=500085&pSeq=1166&pLectureCls=GC04" tabindex="-1" target="_blank">
 											<!-- 360px 초과 섬네일 -->
                                             <img src="https://edu.kocca.kr/edu/images/renew2022/new_class07.png" alt="" class="pc-slide-snail">
 											<!-- 360px 이하(모바일) 섬네일 -->
@@ -186,15 +186,15 @@
 									<div class="new_txt_box pc-slide-txt">
 										<h3>무한한 창작, 음악에 관하여</h3>
 										<p class="new_info_box">
-											음악 콘텐츠? 창작엔 끝이 없다!<br>
-											매체별 작품 제작 사례와 함께 알아보는<br>
+											음악 콘텐츠? 창작엔 끝이 없다!
+											매체별 작품 제작 사례와 함께 알아보는
 											음악 창작과 실무 이야기
 										</p>
 									</div>
 								</li>
 								<li class="swiper-slide">
                                     <span class="new_snail_box">
-                                        <a href="https://edu.kocca.kr/edu/onlineEdu/openLecture/view.do?menuNo=500085&pSeq=1186&pLectureCls=GC05" tabindex="-1">
+                                        <a href="https://edu.kocca.kr/edu/onlineEdu/openLecture/view.do?menuNo=500085&pSeq=1186&pLectureCls=GC05" tabindex="-1" target="_blank">
                                             <!-- 360px 초과 섬네일 -->
                                             <img src="https://edu.kocca.kr/edu/images/renew2022/new_class08.png" alt="" class="pc-slide-snail">
 											<!-- 360px 이하(모바일) 섬네일 -->
@@ -204,16 +204,16 @@
 									<div class="new_txt_box pc-slide-txt">
 										<h3>장애인을 고려한 접근성 높은 게임</h3>
 										<p class="new_info_box">
-											누구나 즐길 수 있는 게임??<br>
-											게임 콘텐츠 접근성과 재미를 모두 잡는다!<br>
-											장애인을 위한 게임 편의성 향상 프로젝트<br>
+											누구나 즐길 수 있는 게임??
+											게임 콘텐츠 접근성과 재미를 모두 잡는다!
+											장애인을 위한 게임 편의성 향상 프로젝트
 											* 본 과정은 ‘수어자막‘ 버전으로도 제공됩니다.
 										</p>
 									</div>
 								</li>
 								<li class="swiper-slide">
                                     <span class="new_snail_box">
-                                        <a href="https://edu.kocca.kr/edu/onlineEdu/openLecture/view.do?menuNo=500085&pSeq=1180&pLectureCls=GC01" tabindex="-1">
+                                        <a href="https://edu.kocca.kr/edu/onlineEdu/openLecture/view.do?menuNo=500085&pSeq=1180&pLectureCls=GC01" tabindex="-1" target="_blank">
                                             <!-- 360px 초과 섬네일 -->
                                             <img src="https://edu.kocca.kr/edu/images/renew2022/new_class09.png" alt="" class="pc-slide-snail">
 											<!-- 360px 이하(모바일) 섬네일 -->
@@ -223,15 +223,15 @@
 									<div class="new_txt_box pc-slide-txt">
 										<h3>콘텐츠, 스토리텔링을 담다</h3>
 										<p class="new_info_box">
-											탐사 보도부터 서바이벌, 스포츠 예능까지!<br>
-											온라인 콘텐츠로 만나는 현장의 생생함<br>
+											탐사 보도부터 서바이벌, 스포츠 예능까지!
+											온라인 콘텐츠로 만나는 현장의 생생함
 											진정성, 리얼리티 그리고 공감의 이야기
 										</p>
 									</div>
 								</li>
 								<li class="swiper-slide">
                                     <span class="new_snail_box">
-                                        <a href="https://url.kr/4kizp9" tabindex="-1">
+                                        <a href="https://url.kr/4kizp9" tabindex="-1" target="_blank">
 											<!-- 360px 초과 섬네일 -->
                                             <img src="https://edu.kocca.kr/edu/images/renew2022/new_class05.png" alt="">
 											<!-- 360px 이하(모바일) 섬네일 -->
@@ -241,16 +241,16 @@
 									<div class="new_txt_box pc-slide-txt">
 										<h3>빛나는 아티스트를 만드는 사람들</h3>
 										<p class="new_info_box">
-											전세계의 사랑을 받는 K-POP 아티스트를 꿈꾼다!<br>
+											전세계의 사랑을 받는 K-POP 아티스트를 꿈꾼다!
 											신인 개발, 매니지먼트 그리고 각종 공연 기획까지,
-											음악 산업의 다양한 직무와 역량이 궁금하다면?<br>
+											음악 산업의 다양한 직무와 역량이 궁금하다면?
 											지금 바로 에듀코카에서 확인하세요!
 										</p>
 									</div>
 								</li>
 								<li class="swiper-slide">
                                     <span class="new_snail_box">
-                                        <a href="https://url.kr/o8z1ua" tabindex="0">
+                                        <a href="https://url.kr/o8z1ua" tabindex="0" target="_blank">
 											<!-- 360px 초과 섬네일 -->
                                             <img src="https://edu.kocca.kr/edu/images/renew2022/new_class04.png" alt="모두를 위한 즐거움 : 배리어프리
                                             물리적, 심리적 장벽을 없애기 위한 첫 걸음.
@@ -269,16 +269,16 @@
 									<div class="new_txt_box pc-slide-txt">
 										<h3>모두를 위한 즐거움 : 배리어프리</h3>
 										<p class="new_info_box">
-											물리적, 심리적 장벽을 없애기 위한 첫 걸음.<br>
-											배리어 프리(Barrier ? free), 얼마나 알고 계신가요?<br>
-											콘텐츠산업 내 배리어프리가 궁금하다면?<br>
+											물리적, 심리적 장벽을 없애기 위한 첫 걸음.
+											배리어 프리(Barrier ? free), 얼마나 알고 계신가요?
+											콘텐츠산업 내 배리어프리가 궁금하다면?
 											지금 에듀코카에서 확인해보세요!
 										</p>
 									</div>
 								</li>
 								<li class="swiper-slide">
                                     <span class="new_snail_box">
-                                        <a href="https://edu.kocca.kr/edu/onlineEdu/openLecture/view.do?menuNo=500085&pSeq=1103&pLectureCls=GC02" tabindex="-1">
+                                        <a href="https://edu.kocca.kr/edu/onlineEdu/openLecture/view.do?menuNo=500085&pSeq=1103&pLectureCls=GC02" tabindex="-1" target="_blank">
                                             <!-- 360px 초과 섬네일 -->
 											<img src="https://edu.kocca.kr/edu/images/renew2022/new_class03.png" alt="게임회사의 모든 것 (feat.직무)
                                             게임 기업 취업, 이직을 희망하고 있다면?
@@ -300,17 +300,17 @@
 									<div class="new_txt_box pc-slide-txt">
 										<h3>게임회사의 모든 것 (feat.직무)</h3>
 										<p class="new_info_box">
-											게임 기업 취업, 이직을 희망하고 있다면?<br/>
-											실무진들의 다양한 직무 Ssul은 물론<br/>
-											게임 회사가 원하는 인재상부터<br/>
-											게임 산업의 전체 구조까지 다 알려드립니다!<br/>
+											게임 기업 취업, 이직을 희망하고 있다면?
+											실무진들의 다양한 직무 Ssul은 물론
+											게임 회사가 원하는 인재상부터
+											게임 산업의 전체 구조까지 다 알려드립니다!
 											지금 바로 에듀코카에서 확인해보세요.
 										</p>
 									</div>
 								</li>
 								<li class="swiper-slide">
                                     <span class="new_snail_box">
-                                        <a href="https://edu.kocca.kr/edu/onlineEdu/openLecture/view.do?pSeq=1092&pageIndex2=&pLectureCls=&&menuNo=500085&searchCnd=&searchWrd=&p_type=K0&p_gcd1=&p_gcd2=&p_level=&p_sort=N&pGubun1=K0&p_list_type=C&pageIndex=1" tabindex="-1">
+                                        <a href="https://edu.kocca.kr/edu/onlineEdu/openLecture/view.do?pSeq=1092&pageIndex2=&pLectureCls=&&menuNo=500085&searchCnd=&searchWrd=&p_type=K0&p_gcd1=&p_gcd2=&p_level=&p_sort=N&pGubun1=K0&p_list_type=C&pageIndex=1" tabindex="-1" target="_blank">
                                             <!-- 360px 초과 섬네일 -->
 											<img src="https://edu.kocca.kr/edu/images/renew2022/new_class02.png" alt="웹툰 회사에서는 어떤 일을 할까?
                                             콘텐츠 IP로써 새로운 한류 문화로 자리매김한 웹툰!
@@ -330,16 +330,16 @@
 									<div class="new_txt_box pc-slide-txt">
 										<h3>웹툰 회사에서는 어떤 일을 할까?</h3>
 										<p class="new_info_box">
-											콘텐츠 IP로써 새로운 한류 문화로 자리매김한 웹툰!<br/>
-											웹툰 산업에서 선도적인 역할을 하고 있는 기업에서는<br/>
-											과연 어떤 일을 하고 있는지 궁금하다면?<br/>
+											콘텐츠 IP로써 새로운 한류 문화로 자리매김한 웹툰!
+											웹툰 산업에서 선도적인 역할을 하고 있는 기업에서는
+											과연 어떤 일을 하고 있는지 궁금하다면?
 											지금 바로 에듀코카에서 확인하세요!
 										</p>
 									</div>
 								</li>
 								<li class="swiper-slide">
                                     <span class="new_snail_box">
-                                        <a href="https://edu.kocca.kr/edu/onlineEdu/openLecture/view.do?pSeq=1087&pageIndex2=&pLectureCls=&&menuNo=500085&searchCnd=&searchWrd=&p_type=B0&p_gcd1=&p_gcd2=&p_level=&p_sort=N&pGubun1=B0&p_list_type=C&pageIndex=1" tabindex="-1">
+                                        <a href="https://edu.kocca.kr/edu/onlineEdu/openLecture/view.do?pSeq=1087&pageIndex2=&pLectureCls=&&menuNo=500085&searchCnd=&searchWrd=&p_type=B0&p_gcd1=&p_gcd2=&p_level=&p_sort=N&pGubun1=B0&p_list_type=C&pageIndex=1" tabindex="-1" target="_blank">
                                             <!-- 360px 초과 섬네일 -->
 											<img src="https://edu.kocca.kr/edu/images/renew2022/new_class.png" alt="" class="pc-slide-snail">
 											<!-- 360px 이하(모바일) 섬네일 -->
@@ -375,7 +375,7 @@
 						<c:forEach items="${SubjectList }" var="list" varStatus="status">
 							<c:if test="${status.count eq 5}">
 								<div class="header-benner-box">
-									<a href="https://edu.kocca.kr/edu/onlineEdu/themeLecture/list.do?menuNo=500157" class="d-inblock"><img src="/images/2023/B2B_benner01.png" class="img-fluid" alt="에듀코카 테마과정 바로가기 배너" ></a>
+									<a href="https://edu.kocca.kr/edu/onlineEdu/themeLecture/list.do?menuNo=500157" class="d-inblock" target="_blank"><img src="/images/2023/B2B_benner01.png" class="img-fluid" alt="에듀코카 테마과정 바로가기 배너"></a>
 								</div>
 							</c:if>
 							<div class="thumb_box card">
