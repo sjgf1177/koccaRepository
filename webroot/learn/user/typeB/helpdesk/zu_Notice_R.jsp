@@ -89,7 +89,9 @@ function listnotice(){
         </div>
     </div>
 </section>
-
+<style>
+    .info_box table td{background-color: transparent;}
+</style>
 <!-- footer -->
 <jsp:include page="/learn/user/typeB/include/newFooterB.jsp" />
 <!-- footer -->

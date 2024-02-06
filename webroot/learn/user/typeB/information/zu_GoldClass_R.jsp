@@ -128,7 +128,7 @@
                                                 <c:if test="${not empty selectOffExpert.d_contents}">
                                                     <tr>
                                                         <th>강좌내용</th>
-                                                        <td><i class="icon_chk"></i>
+                                                        <td><i class="icon_chk"></i>목차</br>
                                                             <c:set var="contents" value="${fn:replace(selectOffExpert.d_contents, CRLF, BR)}" />
                                                             <c:set var="contents" value="${fn:replace(contents, LF, BR)}" />
                                                             <c:set var="contents" value="${fn:replace(contents, CR, BR)}" />
