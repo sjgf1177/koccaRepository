@@ -313,7 +313,7 @@ function display() {
 		  <td colspan="4" class="table_title">보기</td>
 		</tr>
 <%  
-    for (int k=1; k <= 15; k++) {
+    for (int k=1; k <= 20; k++) {
 %>
         <tr>
           <td class="table_01"><%=String.valueOf(k)%>번</td>
@@ -347,7 +347,12 @@ function display() {
             <option value=13>13</option> 
             <option value=14>14</option> 
             <option value=15>15</option>  
-          </SELECT> 
+            <option value=16>16</option>
+            <option value=17>17</option>
+            <option value=18>18</option>
+            <option value=19>19</option>
+            <option value=20>20</option>
+          </SELECT>
 		  </td>
 		</tr>
 		<tr>
@@ -357,7 +362,7 @@ function display() {
 		  <td colspan="4" class="table_title">보기</td>
 		</tr>
 <%  
-    for (int k=1; k <= 15; k++) {
+    for (int k=1; k <= 20; k++) {
 %>
         <tr>
           <td class="table_01"><%=String.valueOf(k)%>번</td>
@@ -388,7 +393,7 @@ function display() {
 		  <td colspan="4" class="table_title">보기</td>
 		</tr>
 <%  
-    for (int k=1; k <= 15; k++) {
+    for (int k=1; k <= 20; k++) {
 %>
         <tr>
           <td class="table_01"><%=String.valueOf(k)%>번</td>
