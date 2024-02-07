@@ -622,6 +622,14 @@ public class GoldClassHomePageBean {
             }
 
             if (v_process.equals("popUpVod")) {
+/*                sql.setLength(0);
+                sql.append(" UPDATE  TZ_GOLDCLASS           \n");
+                sql.append("    SET  VIEWCNT = VIEWCNT + 1  \n");
+                sql.append("  WHERE  SEQ = ").append(v_seq);
+                connMgr.executeUpdate(sql.toString());*/
+            }
+
+            if (v_seq > 0) {
                 sql.setLength(0);
                 sql.append(" UPDATE  TZ_GOLDCLASS           \n");
                 sql.append("    SET  VIEWCNT = VIEWCNT + 1  \n");
