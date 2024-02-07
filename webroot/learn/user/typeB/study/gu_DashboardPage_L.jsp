@@ -129,7 +129,9 @@
 
                                                 <li class="">
                                                     <div class="tnail_box">
-                                                        <img src="${list.d_introducefilenamenew}" alt="${list.d_subjnm}">
+                                                        <%--<img src="${list.d_introducefilenamenew}" alt="${list.d_subjnm}">--%>
+                                                        <img src="https://edu.kocca.kr/upload/renewsnail/1080.png">
+
                                                         <%--<img src="https://test.edukocca.or.kr${list.d_introducefilenamenew}" alt="${list.d_subjnm}">--%>
                                                     </div>
                                                     <div class="info_text_box">
@@ -137,7 +139,7 @@
                                                             <a href="javascript:whenSubjInfoPopup('<c:out value="${list.d_subj }" />','<c:out value="${list.d_subjnm }" />','<c:out value="${list.d_isonoff }" />');" class="textline2">${list.d_subjnm}</a>
                                                         </h5>
                                                         <p><fmt:formatDate value="${sttDt}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${sttDt}" pattern="yyyy.MM.dd"/></p>
-                                                        <div class="progress-box mt-2">
+                                                        <div class="progress-box">
                                                             <div class="progress" role="progressbar" aria-label="progressbar" aria-valuenow="${list.d_score}" aria-valuemin="0" aria-valuemax="100">
                                                                 <div class="progress-bar" style="width: ${list.d_score}%; margin:0;"></div>
                                                             </div>
@@ -195,9 +197,14 @@
                                                             ["문화", ${k_cnt}],
                                                             ["기타", ${x_cnt}]
                                                         ],
-                                                        type : "pie"
+                                                        type : "donut"
                                                     },
-                                                    pie: {
+                                                    arc: {
+                                                        cornerRadius: {
+                                                            ratio: 0.2
+                                                        }
+                                                    },
+                                                    donut: {
                                                         label: {
                                                             format: function(value, ratio, id) {
                                                                 return value +"\회";
@@ -266,7 +273,7 @@
                                                         ["회원평균", 30, 200, 100, 100, 150, 250, 200, 180, 220, 280, 310, 330],
                                                         ["나", 15, 100, 70, 54, 90, 200, 100, 160, 170, 170, 220, 300],
                                                     ],
-                                                    type: "line", // for ESM specify as: line()
+                                                    type: "spline", // for ESM specify as: line()
                                                 },
                                                 axis: {
                                                     x: {
@@ -317,22 +324,6 @@
 
                                             <tr class="left_line">
                                                 <td class="text_circle"><b class="point_purple">학습완료</b></td>
-                                                <td>
-                                                    <b class="point_purple">디지털 트랜스포메이션, 비즈니스 패러다임을 바꾸다</b> 과정<br>
-                                                    - 2024.02.15
-                                                </td>
-                                            </tr>
-
-                                            <tr class="left_line">
-                                                <td class="text_circle"><b class="point_purple">복습시작</b></td>
-                                                <td>
-                                                    <b class="point_purple">디지털 트랜스포메이션, 비즈니스 패러다임을 바꾸다</b> 과정<br>
-                                                    - 2024.02.15
-                                                </td>
-                                            </tr>
-
-                                            <tr class="left_line">
-                                                <td class="text_circle"><b class="point_purple">복습완료</b></td>
                                                 <td>
                                                     <b class="point_purple">디지털 트랜스포메이션, 비즈니스 패러다임을 바꾸다</b> 과정<br>
                                                     - 2024.02.15
