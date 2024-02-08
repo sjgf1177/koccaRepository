@@ -353,7 +353,7 @@ footer{width: 1280px;}
 .board_search_box{width:60%; margin:10px 0 0 0;}
 .board_search_box select{/*border:solid 1px #e3e6e9;*/ height:40px; font-size:14px; line-height: 19px;  color:#313131; padding-top:9px; padding-bottom: 7px; padding-left:16px; padding-right:16px; min-width:130px; cursor: pointer;}
 .board_search_box input.board_search{vertical-align: middle; height:40px; font-size: 14px; color:#222; padding-top:9px; padding-bottom:7px; padding-right:30px; background-color:transparent; border-color: transparent; border-bottom: 1px solid #c7c7c7;}
-.board_search_box input.btn_board_search{width:30px; height:30px; vertical-align: middle; background-image: url(../image/search_icon_b.png); background-repeat: no-repeat; background-position: center; border:none; background-size: 17px; position: absolute; right: 0; bottom: 5px;}
+.board_search_box input.btn_board_search{width:30px; height:30px; vertical-align: middle; background-image: url(../image/search_icon_b.png); background-repeat: no-repeat; background-position: center; border:none; background-size: 17px; position: absolute; right: 0; bottom: 5px; z-index: 5;}
 .board_search_box input.btn_board_search:hover{}
 /* 게시판타이틀 */
 .sub_board_header{margin-bottom:27px; display:inline-block; width:100%;}

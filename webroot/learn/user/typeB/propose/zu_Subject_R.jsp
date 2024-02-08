@@ -162,7 +162,7 @@
                                                     <tr>
                                                         <th>교육내용</th>
                                                         <td>
-                                                            <i class="icon_chk"></i>
+                                                            <i class="icon_chk"></i>목차<br>
                                                             <c:set var="explain" value="${fn:replace(subjectPreview.d_explain, CRLF, BR)}" />
                                                             <c:set var="explain" value="${fn:replace(explain, CR, BR)}" />
                                                             <c:set var="explain" value="${fn:replace(explain, LF, BR)}" />
