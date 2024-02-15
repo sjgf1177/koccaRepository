@@ -219,7 +219,7 @@
                                         </div>
                                     </div>
                                     <div class="sub_info_body">
-                                        <table class="write_table th_align_left1 surveyTable">
+                                        <table class="write_table th_align_left1">
                                             <tbody>
 <% 
 if(!v_end.equals("0")) {
@@ -284,7 +284,7 @@ if(!v_end.equals("0")) {
 					if (j == (list.size()-1)) {    
 %>
 															<li>
-																기타의견<textarea name="<%= dbox.getInt("d_sulnum") %>|C" maxlength=""></textarea>
+																기타의견<textarea name="<%= dbox.getInt("d_sulnum") %>|C" maxlength="200"></textarea>
 															</li>
 <%				
 					}
@@ -338,8 +338,5 @@ if(!v_end.equals("0")) {
     </section>
 </form>
 </body>
-<style>
-    .subContainer_pop .sub_info_body + .sub_info_body .write_table th{}
-</style>
 </html>
 

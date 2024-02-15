@@ -329,6 +329,7 @@ public class GoldClassHomePageServlet extends javax.servlet.http.HttpServlet imp
             String dirFlag = box.getString("p_dir_flag");
             String seq = box.getString("p_seq");
             String lectureCls = box.getString("p_lecture_cls");
+            String cateCode = "";
 
             if (dirFlag != null && !dirFlag.equals("") && seq != null && !seq.equals("")) {
             	request.setAttribute("requestbox", box); // 명시적으로 box 객체를 넘겨준다
@@ -346,6 +347,20 @@ public class GoldClassHomePageServlet extends javax.servlet.http.HttpServlet imp
             } else {
 
                 GoldClassHomePageBean bean = new GoldClassHomePageBean();
+
+                if("GC01".equals(lectureCls)) {
+                    cateCode = "B0";
+                } else if("GC02".equals(lectureCls)) {
+                    cateCode = "G0";
+                } else if("GC03".equals(lectureCls)) {
+                    cateCode = "K0";
+                } else if("GC04".equals(lectureCls)) {
+                    cateCode = "M0";
+                } else if("GC05".equals(lectureCls)) {
+                    cateCode = "S0";
+                }
+
+                box.put("cateCode", cateCode);
 
                 List GoldClassList = bean.selectMainGoldClassList(box);
                 DataBox openClassCnt = bean.selecOpenClassCntInfo(box);

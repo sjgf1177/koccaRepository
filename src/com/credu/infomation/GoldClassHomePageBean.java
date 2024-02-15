@@ -195,6 +195,7 @@ public class GoldClassHomePageBean {
         String p_lecture_cls = box.getString("p_lecture_cls");
         String grCode = box.getSession("tem_grcode");
         String p_searchtext = box.getString("p_searchtext");
+        String p_cateCode = box.getString("cateCode");
 
         int pageSize = grCode.equals("N000001") ? 10 : 3;
         
@@ -210,39 +211,47 @@ public class GoldClassHomePageBean {
             list = new ArrayList();
 
             sql.append("/* GoldClassHomePageBean.selectMainGoldClassList (열린강좌 목록 구하기) */\n");
-            sql.append("SELECT  A.SEQ       \n");
-            sql.append("    ,   A.LECNM     \n");
-            sql.append("    ,   NVL(V.MONTHLY_CNT, 0) AS MONTHLY_CNT    \n");
-            sql.append("    ,   A.VODIMG        \n");
-            sql.append("    ,   A.TUTORNM       \n");
-            sql.append("    ,   A.TUTORCAREER   \n");
-            sql.append("    ,   A.TUTORAUTHOR   \n");
-            sql.append("    ,   A.LECTIME       \n");
-            sql.append("    ,   A.CREATOR       \n");
-            sql.append("    ,   A.INTRO         \n");
-            sql.append("    ,   A.BANNERIMG     \n");
-            sql.append("    ,   A.CONTENTS      \n");
-            sql.append("    ,   A.WIDTH_S       \n");
-            sql.append("    ,   A.HEIGHT_S      \n");
-            sql.append("    ,   A.VIEWCNT       \n");
-            sql.append("    ,   A.VODURL        \n");
-            sql.append("    ,   A.GENRE         \n");
-            sql.append("    ,   A.TUTORIMG      \n");
-            sql.append("    ,   A.LECTURE_TYPE  \n");
-            sql.append("    ,   A.LECTURE_CLS   \n");
-            sql.append("    ,   A.VOD_PATH      \n");
-            sql.append("    ,   NVL(A.NEW_YN, 'N') AS NEW_YN        \n");
-            sql.append("    ,   NVL(A.HIT_YN, 'N') AS HIT_YN        \n");
-            sql.append("    ,   NVL(A.RECOM_YN, 'N') AS RECOM_YN    \n");
+            sql.append("SELECT  A.SEQ                                                   \n");
+            sql.append("    ,   A.LECNM                                                 \n");
+            sql.append("    ,   (SELECT Z.CODENM                                        \n");
+            sql.append("           FROM TZ_CODE Z                                       \n");
+            sql.append("          WHERE Z.GUBUN  = '0121'                               \n");
+            sql.append("            AND Z.LEVELS = 2                                    \n");
+            sql.append("            AND Z.CODE   = (SELECT X.LVCODE                     \n");
+            sql.append("                              FROM TZ_GOLDHOMEGUBUN_LEVEL X     \n");
+            sql.append("                             WHERE X.SEQ = A.SEQ)) AS LVNM      \n");
+            sql.append("    ,   NVL(V.MONTHLY_CNT, 0) AS MONTHLY_CNT                    \n");
+            sql.append("    ,   A.VODIMG                                                \n");
+            sql.append("    ,   A.TUTORNM                                               \n");
+            sql.append("    ,   A.TUTORCAREER                                           \n");
+            sql.append("    ,   A.TUTORAUTHOR                                           \n");
+            sql.append("    ,   A.LECTIME                                               \n");
+            sql.append("    ,   A.CREATOR                                               \n");
+            sql.append("    ,   A.INTRO                                                 \n");
+            sql.append("    ,   A.BANNERIMG                                             \n");
+            sql.append("    ,   A.CONTENTS                                              \n");
+            sql.append("    ,   A.WIDTH_S                                               \n");
+            sql.append("    ,   A.HEIGHT_S                                              \n");
+            sql.append("    ,   A.VIEWCNT                                               \n");
+            sql.append("    ,   A.VODURL                                                \n");
+            sql.append("    ,   A.GENRE                                                 \n");
+            sql.append("    ,   A.TUTORIMG                                              \n");
+            sql.append("    ,   A.LECTURE_TYPE                                          \n");
+            sql.append("    ,   A.LECTURE_CLS                                           \n");
+            sql.append("    ,   A.VOD_PATH                                              \n");
+            sql.append("    ,   NVL(A.NEW_YN, 'N') AS NEW_YN                            \n");
+            sql.append("    ,   NVL(A.HIT_YN, 'N') AS HIT_YN                            \n");
+            sql.append("    ,   NVL(A.RECOM_YN, 'N') AS RECOM_YN                        \n");
             sql.append("    ,   COUNT(A.SEQ) OVER( PARTITION BY B.GRCODE ) AS TOT_CNT   \n");
             sql.append("	,   NVL((SELECT ROUND(SUM(CHECKPOIN) / COUNT(1), 0) FROM TZ_GOLDCLASSREPL WHERE SEQ = A.SEQ), 0) AS CHECKPOIN \n");
-            sql.append("  FROM  TZ_GOLDCLASS A          \n");
-            sql.append("    ,   TZ_GOLDCLASS_GRMNG B    \n");
-            sql.append("    ,   (                       \n");
-            sql.append("        SELECT  SEQ             \n");
-            sql.append("            ,   SUM(CNT) AS MONTHLY_CNT                                                     \n");
-            sql.append("            ,   RANK() OVER( ORDER BY SUM(CNT) DESC, COUNT(SEQ) DESC, SEQ DESC) AS RNK      \n");
-            sql.append("          FROM  TZ_VIEWCOUNT                                                                \n");
+            sql.append("  FROM  TZ_GOLDCLASS A                                          \n");
+            sql.append("    ,   TZ_GOLDCLASS_GRMNG B                                    \n");
+            sql.append("    ,   TZ_GOLDHOMEGUBUN C                                      \n");
+            sql.append("    ,   (                                                       \n");
+            sql.append("        SELECT  SEQ                                             \n");
+            sql.append("            ,   SUM(CNT) AS MONTHLY_CNT                                                             \n");
+            sql.append("            ,   RANK() OVER( ORDER BY SUM(CNT) DESC, COUNT(SEQ) DESC, SEQ DESC) AS RNK              \n");
+            sql.append("          FROM  TZ_VIEWCOUNT                                                                        \n");
             sql.append("         WHERE  VIEWDATE BETWEEN TO_CHAR(SYSDATE - 7, 'YYYYMMDD') AND TO_CHAR(SYSDATE, 'YYYYMMDD')  \n");
             // sql.append("         WHERE  VIEWDATE BETWEEN ADD_MONTHS(SYSDATE, -1) AND TO_CHAR(SYSDATE, 'YYYYMMDD')   \n");
             sql.append("         GROUP  BY SEQ                      \n");
@@ -250,14 +259,20 @@ public class GoldClassHomePageBean {
             sql.append(" WHERE  A.USEYN = 'Y'                       \n");
             sql.append("   AND  B.GRCODE = '").append(grCode).append("' \n");
             sql.append("   AND  A.SEQ = B.SEQ(+)                    \n");
+            sql.append("   AND  A.SEQ = C.SEQ(+)                    \n");
+            sql.append("   AND  C.GUBUN(+) = 'GC'                        \n");
             sql.append("   AND  A.SEQ = V.SEQ(+)                    \n");
 
             if (!p_genre.equals("")) {
                 sql.append("   AND  A.GENRE = '").append(p_genre).append("'\n");
             }
 
-            if (!p_lecture_cls.equals("") && !p_lecture_cls.equals("ALL")) {
+/*            if (!p_lecture_cls.equals("") && !p_lecture_cls.equals("ALL")) {
                 sql.append("   AND  A.LECTURE_CLS ='").append(p_lecture_cls).append("'\n");
+            }*/
+
+            if (!p_cateCode.equals("")) {
+                sql.append("   AND  C.GUBUN_1 ='").append(p_cateCode).append("'\n");
             }
             
             if(!p_searchtext.equals("")){

@@ -13,7 +13,7 @@
 		<%-- <li <c:if test="${param.left_active eq '22' }" > class="on"</c:if>><a href="javascript:menuForward('5','22');">콘텐츠인사이트</a></li>
 		<li <c:if test="${param.left_active eq '23' }" > class="on"</c:if>><a href="javascript:menuForward('5','23');">마스터클래스</a></li> --%>
 		
-		<li <c:if test="${param.left_active eq '21' }" > class="on"</c:if>><a href="javascript:menuForward('5','21');">인문/경영/교양</a></li>
+		<li <c:if test="${param.left_active eq '21' }" > class="on"</c:if>><a href="javascript:menuForward('5','21');">인문교양</a></li>
 <%-- 		<li <c:if test="${param.left_active eq '26' }" > class="on"</c:if>><a href="javascript:menuForward('5','26');">인문학 강좌</a></li> --%>
 
 	</ul>

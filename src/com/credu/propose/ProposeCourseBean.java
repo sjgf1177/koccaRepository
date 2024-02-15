@@ -3264,7 +3264,9 @@ public class ProposeCourseBean {
             sql1 += "    where x.upperclass = a.scupperclass and x.middleclass = a.scmiddleclass and x.LOWERCLASS = a.SCLOWERCLASS ) lclassnm,\n";
             sql1 += "	a.course, a.courseseq, a.coursenm, a.isbelongcourse, a.subjcnt,a.area, a.areaname,\n";
             sql1 += "	(Select round( NVL(sum(distcode1_avg) / count(*), 0), 1) From TZ_SULEACH	Where subj = a.subj and grcode = a.grcode) as sul_avg,\n";
-            sql1 += "	case when to_char(sysdate,'YYYYMMDDHH24') between a.propstart and a.propend	then 'Y' else 'N' end propyn\n";
+            sql1 += "	case when to_char(sysdate,'YYYYMMDDHH24') between a.propstart and a.propend	then 'Y' else 'N' end propyn,\n";
+            sql1 += "	(select z.codenm from TZ_CODE z where z.gubun = '0121' and z.levels = 2 and z.code = (select x.lvcode from TZ_SUBJHOMEGUBUN_LEVEL x where x.subj = a.subj)) as lvnm\n";
+
             if (v_grcode.equals("N000134")) {
             	sql1 += "   , case when subj in ('CK10074','CK18005','CK11004') then 1 else 2 end ordersec \n ";
             }
@@ -3272,7 +3274,8 @@ public class ProposeCourseBean {
             sql1 += "   from (select * from VZ_SCSUBJSEQIMGMOBILE where propstart not in (' ') and to_char(sysdate,'YYYYMM') between replace(substr(propstart,1,6),'.','') and replace(substr(propend,1,6),'.','')) a\n";
             
             //기수별 홈페이지노출여부를 사용하기 위한 Join 문
-            sql1 += "		LEFT JOIN TZ_GRSEQ b  ON a.grcode = b.grcode AND a.gyear = b.gyear AND a.grseq = b.grseq \n ";
+            sql1 += "		LEFT JOIN TZ_GRSEQ b ON a.grcode = b.grcode AND a.gyear = b.gyear AND a.grseq = b.grseq \n ";
+            sql1 += "		INNER JOIN TZ_SUBJHOMEGUBUN c ON a.SUBJ = c.SUBJ AND c.GUBUN = 'GS' \n ";
             //사이트기준인지
             sql1 += "  where a.grcode	   = " + SQLString.Format(v_grcode);
             sql1 += "\n\t and a.isuse		= 'Y'";
@@ -3313,7 +3316,7 @@ public class ProposeCourseBean {
             if (pp_area.equals("W0")) {
                 sql1 += "\n\t and NVL(a.area, nvl(':p_area', 'ALL')) LIKE DECODE(nvl(':p_area', 'ALL'), 'ALL', '%', ':p_area')";
             } else {
-                sql1 += "\n\t and a.area != 'W0' and NVL(a.area, nvl(':p_area', 'ALL')) LIKE DECODE(nvl(':p_area', 'ALL'), 'ALL', '%', ':p_area')";
+                sql1 += "\n\t and a.area != 'W0' and NVL(c.gubun_1, nvl(':p_area', 'ALL')) LIKE DECODE(nvl(':p_area', 'ALL'), 'ALL', '%', ':p_area')";
             }
 
             //sql1+= "\n\t and a.scyear = to_char(sysdate,'YYYY')";

@@ -122,6 +122,7 @@ function fnSelect(){
 							</a>
 							<div class="card-body thumb_con">
 								<div class="thumb_top_tag">
+									<span class="tag_test"><c:out value="${list.d_lvnm }" /></span>
 									<span class="tag_test"><c:out value="${list.d_lectime }" /></span>
 								</div>
 								<a href="javascript:viewContent('<c:out value="${list.d_seq }" />');" class="card-title"><span class="thumb_title textline2"><c:out value="${list.d_lecnm }" /></span></a>
