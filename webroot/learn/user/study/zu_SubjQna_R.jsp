@@ -236,7 +236,7 @@
                                                 <td><%=FormatDate.getFormatDate(abox.getString("d_indate"),"yyyy.MM.dd") %></td>
                                             </tr>
                                             <tr>
-                                                <td colspan="4"><%= abox.getString("d_contents").replaceAll("\r\n", "<br/>") %></td>
+                                                <td colspan="4" style="border-top: 1px solid #eaeaea; border-bottom: 1px solid #eaeaea;"><%= abox.getString("d_contents").replaceAll("\r\n", "<br/>") %></td>
                                             </tr>
                                             <tr>
                                                 <th>Ã·ºÎÆÄÀÏ</th>
@@ -258,4 +258,8 @@
         </div>
     </section>
 </body>
+<style>
+    .subContainer_pop .sub_info_body .write_table{border-top: 2px solid #eaeaea; border-bottom: 2px solid #eaeaea;}
+    .sub_info_body table th, .sub_info_body table td{padding: 10px;}
+</style>
 </html>

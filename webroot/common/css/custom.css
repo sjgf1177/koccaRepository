@@ -501,8 +501,8 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:45px;
 .popup_btnBox a.btn_courseRegistration{background-color: #441CBA; width:120px;}
 .popup_btnBox a.btn_courseCancel{width: 70px; background-color: #777777; margin-left:10px; color:#fff;}
 .popup_btnBox a.btn_write{background-color:#441CBA; width: 120px;}
-.popup_btnBox a.btn_update{background-color:#149f80; margin-left:10px;}
-.popup_btnBox a.btn_delete{background-color:#566bcf; }
+.popup_btnBox a.btn_update{background-color:#441CBA; width: 120px; margin-left:10px;}
+.popup_btnBox a.btn_delete{background-color: #777777; width: 70px;}
 .command_box{width:100%; margin-bottom:50px}
 .command_box span{display:inline-block; width:120px;}
 .command_box .command_textarea{ height:60px; margin-top:10px; width:100%;}
