@@ -129,8 +129,8 @@
 
                                                 <li class="">
                                                     <div class="tnail_box">
-                                                        <%--<img src="${list.d_introducefilenamenew}" alt="${list.d_subjnm}">--%>
-                                                        <img src="https://edu.kocca.kr/upload/renewsnail/1080.png">
+                                                        <img src="${list.d_introducefilenamenew}" alt="${list.d_subjnm}">
+                                                        <%--<img src="https://edu.kocca.kr/upload/renewsnail/1080.png">--%>
 
                                                         <%--<img src="https://test.edukocca.or.kr${list.d_introducefilenamenew}" alt="${list.d_subjnm}">--%>
                                                     </div>

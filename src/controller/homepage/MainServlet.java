@@ -1,12 +1,12 @@
 // **********************************************************
 
-// 1. ì œ ëª©: ê³µì§€ì‚¬í•­ ì œì–´í•˜ëŠ” ì„œë¸”ë¦¿(ì‚¬ìš©ì)
-// 2. í”„ë¡œê·¸ë¨ëª… : MainServlet.java
-// 3. ê°œ ìš”: ê³µì§€ì‚¬í•­ ì œì–´ í”„ë¡œê·¸ë¨(ì‚¬ìš©ì)
-// 4. í™˜ ê²½: JDK 1.3
-// 5. ë²„ ì ¼: 1.0
-// 6. ì‘ ì„±: ì •ìƒì§„ 2005. 7. 13
-// 7. ìˆ˜ ì •1:
+// 1. Á¦ ¸ñ: °øÁö»çÇ× Á¦¾îÇÏ´Â ¼­ºí¸´(»ç¿ëÀÚ)
+// 2. ÇÁ·Î±×·¥¸í : MainServlet.java
+// 3. °³ ¿ä: °øÁö»çÇ× Á¦¾î ÇÁ·Î±×·¥(»ç¿ëÀÚ)
+// 4. È¯ °æ: JDK 1.3
+// 5. ¹ö Á¯: 1.0
+// 6. ÀÛ ¼º: Á¤»óÁø 2005. 7. 13
+// 7. ¼ö Á¤1:
 // **********************************************************
 package controller.homepage;
 
@@ -20,14 +20,6 @@ import javax.servlet.ServletContext;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import javax.mail.Authenticator;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Message;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.InternetAddress;
-import javax.mail.Transport;
 
 import com.credu.common.DomainUtil;
 import com.credu.homepage.HomeNoticeBean;
@@ -89,7 +81,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
 
             LoginBean bean = new LoginBean();
 
-            box.setSession("s_gubun", "0"); // ëŒ€ë©”ë‰´ ì´ˆê¸°í™” (ëŒ€ë©”ë‰´ ì´ë™ì‹œ êµ¬ë¶„ê°’ì€ param ê°’ìœ¼ë¡œ ì²˜ë¦¬)
+            box.setSession("s_gubun", "0"); // ´ë¸Ş´º ÃÊ±âÈ­ (´ë¸Ş´º ÀÌµ¿½Ã ±¸ºĞ°ªÀº param °ªÀ¸·Î Ã³¸®)
 
             hostname = request.getHeader("Host");
 
@@ -98,8 +90,8 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
 
             box.put("p_hostname", hostname);
 
-            // êµ¬ ëª¨ë°”ì¼ ì½˜í…ì¸  ì‚¬ì´íŠ¸ë¡œ ì´ë™
-            // ìƒˆë¡œìš´ ëª¨ë°”ì¼ ì›¹/ì•± ì˜¤í”ˆì‹œ ì•ˆë‚´ í˜ì´ì§€ë¡œ ë³€ê²½ í•„ìš”
+            // ±¸ ¸ğ¹ÙÀÏ ÄÜÅÙÃ÷ »çÀÌÆ®·Î ÀÌµ¿
+            // »õ·Î¿î ¸ğ¹ÙÀÏ À¥/¾Û ¿ÀÇÂ½Ã ¾È³» ÆäÀÌÁö·Î º¯°æ ÇÊ¿ä
             if (box.get("p_hostname").indexOf("edum.kocca.or.kr") > -1) {
                 out.println("<html>");
                 out.println("<head><meta http-equiv='Content-Type' content='text/html; charset=euc-kr'><script language = 'javascript'>");
@@ -109,8 +101,8 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
                 out.println("</html>");
                 out.flush();
 
-                // ìƒˆë¡œìš´ ëª¨ë°”ì¼ ì›¹ í˜ì´ì§€ ì£¼ì†Œ
-                // ë¹„ ë¡œê·¸ì¸ ê¸°ë°˜ì´ë¯€ë¡œ ì—´ë¦°ê°•ì¢Œ ì¸ê¸° ëª©ë¡ì„ ì‹œì‘ í˜ì´ì§€ë¡œ ì„¤ì •
+                // »õ·Î¿î ¸ğ¹ÙÀÏ À¥ ÆäÀÌÁö ÁÖ¼Ò
+                // ºñ ·Î±×ÀÎ ±â¹İÀÌ¹Ç·Î ¿­¸°°­ÁÂ ÀÎ±â ¸ñ·ÏÀ» ½ÃÀÛ ÆäÀÌÁö·Î ¼³Á¤
             } else if (box.get("p_hostname").indexOf("m.edu.kocca.kr") > -1) {
                 out.println("<html>");
                 out.println("<head><meta http-equiv='Content-Type' content='text/html; charset=euc-kr'><script language = 'javascript'>");
@@ -119,7 +111,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
                 out.println("</head>");
                 out.println("</html>");
                 out.flush();
-                // ëª¨ë°”ì¼ ì½˜í…ì¸  ì‚¬ì´íŠ¸ë¡œ ì´ë™
+                // ¸ğ¹ÙÀÏ ÄÜÅÙÃ÷ »çÀÌÆ®·Î ÀÌµ¿
             } else if (box.get("p_hostname").indexOf("edu.kocca.co.kr") > -1 || box.get("p_hostname").indexOf("edu.kocca.or.kr") > -1) {
                 out.println("<html>");
                 out.println("<head><meta http-equiv='Content-Type' content='text/html; charset=euc-kr'><script language = 'javascript'>");
@@ -128,17 +120,17 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
                 out.println("</head>");
                 out.println("</html>");
                 out.flush();
-                // KOCCA ì‚¬ì´ë²„ì•„ì¹´ë°ë¯¸ í™ˆí˜ì´ì§€ë¡œ ì´ë™
+                // KOCCA »çÀÌ¹ö¾ÆÄ«µ¥¹Ì È¨ÆäÀÌÁö·Î ÀÌµ¿
             } else {
 
-            	if (ErrorManager.isErrorMessageView()) {
+                if (ErrorManager.isErrorMessageView()) {
                     box.put("errorout", out);
                 }
 
                 box.put("starttime", FormatDate.getDate("yyyyMMddHHmmssSSS"));
 
-                if (v_process.equals("authChange")) { // ê¶Œí•œ ë³€ê²½í–‡ì„ë•Œ
-                    // ê¶Œí•œì„¸ì…˜ ë³€ê²½
+                if (v_process.equals("authChange")) { // ±ÇÇÑ º¯°æÇŞÀ»¶§
+                    // ±ÇÇÑ¼¼¼Ç º¯°æ
                     AlertManager alert = new AlertManager();
 
                     String v_auth = box.getString("p_auth");
@@ -150,25 +142,25 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
                     box.setSession("gadmin", v_auth);
                     box.setSession("grtype", bean.getGrtype(box));
 
-                    String v_serno = box.getSession("serno"); // ê°•ì‚¬ ì ‘ì† ë¡œê·¸ ì¼ë ¨ë²ˆí˜¸
-                    int v_serno1 = 0; // ê°•ì‚¬ ì ‘ì† ë¡œê·¸ ì¼ë ¨ë²ˆí˜¸
+                    String v_serno = box.getSession("serno"); // °­»ç Á¢¼Ó ·Î±× ÀÏ·Ã¹øÈ£
+                    int v_serno1 = 0; // °­»ç Á¢¼Ó ·Î±× ÀÏ·Ã¹øÈ£
 
-                    if (v_auth.equals("A1")) { // A1 ì¼ë•Œ ì•„ì´í”¼ ì²´í¬
+                    if (v_auth.equals("A1")) { // A1 ÀÏ¶§ ¾ÆÀÌÇÇ Ã¼Å©
                         box.put("p_userip", v_userip);
                         TutorLoginBean tbean = new TutorLoginBean();
                         if (tbean.adminCheck(box) <= 0) {
-                            alert.alertFailMessage(out, "ì ‘ê·¼ì´ ë¶ˆê°€ëŠ¥í•œ IPì…ë‹ˆë‹¤.");
+                            alert.alertFailMessage(out, "Á¢±ÙÀÌ ºÒ°¡´ÉÇÑ IPÀÔ´Ï´Ù.");
                             box.setSession("gadmin", "ZZ");
                             return;
                         }
                     }
 
-                    if (v_auth.equals("P1") && v_serno.equals("")) { // ê¶Œí•œì´ ê°•ì‚¬ì¼ ê²½ìš° ê°•ì‚¬ ë¡œê·¸ì¸ ì •ë³´ì— ì…ë ¥í•œë‹¤.
+                    if (v_auth.equals("P1") && v_serno.equals("")) { // ±ÇÇÑÀÌ °­»çÀÏ °æ¿ì °­»ç ·Î±×ÀÎ Á¤º¸¿¡ ÀÔ·ÂÇÑ´Ù.
                         TutorLoginBean tbean = new TutorLoginBean();
                         v_serno1 = tbean.tutorLogin(box);
                         box.setSession("serno", v_serno1);
                     }
-                    // ê²€ìƒ‰ì¡°ê±´ì—ì„œ ê³¼ì •ì˜ ì „ì²´ì„ íƒ ê°€ëŠ¥ì—¬ë¶€ë¥¼ ê²°ì •í•œë‹¤.
+                    // °Ë»öÁ¶°Ç¿¡¼­ °úÁ¤ÀÇ ÀüÃ¼¼±ÅÃ °¡´É¿©ºÎ¸¦ °áÁ¤ÇÑ´Ù.
                     if (v_auth.equals("P1"))
                         box.setSession("isSubjAll", "tutor");
                     else
@@ -181,22 +173,22 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
                     this.performSelectNoticeList(request, response, box, out);
                 } else if (v_process.equals("selectNoticeView")) {
                     this.performSelectNoticeView(request, response, box, out);
-                } else if (v_process.equals("usermail")) { // ì‚¬ìš©ì ë©”ì¼ì‘ì„±í¼
+                } else if (v_process.equals("usermail")) { // »ç¿ëÀÚ ¸ŞÀÏÀÛ¼ºÆû
                     this.performUsermail(request, response, box, out);
-                } else if (v_process.equals("usermailsend")) { // ì‚¬ìš©ì ë©”ì¼ì‘ì„±
+                } else if (v_process.equals("usermailsend")) { // »ç¿ëÀÚ ¸ŞÀÏÀÛ¼º
                     this.performUsermailSend(request, response, box, out);
-                } else if (v_process.equals("ASP_Login")) { // ASP ë¡œê·¸ì¸
+                } else if (v_process.equals("ASP_Login")) { // ASP ·Î±×ÀÎ
                     this.performASP_Login(request, response, box, out);
-                } else if (v_process.equals("ASP_Login_Insert")) { // ASP íšŒì› ê°€ì…
+                } else if (v_process.equals("ASP_Login_Insert")) { // ASP È¸¿ø °¡ÀÔ
                     this.performASP_Login_Insert(request, response, box, out);
-                } else if (v_process.equals("ASP_Find_Idpw")) { // ASP ì•„ì´ë””/íŒ¨ìŠ¤ì›Œë“œ
-                    // ì°¾ê¸°
+                } else if (v_process.equals("ASP_Find_Idpw")) { // ASP ¾ÆÀÌµğ/ÆĞ½º¿öµå
+                    // Ã£±â
                     this.performASP_Find_Idpw(request, response, box, out);
-                } else if (v_process.equals("ASP_Login_Update")) { // ASP íšŒì›ì •ë³´ìˆ˜ì •
+                } else if (v_process.equals("ASP_Login_Update")) { // ASP È¸¿øÁ¤º¸¼öÁ¤
                     this.performASP_Login_Update(request, response, box, out);
-                } else if (v_process.equals("MainLogin")) { // ë©”ì¸í™ˆí˜ì´ì§€(KOCCA) ë¡œê·¸ì¸
+                } else if (v_process.equals("MainLogin")) { // ¸ŞÀÎÈ¨ÆäÀÌÁö(KOCCA) ·Î±×ÀÎ
                     this.performMainLogin(request, response, box, out);
-                } else if (v_process.equals("MemberInfoUpdateCheck")) { // ê°œì¸ì •ë³´ ë³€ê²½ ì—¬ë¶€ í™•ì¸ í›„ ë¡œê·¸ì¸..(ì´ë²¤íŠ¸ í›„ ì£¼ì„ ì²˜ë¦¬ í•´ì•¼í•¨)
+                } else if (v_process.equals("MemberInfoUpdateCheck")) { // °³ÀÎÁ¤º¸ º¯°æ ¿©ºÎ È®ÀÎ ÈÄ ·Î±×ÀÎ..(ÀÌº¥Æ® ÈÄ ÁÖ¼® Ã³¸® ÇØ¾ßÇÔ)
 
                     String v_eventyn = "";
                     String v_nextchange = "";
@@ -213,21 +205,21 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
                         this.performMainList(request, response, box, out);
                     }
                     this.performMemberInfoUpdateCheck(request, response, box, out);
-                } else if (v_process.equals("nextChange")) { // ê°œì¸ì •ë³´ ë³€ê²½ ì—¬ë¶€ í™•ì¸ í›„ ë¡œê·¸ì¸..ë‹¤ìŒì— ë³€ê²½í•˜ê¸°(ì´ë²¤íŠ¸ í›„ ì£¼ì„ ì²˜ë¦¬ í•´ì•¼í•¨)
+                } else if (v_process.equals("nextChange")) { // °³ÀÎÁ¤º¸ º¯°æ ¿©ºÎ È®ÀÎ ÈÄ ·Î±×ÀÎ..´ÙÀ½¿¡ º¯°æÇÏ±â(ÀÌº¥Æ® ÈÄ ÁÖ¼® Ã³¸® ÇØ¾ßÇÔ)
                     this.performNextChange(request, response, box, out);
                 } else if (v_process.equals("researchgate")) {
-                    this.performReseachGate(request, response, box, out); // êµìœ¡ìˆ˜ìš”ì¡°ì‚¬ ê²Œì´íŠ¸
+                    this.performReseachGate(request, response, box, out); // ±³À°¼ö¿äÁ¶»ç °ÔÀÌÆ®
                 } else if (v_process.equals("research")) {
-                    this.performReseach(request, response, box, out); // ì‚¬ì´ë²„ì½˜í…ì¸ ì•„ì¹´ë°ë¯¸ êµìœ¡ ìˆ˜ìš”ì¡°ì‚¬
+                    this.performReseach(request, response, box, out); // »çÀÌ¹öÄÜÅÙÃ÷¾ÆÄ«µ¥¹Ì ±³À° ¼ö¿äÁ¶»ç
                 } else if (v_process.equals("research_2")) {
-                    this.performResearch_2(request, response, box, out); // ì‚¬ì´ë²„ì½˜í…ì¸ ì•„ì¹´ë°ë¯¸ êµìœ¡ ìˆ˜ìš”ì¡°ì‚¬2
+                    this.performResearch_2(request, response, box, out); // »çÀÌ¹öÄÜÅÙÃ÷¾ÆÄ«µ¥¹Ì ±³À° ¼ö¿äÁ¶»ç2
                 } else if (v_process.equals("research_save")) {
                     this.performResarch_save(request, response, box, out);
                 } else if (v_process.equals("passChangePage")){
-                	this.performPassChangePage(request, response, box, out);
+                    this.performPassChangePage(request, response, box, out);
                 } else if (v_process.equals("agreeChkPage")){
-                	this.performAgreeChkPage(request, response, box, out);
-                } else { // ë©”ì¸
+                    this.performAgreeChkPage(request, response, box, out);
+                } else { // ¸ŞÀÎ
                     this.performMainList(request, response, box, out);
                 }
             }
@@ -238,7 +230,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
     }
 
     /**
-     * ë©”ì¸
+     * ¸ŞÀÎ
      *
      * @param request encapsulates the request to the servlet
      * @param response encapsulates the response from the servlet
@@ -247,27 +239,27 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
      * @return void
      */
     @SuppressWarnings("rawtypes")
-	public void performMainList(HttpServletRequest request, HttpServletResponse response, RequestBox box, PrintWriter out) throws Exception {
+    public void performMainList(HttpServletRequest request, HttpServletResponse response, RequestBox box, PrintWriter out) throws Exception {
 
         try {
-            // ì ‘ì† URLì •ë³´
+            // Á¢¼Ó URLÁ¤º¸
             box.put("p_servernm", request.getServerName());
 
-            /* localhost ì ‘ì†ì‹œ ê°•ì œ grcode ë¶€ì—¬
-			ë³¸ì„œë²„ì—ì„œëŠ” ì£¼ì„ ì²˜ë¦¬ í•´ì•¼í•œë‹¤.
-			N000001 : í•œêµ­ì½˜í…ì¸ ì•„ì¹´ë°ë¯¸
-			N000022 : ë¬¸í™”ì²´ìœ¡ê´€ê´‘ë¶€
+            /* localhost Á¢¼Ó½Ã °­Á¦ grcode ºÎ¿©
+			º»¼­¹ö¿¡¼­´Â ÁÖ¼® Ã³¸® ÇØ¾ßÇÑ´Ù.
+			N000001 : ÇÑ±¹ÄÜÅÙÃ÷¾ÆÄ«µ¥¹Ì
+			N000022 : ¹®È­Ã¼À°°ü±¤ºÎ
 			N000057 : test
-			N000134 : í•œêµ­ì½˜í…ì¸ ì§„í¥ì› / contenttest / contenttest
+			N000134 : ÇÑ±¹ÄÜÅÙÃ÷ÁøÈï¿ø / contenttest / contenttest
 			N000179 : test2
-			N000203 : ê²½ê¸°ê²Œì„ë§ˆì´ìŠ¤í„°ê³ 
-			N000210 : í•œêµ­ì½˜í…ì¸ ì§„í¥ì›(ì½˜í…ì¸  ì„±í‰ë“±ì„¼í„°) / ktest2103 / 1q2w3e4r!
-			N000213 : êµ­ë¯¼ì²´ìœ¡ì§„í¥ê³µë‹¨
-			N000215 : ë™ë¶€ê±´ì„¤
-			N000219 : ê°œë°œ
-			N000241 : í•œêµ­ì˜ˆìˆ ë³µì§€ì¬ë‹¨
-			N000243 : ì„œìš¸í•­ê³µë¹„ì¦ˆë‹ˆìŠ¤ê³ ë“±í•™êµ
-			N000244 : ì§€ì—­ë¬¸í™”ì§„í¥ì›
+			N000203 : °æ±â°ÔÀÓ¸¶ÀÌ½ºÅÍ°í
+			N000210 : ÇÑ±¹ÄÜÅÙÃ÷ÁøÈï¿ø(ÄÜÅÙÃ÷ ¼ºÆòµî¼¾ÅÍ) / ktest2103 / 1q2w3e4r!
+			N000213 : ±¹¹ÎÃ¼À°ÁøÈï°ø´Ü
+			N000215 : µ¿ºÎ°Ç¼³
+			N000219 : °³¹ß
+			N000241 : ÇÑ±¹¿¹¼úº¹ÁöÀç´Ü
+			N000243 : ¼­¿ïÇ×°øºñÁî´Ï½º°íµîÇĞ±³
+			N000244 : Áö¿ª¹®È­ÁøÈï¿ø
 			*/
             /*box.setSession("tem_grcode", "N000057");*/
 
@@ -279,46 +271,46 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
             if (listBean == null) {
                 box.setSession("tem_type", "B");
                 box.setSession("tem_grcode", "N000001");
-                box.setSession("tem_menu_type", ""); // ë©”ë‰´ ë„¤ë¹„ê²Œì´ì…˜ íƒ€ì…
-                box.setSession("tem_main_type", ""); // ë©”ì¸ í™”ë©´ íƒ€ì…
+                box.setSession("tem_menu_type", ""); // ¸Ş´º ³×ºñ°ÔÀÌ¼Ç Å¸ÀÔ
+                box.setSession("tem_main_type", ""); // ¸ŞÀÎ È­¸é Å¸ÀÔ
             } else if (listBean != null && !listBean.get("d_grcode").equals("")) {
-                box.setSession("tem_menu_type", listBean.get("d_menutype")); // ë©”ë‰´ ë„¤ë¹„ê²Œì´ì…˜ íƒ€ì…
+                box.setSession("tem_menu_type", listBean.get("d_menutype")); // ¸Ş´º ³×ºñ°ÔÀÌ¼Ç Å¸ÀÔ
                 box.setSession("tem_grcode", listBean.get("d_grcode"));
-                box.setSession("tem_main_type", listBean.get("d_type")); // ë©”ì¸ í™”ë©´ íƒ€ì…
+                box.setSession("tem_main_type", listBean.get("d_type")); // ¸ŞÀÎ È­¸é Å¸ÀÔ
                 box.setSession("tem_type", listBean.get("d_type"));
                 type = listBean.get("d_type");
             } else {
                 box.setSession("tem_type", "B");
                 box.setSession("tem_grcode", "N000001");
-                box.setSession("tem_menu_type", ""); // ë©”ë‰´ ë„¤ë¹„ê²Œì´ì…˜ íƒ€ì…
-                box.setSession("tem_main_type", ""); // ë©”ì¸ í™”ë©´ íƒ€ì…
+                box.setSession("tem_menu_type", ""); // ¸Ş´º ³×ºñ°ÔÀÌ¼Ç Å¸ÀÔ
+                box.setSession("tem_main_type", ""); // ¸ŞÀÎ È­¸é Å¸ÀÔ
             }
 
-            // URLë³„ GRCODE ê°€ì ¸ì˜¤ê¸°
+            // URLº° GRCODE °¡Á®¿À±â
             if (box.getSession("tem_grcode").equals("") || box.getSession("tem_grcode") == null) {
                 DataBox serverInfo = bean.getGroupInfo(box);
 
                 if (serverInfo != null) {
-                	type = serverInfo.get("d_type");
-                	box.setSession("tem_type", serverInfo.get("d_type"));
-                	box.setSession("tem_grcode", serverInfo.get("d_grcode"));
+                    type = serverInfo.get("d_type");
+                    box.setSession("tem_type", serverInfo.get("d_type"));
+                    box.setSession("tem_grcode", serverInfo.get("d_grcode"));
                 } else {
-                	type = "A";
-                	box.setSession("tem_type", "A");
-                	box.setSession("tem_grcode", "N000001");
+                    type = "A";
+                    box.setSession("tem_type", "A");
+                    box.setSession("tem_grcode", "N000001");
                 }
             }
 
-            // ì ‘ì†ì IP
+            // Á¢¼ÓÀÚ IP
             box.put("p_userip", box.get("userip"));
 
-            // GRCODEë³„ return URL ì„¤ì •
+            // GRCODEº° return URL ¼³Á¤
             String v_url = "";
             String tem_grcode = box.getStringDefault("tem_grcode", box.getSession("tem_grcode"));
 
             if (tem_grcode.equals("")) {
 
-                // GRCODE ì†Œì‹¤ì‹œ...ì—ëŸ¬ í˜ì´ì§€?
+                // GRCODE ¼Ò½Ç½Ã...¿¡·¯ ÆäÀÌÁö?
                 v_url = "/learn/user/portal/homepage/error.jsp";
 
             } else {
@@ -328,13 +320,13 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
                     List mainSubjectList = courseBean.selectProfSubjectList(box);
                     request.setAttribute("SubjectList", mainSubjectList);
                 } else {
-                    if (tem_grcode.equals("N000001")) { // ì´í›„ KoccaYnìœ¼ë¡œ í†µí•©/ASP êµ¬ë¶„ í†µí•© ë©”ì¸
-                    	NoticeAdminBean nbean = new NoticeAdminBean();
+                    if (tem_grcode.equals("N000001")) { // ÀÌÈÄ KoccaYnÀ¸·Î ÅëÇÕ/ASP ±¸ºĞ ÅëÇÕ ¸ŞÀÎ
+                        NoticeAdminBean nbean = new NoticeAdminBean();
 
                         int tabseq = StringManager.toInt(box.getStringDefault("p_tabseq", ""));
                         if (tabseq == 0) {
 
-                            // ê²Œì‹œíŒ ë¶„ë¥˜ì— ëŒ€í•œ ë¶€ë¶„ ì„¸íŒ…
+                            // °Ô½ÃÆÇ ºĞ·ù¿¡ ´ëÇÑ ºÎºĞ ¼¼ÆÃ
                             box.put("p_type", "HN");
                             box.put("p_grcode", "0000000");
                             box.put("p_comp", "0000000000");
@@ -345,7 +337,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
                             tabseq = nbean.selectTableseq(box);
 
                             if (tabseq == 0) {
-                                String msg = "ê²Œì‹œíŒì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤.";
+                                String msg = "°Ô½ÃÆÇÁ¤º¸°¡ ¾ø½À´Ï´Ù.";
                                 AlertManager.historyBack(out, msg);
                             }
 
@@ -363,59 +355,59 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
                             rd.forward(request, response);
                         }
 
-                        // ë°°ë„ˆ ëª©ë¡
+                        // ¹è³Ê ¸ñ·Ï
                         KoccaMainBean mainBean = new KoccaMainBean();
                         request.setAttribute("mainBannerList", mainBean.selectBannerList(box));
 
-                        // ê³µì§€ì‚¬í•­ ëª©ë¡
+                        // °øÁö»çÇ× ¸ñ·Ï
                         request.setAttribute("mainNoticeList", mainBean.selectNoticeList(box));
 
-                        // ì¸ê¸°ê²€ìƒ‰ì–´ ëª©ë¡
+                        // ÀÎ±â°Ë»ö¾î ¸ñ·Ï
                         request.setAttribute("popularKeywordList", mainBean.selectPopularKeywordList(box));
 
-                        // ì•„ì¹´ë°ë¯¸ ì´ì•¼ê¸° ëª©ë¡
+                        // ¾ÆÄ«µ¥¹Ì ÀÌ¾ß±â ¸ñ·Ï
                         // request.setAttribute("academyStoryList", mainBean.selectAcademyStoryList(box));
 
-                        // ë©”ì¸ ì¹´í…Œê³ ë¦¬ í•­ëª©
+                        // ¸ŞÀÎ Ä«Å×°í¸® Ç×¸ñ
                         request.setAttribute("mainCategoryList", mainBean.selectMainCategoryList(box));
 
-                        // íŒì—…ê³µì§€ ë¦¬ìŠ¤íŠ¸
+                        // ÆË¾÷°øÁö ¸®½ºÆ®
                         ArrayList pnlist = nbean.selectListNoticePopupHome(box);
                         request.setAttribute("noticePopup", pnlist);
 
                     } else {
-                    	box.setSession("KoccaYn", "N");
-                    	box.put("authority", "");
+                        box.setSession("KoccaYn", "N");
+                        box.put("authority", "");
 
-                    	if(type.equals("B")){
-                    		MainHomeTypeBBean bBean = new MainHomeTypeBBean();
+                        if(type.equals("B")){
+                            MainHomeTypeBBean bBean = new MainHomeTypeBBean();
 
-                    		// ì •ê·œê°•ì¢Œ ë¦¬ìŠ¤íŠ¸
-                    		ArrayList subjectList = bBean.selectSubjectList(box);
-                    		request.setAttribute("subjectList", subjectList);
+                            // Á¤±Ô°­ÁÂ ¸®½ºÆ®
+                            ArrayList subjectList = bBean.selectSubjectList(box);
+                            request.setAttribute("subjectList", subjectList);
 
-                    		// ì—´ë¦°ê°•ì¢Œ ë¦¬ìŠ¤íŠ¸
-                    		ArrayList goldClassList = bBean.selectGoldClassList(box);
-                    		request.setAttribute("goldClassList", goldClassList);
+                            // ¿­¸°°­ÁÂ ¸®½ºÆ®
+                            ArrayList goldClassList = bBean.selectGoldClassList(box);
+                            request.setAttribute("goldClassList", goldClassList);
 
-                    		box.put("p_tabseq", 12); //ê²Œì‹œíŒ seq ì…‹íŒ…
-                    		// ê³µì§€ì‚¬í•­ ë¦¬ìŠ¤íŠ¸
-                    		ArrayList noticeList = bBean.selectNoticeList(box);
-                    		request.setAttribute("noticeList", noticeList);
+                            box.put("p_tabseq", 12); //°Ô½ÃÆÇ seq ¼ÂÆÃ
+                            // °øÁö»çÇ× ¸®½ºÆ®
+                            ArrayList noticeList = bBean.selectNoticeList(box);
+                            request.setAttribute("noticeList", noticeList);
 
-                    		box.put("p_popup", "Y"); //íŒì—… ì¡°ê±´ ì…‹íŒ…
-                    		// íŒì—… ë¦¬ìŠ¤íŠ¸
-                    		ArrayList noticePopup = bBean.selectNoticeList(box);
-                    		request.setAttribute("noticePopup", noticePopup);
-                    		v_url = "/learn/user/typeB/homepage/zu_Online_ASP.jsp";
+                            box.put("p_popup", "Y"); //ÆË¾÷ Á¶°Ç ¼ÂÆÃ
+                            // ÆË¾÷ ¸®½ºÆ®
+                            ArrayList noticePopup = bBean.selectNoticeList(box);
+                            request.setAttribute("noticePopup", noticePopup);
+                            v_url = "/learn/user/typeB/homepage/zu_Online_ASP.jsp";
 
-                    	}else{
-                    		NoticeAdminBean nbean = new NoticeAdminBean();
+                        }else{
+                            NoticeAdminBean nbean = new NoticeAdminBean();
 
                             int tabseq = StringManager.toInt(box.getStringDefault("p_tabseq", ""));
                             if (tabseq == 0) {
 
-                                // ê²Œì‹œíŒ ë¶„ë¥˜ì— ëŒ€í•œ ë¶€ë¶„ ì„¸íŒ…
+                                // °Ô½ÃÆÇ ºĞ·ù¿¡ ´ëÇÑ ºÎºĞ ¼¼ÆÃ
                                 box.put("p_type", "HN");
                                 box.put("p_grcode", "0000000");
                                 box.put("p_comp", "0000000000");
@@ -426,35 +418,35 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
                                 tabseq = nbean.selectTableseq(box);
 
                                 if (tabseq == 0) {
-                                    String msg = "ê²Œì‹œíŒì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤.";
+                                    String msg = "°Ô½ÃÆÇÁ¤º¸°¡ ¾ø½À´Ï´Ù.";
                                     AlertManager.historyBack(out, msg);
                                 }
 
                                 box.put("p_tabseq", String.valueOf(tabseq));
                             }
 
-	                    	// ASP ê³µì§€ì‚¬í•­
-	                        HomeNoticeBean noticeBean = new HomeNoticeBean();
-	                        ArrayList noticeList = noticeBean.selectDirectList(box);
-	                        request.setAttribute("noticeList", noticeList);
+                            // ASP °øÁö»çÇ×
+                            HomeNoticeBean noticeBean = new HomeNoticeBean();
+                            ArrayList noticeList = noticeBean.selectDirectList(box);
+                            request.setAttribute("noticeList", noticeList);
 
-	                        // ASP ì‹¤ë¬´ê°•ì¢Œ
-	//                        PracticalCourseHomePageBean Pbean = new PracticalCourseHomePageBean();
-	//                        List practicalList = Pbean.selectList(box);
-	//                        request.setAttribute("practicalList", practicalList);
+                            // ASP ½Ç¹«°­ÁÂ
+                            //                        PracticalCourseHomePageBean Pbean = new PracticalCourseHomePageBean();
+                            //                        List practicalList = Pbean.selectList(box);
+                            //                        request.setAttribute("practicalList", practicalList);
 
 
-	                        //ì—´ë¦°ê°•ì¢Œ
-	                        GoldClassHomePageBean Gbean = new GoldClassHomePageBean();
-	                        List goldclassList = Gbean.selectList(box);
-	                        request.setAttribute("goldclassList", goldclassList);
+                            //¿­¸°°­ÁÂ
+                            GoldClassHomePageBean Gbean = new GoldClassHomePageBean();
+                            List goldclassList = Gbean.selectList(box);
+                            request.setAttribute("goldclassList", goldclassList);
 
-	                        // íŒì—…ê³µì§€ ë¦¬ìŠ¤íŠ¸
-	                        ArrayList pnlist = nbean.selectListNoticePopupHome(box);
-	                        request.setAttribute("noticePopup", pnlist);
+                            // ÆË¾÷°øÁö ¸®½ºÆ®
+                            ArrayList pnlist = nbean.selectListNoticePopupHome(box);
+                            request.setAttribute("noticePopup", pnlist);
 
-	                        v_url = "/learn/user/portal/homepage/zu_Online_ASP.jsp";
-                    	}
+                            v_url = "/learn/user/portal/homepage/zu_Online_ASP.jsp";
+                        }
                     }
                 }
             }
@@ -462,9 +454,21 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
             String userid = box.getSession("userid");
             if(userid.equals("")) {
                 this.performMainLogin(request, response, box, out);
+            } else {
+                AlertManager alert = new AlertManager();
+                String v_mainurl = "";
+                String msg = "";
+
+                v_mainurl = "/servlet/controller.system.MenuCountServlet";
+                box.put("p_process", "writeLog");
+                box.put("gubun", "9");
+                box.put("menuid", "02");
+
+                alert.alertOkMessage(out, msg, v_mainurl, box);
+                return;
             }
 
-            request.setAttribute("requestbox", box); // ëª…ì‹œì ìœ¼ë¡œ box ê°ì²´ë¥¼ ë„˜ê²¨ì¤€ë‹¤
+            request.setAttribute("requestbox", box); // ¸í½ÃÀûÀ¸·Î box °´Ã¼¸¦ ³Ñ°ÜÁØ´Ù
             ServletContext sc = getServletContext();
             RequestDispatcher rd = sc.getRequestDispatcher(v_url);
             rd.forward(request, response);
@@ -475,7 +479,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
     }
 
     /**
-     * íŒì—…ìƒì„¸ë³´ê¸°
+     * ÆË¾÷»ó¼¼º¸±â
      *
      * @param request encapsulates the request to the servlet
      * @param response encapsulates the response from the servlet
@@ -485,7 +489,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
      */
     public void performPopupView(HttpServletRequest request, HttpServletResponse response, RequestBox box, PrintWriter out) throws Exception {
         try {
-            request.setAttribute("requestbox", box); // ëª…ì‹œì ìœ¼ë¡œ box ê°ì²´ë¥¼ ë„˜ê²¨ì¤€ë‹¤
+            request.setAttribute("requestbox", box); // ¸í½ÃÀûÀ¸·Î box °´Ã¼¸¦ ³Ñ°ÜÁØ´Ù
 
             String v_userip = request.getHeader("X-Forwarded-For");
             if (v_userip == null || v_userip.equals("")) {
@@ -498,7 +502,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
 
             int tabseq = StringManager.toInt(box.getStringDefault("p_tabseq", ""));
             if (tabseq == 0) {
-                // ê²Œì‹œíŒ ë¶„ë¥˜ì— ëŒ€í•œ ë¶€ë¶„ ì„¸íŒ…
+                // °Ô½ÃÆÇ ºĞ·ù¿¡ ´ëÇÑ ºÎºĞ ¼¼ÆÃ
                 box.put("p_type", "HN");
                 box.put("p_grcode", "0000000");
                 box.put("p_comp", "0000000000");
@@ -508,7 +512,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
 
                 tabseq = nbean.selectTableseq(box);
                 if (tabseq == 0) {
-                    String msg = "ê²Œì‹œíŒì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤.";
+                    String msg = "°Ô½ÃÆÇÁ¤º¸°¡ ¾ø½À´Ï´Ù.";
                     AlertManager.historyBack(out, msg);
                 }
                 box.put("p_tabseq", String.valueOf(tabseq));
@@ -534,7 +538,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
     }
 
     /**
-     * ê³µì§€ì‚¬í•­ë¦¬ìŠ¤íŠ¸
+     * °øÁö»çÇ×¸®½ºÆ®
      *
      * @param request encapsulates the request to the servlet
      * @param response encapsulates the response from the servlet
@@ -544,7 +548,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
      */
     public void performSelectNoticeList(HttpServletRequest request, HttpServletResponse response, RequestBox box, PrintWriter out) throws Exception {
         try {
-            request.setAttribute("requestbox", box); // ëª…ì‹œì ìœ¼ë¡œ box ê°ì²´ë¥¼ ë„˜ê²¨ì¤€ë‹¤
+            request.setAttribute("requestbox", box); // ¸í½ÃÀûÀ¸·Î box °´Ã¼¸¦ ³Ñ°ÜÁØ´Ù
 
             String v_userip = request.getHeader("X-Forwarded-For");
             if (v_userip == null || v_userip.equals("")) {
@@ -552,12 +556,12 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
             }
 
             box.put("p_userip", v_userip);
-            // ê³µì§€ì‚¬í•­ ì‹œì‘
+            // °øÁö»çÇ× ½ÃÀÛ
             NoticeAdminBean nbean = new NoticeAdminBean();
 
             int tabseq = StringManager.toInt(box.getStringDefault("p_tabseq", ""));
             if (tabseq == 0) {
-                // ê²Œì‹œíŒ ë¶„ë¥˜ì— ëŒ€í•œ ë¶€ë¶„ ì„¸íŒ…
+                // °Ô½ÃÆÇ ºĞ·ù¿¡ ´ëÇÑ ºÎºĞ ¼¼ÆÃ
                 box.put("p_type", "HN");
                 box.put("p_grcode", "0000000");
                 box.put("p_comp", "0000000000");
@@ -567,7 +571,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
                 /*----------------------------------------*/
                 tabseq = nbean.selectTableseq(box);
                 if (tabseq == 0) {
-                    String msg = "ê²Œì‹œíŒì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤.";
+                    String msg = "°Ô½ÃÆÇÁ¤º¸°¡ ¾ø½À´Ï´Ù.";
                     AlertManager.historyBack(out, msg);
                 }
                 box.put("p_tabseq", String.valueOf(tabseq));
@@ -593,7 +597,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
     }
 
     /**
-     * ê³µì§€ì‚¬í•­ìƒì„¸ë³´ê¸°
+     * °øÁö»çÇ×»ó¼¼º¸±â
      *
      * @param request encapsulates the request to the servlet
      * @param response encapsulates the response from the servlet
@@ -603,7 +607,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
      */
     public void performSelectNoticeView(HttpServletRequest request, HttpServletResponse response, RequestBox box, PrintWriter out) throws Exception {
         try {
-            request.setAttribute("requestbox", box); // ëª…ì‹œì ìœ¼ë¡œ box ê°ì²´ë¥¼ ë„˜ê²¨ì¤€ë‹¤
+            request.setAttribute("requestbox", box); // ¸í½ÃÀûÀ¸·Î box °´Ã¼¸¦ ³Ñ°ÜÁØ´Ù
 
             String v_userip = request.getHeader("X-Forwarded-For");
             if (v_userip == null || v_userip.equals("")) {
@@ -611,12 +615,12 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
             }
 
             box.put("p_userip", v_userip);
-            // ê³µì§€ì‚¬í•­ ì‹œì‘
+            // °øÁö»çÇ× ½ÃÀÛ
             NoticeAdminBean nbean = new NoticeAdminBean();
 
             int tabseq = StringManager.toInt(box.getStringDefault("p_tabseq", ""));
             if (tabseq == 0) {
-                // ê²Œì‹œíŒ ë¶„ë¥˜ì— ëŒ€í•œ ë¶€ë¶„ ì„¸íŒ…
+                // °Ô½ÃÆÇ ºĞ·ù¿¡ ´ëÇÑ ºÎºĞ ¼¼ÆÃ
                 box.put("p_type", "HN");
                 box.put("p_grcode", "0000000");
                 box.put("p_comp", "0000000000");
@@ -626,7 +630,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
 
                 tabseq = nbean.selectTableseq(box);
                 if (tabseq == 0) {
-                    String msg = "ê²Œì‹œíŒì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤.";
+                    String msg = "°Ô½ÃÆÇÁ¤º¸°¡ ¾ø½À´Ï´Ù.";
                     AlertManager.historyBack(out, msg);
                 }
                 box.put("p_tabseq", String.valueOf(tabseq));
@@ -648,7 +652,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
     }
 
     /**
-     * ë©”ì¼ ë³´ë‚´ê¸°í¼
+     * ¸ŞÀÏ º¸³»±âÆû
      *
      * @param request encapsulates the request to the servlet
      * @param response encapsulates the response from the servlet
@@ -658,7 +662,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
      */
     public void performUsermail(HttpServletRequest request, HttpServletResponse response, RequestBox box, PrintWriter out) throws Exception {
         try {
-            request.setAttribute("requestbox", box); // ëª…ì‹œì ìœ¼ë¡œ box ê°ì²´ë¥¼ ë„˜ê²¨ì¤€ë‹¤
+            request.setAttribute("requestbox", box); // ¸í½ÃÀûÀ¸·Î box °´Ã¼¸¦ ³Ñ°ÜÁØ´Ù
             String v_url = "/learn/user/homepage/zu_Usermail.jsp";
 
             ServletContext sc = getServletContext();
@@ -672,7 +676,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
     }
 
     /**
-     * ë©”ì¼ ì „ì†¡
+     * ¸ŞÀÏ Àü¼Û
      *
      * @param request encapsulates the request to the servlet
      * @param response encapsulates the response from the servlet
@@ -688,10 +692,10 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
             String v_msg = "";
             AlertManager alert = new AlertManager();
             if (isOk > 0) {
-                v_msg = "ì „ì†¡ë˜ì—ˆìŠµë‹ˆë‹¤.";
+                v_msg = "Àü¼ÛµÇ¾ú½À´Ï´Ù.";
                 alert.selfClose(out, v_msg);
             } else {
-                v_msg = "ì „ì†¡ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.";
+                v_msg = "Àü¼Û¿¡ ½ÇÆĞÇß½À´Ï´Ù.";
                 alert.alertFailMessage(out, v_msg);
             }
         } catch (Exception ex) {
@@ -707,36 +711,36 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
             // String strHttps =
             // DomainUtil.getHttpsDomain(request.getRequestURL().toString());
             ///System.out.println("MainServlet -- performASP_Login");
-            request.setAttribute("requestbox", box); // ëª…ì‹œì ìœ¼ë¡œ box ê°ì²´ë¥¼ ë„˜ê²¨ì¤€ë‹¤
+            request.setAttribute("requestbox", box); // ¸í½ÃÀûÀ¸·Î box °´Ã¼¸¦ ³Ñ°ÜÁØ´Ù
             String gubun = box.getString("gubun");
             String v_url = "/learn/user/portal/homepage/zu_Online_ASP_Sub.jsp";
 
             if(box.getSession("tem_type").equals("B")){
-            	v_url = "/learn/user/typeB/homepage/zu_Online_ASP.jsp";
+                v_url = "/learn/user/typeB/homepage/zu_Online_ASP.jsp";
             }
 
-            if (gubun.equals("20")) { // ì¤‘ë³µ ì•„ì´ë”” ì²´í¬
+            if (gubun.equals("20")) { // Áßº¹ ¾ÆÀÌµğ Ã¼Å©
                 LoginBean bean = new LoginBean();
                 int isOk = bean.exists_ID(box);
                 box.put("dbLoad_ID_Exists", isOk);
                 v_url = "/learn/user/portal/homepage/zu_Online_ASP_ExistsID.jsp";
             }
 
-            if (gubun.equals("25")) { // ì¤‘ë³µ ì´ë©”ì¼ ì²´í¬
+            if (gubun.equals("25")) { // Áßº¹ ÀÌ¸ŞÀÏ Ã¼Å©
                 LoginBean bean = new LoginBean();
                 int isOk = bean.exists_EMAIL(box);
                 box.put("dbLoad_ID_Exists", isOk);
                 v_url = "/learn/user/portal/homepage/zu_Online_ASP_ExistsID.jsp";
             }
 
-            if (gubun.equals("30")) { // ë¡œê·¸ì•„ì›ƒ
+            if (gubun.equals("30")) { // ·Î±×¾Æ¿ô
                 box.put("gubun", "");
                 box.sessionInvalidate();
                 response.sendRedirect("/");
 //                performMainList(request, response, box, out);
             }
 
-            if (gubun.equals("40")) { // ì•„ì´ë””/ íŒ¨ìŠ¤ì›Œë“œ ì°¾ê¸°
+            if (gubun.equals("40")) { // ¾ÆÀÌµğ/ ÆĞ½º¿öµå Ã£±â
                 LoginBean bean = new LoginBean();
                 String isOk = bean.getASP_Userid(box);
 
@@ -744,7 +748,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
                 v_url = "/learn/user/portal/homepage/zu_Online_ASP_ExistsID.jsp";
             }
 
-            if (gubun.equals("50")) { // ì•”í˜¸ ì°¾ê¸°
+            if (gubun.equals("50")) { // ¾ÏÈ£ Ã£±â
                 LoginBean bean = new LoginBean();
                 String isOk = bean.selectTempPassword(box);
 
@@ -752,42 +756,42 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
                 v_url = "/learn/user/portal/homepage/zu_Online_ASP_ExistsID.jsp";
             }
 
-            if (gubun.equals("60")) { // ë¡œê·¸ì¸
-                // ë©”ì¸ í™”ë©´ì— ì˜¤ì§€ ì•Šê³  ì™¸ë¶€ì—ì„œ ë°”ë¡œ ì˜¤ê¸° ë•Œë¬¸ì—
+            if (gubun.equals("60")) { // ·Î±×ÀÎ
+                // ¸ŞÀÎ È­¸é¿¡ ¿ÀÁö ¾Ê°í ¿ÜºÎ¿¡¼­ ¹Ù·Î ¿À±â ¶§¹®¿¡
                 box.put("p_servernm", request.getServerName());
 
                 TempletBean bean = new TempletBean();
                 DataBox listBean = bean.SelectGrcodeExists(box);
 
-                NoticeAdminBean nbean = new NoticeAdminBean(); // ASP íŒì—…ê³µì§€
+                NoticeAdminBean nbean = new NoticeAdminBean(); // ASP ÆË¾÷°øÁö
 
-                if (box.getString("p_aspgubun").equals("kocsc")) {// kocsc ì¸ê²½ìš° useridë¥¼ ë°›ì•„ì™€ì„œ pwë¥¼ ê°€ì ¸ì˜¨ë‹¤.
+                if (box.getString("p_aspgubun").equals("kocsc")) {// kocsc ÀÎ°æ¿ì userid¸¦ ¹Ş¾Æ¿Í¼­ pw¸¦ °¡Á®¿Â´Ù.
                     DataBox kocscSsoPwd = bean.getKocscSsoPwd(box);
                     box.put("p_pw", kocscSsoPwd.get("d_pwd"));
-                } else if (box.getString("p_aspgubun").equals("edu1")) {// edu1 ì¸ê²½ìš° useridë¥¼ ë°›ì•„ì™€ì„œ pwë¥¼ ê°€ì ¸ì˜¨ë‹¤.
+                } else if (box.getString("p_aspgubun").equals("edu1")) {// edu1 ÀÎ°æ¿ì userid¸¦ ¹Ş¾Æ¿Í¼­ pw¸¦ °¡Á®¿Â´Ù.
                     DataBox edu1SsoPwd = bean.getEdu1SsoPwd(box);
                     box.put("p_pw", edu1SsoPwd.get("d_pwd"));
-                } else if (box.getString("p_aspgubun").equals("hns")) {// hns ì¸ê²½ìš° useridë¥¼ í™•ì¸í›„ ê°€ì… or pwë¥¼ ê°€ì ¸ì˜¨ë‹¤.
+                } else if (box.getString("p_aspgubun").equals("hns")) {// hns ÀÎ°æ¿ì userid¸¦ È®ÀÎÈÄ °¡ÀÔ or pw¸¦ °¡Á®¿Â´Ù.
                     DataBox HnsSsoPwd = bean.checkHnsUserid(box);
                     box.put("p_pw", HnsSsoPwd.get("d_pwd"));
-                } else if (box.getString("p_aspgubun").equals("N000083")) {// kocuco-hi ì¸ê²½ìš° useridë¥¼ í™•ì¸ í›„ ê°€ì… or pwë¥¼ ê°€ì ¸ì˜¨ë‹¤.
+                } else if (box.getString("p_aspgubun").equals("N000083")) {// kocuco-hi ÀÎ°æ¿ì userid¸¦ È®ÀÎ ÈÄ °¡ÀÔ or pw¸¦ °¡Á®¿Â´Ù.
                     DataBox Kocucohi = bean.checkKocucohi(box);
                     box.put("p_id", Kocucohi.get("d_userid"));
                     box.put("p_pw", Kocucohi.get("d_pwd"));
                 }
 
                 if (listBean != null && !listBean.get("d_grcode").equals("")) {
-                    box.setSession("tem_menu_type", listBean.get("d_menutype")); // ë©”ë‰´ ë„¤ë¹„ê²Œì´ì…˜ íƒ€ì…
+                    box.setSession("tem_menu_type", listBean.get("d_menutype")); // ¸Ş´º ³×ºñ°ÔÀÌ¼Ç Å¸ÀÔ
                     box.setSession("tem_grcode", listBean.get("d_grcode"));
-                    box.setSession("tem_main_type", listBean.get("d_type")); // ë©”ì¸ í™”ë©´ íƒ€ì…
+                    box.setSession("tem_main_type", listBean.get("d_type")); // ¸ŞÀÎ È­¸é Å¸ÀÔ
                 } else {
                     box.setSession("tem_type", "A");
                     box.setSession("tem_grcode", "N000001");
-                    box.setSession("tem_menu_type", ""); // ë©”ë‰´ ë„¤ë¹„ê²Œì´ì…˜ íƒ€ì…
-                    box.setSession("tem_main_type", ""); // ë©”ì¸ í™”ë©´ íƒ€ì…
+                    box.setSession("tem_menu_type", ""); // ¸Ş´º ³×ºñ°ÔÀÌ¼Ç Å¸ÀÔ
+                    box.setSession("tem_main_type", ""); // ¸ŞÀÎ È­¸é Å¸ÀÔ
                 }
 
-                 // URLë³„ GRCODE ê°€ì ¸ì˜¤ê¸°
+                // URLº° GRCODE °¡Á®¿À±â
                 if (box.getSession("tem_grcode").equals("") || box.getSession("tem_grcode") == null) {
                     DataBox serverInfo = bean.getGroupInfo(box);
 
@@ -803,7 +807,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
                 LoginBean bean1 = new LoginBean();
                 String isOk = bean1.getASP_Login(box, request);
 
-                // ì ‘ì†ì IP
+                // Á¢¼ÓÀÚ IP
                 String v_userip = request.getHeader("X-Forwarded-For");
                 if (v_userip == null || v_userip.equals("")) {
                     v_userip = request.getRemoteAddr();
@@ -816,29 +820,29 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
                 box.setSession("KoccaYn", "N");
 
                 /*
-                // ê³µì§€ì‚¬í•­ ì‹œì‘
+                // °øÁö»çÇ× ½ÃÀÛ
                 HomeNoticeBean noticeBean = new HomeNoticeBean();
                 HomeLetterBean letterBean = new HomeLetterBean();
                 ProposeCourseBean courseBean = new ProposeCourseBean();
 
-                // ASP ê³µì§€ì‚¬í•­
+                // ASP °øÁö»çÇ×
                 ArrayList noticeList = noticeBean.selectDirectList(box);
                 request.setAttribute("noticeList", noticeList);
 
-                // ASP ë‰´ìŠ¤ë ˆí„°
+                // ASP ´º½º·¹ÅÍ
                 ArrayList letterList = letterBean.selectDirectList(box);
                 request.setAttribute("letterList", letterList);
 
-                // ASP ê°•ì¢Œëª¨ìŒ
+                // ASP °­ÁÂ¸ğÀ½
                 List mainSubjectList = courseBean.selectMainSubjectList(box);
                 request.setAttribute("mainSubjectList", mainSubjectList);
 
-                // ASP ì‹¤ë¬´ê°•ì¢Œ
+                // ASP ½Ç¹«°­ÁÂ
                 PracticalCourseHomePageBean Pbean = new PracticalCourseHomePageBean();
                 List practicalList = Pbean.selectList(box);
                 request.setAttribute("practicalList", practicalList);
 
-                // íŒì—…ê³µì§€ ë¦¬ìŠ¤íŠ¸
+                // ÆË¾÷°øÁö ¸®½ºÆ®
                 ArrayList pnlist = nbean.selectListNoticePopupHome(box);
                 request.setAttribute("noticePopup", pnlist);
                 */
@@ -854,57 +858,57 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
                     int isPwd = bean1.getASP_Login_Pwd(box);
 
                     if (isUserid == 0) {
-                    	// ë¬¸ì²´ë¶€ ë¹„ì •ìƒì ì¸ ë¡œê·¸ì¸ì²˜ë¦¬
-                    	if( v_servernm.equals("mcst.kocca.or.kr") || v_servernm.equals("mcst.edukocca.or.kr") ){
-                    		alert.alertOkMessage(out, "ì •ìƒì ì¸ ì ‘ê·¼ë°©ë²•ì´ ì•„ë‹™ë‹ˆë‹¤.", "/servlet/controller.homepage.MainServlet", box);
-                    	}else{
-                    		alert.alertOkMessage(out, "ì…ë ¥í•˜ì‹  íšŒì›ì€ ì¡´ì¬ í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.", "/servlet/controller.homepage.MainServlet", box);
-                    	}
+                        // ¹®Ã¼ºÎ ºñÁ¤»óÀûÀÎ ·Î±×ÀÎÃ³¸®
+                        if( v_servernm.equals("mcst.kocca.or.kr") || v_servernm.equals("mcst.edukocca.or.kr") ){
+                            alert.alertOkMessage(out, "Á¤»óÀûÀÎ Á¢±Ù¹æ¹ıÀÌ ¾Æ´Õ´Ï´Ù.", "/servlet/controller.homepage.MainServlet", box);
+                        }else{
+                            alert.alertOkMessage(out, "ÀÔ·ÂÇÏ½Å È¸¿øÀº Á¸Àç ÇÏÁö ¾Ê½À´Ï´Ù.", "/servlet/controller.homepage.MainServlet", box);
+                        }
                         return;
                     }
 
                     if (isPwd == 0) {
-                        alert.alertOkMessage(out, "ë¹„ë°€ë²ˆí˜¸ê°€ ë§ì§€ ì•ŠìŠµë‹ˆë‹¤.", "/servlet/controller.homepage.MainServlet", box);
+                        alert.alertOkMessage(out, "ºñ¹Ğ¹øÈ£°¡ ¸ÂÁö ¾Ê½À´Ï´Ù.", "/servlet/controller.homepage.MainServlet", box);
                         return;
                     }
 
                 } else {
-                	//String v_mainurl = strHttp + "/servlet/controller.homepage.MainServlet";
-                	String v_mainurl = "/servlet/controller.homepage.MainServlet";
-                	String authList = bean1.selectAuthList(box);
+                    //String v_mainurl = strHttp + "/servlet/controller.homepage.MainServlet";
+                    String v_mainurl = "/servlet/controller.homepage.MainServlet";
+                    String authList = bean1.selectAuthList(box);
                     box.setSession("authList", authList);
                     String msg = "";
                     box.put("p_process", "");
 
-                	if (box.getSession("agreechk").equals("N")) {
-                		box.put("p_process", "agreeChkPage");
-                		box.put("gubun", "88");
+                    if (box.getSession("agreechk").equals("N")) {
+                        box.put("p_process", "agreeChkPage");
+                        box.put("gubun", "88");
 
                         alert.alertOkMessage(out, "", v_mainurl, box);
                         return;
-                	}
+                    }
 
-                	ArrayList<String> ssoGrcodeList = new ArrayList<String>(Arrays.asList(new String[] {"N000001", "N000022"}));
+                    ArrayList<String> ssoGrcodeList = new ArrayList<String>(Arrays.asList(new String[] {"N000001", "N000022"}));
                     if(!ssoGrcodeList.contains(box.getSession("tem_grcode"))) {
-                    	Boolean needPassChange = false;
+                        Boolean needPassChange = false;
 
-                    	if (box.getSession("passchangedt") == null || box.getSession("passchangedt").equals("")) {
-                    		needPassChange = true;
-                    	} else {
-                    		Date nowDt = new Date();
-                        	SimpleDateFormat transFormat = new SimpleDateFormat("yyyyMMddHHmmss");
-                        	if (nowDt.after(transFormat.parse(box.getSession("passchangedt")))) {
-                        		needPassChange = true;
-                        	} else {
-                        		needPassChange = false;
-                        	}
-                    	}
+                        if (box.getSession("passchangedt") == null || box.getSession("passchangedt").equals("")) {
+                            needPassChange = true;
+                        } else {
+                            Date nowDt = new Date();
+                            SimpleDateFormat transFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+                            if (nowDt.after(transFormat.parse(box.getSession("passchangedt")))) {
+                                needPassChange = true;
+                            } else {
+                                needPassChange = false;
+                            }
+                        }
 
-                    	if (needPassChange) {
-                    		box.put("p_process", "passChangePage");
-                    		box.put("gubun", "80");
-                    		msg = "ë¹„ë°€ë²ˆí˜¸ë¥¼ ë³€ê²½í•œì§€ 3ê°œì›” ì´ìƒ ê²½ê³¼í•˜ì˜€ìŠµë‹ˆë‹¤. ê°œì¸ì •ë³´ë³´í˜¸ë¥¼ ìœ„í•´ ë¹„ë°€ë²ˆí˜¸ë¥¼ ë³€ê²½í•´ì£¼ì„¸ìš”.";
-                    	}
+                        if (needPassChange) {
+                            box.put("p_process", "passChangePage");
+                            box.put("gubun", "80");
+                            msg = "ºñ¹Ğ¹øÈ£¸¦ º¯°æÇÑÁö 3°³¿ù ÀÌ»ó °æ°úÇÏ¿´½À´Ï´Ù. °³ÀÎÁ¤º¸º¸È£¸¦ À§ÇØ ºñ¹Ğ¹øÈ£¸¦ º¯°æÇØÁÖ¼¼¿ä.";
+                        }
 
                     }
 
@@ -918,7 +922,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
                 }
             }
 
-            if (gubun.equals("70")) // íšŒì›ì •ë³´ìˆ˜ì •
+            if (gubun.equals("70")) // È¸¿øÁ¤º¸¼öÁ¤
             {
                 LoginBean bean = new LoginBean();
                 DataBox dbox = bean.ASP_Edit_Login(box);
@@ -926,45 +930,45 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
                 request.setAttribute("ASP_Edit_Login", dbox);
             }
 
-            if (gubun.equals("89")) // ì‚¬ì´íŠ¸ì´ìš©ë™ì˜ ìˆ˜ì •
+            if (gubun.equals("89")) // »çÀÌÆ®ÀÌ¿ëµ¿ÀÇ ¼öÁ¤
             {
-            	String v_mainurl = "/servlet/controller.homepage.MainServlet";
-            	AlertManager alert = new AlertManager();
+                String v_mainurl = "/servlet/controller.homepage.MainServlet";
+                AlertManager alert = new AlertManager();
 
                 LoginBean bean = new LoginBean();
                 int isOK = bean.ASP_updateAgreeChk(box);
-                String msg = "ê·€í•˜ëŠ” ë‹¨ì²´ê°€ì… íšŒì›ì— í•´ë‹¹ë˜ë¯€ë¡œ, ê°œì¸ì •ë³´ë³´í˜¸ë¥¼ ìœ„í•´ ë¹„ë°€ë²ˆí˜¸ ë³€ê²½ì„ ê¶Œì¥ë“œë¦½ë‹ˆë‹¤.";
+                String msg = "±ÍÇÏ´Â ´ÜÃ¼°¡ÀÔ È¸¿ø¿¡ ÇØ´çµÇ¹Ç·Î, °³ÀÎÁ¤º¸º¸È£¸¦ À§ÇØ ºñ¹Ğ¹øÈ£ º¯°æÀ» ±ÇÀåµå¸³´Ï´Ù.";
 
-        		box.put("p_process", "passChangePage");
-        		box.put("p_id", box.getSession("userid"));
-        		box.put("gubun", "80");
+                box.put("p_process", "passChangePage");
+                box.put("p_id", box.getSession("userid"));
+                box.put("gubun", "80");
 
                 alert.alertOkMessage(out, msg, v_mainurl, box);
 
                 return;
             }
 
-            if (gubun.equals("100")) // ì•”í˜¸ ë³€ê²½
+            if (gubun.equals("100")) // ¾ÏÈ£ º¯°æ
             {
                 LoginBean bean = new LoginBean();
                 int tmp = bean.changePwd(box);
 
                 if(box.getSession("tem_type").equals("B")) {
-                	box.put("gubun", "");
+                    box.put("gubun", "");
                     box.sessionInvalidate();
 
                     AlertManager alert = new AlertManager();
                     box.put("p_process", "");
-                	alert.alertOkMessage(out, "ë¹„ë°€ë²ˆí˜¸ê°€ ë³€ê²½ë˜ì—ˆìŠµë‹ˆë‹¤. ë‹¤ì‹œ ë¡œê·¸ì¸ í•´ì£¼ì‹­ì‹œì˜¤", "/servlet/controller.homepage.MainServlet", box);
+                    alert.alertOkMessage(out, "ºñ¹Ğ¹øÈ£°¡ º¯°æµÇ¾ú½À´Ï´Ù. ´Ù½Ã ·Î±×ÀÎ ÇØÁÖ½Ê½Ã¿À", "/servlet/controller.homepage.MainServlet", box);
                 } else {
-                	request.setAttribute("ASP_Edit_Login", tmp);
+                    request.setAttribute("ASP_Edit_Login", tmp);
                     box.put("dbLoad_ID_Exists", tmp);
                     v_url = "/learn/user/portal/homepage/zu_Online_ASP_ExistsID.jsp";
                 }
 
             }
 
-            if (gubun.equals("110")) // ì‹¤ëª…ì¸ì¦ì—ì„œ ì´ë¦„ê³¼ ì£¼ë¯¼ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ê³  ê¸°ì¡´ ê°€ì…ë˜ì–´ ìˆëŠ”ì§€ ì—¬ë¶€ë¥¼ í™•ì¸í•œë‹¤.
+            if (gubun.equals("110")) // ½Ç¸íÀÎÁõ¿¡¼­ ÀÌ¸§°ú ÁÖ¹Î¹øÈ£¸¦ ÀÔ·ÂÇÏ°í ±âÁ¸ °¡ÀÔµÇ¾î ÀÖ´ÂÁö ¿©ºÎ¸¦ È®ÀÎÇÑ´Ù.
             {
                 String resno = box.getString("p_resno1") + box.getString("p_resno2");
                 String flag = "JID";
@@ -972,8 +976,8 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
                 String dupinfo = "";
                 String conninfo = "";
 
-                Interop interop = new Interop(); // DI,CI ìƒì„±ì„ ìœ„í•´
-                info = interop.Interop(resno, flag).split(";"); // DIë¥¼ ê°€ì ¸ì˜¨ë‹¤.
+                Interop interop = new Interop(); // DI,CI »ı¼ºÀ» À§ÇØ
+                info = interop.Interop(resno, flag).split(";"); // DI¸¦ °¡Á®¿Â´Ù.
                 dupinfo = info[0];
                 conninfo = info[1];
 
@@ -988,7 +992,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
             }
             ServletContext sc = getServletContext();
 
-            // ë°©ì†¡í†µì‹ ì‹¬ì˜ìœ„ì›íšŒ,ì‚¬ë‚´ì—°ìˆ˜ì›,í™ˆì•¤ì‡¼í•‘ì¸ ê²½ìš° ë¡œê·¸ì¸ í›„ ë‚˜ì˜ ê°•ì˜ì‹¤ë¡œ ì´ë™í•œë‹¤.
+            // ¹æ¼ÛÅë½Å½ÉÀÇÀ§¿øÈ¸,»ç³»¿¬¼ö¿ø,È¨¾Ø¼îÇÎÀÎ °æ¿ì ·Î±×ÀÎ ÈÄ ³ªÀÇ °­ÀÇ½Ç·Î ÀÌµ¿ÇÑ´Ù.
             if (box.getString("p_aspgubun").equals("kocsc") || box.getString("p_aspgubun").equals("edu1") || box.getString("p_aspgubun").equals("hns")) {
                 v_url = strHttp + "/servlet/controller.study.MyClassServlet?p_process=EducationSubjectPage&gubun=3";
             }
@@ -1004,13 +1008,13 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
 
     public void performASP_Find_Idpw(HttpServletRequest request, HttpServletResponse response, RequestBox box, PrintWriter out) throws Exception {
         try {
-            request.setAttribute("requestbox", box); // ëª…ì‹œì ìœ¼ë¡œ box ê°ì²´ë¥¼ ë„˜ê²¨ì¤€ë‹¤
+            request.setAttribute("requestbox", box); // ¸í½ÃÀûÀ¸·Î box °´Ã¼¸¦ ³Ñ°ÜÁØ´Ù
             String gubun = box.getString("gubun");
             String v_url = "/learn/user/portal/homepage/zu_Online_ASP_Sub.jsp";
             // String v_url =
             // "/learn/user/portal/homepage/zu_Online_ASP_ExistsID.jsp";
 
-            if (gubun.equals("40")) // ì•„ì´ë”” ì°¾ê¸°
+            if (gubun.equals("40")) // ¾ÆÀÌµğ Ã£±â
             {
                 FreeMailBean bean = new FreeMailBean();
                 String isOk = bean.findIdFreeMail(box);
@@ -1019,7 +1023,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
                 v_url = "/learn/user/portal/homepage/zu_Online_ASP_ExistsID.jsp";
             }
 
-            if (gubun.equals("50")) // ì•”í˜¸ ì°¾ê¸°
+            if (gubun.equals("50")) // ¾ÏÈ£ Ã£±â
             {
                 FreeMailBean bean = new FreeMailBean();
                 String isOk = bean.findPwFreeMail(box);
@@ -1041,11 +1045,11 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
 
     public void performASP_Login_Insert(HttpServletRequest request, HttpServletResponse response, RequestBox box, PrintWriter out) throws Exception {
         try {
-            request.setAttribute("requestbox", box); // ëª…ì‹œì ìœ¼ë¡œ box ê°ì²´ë¥¼ ë„˜ê²¨ì¤€ë‹¤
+            request.setAttribute("requestbox", box); // ¸í½ÃÀûÀ¸·Î box °´Ã¼¸¦ ³Ñ°ÜÁØ´Ù
             String v_url = "/learn/user/portal/homepage/zu_Online_ASP_Sub.jsp";
 
             if(box.getSession("tem_type").equals("B")){
-            	v_url = "/learn/user/typeB/homepage/zu_Online_ASP.jsp";
+                v_url = "/learn/user/typeB/homepage/zu_Online_ASP.jsp";
             }
 
             LoginBean bean = new LoginBean();
@@ -1068,7 +1072,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
             String strHttp = DomainUtil.getHttpDomain(request.getRequestURL().toString());
             // String strHttps = DomainUtil.getHttpsDomain(request.getRequestURL().toString());
 
-            request.setAttribute("requestbox", box); // ëª…ì‹œì ìœ¼ë¡œ box ê°ì²´ë¥¼ ë„˜ê²¨ì¤€ë‹¤
+            request.setAttribute("requestbox", box); // ¸í½ÃÀûÀ¸·Î box °´Ã¼¸¦ ³Ñ°ÜÁØ´Ù
             // String v_url = "/learn/user/portal/homepage/zu_Online_ASP.jsp";
             String v_url = "/servlet/controller.homepage.MainServlet";
             String v_msg = "";
@@ -1076,17 +1080,17 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
             LoginBean bean = new LoginBean();
             int isOk = bean.ASP_updateUser(box);
 
-            //v_url = strHttp + v_url; // ìˆ˜ì •í›„ httpë¡œ ë³´ë‚¸ë‹¤ HTJ
+            //v_url = strHttp + v_url; // ¼öÁ¤ÈÄ http·Î º¸³½´Ù HTJ
 
             box.put("p_process", "");
 
             AlertManager alert = new AlertManager();
 
             if (isOk > 0) {
-                v_msg = "ê°œì¸ì •ë³´ê°€ ë³€ê²½ë˜ì—ˆìŠµë‹ˆë‹¤.";
+                v_msg = "°³ÀÎÁ¤º¸°¡ º¯°æµÇ¾ú½À´Ï´Ù.";
                 alert.alertOkMessage(out, v_msg, v_url, box);
             } else {
-                v_msg = "ê°œì¸ì •ë³´ ë³€ê²½ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.";
+                v_msg = "°³ÀÎÁ¤º¸ º¯°æ¿¡ ½ÇÆĞÇß½À´Ï´Ù.";
                 alert.alertFailMessage(out, v_msg);
             }
 
@@ -1104,15 +1108,15 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
         try {
             String v_url = "";
 
-        	if(box.getSession("tem_type").equals("B")){
-        		v_url = "/learn/user/typeB/homepage/zu_MainLogin.jsp";
-        	}else{
-        		v_url = "/learn/user/portal/homepage/zu_MainLogin.jsp";
-        	}
+            if(box.getSession("tem_type").equals("B")){
+                v_url = "/learn/user/typeB/homepage/zu_MainLogin.jsp";
+            }else{
+                v_url = "/learn/user/portal/homepage/zu_MainLogin.jsp";
+            }
 
             box.put("p_process", "");
             // box.put("p_eventgubun", box.getString("p_eventgubun"));
-            //ì·¨ì—… ì´ë²¤íŠ¸ì—ì„œ ì™”ë‹¤ëŠ” ìƒíƒœê°’ì„ ë„˜ê¸´ë‹¤.
+            //Ãë¾÷ ÀÌº¥Æ®¿¡¼­ ¿Ô´Ù´Â »óÅÂ°ªÀ» ³Ñ±ä´Ù.
 
             String v_userip = request.getHeader("X-Forwarded-For");
             if (v_userip == null || v_userip.equals("")) {
@@ -1121,7 +1125,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
 
             box.put("p_userip", v_userip);
 
-            request.setAttribute("requestbox", box); // ëª…ì‹œì ìœ¼ë¡œ box ê°ì²´ë¥¼ ë„˜ê²¨ì¤€ë‹¤
+            request.setAttribute("requestbox", box); // ¸í½ÃÀûÀ¸·Î box °´Ã¼¸¦ ³Ñ°ÜÁØ´Ù
             ServletContext sc = getServletContext();
             RequestDispatcher rd = sc.getRequestDispatcher(v_url);
             rd.forward(request, response);
@@ -1137,7 +1141,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
             String v_url = "";
             v_url = "http://edum.kocca.or.kr/mobile/index.html";
 
-            request.setAttribute("requestbox", box); // ëª…ì‹œì ìœ¼ë¡œ box ê°ì²´ë¥¼ ë„˜ê²¨ì¤€ë‹¤
+            request.setAttribute("requestbox", box); // ¸í½ÃÀûÀ¸·Î box °´Ã¼¸¦ ³Ñ°ÜÁØ´Ù
             ServletContext sc = getServletContext();
             RequestDispatcher rd = sc.getRequestDispatcher(v_url);
             rd.forward(request, response);
@@ -1148,13 +1152,13 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
         }
     }
 
-    // ì´ë²¤íŠ¸ : ê°œì¸ì •ë³´ ë³€ê²½ ì—¬ë¶€ ë¬¸ì˜ í›„ ë¡œê·¸ì¸[ì´ë²¤íŠ¸ ì¢…ë£Œ í›„ ì£¼ì„ í˜¹ì€ ì‚­ì œ í•¨]
+    // ÀÌº¥Æ® : °³ÀÎÁ¤º¸ º¯°æ ¿©ºÎ ¹®ÀÇ ÈÄ ·Î±×ÀÎ[ÀÌº¥Æ® Á¾·á ÈÄ ÁÖ¼® È¤Àº »èÁ¦ ÇÔ]
     public void performMemberInfoUpdateCheck(HttpServletRequest request, HttpServletResponse response, RequestBox box, PrintWriter out) throws Exception {
         try {
             String v_url = "";
             v_url = "/learn/user/portal/homepage/zu_MemberInfoUpdateCheck.jsp";
 
-            request.setAttribute("requestbox", box); // ëª…ì‹œì ìœ¼ë¡œ box ê°ì²´ë¥¼ ë„˜ê²¨ì¤€ë‹¤
+            request.setAttribute("requestbox", box); // ¸í½ÃÀûÀ¸·Î box °´Ã¼¸¦ ³Ñ°ÜÁØ´Ù
 
             ServletContext sc = getServletContext();
             RequestDispatcher rd = sc.getRequestDispatcher(v_url);
@@ -1169,7 +1173,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
             String v_url = "";
             v_url = "/learn/user/portal/member/zu_MemberInfo_U.jsp";
 
-            request.setAttribute("requestbox", box); // ëª…ì‹œì ìœ¼ë¡œ box ê°ì²´ë¥¼ ë„˜ê²¨ì¤€ë‹¤
+            request.setAttribute("requestbox", box); // ¸í½ÃÀûÀ¸·Î box °´Ã¼¸¦ ³Ñ°ÜÁØ´Ù
 
             MainMemberJoinBean bean = new MainMemberJoinBean();
             DataBox dbox = bean.memberInfoView(box);
@@ -1186,7 +1190,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
         }
     }
 
-    // ë‹¤ìŒì— ë³€ê²½í•˜ê¸° : ê°œì¸ì •ë³´ ìˆ˜ì • ì´ë²¤íŠ¸
+    // ´ÙÀ½¿¡ º¯°æÇÏ±â : °³ÀÎÁ¤º¸ ¼öÁ¤ ÀÌº¥Æ®
     public void performNextChange(HttpServletRequest request, HttpServletResponse response, RequestBox box, PrintWriter out) throws Exception {
         try {
             LoginBean bean = new LoginBean();
@@ -1213,7 +1217,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
         }
     }
 
-    /* ì—¬ê¸°ë¶€í„° ëê¹Œì§€ êµìœ¡ ìˆ˜ìš”ì¡°ì‚¬ */
+    /* ¿©±âºÎÅÍ ³¡±îÁö ±³À° ¼ö¿äÁ¶»ç */
 
     public void performReseachGate(HttpServletRequest request, HttpServletResponse response, RequestBox box, PrintWriter out) throws Exception {
         try {
@@ -1223,22 +1227,22 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
 
             if (p_link.equals("H1") || p_link.equals("H2") || p_link.equals("E1") || p_link.equals("E2") || p_link.equals("B") || p_link.equals("A")) {
                 // v_url =
-                // "/learn/user/2012/portal/homepage/zu_Research_gate.jsp"; //ì„¤ë¬¸
-                // ê²Œì´íŠ¸í™”ë©´
+                // "/learn/user/2012/portal/homepage/zu_Research_gate.jsp"; //¼³¹®
+                // °ÔÀÌÆ®È­¸é
                 box.put("p_process", "");
-                String v_msg = "êµìœ¡ì„œë¹„ìŠ¤ ë§Œì¡±ë„ì¡°ì‚¬ ì„¤ë¬¸ê¸°ê°„ì´ ì™„ë£Œ ë˜ì—ˆìŠµë‹ˆë‹¤.";
+                String v_msg = "±³À°¼­ºñ½º ¸¸Á·µµÁ¶»ç ¼³¹®±â°£ÀÌ ¿Ï·á µÇ¾ú½À´Ï´Ù.";
                 AlertManager alert = new AlertManager();
                 v_url = "/servlet/controller.homepage.MainServlet";
                 alert.alertOkMessage(out, v_msg, v_url, box);
             } else {
                 box.put("p_process", "");
-                String v_msg = "ì˜ëª»ëœ ì ‘ê·¼ì…ë‹ˆë‹¤.";
+                String v_msg = "Àß¸øµÈ Á¢±ÙÀÔ´Ï´Ù.";
                 AlertManager alert = new AlertManager();
                 v_url = "/servlet/controller.homepage.MainServlet";
                 alert.alertOkMessage(out, v_msg, v_url, box);
             }
 
-            request.setAttribute("requestbox", box); // ëª…ì‹œì ìœ¼ë¡œ box ê°ì²´ë¥¼ ë„˜ê²¨ì¤€ë‹¤
+            request.setAttribute("requestbox", box); // ¸í½ÃÀûÀ¸·Î box °´Ã¼¸¦ ³Ñ°ÜÁØ´Ù
             ServletContext sc = getServletContext();
             RequestDispatcher rd = sc.getRequestDispatcher(v_url);
             rd.forward(request, response);
@@ -1255,7 +1259,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
             // String v_gubun = box.getString("p_gubun");
             v_url = "/learn/user/2012/portal/homepage/zu_Research_A.jsp";
 
-            request.setAttribute("requestbox", box); // ëª…ì‹œì ìœ¼ë¡œ box ê°ì²´ë¥¼ ë„˜ê²¨ì¤€ë‹¤
+            request.setAttribute("requestbox", box); // ¸í½ÃÀûÀ¸·Î box °´Ã¼¸¦ ³Ñ°ÜÁØ´Ù
             ServletContext sc = getServletContext();
             RequestDispatcher rd = sc.getRequestDispatcher(v_url);
             rd.forward(request, response);
@@ -1271,7 +1275,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
             String v_url = "";
             v_url = "/learn/user/2012/portal/homepage/zu_Research_2.jsp";
 
-            request.setAttribute("requestbox", box); // ëª…ì‹œì ìœ¼ë¡œ box ê°ì²´ë¥¼ ë„˜ê²¨ì¤€ë‹¤
+            request.setAttribute("requestbox", box); // ¸í½ÃÀûÀ¸·Î box °´Ã¼¸¦ ³Ñ°ÜÁØ´Ù
             ServletContext sc = getServletContext();
             RequestDispatcher rd = sc.getRequestDispatcher(v_url);
             rd.forward(request, response);
@@ -1296,7 +1300,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
             box.put("openercount", "3");
 
             if (isOk > 0) {
-                v_msg = "ëê¹Œì§€ ì‘ë‹µí•´ì£¼ì…”ì„œ ì§„ì‹¬ìœ¼ë¡œ ê°ì‚¬í•©ë‹ˆë‹¤. \\nì‚¬ì´ë²„ì½˜í…ì¸ ì•„ì¹´ë°ë¯¸ ì„œë¹„ìŠ¤ ìˆ˜ì¤€ í–¥ìƒì„ ìœ„í•œ ê·€ì¤‘í•œ ìë£Œë¡œ \\ní™œìš©í•˜ê² ìŠµë‹ˆë‹¤!";
+                v_msg = "³¡±îÁö ÀÀ´äÇØÁÖ¼Å¼­ Áø½ÉÀ¸·Î °¨»çÇÕ´Ï´Ù. \\n»çÀÌ¹öÄÜÅÙÃ÷¾ÆÄ«µ¥¹Ì ¼­ºñ½º ¼öÁØ Çâ»óÀ» À§ÇÑ ±ÍÁßÇÑ ÀÚ·á·Î \\nÈ°¿ëÇÏ°Ú½À´Ï´Ù!";
                 alert.alertOkMessage(out, v_msg, url, box, true, true);
             } else {
                 v_msg = "";
@@ -1314,7 +1318,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
         try {
             String v_url = "";
             v_url = "/learn/user/typeB/homepage/zu_Online_ASP.jsp";
-            request.setAttribute("requestbox", box); // ëª…ì‹œì ìœ¼ë¡œ box ê°ì²´ë¥¼ ë„˜ê²¨ì¤€ë‹¤
+            request.setAttribute("requestbox", box); // ¸í½ÃÀûÀ¸·Î box °´Ã¼¸¦ ³Ñ°ÜÁØ´Ù
             ServletContext sc = getServletContext();
             RequestDispatcher rd = sc.getRequestDispatcher(v_url);
             rd.forward(request, response);
@@ -1329,7 +1333,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
         try {
             String v_url = "";
             v_url = "/learn/user/typeB/homepage/zu_Online_ASP.jsp";
-            request.setAttribute("requestbox", box); // ëª…ì‹œì ìœ¼ë¡œ box ê°ì²´ë¥¼ ë„˜ê²¨ì¤€ë‹¤
+            request.setAttribute("requestbox", box); // ¸í½ÃÀûÀ¸·Î box °´Ã¼¸¦ ³Ñ°ÜÁØ´Ù
             ServletContext sc = getServletContext();
             RequestDispatcher rd = sc.getRequestDispatcher(v_url);
             rd.forward(request, response);

@@ -46,6 +46,7 @@
 	<header>
         <div class="wrapper">
 			<c:set var="gubunId" value="${param.gubun}_${param.menuid}" />
+
 			<c:if test="${not empty param.gubun
 							and param.gubun ne '0'
 							and param.gubun ne '2'
