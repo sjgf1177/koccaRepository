@@ -77,7 +77,7 @@
 			var textarr ="";
 			var answercnt=0;
 			var replycnt =0;
-	  
+
 			for(i=0;i<document.form3.length;i++) {
 				if(document.form3.elements[i].type != 'hidden'){
 					c_name  = document.form3.elements[i].name;
@@ -112,7 +112,7 @@
 							temp = "";
 						}
 					}
-					
+
 					if (document.form3.elements[i].type=="checkbox") {
 						b_type="checkbox";
 						if (document.form3.elements[i].checked==true) {
@@ -157,10 +157,9 @@
 
 			if (b_type=="text" || temp !="") {
 				replycnt++;
+                answercnt++;
 			}
 
-			answercnt++;
-	  
 			if (answercnt==1) {
 				result = temp;    
 			} else if (eval(b_name.indexOf("|"))>0) {
@@ -168,7 +167,7 @@
 			}else {
 				result = result + ","+ temp;
 			}
-	  
+
 			if (replycnt < answercnt) {
 				alert("응답하지 않은 설문이 있습니다.모든 설문에 응답해주시길 바랍니다.");
 				return;
