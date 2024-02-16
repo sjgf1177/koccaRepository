@@ -69,6 +69,19 @@
 								<span class="circle-box myname">${sessionScope.name}</span>
 								<a href="javascript:menuForward('3', '11');" class="d-block btn btn-success btn-md w-75 mt20">나의강의실</a>
 								<span class="d-block mt10" class="fc-light"><a href="javascript:mainmenu('3');" class="fc-light">로그아웃</a> ㅣ <a href="javascript:mainmenu('4');" class="fc-light">개인정보변경</a></span>
+								<c:if test="${sessionScope.agreechk ne 'N'}">
+									<c:if test="${sessionScope.authList ne '' && sessionScope.authList ne null}">
+										<div class="mt10">
+											<select name="p_topAuth" id="p_topAuth" onchange="javascript:topAuthChange();" style="background:#FFFFFF;-webkit-appearance:menulist; padding:0px;">
+												<option value="ZZ">학습자</option>
+												<c:forTokens items="${sessionScope.authList }" delims="||" var="item">
+													<option value="${fn:split(item, '^')[0] }" <c:if test="${sessionScope.gadmin eq fn:split(item, '^')[0]}"> selected </c:if>>${fn:split(item, '^')[1] }</option>
+												</c:forTokens>
+											</select>
+											<span class="header_util_item"><a href="javascript:topAdminOpenPage();" class="btn_record" style="color: #676767!important; background-color: #f5f5f5; font-size: 14px;">이동</a></span>
+										</div>
+									</c:if>
+								</c:if>
 							</li>
 						</ul>
 						<div class="header-left-box">
