@@ -3268,7 +3268,7 @@ public class ProposeCourseBean {
             sql1 += "	(select z.codenm from TZ_CODE z where z.gubun = '0121' and z.levels = 2 and z.code = (select x.lvcode from TZ_SUBJHOMEGUBUN_LEVEL x where x.subj = a.subj)) as lvnm\n";
 
             if (v_grcode.equals("N000134")) {
-            	sql1 += "   , case when subj in ('CK10074','CK18005','CK11004') then 1 else 2 end ordersec \n ";
+            	sql1 += "   , case when a.subj in ('CK10074','CK18005','CK11004') then 1 else 2 end ordersec \n ";
             }
             
             sql1 += "   from (select * from VZ_SCSUBJSEQIMGMOBILE where propstart not in (' ') and to_char(sysdate,'YYYYMM') between replace(substr(propstart,1,6),'.','') and replace(substr(propend,1,6),'.','')) a\n";
