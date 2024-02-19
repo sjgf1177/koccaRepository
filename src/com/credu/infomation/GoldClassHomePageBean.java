@@ -589,6 +589,7 @@ public class GoldClassHomePageBean {
                 sql.append("     ,   NVL(RECOM_YN, 'N') AS RECOM_YN         \n");
                 sql.append("     ,   NVL(NEW_YN, 'N') AS NEW_YN             \n");
                 sql.append("     ,   DECODE( NVL(B.SUBJ, ''), '', 'N', 'Y') AS FAVOR_YN       \n");
+                sql.append("     ,   VTT_PATH                               \n");
                 sql.append("   FROM  TZ_GOLDCLASS A                         \n");
                 sql.append("     ,   (SELECT  SUBJ                          \n");
                 sql.append("            FROM  TZ_SUBJ_FAVOR B               \n");
