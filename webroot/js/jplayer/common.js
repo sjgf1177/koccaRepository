@@ -1,32 +1,33 @@
-function PlayerEvent(vtt){
+function PlayerEvent(){
 $(function (){
 
-
-  // 스피드 변경
-  $('.speed').each(function(){
-    $(this).bind('click',function(){
-      if (!$(this).hasClass('on')){
-        var dataNum = $(this).attr('data-speed');
-        var speed = [0.5, 0.8, 1, 1.2, 1.5, 1.8, 2];
-        $('.speed').removeClass('on');
-        $(this).addClass('on');
-        $('#jquery_jplayer_1').jPlayer('option','playbackRate',speed[dataNum]);
-      }
-    });
-  });
-  $('.speed').eq(1).click();
-
   //speed 설정
-  $(".jp-toggles-text").click(function(){
+  setTimeout(function (){
+    $(".jp-toggles-text").click(function(){
 
-    var toggleclasschk = $(".jp-speed-btn-box").hasClass("on");
-    if(!toggleclasschk){
-      $(".jp-speed-btn-box, .jp-toggles-text").addClass("on");
-    } else {
-      $(".jp-speed-btn-box, .jp-toggles-text").removeClass("on");
-    }
+      var toggleclasschk = $(".jp-speed-btn-box").hasClass("on");
+      if(!toggleclasschk){
+        $(".jp-speed-btn-box, .jp-toggles-text").addClass("on");
+      } else {
+        $(".jp-speed-btn-box, .jp-toggles-text").removeClass("on");
+      }
 
-  });
+    });
+
+    // 스피드 변경
+    $('.speed').each(function(){
+      $(this).bind('click',function(){
+        if (!$(this).hasClass('on')){
+          var dataNum = $(this).attr('data-speed');
+          var speed = [0.5, 0.8, 1, 1.2, 1.5, 1.8, 2];
+          $('.speed').removeClass('on');
+          $(this).addClass('on');
+          $('#jquery_jplayer_1').jPlayer('option','playbackRate',speed[dataNum]);
+        }
+      });
+    });
+    $('.speed').eq(1).click();
+  }, 1500);
 
   // 인덱스 창
 
@@ -42,8 +43,6 @@ $(function (){
       // if ($('.quiz').length > 0 || $('.jp-limit').length > 0){}else{$('#jquery_jplayer_1').jPlayer('pause');}
     }
   });
-
-
 
   // 스크립트 창
   /*
@@ -348,6 +347,7 @@ $(function (){
   });
 
 });
+
 
 }
 

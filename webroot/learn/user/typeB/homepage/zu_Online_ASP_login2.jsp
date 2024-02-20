@@ -636,6 +636,15 @@
 			                                                            <input type="password" name="p_pw2" id="p_pw2" title="비밀번호 확인 (비밀번호와 동일하게 입력해주세요.)">
 			                                                        </div>
 			                                                    </li>
+																<li>
+																	<p>프로필 사진</p>
+																	<div class="input-file">
+																		<input type="text" readonly="readonly" class="file-name" disabled/>
+																		<label for="upload01" class="btn btn-purple">파일 업로드</label>
+																		<input type="file" name="" id="upload01" class="file-upload" />
+																		<span class="sm_text point_sgray mt10">* 프로필 사진 미등록 시 성명으로 표기됩니다.</span>
+																	</div>
+																</li>
 			                                                    <li class="number_box">
 			                                                        <p><span>*</span>전화번호</p>
 			                                                        <div><label for="p_tel0"></label>
@@ -736,5 +745,8 @@
 <style>
 	.sub_info_body ul li:last-child{
 		border-bottom: none;
+	}
+	.input-file [type="text"]{
+		width: 80%;
 	}
 </style>
