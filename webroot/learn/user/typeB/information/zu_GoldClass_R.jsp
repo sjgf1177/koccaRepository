@@ -195,7 +195,7 @@
                     <%--<jsp:include page="/learn/user/typeB/include_left/left_5.jsp">
                     	<jsp:param value="${param.menuid }" name="left_active"/>
                     </jsp:include>--%>
-                        00 : ${selectOffExpert}
+
                     <div class="subContainer">
                         <div class="sub_section">
                             <div class="sub_contents_body">
