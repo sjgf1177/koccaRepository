@@ -62,7 +62,7 @@ button{background: transparent; border: none;}
 
 .jp-progress {position:relative; width:100%; z-index:90;}
 .jp-seek-bar { width:100%; height:3px; background:rgba(255,255,255, 0.35); cursor:pointer; display:block !important; z-index:1;}
-.jp-play-bar {position:relative; width:100%; height:3px; background:rgb(255 0 0); overflow:visible !important; z-index:2;}
+.jp-play-bar {position:relative; width:100%; height:3px; background:rgb(255 0 0); overflow:visible !important; z-index:2; margin: 0;}
 .moveBar {position:absolute; right:-28px; top:-13px; z-index:10;}
 .finGoal {position:absolute; right:-38px; top:-34px; z-index:20;}
 
@@ -103,7 +103,7 @@ button{background: transparent; border: none;}
     background-color: rgb(255 0 0);
     transition: all 0.3s;}
 .jp-toggles-text:after{bottom:3px;}
-.jp-script:after{left:3em; bottom:3px;}
+.jp-script:after{left:2em; bottom:3px;}
 .jp-util ul li .u_index:hover:after, .jp-util ul li .u_index.on:after{width: 100%;}
 .jp-util ul li .u_chapter:hover:after, .jp-util ul li .u_chapter.on:after{width: 100%;}
 .jp-toggles-text:hover:after, .jp-toggles-text.on:after{width: 60%;}
