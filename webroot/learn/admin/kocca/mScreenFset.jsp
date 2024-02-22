@@ -55,8 +55,12 @@
 	  		<frame src="mScreenFtops.jsp"  name="ftop" scrolling="NO" frameborder="NO">
 	  		<frame src="mScreenFmenu.jsp?p_systemgubun=<%=v_systemgubun%>"  name="fmenu" scrolling="NO" frameborder="NO">
             <frameset cols="150,*" rows="*" frameborder="NO" border="0" framespacing="0">
-                <frame src="mScreenFsubMenu.jsp"  name="fleft" scrolling="NO" frameborder="NO">                
-                <frame src="mScreenFbody.jsp"  id="fbody" name="fbody" scrolling="AUTO" frameborder="NO">
+                <frame src="mScreenFsubMenu.jsp"  name="fleft" scrolling="NO" frameborder="NO">
+			<% if (v_gadmin.equals("V1")) { %>
+				<frame src="/servlet/controller.study.StudyStatusAdminServlet?p_process=PersonalSearchPage"  id="fbody" name="fbody" scrolling="AUTO" frameborder="NO">
+			<% } else { %>
+				<frame src="mScreenFbody.jsp"  id="fbody" name="fbody" scrolling="AUTO" frameborder="NO">
+			<% } %>
 	  		<frame src="mScreenFdown.jsp"  name="fdown" scrolling="NO" frameborder="NO">
 		</frameset>
 		<noframes><body bgcolor="#FFFFFF">
