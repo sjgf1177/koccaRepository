@@ -715,9 +715,14 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:45px;
 .join_box .agree_btn_box a.btn_next{}
 .join_box .agree_btn_box a.btn_home{background-color:#40abd4; color:white; border-radius: 3px; padding-left:26px; padding-right:26px;}
 .join_box .agree_btn_box a.btn_login{background-color:#ff7800; color:white; border-radius: 3px; padding-left:26px; padding-right: 26px;}
+
 /* 회원 가입완료 */
 .signup_complete{text-align: center; background-image:url(../image/signup_complete_img.png); background-repeat: no-repeat; background-position: center top; padding-top:114px; margin-bottom:35px;}
 .signup_complete span{font-size:2.6rem; line-height: 3.8rem; font-weight: 400; color:#313131; margin-bottom: 27px;}
+
+/*프로필*/
+.prople-box p{width: 40%; min-width: 200px; margin: 0; display: inline-block;}
+.prople-box button{width:30px; height:30px; margin-left: 5px; background-image: url("/images/common/close.png"); background-repeat: no-repeat; background-size: contain; vertical-align: middle;}
 
 /* 페이지네이션 */
 .paging{width:100%;}

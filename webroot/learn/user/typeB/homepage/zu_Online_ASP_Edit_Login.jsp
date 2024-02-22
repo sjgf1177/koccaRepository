@@ -413,7 +413,7 @@
 																<tr>
 																	<th>프로필사진</th>
 																	<td>
-																		<p>현재 프로필 등록된 파일명.png</p>
+																		<div class="mb10 prople-box"><p>현재 프로필 등록된 파일명.png</p><button type="button" class="btn-close" title="제거"></button></div>
 																		<div class="input-file">
 																		<input type="text" readonly="readonly" class="file-name" disabled/>
 																		<label for="upload01" class="btn btn-purple">파일 업로드</label>
