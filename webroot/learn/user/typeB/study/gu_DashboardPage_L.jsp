@@ -161,6 +161,9 @@
                                 <c:set var="b_cnt" value="0" />
                                 <c:set var="g_cnt" value="0" />
                                 <c:set var="k_cnt" value="0" />
+                                <c:set var="m_cnt" value="0" />
+                                <c:set var="s_cnt" value="0" />
+                                <c:set var="o_cnt" value="0" />
                                 <c:set var="x_cnt" value="0" />
                                 <c:forEach items="${cateList }" var="list" varStatus="status">
                                     <c:if test="${list.d_area eq 'B0' and list.d_cnt gt 0}">
@@ -173,6 +176,18 @@
 
                                     <c:if test="${list.d_area eq 'K0' and list.d_cnt gt 0}">
                                         <c:set var="k_cnt" value="${list.d_cnt}" />
+                                    </c:if>
+
+                                    <c:if test="${list.d_area eq 'M0' and list.d_cnt gt 0}">
+                                        <c:set var="m_cnt" value="${list.d_cnt}" />
+                                    </c:if>
+
+                                    <c:if test="${list.d_area eq 'S0' and list.d_cnt gt 0}">
+                                        <c:set var="s_cnt" value="${list.d_cnt}" />
+                                    </c:if>
+
+                                    <c:if test="${list.d_area eq 'O0' and list.d_cnt gt 0}">
+                                        <c:set var="o_cnt" value="${list.d_cnt}" />
                                     </c:if>
 
                                     <c:if test="${list.d_area eq 'XX' and list.d_cnt gt 0}">
@@ -194,8 +209,9 @@
                                                         columns: [
                                                             ["방송영상", ${b_cnt}],
                                                             ["게임", ${g_cnt}],
-                                                            ["문화", ${k_cnt}],
-                                                            ["기타", ${x_cnt}]
+                                                            ["만화/애니/캐릭터", ${k_cnt}],
+                                                            ["음악/공연", ${m_cnt}],
+                                                            ["인문교양", ${s_cnt}]
                                                         ],
                                                         type : "donut"
                                                     },
@@ -218,7 +234,7 @@
 
                                     <div class="timechart-box">
                                         <div class="top-box">
-                                            <h5>나의 학습 현황<small>(시간)</small></h5>
+                                            <h5>나의 학습 현황<small>(분)</small></h5>
                                         </div>
                                         <div class="chart-box">
                                             <div id="xAxisTickPosition01"></div>
@@ -229,7 +245,7 @@
                                                         x: "x",
                                                         columns: [
                                                             ["x", "회원평균", "나"],
-                                                            ["시간", 1, 5],
+                                                            ["분", ${selectDashboardAvgList[0].d_a_avg}, ${selectDashboardAvgList[0].d_u_avg}],
                                                         ],
                                                         type: "bar",
                                                     },
@@ -256,10 +272,111 @@
                                     </div>
                                 </div>
 
-
+                                <c:set var="a01" value="0" />
+                                <c:set var="a02" value="0" />
+                                <c:set var="a03" value="0" />
+                                <c:set var="a04" value="0" />
+                                <c:set var="a05" value="0" />
+                                <c:set var="a06" value="0" />
+                                <c:set var="a07" value="0" />
+                                <c:set var="a08" value="0" />
+                                <c:set var="a09" value="0" />
+                                <c:set var="a10" value="0" />
+                                <c:set var="a11" value="0" />
+                                <c:set var="a12" value="0" />
+                                <c:set var="u01" value="0" />
+                                <c:set var="u02" value="0" />
+                                <c:set var="u03" value="0" />
+                                <c:set var="u04" value="0" />
+                                <c:set var="u05" value="0" />
+                                <c:set var="u06" value="0" />
+                                <c:set var="u07" value="0" />
+                                <c:set var="u08" value="0" />
+                                <c:set var="u09" value="0" />
+                                <c:set var="u10" value="0" />
+                                <c:set var="u11" value="0" />
+                                <c:set var="u12" value="0" />
+                                <c:forEach items="${selectDashboardAvgMonthList }" var="list" varStatus="status">
+                                    <c:if test="${list.d_type eq 'A'}">
+                                        <c:if test="${list.d_mon eq '01'}">
+                                            <c:set var="a01" value="${list.d_time_avg}" />
+                                        </c:if>
+                                        <c:if test="${list.d_mon eq '02'}">
+                                            <c:set var="a02" value="${list.d_time_avg}" />
+                                        </c:if>
+                                        <c:if test="${list.d_mon eq '03'}">
+                                            <c:set var="a03" value="${list.d_time_avg}" />
+                                        </c:if>
+                                        <c:if test="${list.d_mon eq '04'}">
+                                            <c:set var="a04" value="${list.d_time_avg}" />
+                                        </c:if>
+                                        <c:if test="${list.d_mon eq '05'}">
+                                            <c:set var="a05" value="${list.d_time_avg}" />
+                                        </c:if>
+                                        <c:if test="${list.d_mon eq '06'}">
+                                            <c:set var="a06" value="${list.d_time_avg}" />
+                                        </c:if>
+                                        <c:if test="${list.d_mon eq '07'}">
+                                            <c:set var="a07" value="${list.d_time_avg}" />
+                                        </c:if>
+                                        <c:if test="${list.d_mon eq '08'}">
+                                            <c:set var="a08" value="${list.d_time_avg}" />
+                                        </c:if>
+                                        <c:if test="${list.d_mon eq '09'}">
+                                            <c:set var="a09" value="${list.d_time_avg}" />
+                                        </c:if>
+                                        <c:if test="${list.d_mon eq '10'}">
+                                            <c:set var="a10" value="${list.d_time_avg}" />
+                                        </c:if>
+                                        <c:if test="${list.d_mon eq '11'}">
+                                            <c:set var="a11" value="${list.d_time_avg}" />
+                                        </c:if>
+                                        <c:if test="${list.d_mon eq '12'}">
+                                            <c:set var="a12" value="${list.d_time_avg}" />
+                                        </c:if>
+                                    </c:if>
+                                    <c:if test="${list.d_type eq 'U'}">
+                                        <c:if test="${list.d_mon eq '01'}">
+                                            <c:set var="u01" value="${list.d_time_avg}" />
+                                        </c:if>
+                                        <c:if test="${list.d_mon eq '02'}">
+                                            <c:set var="u02" value="${list.d_time_avg}" />
+                                        </c:if>
+                                        <c:if test="${list.d_mon eq '03'}">
+                                            <c:set var="u03" value="${list.d_time_avg}" />
+                                        </c:if>
+                                        <c:if test="${list.d_mon eq '04'}">
+                                            <c:set var="u04" value="${list.d_time_avg}" />
+                                        </c:if>
+                                        <c:if test="${list.d_mon eq '05'}">
+                                            <c:set var="u05" value="${list.d_time_avg}" />
+                                        </c:if>
+                                        <c:if test="${list.d_mon eq '06'}">
+                                            <c:set var="u06" value="${list.d_time_avg}" />
+                                        </c:if>
+                                        <c:if test="${list.d_mon eq '07'}">
+                                            <c:set var="u07" value="${list.d_time_avg}" />
+                                        </c:if>
+                                        <c:if test="${list.d_mon eq '08'}">
+                                            <c:set var="u08" value="${list.d_time_avg}" />
+                                        </c:if>
+                                        <c:if test="${list.d_mon eq '09'}">
+                                            <c:set var="u09" value="${list.d_time_avg}" />
+                                        </c:if>
+                                        <c:if test="${list.d_mon eq '10'}">
+                                            <c:set var="u10" value="${list.d_time_avg}" />
+                                        </c:if>
+                                        <c:if test="${list.d_mon eq '11'}">
+                                            <c:set var="u11" value="${list.d_time_avg}" />
+                                        </c:if>
+                                        <c:if test="${list.d_mon eq '12'}">
+                                            <c:set var="u12" value="${list.d_time_avg}" />
+                                        </c:if>
+                                    </c:if>
+                                </c:forEach>
                                 <div class="mouthchart-box mb30">
                                     <div class="top-box">
-                                        <h5>나의 학습 주이<small>(시간)</small></h5>
+                                        <h5>나의 학습 추이<small>(분)</small></h5>
                                     </div>
                                     <div class="chart-box">
                                         <div id="lineChart"></div>
@@ -270,8 +387,8 @@
                                                     x: "x",
                                                     columns: [
                                                         ["x", "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
-                                                        ["회원평균", 30, 200, 100, 100, 150, 250, 200, 180, 220, 280, 310, 330],
-                                                        ["나", 15, 100, 70, 54, 90, 200, 100, 160, 170, 170, 220, 300],
+                                                        ["회원평균", ${a01}, ${a02}, ${a03}, ${a04}, ${a05}, ${a06}, ${a07}, ${a08}, ${a09}, ${a10}, ${a11}, ${a12}],
+                                                        ["나", ${u01}, ${u02}, ${u03}, ${u04}, ${u05}, ${u06}, ${u07}, ${u08}, ${u09}, ${u10}, ${u11}, ${u12}],
                                                     ],
                                                     type: "spline", // for ESM specify as: line()
                                                 },
@@ -305,31 +422,26 @@
                                                 <col width="auto">
                                             </colgroup>
                                             <tbody>
-
-                                            <tr class="left_line">
-                                                <td class="text_circle"><b class="point_purple">신청완료</b></td>
-                                                <td>
-                                                    <b class="point_purple">디지털 트랜스포메이션, 비즈니스 패러다임을 바꾸다</b> 과정<br>
-                                                    - 15분전
-                                                </td>
-                                            </tr>
-
-                                            <tr class="left_line">
-                                                <td class="text_circle"><b class="point_purple">학습시작</b></td>
-                                                <td>
-                                                    <b class="point_purple">디지털 트랜스포메이션, 비즈니스 패러다임을 바꾸다</b> 과정<br>
-                                                    - 2024.02.15
-                                                </td>
-                                            </tr>
-
-                                            <tr class="left_line">
-                                                <td class="text_circle"><b class="point_purple">학습완료</b></td>
-                                                <td>
-                                                    <b class="point_purple">디지털 트랜스포메이션, 비즈니스 패러다임을 바꾸다</b> 과정<br>
-                                                    - 2024.02.15
-                                                </td>
-                                            </tr>
-
+                                            <c:set var="typeNm" value="" />
+                                            <c:forEach items="${selectDashboardEduHisList }" var="list" varStatus="status" begin="1" end="10" step="1">
+                                                <tr class="left_line">
+                                                    <c:if test="${list.d_type eq '3'}">
+                                                        <c:set var="typeNm" value="신청완료" />
+                                                    </c:if>
+                                                    <c:if test="${list.d_type eq '2'}">
+                                                        <c:set var="typeNm" value="학습종료" />
+                                                    </c:if>
+                                                    <c:if test="${list.d_type eq '1'}">
+                                                        <c:set var="typeNm" value="학습시작" />
+                                                    </c:if>
+                                                    <td class="text_circle"><b class="point_purple">${typeNm}</b></td>
+                                                    <td>
+                                                        <fmt:parseDate value="${list.d_dt}" var="dt_val" pattern="yyyyMMddHHmmss" />
+                                                        <b class="point_purple">${list.d_subjnm}</b> 과정<br>
+                                                        - <fmt:formatDate value="${dt_val}" pattern="yyyy년 MM월 dd일 HH시 mm분 ss초" />
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
                                             </tbody>
                                         </table>
                                     </div>

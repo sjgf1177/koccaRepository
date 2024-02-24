@@ -1,4 +1,4 @@
-function PlayerEvent(){
+function PlayerEvent(vtt){
 $(function (){
 
   //speed 설정
@@ -292,7 +292,7 @@ $(function (){
   setTimeout(function() {
     if(vtt) {
       if(vtt.indexOf(".vtt") != -1){
-        $(videoDOM).append("<track default kind='subtitles' srclang='ko' label='켜짐' src='https://edu.kocca.kr" + vtt + "' />"); //서버
+        $(videoDOM).append("<track default kind='subtitles' srclang='ko' label='켜짐' src='" + vtt.replace("/edu/", "/upload/") + "' />"); //서버
       }
 
       //$(videoDOM).append("<track default kind='subtitles' srclang='ko' label='켜짐' src='/js/jplayer/vtt/03_01.vtt' />"); //로컬

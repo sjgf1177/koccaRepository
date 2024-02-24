@@ -29,7 +29,7 @@
 
     $(document).ready(function () {
         $(".video").empty();
-
+        var p_vtt = "${selectOffExpert.d_vtt_path }";
         var tagObj = "";
 
         tagObj =  '<div id="jp_container_1" class="jp-video jp-video-360p subVideo" role="application" aria-label="media player" style="width:100%; height:auto;">';
@@ -83,7 +83,7 @@
         tagObj += '                                </div>';
         tagObj += '                            </div>';
 
-        if('${selectOffExpert.d_vtt_path}'.indexOf(".vtt") != -1) {
+        if(p_vtt.indexOf(".vtt") != -1) {
             tagObj += '                        <button class="jp-script tooltip" role="button" tabIndex="0" title="자막"><span class="sub_tooltip">자막</span></button>';
         }
 
@@ -108,7 +108,7 @@
         tagObj += '</div>';
 
         $(".video").html(tagObj);
-        PlayerEvent();
+        PlayerEvent('${selectOffExpert.d_vtt_path}');
 
         $('#jquery_jplayer_1').jPlayer({
             ready: function (event) {
@@ -215,7 +215,7 @@
 
                                         <!-- 영상 들어가는 곳-->
                                         <div class="video">
-                                            <video src="<c:out value="${selectOffExpert.d_vodurl}" />" autoplay  controls style="width: 100%; height: auto;"></video>
+                                            <%--<video src="<c:out value="${selectOffExpert.d_vodurl}" />" autoplay  controls style="width: 100%; height: auto;"></video>--%>
                                         </div>
                                         <!--// 영상 들어가는 곳-->
                                     </div>

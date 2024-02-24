@@ -1237,10 +1237,16 @@ public class MyClassServlet extends javax.servlet.http.HttpServlet implements Se
             ArrayList list = bean.dashBoardStudyList(box);
             ArrayList cntList = bean.selectDashboardCntList(box);
             ArrayList cateList = bean.selectDashboardCateList(box);
+            ArrayList avgList = bean.selectDashboardAvgList(box);
+            ArrayList avgMonthList = bean.selectDashboardAvgMonthList(box);
+            ArrayList eduHisList = bean.selectDashboardEduHisList(box);
 
             request.setAttribute("requestbox", box); //      명시적으로 box 객체를 넘겨준다
             request.setAttribute("dashBoardStudyList", list);
             request.setAttribute("dashBoardStudyListCnt", list.size());
+            request.setAttribute("selectDashboardAvgList", avgList);
+            request.setAttribute("selectDashboardAvgMonthList", avgMonthList);
+            request.setAttribute("selectDashboardEduHisList", eduHisList);
 
             request.setAttribute("cntList", cntList);
             request.setAttribute("cateList", cateList);

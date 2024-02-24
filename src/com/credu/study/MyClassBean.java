@@ -5145,7 +5145,10 @@ public class MyClassBean {
             sql.append("                       SELECT COUNT(*)                                                                              \n");
             sql.append("                         FROM TZ_PROPOSE A                                                                          \n");
             sql.append("                            , TZ_SUBJSEQ B                                                                          \n");
-            sql.append("                        WHERE A.SUBJ     = B.SUBJ(+)                                                                 \n");
+            sql.append("                            , TZ_SUBJHOMEGUBUN C                                                                    \n");
+            sql.append("                        WHERE A.SUBJ     = C.SUBJ                                                                    \n");
+            sql.append("                          AND C.GUBUN    = 'GS'                                                                     \n");
+            sql.append("                          AND A.SUBJ     = B.SUBJ(+)                                                                 \n");
             sql.append("                          AND A.YEAR     = B.YEAR(+)                                                                 \n");
             sql.append("                          AND A.SUBJSEQ  = B.SUBJSEQ(+)                                                             \n");
             sql.append("                          AND A.USERID   = ").append(SQLString.Format(v_userid)).append("                           \n");
@@ -5156,7 +5159,10 @@ public class MyClassBean {
             sql.append("                         FROM TZ_PROPOSE A                                                                          \n");
             sql.append("                            , TZ_STUDENT B                                                                          \n");
             sql.append("                            , TZ_SUBJSEQ C                                                                          \n");
-            sql.append("                        WHERE A.SUBJ     = B.SUBJ(+)                                                                \n");
+            sql.append("                            , TZ_SUBJHOMEGUBUN D                                                                    \n");
+            sql.append("                        WHERE A.SUBJ     = D.SUBJ                                                                   \n");
+            sql.append("                          AND D.GUBUN    = 'GS'                                                                     \n");
+            sql.append("                          AND A.SUBJ     = B.SUBJ(+)                                                                \n");
             sql.append("                          AND A.YEAR     = B.YEAR(+)                                                                \n");
             sql.append("                          AND A.SUBJSEQ  = B.SUBJSEQ(+)                                                             \n");
             sql.append("                          AND A.USERID   = B.USERID(+)                                                              \n");
@@ -5232,6 +5238,7 @@ public class MyClassBean {
             sql.append("     , TZ_PROPOSE            B                                                                                      \n");
             sql.append("     , TZ_TAX                C                                                                                      \n");
             sql.append("     , TZ_BILLING            D                                                                                      \n");
+            sql.append("     , TZ_SUBJHOMEGUBUN      E                                                                                      \n");
             sql.append(" WHERE A.SUBJ     = B.SUBJ                                                                                          \n");
             sql.append("   AND A.YEAR     = B.YEAR                                                                                          \n");
             sql.append("   AND A.SUBJSEQ  = B.SUBJSEQ                                                                                       \n");
@@ -5241,6 +5248,8 @@ public class MyClassBean {
             sql.append("   AND A.SCSUBJ   = D.SUBJ(+)                                                                                       \n");
             sql.append("   AND A.YEAR     = D.YEAR(+)                                                                                       \n");
             sql.append("   AND A.SUBJSEQ  = D.SUBJSEQ(+)                                                                                    \n");
+            sql.append("   AND A.SUBJ     = E.SUBJ                                                                                          \n");
+            sql.append("   AND E.GUBUN    = 'GS'                                                                                            \n");
             sql.append("   AND B.CHKFINAL = 'Y'                                                                                             \n");
             sql.append("   AND B.USERID   = ").append(SQLString.Format(v_userid)).append("                                                  \n");
             sql.append("   AND A.GRCODE   = ").append(SQLString.Format(box.getSession("tem_grcode"))).append("                          \n");
@@ -5292,16 +5301,19 @@ public class MyClassBean {
             connMgr = new DBConnectionManager();
             list = new ArrayList<DataBox>();
 
-            sql.append("SELECT NVL(C.AREA, 'XX') AREA                                                               \n");
+            sql.append("SELECT NVL(D.GUBUN_1, 'XX') AREA                                                            \n");
             sql.append("     , NVL((SELECT CODENM                                                                   \n");
             sql.append("              FROM TZ_CODE                                                                  \n");
-            sql.append("             WHERE GUBUN = '0101'                                                           \n");
-            sql.append("               AND CODE  = NVL(C.AREA, 'XX')), '기타') AREANAME                               \n");
+            sql.append("             WHERE GUBUN = '0110'                                                           \n");
+            sql.append("               AND CODE  = NVL(D.GUBUN_1, 'XX')), '기타') AREANAME                           \n");
             sql.append("     , COUNT(NVL(C.AREA, 'XX')) CNT                                                          \n");
             sql.append("  FROM TZ_PROPOSE A                                                                         \n");
             sql.append("     , TZ_SUBJSEQ B                                                                         \n");
             sql.append("     , TZ_SUBJ    C                                                                         \n");
-            sql.append(" WHERE A.SUBJ    = B.SUBJ(+)                                                                \n");
+            sql.append("     , TZ_SUBJHOMEGUBUN D                                                                   \n");
+            sql.append(" WHERE A.SUBJ    = D.SUBJ                                                                   \n");
+            sql.append("   AND D.GUBUN   = 'GS'                                                                     \n");
+            sql.append("   AND A.SUBJ    = B.SUBJ(+)                                                                \n");
             sql.append("   AND A.YEAR    = B.YEAR(+)                                                                \n");
             sql.append("   AND A.SUBJSEQ = B.SUBJSEQ(+)                                                             \n");
             sql.append("   AND B.SUBJ    = C.SUBJ                                                                  \n");
@@ -5309,8 +5321,8 @@ public class MyClassBean {
             sql.append("   AND B.GRCODE  = ").append(SQLString.Format(box.getSession("tem_grcode"))).append(" \n");
             sql.append("   AND C.ISUSE   = 'Y'                                                                     \n");
             sql.append("   AND NVL(C.AREA, 'XX') != 'W0'                                                            \n");
-            sql.append(" GROUP BY NVL(C.AREA, 'XX')                                                                 \n");
-            sql.append(" ORDER BY NVL(C.AREA, 'XX')                                                                 \n");
+            sql.append(" GROUP BY NVL(D.GUBUN_1, 'XX')                                                              \n");
+            sql.append(" ORDER BY NVL(D.GUBUN_1, 'XX')                                                              \n");
 
             ls = connMgr.executeQuery(sql.toString());
 
@@ -5339,4 +5351,330 @@ public class MyClassBean {
         return list;
     }
 
+    /**
+     * 대시보드 나의학습현황 리스트
+     *
+     * @param box receive from the form object and session
+     * @return ArrayList 대시보드 나의학습현황 리스트
+     */
+    public ArrayList<DataBox> selectDashboardAvgList(RequestBox box) throws Exception {
+        DBConnectionManager connMgr = null;
+        DataBox dbox = null;
+        ListSet ls = null;
+        ArrayList<DataBox> list = null;
+        StringBuffer sql = new StringBuffer();
+        String v_userid = box.getSession("userid");
+
+        try {
+            connMgr = new DBConnectionManager();
+            list = new ArrayList<DataBox>();
+
+            sql.append(" SELECT (                                                                                                       \n");
+            sql.append("            SELECT ROUND(AVG((SUM(TO_NUMBER(SUBSTR(C.TOTAL_TIME, 1, INSTR(C.TOTAL_TIME, ':') -1))) * 60 * 60    \n");
+            sql.append("                    + SUM(TO_NUMBER(SUBSTR(C.TOTAL_TIME, INSTR(C.TOTAL_TIME, ':') +1, 2))) * 60                 \n");
+            sql.append("                    + SUM(TO_NUMBER(SUBSTR(C.TOTAL_TIME, INSTR(C.TOTAL_TIME, ':') +4, 2)))) / 60                \n");
+            sql.append("                   ))                                                                                           \n");
+            sql.append("              FROM VZ_SCSUBJSEQ     A                                                                           \n");
+            sql.append("                 , TZ_SUBJHOMEGUBUN B                                                                           \n");
+            sql.append("                 , TZ_PROGRESS      C                                                                           \n");
+            sql.append("                 , TZ_MEMBER        D                                                                           \n");
+            sql.append("                 , TZ_STUDENT       E                                                                           \n");
+            sql.append("             WHERE A.SUBJ    = B.SUBJ                                                                           \n");
+            sql.append("               AND B.GUBUN   = 'GS'                                                                             \n");
+            sql.append("               AND A.GRCODE  = ").append(SQLString.Format(box.getSession("tem_grcode"))).append("          \n");
+            sql.append("               AND D.USERID != ").append(SQLString.Format(v_userid)).append("                                   \n");
+            sql.append("               AND E.USERID  = D.USERID                                                                         \n");
+            sql.append("               AND E.SUBJ    = A.SUBJ                                                                           \n");
+            sql.append("               AND E.YEAR    = A.YEAR                                                                           \n");
+            sql.append("               AND E.SUBJSEQ = A.SUBJSEQ                                                                        \n");
+            sql.append("               AND E.SUBJ    = C.SUBJ(+)                                                                        \n");
+            sql.append("               AND E.SUBJSEQ = C.SUBJSEQ(+)                                                                     \n");
+            sql.append("               AND E.YEAR    = C.YEAR(+)                                                                        \n");
+            sql.append("               AND E.USERID  = C.USERID(+)                                                                      \n");
+            sql.append("               AND C.TOTAL_TIME IS NOT NULL                                                                     \n");
+            sql.append("             GROUP BY D.USERID                                                                                  \n");
+            sql.append("        ) A_AVG                                                                                                 \n");
+            sql.append("      , (                                                                                                       \n");
+            sql.append("            SELECT ROUND(AVG((SUM(TO_NUMBER(SUBSTR(C.TOTAL_TIME, 1, INSTR(C.TOTAL_TIME, ':') -1))) * 60 * 60    \n");
+            sql.append("                    + SUM(TO_NUMBER(SUBSTR(C.TOTAL_TIME, INSTR(C.TOTAL_TIME, ':') +1, 2))) * 60                 \n");
+            sql.append("                    + SUM(TO_NUMBER(SUBSTR(C.TOTAL_TIME, INSTR(C.TOTAL_TIME, ':') +4, 2))) ) / 60               \n");
+            sql.append("                   ))                                                                                           \n");
+            sql.append("              FROM VZ_SCSUBJSEQ     A                                                                           \n");
+            sql.append("                 , TZ_SUBJHOMEGUBUN B                                                                           \n");
+            sql.append("                 , TZ_PROGRESS      C                                                                           \n");
+            sql.append("                 , TZ_MEMBER        D                                                                           \n");
+            sql.append("                 , TZ_STUDENT       E                                                                           \n");
+            sql.append("             WHERE A.SUBJ    = B.SUBJ                                                                           \n");
+            sql.append("               AND B.GUBUN   = 'GS'                                                                             \n");
+            sql.append("               AND A.GRCODE  = ").append(SQLString.Format(box.getSession("tem_grcode"))).append("          \n");
+            sql.append("               AND D.USERID  = ").append(SQLString.Format(v_userid)).append("                                   \n");
+            sql.append("               AND E.USERID  = D.USERID                                                                         \n");
+            sql.append("               AND E.SUBJ    = A.SUBJ                                                                           \n");
+            sql.append("               AND E.YEAR    = A.YEAR                                                                           \n");
+            sql.append("               AND E.SUBJSEQ = A.SUBJSEQ                                                                        \n");
+            sql.append("               AND E.SUBJ    = C.SUBJ(+)                                                                        \n");
+            sql.append("               AND E.SUBJSEQ = C.SUBJSEQ(+)                                                                     \n");
+            sql.append("               AND E.YEAR    = C.YEAR(+)                                                                        \n");
+            sql.append("               AND E.USERID  = C.USERID(+)                                                                      \n");
+            sql.append("               AND C.TOTAL_TIME IS NOT NULL                                                                     \n");
+            sql.append("               GROUP BY D.USERID                                                                                \n");
+            sql.append("        ) U_AVG                                                                                                 \n");
+            sql.append("   FROM DUAL                                                                                                    \n");
+
+            ls = connMgr.executeQuery(sql.toString());
+
+            while (ls.next()) {
+                dbox = ls.getDataBox();
+
+                list.add(dbox);
+            }
+        } catch (Exception ex) {
+            ErrorManager.getErrorStackTrace(ex, box, sql.toString());
+            throw new Exception("sql = " + sql.toString() + "\r\n" + ex.getMessage());
+        } finally {
+            if (ls != null) {
+                try {
+                    ls.close();
+                } catch (Exception e) {
+                }
+            }
+            if (connMgr != null) {
+                try {
+                    connMgr.freeConnection();
+                } catch (Exception e10) {
+                }
+            }
+        }
+        return list;
+    }
+
+    /**
+     * 대시보드 나의학습추이 리스트
+     *
+     * @param box receive from the form object and session
+     * @return ArrayList 대시보드 나의학습추이 리스트
+     */
+    public ArrayList<DataBox> selectDashboardAvgMonthList(RequestBox box) throws Exception {
+        DBConnectionManager connMgr = null;
+        DataBox dbox = null;
+        ListSet ls = null;
+        ArrayList<DataBox> list = null;
+        StringBuffer sql = new StringBuffer();
+        String v_userid = box.getSession("userid");
+
+        try {
+            connMgr = new DBConnectionManager();
+            list = new ArrayList<DataBox>();
+
+            sql.append(" SELECT 'A' TYPE                                                                                        \n");
+            sql.append("      , SUBSTR(C.LDATE, 1, 6) EDUDT                                                                     \n");
+            sql.append("      , SUBSTR(C.LDATE, 5, 2) MON                                                                       \n");
+            sql.append("      , ROUND(AVG(TO_NUMBER(SUBSTR(C.TOTAL_TIME, 1, INSTR(C.TOTAL_TIME, ':') -1)) * 60 * 60 +           \n");
+            sql.append("                  TO_NUMBER(SUBSTR(C.TOTAL_TIME, INSTR(C.TOTAL_TIME, ':') +1, 2)) * 60 +                \n");
+            sql.append("                  TO_NUMBER(SUBSTR(C.TOTAL_TIME, INSTR(C.TOTAL_TIME, ':') +4, 2))) / 60) TIME_AVG       \n");
+            sql.append("   FROM VZ_SCSUBJSEQ     A                                                                              \n");
+            sql.append("      , TZ_SUBJHOMEGUBUN B                                                                              \n");
+            sql.append("      , TZ_PROGRESS      C                                                                              \n");
+            sql.append("      , TZ_MEMBER        D                                                                              \n");
+            sql.append("      , TZ_STUDENT       E                                                                              \n");
+            sql.append("  WHERE A.SUBJ    = B.SUBJ                                                                              \n");
+            sql.append("    AND B.GUBUN   = 'GS'                                                                                \n");
+            sql.append("    AND A.GRCODE  = ").append(SQLString.Format(box.getSession("tem_grcode"))).append("             \n");
+            sql.append("    AND D.USERID != ").append(SQLString.Format(v_userid)).append("                                      \n");
+            sql.append("    AND E.USERID  = D.USERID                                                                            \n");
+            sql.append("    AND E.SUBJ    = A.SUBJ                                                                              \n");
+            sql.append("    AND E.YEAR    = A.YEAR                                                                              \n");
+            sql.append("    AND E.SUBJSEQ = A.SUBJSEQ                                                                           \n");
+            sql.append("    AND E.SUBJ    = C.SUBJ(+)                                                                           \n");
+            sql.append("    AND E.SUBJSEQ = C.SUBJSEQ(+)                                                                        \n");
+            sql.append("    AND E.YEAR    = C.YEAR(+)                                                                           \n");
+            sql.append("    AND E.USERID  = C.USERID(+)                                                                         \n");
+            sql.append("    AND C.TOTAL_TIME IS NOT NULL                                                                        \n");
+            sql.append("    AND SUBSTR(C.LDATE, 1, 4) = TO_CHAR(SYSDATE, 'YYYY')                                                \n");
+            sql.append("    GROUP BY SUBSTR(C.LDATE, 1, 6), SUBSTR(C.LDATE, 5, 2)                                               \n");
+            sql.append(" UNION ALL                                                                                              \n");
+            sql.append(" SELECT 'U' TYPE                                                                                        \n");
+            sql.append("      , SUBSTR(C.LDATE, 1, 6) EDUDT                                                                     \n");
+            sql.append("      , SUBSTR(C.LDATE, 5, 2) MON                                                                       \n");
+            sql.append("      , ROUND(AVG(TO_NUMBER(SUBSTR(C.TOTAL_TIME, 1, INSTR(C.TOTAL_TIME, ':') -1)) * 60 * 60 +           \n");
+            sql.append("                  TO_NUMBER(SUBSTR(C.TOTAL_TIME, INSTR(C.TOTAL_TIME, ':') +1, 2)) * 60 +                \n");
+            sql.append("                  TO_NUMBER(SUBSTR(C.TOTAL_TIME, INSTR(C.TOTAL_TIME, ':') +4, 2))) / 60) TIME_AVG       \n");
+            sql.append("   FROM VZ_SCSUBJSEQ     A                                                                              \n");
+            sql.append("      , TZ_SUBJHOMEGUBUN B                                                                              \n");
+            sql.append("      , TZ_PROGRESS      C                                                                              \n");
+            sql.append("      , TZ_MEMBER        D                                                                              \n");
+            sql.append("      , TZ_STUDENT       E                                                                              \n");
+            sql.append("  WHERE A.SUBJ    = B.SUBJ                                                                              \n");
+            sql.append("    AND B.GUBUN   = 'GS'                                                                                \n");
+            sql.append("    AND A.GRCODE  = ").append(SQLString.Format(box.getSession("tem_grcode"))).append("             \n");
+            sql.append("    AND D.USERID  = ").append(SQLString.Format(v_userid)).append("                                      \n");
+            sql.append("    AND E.USERID  = D.USERID                                                                            \n");
+            sql.append("    AND E.SUBJ    = A.SUBJ                                                                              \n");
+            sql.append("    AND E.YEAR    = A.YEAR                                                                              \n");
+            sql.append("    AND E.SUBJSEQ = A.SUBJSEQ                                                                           \n");
+            sql.append("    AND E.SUBJ    = C.SUBJ(+)                                                                           \n");
+            sql.append("    AND E.SUBJSEQ = C.SUBJSEQ(+)                                                                        \n");
+            sql.append("    AND E.YEAR    = C.YEAR(+)                                                                           \n");
+            sql.append("    AND E.USERID  = C.USERID(+)                                                                         \n");
+            sql.append("    AND C.TOTAL_TIME IS NOT NULL                                                                        \n");
+            sql.append("    AND SUBSTR(C.LDATE, 1, 4) = TO_CHAR(SYSDATE, 'YYYY')                                                \n");
+            sql.append("  GROUP BY SUBSTR(C.LDATE, 1, 6), SUBSTR(C.LDATE, 5, 2)                                                 \n");
+            sql.append("  ORDER BY EDUDT, TYPE                                                                                  \n");
+
+            ls = connMgr.executeQuery(sql.toString());
+
+            while (ls.next()) {
+                dbox = ls.getDataBox();
+
+                list.add(dbox);
+            }
+        } catch (Exception ex) {
+            ErrorManager.getErrorStackTrace(ex, box, sql.toString());
+            throw new Exception("sql = " + sql.toString() + "\r\n" + ex.getMessage());
+        } finally {
+            if (ls != null) {
+                try {
+                    ls.close();
+                } catch (Exception e) {
+                }
+            }
+            if (connMgr != null) {
+                try {
+                    connMgr.freeConnection();
+                } catch (Exception e10) {
+                }
+            }
+        }
+        return list;
+    }
+
+    /**
+     * 대시보드 나의학습활동 리스트
+     *
+     * @param box receive from the form object and session
+     * @return ArrayList 대시보드 나의학습활동 리스트
+     */
+    public ArrayList<DataBox> selectDashboardEduHisList(RequestBox box) throws Exception {
+        DBConnectionManager connMgr = null;
+        DataBox dbox = null;
+        ListSet ls = null;
+        ArrayList<DataBox> list = null;
+        StringBuffer sql = new StringBuffer();
+        String v_userid = box.getSession("userid");
+
+        try {
+            connMgr = new DBConnectionManager();
+            list = new ArrayList<DataBox>();
+
+            sql.append(" SELECT A.SUBJ                                                                              \n");
+            sql.append("      , A.YEAR                                                                              \n");
+            sql.append("      , A.SUBJNM                                                                            \n");
+            sql.append("      , A.SUBJSEQ                                                                           \n");
+            sql.append("      , A.SUBJSEQGR                                                                         \n");
+            sql.append("      , D.USERID                                                                            \n");
+            sql.append("      , D.NAME                                                                              \n");
+            sql.append("      , C.APPDATE DT                                                                        \n");
+            sql.append("      , '3' TYPE                                                                            \n");
+            sql.append("   FROM VZ_SCSUBJSEQ     A                                                                  \n");
+            sql.append("      , TZ_SUBJHOMEGUBUN B                                                                  \n");
+            sql.append("      , TZ_PROPOSE       C                                                                  \n");
+            sql.append("      , TZ_MEMBER        D                                                                  \n");
+            sql.append("      , TZ_STUDENT       E                                                                  \n");
+            sql.append("  WHERE A.SUBJ    = B.SUBJ                                                                  \n");
+            sql.append("    AND B.GUBUN   = 'GS'                                                                    \n");
+            sql.append("    AND A.GRCODE  = ").append(SQLString.Format(box.getSession("tem_grcode"))).append(" \n");
+            sql.append("    AND D.USERID  = ").append(SQLString.Format(v_userid)).append("                          \n");
+            sql.append("    AND E.USERID  = D.USERID                                                                \n");
+            sql.append("    AND E.SUBJ    = A.SUBJ                                                                  \n");
+            sql.append("    AND E.YEAR    = A.YEAR                                                                  \n");
+            sql.append("    AND E.SUBJSEQ = A.SUBJSEQ                                                               \n");
+            sql.append("    AND E.SUBJ    = C.SUBJ                                                                  \n");
+            sql.append("    AND E.SUBJSEQ = C.SUBJSEQ                                                               \n");
+            sql.append("    AND E.YEAR    = C.YEAR                                                                  \n");
+            sql.append("    AND E.USERID  = C.USERID                                                                \n");
+            sql.append(" UNION ALL                                                                                  \n");
+            sql.append(" SELECT A.SUBJ                                                                              \n");
+            sql.append("      , A.YEAR                                                                              \n");
+            sql.append("      , A.SUBJNM                                                                            \n");
+            sql.append("      , A.SUBJSEQ                                                                           \n");
+            sql.append("      , A.SUBJSEQGR                                                                         \n");
+            sql.append("      , D.USERID                                                                            \n");
+            sql.append("      , D.NAME                                                                              \n");
+            sql.append("      , MIN(C.LDATE) DT                                                                     \n");
+            sql.append("      , '1' TYPE                                                                            \n");
+            sql.append("   FROM VZ_SCSUBJSEQ     A                                                                  \n");
+            sql.append("      , TZ_SUBJHOMEGUBUN B                                                                  \n");
+            sql.append("      , TZ_PROGRESS      C                                                                  \n");
+            sql.append("      , TZ_MEMBER        D                                                                  \n");
+            sql.append("      , TZ_STUDENT       E                                                                  \n");
+            sql.append("  WHERE A.SUBJ    = B.SUBJ                                                                  \n");
+            sql.append("    AND B.GUBUN   = 'GS'                                                                    \n");
+            sql.append("    AND A.GRCODE  = ").append(SQLString.Format(box.getSession("tem_grcode"))).append(" \n");
+            sql.append("    AND D.USERID  = ").append(SQLString.Format(v_userid)).append("                          \n");
+            sql.append("    AND E.USERID  = D.USERID                                                                \n");
+            sql.append("    AND E.SUBJ    = A.SUBJ                                                                  \n");
+            sql.append("    AND E.YEAR    = A.YEAR                                                                  \n");
+            sql.append("    AND E.SUBJSEQ = A.SUBJSEQ                                                               \n");
+            sql.append("    AND E.SUBJ    = C.SUBJ                                                                  \n");
+            sql.append("    AND E.SUBJSEQ = C.SUBJSEQ                                                               \n");
+            sql.append("    AND E.YEAR    = C.YEAR                                                                  \n");
+            sql.append("    AND E.USERID  = C.USERID                                                                \n");
+            sql.append("  GROUP BY A.SUBJ,A.YEAR,A.SUBJNM,A.SUBJSEQ,A.SUBJSEQGR, D.USERID,D.NAME                    \n");
+            sql.append(" UNION ALL                                                                                  \n");
+            sql.append(" SELECT A.SUBJ                                                                              \n");
+            sql.append("      , A.YEAR                                                                              \n");
+            sql.append("      , A.SUBJNM                                                                            \n");
+            sql.append("      , A.SUBJSEQ                                                                           \n");
+            sql.append("      , A.SUBJSEQGR                                                                         \n");
+            sql.append("      , D.USERID                                                                            \n");
+            sql.append("      , D.NAME                                                                              \n");
+            sql.append("      , MAX(C.LDATE) DT                                                                     \n");
+            sql.append("      , '2' TYPE                                                                            \n");
+            sql.append("   FROM VZ_SCSUBJSEQ     A                                                                  \n");
+            sql.append("      , TZ_SUBJHOMEGUBUN B                                                                  \n");
+            sql.append("      , TZ_PROGRESS      C                                                                  \n");
+            sql.append("      , TZ_MEMBER        D                                                                  \n");
+            sql.append("      , TZ_STUDENT       E                                                                  \n");
+            sql.append("  WHERE A.SUBJ    = B.SUBJ                                                                  \n");
+            sql.append("    AND B.GUBUN   = 'GS'                                                                    \n");
+            sql.append("    AND A.GRCODE  = ").append(SQLString.Format(box.getSession("tem_grcode"))).append(" \n");
+            sql.append("    AND D.USERID  = ").append(SQLString.Format(v_userid)).append("                          \n");
+            sql.append("    AND E.USERID  = D.USERID                                                                \n");
+            sql.append("    AND E.SUBJ    = A.SUBJ                                                                  \n");
+            sql.append("    AND E.YEAR    = A.YEAR                                                                  \n");
+            sql.append("    AND E.SUBJSEQ = A.SUBJSEQ                                                               \n");
+            sql.append("    AND E.SUBJ    = C.SUBJ                                                                  \n");
+            sql.append("    AND E.SUBJSEQ = C.SUBJSEQ                                                               \n");
+            sql.append("    AND E.YEAR    = C.YEAR                                                                  \n");
+            sql.append("    AND E.USERID  = C.USERID                                                                \n");
+            sql.append("    AND E.ISGRADUATED = 'Y'                                                                 \n");
+            sql.append("  GROUP BY A.SUBJ,A.YEAR,A.SUBJNM,A.SUBJSEQ,A.SUBJSEQGR, D.USERID,D.NAME                    \n");
+            sql.append("  ORDER BY DT DESC, TYPE DESC                                                               \n");
+
+            ls = connMgr.executeQuery(sql.toString());
+
+            while (ls.next()) {
+                dbox = ls.getDataBox();
+
+                list.add(dbox);
+            }
+        } catch (Exception ex) {
+            ErrorManager.getErrorStackTrace(ex, box, sql.toString());
+            throw new Exception("sql = " + sql.toString() + "\r\n" + ex.getMessage());
+        } finally {
+            if (ls != null) {
+                try {
+                    ls.close();
+                } catch (Exception e) {
+                }
+            }
+            if (connMgr != null) {
+                try {
+                    connMgr.freeConnection();
+                } catch (Exception e10) {
+                }
+            }
+        }
+        return list;
+    }
 }
