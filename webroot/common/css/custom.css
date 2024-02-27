@@ -637,7 +637,7 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:45px;
 .dashboard_contents_box .card-list-box .card-title{font-size: 14px; margin-bottom: 1rem;}
 .dashboard_contents_box .card-list-box .card-text{font-size: 24px;}
 
-.dashboard_contents_box .study-list-box .my_card_list_box li{border-top:0; width: 32%; box-shadow: 5px 5px 5px 3px rgba(0,0,0,0.1); position: relative; padding: 0;}
+.dashboard_contents_box .study-list-box .my_card_list_box li{border-top:0; width: 32%; box-shadow: 5px 5px 5px 3px rgba(0,0,0,0.1); position: relative; padding: 0; margin: 0 6px;}
 .dashboard_contents_box .study-list-box .my_card_list_box li:last-child{margin-right:0; border-bottom: 0;}
 .dashboard_contents_box .study-list-box .my_card_list_box .tnail_box{margin-right: 0; width: 100%; height: auto;}
 .dashboard_contents_box .study-list-box .my_card_list_box li .info_text_box{width:83%; position: absolute; bottom: 10px; left: 21px;}
