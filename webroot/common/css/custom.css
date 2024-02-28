@@ -482,7 +482,7 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:45px;
 
 /* 글쓰기 테이블 */
 .write_table input[type=text], .write_table input[type=password]{width:40%; min-width:200px; border:1px solid #e3e6e9; border-radius: 3px; padding-top:9px; padding-bottom:8px; padding-left:5px; padding-right:5px; font-size:14px; line-height: 1rem;}
-.write_table select{width:40%; min-width: 200px; border:solid 1px #e3e6e9; border-radius: 3px; background-image: url(../image/select_style_1_arrow.png); background-repeat: no-repeat; background-position: right 12px center; background-color: transparent; padding-top:9px; padding-bottom:8px; padding-left:19px; padding-right:19px; cursor: pointer; font-size: 13px; line-height: 21px;}*/
+.write_table select{width:40%; min-width: 200px; border:solid 1px #e3e6e9; border-radius: 3px; background-image: url(../image/select_style_1_arrow.png); background-repeat: no-repeat; background-position: right 12px center; background-color: transparent; padding-top:9px; padding-bottom:8px; padding-left:19px; padding-right:19px; cursor: pointer; font-size: 13px; line-height: 21px;}
 .write_table th span{color:red; padding-right:8px;}
 .write_table td input.year{width:80%; min-width: 0; margin-right:10px; margin-bottom:10px;}
 .write_table td input.month{width:80%; min-width: 0; margin-right:10px; margin-bottom:10px;}
@@ -883,6 +883,10 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:45px;
     .dashboard_contents_box .study-list-box .my_card_list_box li .info_text_box .progress-box .progress{height: 11px;}
 }
 @media all and (max-width: 991px){
+
+}
+
+@media all and (max-width: 991px){
     .wrapper .container{padding: 0 20px;}
 
     .header-util-wrap > div{flex-direction: column;}
@@ -903,6 +907,11 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:45px;
 .mo_view{display: none;}
 
 @media all and (max-width: 768px){
+    .mobile-slide-snail{display: initial; height: 100%;}
+
+    .sub_thumb_body .thumb_box{height: 25rem;}
+    .sub_thumb_body .thumb_box .thumb_imgBox{height: 100%;}
+
     .layer_board_table_wrap table, .layer_board_table_wrap table tbody,
     .layer_board_table_wrap table th, .layer_board_table_wrap table td{display: block;}
     .layer_board_table_wrap table tr{display: flex; flex-direction: row; flex-wrap: wrap;}
@@ -943,6 +952,8 @@ input[type=text], input[type=password]{width: 100%; min-width: 25%; height:45px;
     .my_card_list_box li .state_box > span, .my_card_list_box li .btn_box > span{justify-content: center;}
 
 }
+
+
 @media all and (max-width: 430px) {
     .myCourseLearningBtn a {padding: 5px 10px;font-size: 14px; margin-bottom: 5px;}
     .subContainer_pop .sub_info_body .write_table{table-layout: fixed;}

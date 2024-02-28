@@ -233,7 +233,7 @@
                                     <span class="new_snail_box">
                                         <a href="https://url.kr/4kizp9" tabindex="-1" target="_blank">
 											<!-- 360px 초과 섬네일 -->
-                                            <img src="https://edu.kocca.kr/edu/images/renew2022/new_class05.png" alt="">
+                                            <img src="https://edu.kocca.kr/edu/images/renew2022/new_class05.png" alt="" class="pc-slide-snail" >
 											<!-- 360px 이하(모바일) 섬네일 -->
 											<img src="https://edu.kocca.kr/edu/images/renew2022/m_new_class05.png" alt="" class="mobile-slide-snail">
                                         </a>
@@ -363,7 +363,7 @@
 							<div><button type="button" class="swiper-button-next" title="다음 배너가기"></button></div>
 						</div>
 					</div>
-					<div class="d-flex justify-content-between flex-wrap">
+					<div class="d-flex justify-content-between flex-wrap mt20">
 						<!-- 해당배너영역은 4개 과정 나온 후 밑에 배너위치 하기-->
 
 						<!-- 해당배너영역은 4개 과정 나온 후 밑에 배너위치 하기-->
