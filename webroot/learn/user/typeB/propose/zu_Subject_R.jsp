@@ -16,7 +16,8 @@
 <script type="text/javascript">
     function whenPreShow(url, subj, d_wj_classkey) {
         prelog_url = "/servlet/controller.propose.ProposeCourseServlet?p_process=insertPreviewLog&p_subj="+subj;
-        open_window("openShow",url,"100","100","${subjectPreview.d_prewidth}","${subjectPreview.d_preheight}","","","",true,true);
+        /*open_window("openShow",url,"100","100","${subjectPreview.d_prewidth}","${subjectPreview.d_preheight}","","","",true,true);*/
+        open_window("openShow",url,"100","100","${subjectPreview.d_prewidth}","620","","","",true,true);
     }
 
     function whenSubjList() {

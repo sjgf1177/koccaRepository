@@ -261,6 +261,9 @@
                                                         }
                                                     },
                                                     bar: { //¹Ù ³Êºñ
+                                                        radius: {
+                                                            ratio: 0.5
+                                                        },
                                                         width: {
                                                             ratio: 0.9,
                                                             max: 40

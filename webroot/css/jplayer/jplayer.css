@@ -8,7 +8,7 @@ button{background: transparent; border: none;}
 #jp_video_0 {position:relative;}
 /*jplay desing ==========================================================================================================================*/
 
-.jp-video button:-moz-focus-inner {border:0;}
+.jp-video button::-moz-focus-inner {border:0;}
 .jp-controls button {display:block; float:left;  border:none; cursor:pointer; margin: 0 7px;}
 .jp_poster_0 {width:100%;}
 
@@ -214,7 +214,7 @@ button{background: transparent; border: none;}
   .jp-gradient-box{height: 100%; background: rgb(0,0,0, 0.7);}
   .jp-current-time, .jp-time-line, .jp-duration{font-size: 14px;}
   .jp-controls-holder{width: 23em;}
-  
+
   .jp-script{position: relative;}
   .jp-script:after{left:25px;}
 
@@ -224,15 +224,15 @@ button{background: transparent; border: none;}
   /*자막*/
   /*#scriptBox{width: 95%; left:50%;}*/
   /*#scriptBox{bottom: 3.5em;}*/
-  
-  
+
+
 }
 
 @media screen and (max-width:640px){
   .jp-controls-holder{width: 16em;}
   .jp-controls .jp-play, .jp-speed{display: none;}
   .u_chapter{display: none;}
-  
+
   .jp-util ul li .u_index, .jp-util ul li .u_chapter{display: none;}
   .jp-time-display{margin-left: 0;}
   .jp-play.mobile{width: 6em; height: 6em; display:inline-block;}
@@ -259,6 +259,6 @@ button{background: transparent; border: none;}
 }
 @media screen and (max-width:320px){
 	.jp-current-time, .jp-time-line, .jp-duration{font-size:12px;}
-	
+
 }
 
