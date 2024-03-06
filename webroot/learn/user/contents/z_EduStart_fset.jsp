@@ -191,7 +191,8 @@ alert("[<%=box.getSession("gadmin")%>][<%=box.getSession("s_subj")%>]죄송합니다.
 
             if('<%=v_contenttype%>' == 'M' && '<%=v_mftype%>' == 'ND'){
                 $("#iebody").css({
-                    position: "absolute",
+                    //position: "absolute",
+                    position: "fixed", //일부사이트 학습하기 창 이슈로 변경
                     top: "0",
                     left: "0",
                     width: "100%",
