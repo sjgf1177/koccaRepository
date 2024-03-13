@@ -351,6 +351,11 @@
 			}
 		});
 	}
+
+	function fnclean() {
+		$("#upload01").val("");
+		$("#fnm").val("");
+	}
 </script>
 <section>
     <div class="wrapper">
@@ -390,10 +395,10 @@
                                     <h3>회원정보</h3>
                                     <div class="sub_course_view_wrap">
                                         <div class="info_box">
-                                        	<form name="form_join" id="form_join" method="POST">
-                                        		<input type="hidden" name="p_process" value="" />
-                                        		<input type="hidden" name="menuid" value="" />
-                                        		<input type="hidden" name="gubun" value="" />
+                                        	<form name="form_join" id="form_join" method="POST" enctype="multipart/form-data">
+                                        		<input type="hidden" id="p_process" name="p_process" value="" />
+                                        		<input type="hidden" id="menuid" name="menuid" value="" />
+                                        		<input type="hidden" id="gubun" name="gubun" value="" />
 	                                            <ul class="">
 		                                                <c:choose>
 	                                                    	<c:when test="${sessionScope.tem_grcode eq 'N000210'}">
@@ -465,7 +470,7 @@
 																</li>
 		                                                        <li>
 			                                                        <p><span>*</span>성명(한글)</p>
-			                                                        <div><input type="text" name="p_kor_name" id="p_kor_name" title="성명(한글)"></div>
+			                                                        <div><input type="text" name="p_kor_name" id="p_kor_name" title="성명(한글)" ></div>
 			                                                    </li>
 			                                                    <li class="birthform_box">
 			                                                        <p><span>*</span>생년월일(예 1972년 01월 01일)</p>
@@ -639,9 +644,10 @@
 																<li>
 																	<p>프로필 사진</p>
 																	<div class="input-file">
-																		<input type="text" readonly="readonly" class="file-name" disabled/>
+																		<input type="text" id="fnm" readonly="readonly" class="file-name" disabled/>
 																		<label for="upload01" class="btn btn-purple">파일 업로드</label>
-																		<input type="file" name="" id="upload01" class="file-upload" />
+																		<a href="javascript:fnclean();" class="btn btn-purple ml10">초기화</a>
+																		<input type="file" name="p_file" id="upload01" class="file-upload" accept="image/gif, image/jpeg, image/png"/>
 																		<span class="sm_text point_sgray mt10">* 프로필 사진 미등록 시 성명으로 표기됩니다.</span>
 																	</div>
 																</li>
@@ -747,6 +753,6 @@
 		border-bottom: none;
 	}
 	.input-file [type="text"]{
-		width: 80%;
+		width: 70%;
 	}
 </style>

@@ -4,6 +4,7 @@
 	<footer class="<c:if test="${param.gubun ne '2'
 	                                and param.gubun ne '3'
 	                                and param.gubun ne '4'
+	                                and requestbox.gubun ne '4'
 	                                and param.gubun ne '10'
 	                                and param.gubun ne '80'
 	                                and param.gubun ne '88'}">d-flex</c:if>">

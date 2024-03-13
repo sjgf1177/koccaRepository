@@ -66,7 +66,14 @@
 								<%--<a href="#" class="d-inblock"><img src="/images/2023/renew_logo.svg" alt="로고" /></a>--%>
 							</li>
 							<li>
-								<span class="circle-box myname">${sessionScope.name}</span>
+								<span class="circle-box myname">
+								<c:if test="${empty sessionScope.proSavePath}">
+									${sessionScope.name}
+								</c:if>
+								<c:if test="${not empty sessionScope.proSavePath}">
+									<img src="${sessionScope.proSavePath }" alt="프로필사진" />
+								</c:if>
+								</span>
 								<a href="javascript:menuForward('3', '11');" class="d-block btn btn-success btn-md w-75 mt20">나의강의실</a>
 								<span class="d-block mt10" class="fc-light"><a href="javascript:mainmenu('3');" class="fc-light">로그아웃</a> ㅣ <a href="javascript:mainmenu('4');" class="fc-light">개인정보변경</a></span>
 								<c:if test="${sessionScope.agreechk ne 'N'}">

@@ -198,7 +198,17 @@
             document.form_modify.action = "/servlet/controller.homepage.MainServlet";
             document.form_modify.submit();
 		});
+
+		$(document).on("click", ".btn-close", function(){
+			$(".profile_img_nm").text("");
+			$("#p_img_del").val("Y");
+		});
 	});
+
+	function fnclean() {
+		$("#upload01").val("");
+		$("#fnm").val("");
+	}
 
 </script>
 <section class="container d-flex">
@@ -218,11 +228,12 @@
                                     <p class="sub_course_view_title">회원정보</p>
                                     <div class="sub_course_view_wrap">
                                         <div class="info_box">
-                                        	<form name="form_modify" id="form_modify" method="POST">
+                                        	<form name="form_modify" id="form_modify" method="POST" enctype="multipart/form-data">
                                         		<input type="hidden" name="p_process" value="" />
                                         		<input type="hidden" name="menuid" value="0" />
                                         		<input type="hidden" name="gubun" value="4" />
-                                        		
+                                        		<input type="hidden" name="p_img_del" id="p_img_del" value="N" />
+
 	                                            <table class="write_table th_align_left1">
 	                                                <colgroup>
 	                                                    <col width="30%">
@@ -413,11 +424,17 @@
 																<tr>
 																	<th>프로필사진</th>
 																	<td>
-																		<div class="mb10 prople-box"><p>현재 프로필 등록된 파일명.png</p><button type="button" class="btn-close" title="제거"></button></div>
+																		<div class="mb10 prople-box">
+																		<c:if test="${not empty ASP_Edit_Login.d_profile_real_nm}">
+																			<p class="profile_img_nm"><c:out value="${ASP_Edit_Login.d_profile_real_nm}" /></p>
+																			<button type="button" class="btn-close" title="제거"></button>
+																		</c:if>
+																		</div>
 																		<div class="input-file">
-																		<input type="text" readonly="readonly" class="file-name" disabled/>
+																		<input type="text" id="fnm" readonly="readonly" class="file-name" disabled/>
 																		<label for="upload01" class="btn btn-purple">파일 업로드</label>
-																		<input type="file" name="" id="upload01" class="file-upload" />
+																			<a href="javascript:fnclean();" class="btn btn-purple ml10">초기화</a>
+																		<input type="file" name="p_file" id="upload01" class="file-upload" />
 																			<span class="sm_text point_sgray mt10">* 프로필 사진 미등록 시 성명으로 표기됩니다.</span>
 																		</div>
 																	</td>

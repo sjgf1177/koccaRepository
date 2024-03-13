@@ -9,6 +9,7 @@
 // **********************************************************
 package com.credu.homepage;
 
+import java.io.File;
 import java.io.StringReader;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,17 +18,7 @@ import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.credu.library.ConfigSet;
-import com.credu.library.DBConnectionManager;
-import com.credu.library.DataBox;
-import com.credu.library.ErrorManager;
-import com.credu.library.FormMail;
-import com.credu.library.FormatDate;
-import com.credu.library.HashCipher;
-import com.credu.library.ListSet;
-import com.credu.library.MailSet;
-import com.credu.library.RequestBox;
-import com.credu.library.StringManager;
+import com.credu.library.*;
 import com.credu.system.CountBean;
 import com.credu.system.MemberData;
 import com.dunet.common.util.Constants;
@@ -2530,6 +2521,8 @@ public class LoginBean {
         String v_cate = box.getString("p_cate");
         String v_cate_txt = box.getString("p_cate_txt");
         String v_comp_loct = box.getString("p_comp_location");
+        String v_real_nm = box.getRealFileName("p_file");
+        String v_save_path = box.getNewFileName("p_file").replace("\\", "/");
 
         try {
             connMgr = new DBConnectionManager();
@@ -2561,95 +2554,99 @@ public class LoginBean {
             connMgr.setAutoCommit(false);
             sql.setLength(0);
             sql.append("INSERT  INTO    TZ_MEMBER ( \n");
-            sql.append("        RESNO           \n");
-            sql.append("    ,   USERID          \n");
-            sql.append("    ,   PWD             \n");
-            sql.append("    ,   NAME            \n");
-            sql.append("    ,   ENG_NAME        \n");
-            sql.append("    ,   POST1           \n");
-            sql.append("    ,   POST2           \n");
-            sql.append("    ,   ADDR            \n");
-            sql.append("    ,   ADDR2           \n");
-            sql.append("    ,   COMP_POST1      \n");
-            sql.append("    ,   COMP_POST2      \n");
-            sql.append("    ,   COMP_ADDR1      \n");
-            sql.append("    ,   COMP_ADDR2      \n");
-            sql.append("    ,   EMAIL           \n");
-            sql.append("    ,   COMPTEXT        \n");
-            sql.append("    ,   JIKUP           \n");
-            sql.append("    ,   DEGREE          \n");
-            sql.append("    ,   HANDPHONE       \n");
-            sql.append("    ,   HOMETEL         \n");
-            sql.append("    ,   COMPTEL         \n");
-            sql.append("    ,   ISMAILING       \n");
-            sql.append("    ,   ISLETTERING     \n");
-            sql.append("    ,   ISOPENING       \n");
-            sql.append("    ,   INDATE          \n");
-            sql.append("    ,   LDATE           \n");
-            sql.append("    ,   REGISTGUBUN     \n");
-            sql.append("    ,   STATE           \n");
-            sql.append("    ,   VALIDATION      \n");
-            sql.append("    ,   GRCODE          \n");
-            sql.append("    ,   MEMBERGUBUN     \n");
-            sql.append("    ,   WORK_PLCNM      \n");
-            sql.append("    ,   DEPTNAM         \n");
-            sql.append("    ,   DUPINFO         \n");
-            sql.append("    ,   CONNINFO        \n");
-            sql.append("    ,   MEMBERYEAR      \n");
-            sql.append("    ,   MEMBERMONTH     \n");
-            sql.append("    ,   MEMBERDAY       \n");
-            sql.append("    ,   SEX             \n");
-            sql.append("    ,   MOBILE_USERID   \n");
-            sql.append("    ,   PASSCHANGEDT    \n");
-            sql.append("    ,   ISNOTCOMP       \n");
-            sql.append("    ,   CATE_FIELD      \n");
-            sql.append("    ,   CATE_TXT        \n");
-            sql.append("    ,   COMP_LOCT       \n");
+            sql.append("        RESNO               \n");
+            sql.append("    ,   USERID              \n");
+            sql.append("    ,   PWD                 \n");
+            sql.append("    ,   NAME                \n");
+            sql.append("    ,   ENG_NAME            \n");
+            sql.append("    ,   POST1               \n");
+            sql.append("    ,   POST2               \n");
+            sql.append("    ,   ADDR                \n");
+            sql.append("    ,   ADDR2               \n");
+            sql.append("    ,   COMP_POST1          \n");
+            sql.append("    ,   COMP_POST2          \n");
+            sql.append("    ,   COMP_ADDR1          \n");
+            sql.append("    ,   COMP_ADDR2          \n");
+            sql.append("    ,   EMAIL               \n");
+            sql.append("    ,   COMPTEXT            \n");
+            sql.append("    ,   JIKUP               \n");
+            sql.append("    ,   DEGREE              \n");
+            sql.append("    ,   HANDPHONE           \n");
+            sql.append("    ,   HOMETEL             \n");
+            sql.append("    ,   COMPTEL             \n");
+            sql.append("    ,   ISMAILING           \n");
+            sql.append("    ,   ISLETTERING         \n");
+            sql.append("    ,   ISOPENING           \n");
+            sql.append("    ,   INDATE              \n");
+            sql.append("    ,   LDATE               \n");
+            sql.append("    ,   REGISTGUBUN         \n");
+            sql.append("    ,   STATE               \n");
+            sql.append("    ,   VALIDATION          \n");
+            sql.append("    ,   GRCODE              \n");
+            sql.append("    ,   MEMBERGUBUN         \n");
+            sql.append("    ,   WORK_PLCNM          \n");
+            sql.append("    ,   DEPTNAM             \n");
+            sql.append("    ,   DUPINFO             \n");
+            sql.append("    ,   CONNINFO            \n");
+            sql.append("    ,   MEMBERYEAR          \n");
+            sql.append("    ,   MEMBERMONTH         \n");
+            sql.append("    ,   MEMBERDAY           \n");
+            sql.append("    ,   SEX                 \n");
+            sql.append("    ,   MOBILE_USERID       \n");
+            sql.append("    ,   PASSCHANGEDT        \n");
+            sql.append("    ,   ISNOTCOMP           \n");
+            sql.append("    ,   CATE_FIELD          \n");
+            sql.append("    ,   CATE_TXT            \n");
+            sql.append("    ,   COMP_LOCT           \n");
+            sql.append("    ,   PROFILE_REAL_NM     \n");
+            sql.append("    ,   PROFILE_SAVE_PATH   \n");
             sql.append(" ) VALUES ( \n");
-            sql.append("        ?                                       /* RESNO        */  \n");
-            sql.append("    ,   ?                                       /* USERID       */  \n");
-            sql.append("    ,   ?                                       /* PWD          */  \n");
-            sql.append("    ,   ?                                       /* NAME         */  \n");
-            sql.append("    ,   ?                                       /* ENG_NAME     */  \n");
-            sql.append("    ,   ?                                       /* POST1        */  \n");
-            sql.append("    ,   ?                                       /* POST2        */  \n");
-            sql.append("    ,   ?                                       /* ADDR         */  \n");
-            sql.append("    ,   ?                                       /* ADDR2        */  \n");
-            sql.append("    ,   ?                                       /* COMP_POST1   */  \n");
-            sql.append("    ,   ?                                       /* COMP_POST2   */  \n");
-            sql.append("    ,   ?                                       /* COMP_ADDR1   */  \n");
-            sql.append("    ,   ?                                       /* COMP_ADDR2   */  \n");
-            sql.append("    ,   CRYPTO.ENC('normal', ?)                 /* EMAIL        */  \n");
-            sql.append("    ,   ?                                       /* COMPTEXT     */  \n");
-            sql.append("    ,   ?                                       /* JIKUP        */  \n");
-            sql.append("    ,   ?                                       /* DEGREE       */  \n");
-            sql.append("    ,   CRYPTO.ENC('normal', ?)                 /* HANDPHONE    */  \n");
-            sql.append("    ,   CRYPTO.ENC('normal', ?)                 /* HOMETEL      */  \n");
-            sql.append("    ,   ?                                       /* COMPTEL      */  \n");
-            sql.append("    ,   ?                                       /* ISMAILING    */  \n");
-            sql.append("    ,   ?                                       /* ISLETTERING  */  \n");
-            sql.append("    ,   ?                                       /* ISOPENING    */  \n");
-            sql.append("    ,   TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')    /* INDATE       */  \n");
-            sql.append("    ,   TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')    /* LDATE        */  \n");
-            sql.append("    ,   ?                                       /* REGISTGUBUN  */  \n");
-            sql.append("    ,   'Y'                                     /* STATE        */  \n");
-            sql.append("    ,   ?                                       /* VALIDATION   */  \n");
-            sql.append("    ,   ?                                       /* GRCODE       */  \n");
-            sql.append("    ,   ?                                       /* MEMBERGUBUN  */  \n");
-            sql.append("    ,   ?                                       /* WORK_PLCNM   */  \n");
-            sql.append("    ,   ?                                       /* DEPTNAM      */  \n");
-            sql.append("    ,   ?                                       /* DUPINFO      */  \n");
-            sql.append("    ,   ?                                       /* CONNINFO     */  \n");
-            sql.append("    ,   ?                                       /* MEMBERYEAR   */  \n");
-            sql.append("    ,   ?                                       /* MEMBERMONTH  */  \n");
-            sql.append("    ,   ?                                       /* MEMBERDAY    */  \n");
-            sql.append("    ,   ?                                       /* SEX          */  \n");
-            sql.append("    ,   ?                                       /* MOBILE_USERID*/  \n");
-            sql.append("    ,   TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')    /* PASSCHANGEDT */  \n");
-            sql.append("    ,   ?                                       /* ISNOTCOMP    */  \n");
-            sql.append("    ,   ?                                       /* CATE_FIELD   */  \n");
-            sql.append("    ,   ?                                       /* CATE_TXT     */  \n");
-            sql.append("    ,   ?                                       /* COMP_LOCT    */  \n");
+            sql.append("        ?                                       /* RESNO                */  \n");
+            sql.append("    ,   ?                                       /* USERID               */  \n");
+            sql.append("    ,   ?                                       /* PWD                  */  \n");
+            sql.append("    ,   ?                                       /* NAME                 */  \n");
+            sql.append("    ,   ?                                       /* ENG_NAME             */  \n");
+            sql.append("    ,   ?                                       /* POST1                */  \n");
+            sql.append("    ,   ?                                       /* POST2                */  \n");
+            sql.append("    ,   ?                                       /* ADDR                 */  \n");
+            sql.append("    ,   ?                                       /* ADDR2                */  \n");
+            sql.append("    ,   ?                                       /* COMP_POST1           */  \n");
+            sql.append("    ,   ?                                       /* COMP_POST2           */  \n");
+            sql.append("    ,   ?                                       /* COMP_ADDR1           */  \n");
+            sql.append("    ,   ?                                       /* COMP_ADDR2           */  \n");
+            sql.append("    ,   CRYPTO.ENC('normal', ?)                 /* EMAIL                */  \n");
+            sql.append("    ,   ?                                       /* COMPTEXT             */  \n");
+            sql.append("    ,   ?                                       /* JIKUP                */  \n");
+            sql.append("    ,   ?                                       /* DEGREE               */  \n");
+            sql.append("    ,   CRYPTO.ENC('normal', ?)                 /* HANDPHONE            */  \n");
+            sql.append("    ,   CRYPTO.ENC('normal', ?)                 /* HOMETEL              */  \n");
+            sql.append("    ,   ?                                       /* COMPTEL              */  \n");
+            sql.append("    ,   ?                                       /* ISMAILING            */  \n");
+            sql.append("    ,   ?                                       /* ISLETTERING          */  \n");
+            sql.append("    ,   ?                                       /* ISOPENING            */  \n");
+            sql.append("    ,   TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')    /* INDATE               */  \n");
+            sql.append("    ,   TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')    /* LDATE                */  \n");
+            sql.append("    ,   ?                                       /* REGISTGUBUN          */  \n");
+            sql.append("    ,   'Y'                                     /* STATE                */  \n");
+            sql.append("    ,   ?                                       /* VALIDATION           */  \n");
+            sql.append("    ,   ?                                       /* GRCODE               */  \n");
+            sql.append("    ,   ?                                       /* MEMBERGUBUN          */  \n");
+            sql.append("    ,   ?                                       /* WORK_PLCNM           */  \n");
+            sql.append("    ,   ?                                       /* DEPTNAM              */  \n");
+            sql.append("    ,   ?                                       /* DUPINFO              */  \n");
+            sql.append("    ,   ?                                       /* CONNINFO             */  \n");
+            sql.append("    ,   ?                                       /* MEMBERYEAR           */  \n");
+            sql.append("    ,   ?                                       /* MEMBERMONTH          */  \n");
+            sql.append("    ,   ?                                       /* MEMBERDAY            */  \n");
+            sql.append("    ,   ?                                       /* SEX                  */  \n");
+            sql.append("    ,   ?                                       /* MOBILE_USERID        */  \n");
+            sql.append("    ,   TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')    /* PASSCHANGEDT         */  \n");
+            sql.append("    ,   ?                                       /* ISNOTCOMP            */  \n");
+            sql.append("    ,   ?                                       /* CATE_FIELD           */  \n");
+            sql.append("    ,   ?                                       /* CATE_TXT             */  \n");
+            sql.append("    ,   ?                                       /* COMP_LOCT            */  \n");
+            sql.append("    ,   ?                                       /* PROFILE_REAL_NM      */  \n");
+            sql.append("    ,   ?                                       /* PROFILE_SAVE_PATH    */  \n");
             sql.append(")   \n");
 
             pstmt = connMgr.prepareStatement(sql.toString());
@@ -2694,6 +2691,8 @@ public class LoginBean {
             pstmt.setString(index++, v_cate);
             pstmt.setString(index++, v_cate_txt);
             pstmt.setString(index++, v_comp_loct);
+            pstmt.setString(index++, v_real_nm);
+            pstmt.setString(index++, v_save_path);
 
             isOk = pstmt.executeUpdate();
 
@@ -3250,6 +3249,8 @@ public class LoginBean {
             sql.append("    ,   NVL(B.GADMIN,'ZZ') AS GADMIN    \n");
             sql.append("    ,   TO_CHAR((ADD_MONTHS(TO_DATE(A.PASSCHANGEDT, 'YYYYMMDDHH24MISS'), 3)), 'YYYYMMDDHH24MISS') AS PASSCHANGEDT     \n");
             sql.append("    ,   NVL(A.ISAGRE_CHK, 'N') AGREECHK  \n");
+            sql.append("    ,   A.PROFILE_SAVE_PATH  \n");
+            sql.append("    ,   A.PROFILE_REAL_NM  \n");
             sql.append("  FROM  TZ_MEMBER A         \n");
             sql.append("  LEFT  JOIN TZ_GRCODEMAN B \n");
             sql.append("    ON  A.USERID = B.USERID \n");
@@ -3280,6 +3281,8 @@ public class LoginBean {
                 box.setSession("email", ls1.getString("email"));
                 box.setSession("passchangedt", ls1.getString("passchangedt"));
                 box.setSession("agreechk", ls1.getString("agreechk"));
+                box.setSession("proRealNm", ls1.getString("profile_real_nm"));
+                box.setSession("proSavePath", ls1.getString("profile_save_path"));
 
                 // 강사권한 체크 (2010.10.15)
                 // =====================================================================================
@@ -3659,6 +3662,8 @@ public class LoginBean {
             sql += "     , cate_field";
             sql += "     , cate_txt";
             sql += "     , comp_loct";
+            sql += "     , profile_real_nm";
+            sql += "     , profile_save_path";
             sql += "  from tz_member where userid='" + v_userid + "'";
             sql += "   and grcode='" + box.getSession("tem_grcode") + "'";
 
@@ -3784,6 +3789,9 @@ public class LoginBean {
         String v_cate = box.getString("p_cate");
         String v_cate_txt = box.getString("p_cate_txt");
         String v_comp_loct = box.getString("p_comp_location");
+        String v_real_nm = box.getRealFileName("p_file");
+        String v_save_path = box.getNewFileName("p_file").replace("\\", "/");
+        String v_img_del = box.getString("p_img_del");
 
         try {
             connMgr = new DBConnectionManager();
@@ -3794,20 +3802,31 @@ public class LoginBean {
             sql1 += "UPDATE \n";
             sql1 += "   TZ_MEMBER \n";
             sql1 += "SET \n";
-            sql1 += "   HANDPHONE       = crypto.enc('normal',?), \n";
-            sql1 += "   EMAIL           = crypto.enc('normal',?), \n";
-            sql1 += "   HOMETEL         = crypto.enc('normal',?), \n";
-            sql1 += "   ISMAILING       = ?, \n";
-            sql1 += "   DEPTNAM         = ?, \n";
-            sql1 += "   OFFICE_GBNNM    = ?, \n";
-            sql1 += "   CONO            = ?, \n";
-            sql1 += "   ISNOTCOMP       = ?, \n";
-            sql1 += "   CATE_FIELD      = ?, \n";
-            sql1 += "   CATE_TXT        = ?, \n";
-            sql1 += "   COMP_LOCT       = ?  \n";
-            sql1 += "WHERE \n";
-            sql1 += "   USERID          = ?  \n";
-            sql1 += "   AND GRCODE      = ?";
+            sql1 += "   HANDPHONE           = crypto.enc('normal',?) \n";
+            sql1 += ",  EMAIL               = crypto.enc('normal',?) \n";
+            sql1 += ",  HOMETEL             = crypto.enc('normal',?) \n";
+            sql1 += ",  ISMAILING           = ? \n";
+            sql1 += ",  DEPTNAM             = ? \n";
+            sql1 += ",  OFFICE_GBNNM        = ? \n";
+            sql1 += ",  CONO                = ? \n";
+            sql1 += ",  ISNOTCOMP           = ? \n";
+            sql1 += ",  CATE_FIELD          = ? \n";
+            sql1 += ",  CATE_TXT            = ? \n";
+            sql1 += ",  COMP_LOCT           = ? \n";
+
+            if(!"".equals(v_save_path)) {
+                sql1 += ",  PROFILE_REAL_NM     = ? \n";
+                sql1 += ",  PROFILE_SAVE_PATH   = ? \n";
+            } else {
+                if("Y".equals(v_img_del)) {
+                    sql1 += ",  PROFILE_REAL_NM     = ? \n";
+                    sql1 += ",  PROFILE_SAVE_PATH   = ? \n";
+                }
+            }
+
+            sql1 += "WHERE                       \n";
+            sql1 += "   USERID              = ?  \n";
+            sql1 += "   AND GRCODE          = ?";
 
             pstmt = connMgr.prepareStatement(sql1);
 
@@ -3822,8 +3841,29 @@ public class LoginBean {
             pstmt.setString(9, v_cate);
             pstmt.setString(10, v_cate_txt);
             pstmt.setString(11, v_comp_loct);
-            pstmt.setString(12, v_userid);
-            pstmt.setString(13, box.getSession("tem_grcode"));
+
+            if(!"".equals(v_save_path)) {
+                pstmt.setString(12, v_real_nm);
+                pstmt.setString(13, v_save_path);
+                pstmt.setString(14, v_userid);
+                pstmt.setString(15, box.getSession("tem_grcode"));
+
+                box.setSession("proRealNm", v_real_nm);
+                box.setSession("proSavePath", v_save_path);
+            } else {
+                if("Y".equals(v_img_del)) {
+                    pstmt.setString(12, "");
+                    pstmt.setString(13, "");
+                    pstmt.setString(14, v_userid);
+                    pstmt.setString(15, box.getSession("tem_grcode"));
+
+                    box.setSession("proRealNm", "");
+                    box.setSession("proSavePath", "");
+                } else {
+                    pstmt.setString(12, v_userid);
+                    pstmt.setString(13, box.getSession("tem_grcode"));
+                }
+            }
 
             isOk = pstmt.executeUpdate();
 

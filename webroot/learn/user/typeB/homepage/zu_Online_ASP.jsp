@@ -101,6 +101,7 @@ function toggleSubMenu(menuId, flag) {
 		<c:when test="${param.gubun eq '2'}"><jsp:include page="/learn/user/typeB/homepage/zu_Online_ASP_login1.jsp" /></c:when>
 		<c:when test="${param.gubun eq '3'}"><jsp:include page="/learn/user/typeB/homepage/zu_Online_ASP_login2.jsp" /></c:when>
 		<c:when test="${param.gubun eq '4'}"><jsp:include page="/learn/user/typeB/homepage/zu_Online_ASP_login3.jsp" /></c:when>
+		<c:when test="${requestbox.gubun eq '4'}"><jsp:include page="/learn/user/typeB/homepage/zu_Online_ASP_login3.jsp" /></c:when>
 		<c:when test="${param.gubun eq '10'}"><jsp:include page="/learn/user/typeB/homepage/zu_Online_ASP_IdPw.jsp" /></c:when>
 		<c:when test="${param.gubun eq '70'}"><jsp:include page="/learn/user/typeB/homepage/zu_Online_ASP_Edit_Login.jsp" /></c:when>
 		<c:when test="${param.gubun eq '80'}"><jsp:include page="/learn/user/typeB/homepage/zu_Online_ASP_pwChange.jsp" /></c:when>
