@@ -421,7 +421,33 @@ public class EduStartBean {
                         isOk = pstmt.executeUpdate();
                     }
         			results = "OK";
-            	}
+            	} else {
+                    if("Y".equals(ls2.getString("pageChkYn"))) {
+                        if ("Y".equals(progressChkYn)) {
+                            sql = "\n insert into tz_progress(													";
+                            sql += "\n     subj, year, subjseq, userid, lesson , oid, session_time, total_time,	";
+                            sql += "\n     first_edu, first_end, lesson_count, ldate, indate					";
+                            sql += "\n )																		";
+                            sql += "\n values(																	";
+                            sql += "\n     ?, ?, ?, ?, ?, ?, '00:00:00.00', '00:00:00.00', 						";
+                            sql += "\n     to_char(sysdate,'YYYYMMDDHH24MISS'),							    	";
+                            sql += "\n     to_char(sysdate,'YYYYMMDDHH24MISS'), 								";
+                            sql += "\n     1, 																	";
+                            sql += "\n     to_char(sysdate,'YYYYMMDDHH24MISS'),									";
+                            sql += "\n     to_char(sysdate,'YYYYMMDDHH24MISS')									";
+                            sql += "\n )										 								";
+                            pstmt = connMgr.prepareStatement(sql);
+                            pstmt.setString(1, s_subj);
+                            pstmt.setString(2, s_year);
+                            pstmt.setString(3, s_subjseq);
+                            pstmt.setString(4, s_userid);
+                            pstmt.setString(5, p_lesson);
+                            pstmt.setString(6, p_oid);
+
+                            isOk = pstmt.executeUpdate();
+                        }
+                    }
+                }
             	
             // 학습완료(진도적용)
             } else {
