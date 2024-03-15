@@ -153,7 +153,7 @@
         );
 
         $(".ui-datepicker-trigger").attr("style", "display:none;");
-
+        $("#p_file1").attr("style", "left:0px;");
     });
 
 
@@ -274,8 +274,13 @@
         document.form1.p_search.value     = "";
         document.form1.action = "/servlet/controller.homepage.NoticeAdminServlet";
         document.form1.p_process.value = "update";
-        document.form1.method = "post";
-        document.form1.submit();
+
+        wf_page = "insert_check";
+        if(wf_flag == "off"){
+            submitWebFilter('form1');
+        }else{
+            document.form1.submit();
+        }
     }
 
     function list() {
@@ -440,7 +445,7 @@
 
 <body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" >
 
-<form name="form1" method="post" enctype = "multipart/form-data" method = "post">
+<form name="form1" method="post" enctype="multipart/form-data" action="">
     <input type= "hidden" name= "p_process"    value= "<%= v_process %>">
     <input type= "hidden" name= "p_pageno"     value= "<%=v_pageno %>">
     <input type= "hidden" name= "p_pagesize"   value= "<%=v_pagesize %>">
@@ -577,7 +582,7 @@
             <td height="25" class="table_02_2">
                 <!-- 나모 액티브 스퀘어  시작 -->
                 <script language="javascript" src="/script/user_patch.js"></script>
-                <script language="javascript" for="Wec" event="OnInitCompleted()">document.form1.Wec.TemplateIniURL = "<%=v_tem_url_name%>";namoActiveInitCompleted("p_adcontent");</script>
+                <script language="javascript" for="Wec" event="OnInitCompleted()">document.form1.Wec.TemplateIniURL = "<%=v_tem_url_name%>"; namoActiveInitCompleted('p_adcontent');</script>
                 <script language="javascript">object_namoActivepatch('100%','500');</script>
                 <!-- 나모 액티브 스퀘어  종료 -->
             </td>
@@ -638,5 +643,10 @@
 
 <%@ include file = "/learn/library/getJspName.jsp" %>
 </form>
+
+<!--  웹필터 수정 -->
+<%@ include file="/webfilter/webfilter/inc/initCheckWebfilter.jsp"%>
+<!--  웹필터 수정 -->
+
 </body>
 </html>
