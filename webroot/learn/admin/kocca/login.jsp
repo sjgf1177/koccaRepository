@@ -146,7 +146,7 @@ if (!topWarp_userid.equals("") && !topWarp_gadmin.equals("")){
 
     <tr>
         <td valign="top" align="center">
-            <img src="/images/portal/member/membership/loginlogo.png" width="160" height="100" alt="KOCCA 한국콘텐츠아카데미 로그인"/>
+            <img src="/images/portal/member/membership/loginlogo.png" style="width: 200px; height: 44px; margin-bottom: 10px; margin-left: -22px;" alt="KOCCA 한국콘텐츠아카데미 로그인"/>
         </td>
     </tr>  
     <tr>
