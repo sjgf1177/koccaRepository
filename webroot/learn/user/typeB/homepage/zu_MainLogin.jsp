@@ -44,8 +44,15 @@
 
                 <div class="text-center mb-5">
                     <img src="/images/newmain_20100625/<c:out value="${sessionScope.tem_grcode }"/>.png" alt="로고" onerror="this.src='/images/2023/logo.png'">
+                    <c:if test="${sessionScope.tem_grcode eq 'N000241' }">
+                        <p style="font-weight: bold;">온라인 교육 전용 누리집</p>
+                    </c:if>
                 </div>
                 <h1 class="h3 mb-5 fw-normal text-center">로그인</h1>
+
+                <c:if test="${sessionScope.tem_grcode eq 'N000241' }">
+                    <p style="font-weight: bold;">※ 예술인경력정보시스템과 별도로 회원가입 후 이용하실 수 있습니다.</p>
+                </c:if>
 
                 <div class="form-floating">
                     <input type="text" class=" innut_id" id="p_id" name="p_id" placeholder="아이디입력" title="아이디입력" style="margin-bottom: 5px;">
