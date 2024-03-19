@@ -11,11 +11,13 @@
 
 <div class="lnb_wrap">
     <ul class="lnb_con d-flex">
+    <c:if test="${sessionScope.tem_grcode ne 'N000241'}">
         <li <c:if test="${param.p_area eq '' || param.p_area eq null || param.p_area eq 'ALL'}"> class="on"</c:if>><a href="javascript:selectArea('');"><span>전체</span></a></li>
         <li <c:if test="${param.p_area eq 'B0' }"> class="on"</c:if>><a href="javascript:selectArea('B0');"><span>방송영상</span></a></li>
         <li <c:if test="${param.p_area eq 'G0' }"> class="on"</c:if>><a href="javascript:selectArea('G0');"><span>게임</span></a></li>
         <li <c:if test="${param.p_area eq 'K0' }"> class="on"</c:if>><a href="javascript:selectArea('K0');"><span>만화/애니/캐릭터</span></a></li>
         <li <c:if test="${param.p_area eq 'M0' }"> class="on"</c:if>><a href="javascript:selectArea('M0');"><span>음악/공연</span></a></li>
         <li <c:if test="${param.p_area eq 'S0' }"> class="on"</c:if>><a href="javascript:selectArea('S0');"><span>인문교양</span></a></li>
+    </c:if>
     </ul>
 </div>

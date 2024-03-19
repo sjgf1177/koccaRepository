@@ -109,9 +109,11 @@
 								<li class="nav-item">
 									<a href="javascript:menuForward('9', '02');" class="nav-link <c:if test="${param.gubun eq '9'}">active</c:if>">정규과정</a>
 								</li>
-								<li class="nav-item">
-									<a href="javascript:menuForward('5', '01');" class="nav-link <c:if test="${param.gubun eq '5'}">active</c:if>">열린과정</a>
-								</li>
+								<c:if test="${sessionScope.tem_grcode ne 'N000241'}">
+									<li class="nav-item">
+										<a href="javascript:menuForward('5', '01');" class="nav-link <c:if test="${param.gubun eq '5'}">active</c:if>">열린과정</a>
+									</li>
+								</c:if>
 								<li class="nav-item">
 									<a href="javascript:menuForward('4', '07');" class="nav-link <c:if test="${param.gubun eq '4'}">active</c:if>">공지사항</a>
 								</li>
