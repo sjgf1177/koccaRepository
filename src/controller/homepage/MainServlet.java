@@ -261,7 +261,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
 			N000243 : 서울항공비즈니스고등학교
 			N000244 : 지역문화진흥원
 			*/
-            /*box.setSession("tem_grcode", "N000057");*/
+            box.setSession("tem_grcode", "N000241");
 
             TempletBean bean = new TempletBean();
             DataBox listBean = bean.SelectGrcodeExists(box);
@@ -714,6 +714,10 @@ public class MainServlet extends javax.servlet.http.HttpServlet implements Seria
             request.setAttribute("requestbox", box); // 명시적으로 box 객체를 넘겨준다
             String gubun = box.getString("gubun");
             String v_url = "/learn/user/portal/homepage/zu_Online_ASP_Sub.jsp";
+
+            if(box.getSession("tem_grcode").equals("N000022")) {
+                box.setSession("tem_type", "B");
+            }
 
             if(box.getSession("tem_type").equals("B")){
                 v_url = "/learn/user/typeB/homepage/zu_Online_ASP.jsp";
